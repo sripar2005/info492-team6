@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team 6 Handoff Checker</title>
+<meta name="description" content="INFO 492 C Construction Informatics, Team 6: an AI agent that checks each construction handoff, from RFI answer to change order, against the contract.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a drawing set. Each section is a numbered sheet with its own title strip; the page header is the title block. */
+:root {
+  --paper: #f5f7f8;      /* drafting film, cool not cream */
+  --sheet: #ffffff;
+  --ink: #18222b;        /* main linework */
+  --ink-2: #4d5c68;      /* secondary text */
+  --rule: #c9d3da;       /* hairlines */
+  --grid: #e4eaee;       /* background grid */
+  --red: #c4381c;        /* redline markup accent */
+  --red-tint: #fbe9e4;
+  --chip: #eef2f5;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6;
+    --rule: #2c4560; --grid: #17304a; --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6;
+  --rule: #2c4560; --grid: #17304a; --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font: 400 17px/1.6 var(--body);
+  padding-inline: 16px;
+  padding-block: 24px 48px;
+}
+.set { max-width: 1040px; margin: 0 auto; display: grid; gap: 28px; }
+a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; font-stretch: 80%; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; font-stretch: 85%; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; max-width: 66ch; }
+.label { font: 500 0.75rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.mono { font-family: var(--mono); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Title block (page header) */
+.titleblock { background: var(--sheet); border: 2px solid var(--ink); display: grid; grid-template-columns: 1fr minmax(0, 300px); }
+.tb-main { padding: 28px; display: grid; gap: 16px; border-right: 1px solid var(--ink); min-width: 0; }
+.tb-main .lead { font-size: 1.15rem; color: var(--ink-2); }
+.tb-side { display: grid; grid-auto-rows: auto; }
+.tb-cell { padding: 12px 16px; border-bottom: 1px solid var(--rule); display: grid; gap: 2px; }
+.tb-cell:last-child { border-bottom: 0; }
+.tb-cell strong { font-weight: 600; }
+.sheet-no { font: 800 2.4rem/1 var(--display); font-stretch: 80%; }
+
+/* Sheet index nav */
+.index { background: var(--sheet); border: 1px solid var(--ink); padding: 16px 20px; display: grid; gap: 10px; }
+.index ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px 20px; }
+.index a { display: flex; gap: 12px; text-decoration: none; padding: 4px 0; border-bottom: 1px dotted var(--rule); }
+.index a:hover span:last-child { text-decoration: underline; text-decoration-color: var(--red); }
+.index .mono { color: var(--red); min-width: 6ch; white-space: nowrap; }
+
+/* Sheets */
+.sheet { background: var(--sheet); border: 1px solid var(--ink); scroll-margin-top: 16px; }
+.strip { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 14px 24px; border-bottom: 1px solid var(--ink); }
+.strip .mono { color: var(--red); font-weight: 500; }
+.body { padding: 28px 24px; display: grid; gap: 22px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.cols > * { min-width: 0; }
+
+/* Redline callout */
+.redline { border: 2px solid var(--red); background: var(--red-tint); padding: 16px 20px; border-radius: 14px; display: grid; gap: 6px; }
+.redline .label { color: var(--red); }
+.claim { font: 600 1.3rem/1.45 var(--body); max-width: 60ch; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.stat { padding: 16px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: start; }
+.stat b { font: 800 2rem/1 var(--display); font-stretch: 80%; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.92rem; color: var(--ink-2); }
+.note { font-size: 0.9rem; color: var(--ink-2); }
+
+/* Handoff flow */
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; align-items: stretch; }
+.node { border: 1.5px solid var(--ink); padding: 14px; font: 700 1rem/1.25 var(--display); text-align: center; display: grid; place-items: center; min-height: 64px; position: relative; background: var(--sheet); }
+.node + .node { margin-left: 36px; }
+.node + .node::before { content: ""; position: absolute; left: -37px; top: 50%; width: 36px; border-top: 1.5px solid var(--ink-2); }
+.node + .node::after { content: "✓"; position: absolute; left: -29px; top: calc(50% - 11px); width: 20px; height: 20px; border-radius: 50%; background: var(--red); color: var(--sheet); font: 700 12px/20px var(--body); text-align: center; }
+.checks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.check { border-top: 3px solid var(--red); padding-top: 10px; display: grid; gap: 6px; align-content: start; }
+.check .label { color: var(--red); }
+
+/* Tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--rule); }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 0.72rem/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); background: var(--chip); }
+tr:last-child td { border-bottom: 0; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Key facts */
+dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+dl.facts dt { font: 500 0.78rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
+dl.facts dd { margin: 0; }
+
+/* Steps */
+ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 14px; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 12px; }
+ol.steps li::before { content: counter(s); font: 800 1.4rem/1 var(--display); color: var(--red); border: 1.5px solid var(--red); width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; }
+
+/* Parties */
+.parties { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.party { border: 1px solid var(--rule); padding: 14px; display: grid; gap: 4px; align-content: start; }
+.party.gc { border: 2px solid var(--red); }
+.party .label { color: var(--ink-2); }
+
+/* Chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.chips li { background: var(--chip); padding: 4px 10px; border-radius: 999px; font-size: 0.9rem; }
+.chips.out li { background: transparent; border: 1px dashed var(--rule); color: var(--ink-2); }
+
+/* Demos and placeholders */
+.demos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.demo { border: 1px solid var(--ink); display: grid; grid-template-rows: auto 1fr auto; }
+.demo header { padding: 10px 14px; border-bottom: 1px solid var(--ink); display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 8px; }
+.demo .d-body { padding: 14px; display: grid; gap: 8px; align-content: start; }
+.demo footer { padding: 10px 14px; border-top: 1px dashed var(--rule); }
+.status { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 8px; border: 1px solid var(--ink-2); color: var(--ink-2); border-radius: 4px; white-space: nowrap; }
+.placeholder { border: 1.5px dashed var(--rule); padding: 16px; color: var(--ink-2); font-style: italic; background: repeating-linear-gradient(45deg, transparent 0 10px, var(--grid) 10px 11px); }
+
+/* Claims */
+.claims { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.claimcard { border: 1px solid var(--rule); padding: 16px; display: grid; gap: 8px; align-content: start; }
+.claimcard b { font: 800 2.2rem/1 var(--display); font-stretch: 80%; color: var(--red); }
+.result { display: flex; justify-content: space-between; gap: 8px; border-top: 1px dashed var(--rule); padding-top: 8px; font-size: 0.9rem; color: var(--ink-2); }
+
+/* Guardrails */
+.guard ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+
+/* References */
+.refs { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 8px; font-size: 0.93rem; }
+.refs li { padding-left: 2em; text-indent: -2em; }
+
+footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font: 400 0.82rem/1.5 var(--mono); color: var(--ink-2); padding-inline: 4px; }
+
+@media (max-width: 760px) {
+  .titleblock { grid-template-columns: 1fr; }
+  .tb-main { border-right: 0; border-bottom: 1px solid var(--ink); padding: 20px; }
+  .flow { grid-template-columns: 1fr; gap: 28px; }
+  .node + .node { margin-left: 0; }
+  .node + .node::before { left: 50%; top: -29px; width: 0; height: 28px; border-top: 0; border-left: 1.5px solid var(--ink-2); }
+  .node + .node::after { left: calc(50% + 10px); top: -25px; }
+  .checks { grid-template-columns: 1fr; }
+  .body { padding: 22px 16px; }
+  .strip { padding: 12px 16px; }
+  dl.facts { grid-template-columns: 1fr; gap: 0 0; }
+  dl.facts dd { margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="set">
+
+  <!-- TITLE BLOCK -->
+  <header class="titleblock" id="top">
+    <div class="tb-main">
+      <span class="label">INFO 492 C · Construction Informatics · Team 6</span>
+      <h1>Checking every handoff against the contract</h1>
+      <p class="lead">An AI agent that reads each step from RFI answer to change order, checks it against the contract's rules when it happens, and routes anything wrong to a person. People still make every decision.</p>
+    </div>
+    <div class="tb-side">
+      <div class="tb-cell"><span class="label">Team</span><span>Yousuf Shaik<br>Sriharshith Paruchuri<br>Nithika Yechuri</span></div>
+      <div class="tb-cell"><span class="label">Course</span><span>University of Washington Information School, Autumn 2026</span></div>
+      <div class="tb-cell"><span class="label">Project lens</span><span>Webster School Modernization &amp; Addition, Seattle</span></div>
+      <div class="tb-cell"><span class="label">Issue</span><span><strong>Rev 0</strong> · Thesis &amp; posture · Oct 9, 2026</span></div>
+      <div class="tb-cell"><span class="label">Sheet</span><span class="sheet-no">G-001</span></div>
+    </div>
+  </header>
+
+  <!-- SHEET INDEX -->
+  <nav class="index" aria-label="Sheet index">
+    <span class="label">Sheet index</span>
+    <ol>
+      <li><a href="#thesis"><span class="mono">T-101</span><span>Thesis</span></a></li>
+      <li><a href="#checks"><span class="mono">T-102</span><span>How the checks work</span></a></li>
+      <li><a href="#lens"><span class="mono">L-201</span><span>Project lens: Webster</span></a></li>
+      <li><a href="#data"><span class="mono">L-202</span><span>Synthetic data plan</span></a></li>
+      <li><a href="#posture"><span class="mono">P-301</span><span>Coordination posture</span></a></li>
+      <li><a href="#demos"><span class="mono">D-401</span><span>Four demos</span></a></li>
+      <li><a href="#claims"><span class="mono">D-402</span><span>Testable claims</span></a></li>
+      <li><a href="#log"><span class="mono">D-403</span><span>Experiment log</span></a></li>
+      <li><a href="#guardrails"><span class="mono">D-404</span><span>Guardrails and limits</span></a></li>
+      <li><a href="#sources"><span class="mono">R-501</span><span>Sources</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- THESIS -->
+  <section class="sheet" id="thesis">
+    <div class="strip"><h2>Thesis</h2><span class="mono">T-101</span></div>
+    <div class="body">
+      <p>Cost and schedule problems on construction projects often start less with the work itself and more with handoffs: information moving from one document to the next without anyone checking it against the contract's rules. The handoffs we study run from an RFI answer, to a change notice, to a priced proposal, to a change order.</p>
+      <div class="redline">
+        <span class="label">Our claim</span>
+        <p class="claim">An AI agent that checks each handoff can catch at least 80% of rule violations on a change proposal when it is submitted, within a few days, instead of in a post-payment audit months or years later.</p>
+      </div>
+      <h3>The gap</h3>
+      <div class="stats">
+        <div class="stat"><b>9.7</b><span>days median to answer an RFI</span></div>
+        <div class="stat"><b>22%</b><span>of RFIs never formally answered</span></div>
+        <div class="stat"><b>22</b><span>days on average for a sub to price a change</span></div>
+        <div class="stat"><b>26</b><span>more days to get a signed change order</span></div>
+        <div class="stat"><b>77%</b><span>of subs have written off change work</span></div>
+      </div>
+      <p>When general contractors cut payment on a change, the most common reasons are <strong>disputed pricing (66%)</strong> and <strong>thin backup (53%)</strong>. Under the standard AIA A201 general conditions, an RFI answer does not approve extra cost. That has to go through the formal change process, and owners often rewrite its deadlines.</p>
+      <p class="note">The RFI figures come from a 2013 Navigant Construction Forum study; the change order figures come from a vendor-commissioned 2026 Dodge/Clearstory survey. We treat them as rough estimates.</p>
+      <div class="placeholder">Full written thesis (about 500 words): placeholder. Link to the team document will be added here.</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sheet" id="checks">
+    <div class="strip"><h2>How the checks work</h2><span class="mono">T-102</span></div>
+    <div class="body">
+      <div class="flow" role="img" aria-label="RFI answer, then change notice, then priced proposal, then change order, with a check between each step">
+        <div class="node">RFI answer</div>
+        <div class="node">Change notice</div>
+        <div class="node">Priced proposal</div>
+        <div class="node">Change order</div>
+      </div>
+      <div class="checks">
+        <div class="check"><span class="label">Check 1 · Answer → notice</span><p>Does the RFI answer just clarify, or does it change the work? If it changes it, when must notice go out?</p></div>
+        <div class="check"><span class="label">Check 2 · Notice → proposal</span><p>Does the priced proposal stay within the contract's scope, fee, and excluded charges?</p></div>
+        <div class="check"><span class="label">Check 3 · Proposal → change order</span><p>Does the change order match the priced proposal and the contract's fee and pricing rules?</p></div>
+      </div>
+      <div class="redline">
+        <span class="label">Example</span>
+        <p>A proposal applies a 5% fee to negotiated support services, which the Webster audit later found was wrong. The agent flags it at submission, cites the clause, and routes it to the project manager.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENS -->
+  <section class="sheet" id="lens">
+    <div class="strip"><h2>Project lens: Webster School</h2><span class="mono">L-201</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:14px">
+          <p>Webster is a 1908 Seattle school building that was modernized and expanded, finishing in 2021. A public December 2023 audit lists specific change-pricing errors found after final payment, so we know what a checker should have caught. The audit quotes the contract's fee and pricing terms, and public board reports describe individual change orders.</p>
+          <dl class="facts">
+            <dt>Owner</dt><dd>Seattle Public Schools</dd>
+            <dt>GC/CM</dt><dd>BNBuilders</dd>
+            <dt>Architect</dt><dd>TCF Architecture</dd>
+            <dt>Audit</dt><dd>R. L. Townsend &amp; Associates, final report, 2023</dd>
+          </dl>
+        </div>
+        <div class="stats" style="align-self:start">
+          <div class="stat"><b>$41M</b><span>total project cost</span></div>
+          <div class="stat"><b>$26.24M</b><span>guaranteed maximum price</span></div>
+          <div class="stat"><b>$29.5M</b><span>final contract value</span></div>
+          <div class="stat"><b>$3.25M</b><span>in changes</span></div>
+        </div>
+      </div>
+      <h3>The audit gives us ground truth</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Questionable charge found by the audit</th><th class="r">Amount (USD)</th></tr></thead>
+          <tbody>
+            <tr><td>Equipment charges added to change proposals</td><td class="r">$63,080</td></tr>
+            <tr><td>Charges the GC's fee may already cover</td><td class="r">$45,681</td></tr>
+            <tr><td>5% fee wrongly added to negotiated support services</td><td class="r">$20,770</td></tr>
+            <tr><td><strong>Total, about 4% of the $3.25M in changes</strong></td><td class="r"><strong>≈ $129,500</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Rough baseline only. The findings overlap, and the GC says a $22,895 fee understatement offsets the excess fee. Board reports for CO #12 ($479,808) and CO #17 ($789,691, COVID-19) give us examples for classifying changes.</p>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section class="sheet" id="data">
+    <div class="strip"><h2>Synthetic data plan</h2><span class="mono">L-202</span></div>
+    <div class="body">
+      <p>Webster's full RFI and change logs are not public, so we generate proposals priced under the real contract terms and plant known mistakes in them.</p>
+      <ol class="steps">
+        <li><div><h3>Use the real rules</h3><p>Every made-up proposal is priced under the actual Webster contract terms quoted in the audit.</p></div></li>
+        <li><div><h3>Plant known mistakes</h3><p>We insert the audit's error types, late notices, and scope-changing answers, and record the correct label for each.</p></div></li>
+        <li><div><h3>Keep the volume realistic</h3><p>Past studies average 9.9 RFIs per $1M of construction, about 290 for Webster. We use fewer, with the same share left unanswered.</p></div></li>
+        <li><div><h3>Write everything down</h3><p>We share the generator, random seeds, label definitions, and the share of planted cases.</p></div></li>
+        <li><div><h3>Report what we actually did</h3><p>Results are about catching planted issues. If a public records request gets us real logs, we re-run on them.</p></div></li>
+      </ol>
+      <div class="placeholder">Generator code, seeds, and dataset: placeholder. Repository link will be added here.</div>
+    </div>
+  </section>
+
+  <!-- POSTURE -->
+  <section class="sheet" id="posture">
+    <div class="strip"><h2>Coordination posture: the GC's seat</h2><span class="mono">P-301</span></div>
+    <div class="body">
+      <p>Subcontractors cannot contract directly with the design team or owner, so every question and price passes through the general contractor twice: questions and prices go up, answers and money come down. Our agent works from the GC's seat.</p>
+      <div class="parties">
+        <div class="party"><span class="label">Owner</span><h3>Seattle Public Schools</h3><p>Approves and pays; the board votes on larger changes.</p></div>
+        <div class="party"><span class="label">Design team</span><h3>TCF Architecture</h3><p>Answers RFIs and issues supplemental instructions.</p></div>
+        <div class="party gc"><span class="label">GC/CM · our seat</span><h3>BNBuilders</h3><p>Passes questions up, prices changes, combines sub prices.</p></div>
+        <div class="party"><span class="label">Subcontractors</span><h3>Trade partners</h3><p>Find field conflicts, price changes, and do the work.</p></div>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:8px"><span class="label">Artifacts in scope</span>
+          <ul class="chips"><li>RFIs and answers</li><li>Supplemental instructions</li><li>Change directives</li><li>Proposals and change orders</li><li>Contract and pay apps</li><li>Board reports</li></ul></div>
+        <div style="display:grid;gap:8px"><span class="label">Out of scope for now</span>
+          <ul class="chips out"><li>Daily reports (maybe later)</li><li>Inspection records (maybe later)</li><li>Submittals, unless a returned one leads to a change</li></ul></div>
+      </div>
+      <h3>Handoffs and who decides</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Handoff</th><th>Rule we test</th><th>Human who decides</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>RFI answer → change notice</td><td>Clarification or possible change? Is notice due, and by when?</td><td>GC project manager</td></tr>
+            <tr><td class="num">2</td><td>Change notice → change proposal</td><td>Consistent with the base contract scope?</td><td>GC project manager</td></tr>
+            <tr><td class="num">3</td><td>Sub pricing → GC roll-up</td><td>Fee, markup, and exclusion rules applied correctly?</td><td>GC project manager and owner's rep</td></tr>
+            <tr><td class="num">4</td><td>GC proposal → owner review</td><td>Backup complete? Entitlement stated?</td><td>Owner's project manager</td></tr>
+            <tr><td class="num">5</td><td>Executed change order → billing</td><td>Billed amount matches the approved change?</td><td>Owner's project manager</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMOS -->
+  <section class="sheet" id="demos">
+    <div class="strip"><h2>Four demos</h2><span class="mono">D-401</span></div>
+    <div class="body">
+      <p>Each demo builds on the one before it and ends at a named human approver.</p>
+      <div class="demos">
+        <article class="demo"><header><h3>1 · Rules extractor</h3><span class="status">Not started</span></header><div class="d-body"><p>Reads the contract and GMP terms and produces a structured, citable list of fee, pricing, and notice rules.</p></div><footer class="note">Demo link: placeholder</footer></article>
+        <article class="demo"><header><h3>2 · Change classifier</h3><span class="status">Not started</span></header><div class="d-body"><p>Labels an RFI answer or directive as a clarification or possible change, and cites the clause behind the label.</p></div><footer class="note">Demo link: placeholder</footer></article>
+        <article class="demo"><header><h3>3 · Handoff checker</h3><span class="status">Not started</span></header><div class="d-body"><p>Tests each change proposal against the rules when it is submitted and flags the errors the audit found later.</p></div><footer class="note">Demo link: placeholder</footer></article>
+        <article class="demo"><header><h3>4 · Linked thread</h3><span class="status">Not started</span></header><div class="d-body"><p>Keeps one record from RFI to change order, gathers backup, and requires a named approver with an audit trail.</p></div><footer class="note">Demo link: placeholder</footer></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAIMS -->
+  <section class="sheet" id="claims">
+    <div class="strip"><h2>Testable claims</h2><span class="mono">D-402</span></div>
+    <div class="body">
+      <div class="claims">
+        <div class="claimcard"><span class="label">Rules extractor</span><b>85%</b><p>of the contract's pricing and notice rules found, checked by hand against the contract.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+        <div class="claimcard"><span class="label">Handoff checker</span><b>80%</b><p>of seeded violations caught, with no more than one false flag for every four correct ones.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+        <div class="claimcard"><span class="label">Speed</span><b>Days</b><p>from submission to flag, instead of about 23 months after final payment, when the Webster audit came out.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+        <div class="claimcard"><span class="label">Change classifier</span><b>85%</b><p>agreement with human reviewers on whether an RFI answer clarifies or changes the work, with a clause cited.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section class="sheet" id="log">
+    <div class="strip"><h2>Experiment log</h2><span class="mono">D-403</span></div>
+    <div class="body">
+      <p>Each demo iteration gets an entry here: what we tried, what we measured, and what we changed next.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Week</th><th>Demo</th><th>What we tried</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td class="num">3</td><td>Demo 1</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">5</td><td>Demo 2</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">6</td><td>Mid-quarter analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">7</td><td>Demo 3</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">9</td><td>Demo 4</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">10</td><td>Final analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Week numbers are a working estimate and will be updated to match the course schedule.</p>
+    </div>
+  </section>
+
+  <!-- GUARDRAILS -->
+  <section class="sheet" id="guardrails">
+    <div class="strip"><h2>Guardrails and limits</h2><span class="mono">D-404</span></div>
+    <div class="body">
+      <div class="cols guard">
+        <div style="display:grid;gap:8px"><span class="label">The agent can</span>
+          <ul><li>Read</li><li>Extract</li><li>Classify</li><li>Cite the clause</li><li>Route to a person</li></ul></div>
+        <div style="display:grid;gap:8px"><span class="label" style="color:var(--red)">Needs a named approver</span>
+          <ul><li>Answer an RFI for the design team</li><li>Tell a sub to proceed</li><li>Commit the GC to a price or position</li><li>Send a notice</li><li>Close a record</li></ul>
+          <p class="note">We will test that each of these needs a recorded approval.</p></div>
+      </div>
+      <div class="redline">
+        <span class="label">Limits</span>
+        <p>One project and made-up proposals cannot prove this works everywhere. They can show whether the idea is workable and where it breaks. If rules are hard to pull from real contract language, that is still a useful result.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="sheet" id="sources">
+    <div class="strip"><h2>Sources</h2><span class="mono">R-501</span></div>
+    <div class="body">
+      <ul class="refs">
+        <li>American Institute of Architects. (2017). <em>A201-2017 general conditions of the contract for construction</em>.</li>
+        <li>Arcadis. (2022). <em>Global construction disputes report</em> (as summarized by C. Carson).</li>
+        <li>Dodge Construction Network &amp; Clearstory. (2026). <em>Optimizing the change order process for specialty trade contractors</em>. Vendor-commissioned.</li>
+        <li>Navigant Construction Forum. (2013). <em>Impact of RFIs on construction projects</em> (as cited in Smartsheet's construction RFI guide).</li>
+        <li>R. L. Townsend &amp; Associates. (2023). <em>Final construction audit report: Webster School modernization &amp; addition</em>.</li>
+        <li>Seattle Public Schools. (2020). <em>Board action report: Webster change order #12</em>.</li>
+        <li>Seattle Public Schools. (2020). <em>Board action report: Budget transfer and change order #17</em>.</li>
+        <li>Seattle Public Schools. (2022). <em>Project Review Committee presentation</em>.</li>
+        <li>Washington State Capital Projects Advisory Review Board. (n.d.). <em>Project Review Committee summary: Webster Elementary</em>.</li>
+      </ul>
+      <div class="placeholder">Full APA reference list with URLs: placeholder. Will match the team document.</div>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
+    <span>Rev 0 · Last updated October 9, 2026 · <a href="#top">Back to top</a></span>
+  </footer>
+</div>
+</body>
+</html>
