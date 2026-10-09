@@ -161,7 +161,7 @@ ol.steps li::before { content: counter(s); font: 800 1.4rem/1 var(--display); co
 
 /* References */
 .refs { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 8px; font-size: 0.93rem; }
-.refs li { padding-left: 2em; text-indent: -2em; }
+.refs li { padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; }
 
 footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font: 400 0.82rem/1.5 var(--mono); color: var(--ink-2); padding-inline: 4px; }
 
@@ -233,9 +233,13 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
         <div class="stat"><b>26</b><span>more days to get a signed change order</span></div>
         <div class="stat"><b>77%</b><span>of subs have written off change work</span></div>
       </div>
-      <p>When general contractors cut payment on a change, the most common reasons are <strong>disputed pricing (66%)</strong> and <strong>thin backup (53%)</strong>. Under the standard AIA A201 general conditions, an RFI answer does not approve extra cost. That has to go through the formal change process, and owners often rewrite its deadlines.</p>
+      <h3>Why</h3>
+      <p>The biggest losses seem to happen between steps, not inside them. After an RFI is answered, subcontractors spend an average of 22 days pricing a change and wait another 26 for a signed change order. GCs most often cut payment because of <strong>disputed pricing (66%)</strong> or <strong>thin backup (53%)</strong>. Errors and omissions in contract documents have also been the top cause of major disputes in most recent years.</p>
+      <p>Under the standard AIA A201 general conditions, an RFI answer does not approve added cost on its own. It has to go through the contract's change process, and owners often change the response times and notice windows from project to project. It is easy for a busy project engineer to miss some of those rules.</p>
+      <h3>How</h3>
+      <p>Each handoff has rules that can be written down: whether an answer is a clarification or a change, when notice is due, what the fee already covers, and which charges are excluded. We pull those rules out of the contract, check each document against them as it moves to the next step, and flag problems right away. The Webster School audit points in this direction. Its auditor found questionable change pricing only after final payment, and recommended reviewing change proposals for these errors when they are submitted.</p>
+      <p>Our four predictions are on <a href="#claims">D-402</a>; what the agent may and may not do is on <a href="#guardrails">D-404</a>.</p>
       <p class="note">The RFI figures come from a 2013 Navigant Construction Forum study; the change order figures come from a vendor-commissioned 2026 Dodge/Clearstory survey. We treat them as rough estimates.</p>
-      <div class="placeholder">Full written thesis (about 500 words): placeholder. Link to the team document will be added here.</div>
     </div>
   </section>
 
@@ -269,14 +273,15 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
         <div style="display:grid;gap:14px">
           <p>Webster is a 1908 Seattle school building that was modernized and expanded, finishing in 2021. A public December 2023 audit lists specific change-pricing errors found after final payment, so we know what a checker should have caught. The audit quotes the contract's fee and pricing terms, and public board reports describe individual change orders.</p>
           <dl class="facts">
-            <dt>Owner</dt><dd>Seattle Public Schools</dd>
+            <dt>Owner</dt><dd>Seattle Public Schools (Seattle School District No. 1)</dd>
             <dt>GC/CM</dt><dd>BNBuilders</dd>
             <dt>Architect</dt><dd>TCF Architecture</dd>
-            <dt>Audit</dt><dd>R. L. Townsend &amp; Associates, final report, 2023</dd>
+            <dt>Audit</dt><dd>R. L. Townsend &amp; Associates, final report, December 14, 2023</dd>
+            <dt>Final pay app</dt><dd>January 5, 2022</dd>
           </dl>
         </div>
         <div class="stats" style="align-self:start">
-          <div class="stat"><b>$41M</b><span>total project cost</span></div>
+          <div class="stat"><b>$41M</b><span>total project cost (district figure)</span></div>
           <div class="stat"><b>$26.24M</b><span>guaranteed maximum price</span></div>
           <div class="stat"><b>$29.5M</b><span>final contract value</span></div>
           <div class="stat"><b>$3.25M</b><span>in changes</span></div>
@@ -295,6 +300,22 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
         </table>
       </div>
       <p class="note">Rough baseline only. The findings overlap, and the GC says a $22,895 fee understatement offsets the excess fee. Board reports for CO #12 ($479,808) and CO #17 ($789,691, COVID-19) give us examples for classifying changes.</p>
+      <h3>What we use from the public record</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Material</th><th>Source</th><th>Use in the demos</th></tr></thead>
+          <tbody>
+            <tr><td>Contract terms: A133-2009 GC/CM contract, GMP exhibit, fee and general conditions clauses as quoted</td><td>Audit</td><td>Rules extraction</td></tr>
+            <tr><td>Audit findings and an example change proposal (CP 5121)</td><td>Audit</td><td>Ground truth for detection</td></tr>
+            <tr><td>Change order descriptions and amounts</td><td>Board action reports</td><td>Classification examples</td></tr>
+            <tr><td>Delivery method and project timeline</td><td>District and state GC/CM records</td><td>Context and posture</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:8px"><span class="label">Still to verify</span><p>We have read the whole audit but only excerpts of the board reports. We have not confirmed that Webster's drawings, specs, addenda, RFI logs, or change proposal packages can be downloaded. A public records request for real logs is a stretch goal.</p></div>
+        <div style="display:grid;gap:8px"><span class="label">Backup projects</span><p><strong>Northgate Elementary</strong>: public audit of its electrical subcontractor, a sub-level view. <strong>Wilson Pacific</strong>: 28 change orders made up of 210 items, about $6.07M total.</p></div>
+      </div>
     </div>
   </section>
 
@@ -322,8 +343,13 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
       <div class="parties">
         <div class="party"><span class="label">Owner</span><h3>Seattle Public Schools</h3><p>Approves and pays; the board votes on larger changes.</p></div>
         <div class="party"><span class="label">Design team</span><h3>TCF Architecture</h3><p>Answers RFIs and issues supplemental instructions.</p></div>
-        <div class="party gc"><span class="label">GC/CM · our seat</span><h3>BNBuilders</h3><p>Passes questions up, prices changes, combines sub prices.</p></div>
+        <div class="party gc"><span class="label">GC/CM · our seat</span><h3>BNBuilders</h3><p>Passes questions up, prices changes, combines sub prices. Also self-performed several scopes, about $9.85M billed in the final payment application.</p></div>
         <div class="party"><span class="label">Subcontractors</span><h3>Trade partners</h3><p>Find field conflicts, price changes, and do the work.</p></div>
+        <div class="party"><span class="label">Post-hoc reviewer</span><h3>District audit firm</h3><p>Reviewed billing after final payment. In our design, its checks move earlier.</p></div>
+      </div>
+      <div class="redline">
+        <span class="label">Why the GC seat matters at Webster</span>
+        <p>The audit found the GC/CM's share of self-performed work grew from 29.8% at the bid package stage to about 40% by the end, against a 30% limit in state law, and those scopes got no competing bids. That puts the GC in two roles at once, coordinator and a company doing the work, which raises the question of who checks what.</p>
       </div>
       <div class="cols">
         <div style="display:grid;gap:8px"><span class="label">Artifacts in scope</span>
@@ -419,17 +445,24 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
     <div class="strip"><h2>Sources</h2><span class="mono">R-501</span></div>
     <div class="body">
       <ul class="refs">
-        <li>American Institute of Architects. (2017). <em>A201-2017 general conditions of the contract for construction</em>.</li>
-        <li>Arcadis. (2022). <em>Global construction disputes report</em> (as summarized by C. Carson).</li>
-        <li>Dodge Construction Network &amp; Clearstory. (2026). <em>Optimizing the change order process for specialty trade contractors</em>. Vendor-commissioned.</li>
-        <li>Navigant Construction Forum. (2013). <em>Impact of RFIs on construction projects</em> (as cited in Smartsheet's construction RFI guide).</li>
-        <li>R. L. Townsend &amp; Associates. (2023). <em>Final construction audit report: Webster School modernization &amp; addition</em>.</li>
-        <li>Seattle Public Schools. (2020). <em>Board action report: Webster change order #12</em>.</li>
-        <li>Seattle Public Schools. (2020). <em>Board action report: Budget transfer and change order #17</em>.</li>
-        <li>Seattle Public Schools. (2022). <em>Project Review Committee presentation</em>.</li>
-        <li>Washington State Capital Projects Advisory Review Board. (n.d.). <em>Project Review Committee summary: Webster Elementary</em>.</li>
+        <li>American Institute of Architects. (2017). <em>AIA document A201-2017: General conditions of the contract for construction</em> [Sample]. <a href="https://assets.aiacontracts.com/ctrzdweb02/zdpdfs/preview_a201-2017.pdf" target="_blank" rel="noopener">https://assets.aiacontracts.com/ctrzdweb02/zdpdfs/preview_a201-2017.pdf</a></li>
+        <li>Carson, C. (n.d.). <em>Leading causes of disputes past 9 years: Arcadis disputes report</em>. LinkedIn. <a href="https://www.linkedin.com/pulse/leading-causes-disputes-past-9-years-arcadis-report-chris-carson" target="_blank" rel="noopener">https://www.linkedin.com/pulse/leading-causes-disputes-past-9-years-arcadis-report-chris-carson</a></li>
+        <li>Case Western Reserve University. (2024). <em>AIA document A201-2017: General conditions of the contract for construction</em> [Owner-modified]. <a href="https://case.edu/facilities/sites/default/files/2024-10/500_A201-2017%20General%20Conditions%20of%20the%20Contract%20for%20Construction.pdf" target="_blank" rel="noopener">https://case.edu/facilities/sites/default/files/2024-10/500_A201-2017%20General%20Conditions%20of%20the%20Contract%20for%20Construction.pdf</a></li>
+        <li>constructelligence-lab. (n.d.). <em>Construction project records</em> [Computer software]. GitHub. <a href="https://github.com/constructelligence-lab/construction-project-records" target="_blank" rel="noopener">https://github.com/constructelligence-lab/construction-project-records</a></li>
+        <li>HKA Global. (2024). <em>Northgate Elementary School replacement: Audit of billings of the EC/CM Valley Electric</em>. Seattle Public Schools. <a href="https://seattleschools.org/wp-content/uploads/2024/06/Northgate-Elementary-Valley-Electric-Final-Audit-Report_ADA.pdf" target="_blank" rel="noopener">https://seattleschools.org/wp-content/uploads/2024/06/Northgate-Elementary-Valley-Electric-Final-Audit-Report_ADA.pdf</a></li>
+        <li>InspectMind. (n.d.). <em>What is an RFI in construction? Process and examples</em>. <a href="https://www.inspectmind.ai/education/what-is-an-rfi" target="_blank" rel="noopener">https://www.inspectmind.ai/education/what-is-an-rfi</a></li>
+        <li>R. L. Townsend &amp; Associates. (2023). <em>Final construction audit report: Webster School modernization &amp; addition</em>. Seattle Public Schools. <a href="https://www.seattleschools.org/wp-content/uploads/2024/03/Webster-School-Modernization-and-Addition-Audit-ADA.pdf" target="_blank" rel="noopener">https://www.seattleschools.org/wp-content/uploads/2024/03/Webster-School-Modernization-and-Addition-Audit-ADA.pdf</a></li>
+        <li>Seattle Public Schools. (2020a). <em>School board action report: Approval of construction change order no. 12 for Webster School modernization and addition</em>. <a href="https://www.seattleschools.org/wp-content/uploads/2021/07/C10_20200527_Approval-of-Constr.-Change-Order-No.-12-for-Webster-School-Modernization-and-Addition.pdf" target="_blank" rel="noopener">https://www.seattleschools.org/wp-content/uploads/2021/07/C10_20200527_Approval-of-Constr.-Change-Order-No.-12-for-Webster-School-Modernization-and-Addition.pdf</a></li>
+        <li>Seattle Public Schools. (2020b). <em>School board action report: Contract P5034 with Lydig for Wilson Pacific schools</em>. <a href="https://www.seattleschools.org/wp-content/uploads/2021/08/I04_20200610_Resolution-201920-20-Contract-P5034-with-Lydig-for-Wilson-Pacific-Schools.pdf" target="_blank" rel="noopener">https://www.seattleschools.org/wp-content/uploads/2021/08/I04_20200610_Resolution-201920-20-Contract-P5034-with-Lydig-for-Wilson-Pacific-Schools.pdf</a></li>
+        <li>Seattle Public Schools. (2020c). <em>School board action report: Approval of budget transfer and construction change order no. 17 for Webster modernization and addition</em>. <a href="https://www.seattleschools.org/wp-content/uploads/2021/07/I05_20201021_Approval-of-Budget-Transfer-for-Webster-Modernization-and-Addition.pdf" target="_blank" rel="noopener">https://www.seattleschools.org/wp-content/uploads/2021/07/I05_20201021_Approval-of-Budget-Transfer-for-Webster-Modernization-and-Addition.pdf</a></li>
+        <li>Seattle Public Schools. (2022). <em>GC/CM presentation to the Project Review Committee: Aki Kurose Middle School</em>. Washington State Department of Enterprise Services. <a href="https://des.wa.gov/sites/default/files/2022-11/SeattleSD_AkiKuroseMS_GCCM_Pres.pdf" target="_blank" rel="noopener">https://des.wa.gov/sites/default/files/2022-11/SeattleSD_AkiKuroseMS_GCCM_Pres.pdf</a></li>
+        <li>Seattle Public Schools. (n.d.). <em>Current solicitations</em>. <a href="https://www.seattleschools.org/departments/finance/procurement/current-solicitations/" target="_blank" rel="noopener">https://www.seattleschools.org/departments/finance/procurement/current-solicitations/</a></li>
+        <li>Smartsheet. (n.d.). <em>The ultimate guide to construction RFIs</em>. <a href="https://www.smartsheet.com/content/construction-rfi-guide" target="_blank" rel="noopener">https://www.smartsheet.com/content/construction-rfi-guide</a></li>
+        <li>Washington State Capital Projects Advisory Review Board. (2022). <em>Project Review Committee summary</em>. Washington State Department of Enterprise Services. <a href="https://des.wa.gov/sites/default/files/2022-12/3a-PRC-Summary.pdf" target="_blank" rel="noopener">https://des.wa.gov/sites/default/files/2022-12/3a-PRC-Summary.pdf</a></li>
+        <li>Westport Public Schools. (2021). <em>AIA document A201-2017: General conditions of the contract for construction</em> [Owner-modified]. <a href="https://www.westportps.org/uploaded/site_files/www/bids/2020-2021/AIA-A201_2021-0423_FINAL.pdf" target="_blank" rel="noopener">https://www.westportps.org/uploaded/site_files/www/bids/2020-2021/AIA-A201_2021-0423_FINAL.pdf</a></li>
+        <li>Wood, C. (2026, June 17). <em>The change order process is costing specialty contractors real money. New research shows how much</em>. Clearstory. <a href="https://www.clearstory.build/construction-blog/2026-sc-change-order-report" target="_blank" rel="noopener">https://www.clearstory.build/construction-blog/2026-sc-change-order-report</a></li>
       </ul>
-      <div class="placeholder">Full APA reference list with URLs: placeholder. Will match the team document.</div>
+      <p class="note">Navigant Construction Forum (2013) figures are cited through Smartsheet (n.d.) and InspectMind (n.d.).</p>
     </div>
   </section>
 
