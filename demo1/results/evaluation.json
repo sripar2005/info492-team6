@@ -1,0 +1,652 @@
+{
+  "metrics": {
+    "key_rules": 132,
+    "core_rules": 124,
+    "extracted_rules": 158,
+    "found_all": 125,
+    "found_core": 117,
+    "recall_all": 0.946969696969697,
+    "recall_core": 0.9435483870967742,
+    "precision": 0.7911392405063291,
+    "citation_validity": 1.0,
+    "wrong_value_count": 3,
+    "missed_count": 4,
+    "type_label_agreement": 0.856,
+    "target_recall_core": 0.85,
+    "meets_target": true,
+    "recall_by_type": {
+      "amount": {
+        "found": 6,
+        "total": 8,
+        "recall": 0.75
+      },
+      "approval_authority": {
+        "found": 5,
+        "total": 5,
+        "recall": 1.0
+      },
+      "audit_rule": {
+        "found": 3,
+        "total": 3,
+        "recall": 1.0
+      },
+      "cap": {
+        "found": 2,
+        "total": 3,
+        "recall": 0.6666666666666666
+      },
+      "claim_rule": {
+        "found": 3,
+        "total": 3,
+        "recall": 1.0
+      },
+      "deadline": {
+        "found": 14,
+        "total": 14,
+        "recall": 1.0
+      },
+      "documentation_requirement": {
+        "found": 16,
+        "total": 16,
+        "recall": 1.0
+      },
+      "equipment_rule": {
+        "found": 7,
+        "total": 8,
+        "recall": 0.875
+      },
+      "fee_exclusion": {
+        "found": 5,
+        "total": 5,
+        "recall": 1.0
+      },
+      "fee_rate": {
+        "found": 3,
+        "total": 3,
+        "recall": 1.0
+      },
+      "interpretation": {
+        "found": 3,
+        "total": 3,
+        "recall": 1.0
+      },
+      "markup_limit": {
+        "found": 2,
+        "total": 2,
+        "recall": 1.0
+      },
+      "non_authorization": {
+        "found": 5,
+        "total": 5,
+        "recall": 1.0
+      },
+      "non_chargeable_cost": {
+        "found": 4,
+        "total": 5,
+        "recall": 0.8
+      },
+      "notice_window": {
+        "found": 9,
+        "total": 11,
+        "recall": 0.8181818181818182
+      },
+      "payment_term": {
+        "found": 5,
+        "total": 5,
+        "recall": 1.0
+      },
+      "precedence": {
+        "found": 1,
+        "total": 1,
+        "recall": 1.0
+      },
+      "pricing_input": {
+        "found": 3,
+        "total": 3,
+        "recall": 1.0
+      },
+      "process": {
+        "found": 6,
+        "total": 6,
+        "recall": 1.0
+      },
+      "response_time": {
+        "found": 8,
+        "total": 8,
+        "recall": 1.0
+      },
+      "restriction": {
+        "found": 13,
+        "total": 13,
+        "recall": 1.0
+      },
+      "waiver_consequence": {
+        "found": 2,
+        "total": 2,
+        "recall": 1.0
+      }
+    },
+    "recall_trap_groups": {
+      "fee_exclusions (pitfall P3)": 1.0,
+      "negative_rules (pitfall P4)": 1.0,
+      "confusable_clocks (pitfall P1)": 0.9285714285714286
+    }
+  },
+  "missed": [
+    {
+      "id": "R021",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "5.2"
+      ],
+      "summary": "Specified General Conditions amount."
+    },
+    {
+      "id": "R024",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "5.3"
+      ],
+      "summary": "Negotiated Support Services amount."
+    },
+    {
+      "id": "R029",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Supervisory/management positions in Exhibit C, field office, and project vehicles are covered by Fee/SGC."
+    },
+    {
+      "id": "R122",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "SGC-included equipment: field office and trailers, two project pickups, small tools under $1,000, signage, office computers."
+    }
+  ],
+  "wrong_value": [
+    {
+      "id": "R012",
+      "summary": "GMP is $26,240,507; CM pays any cost that would exceed it unless a CO adjusts the GMP.",
+      "details": [
+        {
+          "extracted_id": "E018",
+          "extracted_value": null,
+          "key_value": {
+            "number": 26240507,
+            "unit": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R078",
+      "summary": "If CM believes an ASI changes cost or time, it gives notice under 6.2(a) before proceeding.",
+      "details": [
+        {
+          "extracted_id": "E085",
+          "extracted_value": null,
+          "key_value": {
+            "number": 7,
+            "unit": "days"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R099",
+      "summary": "If a submittal comment changes cost or time, CM gives notice under 6.2(a).",
+      "details": [
+        {
+          "extracted_id": "E109",
+          "extracted_value": null,
+          "key_value": {
+            "number": 7,
+            "unit": "days"
+          }
+        }
+      ]
+    }
+  ],
+  "unverified_quotes": [],
+  "possible_false_positives": [
+    {
+      "id": "E001",
+      "type": "precedence",
+      "sections": [
+        "1.2"
+      ],
+      "summary": "If Contract Documents conflict, they control in order: executed Modifications; Articles 1-14; Exhibits A-D; Exhibit E; Drawings and other Specifications.",
+      "quote": "they control in this order: (a) executed Modifications; (b) Articles 1 through 14; (c) Exhibits A through D; (d) Exhibit E; (e) Drawings and other Specifications"
+    },
+    {
+      "id": "E006",
+      "type": "restriction",
+      "sections": [
+        "2.2"
+      ],
+      "summary": "CM is not responsible for errors in the Contract Documents unless it knowingly failed to report them.",
+      "quote": "CM is not responsible for errors in the Contract Documents unless it knowingly failed to report them."
+    },
+    {
+      "id": "E010",
+      "type": "deadline",
+      "sections": [
+        "3.1"
+      ],
+      "summary": "CM must begin the Work on the date stated in the Notice to Proceed issued by Owner.",
+      "quote": "CM shall begin the Work on the date stated in the Notice to Proceed, issued by Owner."
+    },
+    {
+      "id": "E015",
+      "type": "restriction",
+      "sections": [
+        "3.4"
+      ],
+      "summary": "Extension is available only for delays outside CM's control shown on the critical path.",
+      "quote": "An extension is available only for delays outside CM's control that are shown on the critical path"
+    },
+    {
+      "id": "E017",
+      "type": "cap",
+      "sections": [
+        "4.1"
+      ],
+      "summary": "The Guaranteed Maximum Price is $26,240,507, covering Cost of the Work, Fee, SGC, NSS, and CM Contingency.",
+      "quote": "The Guaranteed Maximum Price is $26,240,507."
+    },
+    {
+      "id": "E018",
+      "type": "restriction",
+      "sections": [
+        "4.1"
+      ],
+      "summary": "CM must pay any cost that would cause the GMP to be exceeded unless a CO has adjusted the GMP.",
+      "quote": "CM shall pay any cost that would cause the GMP to be exceeded, unless a CO has adjusted the GMP."
+    },
+    {
+      "id": "E027",
+      "type": "restriction",
+      "sections": [
+        "5.2"
+      ],
+      "summary": "SGC may be increased only by CO for an extension of Contract Time.",
+      "quote": "SGC may be increased only by CO for an extension of Contract Time"
+    },
+    {
+      "id": "E042",
+      "type": "process",
+      "sections": [
+        "6.1"
+      ],
+      "summary": "Changes are made only by Change Order, Construction Change Directive, or Architect's Supplemental Instruction.",
+      "quote": "Changes are made by Change Order, Construction Change Directive, or Architect's Supplemental Instruction."
+    },
+    {
+      "id": "E059",
+      "type": "pricing_input",
+      "sections": [
+        "6.5.1",
+        "5.4",
+        "6.5.4"
+      ],
+      "summary": "Direct costs are labor with the fixed burden in Section 5.4, materials at actual cost net of discounts, equipment under 6.5.4, and subcontract costs.",
+      "quote": "labor with the fixed burden in Section 5.4, materials at actual cost net of discounts, equipment under Section 6.5.4, and subcontract costs"
+    },
+    {
+      "id": "E075",
+      "type": "approval_authority",
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "T&M tags must be signed by CM's superintendent and Owner's Representative.",
+      "quote": "signed by CM's superintendent and Owner's Representative"
+    },
+    {
+      "id": "E084",
+      "type": "restriction",
+      "sections": [
+        "6.8"
+      ],
+      "summary": "Architect's ASIs may not change cost or time.",
+      "quote": "Architect may issue ASIs that do not change cost or time."
+    },
+    {
+      "id": "E085",
+      "type": "notice_window",
+      "sections": [
+        "6.8",
+        "6.2(a)"
+      ],
+      "summary": "If CM believes an ASI will change cost or time, it must give notice under 6.2(a) before proceeding.",
+      "quote": "it shall give notice under Section 6.2(a) before proceeding"
+    },
+    {
+      "id": "E089",
+      "type": "process",
+      "sections": [
+        "7.1"
+      ],
+      "summary": "CM must submit RFIs on the form in Exhibit E.",
+      "quote": "CM shall submit RFIs on the form in Exhibit E."
+    },
+    {
+      "id": "E091",
+      "type": "process",
+      "sections": [
+        "7.2"
+      ],
+      "summary": "CM must review the Contract Documents before submitting an RFI.",
+      "quote": "CM shall review the Contract Documents before submitting an RFI."
+    },
+    {
+      "id": "E098",
+      "type": "process",
+      "sections": [
+        "7.4",
+        "6.2",
+        "6.3"
+      ],
+      "summary": "If CM believes an RFI response changes cost or time, it must follow Sections 6.2 and 6.3.",
+      "quote": "If CM believes a response changes cost or time, CM shall follow Sections 6.2 and 6.3."
+    },
+    {
+      "id": "E109",
+      "type": "process",
+      "sections": [
+        "8.3",
+        "6.2(a)"
+      ],
+      "summary": "If CM believes a submittal comment changes cost or time, CM must give notice under Section 6.2(a).",
+      "quote": "If CM believes a comment changes cost or time, CM shall give notice under Section 6.2(a)."
+    },
+    {
+      "id": "E117",
+      "type": "payment_term",
+      "sections": [
+        "9.5"
+      ],
+      "summary": "Final payment is due after Final Completion, receipt of all closeout documents, and lapse of statutory lien periods.",
+      "quote": "Final payment is due after Final Completion, receipt of all closeout documents, and the lapse of statutory lien periods."
+    },
+    {
+      "id": "E125",
+      "type": "audit_rule",
+      "sections": [
+        "11.2"
+      ],
+      "summary": "Owner or its auditor may audit CM's records at any time during the record retention period.",
+      "quote": "Owner or its auditor may audit CM's records at any time during that period."
+    },
+    {
+      "id": "E132",
+      "type": "payment_term",
+      "sections": [
+        "13.2"
+      ],
+      "summary": "On termination for convenience, Owner pays CM for Work performed and reasonable demobilization costs.",
+      "quote": "shall pay CM for Work performed and reasonable demobilization costs"
+    },
+    {
+      "id": "E135",
+      "type": "waiver_consequence",
+      "sections": [
+        "14.3"
+      ],
+      "summary": "Owner's payment or failure to object does not waive any right under the Agreement.",
+      "quote": "Owner's payment or failure to object does not waive any right under this Agreement."
+    },
+    {
+      "id": "E136",
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Field office and trailers, two pickup trucks, hand/power tools under $1,000 per item, temporary signage, and office computers and printers are included in SGC and never chargeable to a CP.",
+      "quote": "Included in SGC (never chargeable to a CP):"
+    },
+    {
+      "id": "E137",
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "CM-owned equipment used on changed Work is chargeable at 75% of the current Blue Book rate.",
+      "quote": "CM-owned equipment at 75% of the current Blue Book rate"
+    },
+    {
+      "id": "E138",
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Rented equipment is chargeable at invoice.",
+      "quote": "rented equipment at invoice"
+    },
+    {
+      "id": "E141",
+      "type": "fee_exclusion",
+      "sections": [
+        "Exhibit C"
+      ],
+      "summary": "Negotiated Support Services carry no Fee.",
+      "quote": "Negotiated Support Services (no Fee)"
+    },
+    {
+      "id": "E142",
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "Owner's Representative approves COs up to $250,000, issues CCDs, and receives notices.",
+      "quote": "Approves COs up to $250,000; issues CCDs; receives notices"
+    },
+    {
+      "id": "E143",
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "Owner's Board of Directors approves COs above $250,000.",
+      "quote": "Approves COs above $250,000"
+    },
+    {
+      "id": "E145",
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "CM Project Manager submits notices, CPs, and RFIs and signs COs for CM.",
+      "quote": "Submits notices, CPs, and RFIs; signs COs for CM"
+    },
+    {
+      "id": "E146",
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "CM Superintendent signs T&M tags and sends RFI responses to subcontractors.",
+      "quote": "Signs T&M tags; sends RFI responses to subcontractors"
+    },
+    {
+      "id": "E150",
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 26 00",
+        "6.9"
+      ],
+      "summary": "The CP log is submitted with each Application for Payment, as required by Section 6.9.",
+      "quote": "The CP log is submitted with each Application for Payment, as required by Section 6.9."
+    },
+    {
+      "id": "E151",
+      "type": "documentation_requirement",
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Each RFI must include unique number, date, sheet and spec references, question, CM's proposed answer, and needed-by date.",
+      "quote": "Each RFI has a unique number, date, sheet and spec references, the question, CM's proposed answer, and the needed-by date."
+    },
+    {
+      "id": "E155",
+      "type": "non_authorization",
+      "sections": [
+        "Exhibit E 01 31 00",
+        "7.7"
+      ],
+      "summary": "Meeting minutes are not notices, consistent with Section 7.7.",
+      "quote": "Minutes are not notices, consistent with Section 7.7."
+    },
+    {
+      "id": "E156",
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "Each submittal uses its specification section number and a sequence number.",
+      "quote": "Each submittal uses its specification section number and a sequence number."
+    },
+    {
+      "id": "E158",
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "CM must stamp each submittal before sending it to Architect, confirming compliance and coordination check.",
+      "quote": "CM shall stamp each submittal before sending it to Architect, confirming it has been checked for compliance and coordination."
+    }
+  ],
+  "found_map": {
+    "R001": "E002",
+    "R002": "E003",
+    "R003": "E004",
+    "R004": "E005",
+    "R005": "E008",
+    "R006": "E009",
+    "R007": "E011",
+    "R008": "E012",
+    "R009": "E013",
+    "R010": "E014",
+    "R011": "E016",
+    "R013": "E019",
+    "R014": "E020",
+    "R015": "E021",
+    "R016": "E022",
+    "R017": "E023",
+    "R018": "E024",
+    "R019": "E025",
+    "R020": "E026",
+    "R022": "E028",
+    "R023": "E029",
+    "R025": "E030",
+    "R026": "E032",
+    "R027": "E033",
+    "R028": "E034",
+    "R030": "E035",
+    "R031": "E036",
+    "R032": "E037",
+    "R033": "E038",
+    "R034": "E039",
+    "R035": "E040",
+    "R036": "E041",
+    "R037": "E043",
+    "R038": "E044",
+    "R039": "E045",
+    "R040": "E046",
+    "R041": "E047",
+    "R042": "E048",
+    "R043": "E049",
+    "R044": "E050",
+    "R045": "E051",
+    "R046": "E052",
+    "R047": "E053",
+    "R048": "E054",
+    "R049": "E055",
+    "R050": "E056",
+    "R051": "E057",
+    "R052": "E058",
+    "R053": "E060",
+    "R054": "E061",
+    "R055": "E062",
+    "R056": "E063",
+    "R057": "E064",
+    "R058": "E065",
+    "R059": "E066",
+    "R060": "E067",
+    "R061": "E068",
+    "R062": "E069",
+    "R063": "E070",
+    "R064": "E071",
+    "R065": "E072",
+    "R066": "E072",
+    "R067": "E073",
+    "R068": "E074",
+    "R069": "E076",
+    "R070": "E077",
+    "R071": "E078",
+    "R072": "E079",
+    "R073": "E079",
+    "R074": "E080",
+    "R075": "E081",
+    "R076": "E082",
+    "R077": "E083",
+    "R079": "E086",
+    "R080": "E087",
+    "R081": "E088",
+    "R082": "E090",
+    "R083": "E092",
+    "R084": "E093",
+    "R085": "E094",
+    "R086": "E095",
+    "R087": "E096",
+    "R088": "E097",
+    "R089": "E099",
+    "R090": "E100",
+    "R091": "E101",
+    "R092": "E102",
+    "R093": "E103",
+    "R094": "E104",
+    "R095": "E105",
+    "R096": "E106",
+    "R097": "E107",
+    "R098": "E108",
+    "R100": "E110",
+    "R101": "E111",
+    "R102": "E112",
+    "R103": "E113",
+    "R104": "E114",
+    "R105": "E115",
+    "R106": "E116",
+    "R107": "E118",
+    "R108": "E119",
+    "R109": "E120",
+    "R110": "E121",
+    "R111": "E122",
+    "R112": "E123",
+    "R113": "E124",
+    "R114": "E126",
+    "R115": "E127",
+    "R116": "E128",
+    "R117": "E129",
+    "R118": "E130",
+    "R119": "E131",
+    "R120": "E133",
+    "R121": "E134",
+    "R123": "E139",
+    "R124": "E140",
+    "R125": "E144",
+    "R126": "E147",
+    "R127": "E148",
+    "R128": "E149",
+    "R129": "E152",
+    "R130": "E154",
+    "R131": "E153",
+    "R132": "E157"
+  }
+}

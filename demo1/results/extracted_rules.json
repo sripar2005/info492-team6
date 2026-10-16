@@ -1,0 +1,2336 @@
+{
+  "meta": {
+    "contract_file": "synthetic_contract.md",
+    "model": "claude-sonnet-5-5",
+    "created": "2026-10-16T05:40:08.075939+00:00",
+    "calls": 6,
+    "cached_calls": 0,
+    "input_tokens": 25090,
+    "output_tokens": 19249,
+    "system_prompt_sha256": "c95bcd03fd6f4832",
+    "user_prompt_sha256": "d110962dae760f79",
+    "total_rules": 158,
+    "quotes_verified": 158
+  },
+  "rules": [
+    {
+      "type": "precedence",
+      "sections": [
+        "1.2"
+      ],
+      "summary": "If Contract Documents conflict, they control in order: executed Modifications; Articles 1-14; Exhibits A-D; Exhibit E; Drawings and other Specifications.",
+      "value": null,
+      "quote": "they control in this order: (a) executed Modifications; (b) Articles 1 through 14; (c) Exhibits A through D; (d) Exhibit E; (e) Drawings and other Specifications",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E001"
+    },
+    {
+      "type": "precedence",
+      "sections": [
+        "1.2"
+      ],
+      "summary": "Exhibit E may add procedural detail but cannot shorten any notice period or lengthen any response time stated in the Articles.",
+      "value": null,
+      "quote": "Exhibit E may add procedural detail, but it does not shorten any notice period or lengthen any response time stated in the Articles.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E002"
+    },
+    {
+      "type": "interpretation",
+      "sections": [
+        "1.4"
+      ],
+      "summary": "\"Days\" means calendar days unless stated otherwise.",
+      "value": {
+        "number": 1,
+        "unit": "days"
+      },
+      "quote": "\"Days\" means calendar days unless stated otherwise.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E003"
+    },
+    {
+      "type": "interpretation",
+      "sections": [
+        "1.4"
+      ],
+      "summary": "If a period ends on a Saturday, Sunday, or legal holiday, it ends on the next business day.",
+      "value": null,
+      "quote": "If a period ends on a Saturday, Sunday, or legal holiday, it ends on the next business day.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E004"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "2.2"
+      ],
+      "summary": "CM must promptly report to Architect, as an RFI, any error, inconsistency, or omission discovered in the Contract Documents.",
+      "value": null,
+      "quote": "shall promptly report to Architect, as an RFI, any error, inconsistency, or omission it discovers",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E005"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "2.2"
+      ],
+      "summary": "CM is not responsible for errors in the Contract Documents unless it knowingly failed to report them.",
+      "value": null,
+      "quote": "CM is not responsible for errors in the Contract Documents unless it knowingly failed to report them.",
+      "applies_to": "CM",
+      "exceptions": "Knowingly failed to report them",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E006"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "2.3"
+      ],
+      "summary": "CM shall not perform changed Work until a CO or CCD is issued.",
+      "value": null,
+      "quote": "CM shall not perform changed Work, and no RFI response, ASI, meeting minute, or oral direction authorizes added cost or time, until a CO or CCD is issued.",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E007"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "2.3"
+      ],
+      "summary": "No RFI response, ASI, meeting minute, or oral direction authorizes added cost or time until a CO or CCD is issued.",
+      "value": null,
+      "quote": "no RFI response, ASI, meeting minute, or oral direction authorizes added cost or time",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E008"
+    },
+    {
+      "type": "waiver_consequence",
+      "sections": [
+        "2.3"
+      ],
+      "summary": "Work on a change without a CO or CCD is at CM's risk.",
+      "value": null,
+      "quote": "Work on a change without a CO or CCD is at CM's risk.",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E009"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "3.1"
+      ],
+      "summary": "CM must begin the Work on the date stated in the Notice to Proceed issued by Owner.",
+      "value": null,
+      "quote": "CM shall begin the Work on the date stated in the Notice to Proceed, issued by Owner.",
+      "applies_to": "CM",
+      "trigger": "Notice to Proceed",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E010"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "3.2"
+      ],
+      "summary": "CM must achieve Substantial Completion within 540 days after the Notice to Proceed.",
+      "value": {
+        "number": 540,
+        "unit": "days"
+      },
+      "quote": "CM shall achieve Substantial Completion within 540 days after the Notice to Proceed",
+      "applies_to": "CM",
+      "trigger": "Notice to Proceed",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E011"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "3.2"
+      ],
+      "summary": "CM must achieve Final Completion within 60 days after Substantial Completion.",
+      "value": {
+        "number": 60,
+        "unit": "days"
+      },
+      "quote": "Final Completion within 60 days after Substantial Completion",
+      "applies_to": "CM",
+      "trigger": "Substantial Completion",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E012"
+    },
+    {
+      "type": "amount",
+      "sections": [
+        "3.3"
+      ],
+      "summary": "If CM fails to achieve Substantial Completion on time, CM pays Owner $2,500 per day of delay as liquidated damages.",
+      "value": {
+        "number": 2500,
+        "unit": "USD"
+      },
+      "quote": "CM shall pay Owner $2,500 for each day of delay.",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E013"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "3.4"
+      ],
+      "summary": "Contract Time is extended only by CO.",
+      "value": null,
+      "quote": "Contract Time is extended only by CO.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E014"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "3.4"
+      ],
+      "summary": "Extension is available only for delays outside CM's control shown on the critical path.",
+      "value": null,
+      "quote": "An extension is available only for delays outside CM's control that are shown on the critical path",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E015"
+    },
+    {
+      "type": "waiver_consequence",
+      "sections": [
+        "3.4",
+        "6.2"
+      ],
+      "summary": "Time extension is available only if CM has given notice under Section 6.2.",
+      "value": null,
+      "quote": "and only if CM has given notice under Section 6.2.",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E016"
+    },
+    {
+      "type": "cap",
+      "sections": [
+        "4.1"
+      ],
+      "summary": "The Guaranteed Maximum Price is $26,240,507, covering Cost of the Work, Fee, SGC, NSS, and CM Contingency.",
+      "value": {
+        "number": 26240507,
+        "unit": "USD"
+      },
+      "quote": "The Guaranteed Maximum Price is $26,240,507.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E017"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "4.1"
+      ],
+      "summary": "CM must pay any cost that would cause the GMP to be exceeded unless a CO has adjusted the GMP.",
+      "value": null,
+      "quote": "CM shall pay any cost that would cause the GMP to be exceeded, unless a CO has adjusted the GMP.",
+      "applies_to": "CM",
+      "exceptions": "A CO has adjusted the GMP",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E018"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "4.2"
+      ],
+      "summary": "Any savings in the GMP belong to Owner.",
+      "value": null,
+      "quote": "Any savings in the GMP belong to Owner.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E019"
+    },
+    {
+      "type": "cap",
+      "sections": [
+        "4.3"
+      ],
+      "summary": "The CM Contingency is $338,007.",
+      "value": {
+        "number": 338007,
+        "unit": "USD"
+      },
+      "quote": "The CM Contingency is $338,007.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E020"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "4.3"
+      ],
+      "summary": "CM may use the CM Contingency only for costs within CM's reasonable control, such as buyout variances and CM's coordination errors.",
+      "value": null,
+      "quote": "CM may use it only for costs within CM's reasonable control, such as subcontract buyout variances and CM's own coordination errors",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E021"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "4.3"
+      ],
+      "summary": "Use of CM Contingency requires Owner's written approval before the cost is incurred.",
+      "value": null,
+      "quote": "only with Owner's written approval before the cost is incurred",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E022"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "4.3",
+        "Article 6"
+      ],
+      "summary": "CM Contingency may not be used for Owner-requested changes or RFI/ASI changes, which are handled under Article 6.",
+      "value": null,
+      "quote": "may not be used for Owner-requested changes or for RFI or ASI changes, which are handled under Article 6",
+      "applies_to": "CM",
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E023"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "4.4"
+      ],
+      "summary": "The GMP is adjusted only by CO.",
+      "value": null,
+      "quote": "The GMP is adjusted only by CO.",
+      "applies_to": null,
+      "source_chunk": 1,
+      "quote_verified": true,
+      "id": "E024"
+    },
+    {
+      "type": "fee_rate",
+      "sections": [
+        "5.1"
+      ],
+      "summary": "CM's Fee is 5% of the sum of Subcontract Work and SPW shown in Exhibit A.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "quote": "CM's Fee is 5% of the sum of the Subcontract Work and SPW shown in Exhibit A",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E025"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "5.1"
+      ],
+      "summary": "The Fee is fixed and changes only as stated in Article 6.",
+      "value": null,
+      "quote": "The Fee is fixed and changes only as stated in Article 6.",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E026"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "5.2"
+      ],
+      "summary": "SGC may be increased only by CO for an extension of Contract Time.",
+      "value": null,
+      "quote": "SGC may be increased only by CO for an extension of Contract Time",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E027"
+    },
+    {
+      "type": "amount",
+      "sections": [
+        "5.2"
+      ],
+      "summary": "The SGC daily rate for extended Contract Time is $3,185 per day.",
+      "value": {
+        "number": 3185,
+        "unit": "USD"
+      },
+      "quote": "at a daily rate of $3,185 per day",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E028"
+    },
+    {
+      "type": "fee_exclusion",
+      "sections": [
+        "5.2"
+      ],
+      "summary": "No Fee is added to SGC.",
+      "value": null,
+      "quote": "No Fee is added to SGC.",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E029"
+    },
+    {
+      "type": "fee_exclusion",
+      "sections": [
+        "5.3"
+      ],
+      "summary": "No Fee is added to NSS.",
+      "value": null,
+      "quote": "No Fee is added to NSS, and NSS changes only by CO.",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E030"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "5.3"
+      ],
+      "summary": "NSS changes only by CO.",
+      "value": null,
+      "quote": "No Fee is added to NSS, and NSS changes only by CO.",
+      "applies_to": null,
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E031"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "5.4"
+      ],
+      "summary": "CM labor is charged at approved labor schedule rates plus a fixed labor burden of 32% of direct wages.",
+      "value": {
+        "number": 32,
+        "unit": "percent"
+      },
+      "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E032"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "5.4"
+      ],
+      "summary": "Bond and insurance premiums and Washington B&O taxes are reimbursed at actual cost.",
+      "value": null,
+      "quote": "bond and insurance premiums at actual cost, Washington B&O taxes at actual cost, and permit fees",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E033"
+    },
+    {
+      "type": "non_chargeable_cost",
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Home office overhead, estimating, accounting, purchasing, executive salaries, Exhibit C positions, field office and project vehicles are covered by Fee or SGC and not billed separately, including on a CP.",
+      "value": null,
+      "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E034"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Hand tools and small tools under $1,000 per item are covered by Fee or SGC and not billed separately.",
+      "value": {
+        "number": 1000,
+        "unit": "USD"
+      },
+      "quote": "hand tools and small tools under $1,000 per item",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E035"
+    },
+    {
+      "type": "non_chargeable_cost",
+      "sections": [
+        "5.5"
+      ],
+      "summary": "The cost of preparing, pricing, and negotiating Change Proposals is covered by Fee or SGC and not billed separately.",
+      "value": null,
+      "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E036"
+    },
+    {
+      "type": "cap",
+      "sections": [
+        "5.6"
+      ],
+      "summary": "SPW may not exceed 30% of combined Subcontract Work and SPW (excluding SGC and NSS) over the Project.",
+      "value": {
+        "number": 30,
+        "unit": "percent"
+      },
+      "quote": "SPW shall not exceed 30% of the Subcontract Work and SPW combined (excluding SGC and NSS)",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E037"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "5.6"
+      ],
+      "summary": "CM may self-perform only trades for which its sealed bid was the lowest responsive bid.",
+      "value": null,
+      "quote": "CM may self-perform only trades for which its sealed bid was the lowest responsive bid.",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E038"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "5.6"
+      ],
+      "summary": "CM must report the running SPW percentage with each Application for Payment.",
+      "value": null,
+      "quote": "CM shall report the running SPW percentage with each Application for Payment.",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E039"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "5.7"
+      ],
+      "summary": "CM must competitively bid all Subcontract Work.",
+      "value": null,
+      "quote": "CM shall competitively bid all Subcontract Work.",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E040"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "5.7"
+      ],
+      "summary": "CM must give Owner at least 10 days' written notice before awarding a subcontract to a related firm.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "quote": "at least 10 days' written notice before awarding any subcontract to a firm related to CM",
+      "trigger": "before awarding any subcontract to a firm related to CM through ownership, management, or family ties",
+      "applies_to": "CM",
+      "source_chunk": 2,
+      "quote_verified": true,
+      "id": "E041"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "6.1"
+      ],
+      "summary": "Changes are made only by Change Order, Construction Change Directive, or Architect's Supplemental Instruction.",
+      "value": null,
+      "quote": "Changes are made by Change Order, Construction Change Directive, or Architect's Supplemental Instruction.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E042"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "6.2(a)"
+      ],
+      "summary": "CM must give written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return it believes changes cost or time.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "trigger": "CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+      "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E043"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "6.2(b)"
+      ],
+      "summary": "CM must give notice within 7 days after receiving a written or oral direction it believes is a change.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "trigger": "CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+      "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E044"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "6.2(c)"
+      ],
+      "summary": "For concealed or unknown physical conditions, notice must be given before disturbing the condition and no later than 7 days after first observing it.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "trigger": "first observing the condition (and before disturbing it)",
+      "quote": "before disturbing the condition, and no later than 7 days after first observing it",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E045"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "6.2(d)"
+      ],
+      "summary": "For any other event that may increase cost or time, notice is due 14 days after CM first knew or should have known.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "CM first knew or should have known of any other event that may increase cost or time",
+      "quote": "14 days after CM first knew or should have known of any other event that may increase cost or time",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E046"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.2"
+      ],
+      "summary": "The notice must describe the event, identify the document or direction involved, and give a preliminary estimate of cost and time.",
+      "value": null,
+      "quote": "The notice shall describe the event, identify the document or direction involved, and give a preliminary estimate of cost and time.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E047"
+    },
+    {
+      "type": "waiver_consequence",
+      "sections": [
+        "6.2"
+      ],
+      "summary": "If notice is not timely, CM waives adjustment for costs incurred before notice and may waive any time adjustment.",
+      "value": null,
+      "quote": "CM waives any adjustment for costs incurred before notice is given and may waive any adjustment of time",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E048"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.3"
+      ],
+      "summary": "After a Section 6.2 notice, CM must submit a CP within 21 days.",
+      "value": {
+        "number": 21,
+        "unit": "days"
+      },
+      "trigger": "a notice under Section 6.2",
+      "quote": "After a notice under Section 6.2, CM shall submit a CP within 21 days.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E049"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.3",
+        "Exhibit E"
+      ],
+      "summary": "If Architect issues a Proposal Request, CM must submit a CP within 14 days after receiving it.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "CM receives the Proposal Request",
+      "quote": "If Architect issues a Proposal Request, CM shall submit a CP within 14 days after receiving it",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E050"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.3"
+      ],
+      "summary": "Each CP must reference the RFI, ASI, direction, or CCD that caused it and the notice date.",
+      "value": null,
+      "quote": "reference the RFI, ASI, direction, or CCD that caused it, and the notice date",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E051"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.3"
+      ],
+      "summary": "Each CP must break down labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee.",
+      "value": null,
+      "quote": "give a breakdown of labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E052"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.3"
+      ],
+      "summary": "Each CP must include subcontractor quotes and signed T&M tags for time-and-material work.",
+      "value": null,
+      "quote": "include subcontractor quotes and signed T&M tags for any time-and-material work",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E053"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.3"
+      ],
+      "summary": "Each CP must state any claimed time impact in days.",
+      "value": null,
+      "quote": "state any claimed time impact in days",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E054"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "6.4"
+      ],
+      "summary": "Owner, through Architect, must respond to a complete CP within 14 days after receipt.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "receipt of a complete CP",
+      "quote": "Owner, through Architect, shall respond to a complete CP within 14 days after receipt.",
+      "applies_to": "Owner",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E055"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "6.4"
+      ],
+      "summary": "An incomplete CP must be returned within 7 days with missing items identified.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "trigger": "receipt of the CP",
+      "quote": "An incomplete CP shall be returned within 7 days with the missing items identified.",
+      "applies_to": "Owner",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E056"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "6.4"
+      ],
+      "summary": "Silence by Owner is not acceptance of a CP.",
+      "value": null,
+      "quote": "Silence is not acceptance.",
+      "applies_to": "Owner",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E057"
+    },
+    {
+      "type": "claim_rule",
+      "sections": [
+        "6.4",
+        "Article 10"
+      ],
+      "summary": "If Owner has not responded after 14 days, CM may send a written reminder and treat the lack of response as a basis for a claim under Article 10.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "CP receipt without Owner response",
+      "quote": "If Owner has not responded after 14 days, CM may send a written reminder and treat the lack of response as a basis for a claim under Article 10.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E058"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "6.5.1",
+        "5.4",
+        "6.5.4"
+      ],
+      "summary": "Direct costs are labor with the fixed burden in Section 5.4, materials at actual cost net of discounts, equipment under 6.5.4, and subcontract costs.",
+      "value": null,
+      "quote": "labor with the fixed burden in Section 5.4, materials at actual cost net of discounts, equipment under Section 6.5.4, and subcontract costs",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E059"
+    },
+    {
+      "type": "markup_limit",
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "A subcontractor may add overhead and profit up to 10% on its own direct cost.",
+      "value": {
+        "number": 10,
+        "unit": "percent"
+      },
+      "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost",
+      "applies_to": "Subcontractor",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E060"
+    },
+    {
+      "type": "markup_limit",
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "A subcontractor may add up to 5% on the cost of work performed by its lower-tier subcontractors.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "quote": "up to 5% on the cost of work performed by its lower-tier subcontractors",
+      "applies_to": "Subcontractor",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E061"
+    },
+    {
+      "type": "cap",
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "Total subcontractor markup on any portion of the work shall not exceed 15%.",
+      "value": {
+        "number": 15,
+        "unit": "percent"
+      },
+      "quote": "Total markup on any portion of the work shall not exceed 15%.",
+      "applies_to": "Subcontractor",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E062"
+    },
+    {
+      "type": "fee_rate",
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "CM may add a 5% Fee to direct costs and subcontractor markups of a change.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E063"
+    },
+    {
+      "type": "fee_exclusion",
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees.",
+      "value": null,
+      "quote": "No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E064"
+    },
+    {
+      "type": "fee_rate",
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "On deductive changes, the Fee is reduced at the same 5% rate.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "quote": "On deductive changes, the Fee is reduced at the same 5% rate.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E065"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "6.5.4",
+        "Exhibit B"
+      ],
+      "summary": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+      "value": null,
+      "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E066"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Other CM-owned equipment is charged at 75% of the current published Blue Book rental rate.",
+      "value": {
+        "number": 75,
+        "unit": "percent"
+      },
+      "quote": "Other CM-owned equipment is charged at 75% of the current published Blue Book rental rate",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E067"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Rented equipment is charged at invoiced cost with no markup other than the Fee.",
+      "value": null,
+      "quote": "rented equipment at the invoiced cost with no markup other than the Fee",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E068"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Equipment is charged only for hours actually used on the changed Work, supported by daily logs.",
+      "value": null,
+      "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E069"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Idle equipment is charged at 50% of the applicable rate and only when idle time is caused by the change.",
+      "value": {
+        "number": 50,
+        "unit": "percent"
+      },
+      "quote": "Idle equipment is charged at 50% of the applicable rate and only when the idle time is caused by the change.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E070"
+    },
+    {
+      "type": "non_chargeable_cost",
+      "sections": [
+        "6.5.5",
+        "5.5"
+      ],
+      "summary": "Items listed in Section 5.5 shall not be included in a CP.",
+      "value": null,
+      "quote": "The items in Section 5.5 shall not be included in a CP.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E071"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "6.5.6",
+        "5.2"
+      ],
+      "summary": "Time extensions are compensated only for Owner/Architect-caused critical path delays, at the SGC daily rate in Section 5.2 with no Fee.",
+      "value": null,
+      "quote": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path, using the SGC daily rate in Section 5.2 and with no Fee.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E072"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "6.5.6"
+      ],
+      "summary": "Delays with concurrent causes receive time but no compensation.",
+      "value": null,
+      "quote": "Delays with concurrent causes receive time but no compensation.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E073"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "T&M tags must be submitted within 3 business days after the work is performed, signed by CM's superintendent and Owner's Representative.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "trigger": "the work is performed",
+      "quote": "T&M tags shall be submitted within 3 business days after the work is performed",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E074"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "T&M tags must be signed by CM's superintendent and Owner's Representative.",
+      "value": null,
+      "quote": "signed by CM's superintendent and Owner's Representative",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E075"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "Unsigned T&M tags are not accepted as backup.",
+      "value": null,
+      "quote": "Unsigned tags are not accepted as backup.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E076"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "6.6"
+      ],
+      "summary": "Owner may issue a CCD directing CM to proceed before price is agreed, and CM shall proceed.",
+      "value": null,
+      "quote": "Owner may issue a CCD directing CM to proceed with a change before the price is agreed. CM shall proceed.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E077"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.6"
+      ],
+      "summary": "CM must submit its CP within 14 days after receiving the CCD.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "CM receives the CCD",
+      "quote": "CM shall submit its CP within 14 days after receiving the CCD.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E078"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "6.6",
+        "6.5"
+      ],
+      "summary": "If no agreement within 30 days after the CP is submitted, cost is the actual Cost of the Work under Section 6.5 plus the Fee, and CM may pursue a claim.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "trigger": "the CP is submitted",
+      "quote": "If the parties have not agreed within 30 days after the CP is submitted, the cost is determined as the actual Cost of the Work calculated under Section 6.5, plus the Fee",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E079"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.6"
+      ],
+      "summary": "The CCD must be converted to a CO within 45 days after the price is agreed.",
+      "value": {
+        "number": 45,
+        "unit": "days"
+      },
+      "trigger": "the price is agreed",
+      "quote": "Within 45 days after the price is agreed, the CCD shall be converted to a CO.",
+      "applies_to": "Owner and CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E080"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "6.7"
+      ],
+      "summary": "A CO is effective only when signed by Owner, Architect, and CM.",
+      "value": null,
+      "quote": "A CO is effective only when signed by Owner, Architect, and CM.",
+      "applies_to": "Owner, Architect, CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E081"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "6.7"
+      ],
+      "summary": "Owner's Representative may approve a CO of up to $250,000.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "quote": "Owner's Representative may approve a CO of up to $250,000.",
+      "applies_to": "Owner's Representative",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E082"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "6.7"
+      ],
+      "summary": "A CO above $250,000, or related changes totaling more than $250,000, requires Owner's Board approval, and CM must allow time for the Board's schedule.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "quote": "A CO above $250,000, or a series of related changes totaling more than $250,000, requires approval by Owner's Board of Directors",
+      "applies_to": "Owner",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E083"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "6.8"
+      ],
+      "summary": "Architect's ASIs may not change cost or time.",
+      "value": null,
+      "quote": "Architect may issue ASIs that do not change cost or time.",
+      "applies_to": "Architect",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E084"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "6.8",
+        "6.2(a)"
+      ],
+      "summary": "If CM believes an ASI will change cost or time, it must give notice under 6.2(a) before proceeding.",
+      "value": null,
+      "trigger": "CM believes an ASI will change cost or time",
+      "quote": "it shall give notice under Section 6.2(a) before proceeding",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E085"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "6.8"
+      ],
+      "summary": "Proceeding with an ASI does not waive CM's right to notice, if notice is timely.",
+      "value": null,
+      "quote": "Proceeding with an ASI does not waive CM's right to notice, if notice is timely.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E086"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "6.9"
+      ],
+      "summary": "CM must keep a sequentially numbered log of all CPs showing notice date, submitted date, amount, status, and originating RFI, ASI, or CCD.",
+      "value": null,
+      "quote": "CM shall keep a log of all CPs, numbered in sequence, showing for each the date of notice, date submitted, amount, status, and the originating RFI, ASI, or CCD.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E087"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "6.9"
+      ],
+      "summary": "CM must update the change log weekly and submit it with each Application for Payment.",
+      "value": {
+        "number": 1,
+        "unit": "other"
+      },
+      "trigger": "weekly; each Application for Payment",
+      "quote": "CM shall update the log weekly and submit it with each Application for Payment.",
+      "applies_to": "CM",
+      "source_chunk": 3,
+      "quote_verified": true,
+      "id": "E088"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "7.1"
+      ],
+      "summary": "CM must submit RFIs on the form in Exhibit E.",
+      "value": null,
+      "quote": "CM shall submit RFIs on the form in Exhibit E.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E089"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "7.1"
+      ],
+      "summary": "Each RFI must identify drawing sheets and spec sections, state the question, propose CM's recommended answer, and give the date a response is needed.",
+      "value": null,
+      "quote": "Each RFI shall identify the drawing sheets and specification sections involved, state the question, propose CM's recommended answer",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E090"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "7.2"
+      ],
+      "summary": "CM must review the Contract Documents before submitting an RFI.",
+      "value": null,
+      "quote": "CM shall review the Contract Documents before submitting an RFI.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E091"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "7.2"
+      ],
+      "summary": "Architect may return an RFI without a full response if it was answered in the Contract Documents.",
+      "value": null,
+      "quote": "Architect may return it without a full response.",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E092"
+    },
+    {
+      "type": "amount",
+      "sections": [
+        "7.2"
+      ],
+      "summary": "Architect's review costs for each returned RFI beyond the tenth are charged to CM at $350 per RFI, deducted from the next Application for Payment.",
+      "value": {
+        "number": 350,
+        "unit": "USD"
+      },
+      "quote": "Architect's review costs for each such RFI beyond the tenth shall be charged to CM at $350 per RFI",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E093"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "7.3"
+      ],
+      "summary": "Architect must respond to each RFI within 10 days after receipt.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "quote": "Architect shall respond to each RFI within 10 days after receipt.",
+      "trigger": "receipt",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E094"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "7.3"
+      ],
+      "summary": "RFIs marked Critical Path must be answered within 3 business days.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "quote": "An RFI marked Critical Path shall be answered within 3 business days.",
+      "trigger": "receipt of RFI marked Critical Path",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E095"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "7.3"
+      ],
+      "summary": "If Architect cannot respond in time, it must notify CM within 5 days and give the date a response will be provided.",
+      "value": {
+        "number": 5,
+        "unit": "days"
+      },
+      "quote": "If Architect cannot respond in time, it shall notify CM within 5 days and give the date a response will be provided.",
+      "trigger": "Architect cannot respond in time",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E096"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "7.4"
+      ],
+      "summary": "An RFI response does not change the Contract Sum or Contract Time.",
+      "value": null,
+      "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+      "applies_to": null,
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E097"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "7.4",
+        "6.2",
+        "6.3"
+      ],
+      "summary": "If CM believes an RFI response changes cost or time, it must follow Sections 6.2 and 6.3.",
+      "value": null,
+      "quote": "If CM believes a response changes cost or time, CM shall follow Sections 6.2 and 6.3.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E098"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "7.5"
+      ],
+      "summary": "CM must send each RFI response to every affected subcontractor within 2 business days.",
+      "value": {
+        "number": 2,
+        "unit": "business days"
+      },
+      "quote": "CM shall send each RFI response to every affected subcontractor within 2 business days.",
+      "trigger": "RFI response",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E099"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "7.5"
+      ],
+      "summary": "CM must keep an RFI log, updated weekly, showing the date each RFI was sent and answered.",
+      "value": null,
+      "quote": "CM shall keep an RFI log, updated weekly, showing the date each RFI was sent and answered.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E100"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "7.6"
+      ],
+      "summary": "If an RFI is unanswered after 10 days, CM may send a written follow-up.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "quote": "If an RFI is unanswered after 10 days, CM may send a written follow-up.",
+      "trigger": "RFI unanswered",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E101"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "7.6",
+        "6.2(d)"
+      ],
+      "summary": "If an RFI is unanswered after 15 days, CM may give notice of a Potential Change under Section 6.2(d).",
+      "value": {
+        "number": 15,
+        "unit": "days"
+      },
+      "quote": "If it is unanswered after 15 days, CM may give notice of a Potential Change under Section 6.2(d).",
+      "trigger": "RFI unanswered",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E102"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "7.7"
+      ],
+      "summary": "A statement in meeting minutes is not notice under Section 6.2 and does not authorize a change unless repeated in a written notice, CO, or CCD.",
+      "value": null,
+      "quote": "A statement in meeting minutes is not notice under Section 6.2 and does not authorize a change unless it is repeated in a written notice, CO, or CCD.",
+      "applies_to": null,
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E103"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "8.1"
+      ],
+      "summary": "CM must submit a submittal schedule identifying long-lead items within 30 days after Notice to Proceed.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "quote": "CM shall submit a submittal schedule within 30 days after the Notice to Proceed, identifying long-lead items.",
+      "trigger": "Notice to Proceed",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E104"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "8.2"
+      ],
+      "summary": "Architect must review each submittal within 14 days after receipt.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "quote": "Architect shall review each submittal within 14 days after receipt",
+      "trigger": "receipt",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E105"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "8.2"
+      ],
+      "summary": "Architect must review each resubmittal within 10 days.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "quote": "and each resubmittal within 10 days.",
+      "trigger": "receipt of resubmittal",
+      "applies_to": "Architect",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E106"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "8.2"
+      ],
+      "summary": "CM must review and stamp each submittal for compliance and coordination before sending it to Architect.",
+      "value": null,
+      "quote": "CM shall review and stamp each submittal for compliance and coordination before sending it to Architect.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E107"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "8.3"
+      ],
+      "summary": "When a submittal is returned Approved as Noted or Revise and Resubmit, CM must tell affected subcontractors within 3 business days.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "quote": "CM shall tell every affected subcontractor within 3 business days.",
+      "trigger": "submittal returned as Approved as Noted or Revise and Resubmit",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E108"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "8.3",
+        "6.2(a)"
+      ],
+      "summary": "If CM believes a submittal comment changes cost or time, CM must give notice under Section 6.2(a).",
+      "value": null,
+      "quote": "If CM believes a comment changes cost or time, CM shall give notice under Section 6.2(a).",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E109"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "9.1"
+      ],
+      "summary": "CM must submit an Application for Payment by the 25th of each month for Work completed through that date.",
+      "value": {
+        "number": 25,
+        "unit": "other"
+      },
+      "quote": "CM shall submit an Application for Payment by the 25th of each month for Work completed through that date",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E110"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "9.1"
+      ],
+      "summary": "Each Application for Payment must include the change log, the SPW percentage, and lien waivers.",
+      "value": null,
+      "quote": "with the change log, the SPW percentage, and lien waivers.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E111"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "9.2"
+      ],
+      "summary": "Owner must pay the approved amount within 30 days after receiving a complete Application.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "quote": "Owner shall pay the approved amount within 30 days after receiving a complete Application.",
+      "trigger": "receiving a complete Application",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E112"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "9.2"
+      ],
+      "summary": "Overdue undisputed amounts bear interest at 1% per month.",
+      "value": {
+        "number": 1,
+        "unit": "percent"
+      },
+      "quote": "Overdue undisputed amounts bear interest at 1% per month.",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E113"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "9.3"
+      ],
+      "summary": "Owner retains 5% of each progress payment as required by Washington law.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "quote": "Owner shall retain 5% of each progress payment as required by Washington law.",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E114"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "9.4"
+      ],
+      "summary": "CM may bill a change only after a CO is executed or a CCD is issued.",
+      "value": null,
+      "quote": "CM may bill a change only after a CO is executed or a CCD is issued.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E115"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "9.4"
+      ],
+      "summary": "CCD work may be billed as costs are incurred, subject to adjustment when the price is agreed.",
+      "value": null,
+      "quote": "CCD work may be billed as costs are incurred, subject to adjustment when the price is agreed.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E116"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "9.5"
+      ],
+      "summary": "Final payment is due after Final Completion, receipt of all closeout documents, and lapse of statutory lien periods.",
+      "value": null,
+      "quote": "Final payment is due after Final Completion, receipt of all closeout documents, and the lapse of statutory lien periods.",
+      "applies_to": null,
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E117"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "10.1"
+      ],
+      "summary": "A claim for added cost or time must be made in writing within 21 days after the event giving rise to it, or within 14 days after CM receives Owner's response to a disputed CP, whichever applies.",
+      "value": {
+        "number": 21,
+        "unit": "days"
+      },
+      "quote": "A claim for added cost or time shall be made in writing within 21 days after the event giving rise to it",
+      "trigger": "the event giving rise to it",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E118"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "10.1"
+      ],
+      "summary": "A claim disputing Owner's response to a CP must be made within 14 days after CM receives that response.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "quote": "or within 14 days after CM receives Owner's response to a CP that CM disputes",
+      "trigger": "CM receives Owner's response to a CP that CM disputes",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E119"
+    },
+    {
+      "type": "waiver_consequence",
+      "sections": [
+        "10.1"
+      ],
+      "summary": "A claim not made in time is waived.",
+      "value": null,
+      "quote": "A claim not made in time is waived.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E120"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "10.2"
+      ],
+      "summary": "Owner must respond to a claim within 30 days after receiving it.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "quote": "Owner shall respond to a claim within 30 days after receiving it.",
+      "trigger": "receiving the claim",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E121"
+    },
+    {
+      "type": "claim_rule",
+      "sections": [
+        "10.3"
+      ],
+      "summary": "Unresolved claims go to mediation, then to the Superior Court of King County, Washington.",
+      "value": null,
+      "quote": "Unresolved claims shall go to mediation, and then to the Superior Court of King County, Washington.",
+      "applies_to": null,
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E122"
+    },
+    {
+      "type": "restriction",
+      "sections": [
+        "10.3"
+      ],
+      "summary": "CM must continue the Work during any dispute.",
+      "value": null,
+      "quote": "CM shall continue the Work during any dispute.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E123"
+    },
+    {
+      "type": "audit_rule",
+      "sections": [
+        "11.1"
+      ],
+      "summary": "CM must keep all cost records for at least 6 years after final payment.",
+      "value": {
+        "number": 6,
+        "unit": "years"
+      },
+      "quote": "CM shall keep all cost records for at least 6 years after final payment.",
+      "trigger": "final payment",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E124"
+    },
+    {
+      "type": "audit_rule",
+      "sections": [
+        "11.2"
+      ],
+      "summary": "Owner or its auditor may audit CM's records at any time during the record retention period.",
+      "value": null,
+      "quote": "Owner or its auditor may audit CM's records at any time during that period.",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E125"
+    },
+    {
+      "type": "audit_rule",
+      "sections": [
+        "11.2",
+        "Article 5",
+        "Article 6"
+      ],
+      "summary": "Any charge found not allowable under Articles 5 and 6 must be credited to Owner within 30 days after the audit report.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "quote": "Any charge found not allowable under Articles 5 and 6 shall be credited to Owner within 30 days after the audit report",
+      "trigger": "the audit report",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E126"
+    },
+    {
+      "type": "audit_rule",
+      "sections": [
+        "11.2"
+      ],
+      "summary": "Owner may offset the amount against money owed to CM.",
+      "value": null,
+      "quote": "Owner may offset the amount against money owed to CM.",
+      "applies_to": "Owner",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E127"
+    },
+    {
+      "type": "amount",
+      "sections": [
+        "12.1"
+      ],
+      "summary": "CM must furnish payment and performance bonds each for 100% of the GMP.",
+      "value": {
+        "number": 100,
+        "unit": "percent"
+      },
+      "quote": "CM shall furnish payment and performance bonds each for 100% of the GMP",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E128"
+    },
+    {
+      "type": "amount",
+      "sections": [
+        "12.1"
+      ],
+      "summary": "CM must carry commercial general liability insurance of at least $2,000,000 per occurrence and $4,000,000 aggregate, naming Owner as additional insured.",
+      "value": {
+        "number": 2000000,
+        "unit": "USD"
+      },
+      "quote": "commercial general liability insurance of at least $2,000,000 per occurrence and $4,000,000 in the aggregate, naming Owner as additional insured.",
+      "applies_to": "CM",
+      "source_chunk": 4,
+      "quote_verified": true,
+      "id": "E129"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "13.1"
+      ],
+      "summary": "Owner may terminate for cause if CM fails to cure a material default within 7 days after written notice.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "trigger": "written notice of material default",
+      "applies_to": "CM",
+      "quote": "Owner may terminate for cause if CM fails to cure a material default within 7 days after written notice.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E130"
+    },
+    {
+      "type": "notice_window",
+      "sections": [
+        "13.2"
+      ],
+      "summary": "Owner may terminate for convenience on 14 days' written notice.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "Owner's written notice of termination for convenience",
+      "applies_to": "Owner",
+      "quote": "Owner may terminate for convenience on 14 days' written notice",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E131"
+    },
+    {
+      "type": "payment_term",
+      "sections": [
+        "13.2"
+      ],
+      "summary": "On termination for convenience, Owner pays CM for Work performed and reasonable demobilization costs.",
+      "value": null,
+      "applies_to": "Owner",
+      "quote": "shall pay CM for Work performed and reasonable demobilization costs",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E132"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "14.2"
+      ],
+      "summary": "Notices must be in writing and sent to the representatives in Exhibit D.",
+      "value": null,
+      "applies_to": null,
+      "quote": "Notices shall be in writing and sent to the representatives in Exhibit D.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E133"
+    },
+    {
+      "type": "interpretation",
+      "sections": [
+        "14.2"
+      ],
+      "summary": "A notice sent through Owner's designated project management platform is written notice and is received on the next business day.",
+      "value": {
+        "number": 1,
+        "unit": "business days"
+      },
+      "trigger": "sending through the project management platform",
+      "applies_to": null,
+      "quote": "A notice sent through the project management platform designated by Owner is a written notice and is received on the next business day.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E134"
+    },
+    {
+      "type": "waiver_consequence",
+      "sections": [
+        "14.3"
+      ],
+      "summary": "Owner's payment or failure to object does not waive any right under the Agreement.",
+      "value": null,
+      "applies_to": "Owner",
+      "quote": "Owner's payment or failure to object does not waive any right under this Agreement.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E135"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Field office and trailers, two pickup trucks, hand/power tools under $1,000 per item, temporary signage, and office computers and printers are included in SGC and never chargeable to a CP.",
+      "value": {
+        "number": 1000,
+        "unit": "USD"
+      },
+      "applies_to": "CM",
+      "quote": "Included in SGC (never chargeable to a CP):",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E136"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "CM-owned equipment used on changed Work is chargeable at 75% of the current Blue Book rate.",
+      "value": {
+        "number": 75,
+        "unit": "percent"
+      },
+      "applies_to": "CM",
+      "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E137"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Rented equipment is chargeable at invoice.",
+      "value": null,
+      "applies_to": "CM",
+      "quote": "rented equipment at invoice",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E138"
+    },
+    {
+      "type": "pricing_input",
+      "sections": [
+        "Exhibit B",
+        "5.4"
+      ],
+      "summary": "Operator labor is chargeable under Section 5.4 and fuel at actual cost.",
+      "value": null,
+      "applies_to": "CM",
+      "quote": "operator labor under Section 5.4; fuel at actual cost.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E139"
+    },
+    {
+      "type": "equipment_rule",
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Mobilization is chargeable only when the equipment would not otherwise be on site.",
+      "value": null,
+      "applies_to": "CM",
+      "quote": "Mobilization is chargeable only when the equipment would not otherwise be on site.",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E140"
+    },
+    {
+      "type": "fee_exclusion",
+      "sections": [
+        "Exhibit C"
+      ],
+      "summary": "Negotiated Support Services carry no Fee.",
+      "value": null,
+      "applies_to": "CM",
+      "quote": "Negotiated Support Services (no Fee)",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E141"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "Owner's Representative approves COs up to $250,000, issues CCDs, and receives notices.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "applies_to": "Owner's Representative",
+      "quote": "Approves COs up to $250,000; issues CCDs; receives notices",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E142"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "Owner's Board of Directors approves COs above $250,000.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "applies_to": "Owner's Board of Directors",
+      "quote": "Approves COs above $250,000",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E143"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "Architect answers RFIs, issues ASIs, reviews submittals and CPs, but cannot approve cost or time.",
+      "value": null,
+      "applies_to": "Architect",
+      "quote": "reviews CPs for Owner; cannot approve cost or time",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E144"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "CM Project Manager submits notices, CPs, and RFIs and signs COs for CM.",
+      "value": null,
+      "applies_to": "CM Project Manager",
+      "quote": "Submits notices, CPs, and RFIs; signs COs for CM",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E145"
+    },
+    {
+      "type": "approval_authority",
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "CM Superintendent signs T&M tags and sends RFI responses to subcontractors.",
+      "value": null,
+      "applies_to": "CM Superintendent",
+      "quote": "Signs T&M tags; sends RFI responses to subcontractors",
+      "source_chunk": 5,
+      "quote_verified": true,
+      "id": "E146"
+    },
+    {
+      "type": "response_time",
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "CM must return a CP within 14 days after receiving a Proposal Request, or within that time explain why more time is needed.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "trigger": "after receiving it (the Proposal Request)",
+      "applies_to": "CM",
+      "exceptions": "CM may instead explain within that time why more time is needed",
+      "quote": "CM shall return a CP within 14 days after receiving it, or within that time explain why more time is needed.",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E147"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "CPs are numbered in sequence, and a revised CP keeps its number with a letter suffix.",
+      "value": null,
+      "quote": "A revised CP keeps its number with a letter suffix.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E148"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "Every CP must attach the causing RFI, ASI, or CCD, subcontractor quotes with their own breakdowns, equipment logs, and T&M tags.",
+      "value": null,
+      "quote": "Every CP shall attach the RFI, ASI, or CCD that caused it, subcontractor quotes with their own breakdowns, equipment logs, and T&M tags.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E149"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 26 00",
+        "6.9"
+      ],
+      "summary": "The CP log is submitted with each Application for Payment, as required by Section 6.9.",
+      "value": null,
+      "quote": "The CP log is submitted with each Application for Payment, as required by Section 6.9.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E150"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Each RFI must include unique number, date, sheet and spec references, question, CM's proposed answer, and needed-by date.",
+      "value": null,
+      "quote": "Each RFI has a unique number, date, sheet and spec references, the question, CM's proposed answer, and the needed-by date.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E151"
+    },
+    {
+      "type": "documentation_requirement",
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Critical Path RFIs must state the affected activity and the date it will be delayed if no answer is received.",
+      "value": null,
+      "quote": "RFIs marked Critical Path shall state the activity affected and the date the activity will be delayed if no answer is received.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E152"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "CM must hold weekly coordination meetings with the Architect and Owner's Representative.",
+      "value": null,
+      "quote": "CM shall hold weekly coordination meetings with the Architect and Owner's Representative",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E153"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "CM must issue coordination meeting minutes within 2 business days.",
+      "value": {
+        "number": 2,
+        "unit": "business days"
+      },
+      "trigger": "coordination meeting",
+      "applies_to": "CM",
+      "quote": "issue minutes within 2 business days",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E154"
+    },
+    {
+      "type": "non_authorization",
+      "sections": [
+        "Exhibit E 01 31 00",
+        "7.7"
+      ],
+      "summary": "Meeting minutes are not notices, consistent with Section 7.7.",
+      "value": null,
+      "quote": "Minutes are not notices, consistent with Section 7.7.",
+      "applies_to": null,
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E155"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "Each submittal uses its specification section number and a sequence number.",
+      "value": null,
+      "quote": "Each submittal uses its specification section number and a sequence number.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E156"
+    },
+    {
+      "type": "deadline",
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "Items with lead time over 12 weeks must be flagged on the submittal schedule and submitted within 45 days after Notice to Proceed.",
+      "value": {
+        "number": 45,
+        "unit": "days"
+      },
+      "trigger": "after the Notice to Proceed",
+      "applies_to": "CM",
+      "quote": "shall be flagged on the submittal schedule and submitted within 45 days after the Notice to Proceed",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E157"
+    },
+    {
+      "type": "process",
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "CM must stamp each submittal before sending it to Architect, confirming compliance and coordination check.",
+      "value": null,
+      "quote": "CM shall stamp each submittal before sending it to Architect, confirming it has been checked for compliance and coordination.",
+      "applies_to": "CM",
+      "source_chunk": 6,
+      "quote_verified": true,
+      "id": "E158"
+    }
+  ]
+}
