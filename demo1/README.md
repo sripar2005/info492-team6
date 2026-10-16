@@ -33,7 +33,7 @@ Set another model with `--model` or the `EXTRACTOR_MODEL` environment variable. 
 ## How it works
 
 1. **Split:** the contract is split at each Article and Exhibit heading, and neighboring small sections are grouped (about 4,500 characters per call).
-2. **Extract:** each group goes to Claude with the Article 1 definitions as reference. The model must answer through a forced `record_rules` tool, so the output is structured JSON (type, sections, summary, value and unit, trigger, applies_to, exceptions, quote). Temperature is 0.
+2. **Extract:** each group goes to Claude with the Article 1 definitions as reference. The model must answer through a forced `record_rules` tool, so the output is structured JSON (type, sections, summary, value and unit, trigger, applies_to, exceptions, quote). The model's default sampling is used (see "Code fixes"); every response is cached, so re-running the evaluation reads the same output.
 3. **Verify:** every quote is checked against the contract text after normalization. A rule whose quote is not found is flagged as a possible fabrication.
 4. **Score:** a key rule is FOUND when an extracted rule points at the same text (its verified quote overlaps the key's anchor) and carries the same number and unit. Overlap with the wrong value is counted separately as WRONG VALUE.
 
@@ -59,3 +59,11 @@ Real contracts for completed public school projects are not downloadable without
 - The contract is synthetic, and one contract is one case.
 - Matching is by text overlap and value, so it can miss a correct extraction that quotes a different part of the same rule. The report lists misses and unsupported extractions for manual review.
 - Extracted rules that the key does not support may be real rules the key missed. Review them before treating them as errors.
+
+## Code fixes
+
+Bug fixes made after the code was written, before any results existed. No prompt, answer key entry, or target was changed.
+
+| Date | Change | Why |
+| --- | --- | --- |
+| 2026-10-15 | Removed `temperature=0` from the API call in `extractor.py`; pinned `anthropic>=1.15,<2` in `requirements.txt` | The first live run failed before reaching the API: anthropic SDK 1.x no longer accepts a `temperature` argument (`TypeError: Messages.create() got an unexpected keyword argument 'temperature'`). No API call was made and no results were produced. The extractor now uses the model's default sampling, so a fresh run may differ slightly from ours; the cached responses and committed `results/` files are the record of our run. |

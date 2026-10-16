@@ -140,7 +140,7 @@ def call_model(client, model, system, user, max_tokens=8000, retries=3):
             response = client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
-                temperature=0,
+                # temperature=0 was removed: anthropic SDK 1.x no longer accepts it (see README, "Code fixes").
                 system=system,
                 tools=[TOOL],
                 tool_choice={"type": "tool", "name": TOOL["name"]},
