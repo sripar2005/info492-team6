@@ -1,0 +1,111 @@
+# Demo 1: run the contract rules extractor and evaluation on GitHub's machines.
+#
+# The Anthropic API key is stored as a repository secret (ANTHROPIC_API_KEY) and is
+# never printed, committed, or shown to viewers. Only people with write access to this
+# repo can start this workflow (Actions tab -> "Demo 1 - run extractor" -> Run workflow).
+#
+# Each run makes about 6 API calls (roughly $0.25 to $0.50). Results are committed to
+# demo1/results/, and the Vercel site's /demo1/ page reads them.
+
+name: Demo 1 - run extractor
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Claude model name"
+        required: true
+        default: "claude-sonnet-5-5"
+      overwrite:
+        description: "Replace existing results? Leave false unless this is a deliberate, documented Run 2."
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: demo1-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: demo1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Stop if results already exist (protects the first run)
+        if: ${{ !inputs.overwrite }}
+        run: |
+          if [ -f results/extracted_rules.json ]; then
+            echo "::error::demo1/results/extracted_rules.json already exists. Re-run with overwrite=true only for a documented Run 2."
+            exit 1
+          fi
+
+      - name: Check the API key secret is set
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Repository secret ANTHROPIC_API_KEY is not set. Add it under Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Offline tests (no API calls)
+        run: python tests/test_pipeline.py
+
+      - name: Check answer key matches the contract
+        run: python data/build_answer_key.py && git diff --exit-code data/answer_key.json
+
+      - name: Dry run (shows the 6 calls)
+        run: python extractor.py --dry-run --model "${{ inputs.model }}"
+
+      - name: Live extraction
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python extractor.py --model "${{ inputs.model }}"
+
+      - name: Evaluate against the answer key
+        run: python evaluate.py
+
+      - name: Write run summary
+        run: |
+          python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          meta = json.load(open("results/extracted_rules.json"))["meta"]
+          print("## Demo 1 run\n")
+          print(f"- Model: `{meta['model']}`")
+          print(f"- API calls: {meta['calls']} ({meta['cached_calls']} cached)")
+          print(f"- Tokens: {meta['input_tokens']:,} input, {meta['output_tokens']:,} output")
+          print(f"- Rules extracted: {meta['total_rules']} ({meta['quotes_verified']} with verbatim quotes)\n")
+          EOF
+          cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save results as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo1-results
+          path: |
+            demo1/results/extracted_rules.json
+            demo1/results/evaluation.json
+            demo1/results/evaluation_report.md
+
+      - name: Commit results to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/extracted_rules.json results/evaluation.json results/evaluation_report.md
+          git commit -m "Demo 1 results: ${{ inputs.model }} (workflow run ${{ github.run_number }})"
+          git push

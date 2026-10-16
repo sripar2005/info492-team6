@@ -1,0 +1,11 @@
+Reference definitions from Article 1 (for context only; extract rules from the section below, not from this reference):
+
+<definitions>
+[[DEFINITIONS]]
+</definitions>
+
+Extract the rules from this part of the contract:
+
+<contract_section>
+[[SECTION_TEXT]]
+</contract_section>

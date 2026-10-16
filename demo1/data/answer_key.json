@@ -1,0 +1,1803 @@
+{
+  "meta": {
+    "contract_file": "synthetic_contract.md",
+    "description": "Hand-checkable answer key for the synthetic GC/CM agreement. Used to score the rules extractor (Demo 1).",
+    "status": "DRAFT: a teammate should read the contract and confirm each entry before scoring.",
+    "total_rules": 132,
+    "core_rules": 124,
+    "peripheral_rules": 8,
+    "rules_by_type": {
+      "amount": 8,
+      "approval_authority": 5,
+      "audit_rule": 3,
+      "cap": 3,
+      "claim_rule": 3,
+      "deadline": 14,
+      "documentation_requirement": 16,
+      "equipment_rule": 8,
+      "fee_exclusion": 5,
+      "fee_rate": 3,
+      "interpretation": 3,
+      "markup_limit": 2,
+      "non_authorization": 5,
+      "non_chargeable_cost": 5,
+      "notice_window": 11,
+      "payment_term": 5,
+      "precedence": 1,
+      "pricing_input": 3,
+      "process": 6,
+      "response_time": 8,
+      "restriction": 13,
+      "waiver_consequence": 2
+    },
+    "core_definition": "Core rules govern notice, response times, deadlines, pricing, fees, markups, equipment, change authority, payment, claims, and audit. Peripheral rules cover insurance, bonds, termination, dispute mechanics, and meeting cadence."
+  },
+  "rules": [
+    {
+      "id": "R001",
+      "type": "precedence",
+      "core": true,
+      "sections": [
+        "1.2"
+      ],
+      "summary": "Order of precedence: Modifications, Articles, Exhibits A-D, Exhibit E, Drawings/Specs; Exhibit E cannot shorten notice periods or lengthen response times.",
+      "value": null,
+      "anchor": "it does not shorten any notice period or lengthen any response time stated in the Articles"
+    },
+    {
+      "id": "R002",
+      "type": "interpretation",
+      "core": true,
+      "sections": [
+        "1.4"
+      ],
+      "summary": "Time periods are calendar days unless stated otherwise.",
+      "value": null,
+      "anchor": "means calendar days unless stated otherwise"
+    },
+    {
+      "id": "R003",
+      "type": "interpretation",
+      "core": true,
+      "sections": [
+        "1.4"
+      ],
+      "summary": "A period ending on a weekend or legal holiday ends the next business day.",
+      "value": null,
+      "anchor": "it ends on the next business day"
+    },
+    {
+      "id": "R004",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "2.2"
+      ],
+      "summary": "CM must promptly report errors, inconsistencies, or omissions to the Architect as an RFI.",
+      "value": null,
+      "anchor": "shall promptly report to Architect, as an RFI, any error, inconsistency, or omission it discovers"
+    },
+    {
+      "id": "R005",
+      "type": "non_authorization",
+      "core": true,
+      "sections": [
+        "2.3"
+      ],
+      "summary": "No RFI response, ASI, meeting minute, or oral direction authorizes added cost or time until a CO or CCD is issued.",
+      "value": null,
+      "anchor": "no RFI response, ASI, meeting minute, or oral direction authorizes added cost or time"
+    },
+    {
+      "id": "R006",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "2.3"
+      ],
+      "summary": "Work on a change without a CO or CCD is at the CM's risk.",
+      "value": null,
+      "anchor": "Work on a change without a CO or CCD is at"
+    },
+    {
+      "id": "R007",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "3.2"
+      ],
+      "summary": "Substantial Completion within 540 days after Notice to Proceed.",
+      "value": {
+        "number": 540,
+        "unit": "days"
+      },
+      "anchor": "within 540 days after the Notice to Proceed"
+    },
+    {
+      "id": "R008",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "3.2"
+      ],
+      "summary": "Final Completion within 60 days after Substantial Completion.",
+      "value": {
+        "number": 60,
+        "unit": "days"
+      },
+      "anchor": "Final Completion within 60 days after Substantial Completion"
+    },
+    {
+      "id": "R009",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "3.3"
+      ],
+      "summary": "Liquidated damages of $2,500 per day of delay.",
+      "value": {
+        "number": 2500,
+        "unit": "USD"
+      },
+      "anchor": "CM shall pay Owner $2,500 for each day of delay"
+    },
+    {
+      "id": "R010",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "3.4"
+      ],
+      "summary": "Contract Time is extended only by Change Order.",
+      "value": null,
+      "anchor": "Contract Time is extended only by CO"
+    },
+    {
+      "id": "R011",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "3.4"
+      ],
+      "summary": "A time extension requires that notice was given under Section 6.2.",
+      "value": null,
+      "anchor": "only if CM has given notice under Section 6.2"
+    },
+    {
+      "id": "R012",
+      "type": "cap",
+      "core": true,
+      "sections": [
+        "4.1"
+      ],
+      "summary": "GMP is $26,240,507; CM pays any cost that would exceed it unless a CO adjusts the GMP.",
+      "value": {
+        "number": 26240507,
+        "unit": "USD"
+      },
+      "anchor": "CM shall pay any cost that would cause the GMP to be exceeded"
+    },
+    {
+      "id": "R013",
+      "type": "restriction",
+      "core": false,
+      "sections": [
+        "4.2"
+      ],
+      "summary": "Savings in the GMP belong to the Owner.",
+      "value": null,
+      "anchor": "Any savings in the GMP belong to Owner"
+    },
+    {
+      "id": "R014",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "4.3"
+      ],
+      "summary": "CM Contingency amount.",
+      "value": {
+        "number": 338007,
+        "unit": "USD"
+      },
+      "anchor": "The CM Contingency is $338,007"
+    },
+    {
+      "id": "R015",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "4.3"
+      ],
+      "summary": "CM Contingency only for costs within CM's reasonable control.",
+      "value": null,
+      "anchor": "may use it only for costs within CM"
+    },
+    {
+      "id": "R016",
+      "type": "approval_authority",
+      "core": true,
+      "sections": [
+        "4.3"
+      ],
+      "summary": "Owner's written approval is required before a contingency cost is incurred.",
+      "value": null,
+      "anchor": "before the cost is incurred"
+    },
+    {
+      "id": "R017",
+      "type": "fee_exclusion",
+      "core": true,
+      "sections": [
+        "4.3"
+      ],
+      "summary": "CM Contingency may not be used for Owner-requested changes or RFI/ASI changes.",
+      "value": null,
+      "anchor": "The CM Contingency may not be used for Owner-requested changes"
+    },
+    {
+      "id": "R018",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "4.4"
+      ],
+      "summary": "GMP is adjusted only by Change Order.",
+      "value": null,
+      "anchor": "The GMP is adjusted only by CO"
+    },
+    {
+      "id": "R019",
+      "type": "fee_rate",
+      "core": true,
+      "sections": [
+        "5.1"
+      ],
+      "summary": "CM Fee is 5% of Subcontract Work plus SPW ($1,122,500).",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "anchor": "is 5% of the sum of the Subcontract Work and SPW"
+    },
+    {
+      "id": "R020",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "5.1"
+      ],
+      "summary": "The Fee is fixed and changes only as stated in Article 6.",
+      "value": null,
+      "anchor": "The Fee is fixed and changes only as stated in Article 6"
+    },
+    {
+      "id": "R021",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "5.2"
+      ],
+      "summary": "Specified General Conditions amount.",
+      "value": {
+        "number": 1720000,
+        "unit": "USD"
+      },
+      "anchor": "SGC is $1,720,000"
+    },
+    {
+      "id": "R022",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "5.2"
+      ],
+      "summary": "SGC increases only by CO for a time extension, at $3,185 per day.",
+      "value": {
+        "number": 3185,
+        "unit": "USD"
+      },
+      "anchor": "SGC may be increased only by CO for an extension of Contract Time, at a daily rate of $3,185 per day"
+    },
+    {
+      "id": "R023",
+      "type": "fee_exclusion",
+      "core": true,
+      "sections": [
+        "5.2"
+      ],
+      "summary": "No Fee is added to SGC.",
+      "value": null,
+      "anchor": "No Fee is added to SGC"
+    },
+    {
+      "id": "R024",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "5.3"
+      ],
+      "summary": "Negotiated Support Services amount.",
+      "value": {
+        "number": 610000,
+        "unit": "USD"
+      },
+      "anchor": "NSS is $610,000"
+    },
+    {
+      "id": "R025",
+      "type": "fee_exclusion",
+      "core": true,
+      "sections": [
+        "5.3"
+      ],
+      "summary": "No Fee is added to NSS, and NSS changes only by CO.",
+      "value": null,
+      "anchor": "No Fee is added to NSS, and NSS changes only by CO"
+    },
+    {
+      "id": "R026",
+      "type": "pricing_input",
+      "core": true,
+      "sections": [
+        "5.4"
+      ],
+      "summary": "CM labor carries a fixed burden of 32% of direct wages.",
+      "value": {
+        "number": 32,
+        "unit": "percent"
+      },
+      "anchor": "a fixed labor burden of 32% of direct wages"
+    },
+    {
+      "id": "R027",
+      "type": "pricing_input",
+      "core": true,
+      "sections": [
+        "5.4"
+      ],
+      "summary": "Bond and insurance premiums, B&O taxes, and permit fees are reimbursable at actual cost.",
+      "value": null,
+      "anchor": "bond and insurance premiums at actual cost, Washington B&O taxes at actual cost, and permit fees"
+    },
+    {
+      "id": "R028",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Home office overhead, estimating, accounting, purchasing, and executive salaries are covered by the Fee and not billed separately.",
+      "value": null,
+      "anchor": "home office overhead; estimating, accounting, and purchasing"
+    },
+    {
+      "id": "R029",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Supervisory/management positions in Exhibit C, field office, and project vehicles are covered by Fee/SGC.",
+      "value": null,
+      "anchor": "the supervisory and management positions listed in Exhibit C; field office and project vehicles"
+    },
+    {
+      "id": "R030",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "5.5"
+      ],
+      "summary": "Hand tools and small tools under $1,000 per item are not billable.",
+      "value": {
+        "number": 1000,
+        "unit": "USD"
+      },
+      "anchor": "hand tools and small tools under $1,000 per item"
+    },
+    {
+      "id": "R031",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "5.5"
+      ],
+      "summary": "The cost of preparing, pricing, and negotiating Change Proposals is not billable.",
+      "value": null,
+      "anchor": "the cost of preparing, pricing, and negotiating Change Proposals"
+    },
+    {
+      "id": "R032",
+      "type": "cap",
+      "core": true,
+      "sections": [
+        "5.6"
+      ],
+      "summary": "Self-performed work may not exceed 30% of Subcontract Work plus SPW.",
+      "value": {
+        "number": 30,
+        "unit": "percent"
+      },
+      "anchor": "SPW shall not exceed 30% of the Subcontract Work and SPW combined"
+    },
+    {
+      "id": "R033",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "5.6"
+      ],
+      "summary": "CM may self-perform only trades where its sealed bid was the lowest responsive bid.",
+      "value": null,
+      "anchor": "CM may self-perform only trades for which its sealed bid was the lowest responsive bid"
+    },
+    {
+      "id": "R034",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "5.6"
+      ],
+      "summary": "CM reports the running SPW percentage with each pay application.",
+      "value": null,
+      "anchor": "shall report the running SPW percentage with each Application for Payment"
+    },
+    {
+      "id": "R035",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "5.7"
+      ],
+      "summary": "CM must competitively bid all Subcontract Work.",
+      "value": null,
+      "anchor": "CM shall competitively bid all Subcontract Work"
+    },
+    {
+      "id": "R036",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "5.7"
+      ],
+      "summary": "At least 10 days' written notice to Owner before awarding a subcontract to a related firm.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "anchor": "written notice before awarding any subcontract to a firm related to CM"
+    },
+    {
+      "id": "R037",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "6.2(a)"
+      ],
+      "summary": "Notice of Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time"
+    },
+    {
+      "id": "R038",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "6.2(b)"
+      ],
+      "summary": "Notice within 7 days after a written or oral direction from Owner or Architect that CM believes is a change.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change"
+    },
+    {
+      "id": "R039",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "6.2(c)"
+      ],
+      "summary": "Concealed conditions: notice before disturbing the condition and within 7 days after first observing it.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "before disturbing the condition, and no later than 7 days after first observing it"
+    },
+    {
+      "id": "R040",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "6.2(d)"
+      ],
+      "summary": "Any other event: notice within 14 days after CM first knew or should have known.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "14 days after CM first knew or should have known of any other event that may increase cost or time"
+    },
+    {
+      "id": "R041",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.2"
+      ],
+      "summary": "Notice must describe the event, identify the document or direction, and give a preliminary cost and time estimate.",
+      "value": null,
+      "anchor": "give a preliminary estimate of cost and time"
+    },
+    {
+      "id": "R042",
+      "type": "waiver_consequence",
+      "core": true,
+      "sections": [
+        "6.2"
+      ],
+      "summary": "Late notice waives adjustment for costs incurred before notice and may waive adjustment of time.",
+      "value": null,
+      "anchor": "CM waives any adjustment for costs incurred before notice is given and may waive any adjustment of time"
+    },
+    {
+      "id": "R043",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.3"
+      ],
+      "summary": "CM-initiated Change Proposal due within 21 days after the notice.",
+      "value": {
+        "number": 21,
+        "unit": "days"
+      },
+      "anchor": "CM shall submit a CP within 21 days"
+    },
+    {
+      "id": "R044",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.3",
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "After an Architect Proposal Request, CP due within 14 days after receipt.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "CM shall submit a CP within 14 days after receiving it"
+    },
+    {
+      "id": "R045",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.3"
+      ],
+      "summary": "CP must reference the originating RFI/ASI/direction/CCD and the notice date.",
+      "value": null,
+      "anchor": "reference the RFI, ASI, direction, or CCD that caused it, and the notice date"
+    },
+    {
+      "id": "R046",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.3"
+      ],
+      "summary": "CP must break down labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee.",
+      "value": null,
+      "anchor": "give a breakdown of labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee"
+    },
+    {
+      "id": "R047",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.3"
+      ],
+      "summary": "CP must include subcontractor quotes and signed T&M tags for time-and-material work.",
+      "value": null,
+      "anchor": "include subcontractor quotes and signed T&M tags for any time-and-material work"
+    },
+    {
+      "id": "R048",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.3"
+      ],
+      "summary": "CP must state any claimed time impact in days.",
+      "value": null,
+      "anchor": "state any claimed time impact in days"
+    },
+    {
+      "id": "R049",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "6.4"
+      ],
+      "summary": "Owner (through Architect) responds to a complete CP within 14 days after receipt.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "shall respond to a complete CP within 14 days after receipt"
+    },
+    {
+      "id": "R050",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "6.4"
+      ],
+      "summary": "An incomplete CP is returned within 7 days with missing items identified.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "An incomplete CP shall be returned within 7 days with the missing items identified"
+    },
+    {
+      "id": "R051",
+      "type": "non_authorization",
+      "core": true,
+      "sections": [
+        "6.4"
+      ],
+      "summary": "Silence is not acceptance of a CP.",
+      "value": null,
+      "anchor": "Silence is not acceptance"
+    },
+    {
+      "id": "R052",
+      "type": "claim_rule",
+      "core": true,
+      "sections": [
+        "6.4"
+      ],
+      "summary": "If no response after 14 days, CM may send a written reminder and treat the lack of response as a basis for a claim.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "If Owner has not responded after 14 days, CM may send a written reminder"
+    },
+    {
+      "id": "R053",
+      "type": "markup_limit",
+      "core": true,
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "Subcontractor overhead and profit up to 10% on its own direct cost.",
+      "value": {
+        "number": 10,
+        "unit": "percent"
+      },
+      "anchor": "overhead and profit of up to 10% on its own direct cost"
+    },
+    {
+      "id": "R054",
+      "type": "markup_limit",
+      "core": true,
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "Subcontractor markup up to 5% on lower-tier subcontractor work.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "anchor": "up to 5% on the cost of work performed by its lower-tier subcontractors"
+    },
+    {
+      "id": "R055",
+      "type": "cap",
+      "core": true,
+      "sections": [
+        "6.5.2"
+      ],
+      "summary": "Total markup on any portion of the work may not exceed 15%.",
+      "value": {
+        "number": 15,
+        "unit": "percent"
+      },
+      "anchor": "Total markup on any portion of the work shall not exceed 15%"
+    },
+    {
+      "id": "R056",
+      "type": "fee_rate",
+      "core": true,
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "CM may add a 5% Fee to the direct costs and subcontractor markups of a change.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "anchor": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change"
+    },
+    {
+      "id": "R057",
+      "type": "fee_exclusion",
+      "core": true,
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "No Fee on NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees.",
+      "value": null,
+      "anchor": "No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees"
+    },
+    {
+      "id": "R058",
+      "type": "fee_rate",
+      "core": true,
+      "sections": [
+        "6.5.3"
+      ],
+      "summary": "On deductive changes the Fee is reduced at the same 5% rate.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "anchor": "On deductive changes, the Fee is reduced at the same 5% rate"
+    },
+    {
+      "id": "R059",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "6.5.4",
+        "Exhibit B"
+      ],
+      "summary": "Equipment listed as included in SGC (Exhibit B) may not be charged to a CP.",
+      "value": null,
+      "anchor": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP"
+    },
+    {
+      "id": "R060",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "CM-owned equipment is charged at 75% of the current published Blue Book rental rate.",
+      "value": {
+        "number": 75,
+        "unit": "percent"
+      },
+      "anchor": "is charged at 75% of the current published Blue Book rental rate"
+    },
+    {
+      "id": "R061",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Rented equipment is charged at invoiced cost with no markup other than the Fee.",
+      "value": null,
+      "anchor": "rented equipment at the invoiced cost with no markup other than the Fee"
+    },
+    {
+      "id": "R062",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Equipment is charged only for hours actually used on the changed Work, supported by daily logs.",
+      "value": null,
+      "anchor": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs"
+    },
+    {
+      "id": "R063",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "6.5.4"
+      ],
+      "summary": "Idle equipment is charged at 50% of the rate, only when idle time is caused by the change.",
+      "value": {
+        "number": 50,
+        "unit": "percent"
+      },
+      "anchor": "Idle equipment is charged at 50% of the applicable rate and only when the idle time is caused by the change"
+    },
+    {
+      "id": "R064",
+      "type": "non_chargeable_cost",
+      "core": true,
+      "sections": [
+        "6.5.5"
+      ],
+      "summary": "Items in Section 5.5 may not be included in a CP.",
+      "value": null,
+      "anchor": "The items in Section 5.5 shall not be included in a CP"
+    },
+    {
+      "id": "R065",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "6.5.6"
+      ],
+      "summary": "Time extension is compensated only for Owner/Architect-caused delays on the critical path.",
+      "value": null,
+      "anchor": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path"
+    },
+    {
+      "id": "R066",
+      "type": "fee_exclusion",
+      "core": true,
+      "sections": [
+        "6.5.6"
+      ],
+      "summary": "Compensable delay is priced at the SGC daily rate with no Fee.",
+      "value": null,
+      "anchor": "using the SGC daily rate in Section 5.2 and with no Fee"
+    },
+    {
+      "id": "R067",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "6.5.6"
+      ],
+      "summary": "Concurrent delays receive time but no compensation.",
+      "value": null,
+      "anchor": "Delays with concurrent causes receive time but no compensation"
+    },
+    {
+      "id": "R068",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "T&M tags are submitted within 3 business days after the work is performed.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "anchor": "T&M tags shall be submitted within 3 business days after the work is performed"
+    },
+    {
+      "id": "R069",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.5.7"
+      ],
+      "summary": "T&M tags must be signed by the CM's superintendent and Owner's Representative; unsigned tags are not accepted as backup.",
+      "value": null,
+      "anchor": "Unsigned tags are not accepted as backup"
+    },
+    {
+      "id": "R070",
+      "type": "process",
+      "core": true,
+      "sections": [
+        "6.6"
+      ],
+      "summary": "Owner may issue a CCD directing work to proceed before the price is agreed.",
+      "value": null,
+      "anchor": "Owner may issue a CCD directing CM to proceed with a change before the price is agreed"
+    },
+    {
+      "id": "R071",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.6"
+      ],
+      "summary": "After a CCD, CP due within 14 days.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "CM shall submit its CP within 14 days after receiving the CCD"
+    },
+    {
+      "id": "R072",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.6"
+      ],
+      "summary": "If not agreed within 30 days after the CP is submitted, cost is actual Cost of the Work plus Fee.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "anchor": "If the parties have not agreed within 30 days after the CP is submitted"
+    },
+    {
+      "id": "R073",
+      "type": "pricing_input",
+      "core": true,
+      "sections": [
+        "6.6"
+      ],
+      "summary": "Unagreed CCD cost is the actual Cost of the Work under Section 6.5 plus the Fee.",
+      "value": null,
+      "anchor": "the cost is determined as the actual Cost of the Work calculated under Section 6.5, plus the Fee"
+    },
+    {
+      "id": "R074",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.6"
+      ],
+      "summary": "CCD is converted to a CO within 45 days after the price is agreed.",
+      "value": {
+        "number": 45,
+        "unit": "days"
+      },
+      "anchor": "Within 45 days after the price is agreed, the CCD shall be converted to a CO"
+    },
+    {
+      "id": "R075",
+      "type": "approval_authority",
+      "core": true,
+      "sections": [
+        "6.7"
+      ],
+      "summary": "A CO is effective only when signed by Owner, Architect, and CM.",
+      "value": null,
+      "anchor": "A CO is effective only when signed by Owner, Architect, and CM"
+    },
+    {
+      "id": "R076",
+      "type": "approval_authority",
+      "core": true,
+      "sections": [
+        "6.7",
+        "Exhibit D"
+      ],
+      "summary": "Owner's Representative may approve a CO of up to $250,000.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "anchor": "approve a CO of up to $250,000"
+    },
+    {
+      "id": "R077",
+      "type": "approval_authority",
+      "core": true,
+      "sections": [
+        "6.7",
+        "Exhibit D"
+      ],
+      "summary": "COs above $250,000, or related changes totaling more than $250,000, require Board approval.",
+      "value": {
+        "number": 250000,
+        "unit": "USD"
+      },
+      "anchor": "A CO above $250,000, or a series of related changes totaling more than $250,000"
+    },
+    {
+      "id": "R078",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "6.8"
+      ],
+      "summary": "If CM believes an ASI changes cost or time, it gives notice under 6.2(a) before proceeding.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "it shall give notice under Section 6.2(a) before proceeding"
+    },
+    {
+      "id": "R079",
+      "type": "non_authorization",
+      "core": true,
+      "sections": [
+        "6.8"
+      ],
+      "summary": "Proceeding with an ASI does not waive the right to notice if notice is timely.",
+      "value": null,
+      "anchor": "Proceeding with an ASI does not waive"
+    },
+    {
+      "id": "R080",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "6.9"
+      ],
+      "summary": "CM keeps a CP log numbered in sequence with notice date, submission date, amount, status, and originating document.",
+      "value": null,
+      "anchor": "CM shall keep a log of all CPs, numbered in sequence"
+    },
+    {
+      "id": "R081",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "6.9"
+      ],
+      "summary": "CP log is updated weekly and submitted with each pay application.",
+      "value": null,
+      "anchor": "CM shall update the log weekly and submit it with each Application for Payment"
+    },
+    {
+      "id": "R082",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "7.1",
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "RFI must identify drawing sheets and spec sections, state the question, propose an answer, and give a needed-by date.",
+      "value": null,
+      "anchor": "identify the drawing sheets and specification sections involved"
+    },
+    {
+      "id": "R083",
+      "type": "process",
+      "core": true,
+      "sections": [
+        "7.2"
+      ],
+      "summary": "Architect may return an RFI that was answered in the Contract Documents without a full response.",
+      "value": null,
+      "anchor": "Architect may return it without a full response"
+    },
+    {
+      "id": "R084",
+      "type": "amount",
+      "core": true,
+      "sections": [
+        "7.2"
+      ],
+      "summary": "Architect review cost of $350 charged to CM for each such RFI beyond the tenth, deducted from the next pay application.",
+      "value": {
+        "number": 350,
+        "unit": "USD"
+      },
+      "anchor": "each such RFI beyond the tenth shall be charged to CM at $350 per RFI"
+    },
+    {
+      "id": "R085",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "7.3"
+      ],
+      "summary": "Architect responds to each RFI within 10 days after receipt.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "anchor": "Architect shall respond to each RFI within 10 days after receipt"
+    },
+    {
+      "id": "R086",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "7.3"
+      ],
+      "summary": "Critical Path RFIs are answered within 3 business days.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "anchor": "An RFI marked Critical Path shall be answered within 3 business days"
+    },
+    {
+      "id": "R087",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "7.3"
+      ],
+      "summary": "If Architect cannot respond in time, it notifies CM within 5 days and gives a response date.",
+      "value": {
+        "number": 5,
+        "unit": "days"
+      },
+      "anchor": "it shall notify CM within 5 days and give the date a response will be provided"
+    },
+    {
+      "id": "R088",
+      "type": "non_authorization",
+      "core": true,
+      "sections": [
+        "7.4"
+      ],
+      "summary": "An RFI response does not change the Contract Sum or Contract Time.",
+      "value": null,
+      "anchor": "An RFI response does not change the Contract Sum or Contract Time"
+    },
+    {
+      "id": "R089",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "7.5"
+      ],
+      "summary": "CM sends each RFI response to every affected subcontractor within 2 business days.",
+      "value": {
+        "number": 2,
+        "unit": "business days"
+      },
+      "anchor": "CM shall send each RFI response to every affected subcontractor within 2 business days"
+    },
+    {
+      "id": "R090",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "7.5"
+      ],
+      "summary": "CM keeps an RFI log, updated weekly.",
+      "value": null,
+      "anchor": "CM shall keep an RFI log, updated weekly"
+    },
+    {
+      "id": "R091",
+      "type": "process",
+      "core": true,
+      "sections": [
+        "7.6"
+      ],
+      "summary": "If an RFI is unanswered after 10 days, CM may send a written follow-up.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "anchor": "If an RFI is unanswered after 10 days, CM may send a written follow-up"
+    },
+    {
+      "id": "R092",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "7.6"
+      ],
+      "summary": "If unanswered after 15 days, CM may give notice of a Potential Change under 6.2(d).",
+      "value": {
+        "number": 15,
+        "unit": "days"
+      },
+      "anchor": "If it is unanswered after 15 days, CM may give notice of a Potential Change under Section 6.2(d)"
+    },
+    {
+      "id": "R093",
+      "type": "non_authorization",
+      "core": true,
+      "sections": [
+        "7.7",
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Statements in meeting minutes are not notice under 6.2 and do not authorize changes unless repeated in a written notice, CO, or CCD.",
+      "value": null,
+      "anchor": "A statement in meeting minutes is not notice under Section 6.2"
+    },
+    {
+      "id": "R094",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "8.1"
+      ],
+      "summary": "Submittal schedule due within 30 days after Notice to Proceed.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "anchor": "CM shall submit a submittal schedule within 30 days after the Notice to Proceed"
+    },
+    {
+      "id": "R095",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "8.2"
+      ],
+      "summary": "Architect reviews each submittal within 14 days after receipt.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "Architect shall review each submittal within 14 days after receipt"
+    },
+    {
+      "id": "R096",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "8.2"
+      ],
+      "summary": "Architect reviews each resubmittal within 10 days.",
+      "value": {
+        "number": 10,
+        "unit": "days"
+      },
+      "anchor": "each resubmittal within 10 days"
+    },
+    {
+      "id": "R097",
+      "type": "process",
+      "core": true,
+      "sections": [
+        "8.2",
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "CM reviews and stamps each submittal before sending it to the Architect.",
+      "value": null,
+      "anchor": "CM shall review and stamp each submittal"
+    },
+    {
+      "id": "R098",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "8.3"
+      ],
+      "summary": "CM tells affected subcontractors of Approved as Noted / Revise and Resubmit returns within 3 business days.",
+      "value": {
+        "number": 3,
+        "unit": "business days"
+      },
+      "anchor": "CM shall tell every affected subcontractor within 3 business days"
+    },
+    {
+      "id": "R099",
+      "type": "notice_window",
+      "core": true,
+      "sections": [
+        "8.3"
+      ],
+      "summary": "If a submittal comment changes cost or time, CM gives notice under 6.2(a).",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "If CM believes a comment changes cost or time, CM shall give notice under Section 6.2(a)"
+    },
+    {
+      "id": "R100",
+      "type": "payment_term",
+      "core": true,
+      "sections": [
+        "9.1"
+      ],
+      "summary": "Applications for Payment are submitted by the 25th of each month.",
+      "value": null,
+      "anchor": "by the 25th of each month"
+    },
+    {
+      "id": "R101",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "9.1"
+      ],
+      "summary": "Pay applications include the change log, SPW percentage, and lien waivers.",
+      "value": null,
+      "anchor": "with the change log, the SPW percentage, and lien waivers"
+    },
+    {
+      "id": "R102",
+      "type": "payment_term",
+      "core": true,
+      "sections": [
+        "9.2"
+      ],
+      "summary": "Owner pays within 30 days after receiving a complete Application.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "anchor": "within 30 days after receiving a complete Application"
+    },
+    {
+      "id": "R103",
+      "type": "payment_term",
+      "core": true,
+      "sections": [
+        "9.2"
+      ],
+      "summary": "Overdue undisputed amounts bear interest at 1% per month.",
+      "value": {
+        "number": 1,
+        "unit": "percent"
+      },
+      "anchor": "Overdue undisputed amounts bear interest at 1% per month"
+    },
+    {
+      "id": "R104",
+      "type": "payment_term",
+      "core": true,
+      "sections": [
+        "9.3"
+      ],
+      "summary": "Owner retains 5% of each progress payment.",
+      "value": {
+        "number": 5,
+        "unit": "percent"
+      },
+      "anchor": "Owner shall retain 5% of each progress payment"
+    },
+    {
+      "id": "R105",
+      "type": "restriction",
+      "core": true,
+      "sections": [
+        "9.4"
+      ],
+      "summary": "A change may be billed only after a CO is executed or a CCD is issued.",
+      "value": null,
+      "anchor": "CM may bill a change only after a CO is executed or a CCD is issued"
+    },
+    {
+      "id": "R106",
+      "type": "payment_term",
+      "core": true,
+      "sections": [
+        "9.4"
+      ],
+      "summary": "CCD work may be billed as costs are incurred, subject to adjustment.",
+      "value": null,
+      "anchor": "CCD work may be billed as costs are incurred"
+    },
+    {
+      "id": "R107",
+      "type": "claim_rule",
+      "core": true,
+      "sections": [
+        "10.1"
+      ],
+      "summary": "Claim for added cost or time must be made in writing within 21 days after the event.",
+      "value": {
+        "number": 21,
+        "unit": "days"
+      },
+      "anchor": "within 21 days after the event giving rise to it"
+    },
+    {
+      "id": "R108",
+      "type": "claim_rule",
+      "core": true,
+      "sections": [
+        "10.1"
+      ],
+      "summary": "Or within 14 days after receiving Owner's response to a disputed CP, whichever applies.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "or within 14 days after CM receives"
+    },
+    {
+      "id": "R109",
+      "type": "waiver_consequence",
+      "core": true,
+      "sections": [
+        "10.1"
+      ],
+      "summary": "A claim not made in time is waived.",
+      "value": null,
+      "anchor": "A claim not made in time is waived"
+    },
+    {
+      "id": "R110",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "10.2"
+      ],
+      "summary": "Owner responds to a claim within 30 days after receiving it.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "anchor": "Owner shall respond to a claim within 30 days after receiving it"
+    },
+    {
+      "id": "R111",
+      "type": "process",
+      "core": false,
+      "sections": [
+        "10.3"
+      ],
+      "summary": "Unresolved claims go to mediation, then King County Superior Court.",
+      "value": null,
+      "anchor": "Unresolved claims shall go to mediation"
+    },
+    {
+      "id": "R112",
+      "type": "restriction",
+      "core": false,
+      "sections": [
+        "10.3"
+      ],
+      "summary": "CM continues the Work during any dispute.",
+      "value": null,
+      "anchor": "CM shall continue the Work during any dispute"
+    },
+    {
+      "id": "R113",
+      "type": "audit_rule",
+      "core": true,
+      "sections": [
+        "11.1"
+      ],
+      "summary": "CM keeps cost records at least 6 years after final payment.",
+      "value": {
+        "number": 6,
+        "unit": "years"
+      },
+      "anchor": "at least 6 years after final payment"
+    },
+    {
+      "id": "R114",
+      "type": "audit_rule",
+      "core": true,
+      "sections": [
+        "11.2"
+      ],
+      "summary": "Charges found not allowable under Articles 5 and 6 are credited to Owner within 30 days after the audit report.",
+      "value": {
+        "number": 30,
+        "unit": "days"
+      },
+      "anchor": "shall be credited to Owner within 30 days after the audit report"
+    },
+    {
+      "id": "R115",
+      "type": "audit_rule",
+      "core": true,
+      "sections": [
+        "11.2"
+      ],
+      "summary": "Owner may offset the credited amount against money owed to CM.",
+      "value": null,
+      "anchor": "Owner may offset the amount against money owed to CM"
+    },
+    {
+      "id": "R116",
+      "type": "amount",
+      "core": false,
+      "sections": [
+        "12.1"
+      ],
+      "summary": "Payment and performance bonds each for 100% of the GMP.",
+      "value": {
+        "number": 100,
+        "unit": "percent"
+      },
+      "anchor": "payment and performance bonds each for 100% of the GMP"
+    },
+    {
+      "id": "R117",
+      "type": "amount",
+      "core": false,
+      "sections": [
+        "12.1"
+      ],
+      "summary": "CGL insurance of at least $2,000,000 per occurrence and $4,000,000 aggregate.",
+      "value": {
+        "number": 2000000,
+        "unit": "USD"
+      },
+      "anchor": "at least $2,000,000 per occurrence and $4,000,000 in the aggregate"
+    },
+    {
+      "id": "R118",
+      "type": "notice_window",
+      "core": false,
+      "sections": [
+        "13.1"
+      ],
+      "summary": "Termination for cause if a material default is not cured within 7 days after written notice.",
+      "value": {
+        "number": 7,
+        "unit": "days"
+      },
+      "anchor": "fails to cure a material default within 7 days after written notice"
+    },
+    {
+      "id": "R119",
+      "type": "notice_window",
+      "core": false,
+      "sections": [
+        "13.2"
+      ],
+      "summary": "Termination for convenience on 14 days' written notice.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "Owner may terminate for convenience on 14 days"
+    },
+    {
+      "id": "R120",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "14.2"
+      ],
+      "summary": "Notices must be in writing and sent to the representatives in Exhibit D.",
+      "value": null,
+      "anchor": "Notices shall be in writing and sent to the representatives in Exhibit D"
+    },
+    {
+      "id": "R121",
+      "type": "interpretation",
+      "core": true,
+      "sections": [
+        "14.2"
+      ],
+      "summary": "A notice sent through the Owner's designated platform is received on the next business day.",
+      "value": null,
+      "anchor": "A notice sent through the project management platform designated by Owner is a written notice and is received on the next business day"
+    },
+    {
+      "id": "R122",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "SGC-included equipment: field office and trailers, two project pickups, small tools under $1,000, signage, office computers.",
+      "value": null,
+      "anchor": "field office and trailers; two project pickup trucks"
+    },
+    {
+      "id": "R123",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Chargeable equipment includes owned equipment at 75% of Blue Book, rented at invoice, operator labor, and fuel at actual cost.",
+      "value": null,
+      "anchor": "operator labor under Section 5.4; fuel at actual cost"
+    },
+    {
+      "id": "R124",
+      "type": "equipment_rule",
+      "core": true,
+      "sections": [
+        "Exhibit B"
+      ],
+      "summary": "Mobilization is chargeable only when the equipment would not otherwise be on site.",
+      "value": null,
+      "anchor": "Mobilization is chargeable only when the equipment would not otherwise be on site"
+    },
+    {
+      "id": "R125",
+      "type": "approval_authority",
+      "core": true,
+      "sections": [
+        "Exhibit D"
+      ],
+      "summary": "The Architect cannot approve cost or time.",
+      "value": null,
+      "anchor": "cannot approve cost or time"
+    },
+    {
+      "id": "R126",
+      "type": "response_time",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "Proposal Request: CP within 14 days or an explanation of why more time is needed.",
+      "value": {
+        "number": 14,
+        "unit": "days"
+      },
+      "anchor": "or within that time explain why more time is needed"
+    },
+    {
+      "id": "R127",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "A revised CP keeps its number with a letter suffix; CPs are numbered CP-0001, CP-0002, and so on.",
+      "value": null,
+      "anchor": "A revised CP keeps its number with a letter suffix"
+    },
+    {
+      "id": "R128",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 26 00"
+      ],
+      "summary": "Every CP attaches the originating RFI/ASI/CCD, subcontractor quotes, equipment logs, and T&M tags.",
+      "value": null,
+      "anchor": "Every CP shall attach the RFI, ASI, or CCD that caused it"
+    },
+    {
+      "id": "R129",
+      "type": "documentation_requirement",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Critical Path RFIs state the activity affected and the date it will be delayed without an answer.",
+      "value": null,
+      "anchor": "shall state the activity affected and the date the activity will be delayed if no answer is received"
+    },
+    {
+      "id": "R130",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "Coordination meeting minutes are issued within 2 business days.",
+      "value": {
+        "number": 2,
+        "unit": "business days"
+      },
+      "anchor": "issue minutes within 2 business days"
+    },
+    {
+      "id": "R131",
+      "type": "process",
+      "core": false,
+      "sections": [
+        "Exhibit E 01 31 00"
+      ],
+      "summary": "CM holds weekly coordination meetings with the Architect and Owner's Representative.",
+      "value": null,
+      "anchor": "CM shall hold weekly coordination meetings"
+    },
+    {
+      "id": "R132",
+      "type": "deadline",
+      "core": true,
+      "sections": [
+        "Exhibit E 01 33 00"
+      ],
+      "summary": "Items with lead time over 12 weeks are flagged on the submittal schedule and submitted within 45 days after Notice to Proceed.",
+      "value": {
+        "number": 45,
+        "unit": "days"
+      },
+      "anchor": "Items with a lead time over 12 weeks shall be flagged on the submittal schedule and submitted within 45 days after the Notice to Proceed"
+    }
+  ],
+  "confusable_clocks": {
+    "10 days": [
+      "R036",
+      "R085",
+      "R091",
+      "R096"
+    ],
+    "7 days": [
+      "R037",
+      "R038",
+      "R039",
+      "R050",
+      "R078",
+      "R099",
+      "R118"
+    ],
+    "14 days": [
+      "R040",
+      "R044",
+      "R049",
+      "R052",
+      "R071",
+      "R095",
+      "R108",
+      "R119",
+      "R126"
+    ],
+    "3 business days": [
+      "R068",
+      "R086",
+      "R098"
+    ],
+    "30 days": [
+      "R072",
+      "R094",
+      "R102",
+      "R110",
+      "R114"
+    ]
+  },
+  "pitfalls": [
+    {
+      "id": "P1",
+      "name": "Similar clocks, different triggers",
+      "note": "Several rules use the same number of days but start from different events. An extractor must record the trigger, not just the number. The 21-day CM-initiated CP (6.3) versus the 14-day Proposal Request CP (6.3, Exhibit E) is the main trap."
+    },
+    {
+      "id": "P2",
+      "name": "Rules split across documents",
+      "note": "The CP deadline appears in Article 6 and Exhibit E; Equipment rules appear in 6.5.4 and Exhibit B; approval authority appears in 6.7 and Exhibit D. A match to either location counts."
+    },
+    {
+      "id": "P3",
+      "name": "Exceptions to the Fee",
+      "note": "The 5% Fee applies to changes (6.5.3) except NSS, SGC adjustments, bond and insurance premiums, B&O taxes, and permit fees. An extractor that reports only the 5% misses the exception. These are the categories closest to the Webster audit findings."
+    },
+    {
+      "id": "P4",
+      "name": "Non-rules that look like rules",
+      "note": "Meeting minutes are not notice (7.7), an RFI response does not authorize cost (7.4), and silence is not acceptance (6.4). These are negative rules. The extractor should not report them as notice windows or approvals."
+    },
+    {
+      "id": "P5",
+      "name": "Precedence",
+      "note": "Exhibit E cannot shorten a notice period or lengthen a response time in the Articles (1.2). If an extractor reports a shorter or longer period from Exhibit E, it should flag the conflict."
+    },
+    {
+      "id": "P6",
+      "name": "Cross-references",
+      "note": "Several rules depend on another section (6.5.5 refers to 5.5; 8.3 and 6.8 refer to 6.2(a); 6.5.6 refers to 5.2). Rules that only cross-reference should still be extracted with the target section."
+    },
+    {
+      "id": "P7",
+      "name": "Amounts that are facts, not rules",
+      "note": "Exhibit A, B, and C line items are budget amounts, not rules. They are not in the key. Amounts that act as limits or rates (for example $3,185 per day, $350 per RFI, $250,000 approval limit) are in the key."
+    }
+  ],
+  "scoring": {
+    "unit": "One rule per entry. A predicted rule matches a key entry when it cites one of the entry's sections, has the same type group, and carries the same value (numbers and units must match exactly; rules with no value match on section and meaning).",
+    "recall": "matched key rules / key rules, reported for core rules and for all rules (claim 1 target: at least 85% of core rules).",
+    "precision": "matched predicted rules / predicted rules.",
+    "citation_validity": "share of predicted quotes that appear verbatim (after whitespace and punctuation normalization) in the contract text.",
+    "type_groups": {
+      "notice": [
+        "notice_window"
+      ],
+      "time": [
+        "deadline",
+        "response_time"
+      ],
+      "money_rules": [
+        "fee_rate",
+        "fee_exclusion",
+        "markup_limit",
+        "cap",
+        "amount",
+        "pricing_input",
+        "non_chargeable_cost",
+        "equipment_rule",
+        "payment_term"
+      ],
+      "authority": [
+        "approval_authority",
+        "precedence",
+        "non_authorization",
+        "restriction"
+      ],
+      "other": [
+        "claim_rule",
+        "waiver_consequence",
+        "audit_rule",
+        "documentation_requirement",
+        "process",
+        "interpretation"
+      ]
+    },
+    "note": "Type labels are a guide. When a predicted rule and a key rule describe the same requirement with a different type label, count it as a match and record the label difference separately."
+  }
+}
