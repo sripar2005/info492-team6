@@ -104,6 +104,23 @@ p { margin: 0; max-width: 68ch; }
 .filters button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
 .filters input { font: 400 0.95rem var(--body); padding: 7px 12px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 8px; min-width: 0; flex: 1 1 180px; }
 .count { font: 400 0.85rem var(--mono); color: var(--ink-2); }
+.filters .n { font-weight: 400; opacity: 0.75; }
+details.group { border: 1px solid var(--rule); }
+details.group + details.group { margin-top: -1px; }
+details.group > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; padding: 14px 16px; align-items: center; }
+details.group > summary::-webkit-details-marker { display: none; }
+details.group > summary:hover { background: var(--chip); }
+details.group > summary h3::before { content: "\25B8  "; color: var(--red); }
+details.group[open] > summary h3::before { content: "\25BE  "; }
+details.group[open] > summary { border-bottom: 1px solid var(--rule); }
+.gmeta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; font: 400 0.85rem var(--mono); color: var(--ink-2); }
+.gbar { grid-column: 1 / -1; height: 6px; background: var(--chip); position: relative; }
+.gbar i { position: absolute; inset: 0 auto 0 0; background: var(--good); }
+details.group .rules { padding: 0 12px 8px; border-top: 0; }
+.okline { border: 1.5px solid var(--good); background: var(--good-tint); padding: 12px 16px; border-radius: 10px; font-weight: 600; max-width: none; }
+.okline span { font-weight: 400; color: var(--ink-2); }
+details.fold > summary { cursor: pointer; font: 600 0.92rem var(--body); padding: 8px 0; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+details.fold[open] > summary { margin-bottom: 10px; }
 .rules { display: grid; border-top: 1px solid var(--rule); }
 details.rule { border-bottom: 1px solid var(--rule); }
 details.rule summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 5ch 9.5ch minmax(0, 1fr) auto; gap: 12px; padding: 10px 4px; align-items: baseline; }
@@ -209,15 +226,14 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <!-- BROWSER -->
   <section class="sheet" id="rules">
-    <div class="strip"><h2>Rule by rule</h2><span class="tag">All 132 rules</span></div>
+    <div class="strip"><h2>Rule by rule</h2><span class="tag">132 rules by topic</span></div>
     <div class="body">
-      <p>Every rule in the answer key, with what the extractor returned for it. Open a row to compare the contract's own words with the extractor's quote.</p>
+      <p>Opens on the rules that need attention. Rules are grouped by topic: open a topic, then a rule, to compare the contract's own words with the extractor's quote.</p>
       <div class="filters" role="group" aria-label="Filter rules">
-        <button type="button" data-f="all" aria-pressed="true">All</button>
-        <button type="button" data-f="found" aria-pressed="false">Found</button>
-        <button type="button" data-f="wrong" aria-pressed="false">Wrong value</button>
-        <button type="button" data-f="missed" aria-pressed="false">Missed</button>
-        <button type="button" data-f="trap" aria-pressed="false">Traps only</button>
+        <button type="button" data-f="problems" aria-pressed="true">Problems <span class="n" data-n="problems"></span></button>
+        <button type="button" data-f="found" aria-pressed="false">Found <span class="n" data-n="found"></span></button>
+        <button type="button" data-f="all" aria-pressed="false">All <span class="n" data-n="all"></span></button>
+        <button type="button" data-f="trap" aria-pressed="false">Traps <span class="n" data-n="trap"></span></button>
         <input id="q" type="search" placeholder="Search: fee, 14 days, 6.5…" aria-label="Search rules">
       </div>
       <span class="count" id="count"></span>
@@ -229,9 +245,11 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
   <section class="sheet" id="review">
     <div class="strip"><h2>Needs a human look</h2><span class="tag">For review</span></div>
     <div class="body">
-      <div class="cols">
-        <div style="display:grid;gap:10px;align-content:start"><h3>Quotes not found in the contract</h3><p class="note">Possible fabrications. The extractor's quote could not be matched word for word.</p><ul class="list" id="unverified"><li class="note">Appears after the run.</li></ul></div>
-        <div style="display:grid;gap:10px;align-content:start"><h3>Extracted rules the key doesn't support</h3><p class="note">Either errors, or real rules the answer key missed. A teammate decides which.</p><ul class="list" id="unsupported"><li class="note">Appears after the run.</li></ul></div>
+      <div id="fab"><p class="note">Appears after the run.</p></div>
+      <div id="unsup" hidden>
+        <h3 id="unsup-title"></h3>
+        <p class="note">The extractor found these, but the answer key doesn't list them. Many look like real rules the key missed (for example, Exhibit D's approval thresholds); some may be duplicates or errors. A teammate decides which, and the official score is not changed.</p>
+        <details class="fold"><summary id="unsup-toggle"></summary><ul class="list" id="unsupported"></ul></details>
       </div>
     </div>
   </section>
@@ -294,7 +312,18 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
     return fetch(BASE + path, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
   }
 
-  var state = { key: null, ext: null, ev: null, filter: "all", q: "" };
+  var state = { key: null, ext: null, ev: null, filter: "problems", q: "" };
+  var TOPICS = [
+    ["Notice and deadlines", ["notice_window", "response_time", "deadline", "waiver_consequence"]],
+    ["Fees and markups", ["fee_rate", "fee_exclusion", "markup_limit"]],
+    ["Pricing and costs", ["amount", "cap", "pricing_input", "non_chargeable_cost"]],
+    ["Equipment", ["equipment_rule"]],
+    ["Approvals and authority", ["approval_authority", "non_authorization"]],
+    ["Claims, payment, and audit", ["claim_rule", "payment_term", "audit_rule"]],
+    ["Documentation and process", ["documentation_requirement", "process"]],
+    ["Interpretation and restrictions", ["precedence", "interpretation", "restriction"]]
+  ];
+  function topicOf(type) { for (var i = 0; i < TOPICS.length; i++) if (TOPICS[i][1].indexOf(type) >= 0) return i; return TOPICS.length - 1; }
 
   Promise.all([
     getJSON("data/answer_key.json"),
@@ -313,6 +342,12 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   function renderPending() {
     $("pending").hidden = false;
+    state.filter = "all";
+    document.querySelectorAll(".filters button").forEach(function (x) {
+      var f = x.getAttribute("data-f");
+      x.setAttribute("aria-pressed", f === "all" ? "true" : "false");
+      if (f === "problems" || f === "found") x.hidden = true;
+    });
     $("tb-status").innerHTML = '<span class="chip">Awaiting run</span>';
     $("report-link").removeAttribute("href");
   }
@@ -347,16 +382,20 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
     [["t-clocks", "confusable"], ["t-fee", "fee_exclusions"], ["t-neg", "negative"]].forEach(function (p) {
       var x = pick(p[1]); setBar(p[0], x); $(p[0] + "-p").textContent = pct(x);
     });
-    listInto("unverified", state.ev.unverified_quotes, function (r) {
-      return '<span class="rid">' + esc(r.id) + "</span><blockquote>" + esc(r.quote) + "</blockquote><span class=\"note\">" + esc(r.summary) + "</span>";
-    });
-    listInto("unsupported", state.ev.possible_false_positives, function (r) {
-      return '<span class="rid">' + esc(r.id) + " · " + esc(r.type) + " · " + esc((r.sections || []).join(", ")) + "</span><span>" + esc(r.summary) + "</span>";
-    });
-  }
-
-  function listInto(id, items, fmt) {
-    $(id).innerHTML = items && items.length ? items.map(function (r) { return "<li>" + fmt(r) + "</li>"; }).join("") : '<li class="note">None.</li>';
+    var unv = state.ev.unverified_quotes || [], n = (state.ext.rules || []).length;
+    $("fab").innerHTML = unv.length === 0
+      ? '<p class="okline">\u2713 All ' + n + ' quotes were found word for word in the contract. <span>Nothing was invented, so there are no possible fabrications to review.</span></p>'
+      : '<h3>' + unv.length + ' quote' + (unv.length > 1 ? "s" : "") + ' not found in the contract</h3><p class="note">Possible fabrications. Check each against the contract.</p><ul class="list">' +
+        unv.map(function (r) { return '<li><span class="rid">' + esc(r.id) + '</span><blockquote>' + esc(r.quote) + '</blockquote><span class="note">' + esc(r.summary) + '</span></li>'; }).join("") + '</ul>';
+    var fp = state.ev.possible_false_positives || [];
+    if (fp.length) {
+      $("unsup").hidden = false;
+      $("unsup-title").textContent = fp.length + " extracted rules aren't in the answer key";
+      $("unsup-toggle").textContent = "Show all " + fp.length;
+      $("unsupported").innerHTML = fp.map(function (r) {
+        return '<li><span class="rid">' + esc(r.id) + ' \u00b7 ' + esc(r.type) + ' \u00b7 ' + esc((r.sections || []).join(", ")) + '</span><span>' + esc(r.summary) + '</span></li>';
+      }).join("");
+    }
   }
 
   function statusOf(rule) {
@@ -390,35 +429,61 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
       "<dt>Summary</dt><dd>" + esc(e.summary) + "</dd></dl></div>";
   }
 
-  function renderRules() {
-    var traps = trapIds(), ext = extractedById();
+  function ruleRow(r, traps, ext) {
     var label = { found: "Found", wrong: "Wrong value", missed: "Missed", pending: "Awaiting run" };
-    var q = state.q.toLowerCase();
-    var rows = state.key.rules.filter(function (r) {
-      var s = statusOf(r);
-      if (state.filter === "trap" && !traps[r.id]) return false;
-      if (["found", "wrong", "missed"].indexOf(state.filter) >= 0 && s !== state.filter) return false;
+    var s = statusOf(r), e1 = null, wrongs = [];
+    if (s === "found") e1 = ext[state.ev.found_map[r.id]];
+    if (s === "wrong") (state.ev.wrong_value.find(function (w) { return w.id === r.id; }).details || []).forEach(function (d) { if (ext[d.extracted_id]) wrongs.push(ext[d.extracted_id]); });
+    var right = s === "pending" ? '<div><span class="label">Extractor</span><p class="note">Appears after the live run.</p></div>'
+      : s === "missed" ? '<div><span class="label">Extractor</span><p class="bad">No extracted rule matched this text.</p></div>'
+      : s === "found" ? extractedBlock(e1, "Matched extraction")
+      : wrongs.map(function (w) { return extractedBlock(w, "Same text, different value"); }).join("");
+    return '<details class="rule"><summary><span class="rid">' + esc(r.id) + '</span><span class="rsec">§ ' + esc(r.sections.join(", ")) + '</span><span class="rsum">' + esc(r.summary) +
+      (r.core ? "" : ' <span class="note">(peripheral)</span>') + '</span><span class="chip ' + s + '">' + label[s] + "</span></summary>" +
+      '<div class="detail"><div><span class="label">Answer key · ' + esc(r.type) + "</span><blockquote>" + esc(r.anchor) + '</blockquote><dl class="kv"><dt>Value</dt><dd>' + esc(val(r.value)) +
+      "</dd><dt>Section</dt><dd>" + esc(r.sections.join(", ")) + "</dd>" + (traps[r.id] ? "<dt>Trap</dt><dd>" + esc(traps[r.id] === "clock" ? "same clock, different trigger" : traps[r.id] === "fee_exclusion" ? "fee exception" : "negative rule") + "</dd>" : "") +
+      "</dl></div>" + right + "</div></details>";
+  }
+
+  function matches(r, f, traps) {
+    var s = statusOf(r);
+    if (f === "problems") return s === "wrong" || s === "missed";
+    if (f === "found") return s === "found";
+    if (f === "trap") return !!traps[r.id];
+    return true;
+  }
+
+  function renderRules() {
+    var traps = trapIds(), ext = extractedById(), q = state.q.toLowerCase();
+    ["problems", "found", "all", "trap"].forEach(function (f) {
+      var el = document.querySelector('[data-n="' + f + '"]');
+      if (el) el.textContent = "(" + state.key.rules.filter(function (r) { return matches(r, f, traps); }).length + ")";
+    });
+    var groups = TOPICS.map(function () { return { all: [], shown: [] }; });
+    state.key.rules.forEach(function (r) {
+      var g = groups[topicOf(r.type)];
+      g.all.push(r);
+      if (!matches(r, state.filter, traps)) return;
       if (q) {
         var hay = (r.id + " " + r.type + " " + r.sections.join(" ") + " " + r.summary + " " + r.anchor + " " + val(r.value)).toLowerCase();
-        if (hay.indexOf(q) < 0) return false;
+        if (hay.indexOf(q) < 0) return;
       }
-      return true;
+      g.shown.push(r);
     });
-    $("count").textContent = rows.length + " of " + state.key.rules.length + " rules";
-    $("rule-list").innerHTML = rows.map(function (r) {
-      var s = statusOf(r), e1 = null, wrongs = [];
-      if (s === "found") e1 = ext[state.ev.found_map[r.id]];
-      if (s === "wrong") (state.ev.wrong_value.find(function (w) { return w.id === r.id; }).details || []).forEach(function (d) { if (ext[d.extracted_id]) wrongs.push(ext[d.extracted_id]); });
-      var right = s === "pending" ? '<div><span class="label">Extractor</span><p class="note">Appears after the live run.</p></div>'
-        : s === "missed" ? '<div><span class="label">Extractor</span><p class="bad">No extracted rule matched this text.</p></div>'
-        : s === "found" ? extractedBlock(e1, "Matched extraction")
-        : wrongs.map(function (w) { return extractedBlock(w, "Same text, different value"); }).join("");
-      return '<details class="rule"><summary><span class="rid">' + esc(r.id) + '</span><span class="rsec">§ ' + esc(r.sections.join(", ")) + '</span><span class="rsum">' + esc(r.summary) +
-        (r.core ? "" : ' <span class="note">(peripheral)</span>') + '</span><span class="chip ' + s + '">' + label[s] + "</span></summary>" +
-        '<div class="detail"><div><span class="label">Answer key · ' + esc(r.type) + "</span><blockquote>" + esc(r.anchor) + '</blockquote><dl class="kv"><dt>Value</dt><dd>' + esc(val(r.value)) +
-        "</dd><dt>Section</dt><dd>" + esc(r.sections.join(", ")) + "</dd>" + (traps[r.id] ? "<dt>Trap</dt><dd>" + esc(traps[r.id] === "clock" ? "same clock, different trigger" : traps[r.id] === "fee_exclusion" ? "fee exception" : "negative rule") + "</dd>" : "") +
-        "</dl></div>" + right + "</div></details>";
-    }).join("") || '<p class="note">No rules match.</p>';
+    var open = state.filter === "problems" || !!q, shown = 0, topics = 0;
+    var html = groups.map(function (g, i) {
+      if (!g.shown.length) return "";
+      shown += g.shown.length; topics++;
+      var found = state.ev ? g.all.filter(function (r) { return statusOf(r) === "found"; }).length : null;
+      var probs = found == null ? 0 : g.all.length - found;
+      var meta = found == null ? g.all.length + " rules"
+        : found + " of " + g.all.length + " found" + (probs ? ' <span class="chip missed">' + probs + " to check</span>" : ' <span class="chip found">All found</span>');
+      return '<details class="group"' + (open ? " open" : "") + '><summary><h3>' + esc(TOPICS[i][0]) + '</h3><span class="gmeta">' + meta + "</span>" +
+        (found == null ? "" : '<span class="gbar"><i style="width:' + (100 * found / g.all.length) + '%"></i></span>') +
+        '</summary><div class="rules">' + g.shown.map(function (r) { return ruleRow(r, traps, ext); }).join("") + "</div></details>";
+    }).join("");
+    $("count").textContent = shown ? "Showing " + shown + " rule" + (shown > 1 ? "s" : "") + " in " + topics + " topic" + (topics > 1 ? "s" : "") : "";
+    $("rule-list").innerHTML = html || '<p class="note">No rules match.</p>';
   }
 
   document.querySelectorAll(".filters button").forEach(function (b) {
