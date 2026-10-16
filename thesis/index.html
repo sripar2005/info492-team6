@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team 6 Thesis Detail</title>
+<meta name="description" content="Team 6's test project, data plan, coordination posture, testable claims, and guardrails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/nav.css">
+</head>
+<body>
+<div class="set" id="top">
+  <header class="topbar">
+    <a class="brand" href="/">Team 6 <small>INFO 492 C · Handoff checker</small></a>
+    <nav aria-label="Site"><ul class="tabs"><li><a href="/">Overview</a></li><li><a href="/thesis/" aria-current="page">Thesis</a></li><li><a href="/demos/">Demos</a></li><li><a href="/log/">Log</a></li><li><a href="/sources/">Sources</a></li></ul></nav>
+  </header>
+  <section class="pagehead">
+    <h1>How we test the thesis</h1>
+    <p>The project we test on, the data we use, who is involved, what would prove us right or wrong, and what the agent is never allowed to do.</p>
+  </section>
+
+  <section class="sheet" id="lens">
+    <div class="strip"><h2>Project lens: Webster School</h2><span class="tag">Test project</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:14px">
+          <p>Webster is a 1908 Seattle school building that was modernized and expanded, finishing in 2021. A public December 2023 audit lists specific change-pricing errors found after final payment, so we know what a checker should have caught. The audit quotes the contract's fee and pricing terms, and public board reports describe individual change orders.</p>
+          <dl class="facts">
+            <dt>Owner</dt><dd>Seattle Public Schools (Seattle School District No. 1)</dd>
+            <dt>GC/CM</dt><dd>BNBuilders</dd>
+            <dt>Architect</dt><dd>TCF Architecture</dd>
+            <dt>Audit</dt><dd>R. L. Townsend &amp; Associates, final report, December 14, 2023</dd>
+            <dt>Final pay app</dt><dd>January 5, 2022</dd>
+          </dl>
+        </div>
+        <div class="stats" style="align-self:start">
+          <div class="stat"><b>$41M</b><span>total project cost (district figure)</span></div>
+          <div class="stat"><b>$26.24M</b><span>guaranteed maximum price</span></div>
+          <div class="stat"><b>$29.5M</b><span>final contract value</span></div>
+          <div class="stat"><b>$3.25M</b><span>in changes</span></div>
+        </div>
+      </div>
+      <h3>The audit gives us ground truth</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Questionable charge found by the audit</th><th class="r">Amount (USD)</th></tr></thead>
+          <tbody>
+            <tr><td>Equipment charges added to change proposals</td><td class="r">$63,080</td></tr>
+            <tr><td>Charges the GC's fee may already cover</td><td class="r">$45,681</td></tr>
+            <tr><td>5% fee wrongly added to negotiated support services</td><td class="r">$20,770</td></tr>
+            <tr><td><strong>Total, about 4% of the $3.25M in changes</strong></td><td class="r"><strong>≈ $129,500</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Rough baseline only. The findings overlap, and the GC says a $22,895 fee understatement offsets the excess fee. Board reports for CO #12 ($479,808) and CO #17 ($789,691, COVID-19) give us examples for classifying changes.</p>
+      <h3>What we use from the public record</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Material</th><th>Source</th><th>Use in the demos</th></tr></thead>
+          <tbody>
+            <tr><td>Contract terms: A133-2009 GC/CM contract, GMP exhibit, fee and general conditions clauses as quoted</td><td>Audit</td><td>Rules extraction</td></tr>
+            <tr><td>Audit findings and an example change proposal (CP 5121)</td><td>Audit</td><td>Ground truth for detection</td></tr>
+            <tr><td>Change order descriptions and amounts</td><td>Board action reports</td><td>Classification examples</td></tr>
+            <tr><td>Delivery method and project timeline</td><td>District and state GC/CM records</td><td>Context and posture</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:8px"><span class="label">Still to verify</span><p>We have read the whole audit but only excerpts of the board reports. We have not confirmed that Webster's drawings, specs, addenda, RFI logs, or change proposal packages can be downloaded. A public records request for real logs is a stretch goal.</p></div>
+        <div style="display:grid;gap:8px"><span class="label">Backup projects</span><p><strong>Northgate Elementary</strong>: public audit of its electrical subcontractor, a sub-level view. <strong>Wilson Pacific</strong>: 28 change orders made up of 210 items, about $6.07M total.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="data">
+    <div class="strip"><h2>Synthetic data plan</h2><span class="tag">Data</span></div>
+    <div class="body">
+      <p>Webster's full RFI and change logs are not public, so we generate proposals priced under the real contract terms and plant known mistakes in them.</p>
+      <ol class="steps">
+        <li><div><h3>Use the real rules</h3><p>Every made-up proposal is priced under the actual Webster contract terms quoted in the audit.</p></div></li>
+        <li><div><h3>Plant known mistakes</h3><p>We insert the audit's error types, late notices, and scope-changing answers, and record the correct label for each.</p></div></li>
+        <li><div><h3>Keep the volume realistic</h3><p>Past studies average 9.9 RFIs per $1M of construction, about 290 for Webster. We use fewer, with the same share left unanswered.</p></div></li>
+        <li><div><h3>Write everything down</h3><p>We share the generator, random seeds, label definitions, and the share of planted cases.</p></div></li>
+        <li><div><h3>Report what we actually did</h3><p>Results are about catching planted issues. If a public records request gets us real logs, we re-run on them.</p></div></li>
+      </ol>
+      <div class="placeholder">Generator code, seeds, and dataset: placeholder. Repository link will be added here.</div>
+    </div>
+  </section>
+
+  <section class="sheet" id="posture">
+    <div class="strip"><h2>Coordination posture: the GC's seat</h2><span class="tag">Who's involved</span></div>
+    <div class="body">
+      <p>Subcontractors cannot contract directly with the design team or owner, so every question and price passes through the general contractor twice: questions and prices go up, answers and money come down. Our agent works from the GC's seat.</p>
+      <div class="parties">
+        <div class="party"><span class="label">Owner</span><h3>Seattle Public Schools</h3><p>Approves and pays; the board votes on larger changes.</p></div>
+        <div class="party"><span class="label">Design team</span><h3>TCF Architecture</h3><p>Answers RFIs and issues supplemental instructions.</p></div>
+        <div class="party gc"><span class="label">GC/CM · our seat</span><h3>BNBuilders</h3><p>Passes questions up, prices changes, combines sub prices. Also self-performed several scopes, about $9.85M billed in the final payment application.</p></div>
+        <div class="party"><span class="label">Subcontractors</span><h3>Trade partners</h3><p>Find field conflicts, price changes, and do the work.</p></div>
+        <div class="party"><span class="label">Post-hoc reviewer</span><h3>District audit firm</h3><p>Reviewed billing after final payment. In our design, its checks move earlier.</p></div>
+      </div>
+      <div class="redline">
+        <span class="label">Why the GC seat matters at Webster</span>
+        <p>The audit found the GC/CM's share of self-performed work grew from 29.8% at the bid package stage to about 40% by the end, against a 30% limit in state law, and those scopes got no competing bids. That puts the GC in two roles at once, coordinator and a company doing the work, which raises the question of who checks what.</p>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:8px"><span class="label">Artifacts in scope</span>
+          <ul class="chips"><li>RFIs and answers</li><li>Supplemental instructions</li><li>Change directives</li><li>Proposals and change orders</li><li>Contract and pay apps</li><li>Board reports</li></ul></div>
+        <div style="display:grid;gap:8px"><span class="label">Out of scope for now</span>
+          <ul class="chips out"><li>Daily reports (maybe later)</li><li>Inspection records (maybe later)</li><li>Submittals, unless a returned one leads to a change</li></ul></div>
+      </div>
+      <h3>Handoffs and who decides</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Handoff</th><th>Rule we test</th><th>Human who decides</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>RFI answer → change notice</td><td>Clarification or possible change? Is notice due, and by when?</td><td>GC project manager</td></tr>
+            <tr><td class="num">2</td><td>Change notice → change proposal</td><td>Consistent with the base contract scope?</td><td>GC project manager</td></tr>
+            <tr><td class="num">3</td><td>Sub pricing → GC roll-up</td><td>Fee, markup, and exclusion rules applied correctly?</td><td>GC project manager and owner's rep</td></tr>
+            <tr><td class="num">4</td><td>GC proposal → owner review</td><td>Backup complete? Entitlement stated?</td><td>Owner's project manager</td></tr>
+            <tr><td class="num">5</td><td>Executed change order → billing</td><td>Billed amount matches the approved change?</td><td>Owner's project manager</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="claims">
+    <div class="strip"><h2>Testable claims</h2><span class="tag">How we'll know</span></div>
+    <div class="body">
+      <div class="claims">
+        <div class="claimcard"><span class="label">Rules extractor</span><b>85%</b><p>of the contract's pricing and notice rules found, checked by hand against the contract.</p><div class="result"><span>Result</span><a class="mono met" href="/demo1/">94.4% · met</a></div></div>
+        <div class="claimcard"><span class="label">Handoff checker</span><b>80%</b><p>of seeded violations caught, with no more than one false flag for every four correct ones.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+        <div class="claimcard"><span class="label">Speed</span><b>Days</b><p>from submission to flag, instead of about 23 months after final payment, when the Webster audit came out.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+        <div class="claimcard"><span class="label">Change classifier</span><b>85%</b><p>agreement with human reviewers on whether an RFI answer clarifies or changes the work, with a clause cited.</p><div class="result"><span>Result</span><span class="mono">Pending</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="guardrails">
+    <div class="strip"><h2>Guardrails and limits</h2><span class="tag">Boundaries</span></div>
+    <div class="body">
+      <div class="cols guard">
+        <div style="display:grid;gap:8px"><span class="label">The agent can</span>
+          <ul><li>Read</li><li>Extract</li><li>Classify</li><li>Cite the clause</li><li>Route to a person</li></ul></div>
+        <div style="display:grid;gap:8px"><span class="label" style="color:var(--red)">Needs a named approver</span>
+          <ul><li>Answer an RFI for the design team</li><li>Tell a sub to proceed</li><li>Commit the GC to a price or position</li><li>Send a notice</li><li>Close a record</li></ul>
+          <p class="note">We will test that each of these needs a recorded approval.</p></div>
+      </div>
+      <div class="redline">
+        <span class="label">Limits</span>
+        <p>One project and made-up proposals cannot prove this works everywhere. They can show whether the idea is workable and where it breaks. If rules are hard to pull from real contract language, that is still a useful result.</p>
+      </div>
+    </div>
+  </section>
+  <footer class="colophon">
+    <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
+    <span>Last updated October 16, 2026 · <a href="#top">Back to top</a></span>
+  </footer>
+</div>
+</body>
+</html>

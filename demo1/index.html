@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/assets/nav.css">
 <style>
 /* Layout: same drawing set as the team site. Title block, then numbered sheets: result, traps, rule browser, review lists, method. */
 :root {
@@ -61,7 +62,7 @@ p { margin: 0; max-width: 68ch; }
 
 .sheet { background: var(--sheet); border: 1px solid var(--ink); scroll-margin-top: 16px; }
 .strip { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 14px 24px; border-bottom: 1px solid var(--ink); }
-.strip .mono { color: var(--red); font-weight: 500; }
+.strip .tag { font: 500 0.75rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); }
 .body { padding: 26px 24px; display: grid; gap: 20px; }
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .cols > * { min-width: 0; }
@@ -144,11 +145,15 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 </style>
 </head>
 <body>
-<div class="set">
+<div class="set" id="top">
+  <header class="topbar">
+    <a class="brand" href="/">Team 6 <small>INFO 492 C · Handoff checker</small></a>
+    <nav aria-label="Site"><ul class="tabs"><li><a href="/">Overview</a></li><li><a href="/thesis/">Thesis</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/log/">Log</a></li><li><a href="/sources/">Sources</a></li></ul></nav>
+  </header>
 
-  <header class="titleblock" id="top">
+  <header class="titleblock">
     <div class="tb-main">
-      <a class="crumb" href="/">← Team 6 site · G-001</a>
+      <a class="crumb" href="/demos/">← All demos</a>
       <span class="label">Demo 1 · Thesis claim 1</span>
       <h1>Can an agent pull a contract's rules into a form we can check?</h1>
       <p class="lead">Before an agent can check a change proposal at each handoff, the contract's pricing and notice rules have to exist as structured, citable data. This demo asks Claude to extract them from a GC/CM contract and scores the result against a hand-built answer key.</p>
@@ -158,13 +163,13 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
       <div class="tb-cell"><span class="label">Status</span><span id="tb-status">Loading…</span></div>
       <div class="tb-cell"><span class="label">Model</span><span id="tb-model" class="mono">–</span></div>
       <div class="tb-cell"><span class="label">Run</span><span id="tb-run">–</span></div>
-      <div class="tb-cell"><span class="label">Sheet</span><span class="sheet-no">D-401</span></div>
+      <div class="tb-cell"><span class="label">Demo</span><span><strong>1 of 4</strong> · rules extractor</span></div>
     </div>
   </header>
 
   <!-- RESULT -->
   <section class="sheet" id="result">
-    <div class="strip"><h2>Result</h2><span class="mono">D-401.1</span></div>
+    <div class="strip"><h2>Result</h2><span class="tag">Headline</span></div>
     <div class="body" id="result-body">
       <div class="banner" id="pending" hidden>
         <span class="label">Results pending</span>
@@ -190,7 +195,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <!-- TRAPS -->
   <section class="sheet" id="traps">
-    <div class="strip"><h2>The contract's built-in traps</h2><span class="mono">D-401.2</span></div>
+    <div class="strip"><h2>The contract's built-in traps</h2><span class="tag">Traps</span></div>
     <div class="body">
       <p>The contract was written with the kinds of rules a busy project engineer gets wrong. These groups test whether the extractor keeps them apart.</p>
       <div class="traps">
@@ -204,7 +209,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <!-- BROWSER -->
   <section class="sheet" id="rules">
-    <div class="strip"><h2>Rule by rule</h2><span class="mono">D-401.3</span></div>
+    <div class="strip"><h2>Rule by rule</h2><span class="tag">All 132 rules</span></div>
     <div class="body">
       <p>Every rule in the answer key, with what the extractor returned for it. Open a row to compare the contract's own words with the extractor's quote.</p>
       <div class="filters" role="group" aria-label="Filter rules">
@@ -222,7 +227,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <!-- REVIEW -->
   <section class="sheet" id="review">
-    <div class="strip"><h2>Needs a human look</h2><span class="mono">D-401.4</span></div>
+    <div class="strip"><h2>Needs a human look</h2><span class="tag">For review</span></div>
     <div class="body">
       <div class="cols">
         <div style="display:grid;gap:10px;align-content:start"><h3>Quotes not found in the contract</h3><p class="note">Possible fabrications. The extractor's quote could not be matched word for word.</p><ul class="list" id="unverified"><li class="note">Appears after the run.</li></ul></div>
@@ -233,7 +238,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <!-- METHOD -->
   <section class="sheet" id="method">
-    <div class="strip"><h2>How it works and what it can't show</h2><span class="mono">D-401.5</span></div>
+    <div class="strip"><h2>How it works and what it can't show</h2><span class="tag">Method</span></div>
     <div class="body">
       <div class="cols">
         <div style="display:grid;gap:10px;align-content:start">
@@ -273,7 +278,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
 
   <footer class="colophon">
     <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
-    <span><a href="/">Team site</a> · <a href="#top">Back to top</a></span>
+    <span><a href="/demos/">All demos</a> · <a href="#top">Back to top</a></span>
   </footer>
 </div>
 

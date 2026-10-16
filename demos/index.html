@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team 6 Demos</title>
+<meta name="description" content="Team 6's four demos and their results, starting with Demo 1, the contract rules extractor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/nav.css">
+</head>
+<body>
+<div class="set" id="top">
+  <header class="topbar">
+    <a class="brand" href="/">Team 6 <small>INFO 492 C · Handoff checker</small></a>
+    <nav aria-label="Site"><ul class="tabs"><li><a href="/">Overview</a></li><li><a href="/thesis/">Thesis</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/log/">Log</a></li><li><a href="/sources/">Sources</a></li></ul></nav>
+  </header>
+  <section class="pagehead">
+    <h1>Demos</h1>
+    <p>Four demos, each testing one part of the thesis. Each builds on the one before it and ends at a named human approver.</p>
+  </section>
+
+  <section class="sheet" id="demo1">
+    <div class="strip"><h2>Demo 1 · Rules extractor</h2><span class="tag">Complete · Oct 15</span></div>
+    <div class="body">
+      <div class="feature">
+        <div>
+          <span class="label">Thesis claim 1 · target 85%</span>
+          <span class="hero-num">94.4%</span>
+          <p><strong>of core contract rules extracted (117 of 124).</strong> Target met.</p>
+          <div class="bar" role="img" aria-label="94.4% core recall against an 85% target"><i style="width:94.4%"></i><b style="left:85%"></b></div>
+          <a class="button" href="/demo1/">Open full results →</a>
+        </div>
+        <div>
+          <p>Claude read a synthetic GC/CM contract modeled on Seattle's Webster School project and listed every pricing and notice rule, with an exact quote for each. We scored it against a 132-rule answer key.</p>
+          <div class="minibars">
+            <div class="minibar"><span>Quotes found word for word</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Fee exceptions (the Webster audit issue)</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>"Does not count" rules</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Same day count, different trigger</span><span>92.9%</span><div class="bar"><i style="width:92.9%"></i></div></div>
+          </div>
+          <p class="note">Main gap: rules that point to another section ("notice under 6.2(a)") didn't inherit that section's 7-day deadline. Demo 2 has to handle this.</p>
+          <p class="note"><a href="https://github.com/sripar2005/info492-team6/tree/main/demo1" target="_blank" rel="noopener">Code, data, and prompts</a> · <a href="https://github.com/sripar2005/info492-team6/actions" target="_blank" rel="noopener">Run log</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="next">
+    <div class="strip"><h2>Coming next</h2><span class="tag">Demos 2 to 4</span></div>
+    <div class="body">
+      <div class="upcoming">
+        <article><span class="label">Demo 2 · Next</span><h3>Change classifier</h3><p>Labels an RFI answer or directive as a clarification or possible change, and cites the clause behind the label.</p></article>
+        <article><span class="label">Demo 3 · Upcoming</span><h3>Handoff checker</h3><p>Tests each change proposal against the rules when it is submitted and flags the errors the audit found later.</p></article>
+        <article><span class="label">Demo 4 · Upcoming</span><h3>Linked thread</h3><p>Keeps one record from RFI to change order, gathers backup, and requires a named approver with an audit trail.</p></article>
+      </div>
+    </div>
+  </section>
+  <footer class="colophon">
+    <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
+    <span>Last updated October 16, 2026 · <a href="#top">Back to top</a></span>
+  </footer>
+</div>
+</body>
+</html>

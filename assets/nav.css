@@ -1,0 +1,19 @@
+/* Pinned tab bar shared by every page (uses each page's color tokens). */
+.topbar { min-width: 0; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--sheet); border: 2px solid var(--ink); display: flex; flex-wrap: wrap; align-items: stretch; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none; color: var(--ink); font: 800 1.05rem/1 var(--display); font-stretch: 85%; }
+.brand small { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.topbar > nav { min-width: 0; max-width: 100%; display: flex; }
+.tabs { display: flex; min-width: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs a { display: block; padding: 14px 16px 11px; text-decoration: none; color: var(--ink-2); font: 600 0.95rem/1 var(--body); border-left: 1px solid var(--rule); border-bottom: 3px solid transparent; white-space: nowrap; }
+.tabs a:hover { color: var(--ink); background: var(--chip); }
+.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--red); background: var(--red-tint); }
+.tabs a:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
+@media (max-width: 760px) {
+  .topbar { flex-direction: column; }
+  .brand { border-bottom: 1px solid var(--rule); }
+  .tabs { width: 100%; }
+  .tabs li { flex: 1 1 auto; }
+  .tabs a { padding: 13px 6px 10px; text-align: center; font-size: 0.86rem; }
+  .tabs li:first-child a { border-left: 0; }
+}
