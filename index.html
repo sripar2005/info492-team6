@@ -379,7 +379,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
     <div class="body">
       <p>Each demo builds on the one before it and ends at a named human approver.</p>
       <div class="demos">
-        <article class="demo" style="border-width:2px;border-color:var(--red)"><header><h3>1 · Rules extractor</h3><span class="status" style="border-color:var(--red);color:var(--red)">Built</span></header><div class="d-body"><p>Reads the contract and GMP terms and produces a structured, citable list of fee, pricing, and notice rules.</p></div><footer class="note"><a href="/demo1/">Open Demo 1</a> · <a href="https://github.com/sripar2005/info492-team6/tree/main/demo1" target="_blank" rel="noopener">code</a></footer></article>
+        <article class="demo" style="border-width:2px;border-color:var(--red)"><header><h3>1 · Rules extractor</h3><span class="status" style="border-color:var(--red);color:var(--red)">Run · 94.4%</span></header><div class="d-body"><p>Reads the contract and GMP terms and produces a structured, citable list of fee, pricing, and notice rules.</p></div><footer class="note"><a href="/demo1/">Open Demo 1</a> · <a href="https://github.com/sripar2005/info492-team6/tree/main/demo1" target="_blank" rel="noopener">code</a></footer></article>
         <article class="demo"><header><h3>2 · Change classifier</h3><span class="status">Not started</span></header><div class="d-body"><p>Labels an RFI answer or directive as a clarification or possible change, and cites the clause behind the label.</p></div><footer class="note">Demo link: placeholder</footer></article>
         <article class="demo"><header><h3>3 · Handoff checker</h3><span class="status">Not started</span></header><div class="d-body"><p>Tests each change proposal against the rules when it is submitted and flags the errors the audit found later.</p></div><footer class="note">Demo link: placeholder</footer></article>
         <article class="demo"><header><h3>4 · Linked thread</h3><span class="status">Not started</span></header><div class="d-body"><p>Keeps one record from RFI to change order, gathers backup, and requires a named approver with an audit trail.</p></div><footer class="note">Demo link: placeholder</footer></article>
@@ -409,7 +409,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
         <table>
           <thead><tr><th>Week</th><th>Demo</th><th>What we tried</th><th>Result</th></tr></thead>
           <tbody>
-            <tr><td class="num">3</td><td><a href="/demo1/">Demo 1</a></td><td>Extract the synthetic contract's rules with Claude; score against a 132-rule answer key (target: 85% of core rules)</td><td class="note"><em>Awaiting live run</em></td></tr>
+            <tr><td class="num">3</td><td><a href="/demo1/">Demo 1</a></td><td>Extract the synthetic contract's rules with Claude; score against a 132-rule answer key (target: 85% of core rules)</td><td>Core recall 94.4% (117/124), target 85% met; 100% of quotes verified; precision 79.1% pending key review. <a href="/demo1/">Details</a></td></tr>
             <tr><td class="num">5</td><td>Demo 2</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">6</td><td>Mid-quarter analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">7</td><td>Demo 3</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
