@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo 1 Rules Extractor</title>
+<meta name="description" content="INFO 492 C Team 6, Demo 1: can an AI agent extract a construction contract's pricing and notice rules into a checkable, citable form? Results against a 132-rule answer key.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: same drawing set as the team site. Title block, then numbered sheets: result, traps, rule browser, review lists, method. */
+:root {
+  --paper: #f5f7f8; --sheet: #ffffff; --ink: #18222b; --ink-2: #4d5c68;
+  --rule: #c9d3da; --grid: #e4eaee; --red: #c4381c; --red-tint: #fbe9e4; --chip: #eef2f5;
+  --good: #1f7a4d; --good-tint: #e3f3ea; --warn: #9a6a00; --warn-tint: #fbf1d6;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6; --rule: #2c4560; --grid: #17304a;
+    --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350; --good: #5fd39a; --good-tint: #16352a; --warn: #f2c35b; --warn-tint: #3a3018;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6; --rule: #2c4560; --grid: #17304a;
+  --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350; --good: #5fd39a; --good-tint: #16352a; --warn: #f2c35b; --warn-tint: #3a3018;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px; color: var(--ink); font: 400 17px/1.6 var(--body);
+  padding-inline: 16px; padding-block: 24px 48px;
+}
+.set { max-width: 1040px; margin: 0 auto; display: grid; gap: 28px; }
+a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; font-stretch: 80%; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; font-stretch: 85%; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0; max-width: 68ch; }
+.label { font: 500 0.75rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.note { font-size: 0.9rem; color: var(--ink-2); }
+.mono { font-family: var(--mono); }
+
+.titleblock { background: var(--sheet); border: 2px solid var(--ink); display: grid; grid-template-columns: 1fr minmax(0, 300px); }
+.tb-main { padding: 28px; display: grid; gap: 14px; border-right: 1px solid var(--ink); min-width: 0; align-content: start; }
+.tb-main .lead { font-size: 1.1rem; color: var(--ink-2); }
+.tb-cell { padding: 12px 16px; border-bottom: 1px solid var(--rule); display: grid; gap: 2px; }
+.tb-cell:last-child { border-bottom: 0; }
+.sheet-no { font: 800 2.2rem/1 var(--display); font-stretch: 80%; }
+.crumb { font: 500 0.82rem/1.4 var(--mono); }
+
+.sheet { background: var(--sheet); border: 1px solid var(--ink); scroll-margin-top: 16px; }
+.strip { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 14px 24px; border-bottom: 1px solid var(--ink); }
+.strip .mono { color: var(--red); font-weight: 500; }
+.body { padding: 26px 24px; display: grid; gap: 20px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.cols > * { min-width: 0; }
+
+.banner { border: 2px dashed var(--warn); background: var(--warn-tint); padding: 16px 20px; border-radius: 12px; display: grid; gap: 6px; }
+.banner .label { color: var(--warn); }
+.verdict { border: 2px solid var(--ink-2); padding: 16px 20px; border-radius: 12px; display: grid; gap: 4px; }
+.verdict.met { border-color: var(--good); background: var(--good-tint); }
+.verdict.notmet { border-color: var(--red); background: var(--red-tint); }
+.verdict b { font: 800 1.4rem/1.2 var(--display); font-stretch: 85%; }
+
+/* Recall meter with the 85% target marked */
+.meter { display: grid; gap: 8px; }
+.meter > .track { margin-top: 22px; }
+.meter-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.big { font: 800 clamp(3rem, 9vw, 4.6rem)/0.9 var(--display); font-stretch: 78%; font-variant-numeric: tabular-nums; }
+.track { position: relative; height: 22px; border: 1.5px solid var(--ink); background: repeating-linear-gradient(90deg, transparent 0 9.9%, var(--grid) 9.9% 10%); }
+.fill { position: absolute; inset: 0 auto 0 0; background: var(--ink); width: 0; }
+.fill.met { background: var(--good); }
+.fill.notmet { background: var(--red); }
+.target { position: absolute; top: -8px; bottom: -8px; width: 0; border-left: 2px dashed var(--red); }
+.target span { position: absolute; top: -20px; left: -2px; transform: translateX(-50%); font: 500 0.72rem/1 var(--mono); color: var(--red); white-space: nowrap; }
+.scale { display: flex; justify-content: space-between; font: 400 0.72rem/1 var(--mono); color: var(--ink-2); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.stat { padding: 14px 16px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: start; }
+.stat b { font: 800 1.8rem/1 var(--display); font-stretch: 80%; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.88rem; color: var(--ink-2); }
+
+.traps { display: grid; gap: 14px; }
+.trap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) 5.5ch; gap: 14px; align-items: center; }
+.trap .track { height: 14px; }
+.trap .pct { font: 500 0.95rem/1 var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+.trap p { font-size: 0.85rem; color: var(--ink-2); }
+
+/* Rule browser */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.filters button { font: 500 0.8rem/1 var(--mono); letter-spacing: 0.04em; padding: 8px 12px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 999px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.filters input { font: 400 0.95rem var(--body); padding: 7px 12px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 8px; min-width: 0; flex: 1 1 180px; }
+.count { font: 400 0.85rem var(--mono); color: var(--ink-2); }
+.rules { display: grid; border-top: 1px solid var(--rule); }
+details.rule { border-bottom: 1px solid var(--rule); }
+details.rule summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 5ch 9.5ch minmax(0, 1fr) auto; gap: 12px; padding: 10px 4px; align-items: baseline; }
+details.rule summary::-webkit-details-marker { display: none; }
+details.rule summary:hover { background: var(--chip); }
+.rid { font: 500 0.82rem var(--mono); color: var(--ink-2); }
+.rsec { font: 400 0.82rem var(--mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rsum { font-size: 0.95rem; min-width: 0; }
+.chip { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 8px; border-radius: 4px; white-space: nowrap; border: 1px solid var(--ink-2); color: var(--ink-2); }
+.chip.found { border-color: var(--good); color: var(--good); background: var(--good-tint); }
+.chip.wrong { border-color: var(--warn); color: var(--warn); background: var(--warn-tint); }
+.chip.missed { border-color: var(--red); color: var(--red); background: var(--red-tint); }
+.detail { padding: 4px 4px 16px; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.detail > div { min-width: 0; display: grid; gap: 6px; align-content: start; border: 1px solid var(--rule); padding: 12px; }
+blockquote { margin: 0; padding: 8px 12px; border-left: 3px solid var(--red); background: var(--chip); font-size: 0.93rem; overflow-wrap: anywhere; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; font-size: 0.88rem; }
+.kv dt { font: 500 0.72rem/1.7 var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.ok { color: var(--good); font-weight: 600; }
+.bad { color: var(--red); font-weight: 600; }
+
+.list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.list li { border: 1px solid var(--rule); padding: 10px 12px; display: grid; gap: 4px; font-size: 0.93rem; }
+ol.steps { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font: 400 0.82rem/1.5 var(--mono); color: var(--ink-2); padding-inline: 4px; }
+
+@media (max-width: 760px) {
+  .titleblock { grid-template-columns: 1fr; }
+  .tb-main { border-right: 0; border-bottom: 1px solid var(--ink); padding: 20px; }
+  .body { padding: 22px 16px; }
+  .strip { padding: 12px 16px; }
+  .trap { grid-template-columns: 1fr 5ch; }
+  .trap .track { grid-column: 1 / -1; grid-row: 2; }
+  details.rule summary { grid-template-columns: 5ch minmax(0, 1fr) auto; }
+  .rsec { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) { .fill { transition: width 0.8s ease-out; } }
+</style>
+</head>
+<body>
+<div class="set">
+
+  <header class="titleblock" id="top">
+    <div class="tb-main">
+      <a class="crumb" href="/">← Team 6 site · G-001</a>
+      <span class="label">Demo 1 · Thesis claim 1</span>
+      <h1>Can an agent pull a contract's rules into a form we can check?</h1>
+      <p class="lead">Before an agent can check a change proposal at each handoff, the contract's pricing and notice rules have to exist as structured, citable data. This demo asks Claude to extract them from a GC/CM contract and scores the result against a hand-built answer key.</p>
+    </div>
+    <div>
+      <div class="tb-cell"><span class="label">Claim tested</span><span>At least <strong>85%</strong> of core rules captured</span></div>
+      <div class="tb-cell"><span class="label">Status</span><span id="tb-status">Loading…</span></div>
+      <div class="tb-cell"><span class="label">Model</span><span id="tb-model" class="mono">–</span></div>
+      <div class="tb-cell"><span class="label">Run</span><span id="tb-run">–</span></div>
+      <div class="tb-cell"><span class="label">Sheet</span><span class="sheet-no">D-401</span></div>
+    </div>
+  </header>
+
+  <!-- RESULT -->
+  <section class="sheet" id="result">
+    <div class="strip"><h2>Result</h2><span class="mono">D-401.1</span></div>
+    <div class="body" id="result-body">
+      <div class="banner" id="pending" hidden>
+        <span class="label">Results pending</span>
+        <p>The extractor has not been run against the live model yet, so there are no scores to show. Nothing on this page is simulated. The answer key, the contract, and the method below are final and were fixed before any run.</p>
+      </div>
+      <div id="verdict" class="verdict" hidden></div>
+      <div class="meter">
+        <div class="meter-top"><span class="big" id="recall-core">–</span><span><strong>core recall</strong><br><span class="note" id="recall-core-n">core rules found by the extractor</span></span></div>
+        <div class="track" aria-hidden="true"><div class="fill" id="recall-fill"></div><div class="target" style="left:85%"><span>target 85%</span></div></div>
+        <div class="scale" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="m-all">–</b><span>recall, all 132 rules</span></div>
+        <div class="stat"><b id="m-prec">–</b><span>precision: extracted rules the key supports</span></div>
+        <div class="stat"><b id="m-cite">–</b><span>citation validity: quotes found word for word</span></div>
+        <div class="stat"><b id="m-wrong">–</b><span>right text, wrong number or unit</span></div>
+        <div class="stat"><b id="m-missed">–</b><span>key rules missed entirely</span></div>
+        <div class="stat"><b id="m-tokens">–</b><span>tokens used (input / output)</span></div>
+      </div>
+      <p class="note">Target set before the run: core recall ≥ 85%. Precision, citation validity, wrong values, and trap recall are reported with no target. Full report: <a href="/demo1/results/evaluation_report.md" id="report-link">evaluation_report.md</a>.</p>
+    </div>
+  </section>
+
+  <!-- TRAPS -->
+  <section class="sheet" id="traps">
+    <div class="strip"><h2>The contract's built-in traps</h2><span class="mono">D-401.2</span></div>
+    <div class="body">
+      <p>The contract was written with the kinds of rules a busy project engineer gets wrong. These groups test whether the extractor keeps them apart.</p>
+      <div class="traps">
+        <div class="trap"><div><h3>Same clock, different trigger</h3><p>28 rules share a day count with another rule, e.g. 21 days for a CM-initiated proposal vs. 14 days after a Proposal Request.</p></div><div class="track"><div class="fill" id="t-clocks"></div><div class="target" style="left:85%"></div></div><span class="pct" id="t-clocks-p">–</span></div>
+        <div class="trap"><div><h3>Fee exceptions</h3><p>The 5% fee does not apply to NSS, SGC adjustments, bonds and insurance, B&amp;O tax, or permits. Closest to the Webster audit findings.</p></div><div class="track"><div class="fill" id="t-fee"></div><div class="target" style="left:85%"></div></div><span class="pct" id="t-fee-p">–</span></div>
+        <div class="trap"><div><h3>Negative rules</h3><p>Meeting minutes are not notice; an RFI answer does not authorize cost; silence is not acceptance.</p></div><div class="track"><div class="fill" id="t-neg"></div><div class="target" style="left:85%"></div></div><span class="pct" id="t-neg-p">–</span></div>
+      </div>
+      <p class="note">Dashed line marks the 85% core target for reference only; trap groups have no target of their own.</p>
+    </div>
+  </section>
+
+  <!-- BROWSER -->
+  <section class="sheet" id="rules">
+    <div class="strip"><h2>Rule by rule</h2><span class="mono">D-401.3</span></div>
+    <div class="body">
+      <p>Every rule in the answer key, with what the extractor returned for it. Open a row to compare the contract's own words with the extractor's quote.</p>
+      <div class="filters" role="group" aria-label="Filter rules">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="found" aria-pressed="false">Found</button>
+        <button type="button" data-f="wrong" aria-pressed="false">Wrong value</button>
+        <button type="button" data-f="missed" aria-pressed="false">Missed</button>
+        <button type="button" data-f="trap" aria-pressed="false">Traps only</button>
+        <input id="q" type="search" placeholder="Search: fee, 14 days, 6.5…" aria-label="Search rules">
+      </div>
+      <span class="count" id="count"></span>
+      <div class="rules" id="rule-list"></div>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section class="sheet" id="review">
+    <div class="strip"><h2>Needs a human look</h2><span class="mono">D-401.4</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:10px;align-content:start"><h3>Quotes not found in the contract</h3><p class="note">Possible fabrications. The extractor's quote could not be matched word for word.</p><ul class="list" id="unverified"><li class="note">Appears after the run.</li></ul></div>
+        <div style="display:grid;gap:10px;align-content:start"><h3>Extracted rules the key doesn't support</h3><p class="note">Either errors, or real rules the answer key missed. A teammate decides which.</p><ul class="list" id="unsupported"><li class="note">Appears after the run.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="sheet" id="method">
+    <div class="strip"><h2>How it works and what it can't show</h2><span class="mono">D-401.5</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:10px;align-content:start">
+          <h3>Method</h3>
+          <ol class="steps">
+            <li><strong>Split</strong> the contract at each Article and Exhibit: 19 sections in 6 API calls.</li>
+            <li><strong>Extract</strong> with Claude at temperature 0 through a forced tool schema: type, sections, value and unit, trigger, exceptions, and an exact quote.</li>
+            <li><strong>Verify</strong> every quote against the contract text.</li>
+            <li><strong>Score</strong>: a key rule is found when an extracted quote overlaps its anchor and the number and unit match.</li>
+          </ol>
+          <p class="note">The answer key was never shown to the extractor. Prompts, key, and target were fixed before the run.</p>
+        </div>
+        <div style="display:grid;gap:10px;align-content:start">
+          <h3>Limits</h3>
+          <ul class="plain">
+            <li>The contract is synthetic, modeled on the Webster School GC/CM project. Dollar breakdowns, rates, deadlines, and party names are invented.</li>
+            <li>One contract is one case.</li>
+            <li>The key and contract share an author, so a match partly tests reading clear text.</li>
+            <li>Matching by text overlap can miss a correct rule that quotes a different part of the clause.</li>
+            <li id="review-status">The answer key is a draft awaiting teammate review.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:6px"><span class="label">Source files</span>
+          <ul class="plain">
+            <li><a href="https://github.com/sripar2005/info492-team6/tree/main/demo1" target="_blank" rel="noopener">Code, data, and prompts on GitHub</a></li>
+            <li><a href="/demo1/data/synthetic_contract.md" target="_blank" rel="noopener">The synthetic contract</a></li>
+            <li><a href="/demo1/data/answer_key.json" target="_blank" rel="noopener">The answer key (132 rules)</a></li>
+            <li><a href="/demo1/prompts/extract_system.txt" target="_blank" rel="noopener">System prompt</a> · <a href="/demo1/prompts/extract_user.txt" target="_blank" rel="noopener">user prompt</a></li>
+          </ul></div>
+        <div style="display:grid;gap:6px"><span class="label">Why it matters for the thesis</span>
+          <p>Demos 2 to 4 check RFI answers and change proposals against these rules. If the rules can't be extracted reliably, the handoff checker has nothing to check against.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
+    <span><a href="/">Team site</a> · <a href="#top">Back to top</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var BASE = "/demo1/";
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+  var pct = function (x) { return x == null ? "–" : (100 * x).toFixed(1) + "%"; };
+  var val = function (v) { return v ? (v.number + " " + v.unit) : "none"; };
+  var $ = function (id) { return document.getElementById(id); };
+
+  function getJSON(path) {
+    return fetch(BASE + path, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+
+  var state = { key: null, ext: null, ev: null, filter: "all", q: "" };
+
+  Promise.all([
+    getJSON("data/answer_key.json"),
+    getJSON("results/extracted_rules.json").catch(function () { return null; }),
+    getJSON("results/evaluation.json").catch(function () { return null; })
+  ]).then(function (res) {
+    state.key = res[0]; state.ext = res[1]; state.ev = res[2];
+    var status = state.key.meta && state.key.meta.status || "";
+    if (!/draft/i.test(status)) $("review-status").textContent = "Answer key status: " + status;
+    if (state.ext && state.ev) renderResults(); else renderPending();
+    renderRules();
+  }).catch(function () {
+    $("tb-status").textContent = "Could not load the answer key.";
+    $("rule-list").innerHTML = '<p class="note">The data files did not load. Open the GitHub folder linked below instead.</p>';
+  });
+
+  function renderPending() {
+    $("pending").hidden = false;
+    $("tb-status").innerHTML = '<span class="chip">Awaiting run</span>';
+    $("report-link").removeAttribute("href");
+  }
+
+  function setBar(id, x, cls) {
+    var el = $(id); if (!el) return;
+    el.style.width = (x == null ? 0 : Math.max(0, Math.min(1, x)) * 100) + "%";
+    if (cls) el.classList.add(cls);
+  }
+
+  function renderResults() {
+    var m = state.ev.metrics, meta = state.ext.meta || {};
+    var cls = m.meets_target ? "met" : "notmet";
+    $("tb-status").innerHTML = '<span class="chip ' + (m.meets_target ? "found" : "missed") + '">' + (m.meets_target ? "Target met" : "Target not met") + "</span>";
+    $("tb-model").textContent = meta.model || "unknown";
+    $("tb-run").textContent = meta.created ? new Date(meta.created).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "–";
+    var v = $("verdict"); v.hidden = false; v.classList.add(cls);
+    v.innerHTML = "<span class=\"label\">Claim 1</span><b>" + (m.meets_target
+      ? "Met: " + pct(m.recall_core) + " of core rules extracted, against an 85% target."
+      : "Not met: " + pct(m.recall_core) + " of core rules extracted, against an 85% target.") + "</b>";
+    $("recall-core").textContent = pct(m.recall_core);
+    $("recall-core-n").textContent = m.found_core + " of " + m.core_rules + " core rules found";
+    setBar("recall-fill", m.recall_core, cls);
+    $("m-all").textContent = pct(m.recall_all);
+    $("m-prec").textContent = pct(m.precision);
+    $("m-cite").textContent = pct(m.citation_validity);
+    $("m-wrong").textContent = m.wrong_value_count;
+    $("m-missed").textContent = m.missed_count;
+    $("m-tokens").textContent = meta.input_tokens != null ? (Math.round(meta.input_tokens / 1000) + "k / " + Math.round(meta.output_tokens / 1000) + "k") : "–";
+    var tg = m.recall_trap_groups || {};
+    var pick = function (word) { for (var k in tg) if (k.indexOf(word) === 0) return tg[k]; return null; };
+    [["t-clocks", "confusable"], ["t-fee", "fee_exclusions"], ["t-neg", "negative"]].forEach(function (p) {
+      var x = pick(p[1]); setBar(p[0], x); $(p[0] + "-p").textContent = pct(x);
+    });
+    listInto("unverified", state.ev.unverified_quotes, function (r) {
+      return '<span class="rid">' + esc(r.id) + "</span><blockquote>" + esc(r.quote) + "</blockquote><span class=\"note\">" + esc(r.summary) + "</span>";
+    });
+    listInto("unsupported", state.ev.possible_false_positives, function (r) {
+      return '<span class="rid">' + esc(r.id) + " · " + esc(r.type) + " · " + esc((r.sections || []).join(", ")) + "</span><span>" + esc(r.summary) + "</span>";
+    });
+  }
+
+  function listInto(id, items, fmt) {
+    $(id).innerHTML = items && items.length ? items.map(function (r) { return "<li>" + fmt(r) + "</li>"; }).join("") : '<li class="note">None.</li>';
+  }
+
+  function statusOf(rule) {
+    if (!state.ev) return "pending";
+    if (state.ev.found_map && state.ev.found_map[rule.id]) return "found";
+    if ((state.ev.wrong_value || []).some(function (w) { return w.id === rule.id; })) return "wrong";
+    return "missed";
+  }
+
+  function trapIds() {
+    var ids = {};
+    var cc = state.key.confusable_clocks || {};
+    Object.keys(cc).forEach(function (k) { cc[k].forEach(function (i) { ids[i] = "clock"; }); });
+    state.key.rules.forEach(function (r) { if (r.type === "fee_exclusion" || r.type === "non_authorization") ids[r.id] = r.type; });
+    return ids;
+  }
+
+  function extractedById() {
+    var map = {};
+    (state.ext && state.ext.rules || []).forEach(function (r) { map[r.id] = r; });
+    return map;
+  }
+
+  function extractedBlock(e, title) {
+    if (!e) return "";
+    return '<div><span class="label">' + title + " · " + esc(e.id) + '</span><blockquote>' + esc(e.quote) + "</blockquote>" +
+      '<dl class="kv"><dt>Quote</dt><dd>' + (e.quote_verified ? '<span class="ok">✓ found in contract</span>' : '<span class="bad">✗ not found in contract</span>') + "</dd>" +
+      "<dt>Type</dt><dd>" + esc(e.type) + "</dd><dt>Value</dt><dd>" + esc(val(e.value)) + "</dd>" +
+      (e.trigger ? "<dt>Trigger</dt><dd>" + esc(e.trigger) + "</dd>" : "") +
+      (e.exceptions ? "<dt>Exceptions</dt><dd>" + esc(e.exceptions) + "</dd>" : "") +
+      "<dt>Summary</dt><dd>" + esc(e.summary) + "</dd></dl></div>";
+  }
+
+  function renderRules() {
+    var traps = trapIds(), ext = extractedById();
+    var label = { found: "Found", wrong: "Wrong value", missed: "Missed", pending: "Awaiting run" };
+    var q = state.q.toLowerCase();
+    var rows = state.key.rules.filter(function (r) {
+      var s = statusOf(r);
+      if (state.filter === "trap" && !traps[r.id]) return false;
+      if (["found", "wrong", "missed"].indexOf(state.filter) >= 0 && s !== state.filter) return false;
+      if (q) {
+        var hay = (r.id + " " + r.type + " " + r.sections.join(" ") + " " + r.summary + " " + r.anchor + " " + val(r.value)).toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+    $("count").textContent = rows.length + " of " + state.key.rules.length + " rules";
+    $("rule-list").innerHTML = rows.map(function (r) {
+      var s = statusOf(r), e1 = null, wrongs = [];
+      if (s === "found") e1 = ext[state.ev.found_map[r.id]];
+      if (s === "wrong") (state.ev.wrong_value.find(function (w) { return w.id === r.id; }).details || []).forEach(function (d) { if (ext[d.extracted_id]) wrongs.push(ext[d.extracted_id]); });
+      var right = s === "pending" ? '<div><span class="label">Extractor</span><p class="note">Appears after the live run.</p></div>'
+        : s === "missed" ? '<div><span class="label">Extractor</span><p class="bad">No extracted rule matched this text.</p></div>'
+        : s === "found" ? extractedBlock(e1, "Matched extraction")
+        : wrongs.map(function (w) { return extractedBlock(w, "Same text, different value"); }).join("");
+      return '<details class="rule"><summary><span class="rid">' + esc(r.id) + '</span><span class="rsec">§ ' + esc(r.sections.join(", ")) + '</span><span class="rsum">' + esc(r.summary) +
+        (r.core ? "" : ' <span class="note">(peripheral)</span>') + '</span><span class="chip ' + s + '">' + label[s] + "</span></summary>" +
+        '<div class="detail"><div><span class="label">Answer key · ' + esc(r.type) + "</span><blockquote>" + esc(r.anchor) + '</blockquote><dl class="kv"><dt>Value</dt><dd>' + esc(val(r.value)) +
+        "</dd><dt>Section</dt><dd>" + esc(r.sections.join(", ")) + "</dd>" + (traps[r.id] ? "<dt>Trap</dt><dd>" + esc(traps[r.id] === "clock" ? "same clock, different trigger" : traps[r.id] === "fee_exclusion" ? "fee exception" : "negative rule") + "</dd>" : "") +
+        "</dl></div>" + right + "</div></details>";
+    }).join("") || '<p class="note">No rules match.</p>';
+  }
+
+  document.querySelectorAll(".filters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".filters button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true"); state.filter = b.getAttribute("data-f");
+      if (state.key) renderRules();
+    });
+  });
+  $("q").addEventListener("input", function (e) { state.q = e.target.value; if (state.key) renderRules(); });
+})();
+</script>
+</body>
+</html>
