@@ -143,13 +143,19 @@ def call_model(client, model, system, user, max_tokens=8000, retries=3):
                 # temperature=0 was removed: anthropic SDK 1.x no longer accepts it (see README, "Code fixes").
                 system=system,
                 tools=[TOOL],
-                tool_choice={"type": "tool", "name": TOOL["name"]},
+                # Was {"type": "tool", "name": ...}; this model rejects forced tool choice (see README, "Code fixes").
+                # The system prompt already instructs the model to call record_rules; the check below enforces it.
+                tool_choice={"type": "auto"},
                 messages=[{"role": "user", "content": user}],
             )
+            tool_calls = [b for b in response.content
+                          if getattr(b, "type", None) == "tool_use" and b.name == TOOL["name"]]
+            if not tool_calls:
+                # Never record a missing tool call as "zero rules": retry, and fail loudly if it persists.
+                raise ValueError(f"model did not call {TOOL['name']} (stop_reason={response.stop_reason})")
             rules = []
-            for block in response.content:
-                if getattr(block, "type", None) == "tool_use" and block.name == TOOL["name"]:
-                    rules = block.input.get("rules", [])
+            for block in tool_calls:
+                rules.extend(block.input.get("rules", []))
             usage = {
                 "input_tokens": getattr(response.usage, "input_tokens", 0),
                 "output_tokens": getattr(response.usage, "output_tokens", 0),

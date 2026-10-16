@@ -33,7 +33,7 @@ Set another model with `--model` or the `EXTRACTOR_MODEL` environment variable. 
 ## How it works
 
 1. **Split:** the contract is split at each Article and Exhibit heading, and neighboring small sections are grouped (about 4,500 characters per call).
-2. **Extract:** each group goes to Claude with the Article 1 definitions as reference. The model must answer through a forced `record_rules` tool, so the output is structured JSON (type, sections, summary, value and unit, trigger, applies_to, exceptions, quote). The model's default sampling is used (see "Code fixes"); every response is cached, so re-running the evaluation reads the same output.
+2. **Extract:** each group goes to Claude with the Article 1 definitions as reference. The model is told to answer through the `record_rules` tool, and a response without that tool call is retried rather than counted as zero rules, so the output is structured JSON (type, sections, summary, value and unit, trigger, applies_to, exceptions, quote). The model's default sampling is used (see "Code fixes"); every response is cached, so re-running the evaluation reads the same output.
 3. **Verify:** every quote is checked against the contract text after normalization. A rule whose quote is not found is flagged as a possible fabrication.
 4. **Score:** a key rule is FOUND when an extracted rule points at the same text (its verified quote overlaps the key's anchor) and carries the same number and unit. Overlap with the wrong value is counted separately as WRONG VALUE.
 
@@ -67,3 +67,4 @@ Bug fixes made after the code was written, before any results existed. No prompt
 | Date | Change | Why |
 | --- | --- | --- |
 | 2026-10-15 | Removed `temperature=0` from the API call in `extractor.py`; pinned `anthropic>=1.15,<2` in `requirements.txt` | The first live run failed before reaching the API: anthropic SDK 1.x no longer accepts a `temperature` argument (`TypeError: Messages.create() got an unexpected keyword argument 'temperature'`). No API call was made and no results were produced. The extractor now uses the model's default sampling, so a fresh run may differ slightly from ours; the cached responses and committed `results/` files are the record of our run. |
+| 2026-10-15 | Changed `tool_choice` from forcing `record_rules` to `auto`; added a check that retries, then fails, if the model returns no `record_rules` call | The second live run reached the API, which returned `400 invalid_request_error: tool_choice: type "tool" and "any" are not supported for this model`. No output was produced. The system prompt already instructs the model to call `record_rules` (unchanged), and the tool schema is unchanged. The new check ensures a missing tool call can never be scored as an empty extraction. |
