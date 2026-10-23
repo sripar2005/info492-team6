@@ -32,6 +32,7 @@
           <tbody>
             <tr><td class="num">3</td><td><a href="/demo1/">Demo 1</a></td><td>Extract the synthetic contract's rules with Claude; score against a 132-rule answer key (target: 85% of core rules)</td><td>Core recall 94.4% (117/124), target 85% met; 100% of quotes verified; precision 79.1% pending key review. <a href="/demo1/">Details</a></td></tr>
             <tr><td class="num">5</td><td><a href="/demo2/">Demo 2</a></td><td>Classify 30 synthetic documents (RFI answers, ASIs, submittal returns, emails, minutes, field reports) as clarification or possible change; name the 6.2 notice rule and deadline. New: AI picks the rule, code computes the date (target: 85% label accuracy)</td><td>Set A 30/30 and Set B (written independently by Yousuf) 30/30 on labels and rules, no misses or false alarms. Code-counted deadlines 30/30; AI-counted 29/30. The miss exposed an undefined "legal holiday" in the contract (Thanksgiving 2019; Washington law governs). Both sets are clean; Demo 3 needs messier documents. <a href="/demo2/">Details</a></td></tr>
+            <tr><td class="num">5</td><td><a href="#evaluation-lab">Evaluation Lab</a></td><td>Class exercise: 10 of Yousuf's messages, a team-agreed answer key (with one deliberate "neither" item), two agent runs, and a one-keyword baseline</td><td>Agent 8/10 and 10/10 on two runs; keyword rule 9/10. Runs were not the same. 2 failures (a wrong section reference, a made-up detail); 1 likely crossed a line. <a href="#evaluation-lab">Details</a></td></tr>
             <tr><td class="num">6</td><td>Mid-quarter analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">7</td><td>Demo 3</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">9</td><td>Demo 4</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
@@ -42,6 +43,44 @@
       <p class="note">Week numbers are a working estimate and will be updated to match the course schedule.</p>
     </div>
   </section>
+
+  <section class="sheet" id="evaluation-lab">
+    <div class="strip"><h2>Evaluation Lab</h2><span class="tag">Class exercise · Week 5</span></div>
+    <div class="body">
+      <p>A smaller, hands-on check run by the team in class. We took 10 of Yousuf's Demo 2 messages, agreed on one answer key, ran the agent twice, and compared it with a simple one-keyword rule. One item (D2-019) was deliberately labeled <strong>neither</strong> a clarification nor a change, to see whether the agent would stay inside its lane.</p>
+      <div class="cols">
+        <div style="display:grid;gap:8px;align-content:start">
+          <span class="label">Scores (of 10)</span>
+          <div class="tablewrap"><table>
+            <thead><tr><th>Run</th><th class="r">Score</th></tr></thead>
+            <tbody>
+              <tr><td>Agent, run 1</td><td class="r">8</td></tr>
+              <tr><td>Agent, run 2</td><td class="r">10</td></tr>
+              <tr><td>Simple way (one-keyword rule)</td><td class="r">9</td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">The two agent runs gave different answers on the same items.</p>
+        </div>
+        <div style="display:grid;gap:8px;align-content:start">
+          <span class="label">Failure groups</span>
+          <div class="tablewrap"><table>
+            <thead><tr><th>Group</th><th class="r">Count</th></tr></thead>
+            <tbody>
+              <tr><td>Wrong references to sections</td><td class="r">1</td></tr>
+              <tr><td>Made something up</td><td class="r">1</td></tr>
+            </tbody>
+          </table></div>
+          <p class="note"><strong>Crossed a line:</strong> 1 of the 2 failures. The agent called the "neither" item a change needing GC attention, going beyond what the message supported.</p>
+        </div>
+      </div>
+      <div class="redline">
+        <span class="label">What it tells us</span>
+        <p>The agent was close but not consistent: scores moved from 8 to 10 between identical runs, and a one-keyword rule scored in between. Demo 2's 60-document runs scored 60/60, but this lab shows a single run can hide run-to-run variation, and that a third "neither" option tempts the agent to over-flag. Next steps: clearer instructions for items outside both categories, and repeated runs when we report results.</p>
+      </div>
+      <p class="note">Who did what: Yousuf and Sri each built a list of right answers and agreed on the final key, and each did half of run 3. Nithika wrote up the results and helped group the failures and judge whether the agent crossed a line.</p>
+    </div>
+  </section>
+
   <footer class="colophon">
     <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
     <span>Last updated October 16, 2026 · <a href="#top">Back to top</a></span>
