@@ -206,7 +206,13 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     .then(function (r) {
       state.cases = r[0].cases;
       r[1].cases.forEach(function (k) { state.key[k.id] = k; });
-      if (r[2]) { state.trace = {}; r[2].trace.forEach(function (t) { state.trace[t.id] = t; }); showResults(r[2]); }
+      if (r[2]) {
+        state.trace = {}; r[2].trace.forEach(function (t) { state.trace[t.id] = t; }); showResults(r[2]);
+        if (!r[2].trace.some(function (t) { return t.outcome !== "correct"; })) {
+          state.filter = "tricky";
+          document.querySelectorAll(".filters button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-f") === "tricky" ? "true" : "false"); });
+        }
+      }
       else showPending();
       render();
     })

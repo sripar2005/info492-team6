@@ -22,6 +22,32 @@
     <p>Four demos, each testing one part of the thesis. Each builds on the one before it and ends at a named human approver.</p>
   </section>
 
+  <section class="sheet" id="demo2">
+    <div class="strip"><h2>Demo 2 · Change classifier</h2><span class="tag">Complete · Oct 22</span></div>
+    <div class="body">
+      <div class="feature">
+        <div>
+          <span class="label">Thesis claim 4 · target 85%</span>
+          <span class="hero-num">30 / 30</span>
+          <p><strong>documents classified correctly, with the right notice rule and deadline.</strong> Target met.</p>
+          <div class="bar" role="img" aria-label="100% label accuracy against an 85% target"><i style="width:100%"></i><b style="left:85%"></b></div>
+          <a class="button" href="/demo2/">Open full results →</a>
+        </div>
+        <div>
+          <p>Claude read 30 documents a general contractor receives (RFI answers, ASIs, submittal returns, owner emails, minutes, field reports) and decided: clarification, or a change that needs notice? It cited the clause and named the deadline.</p>
+          <div class="minibars">
+            <div class="minibar"><span>Real changes caught (no misses)</span><span>15/15</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Right notice rule, 6.2 (a) to (d)</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Deadlines right, incl. weekend and holiday</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Tricky documents</span><span>11/11</span><div class="bar"><i style="width:100%"></i></div></div>
+          </div>
+          <p class="note">Demo 1's cross-reference gap did not appear when the AI had the full contract in front of it. A perfect score also means this test set was too clean to find its limits; Demo 3 needs harder, independently written documents.</p>
+          <p class="note"><a href="https://github.com/sripar2005/info492-team6/tree/main/demo2" target="_blank" rel="noopener">Code, data, and prompts</a> · <a href="https://github.com/sripar2005/info492-team6/actions" target="_blank" rel="noopener">Run log</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="sheet" id="demo1">
     <div class="strip"><h2>Demo 1 · Rules extractor</h2><span class="tag">Complete · Oct 15</span></div>
     <div class="body">
@@ -49,11 +75,10 @@
   </section>
 
   <section class="sheet" id="next">
-    <div class="strip"><h2>Coming next</h2><span class="tag">Demos 2 to 4</span></div>
+    <div class="strip"><h2>Coming next</h2><span class="tag">Demos 3 and 4</span></div>
     <div class="body">
-      <div class="upcoming">
-        <article><span class="label">Demo 2 · Next</span><h3>Change classifier</h3><p>Labels an RFI answer or directive as a clarification or possible change, and cites the clause behind the label.</p></article>
-        <article><span class="label">Demo 3 · Upcoming</span><h3>Handoff checker</h3><p>Tests each change proposal against the rules when it is submitted and flags the errors the audit found later.</p></article>
+      <div class="upcoming" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <article><span class="label">Demo 3 · Next</span><h3>Handoff checker</h3><p>Tests each change proposal against the rules when it is submitted and flags the errors the audit found later.</p></article>
         <article><span class="label">Demo 4 · Upcoming</span><h3>Linked thread</h3><p>Keeps one record from RFI to change order, gathers backup, and requires a named approver with an audit trail.</p></article>
       </div>
     </div>
