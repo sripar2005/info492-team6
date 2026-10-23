@@ -84,7 +84,7 @@ def evaluate(cases, key, run, target=0.85):
 def write_report(result, meta, path):
     m = result["metrics"]; c = m["confusion"]
     lines = [
-        "# Change classifier evaluation (Demo 2)", "",
+        f"# Change classifier evaluation (Demo 2, Set {meta.get('test_set', 'A')})", "",
         f"Model: `{meta.get('model')}` · {m['documents']} documents · {meta.get('input_tokens', 0):,} input / {meta.get('output_tokens', 0):,} output tokens", "",
         f"**Target (set before the run):** label accuracy at least {pct(m['target_label_accuracy'])}. "
         f"**Result: {pct(m['label_accuracy'])}. {'Target met.' if m['meets_target'] else 'Target not met.'}**", "",
@@ -115,15 +115,18 @@ def write_report(result, meta, path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--run", default=str(ROOT / "results" / "classifications.json"))
+    ap.add_argument("--set", default="A", choices=["A", "B"])
+    ap.add_argument("--run", default=None)
     ap.add_argument("--target", type=float, default=0.85)
     args = ap.parse_args()
-    cases = json.loads((ROOT / "data" / "cases.json").read_text())["cases"]
-    key = json.loads((ROOT / "data" / "answer_key.json").read_text())["cases"]
-    run = json.loads(Path(args.run).read_text())
+    data = ROOT / "data" if args.set == "A" else ROOT / "data" / "set_b"
+    out = ROOT / "results" if args.set == "A" else ROOT / "results" / "set_b"
+    cases = json.loads((data / "cases.json").read_text())["cases"]
+    key = json.loads((data / "answer_key.json").read_text())["cases"]
+    run = json.loads(Path(args.run or out / "classifications.json").read_text())
     result = evaluate(cases, key, run, args.target)
     result["meta"] = run.get("meta", {})
-    out = ROOT / "results"
+    out.mkdir(parents=True, exist_ok=True)
     (out / "evaluation.json").write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     write_report(result, run.get("meta", {}), out / "evaluation_report.md")
     m = result["metrics"]

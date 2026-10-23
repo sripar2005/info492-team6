@@ -23,15 +23,25 @@ HOLIDAYS_2020 = {
 }
 
 
-def is_business_day(d: date) -> bool:
-    return d.weekday() < 5 and d not in HOLIDAYS_2020
+# US federal holidays, observed dates (used by Set B, per its data note).
+US_FEDERAL_2019_2020 = {
+    date(2019, 9, 2), date(2019, 10, 14), date(2019, 11, 11), date(2019, 11, 28), date(2019, 12, 25),
+    date(2020, 1, 1), date(2020, 1, 20), date(2020, 2, 17), date(2020, 5, 25), date(2020, 7, 3),
+    date(2020, 9, 7), date(2020, 10, 12), date(2020, 11, 11), date(2020, 11, 26), date(2020, 12, 25),
+}
+# The contract says "legal holiday" without defining it, so each test set states which calendar its labels use.
+CALENDARS = {"wa2020": HOLIDAYS_2020, "us_federal": US_FEDERAL_2019_2020}
 
 
-def notice_due(event_date: str, rule: str):
+def is_business_day(d: date, calendar: str = "wa2020") -> bool:
+    return d.weekday() < 5 and d not in CALENDARS[calendar]
+
+
+def notice_due(event_date: str, rule: str, calendar: str = "wa2020"):
     """Return the notice due date (ISO string) for a rule, or None when no notice is required."""
     if rule not in NOTICE_DAYS:
         return None
     d = date.fromisoformat(event_date) + timedelta(days=NOTICE_DAYS[rule])
-    while not is_business_day(d):  # Section 1.4 roll-forward
+    while not is_business_day(d, calendar):  # Section 1.4 roll-forward
         d += timedelta(days=1)
     return d.isoformat()

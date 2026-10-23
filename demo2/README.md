@@ -11,6 +11,15 @@ This is the first handoff in our thesis (RFI answer → change notice). Missing 
 - **Demo 2 tests that gap directly:** every possible change must be traced to one Section 6.2 rule, often through a cross-reference (ASI → 6.8 → 6.2(a); submittal comment → 8.3 → 6.2(a); meeting minutes → 7.7, not notice).
 - **New design choice:** the model picks the rule; **code computes the date** (`deadlines.py`, including Section 1.4's weekend and holiday roll-forward). We score the model's own date and the code date side by side, to test whether splitting the work this way is more reliable.
 
+## Two test sets
+
+| Set | Documents | Written by | Labels | Holiday calendar |
+| --- | --- | --- | --- | --- |
+| **A** | `data/cases.json` (from `data/build_cases.py`) | Same author as the contract and the classifier | `data/answer_key.json` | Washington State legal holidays |
+| **B** | `data/set_b/cases.json` (from `data/set_b/convert.py`) | **Yousuf Shaik**, independently of the classifier | `data/set_b/answer_key.json`, converted from his `yousuf_cases.json` without relabeling | US federal holidays (his `DATA_NOTE.md`) |
+
+Set B tests whether the result holds on cases the classifier's builder did not write. The classifier, prompts, and model are identical for both sets. Set B's own data note, including its limits, is `data/set_b/DATA_NOTE.md`.
+
 ## Measures and targets (set before running)
 
 | Measure | Definition | Target |
@@ -33,8 +42,8 @@ python tests/test_pipeline.py        # offline checks, no API calls
 python data/build_cases.py           # rebuilds cases.json and answer_key.json (deterministic)
 python classifier.py --dry-run       # 30 documents, 1 call each
 export ANTHROPIC_API_KEY=your_key    # or run the GitHub workflow "Demo 2 - run classifier"
-python classifier.py
-python evaluate.py                   # writes results/evaluation_report.md
+python classifier.py                 # Set A; add --set B for Set B
+python evaluate.py                   # writes results/evaluation_report.md (results/set_b/ for --set B)
 ```
 
 Cost: about 6,000 input tokens per document (the contract is sent each time), about 180,000 input tokens per run. Responses are cached in `results/cache/`.

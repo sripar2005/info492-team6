@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "author": "Yousuf Shaik",
+    "source_file": "yousuf_cases.json",
+    "holiday_calendar": "us_federal",
+    "status": "DRAFT: labels were written by one author and have not been checked by a second person."
+  },
+  "cases": [
+    {
+      "id": "D2-001",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Confirms a dimension that is already shown on the drawings. Nothing differs from what the contract documents require."
+    },
+    {
+      "id": "D2-002",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2019-09-24",
+      "tricky": false,
+      "why": "Larger equipment than the contract documents scheduled, so the equipment cost goes up and electrical and structural support may change."
+    },
+    {
+      "id": "D2-003",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "The owner is approving a finish that is already listed in the finish schedule. No added work."
+    },
+    {
+      "id": "D2-004",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2019-10-15",
+      "tricky": false,
+      "why": "Deeper footings than the original drawings show, which means more excavation and concrete."
+    },
+    {
+      "id": "D2-005",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Corrects a typographical error. The scope of the work is the same."
+    },
+    {
+      "id": "D2-006",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2019-11-12",
+      "tricky": false,
+      "why": "Adds a quantity of work beyond the drawings, and the owner is asking for a price, which treats it as extra work."
+    },
+    {
+      "id": "D2-007",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "The specification already allows both options, so choosing between them does not change cost or scope."
+    },
+    {
+      "id": "D2-008",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2019-11-29",
+      "tricky": true,
+      "why": "The message uses the word clarification, but the material is different from the drawings, and stainless steel costs more than painted steel."
+    },
+    {
+      "id": "D2-009",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "Sounds like a requirement being stated, but the specification already requires it and the drawing note agrees with it."
+    },
+    {
+      "id": "D2-010",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2019-12-26",
+      "tricky": false,
+      "why": "A rerouted duct and a new soffit are work that is not shown in the contract documents, and the added work takes time."
+    },
+    {
+      "id": "D2-011",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Confirms that an item is already in the contractor's scope under the specification."
+    },
+    {
+      "id": "D2-012",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-01-21",
+      "tricky": true,
+      "why": "The polite wording hides the fact that the existing stair is outside the base scope, so this is added work."
+    },
+    {
+      "id": "D2-013",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2020-01-30",
+      "tricky": true,
+      "why": "The ASI says no cost impact, but 2 more inches of insulation is added material and labor. Under Section 6.8 the contractor can still give notice if it believes cost changes."
+    },
+    {
+      "id": "D2-014",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Explains how to read a note that is already on the drawing. The work is the same."
+    },
+    {
+      "id": "D2-015",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2020-02-18",
+      "tricky": false,
+      "why": "The returned submittal requires thicker panels than the specification lists, which costs more."
+    },
+    {
+      "id": "D2-016",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Restates review times that are already in the contract. Nothing new is being required."
+    },
+    {
+      "id": "D2-017",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2020-03-05",
+      "tricky": false,
+      "why": "A new code requirement that adds dampers that are not in the contract documents."
+    },
+    {
+      "id": "D2-018",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2020-03-09",
+      "tricky": false,
+      "why": "Different door than the specification calls for, and a 2-hour door is more expensive."
+    },
+    {
+      "id": "D2-019",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "Reads like an instruction, but it repeats what the detail already shows, so the work is unchanged."
+    },
+    {
+      "id": "D2-020",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "Adds waiting time on its face, but the manufacturer's instructions are already part of the specification, so this is an existing requirement."
+    },
+    {
+      "id": "D2-021",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Confirms the contractor's existing flexibility and adds no requirement."
+    },
+    {
+      "id": "D2-022",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-04-14",
+      "tricky": false,
+      "why": "Different and more expensive hardware than the specification calls for."
+    },
+    {
+      "id": "D2-023",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Explains who supplies an item that was never in the contractor's scope."
+    },
+    {
+      "id": "D2-024",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.2(a)"
+      ],
+      "notice_due": "2020-04-30",
+      "tricky": false,
+      "why": "The drawings call for a patch, and the answer now requires full replacement, which is more work and more time."
+    },
+    {
+      "id": "D2-025",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-05-12",
+      "tricky": true,
+      "why": "Raising the ceilings changes the work shown on the drawings. Under Section 7.7, meeting minutes alone are not notice and do not authorize a change, so written notice is still required."
+    },
+    {
+      "id": "D2-026",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Repeats a product that the specification already requires."
+    },
+    {
+      "id": "D2-027",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-06-03",
+      "tricky": true,
+      "why": "An oral direction to move a room is a change to the drawings. Section 6.2(b) covers oral directions from the Owner, so the 7-day notice clock starts when it is received."
+    },
+    {
+      "id": "D2-028",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "The specification already covers all control joints, so including the east elevation does not add work."
+    },
+    {
+      "id": "D2-029",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-06-25",
+      "tricky": false,
+      "why": "Asks for an earlier completion date than the contract time, which is an acceleration."
+    },
+    {
+      "id": "D2-030",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "Reconciles two notes that look different but describe the same product, so no change."
+    }
+  ]
+}

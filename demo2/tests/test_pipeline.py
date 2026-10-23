@@ -59,3 +59,15 @@ outcomes = {t["id"]: t["outcome"] for t in r["trace"]}
 assert outcomes["P02"] == "missed change" and outcomes["C13"] == "false alarm" and outcomes["P09"] == "right label, wrong deadline"
 print("known errors counted correctly: ok")
 print("\nAll offline tests passed.")
+
+# Set B (Yousuf's independently written cases): converted without relabeling, deadlines match his stated rule
+b_cases = json.loads((ROOT / "data" / "set_b" / "cases.json").read_text())["cases"]
+b_key = json.loads((ROOT / "data" / "set_b" / "answer_key.json").read_text())["cases"]
+src = {c["id"]: c for c in json.loads((ROOT / "data" / "set_b" / "yousuf_cases.json").read_text())["cases"]}
+assert len(b_cases) == 30 and all("label" not in c for c in b_cases)
+for k in b_key:
+    s = src[k["id"]]
+    assert k["label"] == {"clarification": "CLARIFICATION", "change": "POSSIBLE CHANGE"}[s["label"]] and k["notice_due"] == s["notice_due"] and k["why"] == s["reason"]
+    if s["notice_due"]:
+        assert notice_due(s["received"], s["notice_clause"], "us_federal") == s["notice_due"]
+print("set B ok: 30 cases, labels unchanged from Yousuf's file, deadlines verified")

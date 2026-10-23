@@ -1,0 +1,214 @@
+{
+  "cases": [
+    {
+      "id": "D2-001",
+      "source": "RFI response",
+      "event_date": "2019-09-09",
+      "from": "Architect",
+      "text": "Confirming that the slab edge at gridline A is shown as 8 inches on S-101 and is the same condition as detail 4/S-102. Proceed as drawn."
+    },
+    {
+      "id": "D2-002",
+      "source": "RFI response",
+      "event_date": "2019-09-17",
+      "from": "Architect",
+      "text": "Provide the 75-ton chiller, not the 60-ton unit scheduled on M-601. Load calculations were revised after bid."
+    },
+    {
+      "id": "D2-003",
+      "source": "Email",
+      "event_date": "2019-09-26",
+      "from": "Owner's Representative",
+      "text": "Please confirm that the paint color in the media center is PT-3 from the finish schedule on A-601. The sample on site looks right to us."
+    },
+    {
+      "id": "D2-004",
+      "source": "RFI response",
+      "event_date": "2019-10-08",
+      "from": "Architect",
+      "text": "Use 24-inch deep footings at gridlines C to E per revised detail 4/S-201, in place of the 18-inch footings shown on the original sheet."
+    },
+    {
+      "id": "D2-005",
+      "source": "ASI",
+      "event_date": "2019-10-22",
+      "from": "Architect",
+      "text": "ASI-05: Sheet A-102 is reissued to correct a typo in the room number for Room 114. No change to the work."
+    },
+    {
+      "id": "D2-006",
+      "source": "Email",
+      "event_date": "2019-11-04",
+      "from": "Owner's Representative",
+      "text": "The District would like 12 additional data drops in Classrooms 201 through 206. Please send a price."
+    },
+    {
+      "id": "D2-007",
+      "source": "RFI response",
+      "event_date": "2019-11-14",
+      "from": "Architect",
+      "text": "Either anchor type listed in Section 05 50 00 is acceptable at the guardrail posts. Select based on availability."
+    },
+    {
+      "id": "D2-008",
+      "source": "RFI response",
+      "event_date": "2019-11-21",
+      "from": "Architect",
+      "text": "Clarification: the east stair railing shall be stainless steel, not the painted steel shown on A-401."
+    },
+    {
+      "id": "D2-009",
+      "source": "RFI response",
+      "event_date": "2019-12-03",
+      "from": "Architect",
+      "text": "Per Section 03 30 00, all slabs on grade are 4,000 psi concrete. The note on S-001 is referring to the same requirement."
+    },
+    {
+      "id": "D2-010",
+      "source": "RFI response",
+      "event_date": "2019-12-18",
+      "from": "Architect",
+      "text": "Reroute the main supply duct below the beam at gridline 5 and add a soffit to enclose it. See sketch SK-12."
+    },
+    {
+      "id": "D2-011",
+      "source": "RFI response",
+      "event_date": "2020-01-06",
+      "from": "Architect",
+      "text": "Yes, the dishwasher in Kitchen 105 is contractor-furnished and is listed in Section 11 40 00. No change."
+    },
+    {
+      "id": "D2-012",
+      "source": "Email",
+      "event_date": "2020-01-11",
+      "from": "Owner's Representative",
+      "text": "Please also paint the existing stair in Wing B to match the new work. The District would appreciate it as a courtesy."
+    },
+    {
+      "id": "D2-013",
+      "source": "ASI",
+      "event_date": "2020-01-23",
+      "from": "Architect",
+      "text": "ASI-11: No cost impact is expected. Install an additional 2 inches of insulation at all roof edges."
+    },
+    {
+      "id": "D2-014",
+      "source": "RFI response",
+      "event_date": "2020-02-04",
+      "from": "Architect",
+      "text": "The 'typ.' dimension on 5/A-301 applies to all four bays shown on the plan."
+    },
+    {
+      "id": "D2-015",
+      "source": "Submittal return",
+      "event_date": "2020-02-10",
+      "from": "Architect",
+      "text": "Approved as noted: provide 2-inch insulated panels, not the 1-inch panels listed in Section 07 42 13."
+    },
+    {
+      "id": "D2-016",
+      "source": "Meeting minutes",
+      "event_date": "2020-02-19",
+      "from": "Architect (OAC minutes)",
+      "text": "Minutes record that submittal review remains 14 days and resubmittals remain 10 days, as stated in Section 8.2."
+    },
+    {
+      "id": "D2-017",
+      "source": "RFI response",
+      "event_date": "2020-02-27",
+      "from": "Architect",
+      "text": "The fire marshal requires an additional fire damper at each shaft penetration on Level 2. Install per detail 6/M-501."
+    },
+    {
+      "id": "D2-018",
+      "source": "RFI response",
+      "event_date": "2020-03-02",
+      "from": "Architect",
+      "text": "Use the 2-hour fire-rated door shown on A-501, not the 1-hour door in the spec."
+    },
+    {
+      "id": "D2-019",
+      "source": "RFI response",
+      "event_date": "2020-03-10",
+      "from": "Architect",
+      "text": "Provide the 8-inch CMU for the full height of the wall, as noted in Detail 3/A-301."
+    },
+    {
+      "id": "D2-020",
+      "source": "Email",
+      "event_date": "2020-03-18",
+      "from": "Architect",
+      "text": "Each roofing membrane layer needs a 7-day cure before the next layer is placed, per the manufacturer's instructions already required by Section 07 54 00."
+    },
+    {
+      "id": "D2-021",
+      "source": "RFI response",
+      "event_date": "2020-03-26",
+      "from": "Architect",
+      "text": "Conduit routing is at your discretion as long as the clearances on E-401 are met."
+    },
+    {
+      "id": "D2-022",
+      "source": "Email",
+      "event_date": "2020-04-07",
+      "from": "Owner's Representative",
+      "text": "Please replace the specified mortise locksets with electrified access control hardware at all exterior doors."
+    },
+    {
+      "id": "D2-023",
+      "source": "RFI response",
+      "event_date": "2020-04-15",
+      "from": "Architect",
+      "text": "The 'by others' note on the casework drawing refers to the Owner's furniture vendor, per the General Conditions. It is not in your scope."
+    },
+    {
+      "id": "D2-024",
+      "source": "RFI response",
+      "event_date": "2020-04-23",
+      "from": "Architect",
+      "text": "Test results show the slab in Room 118 cannot be patched as drawn. Remove and replace the slab."
+    },
+    {
+      "id": "D2-025",
+      "source": "Meeting minutes",
+      "event_date": "2020-05-05",
+      "from": "Architect (OAC minutes)",
+      "text": "OAC minutes: the Architect asked that all corridor ceilings be raised to 10'-0\" above finished floor in place of the 9'-0\" shown."
+    },
+    {
+      "id": "D2-026",
+      "source": "RFI response",
+      "event_date": "2020-05-14",
+      "from": "Architect",
+      "text": "The fire-rated gypsum board on the corridor side is Type X, 5/8-inch, as already specified in Section 09 29 00."
+    },
+    {
+      "id": "D2-027",
+      "source": "Email",
+      "event_date": "2020-05-27",
+      "from": "Owner's Representative",
+      "text": "The superintendent was asked verbally to relocate the main electrical room to the west side. Confirming by email."
+    },
+    {
+      "id": "D2-028",
+      "source": "RFI response",
+      "event_date": "2020-06-09",
+      "from": "Architect",
+      "text": "Use the sealant listed in Section 07 92 00 at all control joints, including those on the east elevation."
+    },
+    {
+      "id": "D2-029",
+      "source": "Email",
+      "event_date": "2020-06-18",
+      "from": "Owner's Representative",
+      "text": "The District requests turnover of the gym addition 6 weeks before Substantial Completion for a summer program."
+    },
+    {
+      "id": "D2-030",
+      "source": "RFI response",
+      "event_date": "2020-06-30",
+      "from": "Architect",
+      "text": "Paint finish in the corridors is eggshell per the finish schedule on A-601. The 'high-performance' note on the cover sheet refers to the same product."
+    }
+  ]
+}

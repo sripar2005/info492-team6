@@ -30,8 +30,11 @@ from common import normalize  # noqa: E402  (same text normalization as Demo 1)
 from deadlines import NOTICE_RULES, notice_due  # noqa: E402
 
 CONTRACT = ROOT.parent / "demo1" / "data" / "synthetic_contract.md"
-CASES = ROOT / "data" / "cases.json"
-DEFAULT_OUT = ROOT / "results" / "classifications.json"
+# Test sets: A = 30 documents written with the contract; B = 30 written independently by Yousuf Shaik.
+SETS = {
+    "A": {"cases": ROOT / "data" / "cases.json", "out": ROOT / "results" / "classifications.json", "calendar": "wa2020"},
+    "B": {"cases": ROOT / "data" / "set_b" / "cases.json", "out": ROOT / "results" / "set_b" / "classifications.json", "calendar": "us_federal"},
+}
 CACHE_DIR = ROOT / "results" / "cache"
 SYSTEM_PROMPT_FILE = ROOT / "prompts" / "classify_system.txt"
 USER_PROMPT_FILE = ROOT / "prompts" / "classify_user.txt"
@@ -101,15 +104,18 @@ def call_model(client, model, system, user, max_tokens=1500, retries=3):
 def main():
     parser = argparse.ArgumentParser(description="Classify incoming documents as clarification or possible change.")
     parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--out", default=str(DEFAULT_OUT))
+    parser.add_argument("--set", default="A", choices=sorted(SETS), help="test set: A (default) or B")
+    parser.add_argument("--out", default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
     contract = CONTRACT.read_text(encoding="utf-8")
-    cases = json.loads(CASES.read_text(encoding="utf-8"))["cases"]
+    cfg = SETS[args.set]
+    args.out = args.out or str(cfg["out"])
+    cases = json.loads(cfg["cases"].read_text(encoding="utf-8"))["cases"]
     system = SYSTEM_PROMPT_FILE.read_text(encoding="utf-8").strip()
     template = USER_PROMPT_FILE.read_text(encoding="utf-8").strip()
-    print(f"{len(cases)} documents, 1 API call each (model: {args.model})")
+    print(f"Set {args.set}: {len(cases)} documents, 1 API call each (model: {args.model})")
 
     if args.dry_run:
         first = build_user_prompt(template, contract, cases[0])
@@ -132,7 +138,7 @@ def main():
             "id": case["id"],
             "answer": answer,
             "quote_verified": bool(quote) and quote in norm_contract,
-            "computed_notice_due": notice_due(case["event_date"], rule) if answer.get("label") == "POSSIBLE CHANGE" else None,
+            "computed_notice_due": notice_due(case["event_date"], rule, cfg["calendar"]) if answer.get("label") == "POSSIBLE CHANGE" else None,
             "latency_s": latency,
             "usage": usage,
         })
@@ -141,6 +147,7 @@ def main():
     out = {
         "meta": {
             "model": args.model,
+            "test_set": args.set,
             "created": datetime.now(timezone.utc).isoformat(),
             "calls": len(cases), "cached_calls": cached,
             "input_tokens": tin, "output_tokens": tout,

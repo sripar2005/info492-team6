@@ -4,14 +4,22 @@
 # never printed, committed, or shown to viewers. Only people with write access to this
 # repo can start this workflow (Actions tab -> "Demo 2 - run classifier" -> Run workflow).
 #
-# Each run makes 30 API calls (about 180,000 input tokens). Results are committed to
-# demo2/results/, and the Vercel site's /demo2/ page reads them.
+# Two test sets: A (demo2/data/) and B (demo2/data/set_b/, written by Yousuf Shaik).
+# Each run makes 30 API calls (about 275,000 input tokens). Results are committed to
+# demo2/results/ (Set A) or demo2/results/set_b/ (Set B); the site's /demo2/ page reads them.
+# Pushing a change to demo2/data/set_b/RUN_SET_B.txt also starts a Set B run.
 
 name: Demo 2 - run classifier
 
 on:
   workflow_dispatch:
     inputs:
+      test_set:
+        description: "Test set to run"
+        required: true
+        type: choice
+        options: ["A", "B"]
+        default: "A"
       model:
         description: "Claude model name"
         required: true
@@ -21,6 +29,9 @@ on:
         required: true
         type: boolean
         default: false
+  push:
+    branches: [main]
+    paths: ["demo2/data/set_b/RUN_SET_B.txt"]
 
 permissions:
   contents: write
@@ -28,6 +39,10 @@ permissions:
 concurrency:
   group: demo2-run
   cancel-in-progress: false
+
+env:
+  TEST_SET: ${{ github.event_name == 'push' && 'B' || inputs.test_set }}
+  MODEL: ${{ inputs.model || 'claude-sonnet-5-5' }}
 
 jobs:
   run:
@@ -43,11 +58,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Pick result folder for the test set
+        run: |
+          if [ "$TEST_SET" = "B" ]; then echo "OUT=results/set_b" >> "$GITHUB_ENV"; else echo "OUT=results" >> "$GITHUB_ENV"; fi
+
       - name: Stop if results already exist (protects the first run)
         if: ${{ !inputs.overwrite }}
         run: |
-          if [ -f results/classifications.json ]; then
-            echo "::error::demo2/results/classifications.json already exists. Re-run with overwrite=true only for a documented Run 2."
+          if [ -f "$OUT/classifications.json" ]; then
+            echo "::error::demo2/$OUT/classifications.json already exists. Re-run with overwrite=true only for a documented Run 2."
             exit 1
           fi
 
@@ -66,46 +85,48 @@ jobs:
       - name: Offline tests (no API calls)
         run: python tests/test_pipeline.py
 
-      - name: Check cases and labels match the generation script
-        run: python data/build_cases.py && git diff --exit-code data/cases.json data/answer_key.json
+      - name: Check cases and labels match their source files
+        run: |
+          python data/build_cases.py && git diff --exit-code data/cases.json data/answer_key.json
+          python data/set_b/convert.py && git diff --exit-code data/set_b/cases.json data/set_b/answer_key.json
 
       - name: Dry run (shows the 30 calls)
-        run: python classifier.py --dry-run --model "${{ inputs.model }}"
+        run: python classifier.py --set "$TEST_SET" --dry-run --model "$MODEL"
 
       - name: Live classification
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python classifier.py --model "${{ inputs.model }}"
+        run: python classifier.py --set "$TEST_SET" --model "$MODEL"
 
       - name: Evaluate against the answer key
-        run: python evaluate.py
+        run: python evaluate.py --set "$TEST_SET"
 
       - name: Write run summary
         run: |
           python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
-          import json
-          meta = json.load(open("results/classifications.json"))["meta"]
-          print("## Demo 2 run\n")
+          import json, os
+          meta = json.load(open(os.environ["OUT"] + "/classifications.json"))["meta"]
+          print(f"## Demo 2 run, Set {os.environ['TEST_SET']}\n")
           print(f"- Model: `{meta['model']}`")
           print(f"- API calls: {meta['calls']} ({meta['cached_calls']} cached)")
           print(f"- Tokens: {meta['input_tokens']:,} input, {meta['output_tokens']:,} output")
           EOF
-          cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+          cat "$OUT/evaluation_report.md" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save results as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:
-          name: demo2-results
+          name: demo2-results-set-${{ env.TEST_SET }}
           path: |
-            demo2/results/classifications.json
-            demo2/results/evaluation.json
-            demo2/results/evaluation_report.md
+            demo2/${{ env.OUT }}/classifications.json
+            demo2/${{ env.OUT }}/evaluation.json
+            demo2/${{ env.OUT }}/evaluation_report.md
 
       - name: Commit results to the repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/classifications.json results/evaluation.json results/evaluation_report.md
-          git commit -m "Demo 2 results: ${{ inputs.model }} (workflow run ${{ github.run_number }})"
+          git add "$OUT/classifications.json" "$OUT/evaluation.json" "$OUT/evaluation_report.md"
+          git commit -m "Demo 2 results, Set $TEST_SET: $MODEL (workflow run ${{ github.run_number }})"
           git pull --rebase origin main
           git push

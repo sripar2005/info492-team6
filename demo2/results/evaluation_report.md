@@ -1,4 +1,4 @@
-# Change classifier evaluation (Demo 2)
+# Change classifier evaluation (Demo 2, Set A)
 
 Model: `claude-sonnet-5-5` · 30 documents · 274,535 input / 13,450 output tokens
 
