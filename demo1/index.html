@@ -173,7 +173,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
       <a class="crumb" href="/demos/">← All demos</a>
       <span class="label">Demo 1 · Thesis claim 1</span>
       <h1>Can an agent pull a contract's rules into a form we can check?</h1>
-      <p class="lead">Before an agent can check a change proposal at each handoff, the contract's pricing and notice rules have to exist as structured, citable data. This demo asks Claude to extract them from a GC/CM contract and scores the result against a hand-built answer key.</p>
+      <p class="lead">Before an agent can check a change proposal at each handoff, the contract's pricing and notice rules have to exist as structured, citable data. This demo asks the agent to extract them from a GC/CM contract and scores the result against a hand-built answer key.</p>
     </div>
     <div>
       <div class="tb-cell"><span class="label">Claim tested</span><span>At least <strong>85%</strong> of core rules captured</span></div>
@@ -263,7 +263,7 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
           <h3>Method</h3>
           <ol class="steps">
             <li><strong>Split</strong> the contract at each Article and Exhibit: 19 sections in 6 API calls.</li>
-            <li><strong>Extract</strong> with Claude through a structured tool schema: type, sections, value and unit, trigger, exceptions, and an exact quote.</li>
+            <li><strong>Extract</strong> with the agent (built on Anthropic's Claude) through a structured tool schema: type, sections, value and unit, trigger, exceptions, and an exact quote.</li>
             <li><strong>Verify</strong> every quote against the contract text.</li>
             <li><strong>Score</strong>: a key rule is found when an extracted quote overlaps its anchor and the number and unit match.</li>
           </ol>
