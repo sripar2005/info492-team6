@@ -109,7 +109,7 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     <a class="note" href="/demos/">← All demos</a>
     <span class="label">Demo 2 of 4 · Change classifier · Thesis claim 4</span>
     <h1>Is this document a clarification, or a change we must give notice on?</h1>
-    <p>A contractor that misses a change, or gives notice late, can lose the right to be paid for it. We gave the agent 60 documents a general contractor receives, in two independently written sets of 30, and asked it to classify each one, cite the clause, and name the notice deadline.</p>
+    <p>A contractor that misses a change, or gives notice late, can lose the right to be paid for it. We gave the agent 60 documents a general contractor receives, in two sets of 30, and asked it to classify each one, cite the clause, and name the notice deadline.</p>
     <div class="status-row"><span class="label">Status</span><span id="status" class="chip">Loading…</span><span class="label">Model</span><span id="model" class="note">–</span><span class="label">Run</span><span id="run" class="note">–</span></div>
   </section>
 
@@ -129,15 +129,16 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     <div class="body">
       <span class="label">Both test sets at a glance</span>
       <div style="overflow-x:auto"><table class="compare" id="compare"><tr><th>Measure</th><th class="n">Set A</th><th class="n">Set B</th></tr></table></div>
-      <p class="note"><strong>Set A:</strong> 30 documents written with the contract (11 tricky). <strong>Set B:</strong> 30 documents written independently by teammate Yousuf Shaik (10 subtle), with his own labels. Same classifier, prompts, and model for both.</p>
+      <p class="note"><strong>Set A:</strong> 30 documents (11 marked tricky). <strong>Set B:</strong> 30 documents written by teammate Yousuf Shaik (10 marked subtle), with his own labels. Same classifier, prompts, and model for both. <strong>One run per set.</strong> In the class <a href="/log/#evaluation-lab">Evaluation Lab</a>, two identical runs on 10 messages scored 8/10 and 10/10, so a single run can hide variation. Answer keys have not yet been checked by a second labeler.</p>
       <div class="finding" id="finding" hidden>
         <span class="label">Finding · the contract doesn't define "legal holiday"</span>
         <p><strong>D2-008 (Set B):</strong> notice was due on Thanksgiving 2019. The answer key rolled it to Friday, Nov 29 (US federal holidays). The agent rolled it to Monday, Dec 2: Section 14.1 says Washington law governs, and Washington also treats the day after Thanksgiving as a legal holiday. It flagged the ambiguity for the project manager to check.</p>
-        <p>Scored as a miss, because labels don't change after a run. But the agent found a gap in the contract that the human-written key missed. Code computed the key's date correctly from the agent's rule, which is why we keep date counting in code with a deliberately chosen calendar.</p>
+        <p>The agent and the answer key disagreed because the contract never defines "legal holiday." Either date is defensible; the agent's reading follows Section 14.1, and it flagged the question. It still counts as a miss, because labels don't change after a run.</p>
+        <p>The code-counted date matched the key because we set the code to the same holiday calendar the key used (US federal for Set B). So the lesson is not that code beats the agent: it's that the contract leaves the calendar open, and code makes that choice explicit and repeatable. A real project would settle it with the owner.</p>
         <button type="button" class="linkbtn" id="show-d2008">Show the D2-008 trace →</button>
       </div>
       <div class="setswitch" role="group" aria-label="Choose test set">
-        <button type="button" data-set="A" aria-pressed="true">Set A<small>30 written with the contract</small></button>
+        <button type="button" data-set="A" aria-pressed="true">Set A<small>30 test documents</small></button>
         <button type="button" data-set="B" aria-pressed="false">Set B<small>30 written by Yousuf Shaik</small></button>
       </div>
       <div class="banner" id="pending" hidden><span class="label" style="color:var(--warn)">Results pending</span><p>The classifier has not been run against the live model yet. Nothing on this page is simulated. The 30 documents and their labels below are final and were fixed before any run.</p></div>
@@ -207,7 +208,7 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
         <div style="display:grid;gap:8px;align-content:start"><h3>The 30 documents</h3>
           <ul class="plain"><li>Synthetic, written against Demo 1's contract (modeled on Seattle's Webster School GC/CM project).</li><li>15 clarifications, 15 possible changes; all four 6.2 rules appear.</li><li>11 tricky cases, such as a "no-cost" ASI that adds work and an owner email that says "don't proceed."</li><li>Notice dates are computed by the generation script, not typed by hand.</li></ul></div>
         <div style="display:grid;gap:8px;align-content:start"><h3>Limits</h3>
-          <ul class="plain"><li>The documents, labels, and contract share one author; no teammate has independently labeled them yet.</li><li>30 short, clean documents on one contract; real ones are messier.</li><li>A re-run may differ slightly; the committed results are the record.</li></ul></div>
+          <ul class="plain"><li>The answer keys have not yet been checked by a second labeler.</li><li>One run per set; results can vary between runs (see the Evaluation Lab).</li><li>30 short, clean documents on one contract; real ones are messier.</li><li>A re-run may differ slightly; the committed results are the record.</li></ul></div>
         <div style="display:grid;gap:8px;align-content:start"><h3>Files</h3>
           <p class="note">The agent runs on Anthropic's Claude (claude-sonnet-5-5), called through a structured tool schema.</p>
           <ul class="plain"><li><a href="https://github.com/sripar2005/info492-team6/tree/main/demo2" target="_blank" rel="noopener">Code, data, prompts</a></li><li><a href="https://github.com/sripar2005/info492-team6/blob/main/demo2/data/build_cases.py" target="_blank" rel="noopener">Generation script</a></li><li><a href="https://github.com/sripar2005/info492-team6/blob/main/demo2/prompts/classify_system.txt" target="_blank" rel="noopener">System prompt</a></li><li><a href="https://github.com/sripar2005/info492-team6/actions" target="_blank" rel="noopener">Run log</a></li></ul></div>
@@ -225,8 +226,8 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 (function () {
   var BASE = "/demo2/";
   var SETS = {
-    A: { cases: "data/cases.json", key: "data/answer_key.json", ev: "results/evaluation.json", note: "Set A: 30 documents written with the contract.", trickyWord: "tricky" },
-    B: { cases: "data/set_b/cases.json", key: "data/set_b/answer_key.json", ev: "results/set_b/evaluation.json", note: "Set B: 30 documents written independently by Yousuf Shaik, with his labels and reasons.", trickyWord: "subtle" }
+    A: { cases: "data/cases.json", key: "data/answer_key.json", ev: "results/evaluation.json", note: "Set A: 30 test documents.", trickyWord: "tricky" },
+    B: { cases: "data/set_b/cases.json", key: "data/set_b/answer_key.json", ev: "results/set_b/evaluation.json", note: "Set B: 30 documents written by Yousuf Shaik, with his labels and reasons.", trickyWord: "subtle" }
   };
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
@@ -262,9 +263,9 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
       ["Flags that were real changes", "change_precision"],
       ["Right notice rule, 6.2 (a) to (d)", "notice_rule_accuracy"],
       ["Notice dates right, agent counting", "deadline_accuracy_model_date"],
-      ["Notice dates right, code counting", "deadline_accuracy_code_date"],
+      ["Notice dates right, code counting (calendar set to match each key)", "deadline_accuracy_code_date"],
       ["Quotes found word for word", "citation_validity"],
-      ["Tricky or subtle documents right", "tricky_accuracy"]
+      ["Tricky or subtle documents right (as marked by each set's author)", "tricky_accuracy"]
     ];
     var mA = data.A.ev && data.A.ev.metrics, mB = data.B.ev && data.B.ev.metrics;
     $("compare").innerHTML = "<tr><th>Measure</th><th class=\"n\">Set A</th><th class=\"n\">Set B</th></tr>" + rows.map(function (r) {
@@ -298,12 +299,12 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 
   function showResults(ev) {
     var m = ev.metrics, meta = ev.meta || {}, c = m.confusion, met = m.meets_target;
-    $("status").className = "chip " + (met ? "ok" : "bad"); $("status").textContent = met ? "Target met, both sets" : "Target not met";
+    $("status").className = "chip " + (met ? "ok" : "bad"); $("status").textContent = met ? "Target met on both answer keys" : "Target not met";
     if (data.A.ev && data.B.ev && !(data.A.ev.metrics.meets_target && data.B.ev.metrics.meets_target)) $("status").textContent = met ? "Target met" : "Target not met";
     $("model").textContent = meta.model || "–";
     $("run").textContent = meta.created ? new Date(meta.created).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "–";
     var v = $("verdict"); v.hidden = false; v.className = "verdict " + (met ? "met" : "notmet");
-    v.innerHTML = '<span class="label">Thesis claim 4 · Set ' + state.set + "</span><b>" + (met ? "Met: " : "Not met: ") + pct(m.label_accuracy) + " of documents classified correctly, against an 85% target.</b>";
+    v.innerHTML = '<span class="label">Thesis claim 4 · Set ' + state.set + "</span><b>" + (met ? "Met: " : "Not met: ") + pct(m.label_accuracy) + " of documents matched this set's answer key, against an 85% target (one run).</b>";
     $("acc").textContent = pct(m.label_accuracy);
     $("acc-n").textContent = (c.true_change_flagged + c.true_clarification) + " of " + m.documents + " documents classified correctly";
     $("acc-bar").style.width = (100 * m.label_accuracy) + "%";
@@ -315,7 +316,7 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     $("m-date-code").textContent = pct(m.deadline_accuracy_code_date);
     $("m-cite").textContent = pct(m.citation_validity);
     $("m-tricky").textContent = pct(m.tricky_accuracy);
-    document.querySelector("#m-tricky + span").textContent = "right on the " + m.tricky_cases + " " + SETS[state.set].trickyWord + " documents";
+    document.querySelector("#m-tricky + span").textContent = "right on the " + m.tricky_cases + " " + SETS[state.set].trickyWord + " documents (as marked by the set's author)";
     $("m-tokens").textContent = meta.input_tokens != null ? Math.round(meta.input_tokens / 1000) + "k / " + Math.round(meta.output_tokens / 1000) + "k" : "–";
     $("c-tp").textContent = c.true_change_flagged; $("c-fn").textContent = c.missed_change;
     $("c-fp").textContent = c.false_alarm; $("c-tn").textContent = c.true_clarification;
