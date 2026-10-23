@@ -1,0 +1,1347 @@
+{
+  "metrics": {
+    "documents": 30,
+    "label_accuracy": 1.0,
+    "target_label_accuracy": 0.85,
+    "meets_target": true,
+    "confusion": {
+      "true_change_flagged": 15,
+      "false_alarm": 0,
+      "missed_change": 0,
+      "true_clarification": 15
+    },
+    "change_recall": 1.0,
+    "change_precision": 1.0,
+    "notice_rule_accuracy": 1.0,
+    "rule_scored_on": 15,
+    "deadline_accuracy_model_date": 0.9333333333333333,
+    "deadline_accuracy_code_date": 1.0,
+    "deadline_scored_on": 15,
+    "citation_validity": 1.0,
+    "tricky_accuracy": 1.0,
+    "tricky_cases": 10
+  },
+  "trace": [
+    {
+      "id": "D2-001",
+      "case": {
+        "id": "D2-001",
+        "source": "RFI response",
+        "event_date": "2019-09-09",
+        "from": "Architect",
+        "text": "Confirming that the slab edge at gridline A is shown as 8 inches on S-101 and is the same condition as detail 4/S-102. Proceed as drawn."
+      },
+      "expected": {
+        "id": "D2-001",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Confirms a dimension that is already shown on the drawings. Nothing differs from what the contract documents require."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "2.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The Architect only confirms that the slab edge is already shown as 8 inches on S-101 and matches detail 4/S-102, and says to proceed as drawn. It adds no work and changes nothing in the Contract Documents, so no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.85,
+      "usage": {
+        "input_tokens": 9145,
+        "output_tokens": 288
+      }
+    },
+    {
+      "id": "D2-002",
+      "case": {
+        "id": "D2-002",
+        "source": "RFI response",
+        "event_date": "2019-09-17",
+        "from": "Architect",
+        "text": "Provide the 75-ton chiller, not the 60-ton unit scheduled on M-601. Load calculations were revised after bid."
+      },
+      "expected": {
+        "id": "D2-002",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2019-09-24",
+        "tricky": false,
+        "why": "Larger equipment than the contract documents scheduled, so the equipment cost goes up and electrical and structural support may change."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2019-09-24",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time;",
+        "reasoning": "The RFI response directs a larger 75-ton chiller instead of the scheduled 60-ton unit because of post-bid load recalculations. That is a scope upgrade that likely increases cost and possibly time. Under 7.4 and 6.2(a), notice is due 7 days after receipt, which is 2019-09-24, a Tuesday."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2019-09-24",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 3.04,
+      "usage": {
+        "input_tokens": 9134,
+        "output_tokens": 396
+      }
+    },
+    {
+      "id": "D2-003",
+      "case": {
+        "id": "D2-003",
+        "source": "Email",
+        "event_date": "2019-09-26",
+        "from": "Owner's Representative",
+        "text": "Please confirm that the paint color in the media center is PT-3 from the finish schedule on A-601. The sample on site looks right to us."
+      },
+      "expected": {
+        "id": "D2-003",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "The owner is approving a finish that is already listed in the finish schedule. No added work."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "2.3",
+          "7.4",
+          "1.3"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The Owner's Representative is only asking CM to confirm that the media center paint color is PT-3, which is already in the finish schedule on A-601. The email directs no new or changed work, so it adds no cost or time, and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 3.56,
+      "usage": {
+        "input_tokens": 9136,
+        "output_tokens": 287
+      }
+    },
+    {
+      "id": "D2-004",
+      "case": {
+        "id": "D2-004",
+        "source": "RFI response",
+        "event_date": "2019-10-08",
+        "from": "Architect",
+        "text": "Use 24-inch deep footings at gridlines C to E per revised detail 4/S-201, in place of the 18-inch footings shown on the original sheet."
+      },
+      "expected": {
+        "id": "D2-004",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2019-10-15",
+        "tricky": false,
+        "why": "Deeper footings than the original drawings show, which means more excavation and concrete."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2019-10-15",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "The RFI response replaces the 18-inch footings on the original sheet with deeper 24-inch footings (revised detail 4/S-201). That adds work beyond the Contract Documents and could raise cost or time. Under Section 7.4, an RFI response does not change cost or time by itself, so the CM must give notice under 6.2(a) within 7 days of receipt, which is 2019-10-15."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2019-10-15",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.61,
+      "usage": {
+        "input_tokens": 9142,
+        "output_tokens": 571
+      }
+    },
+    {
+      "id": "D2-005",
+      "case": {
+        "id": "D2-005",
+        "source": "ASI",
+        "event_date": "2019-10-22",
+        "from": "Architect",
+        "text": "ASI-05: Sheet A-102 is reissued to correct a typo in the room number for Room 114. No change to the work."
+      },
+      "expected": {
+        "id": "D2-005",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Corrects a typographical error. The scope of the work is the same."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "1.3",
+          "6.8"
+        ],
+        "quote": "a written instruction by Architect that is not intended to change cost or time",
+        "reasoning": "ASI-05 only corrects a room-number typo on Sheet A-102 and states there is no change to the work. It adds no work, cost or time, so no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.24,
+      "usage": {
+        "input_tokens": 9130,
+        "output_tokens": 261
+      }
+    },
+    {
+      "id": "D2-006",
+      "case": {
+        "id": "D2-006",
+        "source": "Email",
+        "event_date": "2019-11-04",
+        "from": "Owner's Representative",
+        "text": "The District would like 12 additional data drops in Classrooms 201 through 206. Please send a price."
+      },
+      "expected": {
+        "id": "D2-006",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2019-11-12",
+        "tricky": false,
+        "why": "Adds a quantity of work beyond the drawings, and the owner is asking for a price, which treats it as extra work."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2019-11-12",
+        "sections": [
+          "6.2(b)",
+          "1.4",
+          "2.3"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+        "reasoning": "The Owner's Representative asks for 12 additional data drops, which is added scope and may increase cost or time. Notice is due 7 days after receipt under 6.2(b). Day 7 is 2019-11-11, Veterans Day (a legal holiday), so under 1.4 the period ends on the next business day, 2019-11-12. Under 2.3 the CM should not do the work until a CO or CCD is issued."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2019-11-12",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.81,
+      "usage": {
+        "input_tokens": 9124,
+        "output_tokens": 690
+      }
+    },
+    {
+      "id": "D2-007",
+      "case": {
+        "id": "D2-007",
+        "source": "RFI response",
+        "event_date": "2019-11-14",
+        "from": "Architect",
+        "text": "Either anchor type listed in Section 05 50 00 is acceptable at the guardrail posts. Select based on availability."
+      },
+      "expected": {
+        "id": "D2-007",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "The specification already allows both options, so choosing between them does not change cost or scope."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "6.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The RFI response confirms that either anchor type already listed in the specification is acceptable and lets the CM choose by availability. It directs no added work, so it doesn't change cost or time and needs no Section 6.2 notice."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.28,
+      "usage": {
+        "input_tokens": 9130,
+        "output_tokens": 272
+      }
+    },
+    {
+      "id": "D2-008",
+      "case": {
+        "id": "D2-008",
+        "source": "RFI response",
+        "event_date": "2019-11-21",
+        "from": "Architect",
+        "text": "Clarification: the east stair railing shall be stainless steel, not the painted steel shown on A-401."
+      },
+      "expected": {
+        "id": "D2-008",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2019-11-29",
+        "tricky": true,
+        "why": "The message uses the word clarification, but the material is different from the drawings, and stainless steel costs more than painted steel."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2019-12-02",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "Although the response is labeled \"Clarification,\" it replaces the painted steel shown on A-401 with stainless steel, which likely increases cost. Under 6.2(a) and 7.4, notice is due 7 days after receipt, which is Thursday 2019-11-28 (Thanksgiving). Under 1.4, a period ending on a legal holiday runs to the next business day. Washington law governs (14.1) and treats the day after Thanksgiving as a legal holiday, so the deadline moves past the weekend to Monday 2019-12-02. If the day after Thanksgiving is not treated as a holiday, the date would be 2019-11-29, so the CM should check this."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2019-11-29",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": false,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 6.17,
+      "usage": {
+        "input_tokens": 9124,
+        "output_tokens": 866
+      }
+    },
+    {
+      "id": "D2-009",
+      "case": {
+        "id": "D2-009",
+        "source": "RFI response",
+        "event_date": "2019-12-03",
+        "from": "Architect",
+        "text": "Per Section 03 30 00, all slabs on grade are 4,000 psi concrete. The note on S-001 is referring to the same requirement."
+      },
+      "expected": {
+        "id": "D2-009",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": true,
+        "why": "Sounds like a requirement being stated, but the specification already requires it and the drawing note agrees with it."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The Architect points to the existing spec (Section 03 30 00) and confirms the S-001 note refers to the same 4,000 psi requirement. It adds no new work or requirement, so it explains what the Contract Documents already say and needs no Section 6.2 notice."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.2,
+      "usage": {
+        "input_tokens": 9138,
+        "output_tokens": 283
+      }
+    },
+    {
+      "id": "D2-010",
+      "case": {
+        "id": "D2-010",
+        "source": "RFI response",
+        "event_date": "2019-12-18",
+        "from": "Architect",
+        "text": "Reroute the main supply duct below the beam at gridline 5 and add a soffit to enclose it. See sketch SK-12."
+      },
+      "expected": {
+        "id": "D2-010",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2019-12-26",
+        "tricky": false,
+        "why": "A rerouted duct and a new soffit are work that is not shown in the contract documents, and the added work takes time."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2019-12-26",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "The RFI response directs new work, rerouting the supply duct and adding a soffit, that is probably not in the Contract Documents. Under 7.4 and 6.2(a), CM must give notice within 7 days. Day 7 is 2019-12-25, which is Christmas, a legal holiday, so Section 1.4 moves the deadline to the next business day, 2019-12-26."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2019-12-26",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.51,
+      "usage": {
+        "input_tokens": 9133,
+        "output_tokens": 562
+      }
+    },
+    {
+      "id": "D2-011",
+      "case": {
+        "id": "D2-011",
+        "source": "RFI response",
+        "event_date": "2020-01-06",
+        "from": "Architect",
+        "text": "Yes, the dishwasher in Kitchen 105 is contractor-furnished and is listed in Section 11 40 00. No change."
+      },
+      "expected": {
+        "id": "D2-011",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Confirms that an item is already in the contractor's scope under the specification."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "2.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The Architect confirms the dishwasher is already contractor-furnished and listed in Section 11 40 00. That is existing scope, so the response adds no work, cost, or time, and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.14,
+      "usage": {
+        "input_tokens": 9135,
+        "output_tokens": 272
+      }
+    },
+    {
+      "id": "D2-012",
+      "case": {
+        "id": "D2-012",
+        "source": "Email",
+        "event_date": "2020-01-11",
+        "from": "Owner's Representative",
+        "text": "Please also paint the existing stair in Wing B to match the new work. The District would appreciate it as a courtesy."
+      },
+      "expected": {
+        "id": "D2-012",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2020-01-21",
+        "tricky": true,
+        "why": "The polite wording hides the fact that the existing stair is outside the base scope, so this is added work."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2020-01-21",
+        "sections": [
+          "6.2",
+          "1.4",
+          "2.3"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+        "reasoning": "The Owner's Representative is asking CM to paint an existing stair, which is added work outside the Contract Documents. Calling it a \"courtesy\" doesn't remove the cost, so it is a direction from Owner under 6.2(b). Seven days from 2020-01-11 is Saturday 2020-01-18. Under 1.4 the deadline moves to the next business day. Monday 2020-01-20 is MLK Day, a legal holiday, so the notice is due Tuesday 2020-01-21."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-01-21",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 6.33,
+      "usage": {
+        "input_tokens": 9129,
+        "output_tokens": 718
+      }
+    },
+    {
+      "id": "D2-013",
+      "case": {
+        "id": "D2-013",
+        "source": "ASI",
+        "event_date": "2020-01-23",
+        "from": "Architect",
+        "text": "ASI-11: No cost impact is expected. Install an additional 2 inches of insulation at all roof edges."
+      },
+      "expected": {
+        "id": "D2-013",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2020-01-30",
+        "tricky": true,
+        "why": "The ASI says no cost impact, but 2 more inches of insulation is added material and labor. Under Section 6.8 the contractor can still give notice if it believes cost changes."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2020-01-30",
+        "sections": [
+          "6.2",
+          "6.8",
+          "2.3",
+          "1.3",
+          "1.4"
+        ],
+        "quote": "If CM believes an ASI will change cost or time, it shall give notice under Section 6.2(a) before proceeding.",
+        "reasoning": "ASI-11 directs additional work (2 inches more insulation at all roof edges) that is not in the Contract Documents, so it likely adds cost or time despite saying \"no cost impact is expected\". Under 6.8 and 6.2(a), notice is due 7 days after receipt, which is 2020-01-30."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-01-30",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 3.02,
+      "usage": {
+        "input_tokens": 9126,
+        "output_tokens": 403
+      }
+    },
+    {
+      "id": "D2-014",
+      "case": {
+        "id": "D2-014",
+        "source": "RFI response",
+        "event_date": "2020-02-04",
+        "from": "Architect",
+        "text": "The 'typ.' dimension on 5/A-301 applies to all four bays shown on the plan."
+      },
+      "expected": {
+        "id": "D2-014",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Explains how to read a note that is already on the drawing. The work is the same."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "1.3"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The response only explains that the 'typ.' dimension on 5/A-301 applies to all four bays shown on the plan. It adds no work and directs no change, so it clarifies the existing Contract Documents. Under 7.4 it does not change cost or time, and no 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.4,
+      "usage": {
+        "input_tokens": 9123,
+        "output_tokens": 296
+      }
+    },
+    {
+      "id": "D2-015",
+      "case": {
+        "id": "D2-015",
+        "source": "Submittal return",
+        "event_date": "2020-02-10",
+        "from": "Architect",
+        "text": "Approved as noted: provide 2-inch insulated panels, not the 1-inch panels listed in Section 07 42 13."
+      },
+      "expected": {
+        "id": "D2-015",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2020-02-18",
+        "tricky": false,
+        "why": "The returned submittal requires thicker panels than the specification lists, which costs more."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2020-02-18",
+        "sections": [
+          "6.2",
+          "8.3",
+          "1.4",
+          "2.3"
+        ],
+        "quote": "If CM believes a comment changes cost or time, CM shall give notice under Section 6.2(a).",
+        "reasoning": "The \"approved as noted\" return requires 2-inch insulated panels instead of the 1-inch panels in the specification. That is added work that may raise cost or time, so notice is due under 6.2(a) (Section 8.3) within 7 days of receipt. Day 7 is Monday 2020-02-17, which is Presidents' Day, a legal holiday. Section 1.4 moves the deadline to the next business day, 2020-02-18."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-02-18",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 6.04,
+      "usage": {
+        "input_tokens": 9133,
+        "output_tokens": 717
+      }
+    },
+    {
+      "id": "D2-016",
+      "case": {
+        "id": "D2-016",
+        "source": "Meeting minutes",
+        "event_date": "2020-02-19",
+        "from": "Architect (OAC minutes)",
+        "text": "Minutes record that submittal review remains 14 days and resubmittals remain 10 days, as stated in Section 8.2."
+      },
+      "expected": {
+        "id": "D2-016",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Restates review times that are already in the contract. Nothing new is being required."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "8.2",
+          "7.7"
+        ],
+        "quote": "Architect shall review each submittal within 14 days after receipt and each resubmittal within 10 days.",
+        "reasoning": "The minutes only restate the existing review periods in Section 8.2 (14 days for submittals, 10 days for resubmittals). They direct no new work and change no cost or time. Under 7.7, minutes are for record only."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.21,
+      "usage": {
+        "input_tokens": 9142,
+        "output_tokens": 282
+      }
+    },
+    {
+      "id": "D2-017",
+      "case": {
+        "id": "D2-017",
+        "source": "RFI response",
+        "event_date": "2020-02-27",
+        "from": "Architect",
+        "text": "The fire marshal requires an additional fire damper at each shaft penetration on Level 2. Install per detail 6/M-501."
+      },
+      "expected": {
+        "id": "D2-017",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2020-03-05",
+        "tricky": false,
+        "why": "A new code requirement that adds dampers that are not in the contract documents."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2020-03-05",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "The RFI response directs an additional fire damper at each Level 2 shaft penetration, which is added work beyond the Contract Documents and may raise cost or time. Under 7.4 and 6.2(a), notice is due 7 calendar days after receipt on 2020-02-27 (2020 is a leap year), so 2020-03-05, a Thursday."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-03-05",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.63,
+      "usage": {
+        "input_tokens": 9132,
+        "output_tokens": 630
+      }
+    },
+    {
+      "id": "D2-018",
+      "case": {
+        "id": "D2-018",
+        "source": "RFI response",
+        "event_date": "2020-03-02",
+        "from": "Architect",
+        "text": "Use the 2-hour fire-rated door shown on A-501, not the 1-hour door in the spec."
+      },
+      "expected": {
+        "id": "D2-018",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2020-03-09",
+        "tricky": false,
+        "why": "Different door than the specification calls for, and a 2-hour door is more expensive."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2020-03-09",
+        "sections": [
+          "6.2",
+          "7.4",
+          "1.2"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "The response resolves a drawing/spec conflict by directing the 2-hour door instead of the 1-hour door in the spec. Drawings and Specifications rank equally under 1.2, so this may raise cost over the spec, and the CM should give 6.2(a) notice within 7 days of the 2020-03-02 receipt, which is 2020-03-09 (a Monday)."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-03-09",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 9.88,
+      "usage": {
+        "input_tokens": 9125,
+        "output_tokens": 1289
+      }
+    },
+    {
+      "id": "D2-019",
+      "case": {
+        "id": "D2-019",
+        "source": "RFI response",
+        "event_date": "2020-03-10",
+        "from": "Architect",
+        "text": "Provide the 8-inch CMU for the full height of the wall, as noted in Detail 3/A-301."
+      },
+      "expected": {
+        "id": "D2-019",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": true,
+        "why": "Reads like an instruction, but it repeats what the detail already shows, so the work is unchanged."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "2.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The response only tells the CM to build the 8-inch CMU full height \"as noted in Detail 3/A-301\". That confirms what the Contract Documents already require and adds no new work, so no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 3.05,
+      "usage": {
+        "input_tokens": 9126,
+        "output_tokens": 376
+      }
+    },
+    {
+      "id": "D2-020",
+      "case": {
+        "id": "D2-020",
+        "source": "Email",
+        "event_date": "2020-03-18",
+        "from": "Architect",
+        "text": "Each roofing membrane layer needs a 7-day cure before the next layer is placed, per the manufacturer's instructions already required by Section 07 54 00."
+      },
+      "expected": {
+        "id": "D2-020",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": true,
+        "why": "Adds waiting time on its face, but the manufacturer's instructions are already part of the specification, so this is an existing requirement."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "1.1"
+        ],
+        "quote": "The Contract Documents are this Agreement, Exhibits A through E, the Drawings and Specifications",
+        "reasoning": "The Architect's email only restates a 7-day cure period that it says Section 07 54 00 already requires. Specifications are Contract Documents, so this enforces an existing requirement and adds no new work, cost, or time. I could not check Section 07 54 00 itself because it isn't in the contract text provided. If it doesn't actually require the cure, the CM should recheck."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 5.82,
+      "usage": {
+        "input_tokens": 9140,
+        "output_tokens": 760
+      }
+    },
+    {
+      "id": "D2-021",
+      "case": {
+        "id": "D2-021",
+        "source": "RFI response",
+        "event_date": "2020-03-26",
+        "from": "Architect",
+        "text": "Conduit routing is at your discretion as long as the clearances on E-401 are met."
+      },
+      "expected": {
+        "id": "D2-021",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Confirms the contractor's existing flexibility and adds no requirement."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "6.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The response leaves conduit routing to the CM's discretion, subject to clearances already shown on E-401. It adds no work and directs no change, so it does not change cost or time, and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.84,
+      "usage": {
+        "input_tokens": 9118,
+        "output_tokens": 271
+      }
+    },
+    {
+      "id": "D2-022",
+      "case": {
+        "id": "D2-022",
+        "source": "Email",
+        "event_date": "2020-04-07",
+        "from": "Owner's Representative",
+        "text": "Please replace the specified mortise locksets with electrified access control hardware at all exterior doors."
+      },
+      "expected": {
+        "id": "D2-022",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2020-04-14",
+        "tricky": false,
+        "why": "Different and more expensive hardware than the specification calls for."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2020-04-14",
+        "sections": [
+          "6.2",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+        "reasoning": "The Owner's Representative directs a substitution of specified mortise locksets with electrified access control hardware. That is a direction to change the scope and likely adds cost or time. It is a written direction from Owner, so 6.2(b) applies, and notice is due 7 calendar days after 2020-04-07, which is Tuesday 2020-04-14. CM should not proceed until a CO or CCD is issued (2.3)."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-04-14",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.63,
+      "usage": {
+        "input_tokens": 9123,
+        "output_tokens": 540
+      }
+    },
+    {
+      "id": "D2-023",
+      "case": {
+        "id": "D2-023",
+        "source": "RFI response",
+        "event_date": "2020-04-15",
+        "from": "Architect",
+        "text": "The 'by others' note on the casework drawing refers to the Owner's furniture vendor, per the General Conditions. It is not in your scope."
+      },
+      "expected": {
+        "id": "D2-023",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Explains who supplies an item that was never in the contractor's scope."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "2.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The Architect explains that the 'by others' note means the Owner's furniture vendor and that this work is not in the CM's scope. That confirms existing Contract Document information and adds no work, so no cost or time change and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.21,
+      "usage": {
+        "input_tokens": 9136,
+        "output_tokens": 281
+      }
+    },
+    {
+      "id": "D2-024",
+      "case": {
+        "id": "D2-024",
+        "source": "RFI response",
+        "event_date": "2020-04-23",
+        "from": "Architect",
+        "text": "Test results show the slab in Room 118 cannot be patched as drawn. Remove and replace the slab."
+      },
+      "expected": {
+        "id": "D2-024",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "sections": [
+          "6.2(a)"
+        ],
+        "notice_due": "2020-04-30",
+        "tricky": false,
+        "why": "The drawings call for a patch, and the answer now requires full replacement, which is more work and more time."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(a)",
+        "notice_due": "2020-04-30",
+        "sections": [
+          "6.2",
+          "7.4",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+        "reasoning": "The RFI response says the slab can't be patched as drawn and directs removal and replacement. That is likely added work and cost beyond the Contract Documents. Under 7.4 an RFI response doesn't change cost or time by itself, so the CM must give notice under 6.2(a) within 7 calendar days of 2020-04-23. That date is 2020-04-30, a Thursday, so no weekend roll applies."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-04-30",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.31,
+      "usage": {
+        "input_tokens": 9125,
+        "output_tokens": 630
+      }
+    },
+    {
+      "id": "D2-025",
+      "case": {
+        "id": "D2-025",
+        "source": "Meeting minutes",
+        "event_date": "2020-05-05",
+        "from": "Architect (OAC minutes)",
+        "text": "OAC minutes: the Architect asked that all corridor ceilings be raised to 10'-0\" above finished floor in place of the 9'-0\" shown."
+      },
+      "expected": {
+        "id": "D2-025",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2020-05-12",
+        "tricky": true,
+        "why": "Raising the ceilings changes the work shown on the drawings. Under Section 7.7, meeting minutes alone are not notice and do not authorize a change, so written notice is still required."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2020-05-12",
+        "sections": [
+          "6.2",
+          "7.7",
+          "2.3"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+        "reasoning": "The Architect asked for corridor ceilings to be raised from 9'-0\" to 10'-0\", which adds work beyond the Contract Documents. The minutes only record the request, and Section 7.7 says minutes are not notice. So CM must send its own written notice under 6.2(b) within 7 days of 2020-05-05, which is 2020-05-12. CM should not proceed without a CO or CCD (2.3)."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-05-12",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.38,
+      "usage": {
+        "input_tokens": 9152,
+        "output_tokens": 631
+      }
+    },
+    {
+      "id": "D2-026",
+      "case": {
+        "id": "D2-026",
+        "source": "RFI response",
+        "event_date": "2020-05-14",
+        "from": "Architect",
+        "text": "The fire-rated gypsum board on the corridor side is Type X, 5/8-inch, as already specified in Section 09 29 00."
+      },
+      "expected": {
+        "id": "D2-026",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": false,
+        "why": "Repeats a product that the specification already requires."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "6.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The RFI response only confirms the gypsum board type that Section 09 29 00 already specifies. It adds no work, so it is a clarification and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.03,
+      "usage": {
+        "input_tokens": 9135,
+        "output_tokens": 260
+      }
+    },
+    {
+      "id": "D2-027",
+      "case": {
+        "id": "D2-027",
+        "source": "Email",
+        "event_date": "2020-05-27",
+        "from": "Owner's Representative",
+        "text": "The superintendent was asked verbally to relocate the main electrical room to the west side. Confirming by email."
+      },
+      "expected": {
+        "id": "D2-027",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2020-06-03",
+        "tricky": true,
+        "why": "An oral direction to move a room is a change to the drawings. Section 6.2(b) covers oral directions from the Owner, so the 7-day notice clock starts when it is received."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2020-06-03",
+        "sections": [
+          "6.2",
+          "2.3",
+          "1.4"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change;",
+        "reasoning": "The Owner's Representative directed, orally and then by email, that the main electrical room be relocated. That likely adds cost or time compared with the Contract Documents, so 6.2(b) applies. Notice is due 7 calendar days after 2020-05-27, which is Wednesday 2020-06-03. Under 2.3, the CM should not proceed on the relocation without a CO or CCD."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-06-03",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 4.48,
+      "usage": {
+        "input_tokens": 9126,
+        "output_tokens": 506
+      }
+    },
+    {
+      "id": "D2-028",
+      "case": {
+        "id": "D2-028",
+        "source": "RFI response",
+        "event_date": "2020-06-09",
+        "from": "Architect",
+        "text": "Use the sealant listed in Section 07 92 00 at all control joints, including those on the east elevation."
+      },
+      "expected": {
+        "id": "D2-028",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": true,
+        "why": "The specification already covers all control joints, so including the east elevation does not add work."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4",
+          "2.2"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The response only tells the CM to use the sealant already specified in Section 07 92 00 and confirms it applies at all control joints, including the east elevation. It adds no new work and enforces the existing requirements, so no Section 6.2 notice is needed. If the CM's bid excluded the east elevation joints, it should check that separately."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 3.66,
+      "usage": {
+        "input_tokens": 9124,
+        "output_tokens": 490
+      }
+    },
+    {
+      "id": "D2-029",
+      "case": {
+        "id": "D2-029",
+        "source": "Email",
+        "event_date": "2020-06-18",
+        "from": "Owner's Representative",
+        "text": "The District requests turnover of the gym addition 6 weeks before Substantial Completion for a summer program."
+      },
+      "expected": {
+        "id": "D2-029",
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "sections": [
+          "6.2(b)"
+        ],
+        "notice_due": "2020-06-25",
+        "tricky": false,
+        "why": "Asks for an earlier completion date than the contract time, which is an acceleration."
+      },
+      "model": {
+        "label": "POSSIBLE CHANGE",
+        "notice_rule": "6.2(b)",
+        "notice_due": "2020-06-25",
+        "sections": [
+          "6.2",
+          "2.3",
+          "7.7"
+        ],
+        "quote": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change",
+        "reasoning": "The Owner's Representative's email asks for early turnover of the gym six weeks before Substantial Completion. That could force acceleration, resequencing, or extra costs that the Contract Documents don't cover. It is a written direction from the Owner, so notice is due under 6.2(b) 7 days after receipt (2020-06-18 + 7 = Thursday 2020-06-25). Under 2.3, the email does not authorize added cost or time until a CO or CCD is issued."
+      },
+      "quote_verified": true,
+      "computed_notice_due": "2020-06-25",
+      "label_ok": true,
+      "rule_ok": true,
+      "model_date_ok": true,
+      "code_date_ok": true,
+      "outcome": "correct",
+      "latency_s": 5.16,
+      "usage": {
+        "input_tokens": 9126,
+        "output_tokens": 732
+      }
+    },
+    {
+      "id": "D2-030",
+      "case": {
+        "id": "D2-030",
+        "source": "RFI response",
+        "event_date": "2020-06-30",
+        "from": "Architect",
+        "text": "Paint finish in the corridors is eggshell per the finish schedule on A-601. The 'high-performance' note on the cover sheet refers to the same product."
+      },
+      "expected": {
+        "id": "D2-030",
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "sections": [],
+        "notice_due": null,
+        "tricky": true,
+        "why": "Reconciles two notes that look different but describe the same product, so no change."
+      },
+      "model": {
+        "label": "CLARIFICATION",
+        "notice_rule": "none",
+        "notice_due": null,
+        "sections": [
+          "7.4"
+        ],
+        "quote": "An RFI response does not change the Contract Sum or Contract Time.",
+        "reasoning": "The response confirms that the corridor paint is the eggshell product already shown on the A-601 finish schedule. It says the cover-sheet \"high-performance\" note refers to that same product, so it adds no work, cost, or time, and no Section 6.2 notice is needed."
+      },
+      "quote_verified": true,
+      "computed_notice_due": null,
+      "label_ok": true,
+      "rule_ok": null,
+      "model_date_ok": null,
+      "code_date_ok": null,
+      "outcome": "correct",
+      "latency_s": 2.3,
+      "usage": {
+        "input_tokens": 9141,
+        "output_tokens": 282
+      }
+    }
+  ],
+  "meta": {
+    "model": "claude-sonnet-5-5",
+    "test_set": "B",
+    "created": "2026-10-23T04:02:16.864421+00:00",
+    "calls": 30,
+    "cached_calls": 0,
+    "input_tokens": 273953,
+    "output_tokens": 14842,
+    "system_prompt_sha256": "0ce8f99a169bd0b0",
+    "user_prompt_sha256": "13efc25408a4657a"
+  }
+}
