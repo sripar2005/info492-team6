@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo 2 Change Classifier</title>
+<meta name="description" content="INFO 492 C Team 6, Demo 2: can an AI agent tell whether an RFI answer, ASI, or owner email is a clarification or a possible change, cite the clause, and get the notice deadline right?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/nav.css">
+<style>
+/* Demo 2 page: shared drawing-set styles from /assets/site.css; this block adds the result meter, process steps, and per-document traces. */
+:root { --good-tint: #e3f3ea; --warn: #9a6a00; --warn-tint: #fbf1d6; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --good-tint: #16352a; --warn: #f2c35b; --warn-tint: #3a3018; } }
+:root[data-theme="dark"] { --good-tint: #16352a; --warn: #f2c35b; --warn-tint: #3a3018; }
+[hidden] { display: none !important; }
+.status-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { font: 500 0.7rem/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 8px; border-radius: 4px; white-space: nowrap; border: 1px solid var(--ink-2); color: var(--ink-2); display: inline-block; }
+.chip.ok { border-color: var(--good); color: var(--good); background: var(--good-tint); }
+.chip.bad { border-color: var(--red); color: var(--red); background: var(--red-tint); }
+.chip.warn { border-color: var(--warn); color: var(--warn); background: var(--warn-tint); }
+.banner { border: 2px dashed var(--warn); background: var(--warn-tint); padding: 16px 20px; border-radius: 12px; display: grid; gap: 6px; }
+.verdict { border: 2px solid var(--ink-2); padding: 16px 20px; border-radius: 12px; display: grid; gap: 4px; }
+.verdict.met { border-color: var(--good); background: var(--good-tint); }
+.verdict.notmet { border-color: var(--red); background: var(--red-tint); }
+.verdict b { font: 800 1.35rem/1.25 var(--display); font-stretch: 85%; }
+.meter { display: grid; gap: 8px; }
+.meter-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.meter .bar { margin-top: 20px; height: 20px; }
+.meter .bar b span { position: absolute; top: -20px; left: 0; transform: translateX(-50%); font: 500 0.72rem/1 var(--mono); color: var(--red); white-space: nowrap; }
+.scale { display: flex; justify-content: space-between; font: 400 0.72rem/1 var(--mono); color: var(--ink-2); }
+.confusion { border-collapse: collapse; font-size: 0.95rem; }
+.confusion th, .confusion td { border: 1px solid var(--rule); padding: 10px 14px; text-align: center; font-variant-numeric: tabular-nums; }
+.confusion th { font: 500 0.72rem/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); background: var(--chip); }
+.confusion td b { font: 800 1.6rem/1 var(--display); display: block; }
+.confusion td.good { background: var(--good-tint); }
+.confusion td.badc { background: var(--red-tint); }
+/* Process steps */
+.steps5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--ink); }
+.steps5 > div { padding: 14px; display: grid; gap: 6px; align-content: start; border-right: 1px solid var(--rule); min-width: 0; }
+.steps5 > div:last-child { border-right: 0; }
+.steps5 .num { font: 800 1.6rem/1 var(--display); color: var(--red); }
+.steps5 .who { font: 500 0.7rem/1.2 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.who.ai { color: var(--red); } .who.code { color: var(--ink-2); } .who.human { color: var(--good); }
+/* Filters and traces */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.filters button { font: 500 0.8rem/1 var(--mono); letter-spacing: 0.04em; padding: 8px 12px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 999px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.filters button:focus-visible, summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.count { font: 400 0.85rem var(--mono); color: var(--ink-2); }
+.traces { display: grid; border-top: 1px solid var(--rule); }
+details.trace { border-bottom: 1px solid var(--rule); }
+details.trace > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 4ch 13ch minmax(0, 1fr) auto; gap: 12px; padding: 12px 4px; align-items: baseline; }
+details.trace > summary::-webkit-details-marker { display: none; }
+details.trace > summary:hover { background: var(--chip); }
+.tid { font: 500 0.82rem var(--mono); color: var(--ink-2); }
+.tsrc { font: 400 0.8rem var(--mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ttext { font-size: 0.95rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tchips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tbody { padding: 6px 4px 18px; display: grid; gap: 10px; }
+.tstep { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 12px; }
+.tstep > span:first-child { font: 800 1.15rem/1.5 var(--display); color: var(--red); }
+.tstep > div { display: grid; gap: 6px; min-width: 0; border-left: 1px solid var(--rule); padding-left: 12px; }
+blockquote { margin: 0; padding: 8px 12px; border-left: 3px solid var(--red); background: var(--chip); font-size: 0.93rem; overflow-wrap: anywhere; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 3px 14px; font-size: 0.9rem; margin: 0; }
+.kv dt { font: 500 0.72rem/1.7 var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.cmp { border-collapse: collapse; font-size: 0.9rem; }
+.cmp th, .cmp td { border: 1px solid var(--rule); padding: 6px 10px; text-align: left; font-variant-numeric: tabular-nums; }
+.cmp th { font: 500 0.7rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); background: var(--chip); }
+.ok { color: var(--good); font-weight: 600; } .bad { color: var(--red); font-weight: 600; }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+@media (max-width: 760px) {
+  .steps5 { grid-template-columns: 1fr; }
+  .steps5 > div { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .steps5 > div:last-child { border-bottom: 0; }
+  details.trace > summary { grid-template-columns: 4ch minmax(0, 1fr); }
+  .tsrc { display: none; }
+  .tchips { grid-column: 1 / -1; justify-content: flex-start; }
+  .tstep { grid-template-columns: 1.6rem minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="set" id="top">
+  <header class="topbar">
+    <a class="brand" href="/">Team 6 <small>INFO 492 C · Handoff checker</small></a>
+    <nav aria-label="Site"><ul class="tabs"><li><a href="/">Overview</a></li><li><a href="/thesis/">Thesis</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/log/">Log</a></li><li><a href="/sources/">Sources</a></li></ul></nav>
+  </header>
+
+  <section class="pagehead">
+    <a class="note" href="/demos/">← All demos</a>
+    <span class="label">Demo 2 of 4 · Change classifier · Thesis claim 4</span>
+    <h1>Is this document a clarification, or a change we must give notice on?</h1>
+    <p>A contractor that misses a change, or gives notice late, can lose the right to be paid for it. We gave Claude 30 documents a general contractor receives and asked it to classify each one, cite the clause, and name the notice deadline.</p>
+    <div class="status-row"><span class="label">Status</span><span id="status" class="chip">Loading…</span><span class="label">Model</span><span id="model" class="note">–</span><span class="label">Run</span><span id="run" class="note">–</span></div>
+  </section>
+
+  <section class="sheet" id="changed">
+    <div class="strip"><h2>What changed since Demo 1</h2><span class="tag">Iteration</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:8px;align-content:start"><span class="label">Demo 1 found</span><p>Claude extracted <a href="/demo1/">94.4% of the contract's core rules</a>, but rules that say "give notice under Section 6.2(a)" lost the 7-day deadline that 6.2(a) sets. A checker built on that would miss the clock.</p></div>
+        <div style="display:grid;gap:8px;align-content:start"><span class="label">Demo 2 tests</span><p>Every possible change must be traced to one Section 6.2 rule, often through a cross-reference: an ASI goes through 6.8, a submittal comment through 8.3, and meeting minutes don't count as notice under 7.7.</p></div>
+        <div style="display:grid;gap:8px;align-content:start"><span class="label">New design</span><p>The AI picks the rule; <strong>code computes the date</strong>, including the contract's weekend and holiday roll-forward. We score the AI's own date and the code date side by side.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="result">
+    <div class="strip"><h2>Result</h2><span class="tag">Target set before the run</span></div>
+    <div class="body">
+      <div class="banner" id="pending" hidden><span class="label" style="color:var(--warn)">Results pending</span><p>The classifier has not been run against the live model yet. Nothing on this page is simulated. The 30 documents and their labels below are final and were fixed before any run.</p></div>
+      <div class="verdict" id="verdict" hidden></div>
+      <div class="meter">
+        <div class="meter-top"><span class="hero-num" id="acc">–</span><span><strong>label accuracy</strong><br><span class="note" id="acc-n">documents classified correctly</span></span></div>
+        <div class="bar" aria-hidden="true"><i id="acc-bar" style="width:0"></i><b style="left:85%"><span>target 85%</span></b></div>
+        <div class="scale" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="m-recall">–</b><span>of real changes flagged (a miss can cost payment)</span></div>
+        <div class="stat"><b id="m-prec">–</b><span>of flags were real changes</span></div>
+        <div class="stat"><b id="m-rule">–</b><span>right notice rule, 6.2 (a) to (d)</span></div>
+        <div class="stat"><b id="m-date-ai">–</b><span>notice dates right when the AI counts</span></div>
+        <div class="stat"><b id="m-date-code">–</b><span>notice dates right when code counts</span></div>
+        <div class="stat"><b id="m-cite">–</b><span>quotes found word for word in the contract</span></div>
+        <div class="stat"><b id="m-tricky">–</b><span>right on the 11 tricky documents</span></div>
+        <div class="stat"><b id="m-tokens">–</b><span>tokens used (input / output)</span></div>
+      </div>
+      <div class="cols">
+        <div style="display:grid;gap:8px;align-content:start;overflow-x:auto">
+          <span class="label">Where it was right and wrong</span>
+          <table class="confusion" id="confusion">
+            <tr><th></th><th>AI said change</th><th>AI said clarification</th></tr>
+            <tr><th>Really a change (15)</th><td class="good"><b id="c-tp">–</b>caught</td><td class="badc"><b id="c-fn">–</b>missed</td></tr>
+            <tr><th>Really a clarification (15)</th><td class="badc"><b id="c-fp">–</b>false alarm</td><td class="good"><b id="c-tn">–</b>correct</td></tr>
+          </table>
+        </div>
+        <p class="note" style="align-self:end">A <strong>missed change</strong> is the costly error: notice is never sent, and the contractor can waive payment. A <strong>false alarm</strong> costs a project manager a few minutes of review. Full report: <a id="report-link" href="https://github.com/sripar2005/info492-team6/blob/main/demo2/results/evaluation_report.md" target="_blank" rel="noopener">evaluation_report.md</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="process">
+    <div class="strip"><h2>How it works</h2><span class="tag">The process, per document</span></div>
+    <div class="body">
+      <div class="steps5">
+        <div><span class="num">1</span><span class="who code">Input</span><strong>A document arrives</strong><span class="note">RFI answer, ASI, submittal return, email, minutes, field report, or letter, with its date.</span></div>
+        <div><span class="num">2</span><span class="who ai">AI · Claude</span><strong>Reads it with the whole contract</strong><span class="note">Decides clarification or possible change, picks the 6.2 rule, gives a quote and reasoning.</span></div>
+        <div><span class="num">3</span><span class="who code">Code</span><strong>Checks the quote, counts the days</strong><span class="note">Confirms the quote is in the contract; computes the deadline with Section 1.4's weekend and holiday rule.</span></div>
+        <div><span class="num">4</span><span class="who code">Code</span><strong>Scores against the answer key</strong><span class="note">Label, rule, and date compared with labels written before the run.</span></div>
+        <div><span class="num">5</span><span class="who human">Person</span><strong>Project manager decides</strong><span class="note">In real use the agent only flags and cites. A named person sends notice.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="cases">
+    <div class="strip"><h2>Document by document</h2><span class="tag">30 traces</span></div>
+    <div class="body">
+      <p>Open a document to follow it through each step: what came in, what the AI said and why, how the deadline was computed, and how it scored.</p>
+      <div class="filters" role="group" aria-label="Filter documents">
+        <button type="button" data-f="problems" aria-pressed="true">Wrong <span data-n="problems"></span></button>
+        <button type="button" data-f="tricky" aria-pressed="false">Tricky <span data-n="tricky"></span></button>
+        <button type="button" data-f="change" aria-pressed="false">Changes <span data-n="change"></span></button>
+        <button type="button" data-f="clar" aria-pressed="false">Clarifications <span data-n="clar"></span></button>
+        <button type="button" data-f="all" aria-pressed="false">All <span data-n="all"></span></button>
+      </div>
+      <span class="count" id="count"></span>
+      <div class="traces" id="traces"></div>
+    </div>
+  </section>
+
+  <section class="sheet" id="method">
+    <div class="strip"><h2>Data, limits, and files</h2><span class="tag">Read before citing</span></div>
+    <div class="body">
+      <div class="cols">
+        <div style="display:grid;gap:8px;align-content:start"><h3>The 30 documents</h3>
+          <ul class="plain"><li>Synthetic, written against Demo 1's contract (modeled on Seattle's Webster School GC/CM project).</li><li>15 clarifications, 15 possible changes; all four 6.2 rules appear.</li><li>11 tricky cases, such as a "no-cost" ASI that adds work and an owner email that says "don't proceed."</li><li>Notice dates are computed by the generation script, not typed by hand.</li></ul></div>
+        <div style="display:grid;gap:8px;align-content:start"><h3>Limits</h3>
+          <ul class="plain"><li>The documents, labels, and contract share one author; no teammate has independently labeled them yet.</li><li>30 short, clean documents on one contract; real ones are messier.</li><li>A re-run may differ slightly; the committed results are the record.</li></ul></div>
+        <div style="display:grid;gap:8px;align-content:start"><h3>Files</h3>
+          <ul class="plain"><li><a href="https://github.com/sripar2005/info492-team6/tree/main/demo2" target="_blank" rel="noopener">Code, data, prompts</a></li><li><a href="https://github.com/sripar2005/info492-team6/blob/main/demo2/data/build_cases.py" target="_blank" rel="noopener">Generation script</a></li><li><a href="https://github.com/sripar2005/info492-team6/blob/main/demo2/prompts/classify_system.txt" target="_blank" rel="noopener">System prompt</a></li><li><a href="https://github.com/sripar2005/info492-team6/actions" target="_blank" rel="noopener">Run log</a></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
+    <span><a href="/demos/">All demos</a> · <a href="#top">Back to top</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var BASE = "/demo2/";
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var pct = function (x) { return x == null ? "–" : (100 * x).toFixed(1).replace(/\.0$/, "") + "%"; };
+  var get = function (p) { return fetch(BASE + p, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); };
+  var fmtDate = function (d) { if (!d) return "none"; var p = d.split("-"); return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1] - 1] + " " + (+p[2]) + ", " + p[0]; };
+  var state = { cases: [], key: {}, trace: null, filter: "problems" };
+
+  Promise.all([get("data/cases.json"), get("data/answer_key.json"), get("results/evaluation.json").catch(function () { return null; })])
+    .then(function (r) {
+      state.cases = r[0].cases;
+      r[1].cases.forEach(function (k) { state.key[k.id] = k; });
+      if (r[2]) { state.trace = {}; r[2].trace.forEach(function (t) { state.trace[t.id] = t; }); showResults(r[2]); }
+      else showPending();
+      render();
+    })
+    .catch(function () { $("status").textContent = "Could not load data"; $("traces").innerHTML = '<p class="note">The data files did not load. See the GitHub folder below.</p>'; });
+
+  function showPending() {
+    $("pending").hidden = false;
+    $("status").textContent = "Awaiting run";
+    state.filter = "all";
+    document.querySelectorAll(".filters button").forEach(function (b) {
+      var f = b.getAttribute("data-f"); b.setAttribute("aria-pressed", f === "all" ? "true" : "false"); if (f === "problems") b.hidden = true;
+    });
+  }
+
+  function showResults(ev) {
+    var m = ev.metrics, meta = ev.meta || {}, c = m.confusion, met = m.meets_target;
+    $("status").className = "chip " + (met ? "ok" : "bad"); $("status").textContent = met ? "Target met" : "Target not met";
+    $("model").textContent = meta.model || "–";
+    $("run").textContent = meta.created ? new Date(meta.created).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "–";
+    var v = $("verdict"); v.hidden = false; v.classList.add(met ? "met" : "notmet");
+    v.innerHTML = '<span class="label">Thesis claim 4</span><b>' + (met ? "Met: " : "Not met: ") + pct(m.label_accuracy) + " of documents classified correctly, against an 85% target.</b>";
+    $("acc").textContent = pct(m.label_accuracy);
+    $("acc-n").textContent = (c.true_change_flagged + c.true_clarification) + " of " + m.documents + " documents classified correctly";
+    $("acc-bar").style.width = (100 * m.label_accuracy) + "%";
+    if (!met) $("acc-bar").style.background = "var(--red)";
+    $("m-recall").textContent = pct(m.change_recall);
+    $("m-prec").textContent = pct(m.change_precision);
+    $("m-rule").textContent = pct(m.notice_rule_accuracy);
+    $("m-date-ai").textContent = pct(m.deadline_accuracy_model_date);
+    $("m-date-code").textContent = pct(m.deadline_accuracy_code_date);
+    $("m-cite").textContent = pct(m.citation_validity);
+    $("m-tricky").textContent = pct(m.tricky_accuracy);
+    $("m-tokens").textContent = meta.input_tokens != null ? Math.round(meta.input_tokens / 1000) + "k / " + Math.round(meta.output_tokens / 1000) + "k" : "–";
+    $("c-tp").textContent = c.true_change_flagged; $("c-fn").textContent = c.missed_change;
+    $("c-fp").textContent = c.false_alarm; $("c-tn").textContent = c.true_clarification;
+  }
+
+  function outcomeChip(t) {
+    if (!t) return '<span class="chip">Awaiting run</span>';
+    if (t.outcome === "correct") return '<span class="chip ok">Correct</span>';
+    if (t.outcome === "right label, wrong deadline") return '<span class="chip warn">Wrong deadline</span>';
+    return '<span class="chip bad">' + (t.outcome === "missed change" ? "Missed change" : "False alarm") + "</span>";
+  }
+
+  function matches(cs, f) {
+    var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
+    if (f === "problems") return !!t && t.outcome !== "correct";
+    if (f === "tricky") return k.tricky;
+    if (f === "change") return k.label === "POSSIBLE CHANGE";
+    if (f === "clar") return k.label === "CLARIFICATION";
+    return true;
+  }
+
+  function traceBody(cs) {
+    var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
+    var s1 = '<div class="tstep"><span>1</span><div><span class="label">Document in · ' + esc(cs.source) + " from " + esc(cs.from) + " · " + fmtDate(cs.event_date) + "</span><blockquote>" + esc(cs.text) + "</blockquote></div></div>";
+    if (!t) {
+      return s1 + '<div class="tstep"><span>2</span><div><span class="label">AI answer</span><p class="note">Appears after the live run.</p></div></div>' +
+        '<div class="tstep"><span>3</span><div><span class="label">Answer key</span><dl class="kv"><dt>Label</dt><dd>' + esc(k.label) + "</dd><dt>Rule</dt><dd>" + esc(k.notice_rule) +
+        "</dd><dt>Notice due</dt><dd>" + fmtDate(k.notice_due) + "</dd><dt>Why</dt><dd>" + esc(k.why) + "</dd></dl></div></div>";
+    }
+    var a = t.model;
+    var s2 = '<div class="tstep"><span>2</span><div><span class="label">AI answer</span><dl class="kv"><dt>Label</dt><dd>' + esc(a.label) + (t.label_ok ? ' <span class="ok">✓</span>' : ' <span class="bad">✗</span>') +
+      "</dd><dt>Rule</dt><dd>" + esc(a.notice_rule) + (t.rule_ok === null ? "" : t.rule_ok ? ' <span class="ok">✓</span>' : ' <span class="bad">✗</span>') +
+      "</dd><dt>Sections</dt><dd>" + esc((a.sections || []).join(", ")) + "</dd><dt>Reasoning</dt><dd>" + esc(a.reasoning) + "</dd></dl>" +
+      "<blockquote>" + esc(a.quote) + "</blockquote><span class=\"note\">" + (t.quote_verified ? '<span class="ok">✓ Quote found word for word in the contract</span>' : '<span class="bad">✗ Quote not found in the contract</span>') + "</span></div></div>";
+    var s3 = '<div class="tstep"><span>3</span><div><span class="label">Notice deadline</span>' + (k.label === "POSSIBLE CHANGE" || a.label === "POSSIBLE CHANGE"
+      ? '<div style="overflow-x:auto"><table class="cmp"><tr><th></th><th>Notice due</th><th></th></tr>' +
+        "<tr><td>AI counted the days</td><td>" + fmtDate(a.notice_due) + "</td><td>" + (a.notice_due === k.notice_due ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>') + "</td></tr>" +
+        "<tr><td>Code counted from the AI's rule</td><td>" + fmtDate(t.computed_notice_due) + "</td><td>" + (t.computed_notice_due === k.notice_due ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>') + "</td></tr>" +
+        "<tr><td>Answer key</td><td>" + fmtDate(k.notice_due) + "</td><td></td></tr></table></div>"
+      : '<p class="note">No notice needed for a clarification.</p>') + "</div></div>";
+    var s4 = '<div class="tstep"><span>4</span><div><span class="label">Scored · answer key</span><dl class="kv"><dt>Expected</dt><dd>' + esc(k.label) + " · " + esc(k.notice_rule) +
+      "</dd><dt>Why</dt><dd>" + esc(k.why) + "</dd><dt>Outcome</dt><dd>" + outcomeChip(t) + "</dd></dl></div></div>";
+    return s1 + s2 + s3 + s4;
+  }
+
+  function render() {
+    ["problems", "tricky", "change", "clar", "all"].forEach(function (f) {
+      var el = document.querySelector('[data-n="' + f + '"]'); if (el) el.textContent = "(" + state.cases.filter(function (c) { return matches(c, f); }).length + ")";
+    });
+    var rows = state.cases.filter(function (c) { return matches(c, state.filter); });
+    $("count").textContent = "Showing " + rows.length + " of " + state.cases.length + " documents";
+    $("traces").innerHTML = rows.map(function (cs) {
+      var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
+      var exp = '<span class="chip">' + (k.label === "POSSIBLE CHANGE" ? "Change" : "Clarification") + "</span>";
+      return '<details class="trace"><summary><span class="tid">' + esc(cs.id) + '</span><span class="tsrc">' + esc(cs.source) + '</span><span class="ttext">' + esc(cs.text) +
+        '</span><span class="tchips">' + (k.tricky ? '<span class="chip warn">Tricky</span>' : "") + exp + outcomeChip(t) + "</span></summary><div class=\"tbody\">" + traceBody(cs) + "</div></details>";
+    }).join("") || '<p class="note">' + (state.filter === "problems" ? "Every document was classified correctly." : "No documents match.") + "</p>";
+  }
+
+  document.querySelectorAll(".filters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".filters button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true"); state.filter = b.getAttribute("data-f"); if (state.cases.length) render();
+    });
+  });
+})();
+</script>
+</body>
+</html>
