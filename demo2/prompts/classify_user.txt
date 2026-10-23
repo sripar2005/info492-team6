@@ -1,0 +1,14 @@
+CONTRACT (full text):
+
+[[CONTRACT]]
+
+---
+
+INCOMING DOCUMENT
+
+Type: [[SOURCE]]
+From: [[FROM]]
+Event date (received, directed, or observed): [[EVENT_DATE]]
+
+Text:
+[[TEXT]]

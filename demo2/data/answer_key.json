@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "description": "Labels for Demo 2's 30 synthetic documents. Used only by evaluate.py; never shown to the model.",
+    "status": "Written by the same author as the contract; not yet independently reviewed by a teammate.",
+    "label_counts": {
+      "CLARIFICATION": 15,
+      "POSSIBLE CHANGE": 15
+    },
+    "notice_rule_counts": {
+      "none": 15,
+      "6.2(a)": 7,
+      "6.2(b)": 4,
+      "6.2(c)": 2,
+      "6.2(d)": 2
+    },
+    "tricky_cases": 11,
+    "deadline_rolls": [
+      "P06 (Saturday)",
+      "P11 (Memorial Day)"
+    ]
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Resolves a conflict between two sheets without adding work; an RFI response alone does not change cost or time."
+    },
+    {
+      "id": "C02",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Points to information already in the documents."
+    },
+    {
+      "id": "C03",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Confirms base scope shown on the drawings and specs."
+    },
+    {
+      "id": "C04",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Work is already shown in two places in the documents."
+    },
+    {
+      "id": "C05",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "6.8"
+      ],
+      "notice_due": null,
+      "tricky": true,
+      "why": "A true no-cost ASI: it corrects a typo to match the spec, so nothing is added."
+    },
+    {
+      "id": "C06",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "8.3"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "The note asks the CM to comply with the spec and drawings; no added work."
+    },
+    {
+      "id": "C07",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Dimension is already in a detail."
+    },
+    {
+      "id": "C08",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": false,
+      "why": "An administrative request; no direction to change the Work."
+    },
+    {
+      "id": "C09",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Explains which existing note applies; no new work."
+    },
+    {
+      "id": "C10",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Refers to an already approved submittal."
+    },
+    {
+      "id": "C11",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.7"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Minutes record a confirmation; no direction or change."
+    },
+    {
+      "id": "C12",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Work is shown in the base documents."
+    },
+    {
+      "id": "C13",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [],
+      "notice_due": null,
+      "tricky": true,
+      "why": "Sounds like a change, but it is a request for ideas with an explicit instruction not to proceed, so there is no direction yet."
+    },
+    {
+      "id": "C14",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "8.3"
+      ],
+      "notice_due": null,
+      "tricky": true,
+      "why": "A rejection that enforces the existing spec is not a change; the CM must meet what was specified."
+    },
+    {
+      "id": "C15",
+      "label": "CLARIFICATION",
+      "notice_rule": "none",
+      "sections": [
+        "7.4"
+      ],
+      "notice_due": null,
+      "tricky": false,
+      "why": "Confirms consistent information already in the documents."
+    },
+    {
+      "id": "P01",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "7.4",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-02-25",
+      "tricky": false,
+      "why": "Adds material and labor beyond the drawings; an RFI response that changes cost needs notice within 7 days."
+    },
+    {
+      "id": "P02",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.8",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-03-24",
+      "tricky": true,
+      "why": "Labeled no-cost, but moving the hood and rerouting the duct adds work; Section 6.8 sends this to 6.2(a)."
+    },
+    {
+      "id": "P03",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "8.3",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-04-07",
+      "tricky": true,
+      "why": "An 'approved as noted' comment that swaps the product changes cost; Section 8.3 sends this to 6.2(a)."
+    },
+    {
+      "id": "P04",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-04-23",
+      "tricky": true,
+      "why": "An oral direction to add work not shown; 7 days from the direction."
+    },
+    {
+      "id": "P05",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-05-05",
+      "tricky": false,
+      "why": "A written direction that replaces specified hardware with costlier work."
+    },
+    {
+      "id": "P06",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(c)",
+      "sections": [
+        "6.2(c)"
+      ],
+      "notice_due": "2020-02-24",
+      "tricky": true,
+      "why": "A concealed condition that differs from the documents. Observed on a Saturday, so day 7 is also a Saturday and the deadline rolls to Monday (Section 1.4)."
+    },
+    {
+      "id": "P07",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(c)",
+      "sections": [
+        "6.2(c)"
+      ],
+      "notice_due": "2020-05-19",
+      "tricky": false,
+      "why": "A concealed condition that differs from what the drawings assume."
+    },
+    {
+      "id": "P08",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "7.7",
+        "6.2(b)"
+      ],
+      "notice_due": "2020-06-23",
+      "tricky": true,
+      "why": "The minutes are not notice (7.7), but they record an oral direction to change the work, so 6.2(b) notice is due 7 days after the meeting."
+    },
+    {
+      "id": "P09",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(d)",
+      "sections": [
+        "6.2(d)"
+      ],
+      "notice_due": "2020-07-21",
+      "tricky": true,
+      "why": "A third-party event, not an Owner or Architect document, that may increase cost; 14 days after CM learns of it."
+    },
+    {
+      "id": "P10",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(d)",
+      "sections": [
+        "6.2(d)"
+      ],
+      "notice_due": "2020-08-04",
+      "tricky": false,
+      "why": "A utility requirement outside the documents; 14 days."
+    },
+    {
+      "id": "P11",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "7.4",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-05-26",
+      "tricky": true,
+      "why": "Upgrades a product; 7 days lands on Memorial Day (May 25, 2020), so notice is due the next business day (Section 1.4)."
+    },
+    {
+      "id": "P12",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "6.8",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-08-18",
+      "tricky": false,
+      "why": "An ASI that openly adds work."
+    },
+    {
+      "id": "P13",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "8.3",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-09-01",
+      "tricky": true,
+      "why": "Unlike a rejection that enforces the spec, this comment requires work beyond the spec."
+    },
+    {
+      "id": "P14",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(b)",
+      "sections": [
+        "6.2(b)"
+      ],
+      "notice_due": "2020-09-22",
+      "tricky": false,
+      "why": "A written direction to accelerate affects cost and time."
+    },
+    {
+      "id": "P15",
+      "label": "POSSIBLE CHANGE",
+      "notice_rule": "6.2(a)",
+      "sections": [
+        "7.4",
+        "6.2(a)"
+      ],
+      "notice_due": "2020-10-06",
+      "tricky": false,
+      "why": "Adds 40 feet of pipe beyond the drawings."
+    }
+  ]
+}

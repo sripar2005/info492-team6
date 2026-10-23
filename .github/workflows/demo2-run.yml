@@ -1,0 +1,111 @@
+# Demo 2: run the change classifier and evaluation on GitHub's machines.
+#
+# The Anthropic API key is stored as a repository secret (ANTHROPIC_API_KEY) and is
+# never printed, committed, or shown to viewers. Only people with write access to this
+# repo can start this workflow (Actions tab -> "Demo 2 - run classifier" -> Run workflow).
+#
+# Each run makes 30 API calls (about 180,000 input tokens). Results are committed to
+# demo2/results/, and the Vercel site's /demo2/ page reads them.
+
+name: Demo 2 - run classifier
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Claude model name"
+        required: true
+        default: "claude-sonnet-5-5"
+      overwrite:
+        description: "Replace existing results? Leave false unless this is a deliberate, documented Run 2."
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: demo2-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: demo2
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Stop if results already exist (protects the first run)
+        if: ${{ !inputs.overwrite }}
+        run: |
+          if [ -f results/classifications.json ]; then
+            echo "::error::demo2/results/classifications.json already exists. Re-run with overwrite=true only for a documented Run 2."
+            exit 1
+          fi
+
+      - name: Check the API key secret is set
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Repository secret ANTHROPIC_API_KEY is not set. Add it under Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Offline tests (no API calls)
+        run: python tests/test_pipeline.py
+
+      - name: Check cases and labels match the generation script
+        run: python data/build_cases.py && git diff --exit-code data/cases.json data/answer_key.json
+
+      - name: Dry run (shows the 30 calls)
+        run: python classifier.py --dry-run --model "${{ inputs.model }}"
+
+      - name: Live classification
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python classifier.py --model "${{ inputs.model }}"
+
+      - name: Evaluate against the answer key
+        run: python evaluate.py
+
+      - name: Write run summary
+        run: |
+          python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          meta = json.load(open("results/classifications.json"))["meta"]
+          print("## Demo 2 run\n")
+          print(f"- Model: `{meta['model']}`")
+          print(f"- API calls: {meta['calls']} ({meta['cached_calls']} cached)")
+          print(f"- Tokens: {meta['input_tokens']:,} input, {meta['output_tokens']:,} output")
+          EOF
+          cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save results as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo2-results
+          path: |
+            demo2/results/classifications.json
+            demo2/results/evaluation.json
+            demo2/results/evaluation_report.md
+
+      - name: Commit results to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/classifications.json results/evaluation.json results/evaluation_report.md
+          git commit -m "Demo 2 results: ${{ inputs.model }} (workflow run ${{ github.run_number }})"
+          git pull --rebase origin main
+          git push

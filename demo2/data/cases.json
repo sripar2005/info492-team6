@@ -1,0 +1,214 @@
+{
+  "cases": [
+    {
+      "id": "C01",
+      "source": "RFI response",
+      "event_date": "2020-02-04",
+      "from": "Architect",
+      "text": "RFI 031 response: Install the stair guardrail at 42 inches as dimensioned on A-301. The 36-inch note on A-302 is a drafting error. Guardrail type and materials are unchanged."
+    },
+    {
+      "id": "C02",
+      "source": "RFI response",
+      "event_date": "2020-02-11",
+      "from": "Architect",
+      "text": "RFI 038 response: Corridor wall paint color is SW 7006 Extra White, as listed in the finish schedule on A-601."
+    },
+    {
+      "id": "C03",
+      "source": "RFI response",
+      "event_date": "2020-03-03",
+      "from": "Architect",
+      "text": "RFI 052 response: Yes, the existing brick at the north entry remains, as shown on demolition plan D-101. Clean and repoint per Section 04 01 20."
+    },
+    {
+      "id": "C04",
+      "source": "RFI response",
+      "event_date": "2020-03-10",
+      "from": "Architect",
+      "text": "RFI 057 response: Provide the floor drain shown on P-201 at Room 114. It also appears on the plumbing fixture schedule. No additional drains are required."
+    },
+    {
+      "id": "C05",
+      "source": "ASI",
+      "event_date": "2020-03-24",
+      "from": "Architect",
+      "text": "ASI-07: Hardware set HW-3 in the door hardware schedule lists a knob trim by mistake. Use the lever trim already specified in Section 08 71 00. No change in cost or time."
+    },
+    {
+      "id": "C06",
+      "source": "Submittal return",
+      "event_date": "2020-04-07",
+      "from": "Architect",
+      "text": "Submittal 05 50 00-003, Approved as Noted: Provide the manufacturer's standard finish as specified. Confirm anchor spacing matches structural detail 4/S-401 before fabrication."
+    },
+    {
+      "id": "C07",
+      "source": "RFI response",
+      "event_date": "2020-04-14",
+      "from": "Architect",
+      "text": "RFI 071 response: Classroom whiteboards mount at 30 inches above finished floor to the bottom edge, per detail 5/A-702."
+    },
+    {
+      "id": "C08",
+      "source": "Owner email",
+      "event_date": "2020-04-21",
+      "from": "Owner's Representative",
+      "text": "Please send the updated three-week look-ahead schedule before Friday's coordination meeting. Thanks."
+    },
+    {
+      "id": "C09",
+      "source": "RFI response",
+      "event_date": "2020-05-05",
+      "from": "Structural Engineer via Architect",
+      "text": "RFI 080 response: The steel connection at grid C/4 is bolted as shown in detail 7/S-501. The welded-connection general note applies only to the gymnasium roof framing."
+    },
+    {
+      "id": "C10",
+      "source": "RFI response",
+      "event_date": "2020-06-02",
+      "from": "Architect",
+      "text": "RFI 094 response: Curtain wall sealant joints are 1/2 inch, as shown on the approved shop drawings for Submittal 08 44 13-002."
+    },
+    {
+      "id": "C11",
+      "source": "Meeting minutes",
+      "event_date": "2020-06-09",
+      "from": "CM (minutes of Coordination Meeting #22)",
+      "text": "Coordination Meeting #22: Architect confirmed fire alarm devices are located per the approved fire alarm drawings. No changes were discussed. Next meeting June 16."
+    },
+    {
+      "id": "C12",
+      "source": "RFI response",
+      "event_date": "2020-06-23",
+      "from": "Architect",
+      "text": "RFI 101 response: The existing library ceiling grid is removed and replaced as shown on demolition plan D-201 and reflected ceiling plan A-401. This is base scope."
+    },
+    {
+      "id": "C13",
+      "source": "Owner email",
+      "event_date": "2020-07-14",
+      "from": "Owner's Representative",
+      "text": "We'd like to see options for upgrading the gym floor finish to a sport urethane. Please don't proceed with anything yet. Just send rough pricing ideas when you have a chance."
+    },
+    {
+      "id": "C14",
+      "source": "Submittal return",
+      "event_date": "2020-08-04",
+      "from": "Mechanical Engineer via Architect",
+      "text": "Submittal 22 11 23-001, Revise and Resubmit: The submitted pump delivers 95 gpm; Section 22 11 23 requires 120 gpm. Resubmit a pump that meets the specification."
+    },
+    {
+      "id": "C15",
+      "source": "RFI response",
+      "event_date": "2020-08-18",
+      "from": "Architect",
+      "text": "RFI 118 response: Roof drain locations are as shown on plumbing plan P-301. Architectural roof plan A-111 shows the same locations. No additional drains."
+    },
+    {
+      "id": "P01",
+      "source": "RFI response",
+      "event_date": "2020-02-18",
+      "from": "Architect",
+      "text": "RFI 041 response: Add a second layer of 5/8-inch Type X gypsum board to the Level 2 corridor walls to achieve a 2-hour rating. The drawings show a single layer."
+    },
+    {
+      "id": "P02",
+      "source": "ASI",
+      "event_date": "2020-03-17",
+      "from": "Architect",
+      "text": "ASI-11: Relocate the science classroom fume hood from the north wall to the east wall, including a new exhaust duct route to the roof. No change in cost or time."
+    },
+    {
+      "id": "P03",
+      "source": "Submittal return",
+      "event_date": "2020-03-31",
+      "from": "Architect",
+      "text": "Submittal 09 65 19-001, Approved as Noted: Substitute sheet linoleum for the specified vinyl composition tile in Rooms 201 through 210 to meet the district's new flooring standard."
+    },
+    {
+      "id": "P04",
+      "source": "Daily log (oral direction)",
+      "event_date": "2020-04-16",
+      "from": "Owner's Representative (recorded by CM superintendent)",
+      "text": "Site walk, 9:30 am: Owner's Representative directed the CM to add two exterior security cameras at the bus loop before school opens. The cameras are not shown on the drawings."
+    },
+    {
+      "id": "P05",
+      "source": "Owner email",
+      "event_date": "2020-04-28",
+      "from": "Owner's Representative",
+      "text": "Per the district's new security policy, provide card readers on all classroom doors instead of the keyed locks in the hardware schedule. Please proceed."
+    },
+    {
+      "id": "P06",
+      "source": "Field report",
+      "event_date": "2020-02-15",
+      "from": "CM excavation foreman",
+      "text": "Saturday shift: While excavating for the new elevator pit, the crew found an abandoned fuel oil tank about 6 feet below grade. It is not shown on the survey or the geotechnical report. Work in that area stopped."
+    },
+    {
+      "id": "P07",
+      "source": "Field report",
+      "event_date": "2020-05-12",
+      "from": "CM demolition foreman",
+      "text": "Opening the original 1908 east wall, the crew found the steel window lintels heavily corroded. The drawings assume the existing lintels remain in place."
+    },
+    {
+      "id": "P08",
+      "source": "Meeting minutes",
+      "event_date": "2020-06-16",
+      "from": "CM (minutes of Coordination Meeting #23)",
+      "text": "Coordination Meeting #23: Owner's Representative stated the district wants the library mezzanine railing raised from 42 to 48 inches and asked the CM to proceed."
+    },
+    {
+      "id": "P09",
+      "source": "Building department notice",
+      "event_date": "2020-07-07",
+      "from": "City building department",
+      "text": "Notice to permit holders: A Seattle Energy Code amendment now in effect requires R-38 roof insulation on projects whose roof inspection has not yet occurred. Your project's roof inspection is pending."
+    },
+    {
+      "id": "P10",
+      "source": "Utility letter",
+      "event_date": "2020-07-21",
+      "from": "Seattle City Light",
+      "text": "City Light will not energize the new electrical service until a transformer vault is built at the service entrance. The vault is not in your contract documents."
+    },
+    {
+      "id": "P11",
+      "source": "RFI response",
+      "event_date": "2020-05-18",
+      "from": "Architect",
+      "text": "RFI 087 response: Provide fire-rated access panels at all 14 ceiling access locations above the Level 1 corridor. The drawings call for standard panels."
+    },
+    {
+      "id": "P12",
+      "source": "ASI",
+      "event_date": "2020-08-11",
+      "from": "Architect",
+      "text": "ASI-15: Add wood blocking for owner-furnished TV mounts in 22 classrooms. CM to submit any cost and time impact."
+    },
+    {
+      "id": "P13",
+      "source": "Submittal return",
+      "event_date": "2020-08-25",
+      "from": "Electrical Engineer via Architect",
+      "text": "Submittal 26 51 00-002, Revise and Resubmit: Provide seismic bracing for all suspended light fixtures per the district's updated standard. Section 26 51 00 does not require this bracing."
+    },
+    {
+      "id": "P14",
+      "source": "Owner email",
+      "event_date": "2020-09-15",
+      "from": "Owner's Representative",
+      "text": "The district needs the gym finished two weeks early to host the regional tournament. Please accelerate and work overtime as needed."
+    },
+    {
+      "id": "P15",
+      "source": "RFI response",
+      "event_date": "2020-09-29",
+      "from": "Architect",
+      "text": "RFI 132 response: Extend the new storm drain line 40 feet to connect at the existing manhole on the east side of the site. The civil drawings end the line at the property line."
+    }
+  ]
+}
