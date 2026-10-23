@@ -28,20 +28,21 @@
       <div class="feature">
         <div>
           <span class="label">Thesis claim 4 · target 85%</span>
-          <span class="hero-num">30 / 30</span>
-          <p><strong>documents classified correctly, with the right notice rule and deadline.</strong> Target met.</p>
+          <span class="hero-num">60 / 60</span>
+          <p><strong>documents classified correctly across two test sets, with the right notice rule.</strong> Target met on both.</p>
           <div class="bar" role="img" aria-label="100% label accuracy against an 85% target"><i style="width:100%"></i><b style="left:85%"></b></div>
           <a class="button" href="/demo2/">Open full results →</a>
         </div>
         <div>
-          <p>Claude read 30 documents a general contractor receives (RFI answers, ASIs, submittal returns, owner emails, minutes, field reports) and decided: clarification, or a change that needs notice? It cited the clause and named the deadline.</p>
+          <p>Claude read 60 documents a general contractor receives, in two sets of 30: one written with the contract, one written independently by teammate Yousuf Shaik. For each: clarification, or a change that needs notice? It cited the clause and named the deadline.</p>
           <div class="minibars">
-            <div class="minibar"><span>Real changes caught (no misses)</span><span>15/15</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Real changes caught (no misses)</span><span>30/30</span><div class="bar"><i style="width:100%"></i></div></div>
             <div class="minibar"><span>Right notice rule, 6.2 (a) to (d)</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
-            <div class="minibar"><span>Deadlines right, incl. weekend and holiday</span><span>100%</span><div class="bar"><i style="width:100%"></i></div></div>
-            <div class="minibar"><span>Tricky documents</span><span>11/11</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Deadlines right when code counts the days</span><span>30/30</span><div class="bar"><i style="width:100%"></i></div></div>
+            <div class="minibar"><span>Deadlines right when the AI counts</span><span>29/30</span><div class="bar"><i style="width:96.7%"></i></div></div>
+            <div class="minibar"><span>Tricky and subtle documents</span><span>21/21</span><div class="bar"><i style="width:100%"></i></div></div>
           </div>
-          <p class="note">Demo 1's cross-reference gap did not appear when the AI had the full contract in front of it. A perfect score also means this test set was too clean to find its limits; Demo 3 needs harder, independently written documents.</p>
+          <p class="note">The one AI date that differed (Thanksgiving 2019) exposed a real gap: the contract never defines "legal holiday," and Washington law governs. Demo 1's cross-reference gap did not appear when the AI had the full contract. Both sets are short and clean; Demo 3 needs messier documents.</p>
           <p class="note"><a href="https://github.com/sripar2005/info492-team6/tree/main/demo2" target="_blank" rel="noopener">Code, data, and prompts</a> · <a href="https://github.com/sripar2005/info492-team6/actions" target="_blank" rel="noopener">Run log</a></p>
         </div>
       </div>

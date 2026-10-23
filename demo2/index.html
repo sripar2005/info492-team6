@@ -50,6 +50,21 @@
 .filters button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
 .filters button:focus-visible, summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 .count { font: 400 0.85rem var(--mono); color: var(--ink-2); }
+.setswitch { display: flex; flex-wrap: wrap; gap: 0; border: 2px solid var(--ink); align-self: start; justify-self: start; }
+.setswitch button { font: 600 0.92rem/1.2 var(--body); padding: 10px 16px; background: var(--sheet); color: var(--ink-2); border: 0; border-left: 1px solid var(--rule); cursor: pointer; text-align: left; }
+.setswitch button:first-child { border-left: 0; }
+.setswitch button small { display: block; font: 400 0.75rem/1.3 var(--mono); color: var(--ink-2); }
+.setswitch button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+.setswitch button[aria-pressed="true"] small { color: var(--sheet); opacity: 0.8; }
+.setswitch button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.compare { border-collapse: collapse; font-size: 0.93rem; width: 100%; }
+.compare th, .compare td { border-bottom: 1px solid var(--rule); padding: 9px 12px; text-align: left; font-variant-numeric: tabular-nums; }
+.compare th { font: 500 0.72rem/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); background: var(--chip); }
+.compare td.n { text-align: right; white-space: nowrap; }
+.compare tr.diff td { background: var(--warn-tint); }
+.finding { border: 2px solid var(--warn); background: var(--warn-tint); padding: 16px 20px; border-radius: 12px; display: grid; gap: 8px; }
+.finding .label { color: var(--warn); }
+.linkbtn { font: 600 0.9rem var(--body); background: none; border: 0; padding: 0; color: var(--ink); text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; cursor: pointer; justify-self: start; }
 .traces { display: grid; border-top: 1px solid var(--rule); }
 details.trace { border-bottom: 1px solid var(--rule); }
 details.trace > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 4ch 13ch minmax(0, 1fr) auto; gap: 12px; padding: 12px 4px; align-items: baseline; }
@@ -94,7 +109,7 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     <a class="note" href="/demos/">← All demos</a>
     <span class="label">Demo 2 of 4 · Change classifier · Thesis claim 4</span>
     <h1>Is this document a clarification, or a change we must give notice on?</h1>
-    <p>A contractor that misses a change, or gives notice late, can lose the right to be paid for it. We gave Claude 30 documents a general contractor receives and asked it to classify each one, cite the clause, and name the notice deadline.</p>
+    <p>A contractor that misses a change, or gives notice late, can lose the right to be paid for it. We gave Claude 60 documents a general contractor receives, in two independently written sets of 30, and asked it to classify each one, cite the clause, and name the notice deadline.</p>
     <div class="status-row"><span class="label">Status</span><span id="status" class="chip">Loading…</span><span class="label">Model</span><span id="model" class="note">–</span><span class="label">Run</span><span id="run" class="note">–</span></div>
   </section>
 
@@ -112,6 +127,19 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
   <section class="sheet" id="result">
     <div class="strip"><h2>Result</h2><span class="tag">Target set before the run</span></div>
     <div class="body">
+      <span class="label">Both test sets at a glance</span>
+      <div style="overflow-x:auto"><table class="compare" id="compare"><tr><th>Measure</th><th class="n">Set A</th><th class="n">Set B</th></tr></table></div>
+      <p class="note"><strong>Set A:</strong> 30 documents written with the contract (11 tricky). <strong>Set B:</strong> 30 documents written independently by teammate Yousuf Shaik (10 subtle), with his own labels. Same classifier, prompts, and model for both.</p>
+      <div class="finding" id="finding" hidden>
+        <span class="label">Finding · the contract doesn't define "legal holiday"</span>
+        <p><strong>D2-008 (Set B):</strong> notice was due on Thanksgiving 2019. The answer key rolled it to Friday, Nov 29 (US federal holidays). The AI rolled it to Monday, Dec 2: Section 14.1 says Washington law governs, and Washington also treats the day after Thanksgiving as a legal holiday. It flagged the ambiguity for the project manager to check.</p>
+        <p>Scored as a miss, because labels don't change after a run. But the AI found a gap in the contract that the human-written key missed. Code computed the key's date correctly from the AI's rule, which is why we keep date counting in code with a deliberately chosen calendar.</p>
+        <button type="button" class="linkbtn" id="show-d2008">Show the D2-008 trace →</button>
+      </div>
+      <div class="setswitch" role="group" aria-label="Choose test set">
+        <button type="button" data-set="A" aria-pressed="true">Set A<small>30 written with the contract</small></button>
+        <button type="button" data-set="B" aria-pressed="false">Set B<small>30 written by Yousuf Shaik</small></button>
+      </div>
       <div class="banner" id="pending" hidden><span class="label" style="color:var(--warn)">Results pending</span><p>The classifier has not been run against the live model yet. Nothing on this page is simulated. The 30 documents and their labels below are final and were fixed before any run.</p></div>
       <div class="verdict" id="verdict" hidden></div>
       <div class="meter">
@@ -157,11 +185,11 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
   </section>
 
   <section class="sheet" id="cases">
-    <div class="strip"><h2>Document by document</h2><span class="tag">30 traces</span></div>
+    <div class="strip"><h2>Document by document</h2><span class="tag">60 traces, two sets</span></div>
     <div class="body">
-      <p>Open a document to follow it through each step: what came in, what the AI said and why, how the deadline was computed, and how it scored.</p>
+      <p>Open a document to follow it through each step: what came in, what the AI said and why, how the deadline was computed, and how it scored. <span id="set-note"></span></p>
       <div class="filters" role="group" aria-label="Filter documents">
-        <button type="button" data-f="problems" aria-pressed="true">Wrong <span data-n="problems"></span></button>
+        <button type="button" data-f="problems" aria-pressed="true">Needs a look <span data-n="problems"></span></button>
         <button type="button" data-f="tricky" aria-pressed="false">Tricky <span data-n="tricky"></span></button>
         <button type="button" data-f="change" aria-pressed="false">Changes <span data-n="change"></span></button>
         <button type="button" data-f="clar" aria-pressed="false">Clarifications <span data-n="clar"></span></button>
@@ -195,49 +223,90 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 <script>
 (function () {
   var BASE = "/demo2/";
+  var SETS = {
+    A: { cases: "data/cases.json", key: "data/answer_key.json", ev: "results/evaluation.json", note: "Set A: 30 documents written with the contract.", trickyWord: "tricky" },
+    B: { cases: "data/set_b/cases.json", key: "data/set_b/answer_key.json", ev: "results/set_b/evaluation.json", note: "Set B: 30 documents written independently by Yousuf Shaik, with his labels and reasons.", trickyWord: "subtle" }
+  };
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var pct = function (x) { return x == null ? "–" : (100 * x).toFixed(1).replace(/\.0$/, "") + "%"; };
   var get = function (p) { return fetch(BASE + p, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); };
   var fmtDate = function (d) { if (!d) return "none"; var p = d.split("-"); return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1] - 1] + " " + (+p[2]) + ", " + p[0]; };
-  var state = { cases: [], key: {}, trace: null, filter: "problems" };
+  var data = {}, state = { set: "A", filter: "problems" };
 
-  Promise.all([get("data/cases.json"), get("data/answer_key.json"), get("results/evaluation.json").catch(function () { return null; })])
-    .then(function (r) {
-      state.cases = r[0].cases;
-      r[1].cases.forEach(function (k) { state.key[k.id] = k; });
-      if (r[2]) {
-        state.trace = {}; r[2].trace.forEach(function (t) { state.trace[t.id] = t; }); showResults(r[2]);
-        if (!r[2].trace.some(function (t) { return t.outcome !== "correct"; })) {
-          state.filter = "tricky";
-          document.querySelectorAll(".filters button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-f") === "tricky" ? "true" : "false"); });
-        }
-      }
-      else showPending();
-      render();
-    })
-    .catch(function () { $("status").textContent = "Could not load data"; $("traces").innerHTML = '<p class="note">The data files did not load. See the GitHub folder below.</p>'; });
+  function loadSet(name) {
+    var cfg = SETS[name];
+    return Promise.all([get(cfg.cases), get(cfg.key), get(cfg.ev).catch(function () { return null; })]).then(function (r) {
+      var d = { cases: r[0].cases, key: {}, trace: null, ev: r[2] };
+      r[1].cases.forEach(function (k) { d.key[k.id] = k; });
+      if (r[2]) { d.trace = {}; r[2].trace.forEach(function (t) { d.trace[t.id] = t; }); }
+      data[name] = d;
+    });
+  }
+
+  Promise.all([loadSet("A"), loadSet("B")]).then(function () {
+    renderCompare();
+    var b = data.B.trace && data.B.trace["D2-008"];
+    if (b && b.model_date_ok === false) $("finding").hidden = false;
+    selectSet("A");
+  }).catch(function () {
+    $("status").textContent = "Could not load data";
+    $("traces").innerHTML = '<p class="note">The data files did not load. See the GitHub folder below.</p>';
+  });
+
+  function renderCompare() {
+    var rows = [
+      ["Documents classified correctly (target 85%)", "label_accuracy"],
+      ["Real changes caught", "change_recall"],
+      ["Flags that were real changes", "change_precision"],
+      ["Right notice rule, 6.2 (a) to (d)", "notice_rule_accuracy"],
+      ["Notice dates right, AI counting", "deadline_accuracy_model_date"],
+      ["Notice dates right, code counting", "deadline_accuracy_code_date"],
+      ["Quotes found word for word", "citation_validity"],
+      ["Tricky or subtle documents right", "tricky_accuracy"]
+    ];
+    var mA = data.A.ev && data.A.ev.metrics, mB = data.B.ev && data.B.ev.metrics;
+    $("compare").innerHTML = "<tr><th>Measure</th><th class=\"n\">Set A</th><th class=\"n\">Set B</th></tr>" + rows.map(function (r) {
+      var a = mA ? mA[r[1]] : null, b = mB ? mB[r[1]] : null;
+      return "<tr" + (a != null && b != null && a !== b ? ' class="diff"' : "") + "><td>" + r[0] + '</td><td class="n">' + (mA ? pct(a) : "pending") + '</td><td class="n">' + (mB ? pct(b) : "pending") + "</td></tr>";
+    }).join("");
+  }
+
+  function selectSet(name) {
+    state.set = name;
+    document.querySelectorAll(".setswitch button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-set") === name ? "true" : "false"); });
+    $("set-note").textContent = "Showing " + SETS[name].note;
+    var d = data[name];
+    if (d.ev) { $("pending").hidden = true; showResults(d.ev); } else showPending();
+    var hasWrong = d.trace && d.cases.some(function (c) { return d.trace[c.id].outcome !== "correct" || d.trace[c.id].model_date_ok === false; });
+    state.filter = !d.trace ? "all" : hasWrong ? "problems" : "tricky";
+    document.querySelectorAll(".filters button").forEach(function (b) {
+      var f = b.getAttribute("data-f");
+      b.hidden = (f === "problems" && !d.trace);
+      b.setAttribute("aria-pressed", f === state.filter ? "true" : "false");
+    });
+    render();
+  }
 
   function showPending() {
-    $("pending").hidden = false;
-    $("status").textContent = "Awaiting run";
-    state.filter = "all";
-    document.querySelectorAll(".filters button").forEach(function (b) {
-      var f = b.getAttribute("data-f"); b.setAttribute("aria-pressed", f === "all" ? "true" : "false"); if (f === "problems") b.hidden = true;
-    });
+    $("pending").hidden = false; $("verdict").hidden = true;
+    $("status").className = "chip"; $("status").textContent = "Awaiting run";
+    ["acc", "m-recall", "m-prec", "m-rule", "m-date-ai", "m-date-code", "m-cite", "m-tricky", "m-tokens", "c-tp", "c-fn", "c-fp", "c-tn"].forEach(function (id) { $(id).textContent = "–"; });
+    $("acc-bar").style.width = "0";
   }
 
   function showResults(ev) {
     var m = ev.metrics, meta = ev.meta || {}, c = m.confusion, met = m.meets_target;
-    $("status").className = "chip " + (met ? "ok" : "bad"); $("status").textContent = met ? "Target met" : "Target not met";
+    $("status").className = "chip " + (met ? "ok" : "bad"); $("status").textContent = met ? "Target met, both sets" : "Target not met";
+    if (data.A.ev && data.B.ev && !(data.A.ev.metrics.meets_target && data.B.ev.metrics.meets_target)) $("status").textContent = met ? "Target met" : "Target not met";
     $("model").textContent = meta.model || "–";
     $("run").textContent = meta.created ? new Date(meta.created).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "–";
-    var v = $("verdict"); v.hidden = false; v.classList.add(met ? "met" : "notmet");
-    v.innerHTML = '<span class="label">Thesis claim 4</span><b>' + (met ? "Met: " : "Not met: ") + pct(m.label_accuracy) + " of documents classified correctly, against an 85% target.</b>";
+    var v = $("verdict"); v.hidden = false; v.className = "verdict " + (met ? "met" : "notmet");
+    v.innerHTML = '<span class="label">Thesis claim 4 · Set ' + state.set + "</span><b>" + (met ? "Met: " : "Not met: ") + pct(m.label_accuracy) + " of documents classified correctly, against an 85% target.</b>";
     $("acc").textContent = pct(m.label_accuracy);
     $("acc-n").textContent = (c.true_change_flagged + c.true_clarification) + " of " + m.documents + " documents classified correctly";
     $("acc-bar").style.width = (100 * m.label_accuracy) + "%";
-    if (!met) $("acc-bar").style.background = "var(--red)";
+    $("acc-bar").style.background = met ? "" : "var(--red)";
     $("m-recall").textContent = pct(m.change_recall);
     $("m-prec").textContent = pct(m.change_precision);
     $("m-rule").textContent = pct(m.notice_rule_accuracy);
@@ -245,29 +314,34 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
     $("m-date-code").textContent = pct(m.deadline_accuracy_code_date);
     $("m-cite").textContent = pct(m.citation_validity);
     $("m-tricky").textContent = pct(m.tricky_accuracy);
+    document.querySelector("#m-tricky + span").textContent = "right on the " + m.tricky_cases + " " + SETS[state.set].trickyWord + " documents";
     $("m-tokens").textContent = meta.input_tokens != null ? Math.round(meta.input_tokens / 1000) + "k / " + Math.round(meta.output_tokens / 1000) + "k" : "–";
     $("c-tp").textContent = c.true_change_flagged; $("c-fn").textContent = c.missed_change;
     $("c-fp").textContent = c.false_alarm; $("c-tn").textContent = c.true_clarification;
+    $("report-link").href = "https://github.com/sripar2005/info492-team6/blob/main/demo2/" + (state.set === "B" ? "results/set_b/" : "results/") + "evaluation_report.md";
   }
 
   function outcomeChip(t) {
     if (!t) return '<span class="chip">Awaiting run</span>';
-    if (t.outcome === "correct") return '<span class="chip ok">Correct</span>';
+    var extra = t.model_date_ok === false ? ' <span class="chip warn">AI date off</span>' : "";
+    if (t.outcome === "correct") return '<span class="chip ok">Correct</span>' + extra;
     if (t.outcome === "right label, wrong deadline") return '<span class="chip warn">Wrong deadline</span>';
     return '<span class="chip bad">' + (t.outcome === "missed change" ? "Missed change" : "False alarm") + "</span>";
   }
 
   function matches(cs, f) {
-    var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
-    if (f === "problems") return !!t && t.outcome !== "correct";
+    var d = data[state.set], k = d.key[cs.id], t = d.trace && d.trace[cs.id];
+    if (f === "problems") return !!t && (t.outcome !== "correct" || t.model_date_ok === false);
     if (f === "tricky") return k.tricky;
     if (f === "change") return k.label === "POSSIBLE CHANGE";
     if (f === "clar") return k.label === "CLARIFICATION";
     return true;
   }
 
+  function mark(ok) { return ok ? ' <span class="ok">✓</span>' : ' <span class="bad">✗</span>'; }
+
   function traceBody(cs) {
-    var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
+    var d = data[state.set], k = d.key[cs.id], t = d.trace && d.trace[cs.id];
     var s1 = '<div class="tstep"><span>1</span><div><span class="label">Document in · ' + esc(cs.source) + " from " + esc(cs.from) + " · " + fmtDate(cs.event_date) + "</span><blockquote>" + esc(cs.text) + "</blockquote></div></div>";
     if (!t) {
       return s1 + '<div class="tstep"><span>2</span><div><span class="label">AI answer</span><p class="note">Appears after the live run.</p></div></div>' +
@@ -275,14 +349,14 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
         "</dd><dt>Notice due</dt><dd>" + fmtDate(k.notice_due) + "</dd><dt>Why</dt><dd>" + esc(k.why) + "</dd></dl></div></div>";
     }
     var a = t.model;
-    var s2 = '<div class="tstep"><span>2</span><div><span class="label">AI answer</span><dl class="kv"><dt>Label</dt><dd>' + esc(a.label) + (t.label_ok ? ' <span class="ok">✓</span>' : ' <span class="bad">✗</span>') +
-      "</dd><dt>Rule</dt><dd>" + esc(a.notice_rule) + (t.rule_ok === null ? "" : t.rule_ok ? ' <span class="ok">✓</span>' : ' <span class="bad">✗</span>') +
+    var s2 = '<div class="tstep"><span>2</span><div><span class="label">AI answer</span><dl class="kv"><dt>Label</dt><dd>' + esc(a.label) + mark(t.label_ok) +
+      "</dd><dt>Rule</dt><dd>" + esc(a.notice_rule) + (t.rule_ok === null ? "" : mark(t.rule_ok)) +
       "</dd><dt>Sections</dt><dd>" + esc((a.sections || []).join(", ")) + "</dd><dt>Reasoning</dt><dd>" + esc(a.reasoning) + "</dd></dl>" +
-      "<blockquote>" + esc(a.quote) + "</blockquote><span class=\"note\">" + (t.quote_verified ? '<span class="ok">✓ Quote found word for word in the contract</span>' : '<span class="bad">✗ Quote not found in the contract</span>') + "</span></div></div>";
+      "<blockquote>" + esc(a.quote) + '</blockquote><span class="note">' + (t.quote_verified ? '<span class="ok">✓ Quote found word for word in the contract</span>' : '<span class="bad">✗ Quote not found in the contract</span>') + "</span></div></div>";
     var s3 = '<div class="tstep"><span>3</span><div><span class="label">Notice deadline</span>' + (k.label === "POSSIBLE CHANGE" || a.label === "POSSIBLE CHANGE"
       ? '<div style="overflow-x:auto"><table class="cmp"><tr><th></th><th>Notice due</th><th></th></tr>' +
-        "<tr><td>AI counted the days</td><td>" + fmtDate(a.notice_due) + "</td><td>" + (a.notice_due === k.notice_due ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>') + "</td></tr>" +
-        "<tr><td>Code counted from the AI's rule</td><td>" + fmtDate(t.computed_notice_due) + "</td><td>" + (t.computed_notice_due === k.notice_due ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>') + "</td></tr>" +
+        "<tr><td>AI counted the days</td><td>" + fmtDate(a.notice_due) + "</td><td>" + mark(a.notice_due === k.notice_due) + "</td></tr>" +
+        "<tr><td>Code counted from the AI's rule</td><td>" + fmtDate(t.computed_notice_due) + "</td><td>" + mark(t.computed_notice_due === k.notice_due) + "</td></tr>" +
         "<tr><td>Answer key</td><td>" + fmtDate(k.notice_due) + "</td><td></td></tr></table></div>"
       : '<p class="note">No notice needed for a clarification.</p>') + "</div></div>";
     var s4 = '<div class="tstep"><span>4</span><div><span class="label">Scored · answer key</span><dl class="kv"><dt>Expected</dt><dd>' + esc(k.label) + " · " + esc(k.notice_rule) +
@@ -291,24 +365,35 @@ ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
   }
 
   function render() {
+    var d = data[state.set];
     ["problems", "tricky", "change", "clar", "all"].forEach(function (f) {
-      var el = document.querySelector('[data-n="' + f + '"]'); if (el) el.textContent = "(" + state.cases.filter(function (c) { return matches(c, f); }).length + ")";
+      var el = document.querySelector('[data-n="' + f + '"]'); if (el) el.textContent = "(" + d.cases.filter(function (c) { return matches(c, f); }).length + ")";
     });
-    var rows = state.cases.filter(function (c) { return matches(c, state.filter); });
-    $("count").textContent = "Showing " + rows.length + " of " + state.cases.length + " documents";
+    var rows = d.cases.filter(function (c) { return matches(c, state.filter); });
+    $("count").textContent = "Showing " + rows.length + " of " + d.cases.length + " documents in Set " + state.set;
     $("traces").innerHTML = rows.map(function (cs) {
-      var k = state.key[cs.id], t = state.trace && state.trace[cs.id];
+      var k = d.key[cs.id], t = d.trace && d.trace[cs.id];
       var exp = '<span class="chip">' + (k.label === "POSSIBLE CHANGE" ? "Change" : "Clarification") + "</span>";
-      return '<details class="trace"><summary><span class="tid">' + esc(cs.id) + '</span><span class="tsrc">' + esc(cs.source) + '</span><span class="ttext">' + esc(cs.text) +
-        '</span><span class="tchips">' + (k.tricky ? '<span class="chip warn">Tricky</span>' : "") + exp + outcomeChip(t) + "</span></summary><div class=\"tbody\">" + traceBody(cs) + "</div></details>";
+      return '<details class="trace" id="trace-' + esc(cs.id) + '"><summary><span class="tid">' + esc(cs.id) + '</span><span class="tsrc">' + esc(cs.source) + '</span><span class="ttext">' + esc(cs.text) +
+        '</span><span class="tchips">' + (k.tricky ? '<span class="chip warn">' + (state.set === "B" ? "Subtle" : "Tricky") + "</span>" : "") + exp + outcomeChip(t) + '</span></summary><div class="tbody">' + traceBody(cs) + "</div></details>";
     }).join("") || '<p class="note">' + (state.filter === "problems" ? "Every document was classified correctly." : "No documents match.") + "</p>";
   }
 
+  document.querySelectorAll(".setswitch button").forEach(function (b) {
+    b.addEventListener("click", function () { if (data.A && data.B) selectSet(b.getAttribute("data-set")); });
+  });
   document.querySelectorAll(".filters button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".filters button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
-      b.setAttribute("aria-pressed", "true"); state.filter = b.getAttribute("data-f"); if (state.cases.length) render();
+      b.setAttribute("aria-pressed", "true"); state.filter = b.getAttribute("data-f"); if (data[state.set]) render();
     });
+  });
+  $("show-d2008").addEventListener("click", function () {
+    selectSet("B");
+    state.filter = "problems";
+    document.querySelectorAll(".filters button").forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-f") === "problems" ? "true" : "false"); });
+    render();
+    var el = $("trace-D2-008"); if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
   });
 })();
 </script>
