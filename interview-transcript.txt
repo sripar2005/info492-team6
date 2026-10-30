@@ -1,0 +1,269 @@
+Them: Hi—
+Them:  Hello—
+Them:  Thank you.
+Them:  Hi, hold on—say, say something again. I can hardly hear you.
+Them:  Oh, hi. Can you hear me?
+Them:  Yeah. Okay.
+Them:  There we go. I think that's better.
+Them:  How are you?
+Them:  Good. How are you?
+Them:  I'm doing well. Sounds like you're busy.
+Them:  No.
+Them:  Well, I just—I just wanted to thank you again for hopping on the call and agreeing to chat with us.
+Them:  Sure.
+Them:  Essentially, we are doing our capstone final project, and along with me in this call is another team member of mine. Yeah.
+You: Um, maybe I can just introduce myself real quick. Sorry, my camera isn't working right now, but my name is Shree, and I'm one of Nithika's group members in terms of this project.
+Them:  Sounds good.
+Them:  Can I ask, are you—are you—what is your—what school are you in? What major?
+Them:  Yeah. So we are part of UDub, the Seattle campus, and we're part of the Information School.
+Them:  And there's different concentrations within the Information School, like Data Science and other, like, specifications. But for this capstone, it's specifically on the construction industry.
+Them:  And I.
+Them:  Believe I, like, gave a little bit in the email, but I just want to give a little bit more of clarity of what our project essentially is.
+Them:  Sounds good. But before we get started, let me tell you a little bit about myself.
+Them:  Yeah.
+Them:  So I'm a—I'm a consulting project manager. I work for a company called Concertis.
+Them:  And I work for the Lake Washington School District. I've been here for on and off for quite a few years.
+Them:  And the Lake Washington School District does a lot of construction.
+Them:  Whether it's new constructing new schools, renovating schools, or maintaining and doing ongoing smaller projects associated with existing schools. And so the school districts tend to be serial builders, and always have a lot of facility required construction or maintenance associated with them.
+Them:  So that's—I've been in the industry for 30-plus years. I want to say too much about how old I am, but I've been doing a lot of this for a long time, and worked a lot of different types of projects, and the.
+Them:  Different types of delivery methods along the way.
+Them:  Yeah. So I've got a lot of experience.
+Them:  Amazing.
+Them:  Sorry, if you hear that chattering sound, I'm just typing everything you're saying.
+Them:  Oh, not a problem.
+Them:  Is it okay—actually, I'm just remembering—is it okay if I record this call?
+Them:  Uh, yeah.
+Them:  Okay.
+Them:  I mean, these days, I'm not going to say anything that's going to be problematic.
+Them:  Just to be frank, I mean, when I do my projects, I don't mind if things are being recorded. But I always ask that there's follow-up with written notes just to confirm clear understanding and that what's being recorded is not misinterpreted.
+Them:  Yeah. I can definitely send you.
+Them:  It's fine with you. I don't mind.
+Them:  When we're dealing with larger projects with more at stake.
+Them:  Oh, okay.
+You:  Yeah, and I think that's also kind of relevant to our project, you know. Nithika is going to, I guess, give you a quick overview, but we're trying to figure out how we can— I guess— make some of the things within the process of construction management a little bit more efficient using things like AI, and nowadays I understand a lot of people are using, like, AI notetakers, recording meetings, and summarizing them with AI.
+You:  So we want to make sure nothing gets misinterpreted. So yeah.
+Them:  That's great.
+Them:  And it's very—how much the hot topic these days.
+Them:  Yeah.
+Them:  Yeah.
+Them:  Well, yeah, just to go a little deeper on that really quickly. So our project is testing whether we can use AI to.
+Them:  We can use AI to sort of check each handoff before it—before, like, it goes off to, like, a change order or, like, an RFI answer or anything. That you have to essentially check against the contract's rules.
+Them:  And we hope to find these problems within a matter of days using AI rather than through an audit that can happen 23 or years or months later.
+Them:  We're using a specific case study, so we're using the Webster School as our case study. It's part of the Seattle Public School District.
+Them:  But through that case study, we were able to realize that in an audit they did 23 years—20—oh my God, 23 months later, we found that there were a lot of price changes that were happening that went against the contract rules and a lot of mistakes that happened. In regards to pricing and handoffs, and that happened 23 months after the final payment.
+Them:  Mm-hmm.
+Them:  So—
+Them:  So is this—is this part of a formal audit process, or is this—and are they trying to recoup some of those costs, or are they—this is just an academic exercise?
+You:  It's— it's somewhat of like an academic exercise. So what we're doing is we're using that Webster School's, like,
+Them:  Mm-hmm.
+You:  all of their RFIs and their change orders, and we're using that as data to understand whether or not our AI— or whatever we're building using AI— could have caught
+Them:  Excellent.
+You:  that before it reached the point where they had to audit it 23 months later. So we're— we're hoping to maybe receive some, like, more insight from, like, an actual stakeholder since we're only working with documents from the past.
+You:  We want to talk to somebody to understand, hey, like, when you're going through your day-to-day work, where exactly do you run into problems, and, you know, how can we make sure that what we're building can solve that for you as an actual stakeholder in the situation?
+Them:  Sounds good. Let me know.
+Them:  So to be—just to let you know, I.
+Them:  We do also have a—we have an AI agent that we use for doing change order evaluations and so it's—this is something that is being used currently in the industry. And I have some experience with it.
+Them:  But not a huge amount, sounds like you guys might be going into a little more depth. But please, proceed.
+You:  Yeah.
+Them:  Well, sorry, do you want to go ahead?
+Them:  Go for it. Yeah.
+You:  Sorry, Nithika, I have a quick question. Yeah, just kind of on that note, maybe before we kind of start talking about what we might have built or the ideas we have and the questions we have for you, what does that, like, workflow look with that current agent today?
+You:  And its capabilities, so we can kind of maybe understand what already exists within the industry and how we can improve upon that or maybe look at it from a different angle?
+Them:  Oh.
+Them:  I am a design and construction person. My background is architecture, civil engineering, and construction, and project management.
+Them:  I don't have a technology background. So when I—I'm a user of the technology, not a developer.
+Them:  So—
+You:  Yeah, and
+Them:  Yeah.
+You:  we do understand how that user experience looks for you. If you find any problems with it, and things like that.
+Them:  Yeah. There's—so I—
+Them:  As most of us, I think, we don't have a huge amount of experience because it's growing—it's advancing so rapidly. But the—what I use right now is something that my company—
+Them:  I can maybe pop it up and I can demon—maybe show you some things, if I can find it.
+Them:  A little bit.
+Them:  But—well.
+Them:  What happened?
+Them:  Let me see if I can—oh, something's happening with my browser.
+Them:  It might take me a while to pop it up. The—generally, what we have is we.
+Them:  Upload certain documents related to the project. So we have—I haven't gotten to a point where we can upload drawings and—but I do have contracts that we upload, and we have a few other key elements related to the project.
+Them:  So basically, baseline documents that explain what the base.
+Them:  Scope looks like, what the schedule looks like, what the contract looks like, and then we use those and the—and so we get a change order and we then upload it and ask the agent to evaluate the change order based on the contract documents.
+Them:  It's sometimes—it's been—it's remarkably good and fast with what it can do, but it does require—I always do some back checks on certain elements.
+You:  Yeah, that makes— that makes a lot of sense. And sorry, I think you cut out really quickly.
+You:  But I guess my question there is, when you're doing your back checks, what exactly are you looking for that the AI tool might have missed, and in the industry we kind of call that a human-in-the-loop, and that's something we're trying to keep in mind is keeping a human in the loop because you can't fully ever trust AI outputs, especially not in this day and age.
+Them:  It—and it's absolutely the case. It's getting better.
+Them:  Definitely. I think these things learn remarkably fast.
+Them:  It's getting better at recogniz—so when you're involved with the project from early on, through the design, through permitting, and then through the bidding process, things become intuitive. As you go through that, and that's—and so when you see a change order evaluation and you see it coming back with this certain results, you'll—it's actually not that difficult to recognize where things seem off.
+Them:  The AI does a really nice job of recognizing the math.
+Them:  So you get a change order, it usually includes a cover sheet that summarizes all the costs. It includes backup from different subcontractors or different elements of the contract.
+Them:  And then there's backup pieces that are always included in that. So it does a good job of recognizing how these individual elements roll up to the total cost and then summarizing all the markups that are typically on a cover sheet.
+Them:  It does an excellent job with that.
+Them:  I—these days, I rarely find mistakes with that.
+You:  Mm-hmm.
+Them:  If there is—if there is a mistake or there's some unknown, AI does a nice job of identifying where things are not clear.
+Them:  There are oftentimes the things that I often find that can be problematic mark.
+Them:  Subcontractor markups, if they're asking for too much of a subcontractor markup, then they're contractually allowed. I've pushed back on some of those.
+Them:  So there's different things that are evaluated with a—when you get a change order, you have scope, making sure the scope is accurate, making sure that the quantities associated with the—what you're getting are accurate.
+Them:  You evaluate markups, all the markups associated with subcontractors and general contractors, making sure those are accurate.
+Them:  Things get complicated when you start dealing with elements associated with
+You:  Yeah.
+Them:  non-quantifiable elements, like schedule delays.
+Them:  Mm-hmm.
+You:  Yeah. And that's where, like, the AI reasoning comes into play, and that's where we want to kind of maybe hone the agent down to try to understand how to make reasoning decisions while also, you know, keeping a human in the loop who can review those decisions before anything moves forward.
+Them:  Yeah. That's where things definitely get more complex.
+Them:  And I don't—I haven't used AI as a scheduling tool, a scheduling evaluator. I know it can do that.
+Them:  But you're always getting garbage in, garbage out. So you always have to have good baseline documents associated with it.
+Them:  So if you're dealing with schedule delays, it gets—it's very—these things can get very, very complex, especially if you're dealing with a hard bid type of project.
+Them:  Oh, man, we're getting into a lot of different elements here.
+Them:  But maybe I'll come back to different types of contracts and how change orders need to be evaluated based on your project delivery methods.
+Them:  But—
+You:  Okay, yeah, and I think Nithika might also have some questions— I just want to—
+Them:  So I don't—for a schedule—I haven't used AI for schedule delay, just to be frank with you. It just has not come up with what a project that I'm working on.
+Them:  But I can see—I just know how those have become contentious. If you're dealing with a more collaborative type of delivery method, whether it's GCCM or design build, oftentimes this becomes less of a concern because—
+Them:  Of the dynamics of the delivery method. If you're dealing with the design bid build, type of project, then it gets more contentious and the contractors often try to make more money on something, especially something like a schedule delay.
+Them:  It's just harder to quantify. It's harder to rely on—
+Them:  Certain documentation and that kind of situation.
+You:  Okay.
+You:  Yeah.
+Them:  Then ask some questions about that.
+You:  Yeah.
+Them:  There's a lot there. There's a lot—it's complex.
+Them:  Are you looking at changes associated with schedule delay?
+You:  We're looking at RFIs and the entire flow from, like, you know, somebody finding a problem on the site to that becoming an RFI that becomes eventually a change order. And we want to see— you know, there's, like, three different steps there, and, like, how do we maybe bridge those steps together and simplify them.
+Them:  Okay. So first thing you look at is scope.
+Them:  That's quantitative elements, things that have changed or things that have been added or things that have been deleted. There's things that are easy to quantify.
+Them:  For a quantity takeoff, you can say, "We—
+Them:  The unit cost associated with these," and you can come to a conclusion about that's whether that's legit or not.
+Them:  Those are easy pieces.
+Them:  The markups, those are elements that are relatively easy to quantify. They're defined.
+Them:  If they're not defined in the contract, there's a problem.
+Them:  So they should be well-defined in the contract for subcontractor markups. General contractor markups.
+Them:  And those are part of a change order.
+Them:  Again, things get hairy when you start looking at schedules because if you don't have a very well-thought-out, put-together-in-documented baseline schedule, and they're requesting changes to that because of permitting.
+Them:  Problems, because of unknown site conditions, because of lack of availability of certain materials that don't allow you to finish a project, delays—your owner changes—there's all sorts of reasons why there could be delays to a project.
+Them:  And the.
+Them:  It's just an extremely complex type of evaluation there that's needed to arrive at a certain conclusion. If there's a delay to a project, there are layers of potential cost impacts to that.
+Them:  There's subcontractors that can ask for more money because they're being delayed. There's general contractors that can ask for more money, associated with what's called general conditions, do you know what general conditions are for a construction contract?
+Them:  That's just basically the cost associated with a contractor carrying a project for a longer period of time.
+You:  Uh, just a quick clarification there: longer meaning a longer period of time than was originally planned?
+Them:  Correct.
+You:  Yes.
+Them:  So a contractor signs up on a project, says, "I can construct this in 12 months."
+Them:  I know what we're trying to build. I know what the materials are.
+Them:  I know what they cost. I know we've talked to our subcontractors.
+Them:  It's going to take us 12 months to do this. All of a sudden, they can't get started when they're expecting to start.
+Them:  And because there's a permitting issue, therefore, that gets pushed off and that gets delayed. But the contractor has already committed and signed up for a contract with the cost and a schedule predetermined.
+Them:  If that gets delayed, then they have people that are waiting around, waiting to start the project, and they've committed to them.
+Them:  So the question is, does the owner—if the owner's responsible for the permitting—does the owner pay for that delay? And that time where they're sitting around waiting to get started?
+Them:  So yeah, so there's a piece associated with that.
+Them:  There's all sorts of reasons why projects can be delayed. And oftentimes, it's not small dollar amounts.
+Them:  These things can add up quickly. And then you're stuck in a situation where you have to negotiate this with your general contractor.
+You:  Okay, yeah. Yeah, that makes a lot of sense.
+You:  I guess we can already kind of identify a lot of problems. Or not problems, but, like, specific bottlenecks within the process today, and that's what we're hoping to identify by talking to people who are actually working in the industry.
+You:  So we can understand, hey, how do we come at this bottleneck with the new angle, and then maybe make that a little bit more efficient?
+You:  And I know that—
+Them:  So the way you do a lot of this upfront to get your best effort is to have the best documentation you can. You can have upfront.
+Them:  And the documentation is scope documentation. Schedule documentation.
+Them:  And making sure that's absolutely clear. Identify as a project manager, my responsibility is to identify those risks associated with every project.
+Them:  And then have appropriate contingencies that can address those risks along the way.
+Them:  Contingencies meaning dollar and time. Time contingencies as well.
+Them:  Okay.
+You:  Okay, yeah, that all makes a lot of sense. I know, Nithika also has some very specific questions she probably has prepared, so I'm going to let her kind of take over, I guess, the rest of the call to kind of ask her questions, because I think I have a much better understanding of how the day-to-day workflow looks like for you on the construction side of things.
+You:  So I'm going to let Nithika take over.
+Them:  Yeah.
+Them:  All right.
+Them:  Well, so essentially, we've done two demos. The first one is just checking whether AI could extract details from the contract rules.
+Them:  And put it in a form that can accurately give cited evidence as to where it pulled and why it's pulling that information. Our second demo was to take that extracted information and put it in a handoff situation.
+Them:  And essentially, test whether the AI model or AI agent was able to implement that in a handoff. But for our third demo—
+Them:  A handoff? Explain what that means.
+Them:  A handoff to, like, from an owner back to the contractor?
+Them:  Yeah.
+Them:  Okay.
+Them:  So our third demo essentially is checking the pricing of change proposals. So coming back to our case study, the Webster audit, an example is that, like, if 5% fee was added to work where the contract didn't allow it, an equipment changes were also questioned in the audit.
+Them:  But essentially, we just want to know, like, what an owner—or sorry, what a PM actually checks in situations like that. So when you check a change proposal's price, what do you check it against?
+Them:  Like, mainly, is it like the fee rules? Is it the markup limits?
+Them:  Which—and which—
+Them:  So, yes, you've captured most of it. I mean, you always start—I always start off with the—usually there's a cover page.
+Them:  I look at how it's summed up from the subcontractor and the direct construction cost. There's the markups associated with that.
+Them:  And I look at all those. And by the time you're working on a project and you pretty much intuitively know what those markups are, making sure all that's accurate.
+Them:  So that's first piece is—and making sure that there's a gut check on that cover page and that it generally conforms to expectations. I would highlight any concerns I would have at that point, saying, "Wow, this electrical cost seems very high for my understanding of the scope.
+Them:  I just highlight it and say, 'I'm going to check on it.'" I then review the backup documentation. You'd end up with—you should have full documentation from subcontractors and/or direct costs.
+Them:  That's associated with the change. And you make sure that those reflect your scope, that the bottom line associated with the cost of that rolls up accurately to the cover sheet, that there's the tie-out there.
+Them:  And I go through each of those sometimes it's a simple one where I have a simple change order. And it's just one or two checks.
+Them:  They line up. The markups are correct.
+Them:  That sounds good. It aligns with the scope.
+Them:  And I say, "I recommend approval."
+Them:  Others get more complex. And when you're—and that's where we start to get to these delays.
+Them:  Delays are much more complex because there's nothing—it's hard—it's an operational thing. The—you know, that's where you get to a point where you're—end up with a lot of finger-pointing.
+Them:  The owner says, "We didn't change the scope. We didn't do anything.
+Them:  We just got delayed." Then the contractor has a completely different story.
+Them:  Saying, "We couldn't start because you didn't have your permit." And I mean, so it ends up being a constant battle there.
+Them:  And from an owner perspective, you know, this is a physical thing that they're paying for.
+Them:  Yeah.
+Them:  And that a lot of times, that's the way they conceive of the agreement. They don't think about the process as much.
+Them:  And so they're paying more money for getting the same thing. Why is that?
+Them:  Right?
+You:  Patches.
+Them:  So that's where things get to be very contentious.
+Them:  Are you evaluating the project delivery methodology as you're doing your work? Like, the—like I was talking about earlier, progressive design, build, or design, build, or GCCM, or design, bid, build?
+Them:  Are you familiar with those different delivery methods?
+You:  Yeah, so we were initially focusing more on maybe actually understanding how to
+Them:  Yep.
+You:  use AI to pull information out of these documents to summarize them for people involved in the process. But honestly, as we move forward and talk to more people, we're realizing that there might be a use in terms of automatically sending it to the right users and allowing it to have access to tools that would send it or route this information to the right people.
+You:  So that's what we're kind of moving forward into in terms of our direction. So maybe some insights in that domain would be useful, because we're not super acquainted with those delivery methods.
+Them:  Well, where I was going with that, the different delivery methods are determined well upfront, even as before you're designing the project. When an owner is thinking about a project, you got to think about the characteristics of the project, the drivers behind the project, the complexity of the project.
+Them:  There's a lot of elements that would go into being smart about how you're going to deliver this project.
+Them:  And that determination, basically, establishes contractual relationships between the designers, the contractors, and the owner.
+Them:  And those relationships will.
+Them:  Drive a lot of how you think about evaluating change orders.
+Them:  It's a—this gets a little more—it's more complex than we have time to talk about here. But I would encourage—I mean, that's something that I would think is important to consider and maybe beyond the scope of what you're doing here.
+Them:  But I think it's really—it's an important element of an analysis. It might be—you might be able to gather some of that when an AI evaluates a contract, because the contracts are designed and built for those different delivery methods.
+Them:  So it may—it's possible it recognizes that. But when me, as a project manager, are evaluating change orders, I always have to think about what type of contract this is and that plays a role in how I'm evaluating.
+Them:  Questioning or recommending approval of a change order.
+Them:  That makes sense.
+Them:  Okay.
+Them:  Okay. That makes sense.
+Them:  What would you say—oh, I—okay.
+Them:  I noticed we're running short on time.
+Them:  I just have one last question. But what would you never want an AI agent to use in amongst this handoff process?
+Them:  Like, if you were—let's say AI, the AI agent becomes really, really strong and good. What would you still not want it to use in this handoff process when you're evaluating?
+Them:  There's a lot of things that happen over the course of a construction project, in the process.
+Them:  Things happen—
+Them:  That are not documented in the baseline elements. And so not in the construction documents or permit documents, not in the actual contexts that are written for the architect or the contractor.
+Them:  And it has to do with all the risks. So there's always the biggest risk of a most vertical construction or any construction project with your soils, your site, your ground.
+Them:  I mean, there's—well, permitting, your dirt, that's—those are major risks that are hard to—and every project's a little different. If you have a flat site with good soils, and it's wide open, then there's usually—that's a low-risk kind of project.
+Them:  But if you're dealing with a site in an urban center with a lot of uses on a hill, with a constrained site, hard for the contractor to work, these are all elements that make for a very complex project with a lot of risk associated with the schedule and with the whole operation—the whole construction operation, the process of constructing. Those are the things that create change orders.
+Them:  Yeah.
+Them:  And every project's different that way. It's a risky evaluation process early upfront.
+Them:  There's a lot of factors that go into that, construction is tends to be a pretty complex type of process. I mean, there's a lot of different contractors, a lot of different pieces and parts.
+Them:  They all have to work together and it's a.
+Them:  It can be—and this is why good contractors really earn their money. But they rely on the designers to do things correctly.
+Them:  They rely on owners to.
+Them:  Provide the right environment that allows them to succeed. So it's a very collaborative effort for everyone's behalf.
+Them:  To get to.
+Them:  Just to loop around here, because I do have another meeting at 11:00, the—I would back up to the—think about what you're biggest risks are on a project upfront.
+Them:  And again, you can start off with site conditions.
+Them:  You can move on to.
+Them:  Agencies are permitting type of things. Those are often high risk.
+Them:  The qualities of the site and the conditions associated with the construction, those are all high-risk elements. And if you can find a way to quantify those high-risk elements in your AI agent, and have that be part of how things are being evaluated, I think you'd get—that's probably the highest—the most.
+Them:  The best way to get the most out of an agent like this. My experience is the other elements associated with change orders, AI, is tremendous at.
+Them:  It just does a really good job with quantity evaluations and markups and other contractual elements. It's all these other pieces that are hard to quantify.
+Them:  Okay.
+Them:  Okay. That makes sense.
+Them:  Well, thank you again. Thank you so much for your time.
+Them:  I know you're so busy, so.
+Them:  Oh, no. This has been terrific.
+Them:  I love having an opportunity to speak with you. And I hope you're successful at this effort.
+Them:  If I'm happy to spend a little more time. At another time, if you want to follow up, if you're thinking and have a few more questions, go ahead and just email me.
+Them:  You have my email address, and I'm happy to spend a few more minutes with you.
+You:  Yeah, absolutely.
+Them:  Thank you. I would love that.
+Them:  And I think we will definitely—we'll definitely do that.
+You:  Yeah, and maybe even within the next few weeks, if we have something built and some sort of demo that maybe you can test out, and then give us some feedback. Or if you can even let us know if it would be useful for your work, we could kind of send that over to you so you can check that out and see where we could make any improvements or something like that.
+Them:  I'd love to see what you got going on. Sure.
+Them:  Yeah.
+Them:  Thank you.
+You:  Thank you. Thank you so much.
+Them:  Well, I don't want to take too much of your time. Thank you.
+Them:  Thank you. Bye.
+Them:  Bye.
+You:  Have a great rest of your day.
