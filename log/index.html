@@ -33,7 +33,7 @@
             <tr><td class="num">3</td><td><a href="/demo1/">Demo 1</a></td><td>Extract the synthetic contract's rules with the agent; score against a 132-rule answer key (target: 85% of core rules)</td><td>Core recall 94.4% (117/124), target 85% met; 100% of quotes verified; precision 79.1% pending key review. <a href="/demo1/">Details</a></td></tr>
             <tr><td class="num">5</td><td><a href="/demo2/">Demo 2</a></td><td>Classify 30 synthetic documents (RFI answers, ASIs, submittal returns, emails, minutes, field reports) as clarification or possible change; name the 6.2 notice rule and deadline. New: the agent picks the rule, code computes the date (target: 85% label accuracy)</td><td>Set A 30/30 and Set B (written by Yousuf) 30/30 on labels and rules, one run each, no misses or false alarms. Code-counted deadlines 30/30; agent-counted 29/30. The difference came from an undefined "legal holiday" in the contract (Thanksgiving 2019); either date is defensible. Both sets are clean; Demo 3 needs messier documents. <a href="/demo2/">Details</a></td></tr>
             <tr><td class="num">5</td><td><a href="#evaluation-lab">Evaluation Lab</a></td><td>Class exercise: 10 of Yousuf's messages, a team-agreed answer key (with one deliberate "neither" item), two agent runs, and a one-keyword baseline</td><td>Agent 8/10 and 10/10 on two runs; keyword rule 9/10. Runs were not the same. 2 failures (a wrong section reference, a made-up detail); 1 likely crossed a line. <a href="#evaluation-lab">Details</a></td></tr>
-            <tr><td class="num">6</td><td>Mid-quarter analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
+            <tr><td class="num">6</td><td><a href="#interview">Mid-quarter analysis</a></td><td>Interviewed an owner-side project manager who already uses an AI agent to review change orders; compared what he said with our thesis and peer reviews</td><td>The agent handles math and markups well; the costly disputes come from delays, site conditions, and permitting, which rule checks don't cover. Thesis holds for the claims tested so far; the 80% headline claim is still untested. <a href="#interview">Details</a></td></tr>
             <tr><td class="num">7</td><td>Demo 3</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">9</td><td>Demo 4</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
             <tr><td class="num">10</td><td>Final analysis</td><td class="note"><em>Placeholder</em></td><td class="note"><em>Placeholder</em></td></tr>
@@ -81,9 +81,46 @@
     </div>
   </section>
 
+  <section class="sheet" id="interview">
+    <div class="strip"><h2>Stakeholder interview</h2><span class="tag">Mid-quarter · Owner's side</span></div>
+    <div class="body">
+      <p>We interviewed a consulting project manager who represents the Lake Washington School District as the owner, with 30+ years in design and construction. He already uses a commercial AI agent: he uploads the contract, scope, and schedule, then asks it to review each change order against them. He back-checks its results and then recommends approval or not.</p>
+      <div class="cols">
+        <div style="display:grid;gap:8px;align-content:start">
+          <span class="label">What supports our thesis</span>
+          <ul>
+            <li><strong>Contract rules can be checked.</strong> Markups "are defined. If they're not defined in the contract, there's a problem." He pushes back when a subcontractor's markup is over the contract limit.</li>
+            <li><strong>People still decide.</strong> The agent's output feeds his review; he recommends, and someone else approves.</li>
+            <li><strong>Inputs decide everything.</strong> "Garbage in, garbage out." This backs Demo 1's focus on exact, quoted rules.</li>
+            <li><strong>Delivery method matters.</strong> GC/CM (our Webster case) and design-build are less contentious than design-bid-build, and contracts are written for each method.</li>
+          </ul>
+        </div>
+        <div style="display:grid;gap:8px;align-content:start">
+          <span class="label">What challenges it</span>
+          <ul>
+            <li><strong>Pricing math is already solved.</strong> His tool is very good at cost rollups, cover sheets, and markups; he rarely finds mistakes there.</li>
+            <li><strong>The costly disputes are hard to measure.</strong> Delays, site and soil conditions, permitting, and material shortages, where owner and contractor "tell different stories."</li>
+            <li><strong>Much of that risk isn't in the documents.</strong> A rule checker can't see what was never written down.</li>
+            <li><strong>Not covered:</strong> we didn't ask about notice deadlines, which Demo 2 depends on.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="redline">
+        <span class="label">What we're changing</span>
+        <ul>
+          <li><strong>Our edge is earlier and contract-specific.</strong> His tool starts at the change order. We check the steps before it (is this answer really a change, was notice on time) and quote the contract behind every flag.</li>
+          <li><strong>Demo 3 follows his review steps:</strong> cover sheet, backup tie-out, markups against contract limits, scope match. The agent drafts "recommend" or "question," with reasons.</li>
+          <li><strong>A "needs a person" route.</strong> Changes about delay, site conditions, or permitting are flagged for human review, not scored.</li>
+          <li><strong>Keyword baseline and a second labeler</strong> for every demo, following peer feedback on our 100% results.</li>
+        </ul>
+      </div>
+      <p class="note">Correction: in the interview we described our test data as Webster's RFIs and change orders. Our test documents are synthetic, modeled on the Webster audit. We are sending written notes to confirm what was said.</p>
+    </div>
+  </section>
+
   <footer class="colophon">
     <span>INFO 492 C · Team 6 · Yousuf Shaik, Sriharshith Paruchuri, Nithika Yechuri</span>
-    <span>Last updated October 16, 2026 · <a href="#top">Back to top</a></span>
+    <span>Last updated October 30, 2026 · <a href="#top">Back to top</a></span>
   </footer>
 </div>
 </body>

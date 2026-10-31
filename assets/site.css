@@ -203,3 +203,4 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
   .upcoming { grid-template-columns: 1fr; }
   .pagehead { padding: 20px; }
 }
+#interview ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
