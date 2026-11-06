@@ -17,3 +17,13 @@
   .tabs a { padding: 13px 6px 10px; text-align: center; font-size: 0.86rem; }
   .tabs li:first-child a { border-left: 0; }
 }
+
+/* Link to the ClauseStream landing page */
+.tabs a.cs-tab { background: var(--ink); color: var(--paper); border-left-color: var(--ink); }
+.tabs a.cs-tab::before { content: "§ "; color: var(--red); }
+.tabs a.cs-tab:hover { background: var(--ink); color: var(--paper); opacity: .88; }
+@media (max-width: 760px) {
+  .tabs { flex-wrap: wrap; overflow: visible; }
+  .tabs li:has(.cs-tab) { flex-basis: 100%; }
+  .tabs a.cs-tab { border-left: 0; border-top: 1px solid var(--rule); }
+}

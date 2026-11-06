@@ -66,7 +66,31 @@ h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 20ch; }
 .nav ul a { display: block; padding: 8px 12px; border-radius: 10px; color: var(--muted); transition: color .2s, background .2s; }
 .nav ul a:hover { color: var(--text); background: var(--glass-2); }
 .nav ul a.pill { color: var(--text); border: 1px solid var(--line-2); }
-@media (max-width: 760px) { .nav ul li:not(:last-child) { display: none; } }
+@media (max-width: 760px) { .nav ul li:not(.menu-li) { display: none; } }
+.menu { position: relative; }
+.menu summary { list-style: none; cursor: pointer; padding: 8px 12px; border-radius: 10px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary:hover, .menu[open] summary { color: var(--text); background: var(--glass-2); }
+.menu summary span { font-size: .7rem; transition: transform .3s var(--ease, ease); }
+.menu[open] summary span { transform: rotate(180deg); }
+.menu .panel { position: absolute; right: 0; top: calc(100% + 10px); width: 260px; max-height: calc(100vh - 100px); overflow-y: auto; padding: 10px; display: grid; gap: 2px; background: #0e1218; border: 1px solid var(--line-2); border-radius: 16px; box-shadow: 0 24px 60px -12px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.06); animation: drop .35s cubic-bezier(.16,1,.3,1); }
+@keyframes drop { from { opacity: 0; transform: translateY(-6px) scale(.98); } }
+.menu .panel a { padding: 9px 10px; border-radius: 9px; color: var(--muted); font-size: .92rem; }
+.menu .panel a:hover { background: var(--glass-2); color: var(--text); }
+.menu .ph { font: 500 .7rem/1 var(--mono); color: var(--faint); padding: 10px 10px 6px; }
+.menu .ph:not(:first-child) { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 14px; }
+
+/* Explore the work */
+.explore { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+@media (max-width: 920px) { .explore { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .explore { grid-template-columns: 1fr; } }
+.explore a { padding: 24px; display: grid; gap: 8px; align-content: start; }
+.explore .go { font: 500 .78rem/1 var(--mono); color: var(--accent); }
+.explore h3 { font-size: 1.2rem; letter-spacing: -.02em; display: flex; justify-content: space-between; }
+.explore h3 span { color: var(--faint); transition: transform .4s var(--ease, ease), color .4s; }
+.explore a:hover h3 span { transform: translate(3px,-3px); color: var(--text); }
+.explore p { margin: 0; color: var(--muted); font-size: .93rem; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 
 /* Buttons */
 .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
@@ -254,7 +278,18 @@ footer.site a:hover { color: var(--muted); }
       <li><a href="#how">How it works</a></li>
       <li><a href="#proof">Proof</a></li>
       <li><a href="#team">Team</a></li>
-      <li><a class="pill" href="/demos/">See the demos</a></li>
+      <li class="menu-li">
+        <details class="menu">
+          <summary>Explore <span aria-hidden="true">▾</span></summary>
+          <div class="panel">
+            <span class="ph">On this page</span>
+            <a href="#how">How it works</a><a href="#proof">Webster case study</a><a href="#results">Results</a><a href="#team">Team</a>
+            <span class="ph">Project site</span>
+            <a href="/">Overview</a><a href="/thesis/">Thesis</a><a href="/demos/">Demos</a><a href="/demo1/">Demo 1: Reading the contract</a><a href="/demo2/">Demo 2: Spotting changes</a><a href="/log/">Log</a><a href="/sources/">Sources</a>
+          </div>
+        </details>
+      </li>
+      <li class="pill-li"><a class="pill" href="/demos/">See the demos</a></li>
     </ul>
   </nav>
 </div>
@@ -393,6 +428,21 @@ footer.site a:hover { color: var(--muted); }
     </div>
   </section>
 
+  <section class="s" id="explore">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Go deeper</span>
+        <h2 class="shine">Explore the full project.</h2>
+      </div>
+      <div class="explore">
+        <a class="glass lift reveal" href="/thesis/"><span class="go">Thesis</span><h3>The claim <span>↗</span></h3><p>What we're testing, the Webster lens, and how we'll know.</p></a>
+        <a class="glass lift reveal" href="/demos/"><span class="go">Demos</span><h3>The results <span>↗</span></h3><p>Every demo with its scores, test data, and per-document traces.</p></a>
+        <a class="glass lift reveal" href="/log/"><span class="go">Log</span><h3>The process <span>↗</span></h3><p>What we tried each week, the evaluation lab, and the stakeholder interview.</p></a>
+        <a class="glass lift reveal" href="/sources/"><span class="go">Sources</span><h3>The research <span>↗</span></h3><p>The audit, contracts, and industry reports behind the work.</p></a>
+      </div>
+    </div>
+  </section>
+
   <section class="s" id="team">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -418,7 +468,7 @@ footer.site a:hover { color: var(--muted); }
 
 <footer class="site">
   <div class="wrap">
-    <div class="top"><span>ClauseStream · INFO 492 C, University of Washington Information School · 2026</span><a href="/">Project site</a></div>
+    <div class="top"><span>ClauseStream · INFO 492 C, University of Washington Information School · 2026</span><nav class="foot-links" aria-label="Project site"><a href="/">Overview</a><a href="/thesis/">Thesis</a><a href="/demos/">Demos</a><a href="/log/">Log</a><a href="/sources/">Sources</a></nav></div>
     <ol>
       <li id="s1"><a href="https://www.autodesk.com/blogs/construction/construction-disconnected-fmi-report/">FMI and Autodesk, “Construction Disconnected,” 2018</a></li>
       <li id="s2"><a href="https://mc-8a0094ca-7a4f-4771-a3c9-191964-cm.azurewebsites.net/-/media/project/arcadiscom/com/expertise/global/contract-solutions/14th-annual-construction-disputes-report-2024.pdf">Arcadis, 14th Annual Construction Disputes Report, 2024 (North America)</a></li>
@@ -479,6 +529,12 @@ footer.site a:hover { color: var(--muted); }
       g.style.setProperty('--mx', (e.clientX - r.left) + 'px'); g.style.setProperty('--my', (e.clientY - r.top) + 'px');
     });
   });
+
+  // Explore menu: close on outside click, Escape, or link choice
+  var menu = document.querySelector('.menu');
+  document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') menu.open = false; });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { menu.open = false; }); });
 
   // Nav firms up after scrolling
   var nav = document.querySelector('.nav');

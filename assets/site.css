@@ -204,3 +204,4 @@ footer.colophon { display: flex; flex-wrap: wrap; justify-content: space-between
   .pagehead { padding: 20px; }
 }
 #interview ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.cs-callout { margin: 14px 0 0; } .cs-callout a { display: inline-block; padding: 10px 14px; border-radius: 10px; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600; } .cs-callout a:hover { opacity: .88; }
