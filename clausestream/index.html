@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ClauseStream</title>
+<meta name="description" content="ClauseStream checks every construction handoff, from RFI answer to change order, against the contract when it's submitted, so problems surface in days instead of in an audit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root {
+  --paper: #f5f7f8; --sheet: #ffffff; --ink: #18222b; --ink-2: #4d5c68; --rule: #c9d3da; --grid: #e4eaee;
+  --red: #c4381c; --red-tint: #fbe9e4; --chip: #eef2f5; --ok: #1f7a55; --ok-tint: #e3f3ec;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6; --rule: #2c4560; --grid: #17304a;
+    --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350; --ok: #5fd3a2; --ok-tint: #173a35; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1c2b; --sheet: #13253a; --ink: #e6eef5; --ink-2: #a3b6c6; --rule: #2c4560; --grid: #17304a;
+  --red: #ff8a6a; --red-tint: #3a2226; --chip: #1b3350; --ok: #5fd3a2; --ok-tint: #173a35; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background-color: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.label { font: 500 0.75rem/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.label.red { color: var(--red); }
+h1, h2, h3 { font-family: var(--display); font-stretch: 85%; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.25rem/1 var(--display); font-stretch: 85%; }
+.logo svg { width: 32px; height: 32px; flex: none; }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 0.92rem; }
+.nav ul a { text-decoration: none; color: var(--ink-2); }
+.nav ul a:hover { color: var(--ink); }
+@media (max-width: 720px) { .nav ul li:not(:last-child) { display: none; } }
+
+/* Buttons */
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 2px solid var(--ink); }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.ghost { background: var(--sheet); }
+.btn:hover { transform: translateY(-1px); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+
+/* Hero */
+.hero { padding: 64px 0 56px; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.2rem); margin: 14px 0 18px; }
+.hero h1 .money { color: var(--red); }
+.tagline { font: 700 clamp(1.15rem, 2.2vw, 1.45rem)/1.3 var(--display); font-stretch: 90%; margin: 0 0 12px; }
+.hero p.sub { color: var(--ink-2); margin: 0 0 26px; max-width: 54ch; }
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; gap: 36px; } .hero { padding-top: 40px; } }
+
+/* Stream visual */
+.stream { background: var(--sheet); border: 2px solid var(--ink); border-radius: 16px; padding: 18px 18px 14px; box-shadow: 8px 8px 0 var(--rule); }
+.stream .head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 6px; }
+.stream ol { list-style: none; margin: 0; padding: 0; position: relative; }
+.stream li { position: relative; padding: 12px 0 12px 34px; }
+.stream li::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; border-left: 2px dashed var(--rule); }
+.stream li:first-child::before { top: 22px; } .stream li:last-child::before { bottom: calc(100% - 22px); }
+.dot { position: absolute; left: 1px; top: 13px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font: 700 0.7rem/1 var(--body); background: var(--ok-tint); color: var(--ok); border: 2px solid var(--ok); }
+.dot.flag { background: var(--red-tint); color: var(--red); border-color: var(--red); }
+.stream .step { display: flex; justify-content: space-between; gap: 10px; font-weight: 600; }
+.stream .state { font: 500 0.72rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ok); white-space: nowrap; }
+.stream .state.flag { color: var(--red); }
+.callout { margin-top: 8px; background: var(--red-tint); border: 1.5px solid var(--red); border-radius: 10px; padding: 10px 12px; font-size: 0.9rem; line-height: 1.45; }
+.callout q { font-style: italic; }
+.callout .who { display: block; margin-top: 6px; font: 500 0.72rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--red); }
+.stream .foot { font-size: 0.78rem; color: var(--ink-2); margin-top: 6px; }
+
+/* Sections */
+section.block { padding: 64px 0; border-top: 1px solid var(--rule); }
+.block h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 10px 0 14px; max-width: 22ch; }
+.block p.intro { color: var(--ink-2); max-width: 62ch; margin: 0 0 32px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 880px) { .grid3 { grid-template-columns: 1fr; } }
+.card { background: var(--sheet); border: 1.5px solid var(--rule); border-radius: 14px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.card h3 { font-size: 1.35rem; }
+.card p { margin: 0; color: var(--ink-2); }
+.card.red { border: 2px solid var(--red); background: var(--red-tint); }
+.card.red .amt { font: 800 2.2rem/1 var(--display); font-stretch: 85%; color: var(--red); }
+.card.red p { color: var(--ink); }
+.source { font-size: 0.82rem; color: var(--ink-2); margin-top: 16px; }
+
+/* Steps */
+.steps .num { font: 800 2.6rem/1 var(--display); color: var(--red); }
+
+/* Stats band */
+.band { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 36px 28px; }
+.band .label { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 22px; }
+.stat b { display: block; font: 800 clamp(2.2rem, 4.6vw, 3.2rem)/1 var(--display); font-stretch: 85%; }
+.stat span { display: block; margin-top: 8px; font-size: 0.92rem; color: color-mix(in srgb, var(--paper) 80%, transparent); }
+@media (max-width: 880px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.band .more { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.band .btn { border-color: var(--paper); }
+.band .btn.primary { background: var(--paper); color: var(--ink); }
+.band .btn.ghost { background: transparent; color: var(--paper); }
+
+/* Compare */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 880px) { .compare { grid-template-columns: 1fr; } }
+.compare .card ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.compare .card.us { border: 2px solid var(--ink); }
+
+/* Quote */
+blockquote { margin: 0; background: var(--sheet); border-left: 6px solid var(--red); border-radius: 0 14px 14px 0; padding: 26px 28px; }
+blockquote p { font: 700 clamp(1.3rem, 2.8vw, 1.85rem)/1.25 var(--display); font-stretch: 90%; margin: 0 0 14px; }
+blockquote footer { color: var(--ink-2); font-size: 0.92rem; }
+
+/* Roadmap */
+.road { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 880px) { .road { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .road { grid-template-columns: 1fr; } }
+.road .card.done { border-color: var(--ok); }
+.road .tag { font: 500 0.72rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
+.road .done .tag { color: var(--ok); } .road .next .tag { color: var(--red); }
+.road .card.next { border: 2px solid var(--red); }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 880px) { .team { grid-template-columns: 1fr; } }
+.cta { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; background: var(--sheet); border: 2px solid var(--ink); border-radius: 16px; padding: 22px 24px; }
+.cta p { margin: 0; max-width: 56ch; }
+
+footer.site { padding: 28px 0 40px; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--ink-2); }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="ClauseStream">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ClauseStream home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M6 25 L25 7" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M19 7 H25 V13" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M9.5 19.5 l2 2 M13.5 15.8 l2 2 M17.5 12.1 l2 2" stroke="#c4381c" stroke-width="2"/>
+        <text x="7" y="13" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="currentColor">§</text>
+      </svg>
+      ClauseStream
+    </a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="/">Project site →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="label red">Webster School Modernization · Seattle Public Schools audit, 2023</span>
+        <h1><span class="money">$129,531</span> in change-order charges flagged. 23 months after the last payment.</h1>
+        <p class="tagline">ClauseStream: catch it upstream, at the handoff, not the audit.</p>
+        <p class="sub">ClauseStream checks each step from RFI answer to change order against the contract when it's submitted. It quotes the clause and sends anything wrong to a person, who makes the call.</p>
+        <div class="btns">
+          <a class="btn primary" href="/demos/">See the demos →</a>
+          <a class="btn ghost" href="/thesis/">Read the thesis</a>
+          <a class="btn ghost" href="#team">Talk to us</a>
+        </div>
+      </div>
+
+      <div class="stream" role="img" aria-label="Example: four handoffs checked in order. The RFI answer passes. The change notice is flagged as late with the contract clause quoted, and sent to the project manager.">
+        <div class="head"><span class="label">One change, four handoffs</span><span class="label">Example</span></div>
+        <ol>
+          <li><span class="dot">✓</span><div class="step">RFI answer<span class="state">Possible change found</span></div></li>
+          <li><span class="dot flag">!</span><div class="step">Change notice<span class="state flag">Flagged</span></div>
+            <div class="callout">Notice sent 9 days after the RFI answer. The contract allows <q>7 days after CM receives an RFI response</q>, Section 6.2(a).<span class="who">Sent to the project manager to decide</span></div>
+          </li>
+          <li><span class="dot">✓</span><div class="step">Priced proposal<span class="state">Markups within limits</span></div></li>
+          <li><span class="dot">✓</span><div class="step">Change order<span class="state">Ready for approval</span></div></li>
+        </ol>
+        <p class="foot">Illustration based on our test contract.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="problem">
+    <div class="wrap">
+      <span class="label">The problem</span>
+      <h2>Nobody checks the handoff. The audit does, years later.</h2>
+      <p class="intro">Every change on a project passes through the same chain: a question gets answered, the contractor gives notice, prices the work, and the owner approves it. Each step has contract rules. Today those rules get checked by people under deadline, or by an auditor after the money is gone. The Webster audit found three kinds of charges that a contract check could have caught at submission.</p>
+      <div class="grid3">
+        <div class="card red"><span class="amt">$63,080</span><h3>Equipment charges</h3><p>Add-ons for the contractor's own labor and equipment on change orders, questioned for missing support.</p></div>
+        <div class="card red"><span class="amt">$20,770</span><h3>Fee above the contract rate</h3><p>Fees on change orders billed above the rate the contract set.</p></div>
+        <div class="card red"><span class="amt">$45,681</span><h3>Costs already covered</h3><p>Change-order items the contractor's fee was already meant to pay for.</p></div>
+      </div>
+      <p class="source">Source: <a href="https://www.seattleschools.org/wp-content/uploads/2024/03/Webster-School-Modernization-and-Addition-Audit-ADA.pdf">Webster School Modernization and Addition audit</a>, December 14, 2023, about 23 months after the last pay application.</p>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <span class="label">How it works</span>
+      <h2>Read the contract once. Check every step against it.</h2>
+      <p class="intro">ClauseStream doesn't replace the project manager. It does the rule checking at the moment a document arrives, so the PM's time goes to the calls that need judgment.</p>
+      <div class="grid3 steps">
+        <div class="card"><span class="num">01</span><h3>Reads the contract</h3><p>Pulls out every notice, pricing, and fee rule, each with the exact quote it came from.</p></div>
+        <div class="card"><span class="num">02</span><h3>Checks each handoff</h3><p>Decides whether an answer is really a change, which notice rule applies, and when notice is due. Code counts the dates, including weekends and holidays.</p></div>
+        <div class="card"><span class="num">03</span><h3>Flags it to a person</h3><p>Every flag quotes the clause behind it. The project manager decides. Nothing is approved or rejected automatically.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="results">
+    <div class="wrap">
+      <div class="band">
+        <span class="label">Results so far · Demos 1 and 2</span>
+        <div class="stats">
+          <div class="stat"><b>94.4%</b><span>of core contract rules extracted (117 of 124)</span></div>
+          <div class="stat"><b>158/158</b><span>quotes found word for word in the contract</span></div>
+          <div class="stat"><b>60/60</b><span>documents labeled right across two test sets, including 21 built to mislead</span></div>
+          <div class="stat"><b>0</b><span>missed changes and 0 false alarms</span></div>
+        </div>
+        <div class="more">
+          <a class="btn primary" href="/demo1/">Demo 1: reading the contract</a>
+          <a class="btn ghost" href="/demo2/">Demo 2: spotting changes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="fit">
+    <div class="wrap">
+      <span class="label">Where it fits</span>
+      <h2>Owners already use AI on change orders. ClauseStream starts upstream.</h2>
+      <p class="intro">We interviewed an owner-side project manager who already runs an AI agent on every change order. It's strong at the math. The problems it can't see start earlier.</p>
+      <div class="compare">
+        <div class="card"><h3>Change-order review tools</h3><ul><li>Start when the priced change order arrives</li><li>Check cost rollups, cover sheets, and markups</li><li>Work after the cost is already committed</li></ul></div>
+        <div class="card us"><h3>ClauseStream</h3><ul><li>Starts at the RFI answer, before a change order exists</li><li>Catches changes disguised as clarifications, and late notice</li><li>Checks against each project's own contract, with the clause quoted</li></ul></div>
+      </div>
+      <div style="margin-top:24px">
+        <blockquote>
+          <p>“The markups, those are elements that are relatively easy to quantify. They're defined. If they're not defined in the contract, there's a problem.”</p>
+          <footer>Owner-side project manager, Lake Washington School District, 30+ years in construction</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="next">
+    <div class="wrap">
+      <span class="label">Roadmap</span>
+      <h2>What's built, and what's next</h2>
+      <div class="road" style="margin-top:24px">
+        <div class="card done"><span class="tag">Done</span><h3>Read the contract</h3><p>Demo 1: rules extracted with quotes.</p></div>
+        <div class="card done"><span class="tag">Done</span><h3>Spot the change</h3><p>Demo 2: clarification or change, notice rule, and deadline.</p></div>
+        <div class="card next"><span class="tag">Next</span><h3>Check the price</h3><p>Demo 3: fees, markups, and costs already covered, like the Webster findings.</p></div>
+        <div class="card"><span class="tag">Later</span><h3>The full chain</h3><p>Demo 4: one change followed from RFI answer to change order.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="team">
+    <div class="wrap">
+      <span class="label">Team</span>
+      <h2>Built by Team 6</h2>
+      <p class="intro">University of Washington Information School, INFO 492 C Construction Informatics, Autumn 2026.</p>
+      <div class="team">
+        <div class="card"><h3>Yousuf Shaik</h3><p>Contract rule extraction, independent test set, interview questions</p></div>
+        <div class="card"><h3>Sriharshith Paruchuri</h3><p>Website, demo runs and results pages, interview analysis</p></div>
+        <div class="card"><h3>Nithika Yechuri</h3><p>Stakeholder interview, demo presentations, mid-quarter analysis</p></div>
+      </div>
+      <div class="cta">
+        <p><strong>Work on public construction projects?</strong> We'd like to hear where handoffs break down for you, and to show you Demo 3 when it's ready.</p>
+        <a class="btn primary" href="/">Visit the project site →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>ClauseStream is a student research prototype by INFO 492 C Team 6. Results come from synthetic test documents modeled on the Webster contract.</span>
+    <a href="/">Project site</a>
+  </div>
+</footer>
+</body>
+</html>
