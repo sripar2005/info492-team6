@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard · ClauseStream</title>
+<meta name="theme-color" content="#07090c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/cs.css">
+<style>
+.who { display: flex; align-items: center; gap: 10px; }
+.who .avatar { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-weight: 600; font-size: .8rem; background: linear-gradient(135deg, rgba(255,106,61,0.35), rgba(70,120,255,0.25)); border: 1px solid var(--line-2); }
+.who small { display: block; color: var(--faint); font: 500 .7rem/1.2 var(--mono); }
+.who b { font-weight: 500; font-size: .9rem; }
+.layout { max-width: 1400px; margin: 14px auto 40px; padding: 0 14px; display: grid; grid-template-columns: 360px minmax(0,1fr); gap: 14px; align-items: start; }
+@media (max-width: 980px) { .layout { grid-template-columns: 1fr; } }
+
+/* Inbox */
+.inbox { padding: 14px; position: sticky; top: 80px; max-height: calc(100vh - 96px); display: flex; flex-direction: column; }
+@media (max-width: 980px) { .inbox { position: static; max-height: 420px; } }
+.inbox h2 { font-size: 1.05rem; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+.stats div { padding: 10px; border-radius: 12px; background: var(--glass); border: 1px solid var(--line); }
+.stats b { display: block; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.03em; }
+.stats span { font-size: .74rem; color: var(--muted); }
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
+.tabs button { border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 9px; font-size: .8rem; cursor: pointer; }
+.tabs button[aria-pressed="true"] { color: var(--text); background: var(--glass-2); border-color: var(--line-2); }
+.list { overflow-y: auto; margin: 0 -6px; padding: 0 6px; display: grid; gap: 6px; align-content: start; }
+.item { text-align: left; width: 100%; display: grid; gap: 6px; padding: 11px 12px; border-radius: 12px; border: 1px solid transparent; background: transparent; cursor: pointer; transition: background .2s, border-color .2s; }
+.item:hover { background: var(--glass); }
+.item[aria-current="true"] { background: var(--glass-2); border-color: var(--line-2); }
+.item .r1 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.item .id { font: 500 .74rem/1 var(--mono); color: var(--faint); }
+.item .t { font-size: .9rem; font-weight: 500; }
+.item .amt { font: 500 .8rem/1 var(--mono); color: var(--muted); }
+
+/* Detail */
+.detail { display: grid; gap: 14px; min-width: 0; }
+.panel { padding: 22px; }
+.cphead { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.cphead h1 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-top: 8px; }
+.cphead .meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; font-size: .84rem; color: var(--muted); }
+.cphead .meta b { display: block; color: var(--text); font-weight: 500; }
+.total { text-align: right; }
+.total b { display: block; font-size: 1.9rem; font-weight: 600; letter-spacing: -0.04em; }
+.narr { color: var(--muted); margin: 14px 0 0; max-width: 80ch; }
+
+/* Chain */
+.chain { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; margin-top: 4px; }
+@media (max-width: 720px) { .chain { grid-template-columns: 1fr; gap: 8px; } .node::after { display: none; } }
+.node { position: relative; padding: 12px; margin-right: 18px; border-radius: 12px; border: 1px solid var(--line); background: var(--glass); cursor: pointer; transition: border-color .3s var(--ease), transform .3s var(--ease); }
+.node:last-child { margin-right: 0; cursor: default; }
+.node::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: var(--faint); font-size: .8rem; }
+.node:last-child::after { display: none; }
+.node:hover { border-color: var(--line-2); }
+.node.me { border-color: rgba(255,106,61,0.6); box-shadow: 0 0 0 1px rgba(255,106,61,0.25), 0 0 30px -10px rgba(255,106,61,0.6); }
+.node.sel { background: var(--glass-2); }
+.node small { display: block; font: 500 .68rem/1.3 var(--mono); color: var(--faint); }
+.node b { display: block; font-weight: 500; font-size: .9rem; margin: 4px 0 8px; }
+.node.running .chip { color: var(--blue); border-color: rgba(122,162,255,.45); }
+.spin { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--blue); border-right-color: transparent; animation: sp .8s linear infinite; display: inline-block; }
+@keyframes sp { to { transform: rotate(360deg); } }
+
+/* Review */
+.review .rh { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.review h2 { font-size: 1.15rem; }
+.auth { font: 400 .78rem/1.5 var(--mono); color: var(--faint); margin-top: 6px; }
+.msg { margin-top: 14px; padding: 14px 16px; border-radius: 12px; background: rgba(0,0,0,0.22); border: 1px solid var(--line); }
+.msg .to { font: 500 .72rem/1 var(--mono); color: var(--faint); margin-bottom: 6px; display: block; }
+.flags { display: grid; gap: 10px; margin-top: 14px; }
+.flag { padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(245,196,81,0.35); background: var(--warn-soft); }
+.flag.esc { border-color: rgba(255,106,61,0.45); background: var(--accent-soft); }
+.flag .fh { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
+.flag .ft { font: 500 .78rem/1 var(--mono); }
+.flag p { margin: 8px 0 0; }
+.flag .q { display: block; margin-top: 8px; font: 400 .8rem/1.5 var(--mono); color: #ffc8b6; }
+.flag .v { font: 500 .7rem/1 var(--mono); }
+.flag .v.ok { color: var(--ok); } .flag .v.no { color: var(--accent); }
+.noflags { margin-top: 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(79,209,165,0.35); background: var(--ok-soft); color: #c9f3e3; }
+
+/* Actions */
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); align-items: center; }
+.actions .lbl { font: 500 .74rem/1 var(--mono); color: var(--faint); margin-right: 6px; }
+.livebar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); padding: 11px 16px; border-radius: 12px; background: #141922; border: 1px solid var(--line-2); font-size: .88rem; z-index: 50; animation: fin .4s var(--ease) both; max-width: calc(100vw - 32px); }
+
+/* Package + audit */
+details.box { padding: 0; }
+details.box summary { list-style: none; cursor: pointer; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; font-weight: 500; }
+details.box summary::-webkit-details-marker { display: none; }
+details.box summary span { color: var(--faint); font-size: .8rem; transition: transform .3s var(--ease); }
+details.box[open] summary span { transform: rotate(180deg); }
+details.box .inner { padding: 0 22px 20px; }
+.quote-text { white-space: pre-wrap; font: 400 .82rem/1.55 var(--mono); padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.25); border: 1px solid var(--line); color: var(--muted); }
+.sub-h { margin: 16px 0 6px; font-size: .9rem; font-weight: 500; }
+.audit { display: grid; gap: 0; }
+.ev { display: grid; grid-template-columns: 16px 1fr; gap: 12px; padding-bottom: 14px; position: relative; }
+.ev::before { content: ""; position: absolute; left: 7px; top: 16px; bottom: 0; width: 1px; background: var(--line-2); }
+.ev:last-child::before { display: none; }
+.ev .dot { width: 15px; height: 15px; border-radius: 50%; margin-top: 3px; border: 1px solid var(--line-2); background: var(--glass-2); }
+.ev .dot.PASS { background: var(--ok-soft); border-color: var(--ok); } .ev .dot.RETURN { background: var(--warn-soft); border-color: var(--warn); }
+.ev .dot.ESCALATE { background: var(--accent-soft); border-color: var(--accent); } .ev .dot.human { background: var(--blue-soft); border-color: var(--blue); }
+.ev .l1 { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: .88rem; }
+.ev .l2 { font: 400 .74rem/1.5 var(--mono); color: var(--faint); margin-top: 3px; }
+.empty { padding: 40px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="bar glass">
+    <a class="logo" href="/clausestream/" aria-label="ClauseStream home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="0.5" y="0.5" width="27" height="27" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.22)"/><path d="M6 22 L21 7" stroke="#eef2f6" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 7 H21 V12.5" stroke="#eef2f6" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 17.4 l2 2 M11.8 14.2 l2 2 M15 11 l2 2" stroke="#ff6a3d" stroke-width="1.6" stroke-linecap="round"/><text x="5.2" y="12.2" font-family="Geist Mono, monospace" font-size="8.5" fill="#eef2f6">§</text></svg>
+      <span class="hide-sm">ClauseStream</span>
+    </a>
+    <nav>
+      <a href="/demo3/" class="hide-sm">Results</a>
+      <a href="/" class="hide-sm">Project site</a>
+      <a href="/app/" title="Switch role"><span class="who"><span class="avatar" id="av">?</span><span><small id="roleLbl">Role</small><b id="nameLbl">Guest</b></span></span></a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="inbox glass">
+    <h2>Change proposals</h2>
+    <div class="stats" id="stats"></div>
+    <div class="tabs" id="tabs" role="group" aria-label="Filter">
+      <button data-f="all" aria-pressed="true">All</button>
+      <button data-f="flagged" aria-pressed="false">Flagged by my agent</button>
+      <button data-f="esc" aria-pressed="false">Escalated</button>
+      <button data-f="clear" aria-pressed="false">Clear</button>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+  <main class="detail" id="detail"><div class="glass empty">Loading…</div></main>
+</div>
+
+<script>
+(function () {
+  var ROLES = ['sub', 'gc', 'architect', 'owner'];
+  var NAMES = { sub: 'Subcontractor', gc: 'GC/CM', architect: 'Architect', owner: "Owner's PM" };
+  var AUTH = {
+    sub: 'Can submit its own pricing or hold it for fixes. Cannot escalate.',
+    gc: 'Can send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.',
+    architect: 'Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time.',
+    owner: 'Recommends approval, returns with questions, or escalates to the Owner’s Representative. Never approves on its own.'
+  };
+  var ACTIONS = {
+    sub: [['ok', 'Submit to GC/CM'], ['warn', 'Hold and revise']],
+    gc: [['ok', 'Send to Architect + Owner'], ['warn', 'Return to sub'], ['bad', 'Escalate to CM PM']],
+    architect: [['ok', 'Confirm it’s a change'], ['warn', 'Dispute scope'], ['bad', 'Needs design review']],
+    owner: [['ok', 'Recommend approval'], ['warn', 'Return with questions'], ['bad', 'Escalate to Owner’s Rep']]
+  };
+  var DEC = { sub: { PASS: 'Ready to submit', RETURN: 'Fix before submitting' },
+              gc: { PASS: 'Send on', RETURN: 'Return', ESCALATE: 'Escalate' },
+              architect: { PASS: 'Change confirmed', RETURN: 'Not a change', ESCALATE: 'Design review' },
+              owner: { PASS: 'Recommend approval', RETURN: 'Question', ESCALATE: 'Escalate' } };
+  var ESC_TYPES = ['TIME_IMPACT', 'CONCEALED_CONDITION', 'OVER_AUTHORITY'];
+  var TYPE_LABEL = { SUB_MARKUP: 'Sub markup over limit', FEE_RATE: 'Fee rate', FEE_ON_EXCLUDED: 'Fee on excluded item', COVERED_COST: 'Cost already covered',
+    EQUIPMENT: 'Equipment charge', LABOR_BURDEN: 'Labor burden', TIEOUT: 'Doesn’t tie out', MISSING_BACKUP: 'Backup missing',
+    LATE_NOTICE: 'Late notice', NOT_A_CHANGE: 'Not a change', TIME_IMPACT: 'Time / delay claim', CONCEALED_CONDITION: 'Site condition', OVER_AUTHORITY: 'Over approval limit' };
+
+  var q = new URLSearchParams(location.search);
+  var session = {};
+  try { session = JSON.parse(sessionStorage.getItem('cs_session') || '{}') || {}; } catch (e) {}
+  var role = ROLES.indexOf(q.get('role')) >= 0 ? q.get('role') : (session.role || 'owner');
+  var who = session.name || 'Guest';
+  document.getElementById('roleLbl').textContent = NAMES[role];
+  document.getElementById('nameLbl').textContent = who;
+  document.getElementById('av').textContent = who.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+
+  var cases = [], runs = {}, live = {}, filter = 'all', current = null, viewRole = role, running = false;
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function money(n) { return (n < 0 ? '−$' : '$') + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+  function toast(t) { var d = document.createElement('div'); d.className = 'toast'; d.textContent = t; document.body.appendChild(d); setTimeout(function () { d.remove(); }, 4200); }
+  function trailOf(id) { return live[id] || (runs[id] && runs[id].trail) || null; }
+  function routeOf(t) { var d = t.map(function (e) { return e.decision; }); return d.indexOf('ESCALATE') >= 0 ? 'ESCALATE' : d.indexOf('RETURN') >= 0 ? 'RETURN' : 'APPROVE'; }
+  function myEnv(id) { var t = trailOf(id); return t ? t.filter(function (e) { return e.from_role === role; })[0] : null; }
+  function actionsKey(id) { return 'cs_actions_' + id; }
+  function getActions(id) { try { return JSON.parse(sessionStorage.getItem(actionsKey(id)) || '[]'); } catch (e) { return []; } }
+  function addAction(id, a) { var l = getActions(id); l.push(a); try { sessionStorage.setItem(actionsKey(id), JSON.stringify(l)); } catch (e) {} }
+
+  function renderStats() {
+    var withRun = cases.filter(function (c) { return trailOf(c.id); });
+    var mine = withRun.filter(function (c) { var e = myEnv(c.id); return e && e.flags.length; }).length;
+    var escN = withRun.filter(function (c) { return routeOf(trailOf(c.id)) === 'ESCALATE'; }).length;
+    document.getElementById('stats').innerHTML =
+      '<div><b>' + cases.length + '</b><span>in queue</span></div><div><b>' + mine + '</b><span>flagged by my agent</span></div><div><b>' + escN + '</b><span>escalated</span></div>';
+  }
+
+  function renderList() {
+    var el = document.getElementById('list');
+    var rows = cases.filter(function (c) {
+      var t = trailOf(c.id), e = myEnv(c.id);
+      if (filter === 'flagged') return e && e.flags.length;
+      if (filter === 'esc') return t && routeOf(t) === 'ESCALATE';
+      if (filter === 'clear') return t && routeOf(t) === 'APPROVE';
+      return true;
+    });
+    el.innerHTML = rows.map(function (c) {
+      var t = trailOf(c.id), e = myEnv(c.id);
+      var chip = e ? '<span class="chip ' + e.decision + '"><i></i>' + esc(DEC[role][e.decision] || e.decision) + (e.flags.length ? ' · ' + e.flags.length : '') + '</span>' : '<span class="chip">Not run</span>';
+      return '<button class="item" data-id="' + c.id + '" aria-current="' + (c.id === current) + '"><span class="r1"><span class="id">' + c.id + (live[c.id] ? ' · <span style="color:var(--blue)">live</span>' : '') + '</span>' + chip +
+        '</span><span class="t">' + esc(c.title) + '</span><span class="r1"><span class="amt">' + money(c.cover_sheet.total_requested) + '</span>' +
+        (t ? '<span class="chip ' + routeOf(t) + '">' + routeOf(t).toLowerCase() + '</span>' : '') + '</span></button>';
+    }).join('') || '<p class="muted" style="padding:10px">Nothing here.</p>';
+    el.querySelectorAll('.item').forEach(function (b) { b.addEventListener('click', function () { select(b.dataset.id, true); }); });
+  }
+
+  function flagHtml(f) {
+    var isEsc = ESC_TYPES.indexOf(f.type) >= 0;
+    return '<div class="flag' + (isEsc ? ' esc' : '') + ' fade-in"><div class="fh"><span class="ft">' + esc(TYPE_LABEL[f.type] || f.type) + ' · § ' + esc(f.section) + '</span>' +
+      (f.amount_at_issue != null ? '<span class="mono" style="font-size:.8rem">' + money(f.amount_at_issue) + ' at issue</span>' : '') + '</div>' +
+      '<p>' + esc(f.explanation) + '</p><span class="q">“' + esc(f.quote) + '”</span>' +
+      '<span class="v ' + (f.quote_verified ? 'ok' : 'no') + '">' + (f.quote_verified ? '✓ quote found in contract' : '✗ quote not found in contract') + '</span></div>';
+  }
+
+  function chainHtml(c, t, runningRole) {
+    var nodes = ROLES.map(function (r) {
+      var e = t && t.filter(function (x) { return x.from_role === r; })[0];
+      var st = runningRole === r ? '<span class="chip"><span class="spin"></span> running</span>' : e ? '<span class="chip ' + e.decision + '"><i></i>' + esc(DEC[r][e.decision] || e.decision) + '</span>' : '<span class="chip">waiting</span>';
+      return '<div class="node' + (r === role ? ' me' : '') + (r === viewRole ? ' sel' : '') + (runningRole === r ? ' running' : '') + '" data-r="' + r + '" tabindex="0"><small>' + (ROLES.indexOf(r) + 1) + ' · agent</small><b>' + NAMES[r] + '</b>' + st + '</div>';
+    }).join('');
+    var route = t ? routeOf(t) : null;
+    nodes += '<div class="node"><small>5 · person</small><b>' + (route === 'ESCALATE' ? 'Decision needed' : route === 'RETURN' ? 'Back to CM' : 'Approver') + '</b>' +
+      (route ? '<span class="chip ' + route + '">' + route.toLowerCase() + '</span>' : '<span class="chip">waiting</span>') + '</div>';
+    return nodes;
+  }
+
+  function pkgHtml(c) {
+    var cs = c.cover_sheet, h = '';
+    h += '<table><tbody>' + [['CM direct costs', cs.cm_direct_costs], ['Subcontractor quotes', cs.subcontractor_quotes], ['Fee (' + (cs.fee_rate * 100) + '% on ' + cs.fee_applied_to.join(', ') + ')', cs.fee],
+      ['Bond and insurance', cs.bond_and_insurance], ['B&O tax', cs.bo_tax], ['Permit fees', cs.permit_fees], ['NSS items', cs.nss_items], ['SGC items', cs.sgc_items], ['Extended SGC (time)', cs.extended_sgc_time]]
+      .filter(function (r) { return r[1]; }).map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td class="num mono">' + money(r[1]) + '</td></tr>'; }).join('') +
+      '<tr><td><b>Total requested</b></td><td class="num mono"><b>' + money(cs.total_requested) + '</b></td></tr></tbody></table>';
+    c.subcontractor_quotes.forEach(function (s) {
+      h += '<div class="sub-h">' + esc(s.firm) + ' · ' + esc(s.trade) + ' · ' + money(s.quote_total) + '</div>';
+      if (s.format === 'email text') { h += '<div class="quote-text">' + esc(s.text) + '</div>'; return; }
+      if (!s.lines.length) { h += '<p class="muted">' + esc(s.note || 'No breakdown.') + '</p>'; return; }
+      h += '<div class="tablewrap"><table><thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead><tbody>' +
+        s.lines.map(function (l) { return '<tr><td>' + esc(l.desc) + '</td><td class="num">' + l.qty + ' ' + esc(l.unit) + '</td><td class="num mono">' + money(l.rate) + '</td><td class="num mono">' + money(l.amount) + '</td></tr>'; }).join('') +
+        s.lower_tier.map(function (l) { return '<tr><td>Lower tier: ' + esc(l.firm) + ' (' + esc(l.scope) + ')</td><td></td><td></td><td class="num mono">' + money(l.amount) + '</td></tr>'; }).join('') +
+        '<tr><td>Markup: ' + (s.markup_rates_stated.own_work * 100) + '% own' + (s.lower_tier_total ? ', ' + (s.markup_rates_stated.lower_tier * 100) + '% lower tier' : '') + '</td><td></td><td></td><td class="num mono">' + money(s.markup_on_own + s.markup_on_lower_tier) + '</td></tr></tbody></table></div>';
+      if (s.tm_tags) h += '<p class="muted" style="font-size:.84rem">T&M tags: ' + s.tm_tags.map(function (t) { return esc(t.tag) + (t.signed_by_owner_rep ? ' ✓' : ' (no Owner’s Rep signature)'); }).join(', ') + '</p>';
+    });
+    if (c.cm_lines.length) {
+      h += '<div class="sub-h">CM’s own lines</div><div class="tablewrap"><table><tbody>' + c.cm_lines.map(function (l) {
+        var d = l.desc + (l.person ? ' (' + l.person + ')' : '') + (l.kind === 'labor' ? ' · ' + l.hours + ' h at $' + l.wage + ' + ' + Math.round(l.burden_rate * 100) + '% burden' : '') +
+          (l.blue_book_rate ? ' · ' + l.hours_used + ' h at ' + Math.round(l.rate_charged / l.blue_book_rate * 100) + '% of Blue Book' : '');
+        return '<tr><td>' + esc(d) + ' <span class="faint mono" style="font-size:.72rem">' + esc(l.kind) + '</span></td><td class="num mono">' + money(l.amount) + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+    }
+    h += '<div class="sub-h">Scope context</div><p class="muted" style="margin:0">' + esc(c.scope_context) + '</p>';
+    h += '<div class="sub-h">Backup attached</div><p class="muted" style="margin:0">' + esc(c.backup_attached.join(', ')) + '</p>';
+    return h;
+  }
+
+  function auditHtml(c, t) {
+    var evs = (t || []).map(function (e) {
+      return '<div class="ev"><span class="dot ' + e.decision + '"></span><div><div class="l1"><b style="font-weight:500">' + esc(NAMES[e.from_role]) + ' agent</b><span class="chip ' + e.decision + '">' + e.decision + '</span>' +
+        (e.flags.length ? '<span class="faint">' + e.flags.map(function (f) { return f.type; }).join(', ') + '</span>' : '') + '</div>' +
+        '<div class="l2">' + esc(e.envelope_id || '') + ' → ' + esc(e.to || '') + ' · ' + esc(e.model || '') + (e.created ? ' · ' + esc(e.created) : '') + '</div></div></div>';
+    });
+    getActions(c.id).forEach(function (a) {
+      evs.push('<div class="ev"><span class="dot human"></span><div><div class="l1"><b style="font-weight:500">' + esc(a.who) + ' (' + esc(NAMES[a.role]) + ')</b><span class="chip live">person</span>' + esc(a.action) + '</div><div class="l2">' + esc(a.time) + ' · recorded in this browser only</div></div></div>');
+    });
+    return evs.length ? '<div class="audit">' + evs.join('') + '</div>' : '<p class="muted">No activity yet.</p>';
+  }
+
+  function render(runningRole) {
+    var c = cases.filter(function (x) { return x.id === current; })[0];
+    var el = document.getElementById('detail');
+    if (!c) { el.innerHTML = '<div class="glass empty">Pick a change proposal.</div>'; return; }
+    var t = trailOf(c.id);
+    var e = t && t.filter(function (x) { return x.from_role === viewRole; })[0];
+    var h = '';
+    h += '<section class="panel glass fade-in"><div class="cphead"><div><span class="kicker">' + c.id + ' · ' + esc(c.cause.type) + ' · ' + esc(c.cause.reference) + '</span><h1>' + esc(c.title) + '</h1>' +
+      '<div class="meta"><span><b>' + c.cause.event_date + '</b>event</span><span><b>' + c.notice_date + '</b>notice given</span><span><b>' + c.cp_submitted + '</b>CP submitted</span>' + (c.time_impact_days ? '<span><b>' + c.time_impact_days + ' days</b>time claimed</span>' : '') + '</div></div>' +
+      '<div class="total"><span class="faint mono" style="font-size:.72rem">Total requested</span><b>' + money(c.cover_sheet.total_requested) + '</b></div></div><p class="narr">' + esc(c.narrative) + '</p></section>';
+    h += '<section class="panel glass fade-in"><div class="livebar" style="justify-content:space-between;margin-bottom:14px"><span class="kicker">Handoff chain · click an agent to read its review</span>' +
+      '<span class="livebar">' + (live[c.id] ? '<span class="chip live">live run</span>' : t ? '<span class="chip">saved run</span>' : '') +
+      '<button class="btn sm" id="liveBtn"' + (running ? ' disabled' : '') + '>' + (running ? 'Running…' : 'Run agents live') + '</button></span></div><div class="chain" id="chain">' + chainHtml(c, t, runningRole) + '</div></section>';
+    h += '<section class="panel glass review fade-in">';
+    if (!e) {
+      h += '<p class="muted">' + (t ? 'This agent has no review for this CP.' : 'The agents haven’t run on this CP yet. Use “Run agents live” with the passcode.') + '</p>';
+    } else {
+      h += '<div class="rh"><div><span class="kicker">' + (viewRole === role ? 'Your agent' : NAMES[viewRole] + '’s agent') + '</span><h2 style="margin-top:6px">' + NAMES[viewRole] + ' review</h2></div><span class="chip ' + e.decision + '"><i></i>' + esc(DEC[viewRole][e.decision] || e.decision) + '</span></div>' +
+        '<div class="auth">Authority: ' + esc(AUTH[viewRole]) + '</div>';
+      h += e.flags.length ? '<div class="flags">' + e.flags.map(flagHtml).join('') + '</div>' : '<div class="noflags">No contract problems found from this seat.</div>';
+      h += '<div class="msg"><span class="to">Message → ' + esc(e.to || '') + '</span>' + esc(e.message) + (e.escalation_reason ? '<br><span class="faint">Escalation: ' + esc(e.escalation_reason) + '</span>' : '') + '</div>';
+    }
+    if (viewRole === role) {
+      h += '<div class="actions"><span class="lbl">Your decision</span>' + ACTIONS[role].map(function (a) { return '<button class="btn sm ' + a[0] + '" data-act="' + esc(a[1]) + '">' + esc(a[1]) + '</button>'; }).join('') + '</div>';
+    } else {
+      h += '<div class="actions"><span class="lbl">Read only · you’re signed in as ' + NAMES[role] + '</span><button class="btn sm" id="backMine">Back to my agent</button></div>';
+    }
+    h += '</section>';
+    h += '<details class="box glass"><summary>Change proposal package <span>▾</span></summary><div class="inner">' + pkgHtml(c) + '</div></details>';
+    h += '<details class="box glass" open><summary>Audit trail <span>▾</span></summary><div class="inner">' + auditHtml(c, t) + '</div></details>';
+    el.innerHTML = h;
+    el.querySelectorAll('.node[data-r]').forEach(function (n) {
+      n.addEventListener('click', function () { viewRole = n.dataset.r; render(runningRole); });
+      n.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { viewRole = n.dataset.r; render(runningRole); } });
+    });
+    var back = document.getElementById('backMine'); if (back) back.addEventListener('click', function () { viewRole = role; render(runningRole); });
+    el.querySelectorAll('[data-act]').forEach(function (b) {
+      b.addEventListener('click', function () { addAction(c.id, { who: who, role: role, action: b.dataset.act, time: new Date().toLocaleString() }); toast('Recorded: ' + b.dataset.act); render(); });
+    });
+    document.getElementById('liveBtn').addEventListener('click', function () { runLive(c); });
+  }
+
+  function select(id, fromUser) {
+    current = id; viewRole = role;
+    try { history.replaceState(null, '', '?role=' + role + '&cp=' + id); } catch (e) {}
+    renderList(); render();
+    if (fromUser && window.innerWidth < 980) document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function runLive(c) {
+    var pass = session.pass;
+    var isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+    if (!pass && isLocal) pass = 'local';
+    if (!pass) { pass = prompt('Live-run passcode'); if (!pass) return; session.pass = pass; try { sessionStorage.setItem('cs_session', JSON.stringify(session)); } catch (e) {} }
+    running = true; var trail = []; var i = 0;
+    function next() {
+      if (i >= ROLES.length) { running = false; live[c.id] = trail; render(); renderList(); renderStats(); toast('Live run finished.'); return; }
+      var r = ROLES[i];
+      live[c.id] = trail.slice(); render(r);
+      fetch('/api/demo3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ passcode: pass, cp_id: c.id, role: r }) })
+        .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, j: j, status: res.status }; }); })
+        .then(function (x) {
+          if (!x.ok) throw new Error(x.j.error || ('HTTP ' + x.status));
+          var env = x.j.envelope; env.envelope_id = env.envelope_id || (c.id + '-' + (i + 1) + '-' + r); env.from_role = r; env.live = true;
+          trail.push(env); i++; next();
+        })
+        .catch(function (err) {
+          running = false;
+          if (/passcode/i.test(err.message)) { session.pass = ''; try { sessionStorage.setItem('cs_session', JSON.stringify(session)); } catch (e) {} }
+          delete live[c.id]; render(); toast('Live run stopped: ' + err.message + (runs[c.id] ? ' Showing the saved run.' : ''));
+        });
+    }
+    next();
+  }
+
+  document.getElementById('tabs').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b) return;
+    filter = b.dataset.f;
+    this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    renderList();
+  });
+
+  var runsUrl = q.get('runs') || '/demo3/results/runs.json';
+  Promise.all([
+    fetch('/demo3/data/cases.json').then(function (r) { return r.json(); }),
+    fetch(runsUrl).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+      .then(function (j) { return j || fetch('/demo3/results/local/llama3.1-8b/runs.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); })
+      .then(function (j) { return j || fetch('/demo3/results/local/qwen2.5-7b/runs.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); })
+  ]).then(function (res) {
+    cases = res[0].cases;
+    if (res[1]) res[1].results.forEach(function (r) { runs[r.id] = r; });
+    renderStats(); renderList();
+    var start = q.get('cp');
+    if (!start) { var firstFlag = cases.filter(function (c) { var e = myEnv(c.id); return e && e.flags.length; })[0]; start = (firstFlag || cases[0]).id; }
+    select(start);
+    if (!res[1]) toast('No saved agent run yet. Use “Run agents live” with the passcode.');
+  }).catch(function () { document.getElementById('detail').innerHTML = '<div class="glass empty">Could not load the change proposals.</div>'; });
+})();
+</script>
+</body>
+</html>

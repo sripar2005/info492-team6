@@ -1,0 +1,2545 @@
+{
+  "meta": {
+    "contract": "../demo1/data/synthetic_contract.md",
+    "generated_by": "data/build_cases.py",
+    "calendar": "Washington State legal holidays, 2020 (Demo 2 deadlines.py)"
+  },
+  "cases": [
+    {
+      "id": "CP-0201",
+      "title": "Gym roof drains added per RFI-112",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-112",
+        "event_date": "2020-02-10"
+      },
+      "notice_date": "2020-02-14",
+      "cp_submitted": "2020-02-28",
+      "narrative": "RFI-112 response adds two overflow roof drains at the gym roof. Plumbing sub to furnish and install.",
+      "scope_context": "Drawing P-201 shows four primary roof drains at the gym; no overflow drains are shown.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Plumbing",
+          "trade": "Plumbing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 5970.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 597.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 6567.0,
+          "lines": [
+            {
+              "desc": "Overflow roof drain body and dome",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 640.0,
+              "amount": 1280.0
+            },
+            {
+              "desc": "4\" cast iron leader and fittings",
+              "qty": 86,
+              "unit": "lf",
+              "rate": 31.0,
+              "amount": 2666.0
+            },
+            {
+              "desc": "Plumber",
+              "qty": 22,
+              "unit": "hr",
+              "rate": 92.0,
+              "amount": 2024.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 6567.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 328.35,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 6895.35
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0202",
+      "title": "Fire-rated door hardware per ASI-014",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-014",
+        "event_date": "2020-03-02"
+      },
+      "notice_date": "2020-03-06",
+      "cp_submitted": "2020-03-20",
+      "narrative": "ASI-014 changes eight corridor doors to 90-minute assemblies with fire-rated hardware. ASI says no change in cost or time; CM gave notice that it adds cost.",
+      "scope_context": "Spec 08 71 00 lists standard (non-rated) hardware sets for corridor doors C101 to C108.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Northwest Door & Hardware",
+          "trade": "Doors and hardware",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 4568.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 456.8,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 5024.8,
+          "lines": [
+            {
+              "desc": "Fire-rated hardware set",
+              "qty": 8,
+              "unit": "ea",
+              "rate": 415.0,
+              "amount": 3320.0
+            },
+            {
+              "desc": "Door installer",
+              "qty": 16,
+              "unit": "hr",
+              "rate": 78.0,
+              "amount": 1248.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 5024.8,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 251.24,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 5276.04
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0203",
+      "title": "Library data drops per Owner email",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-04-06",
+        "event_date": "2020-04-06"
+      },
+      "notice_date": "2020-04-09",
+      "cp_submitted": "2020-04-24",
+      "narrative": "Owner's Representative directed 24 added data drops in the library. Electrical sub with low-voltage lower-tier.",
+      "scope_context": "Drawing T-101 shows 12 data drops in the library.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 3792.0,
+          "lower_tier_total": 7200.0,
+          "markup_on_own": 379.2,
+          "markup_on_lower_tier": 360.0,
+          "quote_total": 11731.2,
+          "lines": [
+            {
+              "desc": "Electrician",
+              "qty": 30,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 2880.0
+            },
+            {
+              "desc": "Box, ring, conduit per drop",
+              "qty": 24,
+              "unit": "ea",
+              "rate": 38.0,
+              "amount": 912.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Lakeside Low Voltage",
+              "scope": "Cat 6 cabling, termination, testing",
+              "amount": 7200.0
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 11731.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 586.56,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 12317.76
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0204",
+      "title": "Delete covered walkway canopy (deductive)",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner letter 2020-05-04",
+        "event_date": "2020-05-04"
+      },
+      "notice_date": "2020-05-07",
+      "cp_submitted": "2020-05-20",
+      "narrative": "Owner deleted the covered walkway canopy at the bus loop. Credit from steel sub; Fee reduced at 5%.",
+      "scope_context": "Drawing S-401 shows a 60-foot steel canopy at the bus loop.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Puget Steel Erectors",
+          "trade": "Structural steel",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": -49060.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": -4906.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": -53966.0,
+          "lines": [
+            {
+              "desc": "Canopy steel, fabricated (credit)",
+              "qty": 1,
+              "unit": "ls",
+              "rate": -38500.0,
+              "amount": -38500.0
+            },
+            {
+              "desc": "Erection crew (credit)",
+              "qty": 120,
+              "unit": "hr",
+              "rate": -88.0,
+              "amount": -10560.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": -53966.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": -2698.3,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": -56664.3
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0205",
+      "title": "Heavier stud gauge per submittal return",
+      "cause": {
+        "type": "Submittal return",
+        "reference": "Submittal 09 22 16-02 (Approved as Noted)",
+        "event_date": "2020-05-11"
+      },
+      "notice_date": "2020-05-15",
+      "cp_submitted": "2020-05-29",
+      "narrative": "Architect's comment on the framing submittal requires 18-gauge studs at the gym in place of 20-gauge. Framing sub prices the difference; CM rented a scissor lift.",
+      "scope_context": "Spec 09 22 16 allows 20-gauge studs for interior partitions up to 14 feet.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Framing",
+          "trade": "Framing and drywall",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 9110.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 911.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 10021.0,
+          "lines": [
+            {
+              "desc": "18 ga stud upcharge",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 6150.0,
+              "amount": 6150.0
+            },
+            {
+              "desc": "Framer",
+              "qty": 40,
+              "unit": "hr",
+              "rate": 74.0,
+              "amount": 2960.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "equipment",
+          "desc": "Scissor lift rental, 1 week",
+          "owned_by_cm": false,
+          "rental_invoice": 1180.0,
+          "amount": 1180.0,
+          "daily_logs_attached": true
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 1180.0,
+        "subcontractor_quotes": 10021.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 560.05,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 11761.05
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0206",
+      "title": "Hallway ceiling access panels, T&M",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-131",
+        "event_date": "2020-06-01"
+      },
+      "notice_date": "2020-06-04",
+      "cp_submitted": "2020-06-17",
+      "narrative": "RFI-131 response adds 14 access panels. Done on T&M; the CM superintendent and Owner's Representative signed every tag. The tower crane was not used.",
+      "scope_context": "Reflected ceiling plan A-501 shows no access panels in corridors.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Framing",
+          "trade": "Framing and drywall",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 3822.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 382.2,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 4204.2,
+          "lines": [
+            {
+              "desc": "Access panel 24x24",
+              "qty": 14,
+              "unit": "ea",
+              "rate": 165.0,
+              "amount": 2310.0
+            },
+            {
+              "desc": "Drywall finisher",
+              "qty": 21,
+              "unit": "hr",
+              "rate": 72.0,
+              "amount": 1512.0
+            }
+          ],
+          "lower_tier": [],
+          "tm_tags": [
+            {
+              "tag": "TM-441",
+              "date": "2020-06-05",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": true
+            },
+            {
+              "tag": "TM-442",
+              "date": "2020-06-08",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": true
+            },
+            {
+              "tag": "TM-443",
+              "date": "2020-06-09",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": true
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 4204.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 210.21,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 4414.41
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "signed T&M tags"
+      ]
+    },
+    {
+      "id": "CP-0207",
+      "title": "Self-performed generator pad",
+      "cause": {
+        "type": "Architect direction",
+        "reference": "Architect field order FO-07",
+        "event_date": "2020-06-15"
+      },
+      "notice_date": "2020-06-18",
+      "cp_submitted": "2020-07-01",
+      "narrative": "Architect's field order adds a concrete pad for the emergency generator. CM self-performs with its own crew and skid steer (daily logs attached).",
+      "scope_context": "Drawing E-001 shows the generator on grade with no pad.",
+      "subcontractor_quotes": [],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Concrete laborer",
+          "hours": 32,
+          "wage": 41.0,
+          "burden_rate": 0.32,
+          "amount": 1731.84
+        },
+        {
+          "kind": "labor",
+          "desc": "Concrete finisher",
+          "hours": 16,
+          "wage": 52.0,
+          "burden_rate": 0.32,
+          "amount": 1098.24
+        },
+        {
+          "kind": "equipment",
+          "desc": "Skid steer (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 10,
+          "idle_hours": 0,
+          "blue_book_rate": 96.0,
+          "rate_charged": 72.0,
+          "amount": 720.0,
+          "daily_logs_attached": true
+        },
+        {
+          "kind": "material",
+          "desc": "Ready-mix concrete 6 cy and rebar",
+          "amount": 1840.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 5390.08,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 269.5,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 5659.58
+      },
+      "backup_attached": [
+        "cause document",
+        "labor timesheets",
+        "equipment daily logs",
+        "material invoices"
+      ]
+    },
+    {
+      "id": "CP-0208",
+      "title": "Added fire sprinkler heads at stage",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-022",
+        "event_date": "2020-07-06"
+      },
+      "notice_date": "2020-07-10",
+      "cp_submitted": "2020-07-22",
+      "narrative": "ASI-022 adds sprinkler heads at the stage rigging. Includes the fire marshal permit revision fee, bond and insurance, and B&O tax, all without Fee.",
+      "scope_context": "Drawing FP-102 shows no heads above the stage rigging.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sentinel Fire Protection",
+          "trade": "Fire sprinklers",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 6132.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 613.2,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 6745.2,
+          "lines": [
+            {
+              "desc": "Sprinkler head and drop",
+              "qty": 18,
+              "unit": "ea",
+              "rate": 210.0,
+              "amount": 3780.0
+            },
+            {
+              "desc": "Sprinkler fitter",
+              "qty": 24,
+              "unit": "hr",
+              "rate": 98.0,
+              "amount": 2352.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "permit",
+          "desc": "Fire marshal permit revision fee",
+          "amount": 640.0
+        },
+        {
+          "kind": "bond_insurance",
+          "desc": "Bond and insurance premium at actual cost",
+          "amount": 112.0
+        },
+        {
+          "kind": "bo_tax",
+          "desc": "Washington B&O tax at actual cost",
+          "amount": 41.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 6745.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 337.26,
+        "bond_and_insurance": 112.0,
+        "bo_tax": 41.0,
+        "permit_fees": 640.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 7875.46
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0209",
+      "title": "Added floor drains, kitchen",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-140",
+        "event_date": "2020-07-13"
+      },
+      "notice_date": "2020-07-16",
+      "cp_submitted": "2020-07-30",
+      "narrative": "RFI-140 adds three floor drains in the kitchen. Plumbing sub price includes 15% overhead and profit.",
+      "scope_context": "Drawing P-301 shows two floor drains in the kitchen.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Plumbing",
+          "trade": "Plumbing",
+          "markup_rates_stated": {
+            "own_work": 0.15,
+            "lower_tier": 0.05
+          },
+          "own_direct": 6182.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 927.3,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 7109.3,
+          "lines": [
+            {
+              "desc": "Floor drain with trap primer",
+              "qty": 3,
+              "unit": "ea",
+              "rate": 780.0,
+              "amount": 2340.0
+            },
+            {
+              "desc": "Plumber",
+              "qty": 26,
+              "unit": "hr",
+              "rate": 92.0,
+              "amount": 2392.0
+            },
+            {
+              "desc": "Saw-cut and patch slab",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1450.0,
+              "amount": 1450.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 7109.3,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 355.47,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 7464.77
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0210",
+      "title": "Classroom smartboard backing and power",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-07-20",
+        "event_date": "2020-07-20"
+      },
+      "notice_date": "2020-07-23",
+      "cp_submitted": "2020-08-05",
+      "narrative": "Owner directed blocking and power for 16 smartboards. Electrical sub marked up its lower-tier blocking contractor at 10%.",
+      "scope_context": "Drawings show whiteboards only; no smartboards.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.1
+          },
+          "own_direct": 5600.0,
+          "lower_tier_total": 5600.0,
+          "markup_on_own": 560.0,
+          "markup_on_lower_tier": 560.0,
+          "quote_total": 12320.0,
+          "lines": [
+            {
+              "desc": "Electrician",
+              "qty": 48,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 4608.0
+            },
+            {
+              "desc": "Receptacle and box",
+              "qty": 16,
+              "unit": "ea",
+              "rate": 62.0,
+              "amount": 992.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Ridgeline Carpentry",
+              "scope": "In-wall blocking at 16 locations",
+              "amount": 5600.0
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 12320.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 616.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 12936.0
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0211",
+      "title": "Added exterior lighting at parking",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-08-03",
+        "event_date": "2020-08-03"
+      },
+      "notice_date": "2020-08-06",
+      "cp_submitted": "2020-08-19",
+      "narrative": "Owner added four pole lights at the staff lot. Cover sheet applies the 5% Fee to everything, including bond, insurance, and B&O tax.",
+      "scope_context": "Drawing E-100 shows no lighting at the staff lot.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 18440.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1844.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 20284.0,
+          "lines": [
+            {
+              "desc": "Pole light, base, and wiring",
+              "qty": 4,
+              "unit": "ea",
+              "rate": 3650.0,
+              "amount": 14600.0
+            },
+            {
+              "desc": "Electrician",
+              "qty": 40,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 3840.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "bond_insurance",
+          "desc": "Bond and insurance premium",
+          "amount": 260.0
+        },
+        {
+          "kind": "bo_tax",
+          "desc": "Washington B&O tax",
+          "amount": 96.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 20284.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes",
+          "bond and insurance",
+          "B&O tax"
+        ],
+        "fee": 1032.0,
+        "bond_and_insurance": 260.0,
+        "bo_tax": 96.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 21672.0
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0212",
+      "title": "Extra haul-off for abatement debris",
+      "cause": {
+        "type": "Concealed condition",
+        "reference": "Field report FR-33 (asbestos mastic found)",
+        "event_date": "2020-08-10"
+      },
+      "notice_date": "2020-08-10",
+      "cp_submitted": "2020-08-24",
+      "narrative": "Asbestos mastic found under classroom flooring. Abatement sub price is fine; CM added dumpsters and haul-off and put the 5% Fee on them.",
+      "scope_context": "Hazardous materials survey did not identify mastic in classrooms 110 to 116.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Clearwater Abatement",
+          "trade": "Abatement",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 17400.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1740.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 19140.0,
+          "lines": [
+            {
+              "desc": "Mastic abatement",
+              "qty": 2400,
+              "unit": "sf",
+              "rate": 6.5,
+              "amount": 15600.0
+            },
+            {
+              "desc": "Air monitoring",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1800.0,
+              "amount": 1800.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "nss",
+          "desc": "Additional dumpsters and haul-off (NSS)",
+          "amount": 4200.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 19140.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes",
+          "NSS items"
+        ],
+        "fee": 1167.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 4200.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 24507.0
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0213",
+      "title": "Add gym wall padding",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-08-17",
+        "event_date": "2020-08-17"
+      },
+      "notice_date": "2020-08-20",
+      "cp_submitted": "2020-09-02",
+      "narrative": "Owner added wall padding on two gym walls. Cover sheet Fee is 7.5%.",
+      "scope_context": "Spec 11 66 23 includes padding on the north wall only.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Summit Athletic Interiors",
+          "trade": "Athletic equipment",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 9030.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 903.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 9933.0,
+          "lines": [
+            {
+              "desc": "Wall pad panels",
+              "qty": 420,
+              "unit": "sf",
+              "rate": 18.5,
+              "amount": 7770.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 18,
+              "unit": "hr",
+              "rate": 70.0,
+              "amount": 1260.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 9933.0,
+        "fee_rate": 0.075,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 744.98,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 10677.98
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0214",
+      "title": "Revised casework per ASI-031",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-031",
+        "event_date": "2020-09-08"
+      },
+      "notice_date": "2020-09-11",
+      "cp_submitted": "2020-09-25",
+      "narrative": "ASI-031 revises science room casework. CP includes Project Manager time to price the change and estimating time.",
+      "scope_context": "Drawing A-601 shows standard-height casework in rooms 201 and 203.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Timberline Casework",
+          "trade": "Casework",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 7260.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 726.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 7986.0,
+          "lines": [
+            {
+              "desc": "Revised base cabinets",
+              "qty": 14,
+              "unit": "lf",
+              "rate": 410.0,
+              "amount": 5740.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 20,
+              "unit": "hr",
+              "rate": 76.0,
+              "amount": 1520.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Project Manager, pricing this CP",
+          "hours": 16,
+          "wage": 68.0,
+          "burden_rate": 0.32,
+          "amount": 1436.16
+        },
+        {
+          "kind": "labor",
+          "desc": "Estimator, quantity takeoff",
+          "hours": 12,
+          "wage": 60.0,
+          "burden_rate": 0.32,
+          "amount": 950.4
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 2386.56,
+        "subcontractor_quotes": 7986.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 518.63,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 10891.19
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0215",
+      "title": "Stair nosing replacement per RFI-152",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-152",
+        "event_date": "2020-09-14"
+      },
+      "notice_date": "2020-09-17",
+      "cp_submitted": "2020-10-01",
+      "narrative": "RFI-152 changes stair nosings at both stairs. Field supervision was provided by D. Alvarez, the CM's superintendent on this project.",
+      "scope_context": "Spec 09 65 13 calls for rubber nosings; RFI-152 changes them to aluminum abrasive nosings.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Flooring",
+          "trade": "Flooring",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 5860.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 586.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 6446.0,
+          "lines": [
+            {
+              "desc": "Aluminum abrasive nosing",
+              "qty": 180,
+              "unit": "lf",
+              "rate": 24.0,
+              "amount": 4320.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 22,
+              "unit": "hr",
+              "rate": 70.0,
+              "amount": 1540.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Field supervision",
+          "hours": 24,
+          "wage": 64.0,
+          "burden_rate": 0.32,
+          "amount": 2027.52,
+          "person": "D. Alvarez"
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 2027.52,
+        "subcontractor_quotes": 6446.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 423.68,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 8897.2
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0216",
+      "title": "Bleacher anchor revisions",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-158",
+        "event_date": "2020-09-21"
+      },
+      "notice_date": "2020-09-24",
+      "cp_submitted": "2020-10-07",
+      "narrative": "RFI-158 revises bleacher anchors. CM charged one of its project pickup trucks for material runs.",
+      "scope_context": "Drawing S-310 shows wedge anchors; RFI-158 requires epoxy anchors.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Summit Athletic Interiors",
+          "trade": "Athletic equipment",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 3092.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 309.2,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 3401.2,
+          "lines": [
+            {
+              "desc": "Epoxy anchor upcharge",
+              "qty": 96,
+              "unit": "ea",
+              "rate": 22.0,
+              "amount": 2112.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 14,
+              "unit": "hr",
+              "rate": 70.0,
+              "amount": 980.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "equipment",
+          "desc": "Project pickup truck (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 12,
+          "idle_hours": 0,
+          "blue_book_rate": 28.0,
+          "rate_charged": 21.0,
+          "amount": 252.0,
+          "daily_logs_attached": true
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 252.0,
+        "subcontractor_quotes": 3401.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 182.66,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 3835.86
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0217",
+      "title": "Storm line reroute at playfield",
+      "cause": {
+        "type": "Concealed condition",
+        "reference": "Field report FR-41 (abandoned vault)",
+        "event_date": "2020-10-05"
+      },
+      "notice_date": "2020-10-05",
+      "cp_submitted": "2020-10-19",
+      "narrative": "An abandoned concrete vault blocked the storm line. CM excavated around it with its own excavator, charged at the full Blue Book rate.",
+      "scope_context": "Civil drawings C-201 show no structures along the storm line route.",
+      "subcontractor_quotes": [],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Operator",
+          "hours": 18,
+          "wage": 58.0,
+          "burden_rate": 0.32,
+          "amount": 1378.08
+        },
+        {
+          "kind": "labor",
+          "desc": "Laborer",
+          "hours": 18,
+          "wage": 41.0,
+          "burden_rate": 0.32,
+          "amount": 974.16
+        },
+        {
+          "kind": "equipment",
+          "desc": "Excavator (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 18,
+          "idle_hours": 0,
+          "blue_book_rate": 145.0,
+          "rate_charged": 145.0,
+          "amount": 2610.0,
+          "daily_logs_attached": true
+        },
+        {
+          "kind": "material",
+          "desc": "Pipe, bedding, and fittings",
+          "amount": 2650.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 7612.24,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 380.61,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 7992.85
+      },
+      "backup_attached": [
+        "cause document",
+        "labor timesheets",
+        "equipment daily logs",
+        "material invoices"
+      ]
+    },
+    {
+      "id": "CP-0218",
+      "title": "Rooftop unit curb adapters per RFI-166",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-166",
+        "event_date": "2020-10-12"
+      },
+      "notice_date": "2020-10-15",
+      "cp_submitted": "2020-10-28",
+      "narrative": "RFI-166 adds curb adapters for two rooftop units. CP includes 6 hours of mobile hoisting to lift the adapters.",
+      "scope_context": "Drawing M-501 shows units set on existing curbs.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Rainier Mechanical",
+          "trade": "HVAC",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 6204.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 620.4,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 6824.4,
+          "lines": [
+            {
+              "desc": "Curb adapter",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 2350.0,
+              "amount": 4700.0
+            },
+            {
+              "desc": "Sheet metal worker",
+              "qty": 16,
+              "unit": "hr",
+              "rate": 94.0,
+              "amount": 1504.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "equipment",
+          "desc": "Mobile hoisting, 6 hours",
+          "owned_by_cm": false,
+          "rental_invoice": 2280.0,
+          "amount": 2280.0,
+          "daily_logs_attached": true
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 2280.0,
+        "subcontractor_quotes": 6824.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 455.22,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 9559.62
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0219",
+      "title": "Added classroom sinks per ASI-036",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-036",
+        "event_date": "2020-10-19"
+      },
+      "notice_date": "2020-10-22",
+      "cp_submitted": "2020-11-04",
+      "narrative": "ASI-036 adds sinks in two classrooms. CM self-performed blocking with a 45% labor burden.",
+      "scope_context": "Drawing P-210 shows no sinks in classrooms 105 and 107.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Plumbing",
+          "trade": "Plumbing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 4080.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 408.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 4488.0,
+          "lines": [
+            {
+              "desc": "Sink, faucet, and trap",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 1120.0,
+              "amount": 2240.0
+            },
+            {
+              "desc": "Plumber",
+              "qty": 20,
+              "unit": "hr",
+              "rate": 92.0,
+              "amount": 1840.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Carpenter, in-wall blocking",
+          "hours": 12,
+          "wage": 50.0,
+          "burden_rate": 0.45,
+          "amount": 870.0
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 870.0,
+        "subcontractor_quotes": 4488.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 267.9,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 5625.9
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0220",
+      "title": "Window film at south classrooms",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-11-02",
+        "event_date": "2020-11-02"
+      },
+      "notice_date": "2020-11-05",
+      "cp_submitted": "2020-11-18",
+      "narrative": "Owner added solar film at south classrooms. Cover sheet total is higher than the sum of its lines.",
+      "scope_context": "Spec 08 80 00 has clear glazing with no film.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Clearview Glazing",
+          "trade": "Glazing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 11515.5,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1151.55,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 12667.05,
+          "lines": [
+            {
+              "desc": "Solar control film",
+              "qty": 1350,
+              "unit": "sf",
+              "rate": 7.25,
+              "amount": 9787.5
+            },
+            {
+              "desc": "Installer",
+              "qty": 24,
+              "unit": "hr",
+              "rate": 72.0,
+              "amount": 1728.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 12667.05,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 633.35,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 15100.4
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0221",
+      "title": "Corridor outlet additions, T&M",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-11-09",
+        "event_date": "2020-11-09"
+      },
+      "notice_date": "2020-11-12",
+      "cp_submitted": "2020-11-25",
+      "narrative": "Owner asked for added corridor outlets, done on T&M. Two of three tags lack the Owner's Representative's signature.",
+      "scope_context": "Drawing E-201 shows outlets at 40-foot spacing in corridors.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 3384.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 338.4,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 3722.4,
+          "lines": [
+            {
+              "desc": "Electrician",
+              "qty": 28,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 2688.0
+            },
+            {
+              "desc": "Duplex receptacle and box",
+              "qty": 12,
+              "unit": "ea",
+              "rate": 58.0,
+              "amount": 696.0
+            }
+          ],
+          "lower_tier": [],
+          "tm_tags": [
+            {
+              "tag": "TM-512",
+              "date": "2020-11-10",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": true
+            },
+            {
+              "tag": "TM-513",
+              "date": "2020-11-11",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": false
+            },
+            {
+              "tag": "TM-514",
+              "date": "2020-11-13",
+              "signed_by_cm_superintendent": true,
+              "signed_by_owner_rep": false
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 3722.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 186.12,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 3908.52
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "T&M tags"
+      ]
+    },
+    {
+      "id": "CP-0222",
+      "title": "Revised fire alarm devices per RFI-171",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-171",
+        "event_date": "2020-03-02"
+      },
+      "notice_date": "2020-03-16",
+      "cp_submitted": "2020-03-27",
+      "narrative": "RFI-171 response adds fire alarm strobes. CM gave notice on March 16; costs in the CP run from March 4.",
+      "scope_context": "Drawing FA-101 shows horn-only devices in classrooms.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sentinel Fire Alarm",
+          "trade": "Fire alarm",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 6710.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 671.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 7381.0,
+          "lines": [
+            {
+              "desc": "Horn/strobe device upgrade",
+              "qty": 26,
+              "unit": "ea",
+              "rate": 145.0,
+              "amount": 3770.0
+            },
+            {
+              "desc": "Technician",
+              "qty": 30,
+              "unit": "hr",
+              "rate": 98.0,
+              "amount": 2940.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 7381.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 369.05,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 7750.05
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ],
+      "costs_incurred_from": "2020-03-04"
+    },
+    {
+      "id": "CP-0223",
+      "title": "Door closers at corridor doors per RFI-175",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-175",
+        "event_date": "2020-03-23"
+      },
+      "notice_date": "2020-03-26",
+      "cp_submitted": "2020-04-08",
+      "narrative": "CM priced door closers for corridor doors C201 to C212 after RFI-175 confirmed closers are required.",
+      "scope_context": "Spec 08 71 00, hardware set HW-4 (used at C201 to C212), already includes a surface closer on each door. RFI-175 response: 'Closers are required per HW-4.'",
+      "subcontractor_quotes": [
+        {
+          "firm": "Northwest Door & Hardware",
+          "trade": "Doors and hardware",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 4356.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 435.6,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 4791.6,
+          "lines": [
+            {
+              "desc": "Surface closer",
+              "qty": 12,
+              "unit": "ea",
+              "rate": 285.0,
+              "amount": 3420.0
+            },
+            {
+              "desc": "Door installer",
+              "qty": 12,
+              "unit": "hr",
+              "rate": 78.0,
+              "amount": 936.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 4791.6,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 239.58,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 5031.18
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0224",
+      "title": "Permit delay, 12 days",
+      "cause": {
+        "type": "Other event",
+        "reference": "City permit issued late (owner-held permit)",
+        "event_date": "2020-01-06"
+      },
+      "notice_date": "2020-01-14",
+      "cp_submitted": "2020-02-03",
+      "narrative": "The building permit, which the Owner was responsible for obtaining, was issued 12 days late. CM claims 12 days of extended SGC at the contract daily rate, with no Fee.",
+      "scope_context": "Baseline schedule shows mobilization on 2020-01-06 as a critical path activity.",
+      "subcontractor_quotes": [],
+      "cm_lines": [],
+      "time_impact_days": 12,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 0.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 38220.0,
+        "total_requested": 38220.0
+      },
+      "backup_attached": [
+        "notice letter",
+        "baseline schedule excerpt",
+        "permit issuance record"
+      ]
+    },
+    {
+      "id": "CP-0225",
+      "title": "Unsuitable soils at gym footing",
+      "cause": {
+        "type": "Concealed condition",
+        "reference": "Field report FR-12 (soft soils)",
+        "event_date": "2020-02-03"
+      },
+      "notice_date": "2020-02-03",
+      "cp_submitted": "2020-02-17",
+      "narrative": "Soft organic soils found at gym footing F-12 before excavation continued. Over-excavate and replace with structural fill per geotech.",
+      "scope_context": "Geotechnical report assumed medium-dense sand at footing depth.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Granite Earthworks",
+          "trade": "Earthwork",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 15650.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1565.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 17215.0,
+          "lines": [
+            {
+              "desc": "Over-excavation",
+              "qty": 140,
+              "unit": "cy",
+              "rate": 38.0,
+              "amount": 5320.0
+            },
+            {
+              "desc": "Structural fill, placed and compacted",
+              "qty": 140,
+              "unit": "cy",
+              "rate": 62.0,
+              "amount": 8680.0
+            },
+            {
+              "desc": "Geotech testing",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1650.0,
+              "amount": 1650.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 17215.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 860.75,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 18075.75
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0226",
+      "title": "Seismic bracing upgrade per ASI-040",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-040",
+        "event_date": "2020-04-13"
+      },
+      "notice_date": "2020-04-16",
+      "cp_submitted": "2020-05-08",
+      "narrative": "ASI-040 adds seismic bracing to mechanical and electrical systems across the building after a code review.",
+      "scope_context": "Drawings show bracing only at rooftop equipment.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Rainier Mechanical",
+          "trade": "HVAC",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 180500.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 18050.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 198550.0,
+          "lines": [
+            {
+              "desc": "Seismic bracing, ductwork and piping",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 168000.0,
+              "amount": 168000.0
+            },
+            {
+              "desc": "Engineering and submittals",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 12500.0,
+              "amount": 12500.0
+            }
+          ],
+          "lower_tier": []
+        },
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 88000.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 8800.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 96800.0,
+          "lines": [
+            {
+              "desc": "Seismic bracing, conduit and equipment",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 88000.0,
+              "amount": 88000.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 295350.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 14767.5,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 310117.5
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0227",
+      "title": "Weather-related delay with extended conditions",
+      "cause": {
+        "type": "Other event",
+        "reference": "Notice letter NL-09",
+        "event_date": "2020-11-16"
+      },
+      "notice_date": "2020-11-24",
+      "cp_submitted": "2020-12-08",
+      "narrative": "CM claims 6 days of extended general conditions for a roofing delay and applies the 5% Fee to the extended SGC.",
+      "scope_context": "Schedule shows roofing on the critical path in November.",
+      "subcontractor_quotes": [],
+      "cm_lines": [],
+      "time_impact_days": 6,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes",
+          "extended SGC (time)"
+        ],
+        "fee": 955.5,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 19110.0,
+        "total_requested": 20065.5
+      },
+      "backup_attached": [
+        "notice letter",
+        "schedule excerpt",
+        "weather records"
+      ]
+    },
+    {
+      "id": "CP-0228",
+      "title": "Kitchen hood relocation per RFI-180",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-180",
+        "event_date": "2020-04-20"
+      },
+      "notice_date": "2020-04-23",
+      "cp_submitted": "2020-05-06",
+      "narrative": "RFI-180 moves the kitchen hood. CP charges NSS dumpsters with Fee, a CM-owned forklift at full Blue Book, and Project Engineer coordination hours.",
+      "scope_context": "Drawing M-401 shows the hood on the east wall.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Rainier Mechanical",
+          "trade": "HVAC",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 12408.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1240.8,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 13648.8,
+          "lines": [
+            {
+              "desc": "Relocate hood and duct",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 9400.0,
+              "amount": 9400.0
+            },
+            {
+              "desc": "Sheet metal worker",
+              "qty": 32,
+              "unit": "hr",
+              "rate": 94.0,
+              "amount": 3008.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "nss",
+          "desc": "Dumpster and haul-off (NSS)",
+          "amount": 1450.0
+        },
+        {
+          "kind": "equipment",
+          "desc": "Forklift (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 10,
+          "idle_hours": 0,
+          "blue_book_rate": 72.0,
+          "rate_charged": 72.0,
+          "amount": 720.0,
+          "daily_logs_attached": true
+        },
+        {
+          "kind": "labor",
+          "desc": "Project Engineer coordination",
+          "hours": 14,
+          "wage": 55.0,
+          "burden_rate": 0.32,
+          "amount": 1016.4
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 1736.4,
+        "subcontractor_quotes": 13648.8,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes",
+          "NSS items"
+        ],
+        "fee": 841.76,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 1450.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 17676.96
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0229",
+      "title": "Added restroom partitions per ASI-044",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-044",
+        "event_date": "2020-05-18"
+      },
+      "notice_date": "2020-06-01",
+      "cp_submitted": "2020-06-12",
+      "narrative": "ASI-044 adds two toilet partitions. Notice given June 1; partition sub took 12% overhead and profit.",
+      "scope_context": "Drawing A-120 shows six partitions in restroom 140.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Pacific Specialties",
+          "trade": "Toilet partitions",
+          "markup_rates_stated": {
+            "own_work": 0.12,
+            "lower_tier": 0.05
+          },
+          "own_direct": 3520.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 422.4,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 3942.4,
+          "lines": [
+            {
+              "desc": "Phenolic partition and hardware",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 1480.0,
+              "amount": 2960.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 8,
+              "unit": "hr",
+              "rate": 70.0,
+              "amount": 560.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 3942.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 197.12,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 4139.52
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ],
+      "costs_incurred_from": "2020-05-20"
+    },
+    {
+      "id": "CP-0230",
+      "title": "Gym sound panels per Owner direction",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-08",
+        "event_date": "2020-06-08"
+      },
+      "notice_date": "2020-06-11",
+      "cp_submitted": "2020-06-24",
+      "narrative": "Owner added acoustic panels in the gym. Acoustics sub sent a lump-sum quote without a breakdown; cover sheet total also runs $950 high.",
+      "scope_context": "Spec 09 84 00 has no acoustic panels in the gym.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Harmony Acoustics",
+          "trade": "Acoustic treatments",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 15540.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1554.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 17094.0,
+          "lines": [],
+          "lower_tier": [],
+          "note": "Lump-sum quote. No breakdown attached."
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 17094.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 854.7,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 18898.7
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor lump-sum quote"
+      ]
+    },
+    {
+      "id": "CP-0231",
+      "title": "Science room gas shutoffs per RFI-183",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-183",
+        "event_date": "2020-06-22"
+      },
+      "notice_date": "2020-06-25",
+      "cp_submitted": "2020-07-08",
+      "narrative": "RFI-183 adds emergency gas shutoff valves in two science rooms. Plumbing sub sent pricing by email.",
+      "scope_context": "Drawing P-220 shows gas outlets at lab benches with no room shutoff.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Plumbing",
+          "trade": "Plumbing",
+          "format": "email text",
+          "text": "Per RFI-183, here is our price for the two gas shutoffs:\n\n  - Emergency gas shutoff valve with button: 2 ea x $1,385.00 = $2,770.00\n  - Gas piping and fittings: 1 ls x $940.00 = $940.00\n  - Plumber: 18 hr x $92.00 = $1,656.00\n\nSubtotal $5,366.00. OH&P 15% on our work ($804.90). Total $6,170.90.\n\nThanks,\nCascade Plumbing estimating",
+          "quote_total": 6170.9,
+          "lines": [],
+          "lower_tier": [],
+          "own_direct": null,
+          "lower_tier_total": null,
+          "markup_on_own": null,
+          "markup_on_lower_tier": null
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 6170.9,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 308.55,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 6479.45
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor email quote"
+      ]
+    },
+    {
+      "id": "CP-0232",
+      "title": "Locker room bench relocation",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-29",
+        "event_date": "2020-06-29"
+      },
+      "notice_date": "2020-07-01",
+      "cp_submitted": "2020-07-14",
+      "narrative": "Owner moved the locker room benches. Includes 10 hours of coordination by J. Park, who manages this project for the CM day to day.",
+      "scope_context": "Drawing A-140 shows benches along the north wall.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Summit Athletic Interiors",
+          "trade": "Athletic equipment",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 2140.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 214.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 2354.0,
+          "lines": [
+            {
+              "desc": "Remove and reinstall benches",
+              "qty": 6,
+              "unit": "ea",
+              "rate": 240.0,
+              "amount": 1440.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 10,
+              "unit": "hr",
+              "rate": 70.0,
+              "amount": 700.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Coordination time, J. Park",
+          "hours": 10,
+          "wage": 68.0,
+          "burden_rate": 0.32,
+          "amount": 897.6
+        }
+      ],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 897.6,
+        "subcontractor_quotes": 2354.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 162.58,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 3414.18
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ]
+    },
+    {
+      "id": "CP-0233",
+      "title": "Additional whiteboards per ASI-047",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-047",
+        "event_date": "2020-07-06"
+      },
+      "notice_date": "2020-07-09",
+      "cp_submitted": "2020-07-22",
+      "narrative": "ASI-047 adds whiteboards in four rooms. Specialties sub sent an email quote; the price includes their pickup of the boards from the supplier's yard.",
+      "scope_context": "Drawing A-301 shows tackboards only in rooms 210 to 213.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Pacific Specialties",
+          "trade": "Specialties",
+          "format": "email text",
+          "text": "Pricing for ASI-047 whiteboards below. We'll handle pickup at the supplier.\n\n  - Whiteboard 4x12, installed: 4 ea x $690.00 = $2,760.00\n  - Pickup and delivery from supplier: 1 ls x $180.00 = $180.00\n  - Installer: 8 hr x $70.00 = $560.00\n\nSubtotal $3,500.00. OH&P 10% on our work ($350.00). Total $3,850.00.\n\nThanks,\nPacific Specialties estimating",
+          "quote_total": 3850.0,
+          "lines": [],
+          "lower_tier": [],
+          "own_direct": null,
+          "lower_tier_total": null,
+          "markup_on_own": null,
+          "markup_on_lower_tier": null
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 3850.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 192.5,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 4042.5
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor email quote"
+      ]
+    },
+    {
+      "id": "CP-0234",
+      "title": "Ceiling fans in gym per Owner direction",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-07-13",
+        "event_date": "2020-07-13"
+      },
+      "notice_date": "2020-07-16",
+      "cp_submitted": "2020-07-29",
+      "narrative": "Owner added high-volume fans in the gym. Electrical sub sent an email quote that includes its structural lower-tier.",
+      "scope_context": "Drawing E-301 shows no fans in the gym.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "format": "email text",
+          "text": "Quote for the three gym fans, including Ironwood's mounting steel:\n\n  - HVLS fan wiring and controls: 3 ea x $1,650.00 = $4,950.00\n  - Electrician: 30 hr x $96.00 = $2,880.00\n  - Ironwood Structural (Fan mounting steel at 3 locations): $9,800.00\n\nSubtotal $17,630.00. OH&P 10% on our work ($783.00), 8% on Ironwood Structural ($784.00). Total $19,197.00.\n\nThanks,\nSound Electric estimating",
+          "quote_total": 19197.0,
+          "lines": [],
+          "lower_tier": [],
+          "own_direct": null,
+          "lower_tier_total": null,
+          "markup_on_own": null,
+          "markup_on_lower_tier": null
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 19197.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 959.85,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 20156.85
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor email quote"
+      ]
+    },
+    {
+      "id": "CP-0235",
+      "title": "Patch and paint after abatement",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-050",
+        "event_date": "2020-07-20"
+      },
+      "notice_date": "2020-07-23",
+      "cp_submitted": "2020-08-05",
+      "narrative": "ASI-050 adds patching and painting of walls opened during abatement. Painting sub emailed its price.",
+      "scope_context": "Spec 09 91 23 covers painting of new walls only.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Brightline Painting",
+          "trade": "Painting",
+          "format": "email text",
+          "text": "Here is our patch and paint number for ASI-050.\n\n  - Patch and paint walls: 2800 sf x $2.15 = $6,020.00\n  - Painter: 24 hr x $66.00 = $1,584.00\n\nSubtotal $7,604.00. OH&P 10% on our work ($760.40). Total $8,364.40.\n\nThanks,\nBrightline Painting estimating",
+          "quote_total": 8364.4,
+          "lines": [],
+          "lower_tier": [],
+          "own_direct": null,
+          "lower_tier_total": null,
+          "markup_on_own": null,
+          "markup_on_lower_tier": null
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 8364.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 418.22,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 8782.62
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor email quote"
+      ]
+    },
+    {
+      "id": "CP-0236",
+      "title": "Added hose bibbs, T&M",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-07-27",
+        "event_date": "2020-07-27"
+      },
+      "notice_date": "2020-07-29",
+      "cp_submitted": "2020-08-11",
+      "narrative": "Owner asked for four added hose bibbs at the courtyard, done on T&M. Sub's email says the tags were signed by its own foreman.",
+      "scope_context": "Drawing P-102 shows two hose bibbs at the courtyard.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Plumbing",
+          "trade": "Plumbing",
+          "format": "email text",
+          "text": "T&M summary for the courtyard hose bibbs (tags TM-601 to TM-603):\n\n  - Hose bibb and piping: 4 ea x $310.00 = $1,240.00\n  - Plumber: 16 hr x $92.00 = $1,472.00\n\nSubtotal $2,712.00. OH&P 10% on our work ($271.20). Total $2,983.20. Tags were signed by our foreman, Luis, each day.\n\nThanks,\nCascade Plumbing estimating",
+          "quote_total": 2983.2,
+          "lines": [],
+          "lower_tier": [],
+          "own_direct": null,
+          "lower_tier_total": null,
+          "markup_on_own": null,
+          "markup_on_lower_tier": null
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 2983.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 149.16,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 3132.36
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor email quote",
+        "T&M tags"
+      ]
+    }
+  ]
+}

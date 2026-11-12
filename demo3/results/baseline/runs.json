@@ -1,0 +1,768 @@
+{
+ "meta": {
+  "backend": "baseline",
+  "model": "rules + keywords"
+ },
+ "results": [
+  {
+   "id": "CP-0201",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0201-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0202",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0202-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "",
+       "quote": "",
+       "explanation": "scope keyword",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0203",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0203-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0204",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0204-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0205",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0205-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0206",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0206-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "",
+       "quote": "",
+       "explanation": "covered-cost keyword",
+       "quote_verified": false
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "equipment keyword from Exhibit B or C",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0207",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0207-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0208",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0208-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0209",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0209-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "",
+       "quote": "",
+       "explanation": "Cascade Plumbing markup over limit",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0210",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0210-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "",
+       "quote": "",
+       "explanation": "Sound Electric markup over limit",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0211",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0211-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "",
+       "quote": "",
+       "explanation": "fee applied beyond direct costs and subs",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0212",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0212-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "",
+       "quote": "",
+       "explanation": "fee applied beyond direct costs and subs",
+       "quote_verified": false
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "",
+       "quote": "",
+       "explanation": "concealed condition",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0213",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0213-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "",
+       "quote": "",
+       "explanation": "fee rate is not 5%",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0214",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0214-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "",
+       "quote": "",
+       "explanation": "covered-cost keyword",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0215",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0215-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "",
+       "quote": "",
+       "explanation": "covered-cost keyword",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0216",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0216-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "equipment keyword from Exhibit B or C",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0217",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0217-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "owned equipment over 75% of Blue Book",
+       "quote_verified": false
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "",
+       "quote": "",
+       "explanation": "concealed condition",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0218",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0218-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "equipment keyword from Exhibit B or C",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0219",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0219-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "",
+       "quote": "",
+       "explanation": "burden is not 32%",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0220",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0220-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "TIEOUT",
+       "section": "",
+       "quote": "",
+       "explanation": "cover total differs from its lines",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0221",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0221-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "",
+       "quote": "",
+       "explanation": "Sound Electric missing breakdown or signatures",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0222",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0222-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LATE_NOTICE",
+       "section": "",
+       "quote": "",
+       "explanation": "notice after due date",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0223",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0223-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0224",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0224-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "TIME_IMPACT",
+       "section": "",
+       "quote": "",
+       "explanation": "time claimed",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0225",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0225-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "",
+       "quote": "",
+       "explanation": "concealed condition",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0226",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0226-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "OVER_AUTHORITY",
+       "section": "",
+       "quote": "",
+       "explanation": "over $250,000",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0227",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0227-baseline",
+     "from_role": "baseline",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "",
+       "quote": "",
+       "explanation": "fee applied beyond direct costs and subs",
+       "quote_verified": false
+      },
+      {
+       "type": "TIME_IMPACT",
+       "section": "",
+       "quote": "",
+       "explanation": "time claimed",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0228",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0228-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "",
+       "quote": "",
+       "explanation": "fee applied beyond direct costs and subs",
+       "quote_verified": false
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "",
+       "quote": "",
+       "explanation": "covered-cost keyword",
+       "quote_verified": false
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "owned equipment over 75% of Blue Book",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0229",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0229-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "",
+       "quote": "",
+       "explanation": "Pacific Specialties markup over limit",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "",
+       "quote": "",
+       "explanation": "notice after due date",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0230",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0230-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "",
+       "quote": "",
+       "explanation": "Harmony Acoustics missing breakdown or signatures",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "",
+       "quote": "",
+       "explanation": "cover total differs from its lines",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0231",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0231-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "",
+       "quote": "",
+       "explanation": "covered-cost keyword",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0232",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0232-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0233",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0233-baseline",
+     "from_role": "baseline",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "",
+       "quote": "",
+       "explanation": "equipment keyword from Exhibit B or C",
+       "quote_verified": false
+      }
+     ],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0234",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0234-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0235",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0235-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  },
+  {
+   "id": "CP-0236",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0236-baseline",
+     "from_role": "baseline",
+     "decision": "PASS",
+     "flags": [],
+     "message": "",
+     "model": "rules + keywords"
+    }
+   ]
+  }
+ ]
+}

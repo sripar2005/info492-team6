@@ -1,0 +1,75 @@
+# Demo 3: run the four role agents on every Change Proposal, score them, and commit the results.
+# The Anthropic key is the repository secret ANTHROPIC_API_KEY; it is never printed or committed.
+# Start it from Actions -> "Demo 3 - run agents" -> Run workflow, or by pushing a change to demo3/RUN.txt.
+name: Demo 3 - run agents
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Claude model name"
+        required: true
+        default: "claude-sonnet-5-5"
+      overwrite:
+        description: "Replace existing results? Only for a documented Run 2."
+        required: true
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ["demo3/RUN.txt"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: demo3-run
+  cancel-in-progress: false
+
+env:
+  MODEL: ${{ inputs.model || 'claude-sonnet-5-5' }}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: demo3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Stop if results already exist (protects the first run)
+        if: ${{ !inputs.overwrite }}
+        run: |
+          if [ -f results/runs.json ]; then echo "::error::demo3/results/runs.json exists. Use overwrite=true only for a documented Run 2."; exit 1; fi
+      - name: Check the API key secret is set
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "::error::Repository secret ANTHROPIC_API_KEY is not set."; exit 1; fi
+      - run: pip install -r requirements.txt
+      - name: Offline tests
+        run: python tests/test_demo3.py
+      - name: Cases match their generator
+        run: python data/build_cases.py && git diff --exit-code data/cases.json data/answer_key.json
+      - name: Dry run
+        run: python agents.py --dry-run --model "$MODEL"
+      - name: Run the agents
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python agents.py --model "$MODEL" --workers 6
+      - name: Baseline and evaluation
+        run: python baseline.py && python evaluate.py
+      - name: Summary
+        run: cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/runs.json results/baseline/runs.json results/evaluation.json results/evaluation_report.md
+          git commit -m "Demo 3 results: $MODEL (workflow run ${{ github.run_number }})"
+          git pull --rebase origin main
+          git push

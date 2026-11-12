@@ -1,0 +1,108 @@
+# Demo 3 on open models through Ollama, on GitHub's free runners. No API key, no cost.
+# Models come from demo3/RUN_LOCAL.txt (one per line) or the "models" input. Each model's 36 change
+# proposals are split into parallel jobs; a final job merges per model, scores, and commits.
+# Start: Actions -> "Demo 3 - local models" -> Run workflow, or push a change to demo3/RUN_LOCAL.txt.
+name: Demo 3 - local models
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Ollama models, comma-separated"
+        required: true
+        default: "llama3.1:8b,qwen2.5:7b"
+      per_shard:
+        description: "Change proposals per parallel job"
+        required: true
+        default: "4"
+  push:
+    branches: [main]
+    paths: ["demo3/RUN_LOCAL.txt"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: demo3-local
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.s.outputs.shards }}
+      slugs: ${{ steps.s.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Offline tests
+        working-directory: demo3
+        run: python3 tests/test_demo3.py
+      - id: s
+        env:
+          MODELS_INPUT: ${{ inputs.models }}
+          PER_SHARD: ${{ inputs.per_shard || '4' }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          ids = [c["id"] for c in json.load(open("demo3/data/cases.json"))["cases"]]
+          src = os.environ.get("MODELS_INPUT") or open("demo3/RUN_LOCAL.txt").read()
+          models = [m.strip() for m in src.replace(",", "\n").splitlines() if m.strip() and not m.startswith("#")]
+          n = int(os.environ["PER_SHARD"])
+          shards = [{"model": m, "slug": m.replace(":", "-").replace("/", "-"), "ids": " ".join(ids[i:i + n])}
+                    for m in models for i in range(0, len(ids), n)]
+          print("shards=" + json.dumps(shards))
+          print("slugs=" + " ".join(sorted({s["slug"] for s in shards})))
+          PY
+
+  run:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama and pull ${{ matrix.shard.model }}
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          (OLLAMA_NUM_PARALLEL=1 OLLAMA_KEEP_ALIVE=3h ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -s localhost:11434/api/tags >/dev/null && break; sleep 2; done
+          ollama pull "${{ matrix.shard.model }}"
+      - name: Run the four role agents
+        working-directory: demo3
+        run: |
+          NAME="${{ matrix.shard.slug }}__$(echo '${{ matrix.shard.ids }}' | tr ' ' '_')"
+          python3 agents.py --backend ollama --model "${{ matrix.shard.model }}" --only ${{ matrix.shard.ids }} --out "results/local/shards/$NAME.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ strategy.job-index }}
+          path: demo3/results/local/shards/*.json
+
+  merge:
+    needs: [plan, run]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: shards
+      - name: Merge each model, baseline, evaluate
+        working-directory: demo3
+        run: |
+          for s in ${{ needs.plan.outputs.slugs }}; do python3 merge_runs.py ../shards "$s" || echo "::warning::$s incomplete"; done
+          python3 baseline.py
+          python3 evaluate.py
+          cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demo3/results/local/*/runs.json demo3/results/baseline/runs.json demo3/results/evaluation.json demo3/results/evaluation_report.md
+          git commit -m "Demo 3 results: local models (workflow run ${{ github.run_number }})"
+          git pull --rebase origin main
+          git push

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo 3 Results · ClauseStream</title>
+<meta name="description" content="Demo 3: four role agents review 36 priced change proposals against the contract. Results and evaluation.">
+<meta name="theme-color" content="#07090c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/cs.css">
+<style>
+main { max-width: 1160px; margin: 0 auto; padding: 40px 16px 70px; display: grid; gap: 18px; }
+.hero h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); margin-top: 12px; max-width: 22ch; }
+.hero p { color: var(--muted); max-width: 70ch; margin: 14px 0 0; }
+.btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.panel { padding: 24px; }
+.panel h2 { font-size: 1.3rem; margin-bottom: 4px; }
+.panel .sub { color: var(--muted); margin: 0 0 16px; font-size: .92rem; }
+.big4 { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+@media (max-width: 860px) { .big4 { grid-template-columns: 1fr 1fr; } }
+.big4 > div { padding: 18px; border-radius: 14px; background: var(--glass); border: 1px solid var(--line); }
+.big4 b { display: block; font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 600; letter-spacing: -0.04em; }
+.big4 span { color: var(--muted); font-size: .86rem; }
+.target { margin-top: 12px; font-size: .9rem; }
+.flow { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
+@media (max-width: 860px) { .flow { grid-template-columns: 1fr; } }
+.flow > div { padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--glass); }
+.flow b { display: block; font-weight: 500; margin: 4px 0; }
+.flow p { margin: 0; font-size: .84rem; color: var(--muted); }
+.flow small { font: 500 .7rem/1 var(--mono); color: var(--faint); }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.filters button { border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 6px 10px; border-radius: 9px; font-size: .8rem; cursor: pointer; }
+.filters button[aria-pressed="true"] { color: var(--text); background: var(--glass-2); border-color: var(--line-2); }
+.o-correct { color: var(--ok); } .o-missed { color: var(--accent); } .o-false { color: var(--warn); } .o-route { color: var(--blue); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+ul.clean { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
+ul.clean b { color: var(--text); font-weight: 500; }
+.pending { padding: 16px; border-radius: 12px; border: 1px dashed var(--line-2); color: var(--muted); }
+.bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--ok); border-radius: 3px; transition: width 1s var(--ease); }
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="bar glass">
+    <a class="logo" href="/clausestream/" aria-label="ClauseStream home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="0.5" y="0.5" width="27" height="27" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.22)"/><path d="M6 22 L21 7" stroke="#eef2f6" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 7 H21 V12.5" stroke="#eef2f6" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 17.4 l2 2 M11.8 14.2 l2 2 M15 11 l2 2" stroke="#ff6a3d" stroke-width="1.6" stroke-linecap="round"/><text x="5.2" y="12.2" font-family="Geist Mono, monospace" font-size="8.5" fill="#eef2f6">§</text></svg>
+      ClauseStream
+    </a>
+    <nav><a class="hide-sm" href="/clausestream/">Home</a><a href="/app/">Sign in</a><a class="hide-sm" href="/demos/">All demos</a><a class="hide-sm" href="/">Project site</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero fade-in">
+    <span class="kicker">Demo 3 · Results with evaluation</span>
+    <h1 class="shine">Four parties, four agents, one contract.</h1>
+    <p>Every priced change proposal passes through the subcontractor's, GC/CM's, Architect's, and Owner's PM's agents. Each checks it from its own seat, within its own authority, quotes the clause, and hands a message to the next party. People make every decision. We scored the agents on 36 change proposals with 33 seeded contract issues, and compared them with a rules-and-keywords checker that uses no AI.</p>
+    <div class="btns"><a class="btn primary" href="/app/">Open the dashboard →</a><a class="btn" href="https://github.com/sripar2005/info492-team6/tree/main/demo3">Code and data</a></div>
+  </section>
+
+  <section class="panel glass fade-in" id="scores">
+    <h2>Scores</h2>
+    <p class="sub" id="scoreSub">Loading…</p>
+    <div class="big4" id="big4"></div>
+    <p class="target" id="target"></p>
+  </section>
+
+  <section class="panel glass fade-in">
+    <h2>Agents vs. a no-AI baseline</h2>
+    <p class="sub">Same 36 change proposals and answer key for every column. The baseline uses the same calculator plus keyword lists copied from the contract.</p>
+    <div class="tablewrap"><table id="cmp"></table></div>
+  </section>
+
+  <section class="panel glass fade-in">
+    <h2>Which issues each system caught</h2>
+    <p class="sub">Seeded issues by type. Escalation types are claims a person must judge.</p>
+    <div class="tablewrap"><table id="types"></table></div>
+  </section>
+
+  <section class="panel glass fade-in">
+    <h2>Every change proposal</h2>
+    <div class="filters" id="filters">
+      <span id="sysBtns" style="display:contents"></span>
+      <span style="width:12px"></span>
+      <button data-o="all" aria-pressed="true">All</button><button data-o="problems" aria-pressed="false">Problems only</button><button data-o="tricky" aria-pressed="false">Tricky cases</button>
+    </div>
+    <div class="tablewrap"><table id="trace"></table></div>
+  </section>
+
+  <section class="panel glass fade-in">
+    <h2>How it works</h2>
+    <p class="sub">Each agent gets the contract, the rule card Demo 1 extracted from it, the change proposal as its party sees it, and a calculator sheet computed by code. Agents judge; code does arithmetic and dates.</p>
+    <div class="flow">
+      <div><small>1 · agent</small><b>Subcontractor</b><p>Sees only its own quote. Checks markup limits, breakdown, T&M tags.</p></div>
+      <div><small>2 · agent</small><b>GC/CM</b><p>Checks sub pricing, backup, tie-out before the CP goes out.</p></div>
+      <div><small>3 · agent</small><b>Architect</b><p>Checks the work is really a change from the drawings and specs. Can't approve cost.</p></div>
+      <div><small>4 · agent</small><b>Owner's PM</b><p>Follows an owner-side PM's review order. Recommends, returns, or escalates.</p></div>
+      <div><small>5 · person</small><b>Decision</b><p>A person approves, returns, or takes a claim to the Board.</p></div>
+    </div>
+    <div class="two" style="margin-top:18px">
+      <ul class="clean">
+        <li><b>Message envelope:</b> every handoff records from, to, authority, decision, flags with section and quote, and a message to the next party.</li>
+        <li><b>Audit trail:</b> envelopes are appended in order with IDs, model, and time; people's decisions are added on top.</li>
+        <li><b>Escalation:</b> delay claims, site conditions, and amounts over the $250,000 limit always go to a person.</li>
+      </ul>
+      <ul class="clean">
+        <li><b>Integration:</b> Demo 1's extracted rules feed every agent; Demo 2's deadline code computes notice dates.</li>
+        <li><b>Data:</b> 36 change proposals on Demo 1's synthetic GC/CM contract, including 6 where the sub's quote arrives as email text. See the <a href="https://github.com/sripar2005/info492-team6/blob/main/demo3/data/DATA_NOTE.md" style="text-decoration:underline">data note</a>.</li>
+        <li><b>Model:</b> <span id="modelName">an open model</span> running locally through Ollama, so no project data leaves the machine and there's no API cost. The same code also runs on Claude through the API.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel glass fade-in" id="feedback">
+    <h2>Stakeholder testing</h2>
+    <p class="sub">Who tested Demo 3 and what changed because of it.</p>
+    <div class="two">
+      <div>
+        <span class="kicker">From the interview (owner-side PM, 30+ years)</span>
+        <ul class="clean" style="margin-top:10px">
+          <li><b>“AI is great at the math.”</b> → arithmetic moved to code; agents only judge.</li>
+          <li><b>Follow the PM's review order</b> → the Owner's agent checks cover sheet, backup, markups, covered costs, equipment, notice, then claims.</li>
+          <li><b>Delays and site conditions are the hard part</b> → those always escalate to a person instead of getting scored.</li>
+          <li><b>Sub markups over the limit</b> → seeded in 6 cases, owned by the GC/CM agent.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="kicker">Testing Demo 3</span>
+        <div class="pending" style="margin-top:10px" id="testing">Practitioner and in-class role testing results will be added here.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel glass fade-in">
+    <h2>Limits</h2>
+    <ul class="clean">
+      <li>The change proposals, labels, prompts, and baseline keyword lists were written by the same team, so the test favors whatever we expected. A second, independent set is the next step.</li>
+      <li>36 proposals on one synthetic contract; real packages are longer PDFs with drawings and email threads.</li>
+      <li>One run; model outputs can vary between runs.</li>
+      <li>Human actions in the dashboard are stored in your browser only, for the demo.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+(function () {
+  var PRETTY = { 'llama3.1-8b': 'Llama 3.1 8B', 'qwen2.5-7b': 'Qwen2.5 7B', 'qwen2.5-3b': 'Qwen2.5 3B', 'gemma2-9b': 'Gemma 2 9B' };
+  function NAME(k) { if (k === 'agents') return 'Agents (Claude API)'; if (k === 'baseline') return 'Baseline (no AI)'; var m = k.replace('local-', ''); return 'Agents · ' + (PRETTY[m] || m); }
+  function order(S) { var ks = Object.keys(S); return ks.filter(function (k) { return k.indexOf('local-llama') === 0; }).concat(ks.filter(function (k) { return k.indexOf('local-') === 0 && k.indexOf('local-llama') !== 0; }), ks.filter(function (k) { return k === 'agents'; }), ks.filter(function (k) { return k === 'baseline'; })); }
+  var data = null, sys = null, only = 'all';
+  function pct(x) { return x == null ? '—' : (x * 100).toFixed(1).replace(/\.0$/, '') + '%'; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+
+  function render() {
+    var S = data.systems, ks = order(S), a = ks[0] !== 'baseline' ? S[ks[0]] : null;
+    var head = a || S.baseline;
+    if (!a) {
+      document.getElementById('scoreSub').textContent = 'The agents have not run yet. The baseline is shown for now.';
+    } else {
+      document.getElementById('scoreSub').textContent = 'Agents run: ' + (a.meta.model || '') + ' · ' + (a.meta.agent_calls || '') + ' agent calls · ' + (a.meta.created || '').slice(0, 10);
+      document.getElementById('modelName').textContent = a.meta.model;
+    }
+    var m = head.metrics;
+    document.getElementById('big4').innerHTML =
+      '<div><b>' + m.issues_caught + '/' + m.seeded_issues + '</b><span>seeded issues caught (' + pct(m.detection_rate) + ')</span><div class="bar"><i style="width:' + (m.detection_rate * 100) + '%"></i></div></div>' +
+      '<div><b>' + m.routes_right + '/' + m.cases + '</b><span>routed right (approve, return, escalate)</span></div>' +
+      '<div><b>' + (m.escalation_recall == null ? '—' : Math.round(m.escalation_recall * 6) + '/6') + '</b><span>claims escalated to a person</span></div>' +
+      '<div><b>' + (m.citation_validity == null ? 'n/a' : pct(m.citation_validity)) + '</b><span>quotes found word for word in the contract</span></div>';
+    document.getElementById('target').innerHTML = NAME(ks[0]) + ': target of 85% of seeded issues <b style="color:' + (m.meets_target ? 'var(--ok)' : 'var(--accent)') + '">' + (m.meets_target ? 'met' : 'not met') + '</b>. Clean proposals flagged: ' + m.clean_cases_flagged + '/' + m.clean_cases + '. Extra flags: ' + m.extra_flags + '.';
+
+    var keys = ks;
+    var rows = [['Seeded issues caught', function (m) { return m.issues_caught + '/' + m.seeded_issues + ' (' + pct(m.detection_rate) + ')'; }],
+      ['Caught by the responsible party', function (m) { return m.caught_by_responsible_party + '/' + m.seeded_issues; }],
+      ['Routed right', function (m) { return m.routes_right + '/' + m.cases; }],
+      ['Clean proposals flagged', function (m) { return m.clean_cases_flagged + '/' + m.clean_cases; }],
+      ['Extra flags (false alarms)', function (m) { return m.extra_flags; }],
+      ['Escalation recall', function (m) { return pct(m.escalation_recall); }],
+      ['Tricky cases right', function (m) { return m.tricky_right + '/' + m.tricky_total; }],
+      ['Quotes verified', function (m) { return m.citation_validity == null ? 'no quotes' : pct(m.citation_validity) + ' of ' + m.quotes; }]];
+    document.getElementById('cmp').innerHTML = '<thead><tr><th>Measure</th>' + keys.map(function (k) { return '<th>' + NAME(k) + (S[k].meta.model ? '<br><span class="faint">' + esc(S[k].meta.model) + '</span>' : '') + '</th>'; }).join('') +
+      '' + '</tr></thead><tbody>' + rows.map(function (r) {
+        return '<tr><td>' + r[0] + '</td>' + keys.map(function (k) { return '<td class="mono">' + r[1](S[k].metrics) + '</td>'; }).join('') + '' + '</tr>';
+      }).join('') + '</tbody>';
+
+    var types = Object.keys(head.metrics.detection_by_type);
+    document.getElementById('types').innerHTML = '<thead><tr><th>Issue type</th><th class="num">Seeded</th>' + keys.map(function (k) { return '<th class="num">' + NAME(k) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      types.map(function (t) { return '<tr><td class="mono">' + t + '</td><td class="num">' + head.metrics.detection_by_type[t].total + '</td>' + keys.map(function (k) { var d = S[k].metrics.detection_by_type[t]; return '<td class="num">' + d.found + '/' + d.total + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
+    renderTrace();
+  }
+
+  function renderTrace() {
+    var S = data.systems[sys];
+    var el = document.getElementById('trace');
+    if (!S) { el.innerHTML = '<tbody><tr><td class="muted">Not run yet.</td></tr></tbody>'; return; }
+    var rows = S.trace.filter(function (t) { return only === 'all' || (only === 'tricky' ? t.tricky : !t.outcome.startsWith('correct')); });
+    el.innerHTML = '<thead><tr><th>CP</th><th>Expected</th><th>Route</th><th>Missed</th><th>Extra</th><th>Outcome</th><th>Why it matters</th></tr></thead><tbody>' + rows.map(function (t) {
+      var cls = t.outcome.startsWith('correct') ? 'o-correct' : t.outcome === 'missed issue' ? 'o-missed' : t.outcome === 'false alarm' ? 'o-false' : 'o-route';
+      return '<tr><td class="mono"><a href="/app/dashboard.html?cp=' + t.id + '" style="text-decoration:underline">' + t.id + '</a>' + (t.tricky ? ' <span class="faint">tricky</span>' : '') + '</td><td class="mono" style="font-size:.78rem">' + (t.expected.join(', ') || 'clean') +
+        '</td><td><span class="chip ' + t.route + '">' + t.route.toLowerCase() + '</span>' + (t.route !== t.expected_route ? ' <span class="faint">exp. ' + t.expected_route.toLowerCase() + '</span>' : '') + '</td><td class="mono" style="font-size:.78rem">' + (t.missed.join(', ') || '') +
+        '</td><td class="mono" style="font-size:.78rem">' + (t.extra.join(', ') || '') + '</td><td class="' + cls + '">' + t.outcome + '</td><td class="muted" style="font-size:.84rem">' + esc(t.why) + '</td></tr>';
+    }).join('') + '</tbody>';
+  }
+
+  document.getElementById('filters').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.s) { sys = b.dataset.s; this.querySelectorAll('[data-s]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); }
+    if (b.dataset.o) { only = b.dataset.o; this.querySelectorAll('[data-o]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); }
+    renderTrace();
+  });
+  fetch('/demo3/results/evaluation.json').then(function (r) { return r.json(); }).then(function (j) { data = j; var ks = order(j.systems); sys = ks[0]; document.getElementById('sysBtns').innerHTML = ks.map(function (k) { return '<button data-s="' + k + '" aria-pressed="' + (k === sys) + '">' + NAME(k) + '</button>'; }).join(''); render(); })
+    .catch(function () { document.getElementById('scoreSub').textContent = 'Results not available yet.'; });
+})();
+</script>
+</body>
+</html>

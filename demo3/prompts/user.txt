@@ -1,0 +1,21 @@
+<contract>
+[[CONTRACT]]
+</contract>
+
+<rule_card source="Demo 1 extraction">
+[[RULES]]
+</rule_card>
+
+<change_proposal>
+[[CP]]
+</change_proposal>
+
+<calculator_sheet computed_by="code">
+[[CALC]]
+</calculator_sheet>
+
+<your_role>
+[[ROLE_TEXT]]
+</your_role>
+
+Review this CP as the [[ROLE_NAME]] and record your review once.

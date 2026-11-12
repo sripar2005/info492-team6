@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "contract": "../demo1/data/synthetic_contract.md",
+    "generated_by": "data/build_cases.py",
+    "calendar": "Washington State legal holidays, 2020 (Demo 2 deadlines.py)"
+  },
+  "cases": [
+    {
+      "id": "CP-0201",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-02-18",
+      "why": "Markups, Fee, and notice all within the contract.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0202",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-03-09",
+      "why": "The ASI adds rated hardware not in the spec; notice was on time and pricing follows 6.5.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0203",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-04-13",
+      "why": "Sub took 10% on its own work and 5% on the lower-tier, within 6.5.2.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0204",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-05-11",
+      "why": "Deductive change; Fee is reduced at the same 5% rate, as 6.5.3 requires.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0205",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-05-18",
+      "why": "Comment changes cost; notice under 6.2(a) via 8.3 on time; rented equipment at invoice.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0206",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-06-08",
+      "why": "Signed T&M tags; mentions of 'superintendent' and 'crane' are not charges.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0207",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-06-22",
+      "why": "Labor carries the 32% burden; owned equipment at 75% of Blue Book for logged hours.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0208",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-07-13",
+      "why": "Permit, bond, and B&O tax are included at cost with no Fee, as 6.5.3 requires.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0209",
+      "expected_flags": [
+        {
+          "type": "SUB_MARKUP",
+          "role": "gc",
+          "detail": "Sub took 15% on its own work; 6.5.2 allows 10%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-07-20",
+      "why": "Sub markup over the 10% limit.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0210",
+      "expected_flags": [
+        {
+          "type": "SUB_MARKUP",
+          "role": "gc",
+          "detail": "Sub took 10% on lower-tier work; 6.5.2 allows 5%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-07-27",
+      "why": "Lower-tier markup over 5%.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0211",
+      "expected_flags": [
+        {
+          "type": "FEE_ON_EXCLUDED",
+          "role": "owner",
+          "detail": "Fee applied to bond, insurance, and B&O tax; 6.5.3 excludes them."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-08-10",
+      "why": "Fee on excluded items.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0212",
+      "expected_flags": [
+        {
+          "type": "FEE_ON_EXCLUDED",
+          "role": "owner",
+          "detail": "Fee applied to NSS haul-off; 5.3 and 6.5.3 say no Fee on NSS."
+        },
+        {
+          "type": "CONCEALED_CONDITION",
+          "role": "owner",
+          "detail": "Concealed condition; owner's PM should review before approval."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(c)",
+      "notice_due": "2020-08-17",
+      "why": "Webster-type finding: Fee on NSS. Concealed condition also needs a person's review.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0213",
+      "expected_flags": [
+        {
+          "type": "FEE_RATE",
+          "role": "owner",
+          "detail": "Fee at 7.5%; 6.5.3 sets 5%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-08-24",
+      "why": "Fee rate above contract.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0214",
+      "expected_flags": [
+        {
+          "type": "COVERED_COST",
+          "role": "owner",
+          "detail": "PM and estimating time to price a CP are covered by Fee/SGC under 5.5."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-09-15",
+      "why": "Costs covered by the Fee.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0215",
+      "expected_flags": [
+        {
+          "type": "COVERED_COST",
+          "role": "owner",
+          "detail": "Superintendent time is in SGC (Exhibit C) and covered under 5.5, even when labeled 'field supervision'."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-09-21",
+      "why": "Covered cost described without the word 'superintendent' on the line.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0216",
+      "expected_flags": [
+        {
+          "type": "EQUIPMENT",
+          "role": "owner",
+          "detail": "Project pickup trucks are included in SGC per Exhibit B; not chargeable to a CP."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-09-28",
+      "why": "Equipment that SGC already covers.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0217",
+      "expected_flags": [
+        {
+          "type": "EQUIPMENT",
+          "role": "owner",
+          "detail": "CM-owned equipment must be charged at 75% of Blue Book (6.5.4); charged at 100%."
+        },
+        {
+          "type": "CONCEALED_CONDITION",
+          "role": "owner",
+          "detail": "Concealed condition; owner's PM should review before approval."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(c)",
+      "notice_due": "2020-10-12",
+      "why": "Owned-equipment rate over 75% of Blue Book; concealed condition needs review.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0218",
+      "expected_flags": [
+        {
+          "type": "EQUIPMENT",
+          "role": "owner",
+          "detail": "Hoisting and crane is a Negotiated Support Service (Exhibit C), already paid as a lump sum."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-10-19",
+      "why": "Hoisting charged separately although it is NSS.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0219",
+      "expected_flags": [
+        {
+          "type": "LABOR_BURDEN",
+          "role": "owner",
+          "detail": "Labor burden 45%; Section 5.4 fixes it at 32%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-10-26",
+      "why": "Wrong labor burden.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0220",
+      "expected_flags": [
+        {
+          "type": "TIEOUT",
+          "role": "gc",
+          "detail": "Cover sheet total is $1,800 more than its lines add up to."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-11-09",
+      "why": "Cover sheet does not tie out.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0221",
+      "expected_flags": [
+        {
+          "type": "MISSING_BACKUP",
+          "role": "gc",
+          "detail": "Two T&M tags lack the Owner's Representative signature; 6.5.7 says unsigned tags are not accepted."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-11-16",
+      "why": "Unsigned T&M tags.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0222",
+      "expected_flags": [
+        {
+          "type": "LATE_NOTICE",
+          "role": "owner",
+          "detail": "Notice due 2020-03-09 under 6.2(a); given 2020-03-16. Costs before notice are waived."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-03-09",
+      "why": "Late notice.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0223",
+      "expected_flags": [
+        {
+          "type": "NOT_A_CHANGE",
+          "role": "architect",
+          "detail": "Closers are already in hardware set HW-4; the RFI response confirms the base scope."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-03-30",
+      "why": "Work already in the Contract Documents.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0224",
+      "expected_flags": [
+        {
+          "type": "TIME_IMPACT",
+          "role": "owner",
+          "detail": "Delay claim; critical path and cause need a person's judgment (6.5.6, 3.4)."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(d)",
+      "notice_due": "2020-01-21",
+      "why": "Priced correctly, but a delay claim needs the owner's PM to judge the critical path.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0225",
+      "expected_flags": [
+        {
+          "type": "CONCEALED_CONDITION",
+          "role": "owner",
+          "detail": "Differing site condition; owner's PM should confirm the condition and quantities."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(c)",
+      "notice_due": "2020-02-10",
+      "why": "Correctly priced, but site conditions need a person's review.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0226",
+      "expected_flags": [
+        {
+          "type": "OVER_AUTHORITY",
+          "role": "owner",
+          "detail": "Total exceeds $250,000; Board approval required per Exhibit D."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-04-20",
+      "why": "Above the Owner's Representative's approval limit.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0227",
+      "expected_flags": [
+        {
+          "type": "TIME_IMPACT",
+          "role": "owner",
+          "detail": "Delay claim needs critical-path and cause review."
+        },
+        {
+          "type": "FEE_ON_EXCLUDED",
+          "role": "owner",
+          "detail": "Fee applied to the SGC time extension; 5.2 and 6.5.6 say no Fee."
+        }
+      ],
+      "expected_route": "ESCALATE",
+      "notice_rule": "6.2(d)",
+      "notice_due": "2020-11-30",
+      "why": "Fee on SGC plus a delay claim.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0228",
+      "expected_flags": [
+        {
+          "type": "FEE_ON_EXCLUDED",
+          "role": "owner",
+          "detail": "Fee on NSS haul-off."
+        },
+        {
+          "type": "EQUIPMENT",
+          "role": "owner",
+          "detail": "Owned forklift at 100% of Blue Book; limit is 75%."
+        },
+        {
+          "type": "COVERED_COST",
+          "role": "owner",
+          "detail": "Project Engineer is an SGC position (Exhibit C); covered under 5.5."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-04-27",
+      "why": "Three Webster-type findings in one CP.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0229",
+      "expected_flags": [
+        {
+          "type": "SUB_MARKUP",
+          "role": "gc",
+          "detail": "Sub took 12% on its own work; limit is 10%."
+        },
+        {
+          "type": "LATE_NOTICE",
+          "role": "owner",
+          "detail": "Notice due 2020-05-26 (Memorial Day roll-forward); given 2020-06-01."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-05-26",
+      "why": "Two violations; the notice date rolls past Memorial Day.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0230",
+      "expected_flags": [
+        {
+          "type": "MISSING_BACKUP",
+          "role": "gc",
+          "detail": "Sub quote has no breakdown; 6.3 and Exhibit E require one."
+        },
+        {
+          "type": "TIEOUT",
+          "role": "gc",
+          "detail": "Cover sheet is $950 more than its lines."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-06-15",
+      "why": "Missing breakdown and a tie-out error.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0231",
+      "expected_flags": [
+        {
+          "type": "SUB_MARKUP",
+          "role": "gc",
+          "detail": "Email quote shows 15% OH&P on own work; limit is 10%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-06-29",
+      "why": "Markup over limit, stated only in email text.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0232",
+      "expected_flags": [
+        {
+          "type": "COVERED_COST",
+          "role": "owner",
+          "detail": "J. Park is the CM's project manager; that position is in SGC (Exhibit C) and covered under 5.5."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-07-06",
+      "why": "Covered cost with no job title on the line.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0233",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-07-13",
+      "why": "Clean; 'pickup' is the sub's material delivery, not a CM project truck.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0234",
+      "expected_flags": [
+        {
+          "type": "SUB_MARKUP",
+          "role": "gc",
+          "detail": "8% on lower-tier work in the email quote; 6.5.2 allows 5%."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-07-20",
+      "why": "Lower-tier markup over 5%, in email text.",
+      "tricky": true
+    },
+    {
+      "id": "CP-0235",
+      "expected_flags": [],
+      "expected_route": "APPROVE",
+      "notice_rule": "6.2(a)",
+      "notice_due": "2020-07-27",
+      "why": "Clean email quote at 10% OH&P.",
+      "tricky": false
+    },
+    {
+      "id": "CP-0236",
+      "expected_flags": [
+        {
+          "type": "MISSING_BACKUP",
+          "role": "gc",
+          "detail": "T&M tags signed only by the sub's foreman; 6.5.7 needs the CM superintendent and Owner's Representative."
+        }
+      ],
+      "expected_route": "RETURN",
+      "notice_rule": "6.2(b)",
+      "notice_due": "2020-08-03",
+      "why": "Unacceptable T&M tags, described only in text.",
+      "tricky": true
+    }
+  ]
+}
