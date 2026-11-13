@@ -28,14 +28,14 @@
       <div class="feature">
         <div>
           <span class="label">Thesis claim 3 · target 85%</span>
-          <span class="hero-num" id="d3num">36 CPs</span>
-          <p><strong id="d3line">Four parties, four agents: subcontractor, GC/CM, Architect, Owner's PM.</strong></p>
+          <span class="hero-num" id="d3num">22/33</span>
+          <p><strong id="d3line">Seeded issues caught by the four agents on Llama 3.1 8B (66.7%). Below target; the no-AI checker caught 28/33.</strong></p>
           <a class="button" href="/app/">Open the dashboard →</a>
           <a class="button" href="/demo3/" style="margin-top:8px">Results with evaluation →</a>
         </div>
         <div>
           <p>Each party runs its own agent on every priced change proposal. Each checks it from its own seat, within its own authority, quotes the clause, and hands a message to the next party. Delay claims, site conditions, and amounts over the approval limit always go to a person. Shaped by our interview with an owner-side PM: code does the math, agents judge, and the Owner's agent follows his review order.</p>
-          <p class="note">36 change proposals with 33 seeded issues, including 6 where the sub's quote arrives as email text. Compared with a no-AI rules-and-keywords checker. <a href="https://github.com/sripar2005/info492-team6/tree/main/demo3" target="_blank" rel="noopener">Code, data, and prompts</a></p>
+          <p class="note">36 change proposals with 33 seeded issues, including 6 where the sub's quote arrives as email text. Llama 3.1 8B returned every proposal, clean ones included, and sent none of the 6 escalations to a person. Qwen2.5 7B caught 16/33. Small free models over-flag; code checks stayed reliable. <a href="https://github.com/sripar2005/info492-team6/tree/main/demo3" target="_blank" rel="noopener">Code, data, and prompts</a></p>
         </div>
       </div>
     </div>
