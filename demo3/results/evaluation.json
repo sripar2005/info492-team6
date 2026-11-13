@@ -1,5 +1,877 @@
 {
  "systems": {
+  "local-llama3.1-8b": {
+   "metrics": {
+    "cases": 36,
+    "seeded_issues": 33,
+    "issues_caught": 22,
+    "detection_rate": 0.6666666666666666,
+    "caught_by_responsible_party": 20,
+    "target": 0.85,
+    "meets_target": false,
+    "extra_flags": 189,
+    "clean_cases": 10,
+    "clean_cases_flagged": 10,
+    "route_accuracy": 0.5555555555555556,
+    "routes_right": 20,
+    "escalation_recall": 0.0,
+    "escalation_precision": null,
+    "citation_validity": 0.65625,
+    "quotes": 320,
+    "tricky_right": 0,
+    "tricky_total": 12,
+    "detection_by_type": {
+     "CONCEALED_CONDITION": {
+      "found": 1,
+      "total": 3
+     },
+     "COVERED_COST": {
+      "found": 4,
+      "total": 4
+     },
+     "EQUIPMENT": {
+      "found": 4,
+      "total": 4
+     },
+     "FEE_ON_EXCLUDED": {
+      "found": 0,
+      "total": 4
+     },
+     "FEE_RATE": {
+      "found": 1,
+      "total": 1
+     },
+     "LABOR_BURDEN": {
+      "found": 1,
+      "total": 1
+     },
+     "LATE_NOTICE": {
+      "found": 1,
+      "total": 2
+     },
+     "MISSING_BACKUP": {
+      "found": 2,
+      "total": 3
+     },
+     "NOT_A_CHANGE": {
+      "found": 1,
+      "total": 1
+     },
+     "OVER_AUTHORITY": {
+      "found": 0,
+      "total": 1
+     },
+     "SUB_MARKUP": {
+      "found": 4,
+      "total": 5
+     },
+     "TIEOUT": {
+      "found": 2,
+      "total": 2
+     },
+     "TIME_IMPACT": {
+      "found": 1,
+      "total": 2
+     }
+    },
+    "route_confusion": {
+     "APPROVE->RETURN": 10,
+     "ESCALATE->RETURN": 6,
+     "RETURN->RETURN": 20
+    }
+   },
+   "trace": [
+    {
+     "id": "CP-0201",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Markups, Fee, and notice all within the contract."
+    },
+    {
+     "id": "CP-0202",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "FEE_RATE",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "The ASI adds rated hardware not in the spec; notice was on time and pricing follows 6.5."
+    },
+    {
+     "id": "CP-0203",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Sub took 10% on its own work and 5% on the lower-tier, within 6.5.2."
+    },
+    {
+     "id": "CP-0204",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Deductive change; Fee is reduced at the same 5% rate, as 6.5.3 requires."
+    },
+    {
+     "id": "CP-0205",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Comment changes cost; notice under 6.2(a) via 8.3 on time; rented equipment at invoice."
+    },
+    {
+     "id": "CP-0206",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Signed T&M tags; mentions of 'superintendent' and 'crane' are not charges."
+    },
+    {
+     "id": "CP-0207",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Labor carries the 32% burden; owned equipment at 75% of Blue Book for logged hours."
+    },
+    {
+     "id": "CP-0208",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "FEE_RATE",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Permit, bond, and B&O tax are included at cost with no Fee, as 6.5.3 requires."
+    },
+    {
+     "id": "CP-0209",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "SUB_MARKUP"
+     ],
+     "caught": [],
+     "missed": [
+      "SUB_MARKUP"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "FEE_ON_EXCLUDED",
+      "FEE_RATE",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Sub markup over the 10% limit."
+    },
+    {
+     "id": "CP-0210",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "SUB_MARKUP"
+     ],
+     "caught": [
+      "SUB_MARKUP"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Lower-tier markup over 5%."
+    },
+    {
+     "id": "CP-0211",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "FEE_ON_EXCLUDED"
+     ],
+     "caught": [],
+     "missed": [
+      "FEE_ON_EXCLUDED"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "FEE_RATE",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Fee on excluded items."
+    },
+    {
+     "id": "CP-0212",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "FEE_ON_EXCLUDED",
+      "CONCEALED_CONDITION"
+     ],
+     "caught": [],
+     "missed": [
+      "FEE_ON_EXCLUDED",
+      "CONCEALED_CONDITION"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Webster-type finding: Fee on NSS. Concealed condition also needs a person's review."
+    },
+    {
+     "id": "CP-0213",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "FEE_RATE"
+     ],
+     "caught": [
+      "FEE_RATE"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Fee rate above contract."
+    },
+    {
+     "id": "CP-0214",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "COVERED_COST"
+     ],
+     "caught": [
+      "COVERED_COST"
+     ],
+     "missed": [],
+     "extra": [
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Costs covered by the Fee."
+    },
+    {
+     "id": "CP-0215",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "COVERED_COST"
+     ],
+     "caught": [
+      "COVERED_COST"
+     ],
+     "missed": [],
+     "extra": [
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Covered cost described without the word 'superintendent' on the line."
+    },
+    {
+     "id": "CP-0216",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "EQUIPMENT"
+     ],
+     "caught": [
+      "EQUIPMENT"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Equipment that SGC already covers."
+    },
+    {
+     "id": "CP-0217",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "EQUIPMENT",
+      "CONCEALED_CONDITION"
+     ],
+     "caught": [
+      "EQUIPMENT",
+      "CONCEALED_CONDITION"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "LABOR_BURDEN",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Owned-equipment rate over 75% of Blue Book; concealed condition needs review."
+    },
+    {
+     "id": "CP-0218",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "EQUIPMENT"
+     ],
+     "caught": [
+      "EQUIPMENT"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "LABOR_BURDEN",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Hoisting charged separately although it is NSS."
+    },
+    {
+     "id": "CP-0219",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "LABOR_BURDEN"
+     ],
+     "caught": [
+      "LABOR_BURDEN"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Wrong labor burden."
+    },
+    {
+     "id": "CP-0220",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "TIEOUT"
+     ],
+     "caught": [
+      "TIEOUT"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Cover sheet does not tie out."
+    },
+    {
+     "id": "CP-0221",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "MISSING_BACKUP"
+     ],
+     "caught": [
+      "MISSING_BACKUP"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Unsigned T&M tags."
+    },
+    {
+     "id": "CP-0222",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "LATE_NOTICE"
+     ],
+     "caught": [
+      "LATE_NOTICE"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Late notice."
+    },
+    {
+     "id": "CP-0223",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "NOT_A_CHANGE"
+     ],
+     "caught": [
+      "NOT_A_CHANGE"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Work already in the Contract Documents."
+    },
+    {
+     "id": "CP-0224",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "TIME_IMPACT"
+     ],
+     "caught": [
+      "TIME_IMPACT"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Priced correctly, but a delay claim needs the owner's PM to judge the critical path."
+    },
+    {
+     "id": "CP-0225",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "CONCEALED_CONDITION"
+     ],
+     "caught": [],
+     "missed": [
+      "CONCEALED_CONDITION"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Correctly priced, but site conditions need a person's review."
+    },
+    {
+     "id": "CP-0226",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "OVER_AUTHORITY"
+     ],
+     "caught": [],
+     "missed": [
+      "OVER_AUTHORITY"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "NOT_A_CHANGE",
+      "TIME_IMPACT"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Above the Owner's Representative's approval limit."
+    },
+    {
+     "id": "CP-0227",
+     "expected_route": "ESCALATE",
+     "route": "RETURN",
+     "expected": [
+      "TIME_IMPACT",
+      "FEE_ON_EXCLUDED"
+     ],
+     "caught": [],
+     "missed": [
+      "TIME_IMPACT",
+      "FEE_ON_EXCLUDED"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "FEE_RATE",
+      "LABOR_BURDEN",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Fee on SGC plus a delay claim."
+    },
+    {
+     "id": "CP-0228",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "FEE_ON_EXCLUDED",
+      "EQUIPMENT",
+      "COVERED_COST"
+     ],
+     "caught": [
+      "EQUIPMENT",
+      "COVERED_COST"
+     ],
+     "missed": [
+      "FEE_ON_EXCLUDED"
+     ],
+     "extra": [
+      "FEE_RATE",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP",
+      "TIEOUT"
+     ],
+     "outcome": "missed issue",
+     "tricky": false,
+     "why": "Three Webster-type findings in one CP."
+    },
+    {
+     "id": "CP-0229",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "SUB_MARKUP",
+      "LATE_NOTICE"
+     ],
+     "caught": [
+      "SUB_MARKUP"
+     ],
+     "missed": [
+      "LATE_NOTICE"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "missed issue",
+     "tricky": true,
+     "why": "Two violations; the notice date rolls past Memorial Day."
+    },
+    {
+     "id": "CP-0230",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "MISSING_BACKUP",
+      "TIEOUT"
+     ],
+     "caught": [
+      "MISSING_BACKUP",
+      "TIEOUT"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "LATE_NOTICE",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Missing breakdown and a tie-out error."
+    },
+    {
+     "id": "CP-0231",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "SUB_MARKUP"
+     ],
+     "caught": [
+      "SUB_MARKUP"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Markup over limit, stated only in email text."
+    },
+    {
+     "id": "CP-0232",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "COVERED_COST"
+     ],
+     "caught": [
+      "COVERED_COST"
+     ],
+     "missed": [],
+     "extra": [
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Covered cost with no job title on the line."
+    },
+    {
+     "id": "CP-0233",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Clean; 'pickup' is the sub's material delivery, not a CM project truck."
+    },
+    {
+     "id": "CP-0234",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "SUB_MARKUP"
+     ],
+     "caught": [
+      "SUB_MARKUP"
+     ],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "TIEOUT",
+      "TIME_IMPACT"
+     ],
+     "outcome": "false alarm",
+     "tricky": true,
+     "why": "Lower-tier markup over 5%, in email text."
+    },
+    {
+     "id": "CP-0235",
+     "expected_route": "APPROVE",
+     "route": "RETURN",
+     "expected": [],
+     "caught": [],
+     "missed": [],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "MISSING_BACKUP",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP",
+      "TIEOUT"
+     ],
+     "outcome": "false alarm",
+     "tricky": false,
+     "why": "Clean email quote at 10% OH&P."
+    },
+    {
+     "id": "CP-0236",
+     "expected_route": "RETURN",
+     "route": "RETURN",
+     "expected": [
+      "MISSING_BACKUP"
+     ],
+     "caught": [],
+     "missed": [
+      "MISSING_BACKUP"
+     ],
+     "extra": [
+      "COVERED_COST",
+      "EQUIPMENT",
+      "LABOR_BURDEN",
+      "NOT_A_CHANGE",
+      "SUB_MARKUP"
+     ],
+     "outcome": "missed issue",
+     "tricky": true,
+     "why": "Unacceptable T&M tags, described only in text."
+    }
+   ],
+   "meta": {
+    "backend": "ollama",
+    "model": "llama3.1:8b",
+    "created": "2026-11-12T23:06:53+00:00",
+    "cases": 36,
+    "agent_calls": 140,
+    "input_tokens": 1547927,
+    "output_tokens": 37534,
+    "cached_calls": 0,
+    "prompt_sha256": "3ed699ffc8aac14b",
+    "shards": 12
+   }
+  },
   "local-qwen2.5-7b": {
    "metrics": {
     "cases": 36,
