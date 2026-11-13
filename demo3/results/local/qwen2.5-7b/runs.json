@@ -1,0 +1,3558 @@
+{
+ "meta": {
+  "backend": "ollama",
+  "model": "qwen2.5:7b",
+  "created": "2026-11-12T22:46:00+00:00",
+  "cases": 36,
+  "agent_calls": 140,
+  "input_tokens": 1642696,
+  "output_tokens": 21160,
+  "cached_calls": 0,
+  "prompt_sha256": "3ed699ffc8aac14b",
+  "shards": 9
+ },
+ "results": [
+  {
+   "id": "CP-0201",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0201-1-sub",
+     "cp": "CP-0201",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:03:01+00:00"
+    },
+    {
+     "envelope_id": "CP-0201-2-gc",
+     "cp": "CP-0201",
+     "prev_envelope_id": "CP-0201-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and adheres to the contract rules.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:05:39+00:00"
+    },
+    {
+     "envelope_id": "CP-0201-3-architect",
+     "cp": "CP-0201",
+     "prev_envelope_id": "CP-0201-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for adding overflow roof drains at the gym roof is a change from the Contract Documents as it adds work not previously specified.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:06:25+00:00"
+    },
+    {
+     "envelope_id": "CP-0201-4-owner",
+     "cp": "CP-0201",
+     "prev_envelope_id": "CP-0201-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the gym roof drains complies with the contract and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:07:18+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46856,
+    "output_tokens": 192
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0202",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0202-1-sub",
+     "cp": "CP-0202",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:08:52+00:00"
+    },
+    {
+     "envelope_id": "CP-0202-2-gc",
+     "cp": "CP-0202",
+     "prev_envelope_id": "CP-0202-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:11:21+00:00"
+    },
+    {
+     "envelope_id": "CP-0202-3-architect",
+     "cp": "CP-0202",
+     "prev_envelope_id": "CP-0202-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for fire-rated door hardware per ASI-014 is a change from the Contract Documents as it modifies the standard hardware sets to 90-minute assemblies with fire-rated hardware.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:12:12+00:00"
+    },
+    {
+     "envelope_id": "CP-0202-4-owner",
+     "cp": "CP-0202",
+     "prev_envelope_id": "CP-0202-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The subcontractor markup on the direct costs and subcontractor quotes is included in the CP, which is not chargeable.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is included in the subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving an RFI response, ASI, or submittal return it believes changes cost or time.",
+       "explanation": "The notice was given on 2020-03-06, which is 4 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are not chargeable and the Fee is applied incorrectly. The notice was late, and the labor burden is included in the subcontractor quotes.",
+     "escalation_reason": "The late notice and the incorrect application of the Fee require personal judgment by the Owner's Representative. The covered costs need to be reviewed by a person with authority.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:15:41+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46728,
+    "output_tokens": 573
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0203",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0203-1-sub",
+     "cp": "CP-0203",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:17:15+00:00"
+    },
+    {
+     "envelope_id": "CP-0203-2-gc",
+     "cp": "CP-0203",
+     "prev_envelope_id": "CP-0203-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:19:48+00:00"
+    },
+    {
+     "envelope_id": "CP-0203-3-architect",
+     "cp": "CP-0203",
+     "prev_envelope_id": "CP-0203-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the additional data drops in the library is a change from the Contract Documents as it adds work not previously specified.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:20:30+00:00"
+    },
+    {
+     "envelope_id": "CP-0203-4-owner",
+     "cp": "CP-0203",
+     "prev_envelope_id": "CP-0203-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee rate on the change is 5%, which is within the contract limits.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The subcontractor quotes include a markup of 10% on its own direct cost and 5% on the lower-tier subcontractor's cost, which is not chargeable under the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The subcontractor quotes include a labor burden of 6.72% on its own direct cost, which is not chargeable under the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quotes are attached, but there are no signed T&M tags for the time-and-material work.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The cover sheet and subcontractor quotes do not add up to the total requested amount of $12,317.76.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes markup and labor burden that are not chargeable under the contract, and the cover sheet and subcontractor quotes do not add up. The T&M tags are missing, and the total requested amount does not match the sum of the cover lines and subcontractor quotes.",
+     "escalation_reason": "The CP includes markup and labor burden that are not chargeable under the contract, and the cover sheet and subcontractor quotes do not add up. The T&M tags are missing, and the total requested amount does not match the sum of the cover lines and subcontractor quotes. These issues require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:24:57+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46842,
+    "output_tokens": 689
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0204",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0204-1-sub",
+     "cp": "CP-0204",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract rules and does not require any changes.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:26:30+00:00"
+    },
+    {
+     "envelope_id": "CP-0204-2-gc",
+     "cp": "CP-0204",
+     "prev_envelope_id": "CP-0204-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No flags are raised.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:28:56+00:00"
+    },
+    {
+     "envelope_id": "CP-0204-3-architect",
+     "cp": "CP-0204",
+     "prev_envelope_id": "CP-0204-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for deleting the covered walkway canopy at the bus loop is a change from the Contract Documents. The narrative and scope context support the change, and the cause document (Owner letter 2020-05-04) is provided.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:29:48+00:00"
+    },
+    {
+     "envelope_id": "CP-0204-4-owner",
+     "cp": "CP-0204",
+     "prev_envelope_id": "CP-0204-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The Fee is applied to subcontractor quotes, which are covered by the Fee and should not be charged separately.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The Fee is applied to subcontractor quotes, which are already covered by the Fee. Additionally, the Fee rate is applied to both CM direct costs and subcontractor quotes, which is not allowed.",
+     "escalation_reason": "The Owner's Representative must judge the application of the Fee rate and the exclusion of covered costs.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:31:59+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46718,
+    "output_tokens": 404
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0205",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0205-1-sub",
+     "cp": "CP-0205",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:27:57+00:00"
+    },
+    {
+     "envelope_id": "CP-0205-2-gc",
+     "cp": "CP-0205",
+     "prev_envelope_id": "CP-0205-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:29:46+00:00"
+    },
+    {
+     "envelope_id": "CP-0205-3-architect",
+     "cp": "CP-0205",
+     "prev_envelope_id": "CP-0205-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for heavier stud gauge per submittal return is a change from the Contract Documents as it requires 18-gauge studs at the gym, which is not allowed by the spec for interior partitions up to 14 feet.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:30:26+00:00"
+    },
+    {
+     "envelope_id": "CP-0205-4-owner",
+     "cp": "CP-0205",
+     "prev_envelope_id": "CP-0205-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in line with the contract and does not require any adjustments.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:31:01+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47164,
+    "output_tokens": 204
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0206",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0206-1-sub",
+     "cp": "CP-0206",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract rules and is ready for submission.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:32:26+00:00"
+    },
+    {
+     "envelope_id": "CP-0206-2-gc",
+     "cp": "CP-0206",
+     "prev_envelope_id": "CP-0206-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and adheres to the contract rules. All required backup is attached, and the cover sheet ties out.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:34:30+00:00"
+    },
+    {
+     "envelope_id": "CP-0206-3-architect",
+     "cp": "CP-0206",
+     "prev_envelope_id": "CP-0206-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The priced work for the hallway ceiling access panels is a change from the Contract Documents as the scope context indicates no access panels are shown in the corridors, and the RFI response adds them.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:35:06+00:00"
+    },
+    {
+     "envelope_id": "CP-0206-4-owner",
+     "cp": "CP-0206",
+     "prev_envelope_id": "CP-0206-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and does not require any action from the Owner's Representative.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:35:43+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47782,
+    "output_tokens": 206
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0207",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0207-1-sub",
+     "cp": "CP-0207",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "No subcontractor pricing in this CP; the CM self-performed the work.",
+     "escalation_reason": null,
+     "model": "none (no subcontractor quote)",
+     "created": "2026-11-12T22:35:43+00:00",
+     "skipped": true
+    },
+    {
+     "envelope_id": "CP-0207-2-gc",
+     "cp": "CP-0207",
+     "prev_envelope_id": "CP-0207-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:37:35+00:00"
+    },
+    {
+     "envelope_id": "CP-0207-3-architect",
+     "cp": "CP-0207",
+     "prev_envelope_id": "CP-0207-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the self-performed generator pad is a change from the Contract Documents as it adds a concrete pad for the emergency generator, which is not shown in Drawing E-001.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:38:14+00:00"
+    },
+    {
+     "envelope_id": "CP-0207-4-owner",
+     "cp": "CP-0207",
+     "prev_envelope_id": "CP-0207-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 32% is applied to CM's own labor, which is not allowed by the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change. No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees.",
+       "explanation": "The Fee is applied to CM's own labor, which is not chargeable under the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The labor burden is for CM's own labor, which is already covered by the Fee and not separately chargeable.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work",
+       "explanation": "There are no subcontractor quotes or signed T&M tags attached, which are required by the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time",
+       "explanation": "The notice was given on 2020-06-18, which is 3 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes issues with labor burden, Fee application, covered costs, missing backup, and late notice. Please address these before resubmitting.",
+     "escalation_reason": "The labor burden and Fee application are outside the contract's rules, and the notice was late. These require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:41:44+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 35765,
+    "output_tokens": 644
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0208",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0208-1-sub",
+     "cp": "CP-0208",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:42:47+00:00"
+    },
+    {
+     "envelope_id": "CP-0208-2-gc",
+     "cp": "CP-0208",
+     "prev_envelope_id": "CP-0208-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in compliance with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:44:45+00:00"
+    },
+    {
+     "envelope_id": "CP-0208-3-architect",
+     "cp": "CP-0208",
+     "prev_envelope_id": "CP-0208-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added fire sprinkler heads at the stage rigging is a change from the Contract Documents as per ASI-022. The narrative and subcontractor quotes support the change.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:45:23+00:00"
+    },
+    {
+     "envelope_id": "CP-0208-4-owner",
+     "cp": "CP-0208",
+     "prev_envelope_id": "CP-0208-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and does not require any action from the Owner's Representative.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:46:00+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47329,
+    "output_tokens": 200
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0209",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0209-1-sub",
+     "cp": "CP-0209",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:27:11+00:00"
+    },
+    {
+     "envelope_id": "CP-0209-2-gc",
+     "cp": "CP-0209",
+     "prev_envelope_id": "CP-0209-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:29:48+00:00"
+    },
+    {
+     "envelope_id": "CP-0209-3-architect",
+     "cp": "CP-0209",
+     "prev_envelope_id": "CP-0209-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added floor drains in the kitchen is a change from the Contract Documents as it is based on an RFI response and the scope context matches the drawings.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:30:42+00:00"
+    },
+    {
+     "envelope_id": "CP-0209-4-owner",
+     "cp": "CP-0209",
+     "prev_envelope_id": "CP-0209-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added floor drains in the kitchen complies with the contract and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:31:38+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46815,
+    "output_tokens": 195
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0210",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0210-1-sub",
+     "cp": "CP-0210",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor's markup and breakdown are within the contract limits and the numbers add up.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:33:18+00:00"
+    },
+    {
+     "envelope_id": "CP-0210-2-gc",
+     "cp": "CP-0210",
+     "prev_envelope_id": "CP-0210-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:35:52+00:00"
+    },
+    {
+     "envelope_id": "CP-0210-3-architect",
+     "cp": "CP-0210",
+     "prev_envelope_id": "CP-0210-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for classroom smartboard backing and power is a change from the Contract Documents as it involves additional electrical work not shown in the drawings.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:36:38+00:00"
+    },
+    {
+     "envelope_id": "CP-0210-4-owner",
+     "cp": "CP-0210",
+     "prev_envelope_id": "CP-0210-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CM's Fee is applied to the subcontractor quotes, which are already covered by the Fee or SGC.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is included in the subcontractor quotes, which are already marked up by the CM's Fee.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving a written or oral direction from Owner or Architect that CM believes is a change.",
+       "explanation": "The notice was given on 2020-07-23, which is 4 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes issues with the Fee rate, covered costs, labor burden, and late notice. Please review and address these before resubmitting.",
+     "escalation_reason": "The late notice and the application of the Fee to subcontractor quotes are above the authority of the Owner's Representative and require personal judgment.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:40:53+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46827,
+    "output_tokens": 609
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0211",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0211-1-sub",
+     "cp": "CP-0211",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "E029 (fee_exclusion; sec 5.2)",
+       "quote": "No Fee is added to SGC.",
+       "explanation": "The CP includes a 5% Fee on the subcontractor's direct costs, which is not allowed as per the contract.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The CP includes a 5% Fee on the subcontractor's direct costs, which is not allowed as per the contract.",
+     "escalation_reason": "The subcontractor's markup exceeds the contract limits and must be corrected before submission.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:43:17+00:00"
+    },
+    {
+     "envelope_id": "CP-0211-2-gc",
+     "cp": "CP-0211",
+     "prev_envelope_id": "CP-0211-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "No Fee is added to bond and insurance premiums, B&O taxes, or permit fees.",
+       "explanation": "The CP includes a Fee on bond and insurance premiums and B&O tax, which are excluded from the Fee.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP must include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The CP does not include signed T&M tags, which are required for time-and-material work.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes a Fee on bond and insurance premiums and B&O tax, which are excluded from the Fee. Additionally, signed T&M tags are missing for the time-and-material work.",
+     "escalation_reason": "The CM Project Manager must decide whether to include the Fee on bond and insurance premiums and B&O tax, and ensure that the T&M tags are provided.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:47:49+00:00"
+    },
+    {
+     "envelope_id": "CP-0211-3-architect",
+     "cp": "CP-0211",
+     "prev_envelope_id": "CP-0211-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added exterior lighting at the staff lot is a change from the Contract Documents as it is not shown in Drawing E-100 and is supported by the Owner's direction.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:48:45+00:00"
+    },
+    {
+     "envelope_id": "CP-0211-4-owner",
+     "cp": "CP-0211",
+     "prev_envelope_id": "CP-0211-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "E063, E064, E065, E066, E067, E068, E069, E070, E071, E072, E079",
+       "quote": "No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees.",
+       "explanation": "The CP includes a Fee on bond and insurance premiums, B&O tax, and CM direct costs, which are not chargeable under the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "E034, E035, E036",
+       "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes a Fee on CM labor, which is already covered by the Fee and should not be billed separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "E032",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The CP includes a labor burden of 5% on the subcontractor's direct cost, which is not allowed under the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "E052, E053, E054",
+       "quote": "give a breakdown of labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee",
+       "explanation": "The subcontractor quotes do not include a breakdown of labor hours and rates, materials, equipment, and subcontractor pricing.",
+       "quote_verified": true
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "E043, E044, E045, E046",
+       "quote": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time",
+       "explanation": "The notice was given on 2020-08-06, which is 3 days late for an RFI response received on 2020-08-03.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The CP includes several issues that need to be addressed before it can be approved. Please review and provide the necessary backup and ensure compliance with the contract terms.",
+     "escalation_reason": "The CP includes costs that are not chargeable under the contract and a late notice, which requires personal judgment from the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:54:27+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47173,
+    "output_tokens": 1089
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0212",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0212-1-sub",
+     "cp": "CP-0212",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to the haul-off cost, which is already covered by the SGC.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The Fee is applied to the haul-off cost, which is already covered by the SGC.",
+     "escalation_reason": "The CM's Fee on the haul-off cost needs to be reviewed and potentially removed as it is already covered by the SGC.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:56:53+00:00"
+    },
+    {
+     "envelope_id": "CP-0212-2-gc",
+     "cp": "CP-0212",
+     "prev_envelope_id": "CP-0212-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E060, E061, E062",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work is 10%, which is within the allowed limit. However, the total markup on the work (10% + 0%) is 10%, which is below the 15% cap. The markup on the lower-tier subcontractor's work is not applicable here as there is no lower-tier work involved.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "E053, E059",
+       "quote": "Each CP must include subcontractor quotes and signed T&M tags for any time-and-material work. The cover sheet must tie out and show all required items.",
+       "explanation": "The CP does not include T&M tags, which are required for time-and-material work. Additionally, the cover sheet does not show the total requested amount correctly, as it does not include the T&M tags in the breakdown.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The subcontractor's markup is within the allowed limits, but the CP is missing T&M tags and the cover sheet does not fully tie out. Please add the T&M tags and ensure the cover sheet is complete.",
+     "escalation_reason": "The CM Project Manager must review and approve the CP before it can be submitted to the Architect and Owner.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-13T00:02:20+00:00"
+    },
+    {
+     "envelope_id": "CP-0212-3-architect",
+     "cp": "CP-0212",
+     "prev_envelope_id": "CP-0212-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The extra haul-off for abatement debris is a change from the Contract Documents as it involves a concealed condition not previously identified.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-13T00:03:06+00:00"
+    },
+    {
+     "envelope_id": "CP-0212-4-owner",
+     "cp": "CP-0212",
+     "prev_envelope_id": "CP-0212-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to the NSS items, which are excluded from the Fee in the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The additional dumpsters and haul-off (NSS) are already covered by the Fee and should not be billed separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(c)",
+       "quote": "notice must be given before disturbing the condition, and no later than 7 days after first observing it.",
+       "explanation": "The notice was given on 2020-08-10, but the event date was 2020-08-10, which means the notice was given on the same day as the event, not before.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes a Fee on NSS items, which are excluded from the Fee, and the additional dumpsters and haul-off are already covered by the Fee. The notice was given on the same day as the event, which is late. Please address these issues before resubmitting.",
+     "escalation_reason": "The time impact and concealed condition claims require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-13T00:06:35+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46988,
+    "output_tokens": 944
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0213",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0213-1-sub",
+     "cp": "CP-0213",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E062 (cap; sec 6.5.2)",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work exceeds the 10% limit, with a total markup of 10.0%.",
+       "quote_verified": true
+      }
+     ],
+     "message": "Subcontractor's markup on own work exceeds the 10% limit.",
+     "escalation_reason": "The subcontractor's markup on its own work needs to be adjusted to comply with the contract limits.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:20:50+00:00"
+    },
+    {
+     "envelope_id": "CP-0213-2-gc",
+     "cp": "CP-0213",
+     "prev_envelope_id": "CP-0213-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues found.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:22:29+00:00"
+    },
+    {
+     "envelope_id": "CP-0213-3-architect",
+     "cp": "CP-0213",
+     "prev_envelope_id": "CP-0213-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "gc",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6.1, Section 01 26 00",
+       "quote": "Change Order (CO): a written instrument signed by Owner, Architect, and CM that adjusts the GMP, the Contract Time, or both.",
+       "explanation": "The scope context indicates that the padding on the north wall is already included in the specifications (Spec 11 66 23). The additional padding on the south wall is not described in the cause document or the narrative, and the scope context suggests it is not part of the original contract documents.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The CP for adding gym wall padding on the south wall is not a change from the Contract Documents. The north wall padding is already included, and the south wall padding is not described in the cause document or the narrative.",
+     "escalation_reason": "The Architect must confirm the scope and quantities of the additional padding work to ensure it is a change from the original contract documents.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:24:14+00:00"
+    },
+    {
+     "envelope_id": "CP-0213-4-owner",
+     "cp": "CP-0213",
+     "prev_envelope_id": "CP-0213-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The CP applies a 7.5% Fee to both CM direct costs and subcontractor quotes, which exceeds the contract limit of 5%.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CP includes a $744.98 Fee, which is already covered by the Fee or SGC and should not be billed separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The CM direct costs are zero, yet the CP includes a labor burden of $744.98, which is not allowed for zero direct costs.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The CP does not include any T&M tags, which are required for time-and-material work.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return it believes changes cost or time.",
+       "explanation": "The notice was given on 2020-08-20, which is 4 days late (notice due on 2020-08-24).",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP has several issues that need to be addressed before it can be approved.",
+     "escalation_reason": "The Fee rate and the late notice require personal judgment from the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:28:15+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46628,
+    "output_tokens": 1037
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0214",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0214-1-sub",
+     "cp": "CP-0214",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:29:19+00:00"
+    },
+    {
+     "envelope_id": "CP-0214-2-gc",
+     "cp": "CP-0214",
+     "prev_envelope_id": "CP-0214-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:31:22+00:00"
+    },
+    {
+     "envelope_id": "CP-0214-3-architect",
+     "cp": "CP-0214",
+     "prev_envelope_id": "CP-0214-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for revised casework per ASI-031 is a change from the Contract Documents. The narrative and scope context support the change, and the subcontractor quotes are consistent with the markup rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:32:03+00:00"
+    },
+    {
+     "envelope_id": "CP-0214-4-owner",
+     "cp": "CP-0214",
+     "prev_envelope_id": "CP-0214-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and does not require any further action from the Owner's Representative.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:32:45+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47361,
+    "output_tokens": 202
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0215",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0215-1-sub",
+     "cp": "CP-0215",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:33:51+00:00"
+    },
+    {
+     "envelope_id": "CP-0215-2-gc",
+     "cp": "CP-0215",
+     "prev_envelope_id": "CP-0215-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and adheres to the contract rules. No issues were found.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:35:44+00:00"
+    },
+    {
+     "envelope_id": "CP-0215-3-architect",
+     "cp": "CP-0215",
+     "prev_envelope_id": "CP-0215-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for stair nosing replacement per RFI-152 is a change from the Contract Documents. The RFI response and the scope context support the change.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:36:23+00:00"
+    },
+    {
+     "envelope_id": "CP-0215-4-owner",
+     "cp": "CP-0215",
+     "prev_envelope_id": "CP-0215-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for stair nosing replacement per RFI-152 follows the contract rules and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:37:07+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47062,
+    "output_tokens": 202
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0216",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0216-1-sub",
+     "cp": "CP-0216",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:38:13+00:00"
+    },
+    {
+     "envelope_id": "CP-0216-2-gc",
+     "cp": "CP-0216",
+     "prev_envelope_id": "CP-0216-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:40:10+00:00"
+    },
+    {
+     "envelope_id": "CP-0216-3-architect",
+     "cp": "CP-0216",
+     "prev_envelope_id": "CP-0216-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the bleacher anchor revisions is a change from the Contract Documents as it modifies the type of anchor from wedge to epoxy, which is not specified in the original scope.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:40:50+00:00"
+    },
+    {
+     "envelope_id": "CP-0216-4-owner",
+     "cp": "CP-0216",
+     "prev_envelope_id": "CP-0216-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to CM direct costs and subcontractor quotes, which is correct.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The Fee is applied to CM direct costs and subcontractor quotes, which are not in Section 5.5.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is charged at 21.0, which is 75% of the Blue Book rate, not the fixed 32% burden.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quotes are present, but there are no T&M tags attached.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The cover sheet shows a total requested of $3835.86, but the sum of the cover lines is $3835.86, with no difference.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP has issues with the Fee rate, application of the Fee, labor burden, missing T&M tags, and a tie-out check. Please review and address these before resubmitting.",
+     "escalation_reason": "The CP includes a Fee on excluded costs and applies the labor burden incorrectly, which requires a person to judge the correctness of the application of the Fee and the labor burden. The missing T&M tags and tie-out check need to be addressed.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:44:23+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47061,
+    "output_tokens": 666
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0217",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0217-1-sub",
+     "cp": "CP-0217",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "No subcontractor pricing in this CP; the CM self-performed the work.",
+     "escalation_reason": null,
+     "model": "none (no subcontractor quote)",
+     "created": "2026-11-12T21:51:04+00:00",
+     "skipped": true
+    },
+    {
+     "envelope_id": "CP-0217-2-gc",
+     "cp": "CP-0217",
+     "prev_envelope_id": "CP-0217-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T21:57:43+00:00"
+    },
+    {
+     "envelope_id": "CP-0217-3-architect",
+     "cp": "CP-0217",
+     "prev_envelope_id": "CP-0217-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The storm line reroute at the playfield is a change from the Contract Documents as it involves an abandoned concrete vault not shown in the civil drawings.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T21:58:07+00:00"
+    },
+    {
+     "envelope_id": "CP-0217-4-owner",
+     "cp": "CP-0217",
+     "prev_envelope_id": "CP-0217-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 32% is applied to both operator and laborer, which is within the contract's fixed rate.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "No Fee is added to NSS, SGC adjustments, bond and insurance premiums, B&O taxes, or permit fees",
+       "explanation": "The Fee of $380.61 is applied to CM direct costs and subcontractor quotes, which are not excluded from the Fee.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work",
+       "explanation": "The CP does not include subcontractor quotes or signed T&M tags, which are required for time-and-material work.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work",
+       "explanation": "The cover sheet does not include the amounts for subcontractor quotes and T&M tags, which should be included in the total requested.",
+       "quote_verified": false
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "quote": "For concealed or unknown physical conditions, notice must be given before disturbing the condition and no later than 7 days after first observing it",
+       "explanation": "The notice was given on 2020-10-05, but the work was performed on 2020-10-19, which is 14 days after the first observation of the condition on 2020-10-05.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes a labor burden, Fee application, and notice timing issues. It also lacks required subcontractor quotes and T&M tags. Please address these issues before resubmitting.",
+     "escalation_reason": "The notice was given after the required 7 days, and the CP lacks required backup. These issues require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:00:51+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 35744,
+    "output_tokens": 650
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0218",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0218-1-sub",
+     "cp": "CP-0218",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:01:26+00:00"
+    },
+    {
+     "envelope_id": "CP-0218-2-gc",
+     "cp": "CP-0218",
+     "prev_envelope_id": "CP-0218-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:02:27+00:00"
+    },
+    {
+     "envelope_id": "CP-0218-3-architect",
+     "cp": "CP-0218",
+     "prev_envelope_id": "CP-0218-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for curb adapters per RFI-166 is a change from the Contract Documents as it adds new work not previously required.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:02:52+00:00"
+    },
+    {
+     "envelope_id": "CP-0218-4-owner",
+     "cp": "CP-0218",
+     "prev_envelope_id": "CP-0218-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:03:15+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46968,
+    "output_tokens": 188
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0219",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0219-1-sub",
+     "cp": "CP-0219",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:03:50+00:00"
+    },
+    {
+     "envelope_id": "CP-0219-2-gc",
+     "cp": "CP-0219",
+     "prev_envelope_id": "CP-0219-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:04:51+00:00"
+    },
+    {
+     "envelope_id": "CP-0219-3-architect",
+     "cp": "CP-0219",
+     "prev_envelope_id": "CP-0219-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added classroom sinks per ASI-036 is a change from the Contract Documents. The narrative and scope context support the change.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:05:14+00:00"
+    },
+    {
+     "envelope_id": "CP-0219-4-owner",
+     "cp": "CP-0219",
+     "prev_envelope_id": "CP-0219-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The labor burden of 45% on the CM's own work is charged, which is already covered by the Fee.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 45% on the CM's own work is higher than the contract's fixed rate of 32%.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work",
+       "explanation": "The subcontractor quotes do not include T&M tags, which are required.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time",
+       "explanation": "The notice was given on 2020-10-22, which is 3 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes issues with the Fee rate, covered costs, labor burden, missing backup, and late notice. Please review and address these concerns.",
+     "escalation_reason": "The issues with the Fee rate, covered costs, and labor burden require a higher authority to resolve. The late notice and missing backup need to be addressed before proceeding.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:07:33+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46967,
+    "output_tokens": 644
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0220",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0220-1-sub",
+     "cp": "CP-0220",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E062 (cap; sec 6.5.2)",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work exceeds the 10% limit, with a total markup of 10.0%.",
+       "quote_verified": true
+      }
+     ],
+     "message": "Subcontractor's markup on own work exceeds the 10% limit.",
+     "escalation_reason": "The subcontractor's markup on its own work exceeds the 10% limit, and a person must decide if this can be adjusted.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:08:45+00:00"
+    },
+    {
+     "envelope_id": "CP-0220-2-gc",
+     "cp": "CP-0220",
+     "prev_envelope_id": "CP-0220-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "TIEOUT",
+       "section": "6.5.7",
+       "quote": "The cover sheet or a quote does not add up.",
+       "explanation": "The cover sheet total requested ($15,100.40) is higher than the sum of its lines ($13,300.40).",
+       "quote_verified": false
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CP includes a Fee of $633.35, which is applied to CM direct costs and subcontractor quotes, both of which are already covered by the Fee or SGC.",
+       "quote_verified": true
+      }
+     ],
+     "message": "Please correct the cover sheet total and remove the Fee applied to CM direct costs and subcontractor quotes.",
+     "escalation_reason": "The CM Project Manager must review and approve the corrected CP before submission.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:10:42+00:00"
+    },
+    {
+     "envelope_id": "CP-0220-3-architect",
+     "cp": "CP-0220",
+     "prev_envelope_id": "CP-0220-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "gc",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6.1, Section 01 26 00",
+       "quote": "Change Order (CO): a written instrument signed by Owner, Architect, and CM that adjusts the GMP, the Contract Time, or both.",
+       "explanation": "The work described in the CP is already required by the Contract Documents, as Spec 08 80 00 has clear glazing with no film.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The work to add solar film at the south classrooms is already required by the Contract Documents. The scope context and the specification clearly indicate that the glazing should have clear glass without film.",
+     "escalation_reason": "No further action required as the work is already covered by the Contract Documents.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:11:36+00:00"
+    },
+    {
+     "envelope_id": "CP-0220-4-owner",
+     "cp": "CP-0220",
+     "prev_envelope_id": "CP-0220-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "TIEOUT",
+       "section": "6.5.7",
+       "quote": "The cover sheet total is higher than the sum of its lines.",
+       "explanation": "The cover sheet total of $15,100.40 does not match the sum of the lines, which is $13,300.40.",
+       "quote_verified": false
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3, 5.5",
+       "quote": "No Fee is added to SGC, NSS, bond and insurance premiums, B&O taxes, or permit fees.",
+       "explanation": "The Fee of $633.35 is applied to CM direct costs and subcontractor quotes, which are already covered by the Fee.",
+       "quote_verified": false
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor is charged at approved labor schedule rates plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden of 32% of direct wages is already included in the subcontractor's quote, so it should not be charged again.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP has issues with tie-out, fee application, and labor burden. Please review and correct these before resubmitting.",
+     "escalation_reason": "The CP contains multiple issues that require a person to judge, including a tie-out discrepancy, fee application to covered costs, and labor burden duplication. These issues cannot be resolved by the Owner's PM and must be escalated.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:13:18+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46651,
+    "output_tokens": 1060
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0221",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0221-1-sub",
+     "cp": "CP-0221",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E060, E061, E062",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%, with a total markup of 10.0%.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "E053, E059",
+       "quote": "include subcontractor quotes and signed T&M tags for any time-and-material work; labor with the fixed burden in Section 5.4, materials at actual cost net of discounts, equipment under Section 6.5.4, and subcontract costs",
+       "explanation": "Two of the three T&M tags for the subcontractor's work are missing the Owner's Representative's signature.",
+       "quote_verified": false
+      }
+     ],
+     "message": "Subcontractor's markup exceeds the contract limit and two of the three T&M tags are missing the Owner's Representative's signature.",
+     "escalation_reason": "The subcontractor's markup needs to be adjusted to comply with the contract limits, and the missing T&M tags need to be completed.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:54:45+00:00"
+    },
+    {
+     "envelope_id": "CP-0221-2-gc",
+     "cp": "CP-0221",
+     "prev_envelope_id": "CP-0221-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "Sound Electric's markup on its own work is 10%, which is within the allowed limit, but the markup on lower-tier work is not provided and should be included.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "Two of the three T&M tags for Sound Electric's work are missing the Owner's Representative's signature.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The cover sheet shows a total requested of $3,908.52, but the sum of the subcontractor quotes is $3,722.40, with a difference of $186.12. This discrepancy needs to be resolved.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP needs to address the missing signatures on T&M tags and resolve the discrepancy in the cover sheet. Additionally, ensure the subcontractor's markup on lower-tier work is within the allowed limits.",
+     "escalation_reason": "The CM Project Manager must review and confirm the subcontractor's markup on lower-tier work and ensure all required backup is complete before the CP can be submitted.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:57:19+00:00"
+    },
+    {
+     "envelope_id": "CP-0221-3-architect",
+     "cp": "CP-0221",
+     "prev_envelope_id": "CP-0221-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The corridor outlet additions are a change from the Contract Documents as they were not previously specified in Drawing E-201. The Owner's direction via email on 2020-11-09 and the subsequent T&M tags support this change.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:57:46+00:00"
+    },
+    {
+     "envelope_id": "CP-0221-4-owner",
+     "cp": "CP-0221",
+     "prev_envelope_id": "CP-0221-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 32% of direct wages is included in the CM's Fee and should not be charged separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "5.2, 6.5.3",
+       "quote": "No Fee is added to SGC, NSS, bond and insurance premiums, B&O taxes, or permit fees",
+       "explanation": "The Fee of $186.12 is applied to the subcontractor quotes, which are already covered by the Fee or SGC.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "include subcontractor quotes and signed T&M tags for any time-and-material work",
+       "explanation": "Two of the three T&M tags lack the Owner's Representative's signature, which is required backup.",
+       "quote_verified": true
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving a written or oral direction from Owner or Architect that CM believes is a change",
+       "explanation": "The notice was given on 2020-11-12, which is 3 days late from the event date of 2020-11-09.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes a Fee on excluded costs, has missing backup, and is late on the notice. These issues need to be addressed before approval.",
+     "escalation_reason": "The late notice and the application of the Fee to excluded costs are above my approval authority and require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:59:49+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47691,
+    "output_tokens": 1226
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0222",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0222-1-sub",
+     "cp": "CP-0222",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:00:24+00:00"
+    },
+    {
+     "envelope_id": "CP-0222-2-gc",
+     "cp": "CP-0222",
+     "prev_envelope_id": "CP-0222-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work is 10%, which is within the allowed limit, but the markup on the lower-tier subcontractors' work is not provided, and the total markup is not explicitly stated to be within the 15% limit.",
+       "quote_verified": true
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quotes are attached, but there are no T&M tags provided, which are required for time-and-material work.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP needs to provide T&M tags for the time-and-material work and ensure that the total markup on the subcontractor's work does not exceed the allowed limit.",
+     "escalation_reason": "The CM Project Manager needs to review and confirm the total markup on the subcontractor's work and ensure that the T&M tags are provided.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:02:30+00:00"
+    },
+    {
+     "envelope_id": "CP-0222-3-architect",
+     "cp": "CP-0222",
+     "prev_envelope_id": "CP-0222-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the revised fire alarm devices per RFI-171 is a change from the Contract Documents. The narrative and scope context support the change.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:02:52+00:00"
+    },
+    {
+     "envelope_id": "CP-0222-4-owner",
+     "cp": "CP-0222",
+     "prev_envelope_id": "CP-0222-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee rate on the change is 5%, which is within the contract limits.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The labor burden of 32% of direct wages is already covered by the Fee and should not be included in the CP.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 32% of direct wages is already covered by the Fee and should not be included in the CP.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The CP is missing T&M tags, which are required for time-and-material work.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time.",
+       "explanation": "The notice was given on March 16, which is after the notice due date of March 9, making it late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs already covered by the Fee, has missing backup, and the notice was given late. These issues need to be addressed before the CP can be approved.",
+     "escalation_reason": "The late notice and missing T&M tags require personal judgment by the Owner's Representative, as does the potential impact on the GMP.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:05:12+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46755,
+    "output_tokens": 905
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0223",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0223-1-sub",
+     "cp": "CP-0223",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:05:47+00:00"
+    },
+    {
+     "envelope_id": "CP-0223-2-gc",
+     "cp": "CP-0223",
+     "prev_envelope_id": "CP-0223-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:06:44+00:00"
+    },
+    {
+     "envelope_id": "CP-0223-3-architect",
+     "cp": "CP-0223",
+     "prev_envelope_id": "CP-0223-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for door closers at corridor doors C201 to C212 is a change from the Contract Documents as the RFI-175 response confirms the closers are required. The subcontractor quotes and narrative support this.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:07:13+00:00"
+    },
+    {
+     "envelope_id": "CP-0223-4-owner",
+     "cp": "CP-0223",
+     "prev_envelope_id": "CP-0223-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for door closers at corridor doors C201 to C212 is in line with the contract and does not require any action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:07:40+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46795,
+    "output_tokens": 226
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0224",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0224-1-sub",
+     "cp": "CP-0224",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "No subcontractor pricing in this CP; the CM self-performed the work.",
+     "escalation_reason": null,
+     "model": "none (no subcontractor quote)",
+     "created": "2026-11-12T23:07:40+00:00",
+     "skipped": true
+    },
+    {
+     "envelope_id": "CP-0224-2-gc",
+     "cp": "CP-0224",
+     "prev_envelope_id": "CP-0224-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in compliance with the contract and does not require any additional action from the GC/CM's agent.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:08:23+00:00"
+    },
+    {
+     "envelope_id": "CP-0224-3-architect",
+     "cp": "CP-0224",
+     "prev_envelope_id": "CP-0224-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The permit delay is a change from the Contract Documents as it affects the critical path mobilization activity. The Architect's agent has reviewed the cause document and the scope context, and the CP is consistent with the contract.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:08:46+00:00"
+    },
+    {
+     "envelope_id": "CP-0224-4-owner",
+     "cp": "CP-0224",
+     "prev_envelope_id": "CP-0224-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the permit delay is within the contract's rules and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T23:09:08+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 34463,
+    "output_tokens": 169
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0225",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0225-1-sub",
+     "cp": "CP-0225",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract's markup limits and breakdown rules. The quote is ready for submission.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:21:29+00:00"
+    },
+    {
+     "envelope_id": "CP-0225-2-gc",
+     "cp": "CP-0225",
+     "prev_envelope_id": "CP-0225-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:22:46+00:00"
+    },
+    {
+     "envelope_id": "CP-0225-3-architect",
+     "cp": "CP-0225",
+     "prev_envelope_id": "CP-0225-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for unsuitable soils at the gym footing is a change from the Contract Documents. The cause document (Field report FR-12) supports the change, and the description matches the scope context.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:23:20+00:00"
+    },
+    {
+     "envelope_id": "CP-0225-4-owner",
+     "cp": "CP-0225",
+     "prev_envelope_id": "CP-0225-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The Fee is applied to CM direct costs, which are already covered by the Fee and should not be charged separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is included in the subcontractor quotes, which is not allowed.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(c)",
+       "quote": "notice must be given before disturbing the condition, and no later than 7 days after first observing it.",
+       "explanation": "The notice was given on the same day the condition was observed, which is not within the 7-day window.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are already covered by the Fee, applies the Fee to CM direct costs, includes labor burden in subcontractor quotes, and the notice was given too late. These issues need to be addressed.",
+     "escalation_reason": "The issues involve the Fee rate and exclusions, covered costs, and notice timing, which require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:25:47+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46899,
+    "output_tokens": 568
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0226",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0226-1-sub",
+     "cp": "CP-0226",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quotes comply with the contract rules and are correctly marked up.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:26:37+00:00"
+    },
+    {
+     "envelope_id": "CP-0226-2-gc",
+     "cp": "CP-0226",
+     "prev_envelope_id": "CP-0226-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP complies with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:27:50+00:00"
+    },
+    {
+     "envelope_id": "CP-0226-3-architect",
+     "cp": "CP-0226",
+     "prev_envelope_id": "CP-0226-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The seismic bracing upgrade per ASI-040 is a change from the Contract Documents as the drawings only show bracing at rooftop equipment, and the ASI adds bracing to mechanical and electrical systems across the building.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:28:20+00:00"
+    },
+    {
+     "envelope_id": "CP-0226-4-owner",
+     "cp": "CP-0226",
+     "prev_envelope_id": "CP-0226-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The CM's Fee and SGC are included in the CP, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is included in the CM's Fee and SGC, which are already charged, so it should not be included again.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return it believes changes cost or time.",
+       "explanation": "The notice was given on 2020-04-16, which is 3 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are already covered by the Fee and SGC, and the Fee is applied to both CM direct costs and subcontractor quotes. The labor burden is also included, and the notice was given late.",
+     "escalation_reason": "The time impact and late notice require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:30:29+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47791,
+    "output_tokens": 581
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0227",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0227-1-sub",
+     "cp": "CP-0227",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "No subcontractor pricing in this CP; the CM self-performed the work.",
+     "escalation_reason": null,
+     "model": "none (no subcontractor quote)",
+     "created": "2026-11-12T22:30:29+00:00",
+     "skipped": true
+    },
+    {
+     "envelope_id": "CP-0227-2-gc",
+     "cp": "CP-0227",
+     "prev_envelope_id": "CP-0227-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The CP applies the 5% Fee to the extended SGC (time), which is not a direct cost or subcontractor markup.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The CP incorrectly applies the 5% Fee to the extended SGC (time). This is not a direct cost or subcontractor markup and should not be included in the Fee.",
+     "escalation_reason": "The CM Project Manager must decide how to handle the Fee application for the extended SGC (time).",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:31:47+00:00"
+    },
+    {
+     "envelope_id": "CP-0227-3-architect",
+     "cp": "CP-0227",
+     "prev_envelope_id": "CP-0227-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the weather-related delay with extended conditions is a change from the Contract Documents as the roofing work is on the critical path in November, and the narrative and schedule excerpt support the claim.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:32:13+00:00"
+    },
+    {
+     "envelope_id": "CP-0227-4-owner",
+     "cp": "CP-0227",
+     "prev_envelope_id": "CP-0227-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to CM direct costs, subcontractor quotes, and extended SGC (time), which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The extended SGC (time) is already covered by the SGC and should not be billed separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is fixed at 32% of direct wages and should not be adjusted for extended SGC time.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(d)",
+       "quote": "For any other event that may increase cost or time, notice is due 14 days after CM first knew or should have known.",
+       "explanation": "The notice was given on 2020-11-24, which is 10 days after the event on 2020-11-16, making it late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are already covered by the Fee or SGC, applies the Fee to items that are not chargeable, and has a late notice. These issues need to be addressed.",
+     "escalation_reason": "Time and delay claims, and the amount of the Fee applied to non-chargeable items require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:34:40+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 34412,
+    "output_tokens": 749
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0228",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0228-1-sub",
+     "cp": "CP-0228",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E062",
+       "quote": "Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "Rainier Mechanical's markup on its own work exceeds the 15% limit.",
+       "quote_verified": true
+      }
+     ],
+     "message": "Subcontractor's markup on its own work exceeds the 15% limit set by the contract.",
+     "escalation_reason": "The subcontractor's markup needs to be adjusted to comply with the contract's markup limit.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:35:44+00:00"
+    },
+    {
+     "envelope_id": "CP-0228-2-gc",
+     "cp": "CP-0228",
+     "prev_envelope_id": "CP-0228-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP must include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quotes are missing the breakdown of lower-tier subcontractors' costs.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP must include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The cover sheet does not tie out the total requested amount with the sum of the cover lines.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP has issues with subcontractor markup, missing backup, and an incorrect cover sheet. Please address these before resubmitting.",
+     "escalation_reason": "The CM Project Manager must review and approve the CP before it can be submitted.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:38:33+00:00"
+    },
+    {
+     "envelope_id": "CP-0228-3-architect",
+     "cp": "CP-0228",
+     "prev_envelope_id": "CP-0228-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the kitchen hood relocation per RFI-180 is consistent with the Contract Documents and the cause document. The work is a change from the Contract Documents.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:38:58+00:00"
+    },
+    {
+     "envelope_id": "CP-0228-4-owner",
+     "cp": "CP-0228",
+     "prev_envelope_id": "CP-0228-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to CM direct costs, subcontractor quotes, and NSS items, which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The CM's Fee of $841.76 is applied to CM direct costs, subcontractor quotes, and NSS items, which are already covered by the Fee or SGC.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden of 32% is applied to the Project Engineer coordination, which is already covered by the Fee.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The CP does not include signed T&M tags for the forklift work, which is time-and-material work.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time.",
+       "explanation": "The notice was given on 2020-04-23, which is 4 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes issues with the Fee rate, covered costs, labor burden, missing backup, and late notice. Please address these before resubmitting.",
+     "escalation_reason": "The late notice and the application of the Fee to covered costs require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:41:36+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 47720,
+    "output_tokens": 1005
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0229",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0229-1-sub",
+     "cp": "CP-0229",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and breakdown is correct.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:09:26+00:00"
+    },
+    {
+     "envelope_id": "CP-0229-2-gc",
+     "cp": "CP-0229",
+     "prev_envelope_id": "CP-0229-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "Pacific Specialties is adding 12% overhead and profit on its own direct cost, which exceeds the contract limit of 10%.",
+       "quote_verified": true
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.9",
+       "quote": "CM shall keep a log of all CPs, numbered in sequence, showing for each the date of notice, date submitted, amount, status, and the originating RFI, ASI, or CCD.",
+       "explanation": "The cover sheet does not add up. The total requested ($4,139.52) does not match the sum of the cover lines ($4,139.52).",
+       "quote_verified": true
+      }
+     ],
+     "message": "Subcontractor markup exceeds contract limits and cover sheet does not tie out.",
+     "escalation_reason": "The CM Project Manager must decide on the subcontractor markup and ensure the cover sheet ties out.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:13:38+00:00"
+    },
+    {
+     "envelope_id": "CP-0229-3-architect",
+     "cp": "CP-0229",
+     "prev_envelope_id": "CP-0229-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for added restroom partitions per ASI-044 is a change from the Contract Documents. The narrative and scope context support the change.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:14:23+00:00"
+    },
+    {
+     "envelope_id": "CP-0229-4-owner",
+     "cp": "CP-0229",
+     "prev_envelope_id": "CP-0229-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The subcontractor markup of 12% on the own work is included in the CP, which is not allowed.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is not included in the CP, which is incorrect.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving an RFI response, ASI, or submittal return it believes changes cost or time.",
+       "explanation": "The notice was given on 2020-06-01, which is 3 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are already covered by the Fee or SGC, applies the Fee incorrectly, omits the labor burden, and was submitted late. Please address these issues before resubmitting.",
+     "escalation_reason": "The late notice and incorrect Fee application require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:17:49+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46706,
+    "output_tokens": 773
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0230",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0230-1-sub",
+     "cp": "CP-0230",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E060",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "The subcontractor's markup on its own work exceeds the 10% limit, with a total markup of 10.0%.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "E052, E053, E054",
+       "quote": "Each CP must break down labor hours and rates, materials, equipment, subcontractor pricing, markup, and Fee; include subcontractor quotes and signed T&M tags for any time-and-material work; state any claimed time impact in days.",
+       "explanation": "The subcontractor's quote does not provide a breakdown of labor hours and rates, materials, equipment, or subcontractor pricing, and there are no signed T&M tags for any time-and-material work.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The subcontractor's markup on its own work exceeds the allowed limit, and the quote lacks necessary breakdowns and T&M tags.",
+     "escalation_reason": "The subcontractor needs to adjust the markup and provide the required breakdowns and T&M tags before resubmitting the CP.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:21:12+00:00"
+    },
+    {
+     "envelope_id": "CP-0230-2-gc",
+     "cp": "CP-0230",
+     "prev_envelope_id": "CP-0230-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "sub",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quote does not include a breakdown, which is required by the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The cover sheet total runs $950 high, and the subcontractor quote does not add up to the cover sheet total.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP needs to be corrected to ensure compliance with the contract's subcontractor markup limits, provide a breakdown of the subcontractor quote, and ensure the cover sheet totals are accurate.",
+     "escalation_reason": "The CM Project Manager must review and approve the corrected CP before it can be submitted.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:25:32+00:00"
+    },
+    {
+     "envelope_id": "CP-0230-3-architect",
+     "cp": "CP-0230",
+     "prev_envelope_id": "CP-0230-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "gc",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6.2",
+       "quote": "CM shall not perform changed Work, and no RFI response, ASI, meeting minute, or oral direction authorizes added cost or time, until a CO or CCD is issued.",
+       "explanation": "The CP describes work that is already required by the Contract Documents, as Spec 09 84 00 has no acoustic panels in the gym.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The CP describes work that is already required by the Contract Documents. No change has been made to the scope.",
+     "escalation_reason": "No further action required as the work is already specified in the Contract Documents.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:27:07+00:00"
+    },
+    {
+     "envelope_id": "CP-0230-4-owner",
+     "cp": "CP-0230",
+     "prev_envelope_id": "CP-0230-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "6.5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The cost of the acoustic panels is already covered by the Fee or SGC and should not be billed separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The labor burden of 32% of direct wages is already included in the Fee and should not be charged separately.",
+       "quote_verified": true
+      },
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee of 5% is already applied to the direct costs and subcontractor markups, and no additional Fee should be charged.",
+       "quote_verified": true
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quote does not include a breakdown, and there are no signed T&M tags attached.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving a written or oral direction from Owner or Architect that CM believes is a change.",
+       "explanation": "The notice was given on 2020-06-11, which is 3 days late (notice due on 2020-06-15).",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs already covered by the Fee or SGC, and the labor burden and Fee are incorrectly applied. The subcontractor quote lacks a breakdown and signed T&M tags. The notice was given late.",
+     "escalation_reason": "The late notice and the need to confirm the cost exclusions and labor burden require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:31:24+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46347,
+    "output_tokens": 1331
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0231",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0231-1-sub",
+     "cp": "CP-0231",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and correctly formatted.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:32:51+00:00"
+    },
+    {
+     "envelope_id": "CP-0231-2-gc",
+     "cp": "CP-0231",
+     "prev_envelope_id": "CP-0231-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:35:12+00:00"
+    },
+    {
+     "envelope_id": "CP-0231-3-architect",
+     "cp": "CP-0231",
+     "prev_envelope_id": "CP-0231-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for the science room gas shutoffs per RFI-183 is for a change from the Contract Documents. The RFI response and the drawings support the change.",
+     "escalation_reason": "No issues found; the work is a change from the Contract Documents.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:36:07+00:00"
+    },
+    {
+     "envelope_id": "CP-0231-4-owner",
+     "cp": "CP-0231",
+     "prev_envelope_id": "CP-0231-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CM's Fee is applied to the subcontractor quotes, which are already covered by the Fee or SGC.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The labor burden is included in the subcontractor quotes, which are already marked up by the CM's Fee.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The subcontractor quote is in the form of an email text, which is not acceptable as per the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within the following periods: (a) 7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time.",
+       "explanation": "The notice was given on 2020-06-25, which is 3 days late.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes issues with the Fee rate, covered costs, labor burden, missing backup, and late notice. Please review and address these concerns.",
+     "escalation_reason": "The late notice and the application of the Fee to covered costs require personal judgment by the Owner's Representative.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:40:54+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46573,
+    "output_tokens": 714
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0232",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0232-1-sub",
+     "cp": "CP-0232",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The subcontractor quote adheres to the contract rules and does not require any flags.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:42:24+00:00"
+    },
+    {
+     "envelope_id": "CP-0232-2-gc",
+     "cp": "CP-0232",
+     "prev_envelope_id": "CP-0232-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in compliance with the contract and all required documentation is attached.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:45:05+00:00"
+    },
+    {
+     "envelope_id": "CP-0232-3-architect",
+     "cp": "CP-0232",
+     "prev_envelope_id": "CP-0232-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The locker room bench relocation is a change from the Contract Documents as it involves moving the benches, which is not explicitly required by the drawings or specifications.",
+     "escalation_reason": "No design judgment required by the Architect.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:45:55+00:00"
+    },
+    {
+     "envelope_id": "CP-0232-4-owner",
+     "cp": "CP-0232",
+     "prev_envelope_id": "CP-0232-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in line with the contract and does not require any adjustments or further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:46:47+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46998,
+    "output_tokens": 198
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0233",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0233-1-sub",
+     "cp": "CP-0233",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and includes all required details.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T21:58:36+00:00"
+    },
+    {
+     "envelope_id": "CP-0233-2-gc",
+     "cp": "CP-0233",
+     "prev_envelope_id": "CP-0233-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T21:59:31+00:00"
+    },
+    {
+     "envelope_id": "CP-0233-3-architect",
+     "cp": "CP-0233",
+     "prev_envelope_id": "CP-0233-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The additional whiteboards per ASI-047 are a change from the Contract Documents as Drawing A-301 shows tackboards only in rooms 210 to 213, while ASI-047 adds whiteboards in four rooms.",
+     "escalation_reason": "No further Architect judgment required based on the provided information.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:00:04+00:00"
+    },
+    {
+     "envelope_id": "CP-0233-4-owner",
+     "cp": "CP-0233",
+     "prev_envelope_id": "CP-0233-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for additional whiteboards complies with the contract and does not require any further action.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:00:29+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46587,
+    "output_tokens": 218
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0234",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0234-1-sub",
+     "cp": "CP-0234",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "sub",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "E060, E061, E062",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors. Total markup on any portion of the work shall not exceed 15%.",
+       "explanation": "Sound Electric's markup on its own work is 10%, and on the lower-tier subcontractor's work is 8%, which totals 18%, exceeding the 15% limit.",
+       "quote_verified": true
+      }
+     ],
+     "message": "Subcontractor's markup exceeds the contract limit.",
+     "escalation_reason": "The subcontractor's markup needs to be adjusted to comply with the contract limits.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:01:46+00:00"
+    },
+    {
+     "envelope_id": "CP-0234-2-gc",
+     "cp": "CP-0234",
+     "prev_envelope_id": "CP-0234-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules.",
+     "escalation_reason": null,
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:02:44+00:00"
+    },
+    {
+     "envelope_id": "CP-0234-3-architect",
+     "cp": "CP-0234",
+     "prev_envelope_id": "CP-0234-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The ceiling fans in the gym are a change from the Contract Documents as Drawing E-301 shows no fans in the gym. The Owner's direction via email is a valid cause for the change.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:03:10+00:00"
+    },
+    {
+     "envelope_id": "CP-0234-4-owner",
+     "cp": "CP-0234",
+     "prev_envelope_id": "CP-0234-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed as per the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The cost of the electrical sub's quotes and the CM's own markup are not covered by the Fee or SGC and should not be included in the CP.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The markup on the subcontractor's labor is not allowed as it exceeds the fixed labor burden of 32%.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM must give notice within 7 days after receiving a written or oral direction from Owner or Architect that CM believes is a change.",
+       "explanation": "The notice was given on 2020-07-16, which is 4 days late, and this affects the payment.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes costs that are not covered by the Fee or SGC, applies the Fee incorrectly, and has a late notice. These issues need to be addressed before the CP can be approved.",
+     "escalation_reason": "The late notice and incorrect application of the Fee require personal judgment by the Owner's Representative, as they affect the payment and approval process.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:06:02+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46599,
+    "output_tokens": 797
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0235",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0235-1-sub",
+     "cp": "CP-0235",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and includes necessary breakdown.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:06:37+00:00"
+    },
+    {
+     "envelope_id": "CP-0235-2-gc",
+     "cp": "CP-0235",
+     "prev_envelope_id": "CP-0235-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is in compliance with the contract and all required documentation is attached.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:07:35+00:00"
+    },
+    {
+     "envelope_id": "CP-0235-3-architect",
+     "cp": "CP-0235",
+     "prev_envelope_id": "CP-0235-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "owner",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for patching and painting walls opened during abatement is a change from the Contract Documents as it involves additional work not covered by the original scope.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:08:00+00:00"
+    },
+    {
+     "envelope_id": "CP-0235-4-owner",
+     "cp": "CP-0235",
+     "prev_envelope_id": "CP-0235-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "Owner's Representative (person): recommend approval",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP for patch and paint after abatement follows the contract rules and does not require any action.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:08:26+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46384,
+    "output_tokens": 187
+   },
+   "cached_calls": 0
+  },
+  {
+   "id": "CP-0236",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0236-1-sub",
+     "cp": "CP-0236",
+     "prev_envelope_id": null,
+     "from_role": "sub",
+     "from": "Subcontractor agent",
+     "to": "gc",
+     "authority": "May submit its own pricing or hold it for fixes. Cannot escalate.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "Subcontractor quote is within markup limits and includes necessary breakdown and T&M tags.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:09:05+00:00"
+    },
+    {
+     "envelope_id": "CP-0236-2-gc",
+     "cp": "CP-0236",
+     "prev_envelope_id": "CP-0236-1-sub",
+     "from_role": "gc",
+     "from": "GC/CM agent",
+     "to": "architect",
+     "authority": "May send the CP to the Architect and Owner, return it to the subcontractor, or escalate to the CM Project Manager.",
+     "decision": "PASS",
+     "flags": [],
+     "message": "The CP is complete and follows the contract rules. No issues were found.",
+     "escalation_reason": "",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:10:06+00:00"
+    },
+    {
+     "envelope_id": "CP-0236-3-architect",
+     "cp": "CP-0236",
+     "prev_envelope_id": "CP-0236-2-gc",
+     "from_role": "architect",
+     "from": "Architect agent",
+     "to": "gc",
+     "authority": "Reviews CPs for the Owner; confirms or disputes that the work is a change. Cannot approve cost or time (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6.2",
+       "quote": "CM shall not perform changed Work, and no RFI response, ASI, meeting minute, or oral direction authorizes added cost or time, until a CO or CCD is issued.",
+       "explanation": "The CP describes work already required by Drawing P-102, which shows two hose bibbs at the courtyard. The Owner's direction to add four more is not a change from the Contract Documents.",
+       "quote_verified": true
+      }
+     ],
+     "message": "The work described in the CP is already required by the Contract Documents. No change order is needed.",
+     "escalation_reason": "No design judgment is required; the Architect's role is to confirm that the work is a change from the Contract Documents.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:11:28+00:00"
+    },
+    {
+     "envelope_id": "CP-0236-4-owner",
+     "cp": "CP-0236",
+     "prev_envelope_id": "CP-0236-3-architect",
+     "from_role": "owner",
+     "from": "Owner's PM agent",
+     "to": "gc",
+     "authority": "Recommends approval, returns with questions, or escalates to the Owner's Representative. Never approves (Exhibit D).",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+       "explanation": "The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed by the contract.",
+       "quote_verified": true
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "The following are covered by the Fee or SGC and shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The subcontractor quotes for the T&M work include labor and materials, which are already covered by the Fee or SGC.",
+       "quote_verified": true
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages.",
+       "explanation": "The subcontractor quotes do not include the fixed labor burden of 32% of direct wages, which should be included in the subcontractor's quote.",
+       "quote_verified": false
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.3",
+       "quote": "Each CP shall include subcontractor quotes and signed T&M tags for any time-and-material work.",
+       "explanation": "The T&M tags are not signed by CM's superintendent and Owner's Representative, as required by the contract.",
+       "quote_verified": false
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2",
+       "quote": "CM shall give Owner and Architect written notice of a Potential Change within 7 days after receiving an RFI response, ASI, or submittal return that CM believes changes cost or time.",
+       "explanation": "The notice was given on 2020-07-29, which is 4 days late according to the contract.",
+       "quote_verified": false
+      }
+     ],
+     "message": "The CP includes several issues that need to be addressed before it can be approved. The Fee is applied to both CM direct costs and subcontractor quotes, which is not allowed by the contract. The subcontractor quotes do not include the fixed labor burden of 32% of direct wages. The T&M tags are not signed by CM's superintendent and Owner's Representative. The notice was given 4 days late, which affects payment. Please review and provide the necessary corrections.",
+     "escalation_reason": "The issues with the Fee rate, covered costs, labor burden, backup, and notice timing are beyond the authority of the Owner's Representative and require personal judgment.",
+     "model": "qwen2.5:7b",
+     "created": "2026-11-12T22:15:14+00:00"
+    }
+   ],
+   "usage": {
+    "input_tokens": 46547,
+    "output_tokens": 915
+   },
+   "cached_calls": 0
+  }
+ ]
+}
