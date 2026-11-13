@@ -15,6 +15,10 @@ on:
         description: "Change proposals per parallel job"
         required: true
         default: "4"
+      only:
+        description: "Optional: only these CP ids (space-separated), e.g. to rerun a failed job"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths: ["demo3/RUN_LOCAL.txt"]
@@ -40,11 +44,14 @@ jobs:
       - id: s
         env:
           MODELS_INPUT: ${{ inputs.models }}
+          ONLY: ${{ inputs.only }}
           PER_SHARD: ${{ inputs.per_shard || '4' }}
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
           ids = [c["id"] for c in json.load(open("demo3/data/cases.json"))["cases"]]
+          if os.environ.get("ONLY", "").strip():
+              ids = [i for i in ids if i in os.environ["ONLY"].split()]
           src = os.environ.get("MODELS_INPUT") or open("demo3/RUN_LOCAL.txt").read()
           models = [m.strip() for m in src.replace(",", "\n").splitlines() if m.strip() and not m.startswith("#")]
           n = int(os.environ["PER_SHARD"])
@@ -84,7 +91,7 @@ jobs:
 
   merge:
     needs: [plan, run]
-    if: always()
+    if: ${{ always() && !inputs.only }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -215,11 +215,17 @@ def run_case(cp, backend, model, client=None, contract=None, rules=None, use_cac
                    "model": "none (no subcontractor quote)", "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                    "skipped": True}
         else:
-            answer, usage, was_cached = review(role, cp, backend, model, client, contract, rules, use_cache)
-            cached += int(was_cached)
-            for k in usage_total:
-                usage_total[k] += usage.get(k, 0)
-            env = envelope(cp, role, answer, model, norm, prev)
+            try:
+                answer, usage, was_cached = review(role, cp, backend, model, client, contract, rules, use_cache)
+                cached += int(was_cached)
+                for k in usage_total:
+                    usage_total[k] += usage.get(k, 0)
+                env = envelope(cp, role, answer, model, norm, prev)
+            except RuntimeError as e:
+                # A model that returns unusable output gets no flags for this review (scored as misses), and the
+                # failure is recorded in the audit trail instead of stopping the whole run.
+                env = envelope(cp, role, {"decision": "PASS", "flags": [], "message": "The agent's output could not be read; a person must review this CP."}, model, norm, prev)
+                env["model_error"] = str(e)[:300]
         trail.append(env)
         prev = env["envelope_id"]
     return {"id": cp["id"], "route": system_route(trail), "trail": trail, "usage": usage_total, "cached_calls": cached}
