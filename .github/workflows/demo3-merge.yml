@@ -1,0 +1,47 @@
+# Merge Demo 3 local-model shards from one or more earlier runs (e.g. a full run plus a rerun of a
+# failed job), then score and commit. Shards from later run ids replace earlier ones for the same CP.
+name: Demo 3 - merge runs
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_ids:
+        description: "Workflow run ids to merge, oldest first, space-separated"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download shards from each run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          i=0
+          for id in ${{ inputs.run_ids }}; do
+            i=$((i+1)); mkdir -p "shards/$i-$id"
+            gh run download "$id" -R "${{ github.repository }}" -D "shards/$i-$id" || echo "::warning::no artifacts from $id"
+          done
+          find shards -name '*.json' | sort
+      - name: Merge, baseline, evaluate
+        working-directory: demo3
+        run: |
+          for s in $(find ../shards -name '*__*.json' -exec basename {} \; | sed 's/__.*//' | sort -u); do
+            python3 merge_runs.py ../shards "$s" || echo "::warning::$s incomplete"
+          done
+          python3 baseline.py
+          python3 evaluate.py
+          cat results/evaluation_report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demo3/results/local/*/runs.json demo3/results/baseline/runs.json demo3/results/evaluation.json demo3/results/evaluation_report.md
+          git commit -m "Demo 3 results: merged runs ${{ inputs.run_ids }}" || echo "nothing to commit"
+          git pull --rebase origin main
+          git push

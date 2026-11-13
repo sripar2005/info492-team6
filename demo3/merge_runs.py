@@ -10,7 +10,7 @@ shard_dir = Path(sys.argv[1])
 slug = sys.argv[2]  # e.g. llama3.1-8b
 order = [c["id"] for c in json.loads((ROOT / "data" / "cases.json").read_text())["cases"]]
 results, meta = {}, None
-files = sorted(f for f in shard_dir.rglob("*.json") if f.name.startswith(slug + "__"))
+files = sorted((f for f in shard_dir.rglob("*.json") if f.name.startswith(slug + "__")), key=lambda f: str(f))
 for f in files:
     d = json.loads(f.read_text())
     meta = meta or d["meta"]
