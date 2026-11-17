@@ -37,3 +37,16 @@ eq('rate over contract', r.flags.map(f => f.flag), ['RATE_OVER_CONTRACT']);
 
 if (bad) { console.log(bad, 'delay tests failed'); process.exit(1); }
 console.log('delay tests ok');
+
+// The 15 Demo 4 change orders: extension, paid or not, and cost must match the answer key.
+const fs = require('fs'), path = require('path');
+const key = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'demo4', 'data', 'answer_key.json'), 'utf8'));
+let kb = 0;
+for (const k of key.cases) {
+  const d = D.delayCheck(C, { computedDays: k.delay_calendar_days, claimedDays: k.claimed_days, claimedUnit: k.claimed_calendar === false ? 'work' : 'calendar', computedWorkDays: k.delay_workdays, onCriticalPath: k.delay_calendar_days > 0 || k.fragnet_critical,
+    causeParty: k.cause_party, concurrent: k.concurrent });
+  const got = [d.extensionDays, d.paidDays[1] > 0, d.cost.high || 0, d.flags.some(f => f.flag === 'DAYS_OVER_ANALYSIS')], want = [k.extension_days_allowed, k.compensable, k.expected_cost || 0, !!k.padded];
+  if (JSON.stringify(got) !== JSON.stringify(want)) { kb++; console.log('FAIL', k.id, k.scenario, 'got', got, 'want', want); }
+}
+if (kb) { console.log(kb, 'answer-key cases failed'); process.exit(1); }
+console.log('delay answer key ok: ' + key.cases.length + ' change orders');

@@ -61,7 +61,10 @@
     else steps.push({ who: 'computed', text: 'No daily rate or general conditions total in the contract: cost not computed.' });
 
     // 4. Flags.
-    if (claimed > computed) flags.push({ flag: 'DAYS_OVER_ANALYSIS', severity: 'fail', text: 'Claims ' + claimed + ' days; the schedule analysis shows ' + computed + '.', section: (C.sections && C.sections.time) || '6.4' });
+    // Compare like with like: a claim in working days is checked against the working-day delay.
+    var work = input.claimedUnit === 'work', cmp = work ? Math.max(0, +input.computedWorkDays || 0) : computed, unit = work ? ' working days' : ' calendar days';
+    if (work && claimed) steps.push({ who: 'computed', text: 'The claim is in working days: ' + claimed + ' claimed vs ' + cmp + ' working days computed (' + computed + ' calendar days).' });
+    if (claimed > cmp) flags.push({ flag: 'DAYS_OVER_ANALYSIS', severity: 'fail', text: 'Claims ' + claimed + unit + '; the schedule analysis shows ' + cmp + '.', section: (C.sections && C.sections.time) || '6.4' });
     if (input.onCriticalPath === false && claimed > 0) flags.push({ flag: 'OFF_CRITICAL_PATH', severity: 'fail', text: 'The changed work has float; it does not move the finish.', section: '3.4' });
     if (input.claimedCost != null && cost.high != null && input.claimedCost > cost.high + 1) flags.push({ flag: 'DELAY_COST_OVER', severity: 'fail', text: 'Asks ' + money(input.claimedCost) + ' for extended general conditions; the contract supports up to ' + money(cost.high) + '.', section: '5.2' });
     if (input.claimedRate && R.value != null && input.claimedRate > R.value + 0.5) flags.push({ flag: 'RATE_OVER_CONTRACT', severity: 'fail', text: 'Uses ' + money(input.claimedRate) + '/day; the contract rate is ' + money(R.value) + '/day.', section: '5.2' });

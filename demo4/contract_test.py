@@ -30,6 +30,7 @@ OUT = ROOT / "demo4" / "results" / "contract_test.json"
 
 def load_key():
     raw = json.loads((ROOT / "demo4" / "data" / "contract_terms_key.json").read_text())
+    raw = raw.get("contracts", raw)
     if isinstance(raw, list):
         raw = {c.get("id") or c.get("contract"): c for c in raw}
     out = {}

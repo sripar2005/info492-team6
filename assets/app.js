@@ -455,7 +455,7 @@
       '<p class="lede">We find the clauses that set markups, the fee, notice deadlines and delay terms. You confirm each one, with the sentence it came from, before any check uses it.</p>' +
       '<div class="drop" id="drop"><div class="ic"></div><b>Drop the contract here</b><p>PDF with a text layer, or .txt / .md.</p>' +
       '<label class="btn primary">Choose a file<input type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" id="file" hidden></label>' +
-      '<span class="or">or <button class="link" data-act="csample">try it on the sample contract’s text</button></span>' +
+      '<span class="or">or try a sample: <button class="link" data-act="csample" data-c="A">contract A</button> · <button class="link" data-act="csample" data-c="B">contract B (different terms)</button></span>' +
       '<div class="reader ' + (reader ? 'on' : '') + '"><span class="dot"></span>' + (reader ? 'Clause reading is on: ' + esc(reader) + ' running on this computer' : 'Here, keyword search finds the candidate sentences and you pick. The AI reader runs on the team’s laptop.') + '</div></div>' +
       (err ? '<div class="err">' + esc(err) + '</div>' : '') +
       '<ol class="how"><li><b>Code</b> splits the contract into numbered sentences and keeps each one’s section.</li><li><b>Code</b> finds the few sentences that could state each term.</li>' +
@@ -485,9 +485,16 @@
     var r = CT.retrieve(text), by = {}; r.sentences.forEach(function (s) { by[s.id] = s; });
     return { id: 'k' + Date.now().toString(36), name: name, file: file, text: text, sents: r.sentences, by: by, cands: r.candidates, read: {}, source: 'search' };
   }
-  function readContract(text, name, file) {
+  function applyReading(cs, j) {
+    Object.keys(j.read).forEach(function (k) {
+      var x = j.read[k], s = cs.sents.filter(function (y) { return y.text === x.quote; })[0];
+      cs.read[k] = { value: x.value, quote: x.quote, section: x.section, sid: s ? s.id : null, status: x.status === 'not_stated' ? 'none' : x.status, src: 'ai', note: x.note };
+    });
+  }
+  function readContract(text, name, file, savedRun) {
     var cs = newCS(text, name, file);
     CT.TERMS.forEach(function (t) { cs.read[t[0]] = { value: null, quote: null, section: null, sid: null, status: 'pick', src: null, note: '' }; });
+    if (!reader && savedRun) { applyReading(cs, savedRun.run); cs.source = 'ai'; cs.model = savedRun.meta.model + ' (saved run)'; cs.secs = savedRun.run.seconds; CS = cs; return go('contract-confirm'); }
     if (!reader) { CS = cs; return go('contract-confirm'); }
     var t0 = Date.now(), cancelled = false;
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Reading ' + esc(file || name) + '</h2><p class="fine" style="font-size:13.5px">' + esc(reader) +
@@ -498,10 +505,7 @@
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
       .then(function (j) {
         if (cancelled) return; clearInterval(tick);
-        Object.keys(j.read).forEach(function (k) {
-          var x = j.read[k], s = cs.sents.filter(function (y) { return y.text === x.quote; })[0];
-          cs.read[k] = { value: x.value, quote: x.quote, section: x.section, sid: s ? s.id : null, status: x.status === 'not_stated' ? 'none' : x.status, src: 'ai', note: x.note };
-        });
+        applyReading(cs, j);
         cs.source = 'ai'; cs.model = j.model; cs.secs = j.seconds; CS = cs; go('contract-confirm');
       })
       .catch(function (e) { if (cancelled) return; clearInterval(tick); cs.banner = 'The local model couldn’t read it (' + e.message + '). Pick the clauses below instead.'; CS = cs; go('contract-confirm'); });
@@ -599,7 +603,14 @@
     if (t.dataset.tpill) { var q = t.dataset.tpill.split('|'), x = CS.read[q[0]], a = Array.isArray(x.value) ? x.value.slice() : [], i = a.indexOf(q[1]); if (i >= 0) a.splice(i, 1); else a.push(q[1]); x.value = a; x.src = 'person'; restatus(q[0]); contractKeepScroll(); return true; }
     if (t.dataset.jump) { var el = document.getElementById('s-' + t.dataset.jump); if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); } return true; }
     if (t.dataset.act === 'csave') { saveContract(); return true; }
-    if (t.dataset.act === 'csample') { fetch('/demo1/data/synthetic_contract.md').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(function (txt) { readContract(txt, 'Sample contract (re-read)', 'synthetic_contract.md'); }).catch(function (e) { viewContract('Could not load the sample text: ' + e.message); }); return true; }
+    if (t.dataset.act === 'csample') {
+      var which = t.dataset.c || 'A', url = which === 'B' ? '/demo4/data/contract_b.md' : '/demo1/data/synthetic_contract.md';
+      Promise.all([fetch(url).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }),
+        fetch('/demo4/results/contract_test.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })])
+        .then(function (res) { readContract(res[0], which === 'B' ? 'Contract B (synthetic)' : 'Contract A (sample, re-read)', which === 'B' ? 'contract_b.md' : 'synthetic_contract.md', res[1] && res[1].readings && res[1].readings[which] ? { run: res[1].readings[which], meta: res[1].meta } : null); })
+        .catch(function (e) { viewContract('Could not load the sample text: ' + e.message); });
+      return true;
+    }
     return false;
   }
   app.addEventListener('change', function (e) {

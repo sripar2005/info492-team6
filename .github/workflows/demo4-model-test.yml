@@ -1,6 +1,7 @@
-# Tests the contract term reader (demo4/contract_extract.py) with a free local model on the two synthetic contracts.
-# No API key, no cost. Start: Actions -> "Contract reader test" -> Run workflow.
-name: Contract reader test
+# Demo 4 model test: the contract term reader (2 synthetic contracts) and the fragnet drafter (14 synthetic change orders),
+# scored against the answer keys with dev and test reported separately.
+# No API key, no cost. Start: Actions -> "Demo 4 model test" -> Run workflow (once per model to compare).
+name: Demo 4 model test
 
 on:
   workflow_dispatch:
@@ -20,7 +21,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - name: Install Ollama and pull the model
@@ -32,13 +33,16 @@ jobs:
           ollama pull "${{ inputs.model }}"
       - name: Read and score the contracts
         run: python3 demo4/contract_test.py --model "${{ inputs.model }}" --runs "${{ inputs.runs }}"
+      - name: Draft and score the fragnets
+        run: python3 demo4/fragnet_test.py --model "${{ inputs.model }}" --runs "${{ inputs.runs }}"
       - name: Commit results
         run: |
           M=$(echo "${{ inputs.model }}" | tr ':/' '__')
           cp demo4/results/contract_test.json "demo4/results/contract_test_${M}.json"
+          cp demo4/results/fragnet_runs.json "demo4/results/fragnet_runs_${M}.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git pull --rebase -q
           git add demo4/results/
-          git commit -m "Contract reader test results (${{ inputs.model }})" || echo "nothing to commit"
+          git commit -m "Demo 4 model test results (${{ inputs.model }})" || echo "nothing to commit"
           git push

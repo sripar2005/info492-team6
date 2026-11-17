@@ -89,7 +89,7 @@
     function x(d) { return LBL + (Date.parse(d) - t0) / span * (W - LBL); }
     var ticks = '', axis = '', d = new Date(t0), days = span / 864e5, weekly = days < 150;
     if (weekly) { while (d.getUTCDay() !== 1) d.setUTCDate(d.getUTCDate() + 1); } else { d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + 1); }
-    var every = weekly ? (days > 70 ? 2 : 1) : (days > 900 ? 3 : 1);
+    var every = weekly ? (days > 70 ? 2 : 1) : (days > 900 ? 4 : days > 400 ? 3 : days > 200 ? 2 : 1);
     while (d.getTime() <= t1) {
       var xx = x(d.toISOString().slice(0, 10));
       ticks += '<line x1="' + xx + '" x2="' + xx + '" y1="0" y2="' + H + '" class="gt"/>';
@@ -183,10 +183,14 @@
   var V = window.CSViews;
   var DX = null; // { claim, frag: {activities, relationships}, fragSrc, result, cond, chosen, log: [] }
   var PARTY = [['owner', 'Owner'], ['architect', 'Architect'], ['contractor', 'Contractor'], ['neither', 'Neither (e.g. weather)']];
-  var cases = null;
+  var cases = null, saved = null;
+  function loadSaved() {
+    if (saved) return Promise.resolve(saved);
+    return fetch('/demo4/results/fragnet_runs.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { saved = j || { cases: [] }; return saved; }).catch(function () { saved = { cases: [] }; return saved; });
+  }
 
   function log(who, text) { DX.log.push({ at: new Date().toISOString(), who: who, text: text }); }
-  function blank() { return { claim: { id: '', title: '', claimed_days: 0, narrative: '', cause_party: 'owner', concurrent: false, claimed_cost: null, claimed_rate: null, sgc_also: false },
+  function blank() { return { claim: { id: '', title: '', claimed_days: 0, claimed_unit: 'calendar', narrative: '', cause_party: 'owner', concurrent: false, claimed_cost: null, claimed_rate: null, sgc_also: false },
     frag: { activities: [], relationships: [] }, fragSrc: null, result: null, cond: null, chosen: null, log: [], step: 1 }; }
   function sched() { return V.activeSchedule(); }
 
@@ -196,7 +200,7 @@
   }
   function fromCase(c) {
     var d = blank(), cs = c.cover_sheet || {};
-    d.claim = { id: c.id, title: c.title, claimed_days: c.time.claimed_days || c.time_impact_days || 0, narrative: c.time.narrative || '', cause_party: c.time.cause_party || 'owner',
+    d.claim = { id: c.id, title: c.title, claimed_days: c.time.claimed_days || c.time_impact_days || 0, claimed_unit: c.time.claimed_calendar === false ? 'work' : 'calendar', narrative: c.time.narrative || '', cause_party: c.time.cause_party || 'owner',
       concurrent: !!c.time.concurrent, claimed_cost: cs.extended_sgc_time || null, claimed_rate: c.time.claimed_rate || null, sgc_also: !!(cs.sgc_items && cs.extended_sgc_time) };
     d.caseId = c.id; return d;
   }
@@ -213,7 +217,7 @@
           : '<div class="banner warn"><span>No schedule loaded yet. <a class="link" href="#schedule">Load the schedule</a> first; the delay check runs against it.</span></div>') +
         '<div class="cols"><div class="form">' + pick +
         '<div class="card sec"><div class="sec-h"><h3>The time claim</h3></div><div class="grid">' +
-        fld('id', 'Change order', c.id, 'e.g. CO-0407') + fld('claimed_days', 'Days claimed', c.claimed_days, '', 'calendar days', true) +
+        fld('id', 'Change order', c.id, 'e.g. CO-0407') + '<div class="fd"><label><span>Days claimed</span></label><div style="display:flex;gap:8px"><div class="inp" style="flex:1"><input data-dc="claimed_days" inputmode="decimal" data-num="1" value="' + esc(c.claimed_days == null ? '' : c.claimed_days) + '"></div><div class="inp sel" style="flex:1.3"><select data-dc="claimed_unit"><option value="calendar"' + (c.claimed_unit !== 'work' ? ' selected' : '') + '>calendar days</option><option value="work"' + (c.claimed_unit === 'work' ? ' selected' : '') + '>working days</option></select></div></div></div>' +
         '<div class="fd full"><label><span>What happened <small>(the narrative from the change order)</small></span></label><div class="inp" style="height:auto"><textarea data-dc="narrative" rows="4" placeholder="e.g. Owner added a second elevator; shop drawings and install add about 3 weeks to the elevator work.">' + esc(c.narrative) + '</textarea></div></div>' +
         '<div class="fd"><label><span>Who caused it</span></label><div class="inp sel"><select data-dc="cause_party">' + PARTY.map(function (p) { return '<option value="' + p[0] + '"' + (p[0] === c.cause_party ? ' selected' : '') + '>' + p[1] + '</option>'; }).join('') + '</select></div></div>' +
         '<div class="fd"><label><span>Concurrent delay?</span></label><div class="inp sel"><select data-dc="concurrent"><option value="false"' + (c.concurrent ? '' : ' selected') + '>No</option><option value="true"' + (c.concurrent ? ' selected' : '') + '>Yes, another delay overlaps</option></select></div></div>' +
@@ -246,9 +250,11 @@
   V['delay-fragnet'] = function () {
     if (!DX || !sched()) return A.go('delay');
     var reader = A.reader(), s = sched();
+    if (!saved) { loadSaved().then(function () { V['delay-fragnet'](); }); return; }
+    var run = DX.caseId && saved.cases.filter(function (x) { return x.id === DX.caseId && x.fragnet && x.fragnet.activities.length; })[0];
     var src = DX.fragSrc === 'ai' ? '<div class="banner"><span><b>Drafted by ' + esc(DX.fragModel || 'the local model') + '</b>' + (DX.fragAgree === false ? ' — its three drafts <b>disagreed</b>, so look closely.' : DX.fragAgree ? '; its three drafts agreed.' : '.') + ' It could only link to IDs in this schedule. Check the durations and links against the change order.' + (DX.fragNotes && DX.fragNotes.length ? '<br>' + DX.fragNotes.map(esc).join('<br>') : '') + '</span></div>' : '';
     app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(DX.claim.id || 'change order') + ' · step 2 of 3</span><h1 style="margin-top:8px">The change’s activities</h1><p>Add the work the change creates and where it sits in the schedule. Durations in work days.</p></div>' +
-      (reader ? '<button class="btn" data-fdraft="1">Draft with ' + esc(reader) + '</button>' : '') + '</div>' +
+      '<div style="display:flex;gap:8px">' + (run && DX.fragSrc !== 'ai' ? '<button class="btn" data-fsaved="1">Use the saved AI draft</button>' : '') + (reader ? '<button class="btn" data-fdraft="1">Draft with ' + esc(reader) + '</button>' : '') + '</div></div>' +
       '<div class="cols result"><div><div class="paper sched" id="fgantt"></div></div><div class="form">' +
       (DX.claim.narrative ? '<div class="card sec"><span class="eyebrow">From the change order</span><p style="margin:8px 0 0;color:var(--muted);font-size:13.5px">' + esc(DX.claim.narrative) + '</p></div>' : '') + src +
       '<div class="card sec"><div class="sec-h"><h3>Fragnet</h3><span class="fine" style="margin:0">IDs start with F-</span></div>' + fragHtml() + '</div>' +
@@ -294,14 +300,14 @@
   V['delay-result'] = function () {
     if (!DX || !DX.result) return A.go('delay');
     var s = sched(), r = DX.result, C = A.C(), k = cond(), c = DX.claim;
-    var d = D.delayCheck(C, { computedDays: r.delay_calendar_days, claimedDays: +c.claimed_days || 0, onCriticalPath: r.delay_calendar_days > 0 || r.fragnet_critical, causeParty: k.causeParty, compensable: k.compensable, concurrent: k.concurrent,
+    var d = D.delayCheck(C, { computedDays: r.delay_calendar_days, computedWorkDays: r.delay_workdays, claimedUnit: c.claimed_unit, claimedDays: +c.claimed_days || 0, onCriticalPath: r.delay_calendar_days > 0 || r.fragnet_critical, causeParty: k.causeParty, compensable: k.compensable, concurrent: k.concurrent,
       claimedCost: c.claimed_cost ? +c.claimed_cost : null, claimedRate: c.claimed_rate ? +c.claimed_rate : null, sgcAlsoBilled: !!c.sgc_also });
     if (!s.model.source.has_logic) d.flags.unshift({ flag: 'NO_LOGIC', severity: 'person', text: 'This schedule has no logic (dates only), so the impact can’t be verified from it.', section: '' });
     DX.check = d;
     var lo = d.cost.low || 0, hi = d.cost.high || 0, val = DX.chosen == null ? (d.cost.point != null ? d.cost.point : hi) : Math.min(hi, Math.max(lo, DX.chosen));
     var m = withFrag(s.model, DX.frag), cc = SE.cpm(m), hl = {}; DX.frag.activities.forEach(function (a) { hl[a.id] = 1; });
-    var padded = (+c.claimed_days || 0) > r.delay_calendar_days;
-    var head = r.delay_calendar_days === 0 ? 'The change doesn’t move the finish' : padded ? 'Supports ' + r.delay_calendar_days + ' of ' + c.claimed_days + ' days claimed' : 'Supports the ' + r.delay_calendar_days + ' days claimed';
+    var cmpDays = c.claimed_unit === 'work' ? r.delay_workdays : r.delay_calendar_days, padded = (+c.claimed_days || 0) > cmpDays;
+    var head = r.delay_calendar_days === 0 ? 'The change doesn’t move the finish' : padded ? 'Supports ' + cmpDays + ' of ' + c.claimed_days + (c.claimed_unit === 'work' ? ' working' : '') + ' days claimed' : (+c.claimed_days ? 'Supports the ' + c.claimed_days + (c.claimed_unit === 'work' ? ' working' : '') + ' days claimed' : 'The change moves the finish ' + r.delay_calendar_days + ' days');
     var tone = r.delay_calendar_days === 0 && c.claimed_days > 0 ? 'fail' : padded ? 'fail' : 'ok';
     var tg = function (on, k2, v, label) { return '<button class="pill" data-dk="' + k2 + '|' + v + '" aria-pressed="' + on + '">' + label + '</button>'; };
     var h = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(c.id || 'change order') + ' · step 3 of 3</span><h1 style="margin-top:8px">Result</h1></div><div style="display:flex;gap:8px"><button class="btn ghost" data-dnext="2">← Edit activities</button><button class="btn" data-dexport="1">Export audit log</button></div></div>' +
@@ -367,17 +373,23 @@
     if (t.dataset.fl) { var q = t.dataset.fl.split('|'); try { setLinks(+q[0], q[1], t.value); } catch (er) { A.toast('Use activity IDs like A1040, or A1040SS+2.'); } DX.fragEdited = true; var y = window.scrollY; V['delay-fragnet'](); window.scrollTo(0, y); }
   });
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-dcase],[data-dnext],[data-fadd],[data-fdel],[data-fdraft],[data-dk],[data-dexport],[data-dapprove],[data-dnew]'); if (!t) return;
+    var t = e.target.closest('[data-dcase],[data-dnext],[data-fadd],[data-fdel],[data-fdraft],[data-fsaved],[data-dk],[data-dexport],[data-dapprove],[data-dnew]'); if (!t) return;
     if (t.dataset.dcase) { var x = cases.filter(function (c) { return c.id === t.dataset.dcase; })[0]; DX = fromCase(x); return V.delay(); }
     if (t.dataset.dnext) {
       var n = t.dataset.dnext;
-      if (n === '2') { log('person', 'Claim entered: ' + (DX.claim.id || 'change order') + ', ' + (DX.claim.claimed_days || 0) + ' days claimed, caused by ' + DX.claim.cause_party + (DX.claim.concurrent ? ', concurrent delay' : '') + '.'); return A.go('delay-fragnet'); }
+      if (n === '2') { log('person', 'Claim entered: ' + (DX.claim.id || 'change order') + ', ' + (DX.claim.claimed_days || 0) + ' ' + (DX.claim.claimed_unit === 'work' ? 'working' : 'calendar') + ' days claimed, caused by ' + DX.claim.cause_party + (DX.claim.concurrent ? ', concurrent delay' : '') + '.'); return A.go('delay-fragnet'); }
       if (n === '3') { runTIA(); return A.go('delay-result'); }
       return A.go(n === '1' ? 'delay' : 'delay-fragnet');
     }
     if (t.dataset.fadd) { DX.frag.activities.push({ id: nextFid(), name: '', duration: 5 }); DX.fragEdited = true; return V['delay-fragnet'](); }
     if (t.dataset.fdel) { var id = DX.frag.activities[+t.dataset.fdel].id; DX.frag.activities.splice(+t.dataset.fdel, 1); DX.frag.relationships = DX.frag.relationships.filter(function (r) { return r.pred !== id && r.succ !== id; }); DX.fragEdited = true; return V['delay-fragnet'](); }
     if (t.dataset.fdraft) return draftWithAI();
+    if (t.dataset.fsaved) {
+      var run = saved.cases.filter(function (x) { return x.id === DX.caseId; })[0];
+      DX.frag = JSON.parse(JSON.stringify(run.fragnet)); DX.fragSrc = 'ai'; DX.fragModel = saved.meta.model + ', saved run ' + saved.meta.date; DX.fragAgree = run.agreed; DX.fragNotes = run.notes || []; DX.fragEdited = false;
+      log('ai', saved.meta.model + ' drafted (saved run, ' + saved.meta.date + '): ' + run.fragnet.activities.map(function (a) { return a.id + ' ' + a.name + ' (' + a.duration + 'd)'; }).join('; ') + '. ' + (run.agreed ? 'The drafts agreed.' : 'The drafts disagreed.'));
+      return V['delay-fragnet']();
+    }
     if (t.dataset.dk) { var kv = t.dataset.dk.split('|'), k = cond(); k[kv[0]] = kv[1] === 'null' ? null : kv[1] === 'true' ? true : kv[1] === 'false' ? false : kv[1]; DX.chosen = null; log('person', 'Condition set: ' + kv[0] + ' = ' + kv[1] + '.'); var y = window.scrollY; V['delay-result'](); window.scrollTo(0, y); return; }
     if (t.dataset.dexport) return exportLog();
     if (t.dataset.dapprove) return approve();
