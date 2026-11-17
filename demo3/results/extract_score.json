@@ -1,0 +1,85 @@
+{
+ "model": "llama3.1:8b",
+ "results": [
+  {
+   "file": "CP-0201-roof-drains-clean.pdf",
+   "seconds": 105.6,
+   "fields_right": 25,
+   "fields": 25,
+   "wrong": [],
+   "verdict_same": true,
+   "real": {
+    "route": "APPROVE",
+    "flags": ""
+   },
+   "read": {
+    "route": "APPROVE",
+    "flags": ""
+   }
+  },
+  {
+   "file": "CP-0209-gas-shutoff-markup.pdf",
+   "seconds": 87.7,
+   "fields_right": 25,
+   "fields": 25,
+   "wrong": [],
+   "verdict_same": true,
+   "real": {
+    "route": "RETURN",
+    "flags": "SUB_MARKUP"
+   },
+   "read": {
+    "route": "RETURN",
+    "flags": "SUB_MARKUP"
+   }
+  },
+  {
+   "file": "CP-0212-haul-off-fee-problem.pdf",
+   "seconds": 88.4,
+   "fields_right": 25,
+   "fields": 25,
+   "wrong": [],
+   "verdict_same": true,
+   "real": {
+    "route": "ESCALATE",
+    "flags": "CONCEALED_CONDITION,FEE_ON_EXCLUDED"
+   },
+   "read": {
+    "route": "ESCALATE",
+    "flags": "CONCEALED_CONDITION,FEE_ON_EXCLUDED"
+   }
+  },
+  {
+   "file": "CP-0219-blocking-labor-burden.pdf",
+   "seconds": 94.3,
+   "fields_right": 26,
+   "fields": 26,
+   "wrong": [],
+   "verdict_same": true,
+   "real": {
+    "route": "RETURN",
+    "flags": "LABOR_BURDEN"
+   },
+   "read": {
+    "route": "RETURN",
+    "flags": "LABOR_BURDEN"
+   }
+  },
+  {
+   "file": "CP-0231-plumbing-email-quote.pdf",
+   "seconds": 113.8,
+   "fields_right": 20,
+   "fields": 20,
+   "wrong": [],
+   "verdict_same": true,
+   "real": {
+    "route": "APPROVE",
+    "flags": ""
+   },
+   "read": {
+    "route": "APPROVE",
+    "flags": ""
+   }
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+ "model": "llama3.1:8b",
+ "results": [
+  {
+   "form": {
+    "id": "CP-0201",
+    "title": "Gym roof drains added per RFI-112",
+    "cause": "RFI response",
+    "cause_ref": "RFI-112",
+    "event_date": "2020-02-10",
+    "notice_date": "2020-02-14",
+    "time_days": 0.0,
+    "subs": [
+     {
+      "firm": "Cascade Plumbing",
+      "trade": "Plumbing",
+      "email_only": false,
+      "own_cost": 5970.0,
+      "own_markup_pct": 10.0,
+      "lower_cost": 0.0,
+      "lower_markup_pct": 0.0,
+      "breakdown": true,
+      "quote_total": 6567.0,
+      "tm_tags": []
+     }
+    ],
+    "cm_direct": 0.0,
+    "labor": [],
+    "equipment": [],
+    "nss": 0.0,
+    "sgc": 0.0,
+    "bond": 0.0,
+    "bo": 0.0,
+    "permits": 0.0,
+    "ext_sgc": 0.0,
+    "fee_pct": 5.0,
+    "fee_on": [
+     "CM direct costs",
+     "subcontractor quotes"
+    ],
+    "fee_amount": 328.35,
+    "total": 6895.35,
+    "sub_total": 6567.0
+   },
+   "missing": [],
+   "model": "llama3.1:8b",
+   "seconds": 105.6,
+   "file": "CP-0201-roof-drains-clean.pdf"
+  },
+  {
+   "form": {
+    "id": "CP-0209",
+    "title": "Added floor drains, kitchen",
+    "cause": "RFI response",
+    "cause_ref": "RFI-140",
+    "event_date": "2020-07-13",
+    "notice_date": "2020-07-16",
+    "time_days": 0.0,
+    "subs": [
+     {
+      "firm": "Cascade Plumbing",
+      "trade": "Plumbing",
+      "email_only": false,
+      "own_cost": 6182.0,
+      "own_markup_pct": 15.0,
+      "lower_cost": 0.0,
+      "lower_markup_pct": 0.0,
+      "breakdown": true,
+      "quote_total": 7109.3,
+      "tm_tags": []
+     }
+    ],
+    "cm_direct": 0.0,
+    "labor": [],
+    "equipment": [],
+    "nss": 0.0,
+    "sgc": 0.0,
+    "bond": 0.0,
+    "bo": 0.0,
+    "permits": 0.0,
+    "ext_sgc": 0.0,
+    "fee_pct": 5.0,
+    "fee_on": [
+     "CM direct costs",
+     "subcontractor quotes"
+    ],
+    "fee_amount": 355.47,
+    "total": 7464.77,
+    "sub_total": 7109.3
+   },
+   "missing": [],
+   "model": "llama3.1:8b",
+   "seconds": 87.7,
+   "file": "CP-0209-gas-shutoff-markup.pdf"
+  },
+  {
+   "form": {
+    "id": "CP-0212",
+    "title": "Extra haul-off for abatement debris",
+    "cause": "Concealed condition",
+    "cause_ref": "Field report FR-33 (asbestos mastic found)",
+    "event_date": "2020-08-10",
+    "notice_date": "2020-08-10",
+    "time_days": 0.0,
+    "subs": [
+     {
+      "firm": "Clearwater Abatement (Abatement)",
+      "trade": "Abatement",
+      "email_only": false,
+      "own_cost": 17400.0,
+      "own_markup_pct": 10.0,
+      "lower_cost": 0.0,
+      "lower_markup_pct": 0.0,
+      "breakdown": true,
+      "quote_total": 19140.0,
+      "tm_tags": []
+     }
+    ],
+    "cm_direct": 0.0,
+    "labor": [],
+    "equipment": [],
+    "nss": 4200.0,
+    "sgc": 0.0,
+    "bond": 0.0,
+    "bo": 0.0,
+    "permits": 0.0,
+    "ext_sgc": 0.0,
+    "fee_pct": 5.0,
+    "fee_on": [
+     "CM direct costs",
+     "subcontractor quotes",
+     "NSS items"
+    ],
+    "fee_amount": 1167.0,
+    "total": 24507.0,
+    "sub_total": 19140.0
+   },
+   "missing": [],
+   "model": "llama3.1:8b",
+   "seconds": 88.4,
+   "file": "CP-0212-haul-off-fee-problem.pdf"
+  },
+  {
+   "form": {
+    "id": "CP-0219",
+    "title": "Added classroom sinks per ASI-036",
+    "cause": "ASI",
+    "cause_ref": "ASI-036",
+    "event_date": "2020-10-19",
+    "notice_date": "2020-10-22",
+    "time_days": 0.0,
+    "subs": [
+     {
+      "firm": "Cascade Plumbing",
+      "trade": "Plumbing",
+      "email_only": false,
+      "own_cost": 4080.0,
+      "own_markup_pct": 10.0,
+      "lower_cost": 0.0,
+      "lower_markup_pct": 0.0,
+      "breakdown": true,
+      "quote_total": 4488.0,
+      "tm_tags": []
+     }
+    ],
+    "cm_direct": 870.0,
+    "labor": [
+     {
+      "desc": "Carpenter, in-wall blocking",
+      "hours": 12.0,
+      "wage": 50.0,
+      "burden_pct": 45.0
+     }
+    ],
+    "equipment": [],
+    "nss": 0.0,
+    "sgc": 0.0,
+    "bond": 0.0,
+    "bo": 0.0,
+    "permits": 0.0,
+    "ext_sgc": 0.0,
+    "fee_pct": 5.0,
+    "fee_on": [
+     "CM direct costs",
+     "subcontractor quotes"
+    ],
+    "fee_amount": 267.9,
+    "total": 5625.9,
+    "sub_total": 4488.0
+   },
+   "missing": [],
+   "model": "llama3.1:8b",
+   "seconds": 94.3,
+   "file": "CP-0219-blocking-labor-burden.pdf"
+  },
+  {
+   "form": {
+    "id": "CP-0231",
+    "title": "Science room gas shutoffs per RFI-183",
+    "cause": "RFI response",
+    "cause_ref": "RFI-183",
+    "event_date": "2020-06-22",
+    "notice_date": "2020-06-25",
+    "time_days": 0.0,
+    "subs": [
+     {
+      "firm": "Cascade Plumbing",
+      "trade": "Plumbing",
+      "email_only": true,
+      "quote_total": 6170.9
+     }
+    ],
+    "cm_direct": 0.0,
+    "labor": [],
+    "equipment": [],
+    "nss": 0.0,
+    "sgc": 0.0,
+    "bond": 0.0,
+    "bo": 0.0,
+    "permits": 0.0,
+    "ext_sgc": 0.0,
+    "fee_pct": 5.0,
+    "fee_on": [
+     "CM direct costs",
+     "subcontractor quotes"
+    ],
+    "fee_amount": 308.55,
+    "total": 6479.45,
+    "sub_total": 6170.9
+   },
+   "missing": [],
+   "model": "llama3.1:8b",
+   "seconds": 113.8,
+   "file": "CP-0231-plumbing-email-quote.pdf"
+  }
+ ]
+}
