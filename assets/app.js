@@ -1,0 +1,430 @@
+/* ClauseStream check tool: upload -> confirm the numbers -> results, plus My proposals.
+ * The checks themselves are in checks.js and run in the browser. Reading a PDF needs the local model
+ * on the team's laptop (demo3/serve_local.py, POST /api/extract); everything else works anywhere. */
+(function () {
+  'use strict';
+  var K = window.ClauseChecks, M = K.money;
+  var app = document.getElementById('app');
+  var ROLES = ['sub', 'gc', 'architect', 'owner'];
+  var CAUSES = [['RFI response', 'An answer to an RFI'], ['ASI', "An architect's supplemental instruction (ASI)"], ['Submittal return', 'A returned submittal'],
+    ['Owner direction', 'A direction from the owner'], ['Architect direction', 'A direction from the architect'], ['Concealed condition', 'A hidden site condition'], ['Other event', 'Something else']];
+  var CAUSE_LABEL = {}; CAUSES.forEach(function (c) { CAUSE_LABEL[c[0]] = c[1]; });
+  var FEE_LABEL = { 'CM direct costs': "CM's own work", 'subcontractor quotes': 'Subcontractor quotes', 'NSS items': 'Site services billed at cost (NSS)',
+    'SGC items': 'General conditions items (SGC)', 'bond and insurance': 'Bond and insurance', 'B&O tax': 'B&O tax', 'permit fees': 'Permit fees', 'extended SGC (time)': 'Extended general conditions (time)' };
+  var FEE_KEY = { 'NSS items': 'nss', 'SGC items': 'sgc', 'bond and insurance': 'bond', 'B&O tax': 'bo', 'permit fees': 'permits', 'extended SGC (time)': 'ext_sgc' };
+  var SAMPLES = [['CP-0212', 'Haul-off with a fee problem'], ['CP-0201', 'A clean roof-drain change'], ['CP-0231', 'Plumbing quote sent by email']];
+  // Sample status for My proposals. Made up for the demo; the checklist column is computed live.
+  var SAMPLE_ROWS = [['CP-0212', 'Sent to owner', "Owner's rep", 6, 0], ['CP-0226', 'Sent to owner', "Owner's rep", 19, 1], ['CP-0209', 'Returned for revision', 'Subcontractor', 3, 1],
+    ['CP-0219', 'Returned for revision', 'GC/CM', 4, 2], ['CP-0220', 'Draft', 'GC/CM', 1, 0], ['CP-0231', 'Draft', 'GC/CM', 2, 0], ['CP-0224', 'Sent to owner', "Owner's rep", 11, 0], ['CP-0201', 'Approved', '—', 0, 0]];
+
+  var cases = {}, role = 'gc', S = null, reader = null, pdfjs = null;
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function clone(x) { return JSON.parse(JSON.stringify(x)); }
+  function toast(t) { var el = document.getElementById('toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function () { el.hidden = true; }, 3600); }
+  function num(v) { var x = parseFloat(String(v).replace(/[$,\s%]/g, '')); return isFinite(x) ? x : 0; }
+  function fmt(x) { return x === 0 || x ? String(x) : ''; }
+  function uid() { return 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
+  /* ---------- state ---------- */
+  function blankSub() { return { firm: '', trade: '', email_only: false, own_cost: 0, own_markup_pct: 0, lower_cost: 0, lower_markup_pct: 0, breakdown: true, tm_tags: [] }; }
+  function blankForm() { return { id: '', title: '', cause: '', cause_ref: '', event_date: '', notice_date: '', time_days: 0, subs: [blankSub()], cm_direct: 0, labor: [], equipment: [], _other_lines: [],
+    nss: 0, sgc: 0, bond: 0, bo: 0, permits: 0, ext_sgc: 0, fee_pct: 0, fee_on: [], fee_amount: 0, total: 0, sub_total: 0 }; }
+  function fillDefaults(f) {
+    var b = blankForm(); Object.keys(b).forEach(function (k) { if (f[k] == null) f[k] = b[k]; });
+    f.subs.forEach(function (s) { if (!s.email_only) { var d = blankSub(); Object.keys(d).forEach(function (k) { if (s[k] == null) s[k] = d[k]; }); } });
+    return f;
+  }
+  // Keep the numbers as written. Totals follow edits unless the document's own total is off by more than $1.
+  function settle(f) {
+    var c = K.recompute(clone(f));
+    f._sub_manual = Math.abs(c.sub_total - f.sub_total) > 1;
+    f._fee_manual = Math.abs(c.fee_amount - f.fee_amount) > 1;
+    f._total_manual = Math.abs(c.total - f.total) > 1;
+    return f;
+  }
+  function retotal(f) {
+    var c = K.recompute(clone(f));
+    if (!f._sub_manual) f.sub_total = c.sub_total;
+    var c2 = K.recompute(clone(f)); // fee depends on sub_total
+    if (!f._fee_manual) f.fee_amount = K.round(c2.fee_amount, 2);
+    var base = num(f.cm_direct) + num(f.sub_total) + num(f.fee_amount) + num(f.bond) + num(f.bo) + num(f.permits) + num(f.nss) + num(f.sgc) + num(f.ext_sgc);
+    if (!f._total_manual) f.total = K.round(base, 2);
+    f._lines_total = K.round(base, 2);
+  }
+  function ready(f) { return f.cause && /^\d{4}-\d{2}-\d{2}$/.test(f.event_date) && /^\d{4}-\d{2}-\d{2}$/.test(f.notice_date); }
+  function caseOf(f) { var c = K.toCase(f); c.id = f.id || 'Your proposal'; c.title = f.title || 'Change proposal'; return c; }
+  function start(form, source, extra) {
+    S = Object.assign({ form: fillDefaults(settle(form)), source: source, key: uid(), read: false, need: [], pdf: null, edited: false }, extra || {});
+    saveSession();
+  }
+  function startSample(id) { start(K.toForm(cases[id]), 'sample', { sampleId: id }); }
+  function saveSession() { try { sessionStorage.setItem('cs_current', JSON.stringify(Object.assign({}, S, { pdf: S && S.pdf ? { name: S.pdf.name } : null }))); } catch (e) {} }
+  function loadSession() { try { var x = JSON.parse(sessionStorage.getItem('cs_current')); if (x && x.form) S = x; } catch (e) {} }
+
+  /* ---------- role ---------- */
+  function setRole(r) {
+    role = ROLES.indexOf(r) >= 0 ? r : 'gc'; store('cs_role', role);
+    document.querySelectorAll('#roles button').forEach(function (b) { b.setAttribute('aria-checked', b.dataset.role === role); });
+  }
+  document.getElementById('roles').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; setRole(b.dataset.role); route(); });
+
+  /* ---------- views ---------- */
+  function steps(n) {
+    var names = ['Upload', 'Confirm the numbers', 'Results'], h = '<div class="steps">';
+    names.forEach(function (t, i) {
+      var cls = i + 1 < n ? 'done' : i + 1 === n ? 'on' : '';
+      h += (i ? '<span class="bar"></span>' : '') + '<span class="st ' + cls + '"' + (cls === 'done' ? ' data-go="' + ['upload', 'confirm'][i] + '"' : '') + '><i>' + (cls === 'done' ? '✓' : i + 1) + '</i><span>' + t + '</span></span>';
+    });
+    return h + '</div>';
+  }
+
+  function viewUpload(err) {
+    var R = K.ROLE[role], owner = role === 'owner' || role === 'architect';
+    var lede = owner ? 'See what the contract allows before you approve it: markups, the CM fee, labor rates, equipment, deadlines and signatures.'
+      : role === 'sub' ? 'Check your quote against the contract before you send it to the GC/CM.' : 'Check it against your contract before you send it. Takes about a minute.';
+    app.innerHTML = '<div class="wrap">' + steps(1) + '<section class="upload"><h1>' + esc(R.q) + '</h1><p class="lede">' + lede + '</p>' +
+      '<div class="drop" id="drop"><div class="ic"></div><b>Drop the change proposal here</b><p>PDF. We read it, you confirm the numbers, then we check them.</p>' +
+      '<label class="btn primary">Choose a PDF<input type="file" accept="application/pdf,.pdf" id="file" hidden></label>' +
+      '<span class="or">or <button class="link" data-act="manual">enter the numbers yourself</button></span>' +
+      '<div class="reader ' + (reader ? 'on' : '') + '"><span class="dot"></span>' + (reader ? 'PDF reading is on: ' + esc(reader) + ' running on this computer' : 'PDF reading runs on the team’s laptop. Here, use a sample or enter the numbers.') + '</div></div>' +
+      (err ? '<div class="err">' + esc(err) + '</div>' : '') +
+      '<div class="samples">No file handy? Try a sample:' + SAMPLES.map(function (s) { return '<button data-sample="' + s[0] + '">' + esc(s[1]) + '</button>'; }).join('') + '</div>' +
+      '<div class="checks">' + ['Subcontractor markups', 'CM fee', 'Labor rates', 'Equipment rates', 'Totals add up', 'Notice deadlines', 'Signed T&M tags', 'Approval limit'].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
+      '<p class="fine">Checks run in your browser. Nothing is sent to an outside AI service.</p></section></div>';
+    var drop = document.getElementById('drop');
+    ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+    ['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); }); });
+    drop.addEventListener('drop', function (e) { var f = e.dataTransfer.files[0]; if (f) handleFile(f); });
+    document.getElementById('file').addEventListener('change', function (e) { if (e.target.files[0]) handleFile(e.target.files[0]); });
+  }
+
+  /* ---------- PDF ---------- */
+  function loadPdfjs() {
+    if (pdfjs) return Promise.resolve(pdfjs);
+    return new Promise(function (ok, no) {
+      var s = document.createElement('script'); s.src = '/assets/vendor/pdfjs/pdf.min.js';
+      s.onload = function () { pdfjs = window.pdfjsLib; pdfjs.GlobalWorkerOptions.workerSrc = '/assets/vendor/pdfjs/pdf.worker.min.js'; ok(pdfjs); };
+      s.onerror = function () { no(new Error('Could not load the PDF viewer.')); }; document.head.appendChild(s);
+    });
+  }
+  function handleFile(file) {
+    if (!/\.pdf$/i.test(file.name) && file.type !== 'application/pdf') return viewUpload('That file isn’t a PDF. Only PDFs can be read for now; you can enter the numbers yourself.');
+    app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Opening ' + esc(file.name) + '…</h2></div></div>';
+    var pages = [], text = '';
+    loadPdfjs().then(function (lib) { return file.arrayBuffer().then(function (buf) { return lib.getDocument({ data: buf }).promise; }); })
+      .then(function (doc) {
+        var jobs = [];
+        for (var i = 1; i <= doc.numPages; i++) jobs.push(doc.getPage(i).then(function (pg) {
+          return pg.getTextContent().then(function (tc) {
+            var t = tc.items.map(function (it) { return it.str + (it.hasEOL ? '\n' : ' '); }).join('');
+            if (pg.pageNumber <= 4) {
+              var vp = pg.getViewport({ scale: 1.4 }), c = document.createElement('canvas'); c.width = vp.width; c.height = vp.height;
+              return pg.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise.then(function () { return { n: pg.pageNumber, t: t, c: c }; });
+            }
+            return { n: pg.pageNumber, t: t };
+          });
+        }));
+        return Promise.all(jobs);
+      })
+      .then(function (res) {
+        res.sort(function (a, b) { return a.n - b.n; });
+        text = res.map(function (r) { return r.t; }).join('\n\n'); pages = res.filter(function (r) { return r.c; }).map(function (r) { return r.c; });
+        var pdf = { name: file.name, canvases: pages };
+        if (text.replace(/\s/g, '').length < 40) { start(blankForm(), 'manual', { pdf: pdf, banner: 'This PDF has no text layer (it looks scanned), so it can’t be read automatically. Enter the numbers below while looking at it on the left.' }); return go('confirm'); }
+        if (!reader) { start(blankForm(), 'manual', { pdf: pdf, banner: 'Reading PDFs needs the local model, which runs on the team’s laptop. Enter the numbers below while looking at your file on the left.' }); return go('confirm'); }
+        readWithModel(text, pdf);
+      })
+      .catch(function (e) { viewUpload('Could not open that PDF: ' + e.message); });
+  }
+  function readWithModel(text, pdf) {
+    var t0 = Date.now(), cancelled = false;
+    app.innerHTML = '<div class="wrap">' + steps(1) + '<div class="reading"><div class="spinner"></div><h2>Reading ' + esc(pdf.name) + '</h2><p class="fine" style="font-size:13.5px">' + esc(reader) +
+      ' on this computer is copying the numbers into the form. Usually under two minutes. <span id="tick">0:00</span></p><p style="margin-top:18px"><button class="btn ghost sm" id="cancel">Enter the numbers myself instead</button></p></div></div>';
+    var tick = setInterval(function () { var s = Math.round((Date.now() - t0) / 1000), el = document.getElementById('tick'); if (el) el.textContent = Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }, 1000);
+    document.getElementById('cancel').onclick = function () { cancelled = true; clearInterval(tick); start(blankForm(), 'manual', { pdf: pdf }); go('confirm'); };
+    fetch('/api/extract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: text }) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
+      .then(function (j) {
+        if (cancelled) return; clearInterval(tick);
+        var f = fillDefaults(j.form); if (!f.subs.length) f.subs = [];
+        start(f, 'pdf', { pdf: pdf, read: true, need: j.missing || [], secs: j.seconds, model: j.model });
+        go('confirm');
+      })
+      .catch(function (e) { if (cancelled) return; clearInterval(tick); start(blankForm(), 'manual', { pdf: pdf, banner: 'The local model couldn’t read it (' + e.message + '). Enter the numbers below while looking at your file on the left.' }); go('confirm'); });
+  }
+
+  /* ---------- the document (left column) ---------- */
+  function docLines(cp) {
+    var c = cp.cover_sheet, L = [];
+    cp.subcontractor_quotes.forEach(function (q, i) { L.push({ key: 'sub:' + i, label: 'Subcontractor: ' + (q.firm || 'unnamed') + (q.trade ? ' (' + q.trade + ')' : '') + (q.format === 'email text' ? ' · email quote' : ''), amt: q.quote_total }); });
+    if (c.cm_direct_costs || cp.cm_lines.length) L.push({ key: 'cm', label: 'CM direct costs (labor, material, equipment)', amt: c.cm_direct_costs });
+    [['nss', 'nss_items', 'Site services billed at cost (NSS)'], ['sgc', 'sgc_items', 'General conditions items (SGC)'], ['bond', 'bond_and_insurance', 'Bond and insurance'],
+     ['bo', 'bo_tax', 'B&O tax'], ['permits', 'permit_fees', 'Permit fees'], ['ext_sgc', 'extended_sgc_time', 'Extended general conditions (time)']].forEach(function (x) { if (c[x[1]]) L.push({ key: x[0], label: x[2], amt: c[x[1]] }); });
+    L.push({ key: 'fee', label: 'CM fee, ' + K.round(c.fee_rate * 100, 2) + '% on ' + (c.fee_applied_to.map(function (p) { var l = FEE_LABEL[p] || p; return /^[A-Z]{2}/.test(l) ? l : l.charAt(0).toLowerCase() + l.slice(1); }).join(', ') || '—'), amt: c.fee });
+    L.push({ key: 'total', label: 'Total requested', amt: c.total_requested, tot: true });
+    return L;
+  }
+  function shortNote(r, cp) {
+    var d = r.difference > 0 ? ': ' + M(r.difference) : '';
+    switch (r.flag) {
+      case 'SUB_MARKUP': return 'markup over the limit' + d;
+      case 'MISSING_BACKUP': return r.check.indexOf('T&M') >= 0 ? 'T&M tags not signed' : 'no breakdown attached';
+      case 'TIEOUT': return r.check.indexOf('Cover') === 0 ? 'doesn’t add up: off by ' + M(Math.abs(r.difference)) : 'quote lines don’t add up';
+      case 'FEE_RATE': return 'wrong fee rate' + d;
+      case 'FEE_ON_EXCLUDED': return 'fee not allowed on part of this' + d;
+      case 'LABOR_BURDEN': return 'labor burden over 32%' + d;
+      case 'EQUIPMENT': return 'equipment over 75% of Blue Book';
+      case 'LATE_NOTICE': return 'notice late';
+      case 'TIME_IMPACT': return 'time claim: owner decides';
+      case 'CONCEALED_CONDITION': return 'hidden condition: owner decides';
+      case 'OVER_AUTHORITY': return 'over $250,000: higher approval';
+    }
+    return r.status === 'not_checked' ? 'email quote: not read' : r.check;
+  }
+  function lineFor(r, cp) {
+    if (r.firm) { var i = cp.subcontractor_quotes.map(function (q) { return q.firm; }).indexOf(r.firm); return 'sub:' + i; }
+    return { FEE_RATE: 'fee', FEE_ON_EXCLUDED: 'fee', LABOR_BURDEN: 'cm', EQUIPMENT: 'cm', OVER_AUTHORITY: 'total', TIEOUT: 'total',
+      LATE_NOTICE: 'meta:notice', TIME_IMPACT: 'meta:time', CONCEALED_CONDITION: 'meta:cause' }[r.flag] || null;
+  }
+  function paperHtml(cp, findings, caption) {
+    var marks = {};
+    (findings || []).forEach(function (fd) {
+      var k = lineFor(fd.r, cp); if (!k) return;
+      (marks[k] = marks[k] || []).push({ n: fd.n, kind: fd.kind, text: shortNote(fd.r, cp) });
+      if (fd.r.flag === 'FEE_ON_EXCLUDED') cp.cover_sheet.fee_applied_to.forEach(function (p) { var kk = FEE_KEY[p]; if (kk) (marks[kk] = marks[kk] || []).push({ n: fd.n, kind: 'fail', text: 'fee was charged on this', echo: true }); });
+    });
+    function note(k) { return (marks[k] || []).map(function (m) { return '<div><span class="num">' + m.n + '</span>' + esc(m.text) + '</div>'; }).join(''); }
+    function kindOf(k) { var m = marks[k] || []; return m.some(function (x) { return x.kind === 'fail'; }) ? '' : m.length ? ' person' : ''; }
+    var c = cp.cover_sheet, meta = [
+      ['cause', CAUSE_LABEL[cp.cause.type] || cp.cause.type || 'Cause not set'], ['ref', cp.cause.reference], ['event', cp.cause.event_date ? 'Happened ' + cp.cause.event_date : ''],
+      ['notice', cp.notice_date ? 'Notice given ' + cp.notice_date : ''], ['time', cp.time_impact_days ? cp.time_impact_days + ' days of time claimed' : '']];
+    var metaNotes = ['cause', 'notice', 'time'].map(function (k) { return marks['meta:' + k] ? '<div style="color:' + (kindOf('meta:' + k) ? 'var(--amber)' : 'var(--red)') + '">' + note('meta:' + k) + '</div>' : ''; }).join('');
+    var h = '<div class="paper"><div class="ph"><span class="eyebrow">' + esc(caption || 'Change proposal') + '</span><span class="eyebrow">' + esc(cp.id) + '</span></div>' +
+      '<h3>' + esc(cp.title) + '</h3><div class="meta">' + meta.filter(function (m) { return m[1]; }).map(function (m) {
+        var mk = marks['meta:' + m[0]]; return '<span class="' + (mk ? 'ring' + (kindOf('meta:' + m[0]) ? '' : ' red') : '') + '">' + esc(m[1]) + '</span>'; }).join('') + '</div>' +
+      (metaNotes ? '<div class="meta-notes">' + metaNotes + '</div>' : '') +
+      '<div class="lines-lbl">Cover sheet</div><table class="doc' + (findings && findings.length ? '' : ' nonotes') + '"><tbody>' + docLines(cp).map(function (l) {
+        var mk = marks[l.key]; return '<tr class="' + (l.tot ? 'tot ' : '') + (mk ? 'mk' + kindOf(l.key) : '') + (!mk && !l.amt && !l.tot ? ' dim' : '') + '"><td>' + esc(l.label) + '</td><td class="amt">' + M(l.amt || 0) + '</td><td class="note">' + note(l.key) + '</td></tr>';
+      }).join('') + '</tbody></table>';
+    return h + '</div>';
+  }
+
+  /* ---------- step 2: confirm ---------- */
+  function field(path, label, val, opt) {
+    opt = opt || {}; var need = S.need.indexOf(path) >= 0, tag = need ? '<span class="tagr chk">check this</span>' : S.read && val && opt.read !== false ? '<span class="tagr">read</span>' : '';
+    var input;
+    if (opt.select) input = '<div class="inp sel' + (need ? ' need' : '') + '"><select data-p="' + path + '"><option value="">Choose…</option>' + opt.select.map(function (o) { return '<option value="' + esc(o[0]) + '"' + (o[0] === val ? ' selected' : '') + '>' + esc(o[1]) + '</option>'; }).join('') + '</select></div>';
+    else input = '<div class="inp' + (need ? ' need' : '') + '">' + (opt.pre ? '<span class="pre">' + opt.pre + '</span>' : '') + '<input data-p="' + path + '"' + (opt.type === 'date' ? ' type="date"' : opt.num ? ' inputmode="decimal" data-num="1"' : '') +
+      ' value="' + esc(opt.num ? fmt(val) : val || '') + '"' + (opt.ph ? ' placeholder="' + esc(opt.ph) + '"' : '') + '>' + (opt.suf ? '<span class="suf">' + opt.suf + '</span>' : '') + '</div>';
+    return '<div class="fd' + (opt.cls ? ' ' + opt.cls : '') + '"><label><span>' + label + (opt.small ? ' <small>' + opt.small + '</small>' : '') + '</span>' + tag + '</label>' + input + '</div>';
+  }
+  function subHtml(s, i) {
+    var p = 'subs.' + i + '.', h = '<div class="subq"><div class="subq-h"><b>' + esc(s.firm || 'Subcontractor ' + (i + 1)) + '</b><button class="btn ghost sm" data-act="delsub" data-i="' + i + '">Remove</button></div><div class="grid">' +
+      field(p + 'firm', 'Company', s.firm, { ph: 'e.g. Cascade Plumbing' }) + field(p + 'trade', 'Trade', s.trade, { ph: 'e.g. Plumbing', read: false });
+    if (s.email_only) {
+      h += field(p + 'quote_total', 'Quote total', s.quote_total, { num: true, pre: '$', cls: 'full' }) + '</div>' +
+        '<div class="togs"><label class="tog"><input type="checkbox" data-p="' + p + 'email_only" checked> Quote came only as email text</label></div>' +
+        (s.text ? '<div class="emailtxt">' + esc(s.text) + '</div>' : '') + '<p class="hint">Email quotes aren’t checked automatically. Turn this off to enter the quote’s numbers.</p></div>';
+      return h;
+    }
+    h += field(p + 'own_cost', 'Their cost before markup', s.own_cost, { num: true, pre: '$' }) + field(p + 'own_markup_pct', 'Their markup on their own work', s.own_markup_pct, { num: true, suf: '%' }) +
+      field(p + 'lower_cost', 'Lower-tier subs’ cost', s.lower_cost, { num: true, pre: '$', small: 'if any' }) + field(p + 'lower_markup_pct', 'Markup on lower-tier subs', s.lower_markup_pct, { num: true, suf: '%' }) + '</div>' +
+      '<div class="togs"><label class="tog"><input type="checkbox" data-p="' + p + 'breakdown"' + (s.breakdown ? ' checked' : '') + '> Itemized breakdown attached</label>' +
+      '<label class="tog"><input type="checkbox" data-p="' + p + 'email_only"> Quote came only as email text</label></div>' +
+      '<div class="hint" style="margin-top:12px">Time-and-material tags · tick the ones signed by both the CM superintendent and the owner’s rep</div><div class="tags">' +
+      (s.tm_tags || []).map(function (t, j) { return '<label><input type="checkbox" data-p="' + p + 'tm_tags.' + j + '.signed"' + (t.signed ? ' checked' : '') + '>' + esc(t.tag || 'Tag ' + (j + 1)) + '</label>'; }).join('') +
+      '<button class="btn ghost sm" data-act="addtag" data-i="' + i + '">+ Tag</button></div>';
+    return h + '<div class="hint">Quote total: ' + M(K.subTotal(s)) + '</div></div>';
+  }
+  function viewConfirm() {
+    if (!S) return go('upload');
+    var f = S.form, left;
+    if (S.pdf && S.pdf.canvases) left = '<div class="paper"><div class="ph"><span class="eyebrow">Your file</span><span class="eyebrow">' + esc(S.pdf.name) + '</span></div><div class="pdfpages" id="pdfpages" style="margin-top:14px"></div><p class="paper-cap">Showing up to 4 pages.</p></div>';
+    else left = ready(f) ? paperHtml(caseOf(f), null, S.source === 'sample' ? 'Sample proposal' : 'Change proposal') : '<div class="paper"><span class="eyebrow">Change proposal</span><p class="fine" style="font-size:13.5px">Fill in the cause and dates on the right to see the cover sheet here.</p></div>';
+    var banner = S.banner ? '<div class="banner warn">' + esc(S.banner) + '</div>'
+      : S.source === 'pdf' ? '<div class="banner"><span>We read <b>' + esc(S.pdf.name) + '</b> with ' + esc(S.model || 'the local model') + (S.secs ? ' in ' + Math.round(S.secs) + ' s' : '') + '. Fields marked <span class="tagr">read</span> came from the file; <span class="tagr chk">check this</span> means we couldn’t find it. The model can misread, so look before you check.</span></div>'
+      : S.source === 'sample' ? '<div class="banner"><span><b>Sample proposal</b>, numbers as written. It’s synthetic, made for this project. Change anything to see how the result changes.</span></div>' : '';
+    var heading = S.source === 'manual' ? 'Enter the proposal’s numbers' : 'Here’s what we read. Fix anything we got wrong.';
+    var h = '<div class="wrap">' + steps(2) + '<div class="cols"><div>' + left + '</div><div class="form"><h2>' + heading + '</h2><p class="sub">Plain-language labels; the contract terms are in brackets.</p>' + banner +
+      '<div class="card sec"><div class="sec-h"><h3>About the change</h3></div><div class="grid">' +
+      field('title', 'Title', f.title, { cls: 'full', ph: 'e.g. Extra haul-off for abatement debris' }) +
+      field('cause', 'What caused the change', f.cause, { select: CAUSES, cls: 'full' }) +
+      field('event_date', 'Date it happened', f.event_date, { type: 'date' }) + field('notice_date', 'Date you gave written notice', f.notice_date, { type: 'date' }) +
+      field('time_days', 'Extra days requested', f.time_days, { num: true, suf: 'days', small: '0 if none' }) + field('id', 'Proposal number', f.id, { ph: 'e.g. CP-0212', read: false }) + '</div></div>';
+    h += '<div class="card sec"><div class="sec-h"><h3>Subcontractor quotes</h3><button class="btn ghost sm" data-act="addsub">+ Add a subcontractor</button></div>' +
+      (f.subs.length ? f.subs.map(subHtml).join('') : '<p class="hint" style="margin:0">No subcontractor quotes.</p>') + '</div>';
+    h += '<div class="card sec"><div class="sec-h"><h3>CM’s own costs</h3></div><div class="grid">' + field('cm_direct', 'CM’s own labor, material and equipment', f.cm_direct, { num: true, pre: '$', cls: 'full', small: 'cover-sheet total' }) + '</div>' +
+      '<div class="hint" style="margin-top:12px">Labor lines, to check the labor burden</div>' + f.labor.map(function (l, i) {
+        var p = 'labor.' + i + '.'; return '<div class="rowline">' + field(p + 'desc', 'Who', l.desc) + field(p + 'hours', 'Hours', l.hours, { num: true }) + field(p + 'wage', 'Wage', l.wage, { num: true, pre: '$' }) + field(p + 'burden_pct', 'Burden', l.burden_pct, { num: true, suf: '%' }) + '<button class="del" data-act="del" data-l="labor" data-i="' + i + '" aria-label="Remove">✕</button></div>';
+      }).join('') + '<button class="btn ghost sm add" data-act="addlabor">+ Labor line</button>' +
+      '<div class="hint" style="margin-top:14px">CM-owned equipment, to check the Blue Book rate</div>' + f.equipment.map(function (e, i) {
+        var p = 'equipment.' + i + '.'; return '<div class="rowline eq">' + field(p + 'desc', 'Equipment', e.desc) + field(p + 'hours', 'Hours', e.hours, { num: true }) + field(p + 'rate', 'Rate charged', e.rate, { num: true, pre: '$' }) + field(p + 'blue_book', 'Blue Book rate', e.blue_book, { num: true, pre: '$' }) + '<button class="del" data-act="del" data-l="equipment" data-i="' + i + '" aria-label="Remove">✕</button></div>';
+      }).join('') + '<button class="btn ghost sm add" data-act="addequip">+ Equipment line</button></div>';
+    h += '<div class="card sec"><div class="sec-h"><h3>Other costs billed at cost</h3></div><div class="grid">' +
+      field('nss', 'Site services', f.nss, { num: true, pre: '$', small: '(NSS) dumpsters, hoisting…' }) + field('sgc', 'General conditions items', f.sgc, { num: true, pre: '$', small: '(SGC)' }) +
+      field('bond', 'Bond and insurance', f.bond, { num: true, pre: '$' }) + field('bo', 'B&O tax', f.bo, { num: true, pre: '$' }) +
+      field('permits', 'Permit fees', f.permits, { num: true, pre: '$' }) + field('ext_sgc', 'Extended general conditions', f.ext_sgc, { num: true, pre: '$', small: '(time)' }) + '</div></div>';
+    h += '<div class="card sec"><div class="sec-h"><h3>CM fee and totals</h3></div><div class="grid">' + field('fee_pct', 'CM fee', f.fee_pct, { num: true, suf: '%', small: '(the CM’s percentage)' }) + '<div></div></div>' +
+      '<div class="hint" style="margin:12px 0 7px">The fee was charged on</div><div class="pills">' + K.FEE_ON.map(function (p) { return '<button class="pill" data-feeon="' + esc(p[0]) + '" aria-pressed="' + (f.fee_on.indexOf(p[0]) >= 0) + '">' + esc(FEE_LABEL[p[0]]) + '</button>'; }).join('') + '</div>' +
+      '<div class="totals" style="margin-top:14px">' + field('fee_amount', 'CM fee amount', f.fee_amount, { num: true, pre: '$', small: f._fee_manual ? 'as written' : 'calculated' }) +
+      field('total', 'Total requested', f.total, { num: true, pre: '$', small: f._total_manual ? 'as written on the cover sheet' : 'calculated' }) + '</div>' +
+      '<div id="totnote"></div></div>';
+    h += '<div class="stick"><div class="live" id="live"></div><button class="btn primary" data-act="check">' + (role === 'owner' || role === 'architect' ? 'Looks right, check it →' : 'Looks right, check it →') + '</button></div></div></div></div>';
+    app.innerHTML = h;
+    if (S.pdf && S.pdf.canvases) { var box = document.getElementById('pdfpages'); S.pdf.canvases.forEach(function (c) { box.appendChild(c); }); }
+    live();
+  }
+  function live() {
+    var f = S.form, el = document.getElementById('live'), tn = document.getElementById('totnote'); if (!el) return;
+    retotal(f);
+    var ft = document.querySelector('[data-p="fee_amount"]'), tt = document.querySelector('[data-p="total"]');
+    if (ft && document.activeElement !== ft) ft.value = fmt(f.fee_amount); if (tt && document.activeElement !== tt) tt.value = fmt(f.total);
+    if (tn) tn.innerHTML = Math.abs(f._lines_total - f.total) > 1 ? '<p class="hint" style="color:var(--amber)">The cover sheet says ' + M(f.total) + ' but its lines add up to ' + M(f._lines_total) + '. <button class="link" data-act="usecalc">Use the lines’ total</button></p>' : '';
+    if (!ready(f)) { el.innerHTML = '<span>Fill in what caused the change and both dates to check it.</span>'; return; }
+    var cs = filtered(K.checksheet(caseOf(f))), n = cs.counts;
+    el.innerHTML = '<span>Right now:</span>' + (n.fail ? '<b><span class="dotc" style="background:var(--red)"></span> ' + n.fail + ' problem' + (n.fail > 1 ? 's' : '') + '</b>' : '<b><span class="dotc" style="background:var(--green)"></span> no problems</b>') +
+      (n.person ? '<span>· ' + n.person + ' for a person</span>' : '') + '<span>· ' + n.pass + ' checks pass</span>';
+  }
+  function setPath(o, path, v) { var ks = path.split('.'), last = ks.pop(); ks.forEach(function (k) { o = o[k]; }); o[last] = v; }
+  app.addEventListener('input', function (e) {
+    var t = e.target, p = t.dataset && t.dataset.p; if (!p || !S) return;
+    var v = t.type === 'checkbox' ? t.checked : t.dataset.num ? num(t.value) : t.value;
+    setPath(S.form, p, v); S.edited = true; S.need = S.need.filter(function (x) { return x !== p; }); t.closest('.inp') && t.closest('.inp').classList.remove('need');
+    if (p === 'fee_amount') S.form._fee_manual = true; if (p === 'total') S.form._total_manual = true;
+    if (t.type === 'checkbox' || t.tagName === 'SELECT') { saveSession(); return viewConfirmKeepScroll(); }
+    live(); saveSession();
+  });
+  function viewConfirmKeepScroll() { var y = window.scrollY; viewConfirm(); window.scrollTo(0, y); }
+
+  /* ---------- step 3: results ---------- */
+  function filtered(cs) {
+    if (role !== 'sub') return cs;
+    var rows = cs.rows.filter(function (r) { return r.firm; }), counts = { pass: 0, fail: 0, person: 0, not_checked: 0 }, at = 0;
+    rows.forEach(function (r) { counts[r.status]++; if (r.status === 'fail' && r.difference > 0) at += r.difference; });
+    return Object.assign({}, cs, { rows: rows, counts: counts, dollars_at_issue: K.round(at, 2) });
+  }
+  function findingsOf(cs) {
+    var order = { fail: 0, not_checked: 1, person: 2 };
+    return cs.rows.filter(function (r) { return r.status !== 'pass'; })
+      .sort(function (a, b) { return order[a.status] - order[b.status] || (b.difference || 0) - (a.difference || 0); })
+      .map(function (r, i) { return { n: i + 1, r: r, kind: r.status === 'fail' ? 'fail' : r.status === 'person' ? 'person' : 'nc', p: K.plain(r, role) }; });
+  }
+  function viewResult() {
+    if (!S) return go('upload');
+    if (!ready(S.form)) { go('confirm'); return toast('Fill in what caused the change and both dates first.'); }
+    var f = S.form, cp = caseOf(f), full = K.checksheet(cp), cs = filtered(full), fds = findingsOf(cs), v = K.verdict(cs, role), owner = role === 'owner' || role === 'architect';
+    var fails = fds.filter(function (x) { return x.kind === 'fail'; }).length;
+    var head = v.tone === 'fail' ? '<em>' + esc(v.head.replace(/^(\d+ [a-z ]+?)( will| problem)/, '$1')) + '</em>' + esc(v.head.slice(v.head.replace(/^(\d+ [a-z ]+?)( will| problem)/, '$1').length)) : '<em>' + esc(v.head) + '</em>';
+    if (v.tone === 'fail' && owner) head = '<em>' + fails + ' pricing ' + (fails === 1 ? 'problem' : 'problems') + '</em> to send back';
+    if (v.tone === 'fail' && !owner) head = '<em>' + fails + (fails === 1 ? ' thing' : ' things') + '</em> will get this sent back';
+    var noSub = role === 'sub' && !cp.subcontractor_quotes.length;
+    var h = '<div class="wrap">' + steps(3) + '<div class="cols result"><div>' + paperHtml(cp, fds, 'Cover sheet · marked up') +
+      '<p class="paper-cap">' + (S.source === 'pdf' ? 'Rebuilt from the numbers you confirmed, not the original file.' : S.source === 'sample' ? 'Synthetic sample proposal.' : 'Built from the numbers you entered.') + '</p></div>' +
+      '<div class="card findings"><div class="verdict ' + v.tone + '"><span class="eyebrow">' + esc(K.ROLE[role].label) + ' view · ' + esc(cp.id) + '</span>';
+    if (noSub) h += '<h2>No subcontractor quote here</h2><p>Switch to GC/CM or Owner’s rep to see the whole proposal.</p></div>';
+    else h += '<h2>' + head + '</h2><p>' + esc(v.sub) + '</p>' + (cs.dollars_at_issue > 0 ? '<div class="atissue"><b>' + M(cs.dollars_at_issue) + '</b><span>' + (owner ? 'more than the contract allows' : 'over what the contract allows') + '</span></div>' : '') + '</div>';
+    if (!noSub) {
+      h += fds.length ? '<ol class="fl">' + fds.map(function (fd) {
+        return '<li class="' + fd.kind + '"><span class="n">' + fd.n + '</span><div><b>' + esc(fd.p.title) + '</b><p>' + esc(fd.p.why) + '</p>' + (fd.p.amt ? '<p class="money">' + M(fd.p.amt) + ' ' + (owner ? 'more than allowed' : 'too much') + '</p>' : '') +
+          '<details class="why"><summary>What the contract says ▸</summary><div class="box"><span>Contract</span><span>' + esc(fd.r.contract) + '</span><span>Proposal</span><span>' + esc(fd.r.proposal) + '</span><span>Clause</span><span>§ ' + esc(fd.r.section) + '</span></div></details></div></li>';
+      }).join('') + '</ol>' : '<ol class="fl"></ol>';
+      var passed = cs.rows.filter(function (r) { return r.status === 'pass'; });
+      h += '<details class="passed"><summary><span>✓ ' + passed.length + ' ' + (fds.length ? 'other ' : '') + 'checks passed</span><span>show ▾</span></summary><ul>' + passed.map(function (r) { return '<li><span>' + esc(r.check) + '</span><code>§ ' + esc(r.section) + '</code></li>'; }).join('') + '</ul></details>';
+      h += '<div class="notchecked">Not checked: whether the work is really a change, whether costs are already covered by the fee, and whether hours and prices are reasonable. ' + (owner ? 'Those are yours to judge.' : 'The owner’s rep will still judge those.') + '</div>';
+    }
+    var acts = owner ? '<button class="btn primary" data-act="copy">Copy notes to send back</button><button class="btn" data-act="edit">Edit the numbers</button><button class="btn ghost" data-act="new">Check another</button>'
+      : '<button class="btn primary" data-act="edit">' + (fails ? 'Fix and re-check' : 'Edit the numbers') + '</button><button class="btn" data-act="copy">Copy summary</button><button class="btn ghost" data-act="new">Check another</button>';
+    h += '<div class="acts">' + acts + '</div>' + (S.source !== 'sample' || S.edited ? '<p class="saved">Saved to <a class="link" href="#proposals">My proposals</a> in this browser.</p>' : '') + '</div></div></div>';
+    app.innerHTML = h;
+    if (S.source !== 'sample' || S.edited) saveProposal(full);
+  }
+  function notesText() {
+    var f = S.form, cp = caseOf(f), cs = filtered(K.checksheet(cp)), fds = findingsOf(cs), owner = role === 'owner' || role === 'architect';
+    var t = cp.id + ' · ' + cp.title + ' · ' + M(cp.cover_sheet.total_requested) + '\nChecked against the ' + K.CONTRACT.name + '.\n\n';
+    if (!fds.length) t += 'Every computed check passes.\n';
+    fds.forEach(function (fd) { t += fd.n + '. ' + fd.p.title + ' ' + fd.p.why + (fd.p.amt ? ' ' + M(fd.p.amt) + (owner ? ' more than allowed.' : ' too much.') : '') + ' (§ ' + fd.r.section + ')\n'; });
+    if (cs.dollars_at_issue > 0) t += '\nTotal at issue: ' + M(cs.dollars_at_issue) + '\n';
+    return t;
+  }
+
+  /* ---------- My proposals ---------- */
+  function saved() { return store('cs_saved') || []; }
+  function saveProposal(cs) {
+    var list = saved(), now = Date.now(), f = S.form, i = list.map(function (x) { return x.key; }).indexOf(S.key), sig = JSON.stringify(f);
+    if (i >= 0) { if (list[i].sig !== sig) { list[i].revisions++; list[i].sig = sig; } list[i].form = f; list[i].last = now; list[i].route = cs.route; }
+    else list.unshift({ key: S.key, form: f, sig: sig, first: now, last: now, revisions: 0, route: cs.route, stage: 'Checked, not sent', holder: K.ROLE[role].label });
+    store('cs_saved', list.slice(0, 50));
+  }
+  function badge(cs) {
+    var n = cs.counts; return n.fail ? '<span class="badge fail">Fix ' + n.fail + (n.fail === 1 ? ' thing' : ' things') + '</span>' : n.person ? '<span class="badge person">Ready · owner decides 1</span>'.replace('1', n.person) : '<span class="badge ok">Ready to send</span>';
+  }
+  function viewProposals() {
+    var rows = saved().map(function (x) {
+      var f = x.form, cs = ready(f) ? filtered(K.checksheet(caseOf(f))) : null, days = Math.max(0, Math.floor((Date.now() - x.first) / 864e5));
+      return '<tr data-saved="' + esc(x.key) + '"><td><span class="t">' + esc(f.title || 'Untitled proposal') + '</span><span class="id">' + esc(f.id || '—') + '</span></td><td class="r">' + M(f.total || 0) + '</td><td>' + (cs ? badge(cs) : '<span class="badge">Incomplete</span>') +
+        '</td><td class="stage">' + esc(x.stage) + '</td><td>' + esc(x.holder) + '</td><td class="r">' + days + '</td><td class="r">' + x.revisions + '</td></tr>';
+    }).concat(SAMPLE_ROWS.map(function (s) {
+      var cp = cases[s[0]]; if (!cp) return ''; var cs = filtered(K.checksheet(cp));
+      return '<tr data-sample="' + s[0] + '"><td><span class="t">' + esc(cp.title) + '<span class="badge sample">sample</span></span><span class="id">' + s[0] + '</span></td><td class="r">' + M(cp.cover_sheet.total_requested) + '</td><td>' + badge(cs) +
+        '</td><td class="stage">' + s[1] + '</td><td>' + s[2] + '</td><td class="r"><span class="age' + (s[3] > 14 ? ' late' : '') + '">' + s[3] + '</span></td><td class="r">' + s[4] + '</td></tr>';
+    }));
+    app.innerHTML = '<div class="wrap"><div class="ph1"><div><h1>My proposals</h1><p>Every proposal you check is saved here, in this browser only. Rows marked <span class="badge sample" style="margin:0">sample</span> are made-up examples; their status is invented, their checklist is real.</p></div>' +
+      '<div style="display:flex;gap:8px"><a class="btn primary" href="#upload">Check a proposal</a>' + (saved().length ? '<button class="btn ghost" data-act="clear">Clear mine</button>' : '') + '</div></div>' +
+      '<div class="card tbl-wrap"><table class="tbl"><thead><tr><th>Proposal</th><th class="r">Requested</th><th>Checklist</th><th>Stage</th><th>With</th><th class="r">Days in stage</th><th class="r">Revisions</th></tr></thead><tbody>' + rows.join('') + '</tbody></table></div>' +
+      '<p class="fine">Days in stage, revisions and who holds it are tracked here for proposals you check. They’d come from your project system (e.g. Procore) in a real setup.</p></div>';
+  }
+
+  /* ---------- events ---------- */
+  app.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-act],[data-sample],[data-saved],[data-go],[data-feeon]'); if (!t) return;
+    if (t.dataset.go) return go(t.dataset.go);
+    if (t.dataset.feeon) { var on = S.form.fee_on, p = t.dataset.feeon, i = on.indexOf(p); if (i >= 0) on.splice(i, 1); else on.push(p); S.edited = true; t.setAttribute('aria-pressed', i < 0); live(); saveSession(); return; }
+    if (t.dataset.sample) { startSample(t.dataset.sample); return go(t.closest('table') ? 'result' : 'confirm'); }
+    if (t.dataset.saved) { var x = saved().filter(function (s) { return s.key === t.dataset.saved; })[0]; if (x) { S = { form: x.form, source: 'saved', key: x.key, read: false, need: [], pdf: null, edited: true }; saveSession(); go('result'); } return; }
+    var a = t.dataset.act, f = S && S.form;
+    if (a === 'manual') { start(blankForm(), 'manual'); return go('confirm'); }
+    if (a === 'addsub') { f.subs.push(blankSub()); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'delsub') { f.subs.splice(+t.dataset.i, 1); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'addtag') { var s = f.subs[+t.dataset.i]; s.tm_tags.push({ tag: 'TM-' + (s.tm_tags.length + 1), date: '', signed: false }); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'addlabor') { f.labor.push({ desc: '', hours: 0, wage: 0, burden_pct: 32 }); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'addequip') { f.equipment.push({ desc: '', hours: 0, rate: 0, blue_book: 0 }); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'del') { f[t.dataset.l].splice(+t.dataset.i, 1); S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'usecalc') { f._total_manual = false; f._fee_manual = false; S.edited = true; return viewConfirmKeepScroll(); }
+    if (a === 'check') {
+      if (!ready(f)) { ['cause', 'event_date', 'notice_date'].forEach(function (k) { if (!f[k] || (k !== 'cause' && !/^\d{4}-/.test(f[k]))) S.need.indexOf(k) < 0 && S.need.push(k); }); viewConfirmKeepScroll(); return toast('Fill in what caused the change and both dates first.'); }
+      saveSession(); return go('result');
+    }
+    if (a === 'edit') return go('confirm');
+    if (a === 'new') { S = null; try { sessionStorage.removeItem('cs_current'); } catch (er) {} return go('upload'); }
+    if (a === 'copy') { var txt = notesText(); (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('Copied. Paste it into your email or Procore.'); }, function () { window.prompt('Copy this:', txt); }); return; }
+    if (a === 'clear') { store('cs_saved', []); return viewProposals(); }
+  });
+  var modal = document.getElementById('contractModal');
+  document.getElementById('contractBtn').onclick = function () { modal.hidden = false; };
+  modal.addEventListener('click', function (e) { if (e.target === modal || e.target.closest('[data-close]')) modal.hidden = true; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
+
+  /* ---------- routing ---------- */
+  function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
+  function route() {
+    var v = (location.hash || '#upload').slice(1);
+    document.querySelectorAll('[data-nav]').forEach(function (a) { var on = (a.dataset.nav === 'proposals') === (v === 'proposals'); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
+    if (v !== 'confirm') window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+
+  var q = new URLSearchParams(location.search);
+  setRole(q.get('role') || store('cs_role') || 'gc');
+  Promise.all([
+    fetch('/demo3/data/cases.json').then(function (r) { return r.json(); }),
+    fetch('/api/extract', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+  ]).then(function (res) {
+    res[0].cases.forEach(function (c) { cases[c.id] = c; });
+    reader = res[1] && res[1].ok ? res[1].model : null;
+    loadSession();
+    if (q.get('sample') && cases[q.get('sample')]) { startSample(q.get('sample')); history.replaceState(null, '', location.pathname + '#result'); }
+    route();
+  }).catch(function () { app.innerHTML = '<div class="wrap"><div class="err">Could not load the checker. Refresh to try again.</div></div>'; });
+})();

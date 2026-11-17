@@ -175,6 +175,11 @@
     owner: { label: "Owner's rep", q: 'Is this change proposal priced the way the contract allows?', send: 'before you approve it' }
   };
   function plain(r, role) {
+    var out = plain0(r, role);
+    out.why = out.why.replace(/(\d+)\.0%/g, '$1%'); out.title = out.title.replace(/(\d+)\.0%/g, '$1%');
+    return out;
+  }
+  function plain0(r, role) {
     var owner = role === 'owner' || role === 'architect', amt = r.difference > 0 ? r.difference : null, f = r.firm ? r.firm + "'s" : 'The';
     switch (r.flag) {
       case 'SUB_MARKUP': return { title: f + ' markup is over the limit.', why: 'The contract allows 10% on their own work, 5% on lower-tier subs, 15% total. This quote has ' + r.proposal + '.', amt: amt };
@@ -208,6 +213,7 @@
   }
 
   /* ---------- The editable form: a flat, plain record that round-trips to the case format ---------- */
+  function idx(cp) { return cp.cm_lines.map(function (l, i) { return { l: l, i: i }; }); }
   function toForm(cp) {
     var c = cp.cover_sheet;
     return {
@@ -221,10 +227,9 @@
           tm_tags: (q.tm_tags || []).map(function (t) { return { tag: t.tag, date: t.date, signed: !!(t.signed_by_cm_superintendent && t.signed_by_owner_rep), _s: t }; }) };
       }),
       cm_direct: c.cm_direct_costs,
-      labor: cp.cm_lines.filter(function (l) { return l.kind === 'labor'; }).map(function (l) { return { desc: l.desc, hours: l.hours, wage: l.wage, burden_pct: round(100 * l.burden_rate, 1), _l: l }; }),
-      equipment: cp.cm_lines.filter(function (l) { return l.kind === 'equipment' && 'blue_book_rate' in l; }).map(function (l) { return { desc: l.desc, rate: l.rate_charged, blue_book: l.blue_book_rate, hours: l.hours_used, _l: l }; }),
-      _order: cp.cm_lines.slice(),
-      _other_lines: cp.cm_lines.filter(function (l) { return !(l.kind === 'labor' || (l.kind === 'equipment' && 'blue_book_rate' in l)); }),
+      labor: idx(cp).filter(function (x) { return x.l.kind === 'labor'; }).map(function (x) { var l = x.l; return { desc: l.desc, hours: l.hours, wage: l.wage, burden_pct: round(100 * l.burden_rate, 1), _l: l, _i: x.i }; }),
+      equipment: idx(cp).filter(function (x) { return x.l.kind === 'equipment' && 'blue_book_rate' in x.l; }).map(function (x) { var l = x.l; return { desc: l.desc, rate: l.rate_charged, blue_book: l.blue_book_rate, hours: l.hours_used, _l: l, _i: x.i }; }),
+      _other_lines: idx(cp).filter(function (x) { return !(x.l.kind === 'labor' || (x.l.kind === 'equipment' && 'blue_book_rate' in x.l)); }).map(function (x) { return Object.assign({}, x.l, { _i: x.i }); }),
       nss: c.nss_items, sgc: c.sgc_items, bond: c.bond_and_insurance, bo: c.bo_tax, permits: c.permit_fees, ext_sgc: c.extended_sgc_time,
       fee_pct: round(100 * c.fee_rate, 2), fee_on: c.fee_applied_to.slice(), fee_amount: c.fee, total: c.total_requested,
       sub_total: c.subcontractor_quotes, _auto: false
@@ -247,11 +252,12 @@
     return f;
   }
   // Keep the CM lines in their original order so a proposal round-trips exactly; new lines go last.
+  // Uses stored indexes, not object identity, so it still works after the form is saved and reloaded.
   function orderLines(f, built) {
-    if (!f._order) return built;
-    var byOrig = new Map(), fresh = [];
-    built.forEach(function (b, i) { var src = all(f)[i]; if (src && src._l) byOrig.set(src._l, b); else if (src && f._other_lines.indexOf(src) >= 0) byOrig.set(src, b); else fresh.push(b); });
-    return f._order.filter(function (o) { return byOrig.has(o); }).map(function (o) { return byOrig.get(o); }).concat(fresh);
+    var src = all(f);
+    return built.map(function (b, i) { return { b: b, k: src[i] && src[i]._i != null ? src[i]._i : 1e9 + i }; })
+      .sort(function (a, b) { return a.k - b.k; })
+      .map(function (x) { var o = Object.assign({}, x.b); delete o._i; return o; });
   }
   function all(f) { return f.labor.concat(f.equipment, f._other_lines || []); }
   function toCase(f) {
@@ -272,7 +278,7 @@
       }),
       cm_lines: orderLines(f, f.labor.map(function (l) { var b = n(l.burden_pct) / 100; return Object.assign({}, l._l || {}, { kind: 'labor', desc: l.desc, hours: n(l.hours), wage: n(l.wage), burden_rate: (l._l && round(100 * l._l.burden_rate, 1) === n(l.burden_pct)) ? l._l.burden_rate : b, amount: round(n(l.hours) * n(l.wage) * (1 + b), 2) }); })
         .concat(f.equipment.map(function (e) { return Object.assign({}, e._l || {}, { kind: 'equipment', owned_by_cm: true, desc: e.desc, rate_charged: n(e.rate), blue_book_rate: n(e.blue_book), hours_used: n(e.hours), amount: round(n(e.rate) * n(e.hours), 2) }); }))
-        .concat(f._other_lines || [])),
+        .concat((f._other_lines || []).map(function (l) { return Object.assign({}, l); }))),
       cover_sheet: { cm_direct_costs: n(f.cm_direct), subcontractor_quotes: n(f.sub_total), fee_rate: n(f.fee_pct) / 100, fee_applied_to: f.fee_on.slice(), fee: n(f.fee_amount),
         bond_and_insurance: n(f.bond), bo_tax: n(f.bo), permit_fees: n(f.permits), nss_items: n(f.nss), sgc_items: n(f.sgc), extended_sgc_time: n(f.ext_sgc), total_requested: n(f.total) }
     };

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Check a change proposal · ClauseStream</title>
+<meta name="description" content="Check a priced change proposal against the contract before you send it: markups, the CM fee, labor rates, equipment, deadlines and signatures.">
+<meta name="theme-color" content="#0b0c0e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/clausestream/" aria-label="ClauseStream home"><span class="mark">§</span><span class="hide-sm">ClauseStream</span></a>
+    <button class="chip-btn" id="contractBtn" title="The contract these checks use"><span class="dot"></span><span class="hide-md">Checking against:</span> <b>Sample GC/CM contract</b></button>
+    <div class="seg" id="roles" role="radiogroup" aria-label="I am the">
+      <span class="seg-lbl hide-md">I'm the</span>
+      <button role="radio" data-role="sub">Sub</button><button role="radio" data-role="gc">GC/CM</button><button role="radio" data-role="architect">Architect</button><button role="radio" data-role="owner">Owner's rep</button>
+    </div>
+    <nav class="links">
+      <a href="#upload" data-nav="check">Check</a>
+      <a href="#proposals" data-nav="proposals">My proposals</a>
+      <a href="/demo3/" class="hide-sm">How it works</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="modal" id="contractModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <div class="modal-h"><div><span class="eyebrow">Checking against</span><h2 id="cmTitle">Sample GC/CM contract</h2></div><button class="x" data-close aria-label="Close">✕</button></div>
+    <ul class="rules">
+      <li><b>Subcontractor markup</b><span>Up to 10% on their own work, 5% on lower-tier subs, 15% in total.</span><code>§ 6.5.2</code></li>
+      <li><b>CM fee</b><span>5%, and only on the CM's own work and subcontractor quotes. Not on site services, general conditions items, bond, insurance, taxes or permits.</span><code>§ 6.5.3</code></li>
+      <li><b>Labor burden</b><span>32% on top of wages.</span><code>§ 5.4</code></li>
+      <li><b>CM-owned equipment</b><span>At most 75% of the Rental Rate Blue Book rate.</span><code>§ 6.5.4</code></li>
+      <li><b>Backup</b><span>An itemized breakdown of labor, material and equipment. Time-and-material tags signed by the CM superintendent and the owner's rep.</span><code>§ 6.5.7</code></li>
+      <li><b>Notice</b><span>Within 7 days of an RFI answer, ASI, returned submittal, owner or architect direction, or a hidden site condition; 14 days for anything else. A deadline on a weekend or holiday moves to the next business day.</span><code>§ 6.2, 1.4</code></li>
+      <li><b>Goes to a person</b><span>Time extensions, hidden site conditions, and anything over $250,000.</span><code>§ 6.4, 6.2(c), Ex. D</code></li>
+    </ul>
+    <p class="fine">A synthetic contract written for this project, modeled on the Webster School audit. It is the only contract set up; adding your own is not built yet.</p>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="/assets/checks.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>

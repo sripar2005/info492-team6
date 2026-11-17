@@ -5,6 +5,8 @@
     python3 demo3/serve_local.py            # then open http://localhost:8000/clausestream/
 
 "Run agents live" in the dashboard calls /api/demo3 here, which runs the role agent on Ollama.
+The check page's PDF upload calls /api/extract here, which reads the document's text into the form
+with the same local model (demo3/extract.py).
 Only this computer can reach it (it listens on 127.0.0.1).
 """
 import argparse
@@ -18,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "demo3"))
 import agents  # noqa: E402
+import extract  # noqa: E402
 
 CASES = {c["id"]: c for c in json.loads((ROOT / "demo3" / "data" / "cases.json").read_text())["cases"]}
 CONTRACT = agents.CONTRACT_FILE.read_text(encoding="utf-8")
@@ -34,11 +37,22 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
+        if self.path.startswith("/api/extract"):
+            return self._json(200, {"ok": True, "model": MODEL})
         if self.path.startswith("/api/demo3"):
             return self._json(200, {"ok": True, "live": True, "backend": "ollama", "model": MODEL, "passcode_required": False})
         return super().do_GET()
 
     def do_POST(self):
+        if self.path.startswith("/api/extract"):
+            req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
+            text = (req.get("text") or "").strip()
+            if len(text) < 40:
+                return self._json(400, {"error": "No readable text in this file. A scanned image PDF has no text layer to read."})
+            try:
+                return self._json(200, extract.extract(text, MODEL))
+            except Exception as e:  # noqa: BLE001
+                return self._json(502, {"error": f"The local model did not answer ({type(e).__name__}). Is Ollama running?"})
         if not self.path.startswith("/api/demo3"):
             return self._json(404, {"error": "Not found."})
         req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
