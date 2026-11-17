@@ -193,10 +193,11 @@
         var acting = cur.synthetic && cur.is_admin ? '<div class="fd" style="max-width:260px"><label><span>Acting as (synthetic project only)</span></label><div class="inp sel"><select id="acting">' + Object.keys(PARTY).map(function (k) { return '<option value="' + k + '"' + (k === me ? ' selected' : '') + '>' + PARTY[k] + '</option>'; }).join('') + '</select></div></div>' : '';
         var actions = !open ? '<p style="margin:0">This change is ' + esc(STATUS[t.status].toLowerCase()) + '.</p>' : !mine ? '<p style="margin:0;color:var(--muted)">It’s with the ' + esc(PARTY[t.holder]) + '. You can comment.</p>' :
           '<div class="acts" style="margin:0 0 12px;flex-wrap:wrap">' + (NEXT[me] ? '<button class="btn primary" data-tact="submit">Send to ' + esc(PARTY[NEXT[me]]) + '</button>' : '') + (me === 'owner' ? '<button class="btn primary" data-tact="approve">Approve</button><button class="btn" data-tact="reject">Reject</button>' : '') + (PREV[me] ? '<button class="btn" data-tact="return">Return to ' + esc(PARTY[PREV[me]]) + '</button>' : '') + '</div>' +
+            (me !== 'owner' ? '<div class="acts" style="margin:0 0 12px;flex-wrap:wrap"><button class="btn sm" data-tact="draft">Draft the formal proposal from the record</button><button class="btn sm" data-tact="check">Run the contract checks</button></div>' : '<div class="acts" style="margin:0 0 12px"><button class="btn sm" data-tact="check">Run the contract checks</button></div>') +
             '<div class="fd" id="reasonbox" hidden><label><span>Why it’s going back</span></label><div class="inp sel"><select id="treason">' + REASONS.map(function (x) { return '<option value="' + x[0] + '">' + x[1] + '</option>'; }).join('') + '</select></div></div>';
         var tl = evs.map(function (e) {
           var who = people[e.actor];
-          return '<li class="ev ' + e.kind + '"><div class="ev-h"><span class="who ' + (e.kind === 'draft' || e.kind === 'evidence' ? 'ai' : e.kind === 'check' ? 'computed' : 'person') + '">' + esc(PARTY[e.party]) + '</span><b>' + esc(KIND[e.kind] || e.kind) + '</b>' + (e.reason ? '<span class="tagr chk">' + esc((REASONS.filter(function (x) { return x[0] === e.reason; })[0] || [0, e.reason])[1]) + '</span>' : '') + '<span class="fine">' + when(e.created_at) + (who && who.email ? ' · ' + esc(who.email) : '') + '</span></div>' +
+          return '<li class="ev ' + e.kind + '"><div class="ev-h"><span class="who ' + ((e.payload && e.payload.built_by === 'ai') ? 'ai' : (e.kind === 'check' || e.kind === 'draft') ? 'computed' : 'person') + '">' + esc(PARTY[e.party]) + '</span><b>' + esc(KIND[e.kind] || e.kind) + '</b>' + (e.reason ? '<span class="tagr chk">' + esc((REASONS.filter(function (x) { return x[0] === e.reason; })[0] || [0, e.reason])[1]) + '</span>' : '') + '<span class="fine">' + when(e.created_at) + (who && who.email ? ' · ' + esc(who.email) : '') + '</span></div>' +
             (e.body ? '<p>' + esc(e.body) + '</p>' : '') + '</li>';
         }).join('');
         app.innerHTML = sheet(t.title, 'T-201 · ' + t.number + ' · ' + cur.name,
@@ -212,6 +213,12 @@
             var k = b.dataset.tact, body = (document.getElementById('tbody').value || '').trim(), box = document.getElementById('reasonbox');
             if (k === 'return' && box && box.hidden) { box.hidden = false; b.textContent = 'Confirm return'; return; }
             if (k === 'comment' && !body) return A.toast('Write a comment first.');
+            if (k === 'check') return runChecks(cur, t, me).then(function () { A.toast('Checks saved to the thread.'); V.change(); }).catch(fail);
+            if (k === 'draft') {
+              var note = (evs.filter(function (x) { return x.kind === 'note'; })[0] || {}).body || '';
+              return trail(cur, t).then(function (tr) { return q(sb.from('events').insert({ thread_id: t.id, project_id: cur.id, party: me, kind: 'draft', body: draftText(tr, t, note), payload: { built_by: 'code', sources: tr ? tr.links.length : 0 }, actor: user.id })); })
+                .then(function () { A.toast('Draft added. Every line cites the record.'); V.change(); }).catch(fail);
+            }
             var row = { thread_id: t.id, project_id: cur.id, party: me, kind: k, body: body || null, actor: user.id };
             if (k === 'return') row.reason = document.getElementById('treason').value;
             q(sb.from('events').insert(row)).then(function () { A.toast(k === 'submit' ? 'Sent to the ' + PARTY[NEXT[me]] + '.' : k === 'return' ? 'Returned with a reason.' : k === 'approve' ? 'Approved.' : 'Saved.'); V.change(); }).catch(fail);
@@ -258,6 +265,40 @@
       (governs.length ? '<div class="sec-h" style="margin-top:16px"><h3>Terms that govern it</h3></div><ul class="govern">' + governs.map(function (x) { return '<li><button class="link" data-dopen="' + x.d.id + '">' + esc(x.d.number || x.d.title) + (x.piece && x.piece.section ? ' § ' + esc(x.piece.section) : '') + '</button>' + (x.piece ? '<span>' + esc(x.piece.body.length > 140 ? x.piece.body.slice(0, 137) + '…' : x.piece.body) + '</span>' : '') + '</li>'; }).join('') + '</ul>' : '') +
       (work.length ? '<p class="fine" style="margin-top:12px">Schedule work affected: ' + work.map(function (x) { return esc(x.piece ? x.piece.section : x.d.number); }).join(', ') + '. <a class="link" href="#delay">Check the delay</a></p>' : '') +
       '<p class="fine" style="margin-top:12px">Built by code from the record’s links; every line points to its source. Who is responsible is for the parties to decide.</p>';
+  }
+
+  /* ---------- checks and draft at the handoff ---------- */
+  var caseIndex = null;
+  function findCase(number) {
+    if (!caseIndex) caseIndex = Promise.all(['/demo3/data/cases.json', '/demo4/data/cases.json'].map(function (u) { return fetch(u).then(function (r) { return r.ok ? r.json() : { cases: [] }; }).catch(function () { return { cases: [] }; }); }))
+      .then(function (r) { var o = {}; r.forEach(function (j) { (j.cases || []).forEach(function (c) { o[c.id] = c; }); }); return o; });
+    return caseIndex.then(function (o) { return o[number] || null; });
+  }
+  function runChecks(cur, t, me) {
+    return findCase(t.number).then(function (c) {
+      if (!c) throw new Error('No priced cover sheet for ' + t.number + ' yet. Price it in Check a proposal first.');
+      var K = window.ClauseChecks, cs = K.checksheet(c, A.C()), v = K.verdict(cs, me === 'owner' ? 'owner' : 'gc'), n = cs.counts;
+      var fails = cs.rows.filter(function (r) { return r.status === 'fail'; }).map(function (r) { return '§ ' + r.section + ': ' + K.plain(r, me === 'owner' ? 'owner' : 'gc', A.C()).title; });
+      var body = v.head.replace(/<[^>]+>/g, '') + '. ' + n.pass + ' checks passed, ' + n.fail + ' to fix, ' + n.person + ' for a person.' + (cs.dollars_at_issue > 0 ? ' ' + K.money(cs.dollars_at_issue) + ' at issue.' : '') + (fails.length ? '\n' + fails.join('\n') : '') + '\nChecked against ' + A.C().name + '.';
+      return q(sb.from('events').insert({ thread_id: t.id, project_id: cur.id, party: me, kind: 'check', body: body, payload: { counts: n, dollars_at_issue: cs.dollars_at_issue, contract: A.C().name, case: c.id }, actor: user.id }));
+    });
+  }
+  function draftText(tr, t, note) {
+    var lines = ['Change proposal ' + t.number + ': ' + t.title, ''];
+    if (note) lines.push('Requested by the sub: ' + note, '');
+    if (tr) {
+      var cause = [], gov = [];
+      tr.links.forEach(function (l) {
+        var other = l.from_doc === tr.co ? l.to_doc : l.from_doc, d = tr.D[other], p = tr.P[l.from_doc === tr.co ? l.to_piece : l.from_piece];
+        if (!d) return;
+        if (l.relation === 'caused_by') cause.push('Cause: ' + (d.number || d.title) + (p && p.section ? ' (' + p.section + ')' : '') + (p ? ': “' + p.body.slice(0, 220) + (p.body.length > 220 ? '…' : '') + '”' : '') + ' [' + (d.number || d.title) + (p && p.section ? ' ' + p.section : '') + ']');
+        if (l.relation === 'cites' && p) gov.push((d.number || d.title) + ' § ' + p.section);
+      });
+      lines = lines.concat(cause.length ? cause : ['Cause: not linked in the record yet. Add the RFI, ASI or field report before sending.']);
+      if (gov.length) lines.push('', 'Priced and noticed under: ' + gov.filter(function (x, i) { return gov.indexOf(x) === i; }).join('; ') + '.');
+    }
+    lines.push('', 'Pricing: from the priced cover sheet in Check a proposal. Every line above cites its source in the record.');
+    return lines.join('\n');
   }
 
   /* ---------- R-101 Record: search every piece, open any document ---------- */
