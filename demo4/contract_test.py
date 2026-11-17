@@ -42,7 +42,15 @@ def load_key():
     return out
 
 
+# Labels the key may use that mean the same as the reader's fixed choices (vocabulary only, not tuning).
+SYNONYMS = {"bond and insurance premiums": "bond and insurance"}
+
+
 def same(a, b):
+    if isinstance(b, list):
+        b = [SYNONYMS.get(x, x) for x in b]
+    if isinstance(a, list):
+        a = [SYNONYMS.get(x, x) for x in a]
     if isinstance(b, dict):
         return isinstance(a, dict) and all(same(a.get(k), v) for k, v in b.items())
     if isinstance(b, list):

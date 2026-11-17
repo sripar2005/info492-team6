@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const R = path.resolve(__dirname, '..');
 const J = require(path.join(R, 'assets', 'contract.js'));
-const files = ['demo1/data/synthetic_contract.md', 'demo4/data/contract_b.md'].filter(f => fs.existsSync(path.join(R, f)));
+const files = ['demo1/data/synthetic_contract.md', 'demo4/data/contract_b.md', 'demo4/data/contract_c.md'].filter(f => fs.existsSync(path.join(R, f)));
 let bad = 0;
 for (const f of files) {
   const py = JSON.parse(execFileSync('python3', ['-c', `

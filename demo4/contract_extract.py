@@ -293,7 +293,7 @@ def retrieval_test():
     """No model needed: for each contract in the answer key, is the key's quote among the candidates code finds?"""
     key = json.loads((ROOT / "demo4" / "data" / "contract_terms_key.json").read_text())
     key = key.get("contracts", key)
-    files = {"A": ROOT / "demo1" / "data" / "synthetic_contract.md", "B": ROOT / "demo4" / "data" / "contract_b.md"}
+    files = {"A": ROOT / "demo1" / "data" / "synthetic_contract.md", "B": ROOT / "demo4" / "data" / "contract_b.md", "C": ROOT / "demo4" / "data" / "contract_c.md"}
     report = {}
     for name, path in files.items():
         if not path.exists() or name not in key:
