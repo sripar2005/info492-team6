@@ -24,6 +24,17 @@
   function toast(t) { var el = document.getElementById('toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function () { el.hidden = true; }, 3600); }
   function num(v) { var x = parseFloat(String(v).replace(/[$,\s%]/g, '')); return isFinite(x) ? x : 0; }
   function fmt(x) { return x === 0 || x ? String(x) : ''; }
+  // Revision triangle, drawn the way a delta tag is on a drawing: double outline, number inside.
+  // kind: 'fail' red filled, 'person' black outline, 'nc' grey outline.
+  function tag(n, kind, size) {
+    size = size || 24; var w = size, h = Math.round(size * 0.88), i = size >= 22 ? 2.6 : 2.1, o = 0.8, fs = Math.round(size * 0.48);
+    var outer = 'M' + (w / 2) + ' ' + o + ' L' + (w - o) + ' ' + (h - o) + ' L' + o + ' ' + (h - o) + ' Z';
+    var inner = 'M' + (w / 2) + ' ' + (o + i * 1.9).toFixed(1) + ' L' + (w - o - i * 1.7).toFixed(1) + ' ' + (h - o - i).toFixed(1) + ' L' + (o + i * 1.7).toFixed(1) + ' ' + (h - o - i).toFixed(1) + ' Z';
+    var ink = kind === 'fail' ? '#C8102E' : kind === 'nc' ? '#7A7A7A' : '#000000', fill = kind === 'fail' ? ink : '#FFFFFF', txt = kind === 'fail' ? '#FFFFFF' : ink;
+    return '<svg class="dtag" role="img" aria-label="' + (kind === 'fail' ? 'Must fix ' : kind === 'person' ? 'For a person, ' : 'Not checked, ') + n + '" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+      '<path d="' + outer + '" fill="' + fill + '" stroke="' + ink + '" stroke-width="1.6"/><path d="' + inner + '" fill="none" stroke="' + (kind === 'fail' ? '#FFFFFF' : ink) + '" stroke-width="0.9"' + (kind === 'nc' ? ' stroke-dasharray="2 1.5"' : '') + '/>' +
+      '<text x="' + (w / 2) + '" y="' + (h - o - i - 2.2).toFixed(1) + '" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="' + fs + '" fill="' + txt + '">' + n + '</text></svg>';
+  }
   function uid() { return 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 
   /* ---------- state ---------- */
@@ -195,7 +206,8 @@
       (marks[k] = marks[k] || []).push({ n: fd.n, kind: fd.kind, text: shortNote(fd.r, cp) });
       if (fd.r.flag === 'FEE_ON_EXCLUDED') cp.cover_sheet.fee_applied_to.forEach(function (p) { var kk = FEE_KEY[p]; if (kk) (marks[kk] = marks[kk] || []).push({ n: fd.n, kind: 'fail', text: 'fee was charged on this', echo: true }); });
     });
-    function note(k) { return (marks[k] || []).map(function (m) { return '<div><span class="num"><b>' + m.n + '</b></span>' + esc(m.text) + '</div>'; }).join(''); }
+    function note(k) { return (marks[k] || []).map(function (m) { return '<div><span class="num">' + tag(m.n, m.kind === 'fail' ? 'fail' : m.kind === 'person' ? 'person' : 'nc', 18) + '</span>' + esc(m.text) + '</div>'; }).join(''); }
+    function ns(k) { var u = []; (marks[k] || []).forEach(function (m) { if (u.indexOf(m.n) < 0) u.push(m.n); }); return u.join(' '); }
     function kindOf(k) { var m = marks[k] || []; return m.some(function (x) { return x.kind === 'fail'; }) ? '' : m.some(function (x) { return x.kind === 'person'; }) ? ' person' : m.length ? ' nc' : ''; }
     var c = cp.cover_sheet, meta = [
       ['cause', CAUSE_LABEL[cp.cause.type] || cp.cause.type || 'Cause not set'], ['ref', cp.cause.reference], ['event', cp.cause.event_date ? 'Happened ' + cp.cause.event_date : ''],
@@ -203,10 +215,10 @@
     var metaNotes = ['cause', 'notice', 'time'].map(function (k) { return marks['meta:' + k] ? '<div style="color:' + (kindOf('meta:' + k) ? 'var(--amber)' : 'var(--red)') + '">' + note('meta:' + k) + '</div>' : ''; }).join('');
     var h = '<div class="paper"><div class="ph"><span class="eyebrow">' + esc(caption || 'Change proposal') + '</span><span class="eyebrow">' + esc(cp.id) + '</span></div>' +
       '<h3>' + esc(cp.title) + '</h3><div class="meta">' + meta.filter(function (m) { return m[1]; }).map(function (m) {
-        var mk = marks['meta:' + m[0]]; return '<span' + (mk ? ' data-cloud="' + (kindOf('meta:' + m[0]).trim() || 'fail') + '"' : '') + '>' + esc(m[1]) + '</span>'; }).join('') + '</div>' +
+        var mk = marks['meta:' + m[0]]; return '<span' + (mk ? ' data-cloud="' + (kindOf('meta:' + m[0]).trim() || 'fail') + '" data-ns="' + ns('meta:' + m[0]) + '"' : '') + '>' + esc(m[1]) + '</span>'; }).join('') + '</div>' +
       (metaNotes ? '<div class="meta-notes">' + metaNotes + '</div>' : '') +
       '<div class="lines-lbl">Cover sheet</div><table class="doc' + (findings && findings.length ? '' : ' nonotes') + '"><tbody>' + docLines(cp).map(function (l) {
-        var mk = marks[l.key]; return '<tr class="' + (l.tot ? 'tot ' : '') + (mk ? 'mk' + kindOf(l.key) : '') + (!mk && !l.amt && !l.tot ? ' dim' : '') + '"' + (mk ? ' data-cloud="' + (kindOf(l.key).trim() || 'fail') + '"' : '') + '><td>' + esc(l.label) + '</td><td class="amt">' + M(l.amt || 0) + '</td><td class="note">' + note(l.key) + '</td></tr>';
+        var mk = marks[l.key]; return '<tr class="' + (l.tot ? 'tot ' : '') + (mk ? 'mk' + kindOf(l.key) : '') + (!mk && !l.amt && !l.tot ? ' dim' : '') + '"' + (mk ? ' data-cloud="' + (kindOf(l.key).trim() || 'fail') + '" data-ns="' + ns(l.key) + '"' : '') + '><td>' + esc(l.label) + '</td><td class="amt">' + M(l.amt || 0) + '</td><td class="note">' + note(l.key) + '</td></tr>';
       }).join('') + '</tbody></table>';
     var nf = (findings || []).filter(function (x) { return x.kind === 'fail'; }).length;
     h += '<div class="tblock"><div><span>Project</span><b>Sample school modernization</b></div><div><span>Change proposal</span><b>' + esc(cp.id) + '</b></div>' +
@@ -224,23 +236,70 @@
     for (i = 0; i < v.n; i++) { a = v.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 0 ' + (-v.s).toFixed(1); }
     return d + ' Z';
   }
-  var COLORS = { fail: 'var(--red)', person: 'var(--amber)', nc: 'var(--blue)' };
-  function drawClouds() {
+  var COLORS = { fail: '#C8102E', person: '#000000', nc: '#7A7A7A' };
+  // Clouds go on a vellum layer over the drawing. They plot on once per render; a resize redraws them still.
+  function drawClouds(plot) {
     document.querySelectorAll('.paper').forEach(function (paper) {
-      var old = paper.querySelector('svg.clouds'); if (old) old.remove();
+      var old = paper.querySelector('.vellum'); if (old) old.remove();
       var marked = paper.querySelectorAll('[data-cloud]'); if (!marked.length) return;
-      var pb = paper.getBoundingClientRect(), svg = '<svg class="clouds" width="' + pb.width + '" height="' + pb.height + '" aria-hidden="true">';
+      var pb = paper.getBoundingClientRect(), k = 0, svg = '<svg class="clouds' + (plot === true ? ' plot' : '') + '" width="' + pb.width + '" height="' + pb.height + '" aria-hidden="true">';
       marked.forEach(function (el) {
         var b;
         if (el.tagName === 'TR') { var c = el.children, l = c[0].getBoundingClientRect(), rgt = c[1].getBoundingClientRect(); b = { left: l.left, top: l.top, right: rgt.right, bottom: l.bottom }; }
         else b = el.getBoundingClientRect();
-        var pad = el.tagName === 'TR' ? 5 : 4, x = b.left - pb.left - pad - 4, y = b.top - pb.top + (el.tagName === 'TR' ? 2 : -pad), w = b.right - b.left + pad * 2 + 6, h = b.bottom - b.top + (el.tagName === 'TR' ? -4 : pad * 2);
-        svg += '<path d="' + cloudPath(x, y, w, h, 6.5) + '" stroke="' + (COLORS[el.dataset.cloud] || COLORS.fail) + '"/>';
+        var pad = el.tagName === 'TR' ? 5 : 4, x = b.left - pb.left - pad - 4, y = b.top - pb.top + (el.tagName === 'TR' ? 9 : -pad), w = b.right - b.left + pad * 2 + 6, h = b.bottom - b.top + (el.tagName === 'TR' ? -18 : pad * 2);
+        svg += '<path pathLength="1" style="animation-delay:' + (0.15 + 0.45 * k++) + 's" d="' + cloudPath(x, y, w, h, 6.5) + '" stroke="' + (COLORS[el.dataset.cloud] || COLORS.fail) + '"/>';
       });
-      paper.insertAdjacentHTML('beforeend', svg + '</svg>');
+      paper.insertAdjacentHTML('beforeend', '<div class="vellum" aria-hidden="true">' + svg + '</svg></div>');
     });
+    zones();
   }
-  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(drawClouds, 120); });
+  // The zone frame around each sheet: letters across, numbers down, like a printed drawing.
+  function frame() {
+    var w = document.querySelector('#app > .wrap'); if (!w) return;
+    var old = w.querySelector(':scope > .zf'); if (old) old.remove();
+    var W = w.clientWidth, H = w.clientHeight, b = window.matchMedia('(max-width: 760px)').matches ? 14 : 22;
+    var cols = W > 1000 ? 6 : W > 600 ? 4 : 3, rows = Math.max(2, Math.round((H - 2 * b) / 330)), cw = (W - 2 * b) / cols, rh = (H - 2 * b) / rows, h = '';
+    for (var c = 0; c < cols; c++) {
+      var L = String.fromCharCode(65 + c), x = b + cw * c;
+      h += '<span style="left:' + x + 'px;top:0;width:' + cw + 'px;height:' + b + 'px">' + L + '</span><span style="left:' + x + 'px;bottom:0;width:' + cw + 'px;height:' + b + 'px">' + L + '</span>';
+      if (c) h += '<i style="left:' + x + 'px;top:0;width:1px;height:' + b + 'px"></i><i style="left:' + x + 'px;bottom:0;width:1px;height:' + b + 'px"></i>';
+    }
+    for (var r = 0; r < rows; r++) {
+      var y = b + rh * r;
+      h += '<span style="top:' + y + 'px;left:0;width:' + b + 'px;height:' + rh + 'px">' + (r + 1) + '</span><span style="top:' + y + 'px;right:0;width:' + b + 'px;height:' + rh + 'px">' + (r + 1) + '</span>';
+      if (r) h += '<i style="top:' + y + 'px;left:0;height:1px;width:' + b + 'px"></i><i style="top:' + y + 'px;right:0;height:1px;width:' + b + 'px"></i>';
+    }
+    w.insertAdjacentHTML('afterbegin', '<div class="zf" aria-hidden="true">' + h + '</div>');
+    w._zone = { b: b, cols: cols, rows: rows, cw: cw, rh: rh };
+  }
+  function zoneRange(els) {
+    var w = document.querySelector('#app > .wrap'), z = w && w._zone; if (!z || !els.length) return null;
+    var wb = w.getBoundingClientRect(), bl = w.clientLeft, bt = w.clientTop, c0 = 99, c1 = -1, r0 = 99, r1 = -1;
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect(), cx = (r.left + r.right) / 2 - wb.left - bl, cy = (r.top + r.bottom) / 2 - wb.top - bt;
+      var cA = Math.min(z.cols - 1, Math.max(0, Math.floor((r.left + 8 - wb.left - bl - z.b) / z.cw))), cB = Math.min(z.cols - 1, Math.max(0, Math.floor((r.right - 8 - wb.left - bl - z.b) / z.cw)));
+      var row = Math.min(z.rows - 1, Math.max(0, Math.floor((cy - z.b) / z.rh)));
+      c0 = Math.min(c0, cA); c1 = Math.max(c1, cB); r0 = Math.min(r0, row); r1 = Math.max(r1, row);
+    });
+    var name = function (c, r) { return String.fromCharCode(65 + c) + '-' + (r + 1); };
+    return { c0: c0, c1: c1, r0: r0, r1: r1, label: c0 === c1 && r0 === r1 ? name(c0, r0) : name(c0, r0) + ' to ' + name(c1, r1), z: z };
+  }
+  function marksFor(n) { return Array.prototype.filter.call(document.querySelectorAll('.paper [data-ns]'), function (el) { return (' ' + el.dataset.ns + ' ').indexOf(' ' + n + ' ') >= 0; }); }
+  function zones() {
+    document.querySelectorAll('[data-zn]').forEach(function (chip) { var zr = zoneRange(marksFor(chip.dataset.zn)); if (zr) { chip.textContent = 'Zone ' + zr.label; chip.hidden = false; } else chip.hidden = true; });
+  }
+  function lightZone(n) {
+    var w = document.querySelector('#app > .wrap'); if (!w) return; var old = w.querySelector('.zhl'); if (old) old.remove();
+    if (n == null) return; var zr = zoneRange(marksFor(n)); if (!zr) return; var z = zr.z;
+    w.insertAdjacentHTML('beforeend', '<div class="zhl" style="left:' + (z.b + z.cw * zr.c0) + 'px;top:' + (z.b + z.rh * zr.r0) + 'px;width:' + (z.cw * (zr.c1 - zr.c0 + 1)) + 'px;height:' + (z.rh * (zr.r1 - zr.r0 + 1)) + 'px"><b>' + esc(zr.label) + '</b></div>');
+  }
+  var fq = 0; function queueFrame() { if (fq) return; fq = requestAnimationFrame(function () { fq = 0; frame(); }); }
+  new MutationObserver(function () { if (!app.querySelector(':scope > .wrap > .zf')) queueFrame(); }).observe(app, { childList: true });
+  if (window.ResizeObserver) new ResizeObserver(queueFrame).observe(app);
+  app.addEventListener('mouseover', function (e) { var li = e.target.closest('.fl > li[data-n]'); var cur = app.querySelector('.fl > li.hot'); if (cur === li) return; if (cur) cur.classList.remove('hot'); if (li) { li.classList.add('hot'); lightZone(li.dataset.n); } else lightZone(null); });
+  app.addEventListener('focusin', function (e) { var li = e.target.closest('.fl > li[data-n]'); if (li) lightZone(li.dataset.n); });
+  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { frame(); drawClouds(false); }, 120); });
 
   /* ---------- step 2: confirm ---------- */
   function field(path, label, val, opt) {
@@ -351,15 +410,15 @@
       : owner ? '<em>' + fails + ' pricing ' + (fails === 1 ? 'problem' : 'problems') + '</em> to send back'
       : '<em>' + fails + (fails === 1 ? ' thing' : ' things') + '</em> will get this sent back';
     var noSub = role === 'sub' && !cp.subcontractor_quotes.length;
-    var h = '<div class="wrap">' + steps(3) + '<div class="cols result"><div>' + paperHtml(cp, fds, 'Cover sheet · marked up') +
-      '<p class="paper-cap">' + (S.source === 'pdf' ? 'Rebuilt from the numbers you confirmed, not the original file.' : S.source === 'sample' ? 'Synthetic sample proposal.' : 'Built from the numbers you entered.') + '</p></div>' +
+    var h = '<div class="wrap">' + steps(3) + '<div class="cols result"><div>' + paperHtml(cp, fds, 'Cover sheet, marked up').replace('<div class="paper">', '<div class="paper' + (S.lifted ? ' lifted' : '') + '">') +
+      '<button class="btn sm lift" data-act="lift">' + (S.lifted ? 'Lay the markup back' : 'Lift the markup') + '</button><p class="paper-cap">' + (S.source === 'pdf' ? 'Rebuilt from the numbers you confirmed, not the original file.' : S.source === 'sample' ? 'Synthetic sample proposal.' : 'Built from the numbers you entered.') + '</p></div>' +
       '<div class="card findings"><div class="verdict ' + v.tone + '"><span class="eyebrow">' + esc(K.ROLE[role].label) + ' view · ' + esc(cp.id) + '</span>';
     if (noSub) h += '<h2>No subcontractor quote here</h2><p>Switch to GC/CM or Owner’s rep to see the whole proposal.</p></div>';
-    else h += '<h2>' + head + '</h2><p>' + esc(v.sub) + '</p>' + (cs.dollars_at_issue > 0 ? '<div class="atissue"><b>' + M(cs.dollars_at_issue) + '</b><span>' + (owner ? 'more than the contract allows' : 'over what the contract allows') + '</span></div>' : '') + '</div>';
+    else h += '<h2>' + head + '</h2><p>' + esc(v.sub) + '</p><div class="vrow">' + (cs.dollars_at_issue > 0 ? '<div class="atissue"><b>' + M(cs.dollars_at_issue) + '</b><span>' + (owner ? 'more than the contract allows' : 'over what the contract allows') + '</span></div>' : '<div></div>') + stamp(cs, fails) + '</div></div>';
     if (!noSub) {
       h += fds.length ? '<ol class="fl">' + fds.map(function (fd) {
-        return '<li class="' + fd.kind + '"><span class="n">' + fd.n + '</span><div><b>' + esc(fd.p.title) + '</b><p>' + esc(fd.p.why) + '</p>' + (fd.p.amt ? '<p class="money">' + M(fd.p.amt) + ' ' + (owner ? 'more than allowed' : 'too much') + '</p>' : '') +
-          '<details class="why"><summary>What the contract says ▸</summary><div class="box"><span>Contract</span><span>' + esc(fd.r.contract) + '</span><span>Proposal</span><span>' + esc(fd.r.proposal) + '</span><span>Clause</span><span>§ ' + esc(fd.r.section) + '</span></div></details></div></li>';
+        return '<li class="' + fd.kind + '" data-n="' + fd.n + '"><span class="n">' + tag(fd.n, fd.kind) + '</span><div><b>' + esc(fd.p.title) + '</b><p>' + esc(fd.p.why) + '</p>' + (fd.p.amt ? '<p class="money">' + M(fd.p.amt) + ' ' + (owner ? 'more than allowed' : 'too much') + '</p>' : '') +
+          '<div style="margin-top:6px"><span class="zref" data-zn="' + fd.n + '" hidden></span></div><details class="why"><summary>What the contract says</summary><div class="box"><span>Contract</span><span>' + esc(fd.r.contract) + '</span><span>Proposal</span><span>' + esc(fd.r.proposal) + '</span><span>Clause</span><span>§ ' + esc(fd.r.section) + '</span></div></details></div></li>';
       }).join('') + '</ol>' : '<ol class="fl"></ol>';
       var passed = cs.rows.filter(function (r) { return r.status === 'pass'; });
       h += '<details class="passed"><summary><span>✓ ' + passed.length + ' ' + (fds.length ? 'other ' : '') + 'checks passed</span><span>show ▾</span></summary><ul>' + passed.map(function (r) { return '<li><span>' + esc(r.check) + '</span><code>§ ' + esc(r.section) + '</code></li>'; }).join('') + '</ul></details>';
@@ -369,8 +428,16 @@
       : '<button class="btn primary" data-act="edit">' + (fails ? 'Fix and re-check' : 'Edit the numbers') + '</button><button class="btn" data-act="copy">Copy summary</button><button class="btn ghost" data-act="new">Check another</button>';
     h += '<div class="acts">' + acts + '</div>' + (S.source !== 'sample' || S.edited ? '<p class="saved">Saved to <a class="link" href="#proposals">My proposals</a> in this browser.</p>' : '') + '</div></div></div>';
     app.innerHTML = h;
-    requestAnimationFrame(drawClouds); if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawClouds);
+    requestAnimationFrame(function () { frame(); drawClouds(true); }); if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { frame(); drawClouds(false); });
     if (S.source !== 'sample' || S.edited) saveProposal(full);
+  }
+  // The verdict as a submittal review stamp, the way a reviewer returns a submittal.
+  function stamp(cs, fails) {
+    var n = cs.counts, pick = fails ? 'Revise and resubmit' : 'No exceptions taken';
+    var opts = ['No exceptions taken', 'Make corrections noted', 'Revise and resubmit', 'Rejected'];
+    return '<div class="stamp land' + (fails ? '' : ' ink') + '" role="img" aria-label="Review stamp: ' + pick + '"><div class="st-h">Checked by ClauseStream</div>' +
+      opts.map(function (o) { return '<div' + (o === pick ? ' class="on"' : '') + '>' + (o === pick ? '☒ ' : '☐ ') + o + '</div>'; }).join('') +
+      '<div class="st-f">' + (n.person ? n.person + ' for the owner’s rep to decide' : 'Against ' + esc(C().name)) + '</div></div>';
   }
   function notesText() {
     var f = S.form, cp = caseOf(f), cs = filtered(K.checksheet(cp, C())), fds = findingsOf(cs), owner = role === 'owner' || role === 'architect';
@@ -641,6 +708,7 @@
       if (!ready(f)) { ['cause', 'event_date', 'notice_date'].forEach(function (k) { if (!f[k] || (k !== 'cause' && !/^\d{4}-/.test(f[k]))) S.need.indexOf(k) < 0 && S.need.push(k); }); viewConfirmKeepScroll(); return toast('Fill in what caused the change and both dates first.'); }
       saveSession(); return go('result');
     }
+    if (a === 'lift') { S.lifted = !S.lifted; var pp = app.querySelector('.cols.result .paper'); if (pp) pp.classList.toggle('lifted', S.lifted); t.textContent = S.lifted ? 'Lay the markup back' : 'Lift the markup'; return; }
     if (a === 'edit') return go('confirm');
     if (a === 'new') { S = null; try { sessionStorage.removeItem('cs_current'); } catch (er) {} return go('upload'); }
     if (a === 'copy') { var txt = notesText(); (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('Copied. Paste it into your email or Procore.'); }, function () { window.prompt('Copy this:', txt); }); return; }
@@ -659,16 +727,18 @@
 
   // Shared with the schedule and delay views (assets/views-time.js).
   window.CSApp = { app: app, esc: esc, store: store, toast: toast, num: num, go: function (v) { go(v); }, loadPdfjs: loadPdfjs, pdfText: function (f) { return pdfText(f); },
-    C: function () { return C(); }, reader: function () { return reader; }, M: M };
+    C: function () { return C(); }, tag: tag, frame: function () { frame(); }, reader: function () { return reader; }, M: M };
 
   /* ---------- routing ---------- */
   function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
   function route() {
     var v = (location.hash || '#upload').slice(1);
-    document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === ((window.CSViews || {})[v] ? (v.split('-')[0]) : v === 'proposals' ? 'proposals' : 'check'); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    var navKey = /^contract/.test(v) ? 'contract' : /^schedule/.test(v) ? 'schedule' : /^delay/.test(v) ? 'delay' : v === 'proposals' ? 'proposals' : 'check';
+    document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     var V = window.CSViews || {};
     if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
     if (v !== 'confirm') window.scrollTo(0, 0);
+    requestAnimationFrame(frame);
     if (!/^contract/.test(v)) CS = null;
   }
   window.addEventListener('hashchange', route);

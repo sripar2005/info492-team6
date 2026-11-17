@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Check a change proposal · ClauseStream</title>
 <meta name="description" content="Check a priced change proposal against the contract before you send it: markups, the CM fee, labor rates, equipment, deadlines and signatures.">
-<meta name="theme-color" content="#0b0c0e">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/assets/app.css">
 </head>
 <body>
@@ -20,15 +20,18 @@
       <span class="seg-lbl hide-md">I'm the</span>
       <button role="radio" data-role="sub">Sub</button><button role="radio" data-role="gc">GC/CM</button><button role="radio" data-role="architect">Architect</button><button role="radio" data-role="owner">Owner's rep</button>
     </div>
-    <nav class="links">
-      <a href="#upload" data-nav="check">Check</a>
-      <a href="#proposals" data-nav="proposals">My proposals</a>
-      <a href="#schedule" data-nav="schedule">Schedule</a>
-      <a href="#delay" data-nav="delay">Delay</a>
-      <a href="/demo3/" class="hide-sm hide-lg">How it works</a>
-    </nav>
+    <a class="howlink hide-sm" href="/demo3/">How it works</a>
   </div>
 </header>
+<nav class="sheets" aria-label="Sheets in this project">
+  <div class="sheets-in">
+    <a href="#contract" data-nav="contract"><b>G-001</b><span>Contract</span></a>
+    <a href="#schedule" data-nav="schedule"><b>S-101</b><span>Schedule</span></a>
+    <a href="#upload" data-nav="check"><b>C-201</b><span>Check a proposal</span></a>
+    <a href="#proposals" data-nav="proposals"><b>C-202</b><span>My proposals</span></a>
+    <a href="#delay" data-nav="delay"><b>D-301</b><span>Delay check</span></a>
+  </div>
+</nav>
 
 <main id="app"></main>
 
