@@ -32,7 +32,7 @@
       });
     return ready;
   }
-  function rerender() { var v = location.hash.slice(1).split('?')[0]; if (V[v] && /^(project|changes|change)$/.test(v)) V[v](); }
+  function rerender() { var v = location.hash.slice(1).split('?')[0]; if (V[v] && /^(project|changes|change|record|doc)$/.test(v)) V[v](); }
   function sheet(title, eyebrow, body) { return '<div class="wrap"><div class="ph1"><div><span class="eyebrow">' + esc(eyebrow) + '</span><h1 style="margin-top:8px">' + esc(title) + '</h1></div></div>' + body + '</div>'; }
   function fail(e) { A.toast((e && e.message) || String(e)); }
   function q(p) { return p.then(function (r) { if (r.error) throw r.error; return r.data; }); }
@@ -204,7 +204,8 @@
           '<div class="cols" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)"><div class="card sec"><div class="sec-h"><h3>Thread</h3><span class="fine" style="margin:0">Every entry is permanent.</span></div><ol class="timeline">' + tl + '</ol></div>' +
           '<div><div class="card sec">' + acting + actions + '<div class="fd" style="margin-top:10px"><label><span>' + (mine ? 'Note to send with it' : 'Comment') + '</span></label><div class="inp" style="height:auto"><textarea id="tbody" rows="4"></textarea></div></div>' +
           '<div class="acts" style="margin-top:10px"><button class="btn" data-tact="comment">Add comment</button></div></div>' +
-          '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>From the record</h3></div><p class="fine" style="margin:0">Drafting from the record, the evidence trail and questions come next in this panel.</p></div></div></div>');
+          '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Evidence trail</h3></div><div id="trail"><p class="fine" style="margin:0">Building from the record…</p></div></div></div></div>');
+        trail(cur, t).then(function (tr) { var el = document.getElementById('trail'); if (el) el.innerHTML = trailHtml(tr); }).catch(function (e) { var el = document.getElementById('trail'); if (el) el.innerHTML = '<p class="fine">' + esc(e.message) + '</p>'; });
         var sel = document.getElementById('acting'); if (sel) sel.addEventListener('change', function () { store('cs_acting', sel.value); V.change(); });
         app.querySelectorAll('[data-tact]').forEach(function (b) {
           b.addEventListener('click', function () {
@@ -220,8 +221,93 @@
     });
   };
 
+  /* ---------- evidence trail: what led to this change, built by code from the record's links ---------- */
+  var REL = { caused_by: 'Caused by', answered_by: 'Answered by', evidence_for: 'Site record', discussed: 'Discussed at', cites: 'Governed by', affects: 'Schedule work', supersedes: 'Changes' };
+  function trail(cur, t) {
+    if (!t.document_id) return Promise.resolve(null);
+    var co = t.document_id;
+    return q(sb.from('links').select('*').eq('project_id', cur.id).or('from_doc.eq.' + co + ',to_doc.eq.' + co)).then(function (l1) {
+      var causes = l1.filter(function (l) { return l.from_doc === co && l.relation === 'caused_by'; }).map(function (l) { return l.to_doc; });
+      var hop = causes.length ? q(sb.from('links').select('*').eq('project_id', cur.id).in('from_doc', causes)) : Promise.resolve([]);
+      var hop2 = causes.length ? q(sb.from('links').select('*').eq('project_id', cur.id).in('to_doc', causes)) : Promise.resolve([]);
+      return Promise.all([hop, hop2]).then(function (r) {
+        var all = l1.concat(r[0].filter(function (l) { return /answered_by|cites/.test(l.relation); }), r[1].filter(function (l) { return l.relation === 'discussed'; }));
+        var docIds = {}, pieceIds = {};
+        all.forEach(function (l) { [l.from_doc, l.to_doc].forEach(function (d) { if (d) docIds[d] = 1; }); [l.from_piece, l.to_piece].forEach(function (p) { if (p) pieceIds[p] = 1; }); });
+        return Promise.all([q(sb.from('documents').select('id,kind,number,title,issued_on,author_party').in('id', Object.keys(docIds))), Object.keys(pieceIds).length ? q(sb.from('pieces').select('id,section,body,piece_date,party').in('id', Object.keys(pieceIds))) : Promise.resolve([])])
+          .then(function (d) { var D = {}, P = {}; d[0].forEach(function (x) { D[x.id] = x; }); d[1].forEach(function (x) { P[x.id] = x; }); return { links: all, D: D, P: P, co: co }; });
+      });
+    });
+  }
+  function trailHtml(tr) {
+    if (!tr) return '<p class="fine" style="margin:0">This change isn’t tied to a change order document in the record yet.</p>';
+    var events = [], governs = [], work = [], seen = {};
+    tr.links.forEach(function (l) {
+      var other = l.from_doc === tr.co ? l.to_doc : l.to_doc === tr.co ? l.from_doc : (l.relation === 'answered_by' ? l.to_doc : l.from_doc);
+      var piece = tr.P[l.from_doc === other ? l.from_piece : l.to_piece] || null, d = tr.D[other]; if (!d) return;
+      var k = other + '|' + (piece ? piece.id : '') + '|' + l.relation; if (seen[k]) return; seen[k] = 1;
+      var item = { d: d, piece: piece, rel: l.relation, date: (piece && piece.piece_date) || d.issued_on || '' };
+      if (l.relation === 'cites') governs.push(item); else if (l.relation === 'affects') work.push(item); else events.push(item);
+    });
+    events.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    function li(x) {
+      return '<li class="ev"><div class="ev-h"><span class="who computed">' + esc(REL[x.rel] || x.rel) + '</span><b><button class="link" data-dopen="' + x.d.id + '">' + esc(x.d.number || x.d.title) + '</button></b>' + (x.piece && x.piece.section ? '<span class="fine">' + esc(x.piece.section) + '</span>' : '') + '<span class="fine">' + esc(x.date) + (x.d.author_party ? ' · ' + esc(PARTY[x.d.author_party]) : '') + '</span></div>' +
+        (x.piece ? '<p class="quote-line">“' + esc(x.piece.body.length > 260 ? x.piece.body.slice(0, 257) + '…' : x.piece.body) + '”</p>' : '<p>' + esc(x.d.title) + '</p>') + '</li>';
+    }
+    return (events.length ? '<ol class="timeline">' + events.map(li).join('') + '</ol>' : '<p class="fine">No events linked yet.</p>') +
+      (governs.length ? '<div class="sec-h" style="margin-top:16px"><h3>Terms that govern it</h3></div><ul class="govern">' + governs.map(function (x) { return '<li><button class="link" data-dopen="' + x.d.id + '">' + esc(x.d.number || x.d.title) + (x.piece && x.piece.section ? ' § ' + esc(x.piece.section) : '') + '</button>' + (x.piece ? '<span>' + esc(x.piece.body.length > 140 ? x.piece.body.slice(0, 137) + '…' : x.piece.body) + '</span>' : '') + '</li>'; }).join('') + '</ul>' : '') +
+      (work.length ? '<p class="fine" style="margin-top:12px">Schedule work affected: ' + work.map(function (x) { return esc(x.piece ? x.piece.section : x.d.number); }).join(', ') + '. <a class="link" href="#delay">Check the delay</a></p>' : '') +
+      '<p class="fine" style="margin-top:12px">Built by code from the record’s links; every line points to its source. Who is responsible is for the parties to decide.</p>';
+  }
+
+  /* ---------- R-101 Record: search every piece, open any document ---------- */
+  V.record = function () {
+    gate(function () {
+      var cur = proj(); if (!cur) return A.go('project');
+      q(sb.from('documents').select('id,kind').eq('project_id', cur.id)).then(function (docs) {
+        var counts = {}; docs.forEach(function (d) { counts[d.kind] = (counts[d.kind] || 0) + 1; });
+        var qv = store('cs_rq') || '';
+        app.innerHTML = sheet('Project record', 'R-101 · ' + cur.name, '<p style="margin:-6px 0 16px;color:var(--muted)">' + docs.length + ' documents: ' + Object.keys(counts).map(function (k) { return counts[k] + ' ' + k.replace('_', ' '); }).join(', ') + '. Answers below are quoted from the record, never written by AI.</p>' +
+          '<form id="rsearch" class="grid" style="grid-template-columns:minmax(0,1fr) auto;gap:10px;max-width:760px"><div class="inp"><input id="rq" value="' + esc(qv) + '" placeholder="Ask or search, e.g. roof drains, notice for concealed conditions, asbestos mastic"></div><button class="btn primary" type="submit">Search the record</button></form>' +
+          '<div id="rres" style="margin-top:18px"></div>');
+        document.getElementById('rsearch').addEventListener('submit', function (e) { e.preventDefault(); search(cur, document.getElementById('rq').value.trim()); });
+        if (qv) search(cur, qv);
+      }).catch(fail);
+    });
+  };
+  function search(cur, text) {
+    store('cs_rq', text); var el = document.getElementById('rres'); if (!text) { el.innerHTML = ''; return; }
+    el.innerHTML = '<p class="fine">Searching…</p>';
+    q(sb.from('pieces').select('id,document_id,section,body,piece_date,party').eq('project_id', cur.id).textSearch('search', text, { type: 'websearch', config: 'english' }).limit(12)).then(function (ps) {
+      if (!ps.length) { el.innerHTML = '<div class="card sec"><p style="margin:0">Not found in the record. Try fewer or different words. ClauseStream won’t answer from outside the record.</p></div>'; return; }
+      var ids = {}; ps.forEach(function (p) { ids[p.document_id] = 1; });
+      return q(sb.from('documents').select('id,kind,number,title,issued_on').in('id', Object.keys(ids))).then(function (ds) {
+        var D = {}; ds.forEach(function (d) { D[d.id] = d; });
+        el.innerHTML = '<ol class="hits">' + ps.map(function (p) { var d = D[p.document_id] || {}; return '<li><div class="ev-h"><span class="who computed">' + esc((d.kind || '').replace('_', ' ')) + '</span><b><button class="link" data-dopen="' + p.document_id + '">' + esc(d.number || d.title) + '</button></b>' + (p.section ? '<span class="fine">' + esc(p.section) + '</span>' : '') + '<span class="fine">' + esc(p.piece_date || d.issued_on || '') + '</span></div><p>“' + esc(p.body) + '”</p></li>'; }).join('') + '</ol>';
+      });
+    }).catch(fail);
+  }
+  V.doc = function () {
+    gate(function () {
+      var cur = proj(), id = store('cs_doc'); if (!cur || !id) return A.go('record');
+      Promise.all([q(sb.from('documents').select('*').eq('id', id).single()), q(sb.from('pieces').select('*').eq('document_id', id).order('ordinal')), q(sb.from('links').select('*').eq('project_id', cur.id).or('from_doc.eq.' + id + ',to_doc.eq.' + id))]).then(function (r) {
+        var d = r[0], ps = r[1], ls = r[2], others = {};
+        ls.forEach(function (l) { others[l.from_doc === id ? l.to_doc : l.from_doc] = 1; });
+        return (Object.keys(others).length ? q(sb.from('documents').select('id,number,title,kind').in('id', Object.keys(others))) : Promise.resolve([])).then(function (od) {
+          var O = {}; od.forEach(function (x) { O[x.id] = x; });
+          var rel = ls.map(function (l) { var out = l.from_doc === id, o = O[out ? l.to_doc : l.from_doc] || {}; return '<li><span class="fine">' + esc(out ? (REL[l.relation] || l.relation) : 'Referenced by (' + l.relation.replace('_', ' ') + ')') + '</span> <button class="link" data-dopen="' + o.id + '">' + esc(o.number || o.title || '') + '</button></li>'; }).join('');
+          app.innerHTML = sheet((d.number ? d.number + ' ' : '') + d.title, 'R-101 · ' + d.kind.replace('_', ' ') + (d.source === 'synthetic' ? ' · synthetic' : ''),
+            '<p style="margin:-6px 0 16px;color:var(--muted)">' + esc(d.issued_on || '') + (d.author_party ? ' · from the ' + esc(PARTY[d.author_party]) : '') + '. <a class="link" href="#record">Back to the record</a></p>' +
+            '<div class="cols" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div class="card sec"><ol class="pieces">' + ps.map(function (p) { return '<li><span class="fine">' + esc(p.section || p.ordinal) + '</span><p>' + esc(p.body) + '</p></li>'; }).join('') + '</ol></div>' +
+            '<div class="card sec"><div class="sec-h"><h3>Linked</h3></div>' + (rel ? '<ul class="govern">' + rel + '</ul>' : '<p class="fine" style="margin:0">Nothing linked.</p>') + '</div></div>');
+        });
+      }).catch(fail);
+    });
+  };
+
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-popen],[data-signout],[data-loadsample],[data-topen]'); if (!t) return;
+    var t = e.target.closest('[data-popen],[data-signout],[data-loadsample],[data-topen],[data-dopen]'); if (!t) return;
+    if (t.dataset.dopen) { store('cs_doc', t.dataset.dopen); return A.go('doc'); }
     if (t.dataset.signout) { sb.auth.signOut().then(function () { setProj(null); V.project(); }); return; }
     if (t.dataset.loadsample) { e.preventDefault(); return loadSample(); }
     if (t.dataset.topen) { store('cs_thread', t.dataset.topen); return A.go('change'); }

@@ -621,3 +621,11 @@ h1, h2, h3 { letter-spacing: -0.01em; font-weight: 700; }
 .timeline .ev-h .who { font: 600 11.5px/1.7 var(--mono); padding: 0 6px; }
 .timeline .ev-h .who.person { background: #000000; color: #FFFFFF; } .timeline .ev-h .who.ai { border: 1px dashed #000000; } .timeline .ev-h .who.computed { background: #E9E9E9; }
 .timeline p { margin: 4px 0 0; font-size: 14px; color: #3A3A3A; white-space: pre-wrap; }
+.quote-line { font-style: normal; }
+.govern { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 13.5px; }
+.govern li { display: grid; gap: 2px; } .govern li span { color: #3A3A3A; }
+.hits, .pieces { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.hits li, .pieces li { padding: 12px 0; border-bottom: 1px solid #000000; }
+.hits li p, .pieces li p { margin: 4px 0 0; font-size: 14px; white-space: pre-wrap; }
+.hits .ev-h { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13.5px; }
+.hits .who { font: 600 11.5px/1.7 var(--mono); padding: 0 6px; background: #E9E9E9; }
