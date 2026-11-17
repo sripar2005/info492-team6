@@ -733,7 +733,7 @@
   function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
   function route() {
     var v = (location.hash || '#upload').slice(1);
-    var navKey = /^contract/.test(v) ? 'contract' : /^schedule/.test(v) ? 'schedule' : /^delay/.test(v) ? 'delay' : v === 'proposals' ? 'proposals' : 'check';
+    var navKey = v === 'project' ? 'project' : /^change/.test(v) ? 'changes' : /^contract/.test(v) ? 'contract' : /^schedule/.test(v) ? 'schedule' : /^delay/.test(v) ? 'delay' : v === 'proposals' ? 'proposals' : 'check';
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     var V = window.CSViews || {};
     if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
