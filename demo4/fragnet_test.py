@@ -54,7 +54,8 @@ def main():
         k = key[cid]
         t0 = time.time()
         try:
-            d = fd.draft(c["time"]["narrative"], sched["activities"], c["time"].get("claimed_days"), critical, a.model, runs=a.runs)
+            d = fd.draft(c["time"]["narrative"], sched["activities"], c["time"].get("claimed_days"), critical, a.model, runs=a.runs,
+                         relationships=sched["relationships"])
             r = cpm_ref.tia(sched, d["fragnet"])
             err = None
         except Exception as e:  # noqa: BLE001
@@ -71,8 +72,10 @@ def main():
         print(f"{cid} ({row['split']}): key {row['key_delay']} d, draft {got} d, links {'same' if row['links_same'] else 'differ'}, "
               f"drafts {'agree' if row['agreed'] else 'differ'}{', ERROR ' + err if err else ''}", flush=True)
     summary = {}
-    for split in ("dev", "test"):
+    for split in ("dev", "test", "heldout"):
         rs = [r for r in rows if r["split"] == split]
+        if not rs:
+            continue
         summary[split] = {m: sum(bool(r[m]) for r in rs) for m in ("delay_exact", "delay_within_2", "critical_same", "links_same", "agreed")}
         summary[split]["of"] = len(rs)
         # Does agreement predict correctness? (the reason to draft three times)

@@ -72,52 +72,121 @@ def call(user, sch, model=MODEL, host=HOST):
         return json.loads(json.loads(r.read())["message"]["content"])
 
 
-def clean(draft, ids):
-    """Drop links to new ids that weren't defined, self-links and duplicates; note what was dropped."""
+MAX_LAG = 5
+NOT_WORK = re.compile(r"general conditions|extended (?:time|overhead)|delay|time extension|impact", re.I)
+
+
+def norm_words(name):
+    return {w for w in re.findall(r"[a-z]+", (name or "").lower()) if w not in STOP and len(w) > 2}
+
+
+def same_work(a, b):
+    """Two activity names describe the same work: most of the shorter name's words are in the other."""
+    wa, wb = norm_words(a), norm_words(b)
+    if not wa or not wb:
+        return False
+    small = wa if len(wa) <= len(wb) else wb
+    return len(wa & wb) / len(small) >= 0.75
+
+
+def has_cycle(rels):
+    g = {}
+    for r in rels:
+        g.setdefault(r["pred"], []).append(r["succ"])
+    seen, stack = set(), set()
+
+    def visit(n):
+        if n in stack:
+            return True
+        if n in seen:
+            return False
+        seen.add(n); stack.add(n)
+        hit = any(visit(m) for m in g.get(n, []))
+        stack.discard(n)
+        return hit
+    return any(visit(n) for n in list(g))
+
+
+def clean(draft, ids, activities=None, relationships=None, claimed_days=None):
+    """Code's check on a draft. Drops: links to undefined ids, self-links, duplicates, links between existing
+    activities, new activities that repeat existing schedule work or aren't physical work (e.g. 'extended general
+    conditions'), and links that would close a loop. Caps long waits on links. Flags durations far past the claim."""
     notes, acts = [], []
+    existing = {a["id"]: a.get("name", "") for a in (activities or [])}
     for a in draft.get("activities", []):
-        if a["id"] not in {x["id"] for x in acts}:
-            acts.append({"id": a["id"], "name": a["name"].strip()[:80] or a["id"], "duration": int(a["duration"])})
+        if a["id"] in {x["id"] for x in acts}:
+            continue
+        name = a["name"].strip()[:80] or a["id"]
+        dup = next((eid for eid, en in existing.items() if same_work(name, en)), None)
+        if dup:
+            notes.append(f"Dropped {a['id']} '{name}': it repeats existing activity {dup} ({existing[dup]}). A fragnet only adds the change's own work.")
+            continue
+        if NOT_WORK.search(name):
+            notes.append(f"Dropped {a['id']} '{name}': it is a cost or a delay, not work; the analysis computes delay itself.")
+            continue
+        acts.append({"id": a["id"], "name": name, "duration": int(a["duration"])})
     have = set(ids) | {a["id"] for a in acts}
     rels, seen = [], set()
+    base = [dict(r) for r in (relationships or [])]
     for r in draft.get("relationships", []):
         key = (r["pred"], r["succ"])
         if r["pred"] not in have or r["succ"] not in have or r["pred"] == r["succ"] or key in seen:
-            notes.append(f"Dropped link {r['pred']} -> {r['succ']}.")
+            if r["pred"] in have and r["succ"] in have:
+                notes.append(f"Dropped link {r['pred']} -> {r['succ']}.")
             continue
         if r["pred"] in ids and r["succ"] in ids:
             notes.append(f"Dropped link {r['pred']} -> {r['succ']} between existing activities (a fragnet only adds the change's work).")
             continue
+        lag = int(r.get("lag") or 0)
+        if abs(lag) > MAX_LAG:
+            notes.append(f"Link {r['pred']} -> {r['succ']} had a {lag}-day wait; set to 0. Waiting time should be its own activity with a reason.")
+            lag = 0
+        cand = {"pred": r["pred"], "succ": r["succ"], "type": r["type"], "lag": lag}
+        if base and has_cycle(base + rels + [cand]):
+            notes.append(f"Dropped link {r['pred']} -> {r['succ']}: it would make the schedule loop back on itself.")
+            continue
         seen.add(key)
-        rels.append({"pred": r["pred"], "succ": r["succ"], "type": r["type"], "lag": int(r.get("lag") or 0)})
+        rels.append(cand)
     for a in acts:
         if not any(r["succ"] == a["id"] for r in rels):
             notes.append(f"{a['id']} has no predecessor: it will start at the data date.")
         if not any(r["pred"] == a["id"] for r in rels):
             notes.append(f"{a['id']} has no successor: it can only delay the finish if it ends after it.")
+    if claimed_days:
+        total = sum(a["duration"] for a in acts)
+        if total > 2 * max(1, round(claimed_days * 5 / 7)):
+            notes.append(f"The new work adds up to {total} working days, far more than the {claimed_days} days claimed. Check the durations.")
     return {"activities": acts, "relationships": rels}, notes
 
 
-def signature(f):
-    return (tuple(sorted((a["id"], a["duration"]) for a in f["activities"])),
-            tuple(sorted((r["pred"], r["succ"], r["type"]) for r in f["relationships"])))
+def anchors(f, ids):
+    ids = set(ids)
+    return (tuple(sorted({r["pred"] for r in f["relationships"] if r["pred"] in ids})),
+            tuple(sorted({r["succ"] for r in f["relationships"] if r["succ"] in ids})))
 
 
-def draft(narrative, activities, claimed_days=None, critical=(), model=MODEL, host=HOST, runs=3):
+def agree(drafts, ids):
+    """Drafts agree when they hang off the same existing activities and their total work is within 20%."""
+    a0, t0 = anchors(drafts[0], ids), sum(a["duration"] for a in drafts[0]["activities"])
+    for d in drafts[1:]:
+        t = sum(a["duration"] for a in d["activities"])
+        if anchors(d, ids) != a0 or abs(t - t0) > 0.2 * max(t, t0, 1):
+            return False
+    return True
+
+
+def draft(narrative, activities, claimed_days=None, critical=(), model=MODEL, host=HOST, runs=3, relationships=None):
     shown = pick_activities(activities, narrative, critical)
     ids = [a["id"] for a in shown]
     lines = "\n".join(f"{a['id']} | {a.get('name', '')} | {a.get('duration', '')}d | {a.get('wbs') or ''}" for a in shown)
     user = f"Change order narrative:\n{narrative}\n\nExisting schedule activities (id | name | duration | WBS):\n{lines}"
     t0 = time.time()
-    drafts = [clean(call(user, schema(ids), model, host), ids) for _ in range(max(1, runs))]
-    sigs = [signature(d[0]) for d in drafts]
-    agree = all(s == sigs[0] for s in sigs)
-    diff = ""
-    if not agree:
-        durs = {tuple(x) for x, _ in sigs}
-        diff = "different activities or durations" if len(durs) > 1 else "different links"
+    all_ids = [a["id"] for a in activities]
+    drafts = [clean(call(user, schema(ids), model, host), all_ids, activities, relationships, claimed_days) for _ in range(max(1, runs))]
+    ok = agree([d[0] for d in drafts], all_ids)
+    diff = "" if ok else "they link to different activities or differ in total work by more than 20%"
     f, notes = drafts[0]
-    return {"fragnet": f, "notes": notes, "agree": agree, "disagreement": diff, "drafts": [d[0] for d in drafts], "model": model,
+    return {"fragnet": f, "notes": notes, "agree": ok, "disagreement": diff, "drafts": [d[0] for d in drafts], "model": model,
             "seconds": round(time.time() - t0, 1), "shown_activities": len(shown)}
 
 

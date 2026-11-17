@@ -71,7 +71,8 @@ class Handler(SimpleHTTPRequestHandler):
                 return self._json(400, {"error": "Needs the change order narrative and the schedule's activities."})
             try:
                 return self._json(200, fragnet_draft.draft(req["narrative"], req["activities"], req.get("claimed_days"),
-                                                           req.get("critical") or (), MODEL, runs=int(req.get("runs") or 3)))
+                                                           req.get("critical") or (), MODEL, runs=int(req.get("runs") or 3),
+                                                           relationships=req.get("relationships")))
             except Exception as e:  # noqa: BLE001
                 return self._json(502, {"error": f"The local model did not answer ({type(e).__name__}). Is Ollama running?"})
         if not self.path.startswith("/api/demo3"):

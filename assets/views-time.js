@@ -287,7 +287,7 @@
     var s = sched(), t0 = Date.now();
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Drafting the change’s activities</h2><p class="fine" style="font-size:13.5px">' + esc(A.reader()) + ' drafts three times; you’ll see if the drafts disagree. <span id="tick">0:00</span></p></div></div>';
     var tick = setInterval(function () { var x = Math.round((Date.now() - t0) / 1000), el = document.getElementById('tick'); if (el) el.textContent = Math.floor(x / 60) + ':' + ('0' + x % 60).slice(-2); }, 1000);
-    fetch('/api/fragnet', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: DX.claim.narrative, claimed_days: DX.claim.claimed_days, activities: s.model.activities.map(function (a) { return { id: a.id, name: a.name, duration: a.duration, wbs: a.wbs }; }), critical: SE.cpm(s.model).critical_path, runs: 3 }) })
+    fetch('/api/fragnet', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: DX.claim.narrative, claimed_days: DX.claim.claimed_days, activities: s.model.activities.map(function (a) { return { id: a.id, name: a.name, duration: a.duration, wbs: a.wbs }; }), critical: SE.cpm(s.model).critical_path, relationships: s.model.relationships, runs: 3 }) })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
       .then(function (j) {
         clearInterval(tick); DX.frag = j.fragnet; DX.fragSrc = 'ai'; DX.fragModel = j.model; DX.fragAgree = j.agree; DX.fragNotes = j.notes || [];

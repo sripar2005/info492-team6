@@ -64,15 +64,61 @@
     return { sentences: sents, candidates: c };
   }
   function numbersIn(text) { return (String(text).match(/\d[\d,]*(?:\.\d+)?/g) || []).map(function (x) { return parseFloat(x.replace(/,/g, '')); }); }
-  // Does the sentence actually say this value? Same rules as verify() in Python.
-  function verify(kind, value, sentence) {
+  // Same rules as verify() in demo4/contract_extract.py (tools/contract_parity.js checks they agree).
+  var TERM_WORDS = {
+    markup_own_pct: [['markup', 'mark-up', 'overhead and profit']],
+    markup_lower_pct: [['markup', 'mark-up', 'overhead and profit'], ['lower', 'sub-sub', 'tier']],
+    markup_total_pct: [['markup', 'mark-up', 'overhead and profit'], ['total', 'combined', 'aggregate', 'in no event', 'cumulative', 'all tiers']],
+    fee_pct: [['fee']], labor_burden_pct: [['burden', 'payroll', 'fringe']], blue_book_pct: [['blue book', 'rental rate']],
+    approval_limit: [['approv', 'authori', 'execute', 'sign']], notice_days_standard: [['notice', 'notify']], notice_days_other: [['notice', 'notify']],
+    contract_days: [['substantial completion', 'contract time']], liquidated_damages_per_day: [['liquidated']],
+    daily_delay_rate: [['day', 'daily', 'diem'], ['general conditions', 'extended', 'delay', 'extension']], sgc_total: [['general conditions', 'sgc']]
+  };
+  var NEG = /(?:other than|except|not|excluding|but not)\s+(?:by\s+)?(?:the\s+)?$/;
+  function ruleConcurrent(t) {
+    if (/apportion/.test(t)) return 'apportioned';
+    if (/neither\b.{0,60}\b(?:extension|time)|no (?:time )?extension\b.{0,40}\bno (?:additional )?compensation/.test(t)) return 'no_time_no_money';
+    if (/(?:extension of (?:the contract )?time|time extension|additional time|\btime\b)\b.{0,80}\b(?:but|without)\b.{0,30}\b(?:no|not|without)?\s*(?:additional )?(?:compensation|cost|money|payment)/.test(t)) return 'time_no_money';
+    return null;
+  }
+  function ruleParties(t) {
+    var found = [];
+    ['owner', 'architect'].forEach(function (p) {
+      var re = new RegExp(p, 'g'), m, good = false;
+      while ((m = re.exec(t))) { if (!NEG.test(t.slice(Math.max(0, m.index - 40), m.index))) good = true; }
+      if (good && /(caused by|delay(?:s|ed)? (?:caused )?by|attributable to|responsibility of|fault of|act or omission of)/.test(t)) found.push(p);
+    });
+    return found.length ? found : null;
+  }
+  function ruleBoolCp(t) { return t.indexOf('critical path') >= 0 && /\b(only|solely|unless|shall not|will not|no extension|provided that|if and only)\b/.test(t) ? true : null; }
+  function headings(text) {
+    var out = {};
+    String(text).split(/\r?\n/).forEach(function (raw) {
+      var line = raw.replace(/[*_`#]/g, '').trim().replace(/^[\s-]+|[\s-]+$/g, ''), m = line.match(/^(\d+(?:\.\d+){1,3})\s+(.{0,80})/);
+      if (m) out[m[1]] = ((out[m[1]] || '') + ' ' + m[2]).trim();
+    });
+    return out;
+  }
+  function contextFor(sentence, sents, heads) {
+    if (!sentence) return '';
+    var sec = sentence.section || '', parent = sec.split('(')[0];
+    var first = (sents.filter(function (x) { return x.section === sec || x.section === parent; })[0] || {}).text || '';
+    return [heads[parent] || '', heads[sec] || '', first].join(' ');
+  }
+  function sameSet(a, b) { return JSON.stringify((a || []).slice().sort()) === JSON.stringify((b || []).slice().sort()); }
+  function verify(key, kind, value, sentence, context) {
     if (!sentence) return [false, 'not stated'];
-    var t = sentence.text.toLowerCase();
-    if (isNumeric(kind)) { var v = parseFloat(value); if (!isFinite(v)) return [false, 'no value']; var ok = numbersIn(sentence.text).indexOf(v) >= 0; return [ok, ok ? 'value found in the sentence' : 'value not in the sentence']; }
-    if (kind === 'fee_on') { var miss = (value || []).filter(function (p) { return !(FEE_WORDS[p] || [p.toLowerCase()]).some(function (w) { return t.indexOf(w) >= 0; }); }); var ok2 = !!(value && value.length) && !miss.length; return [ok2, ok2 ? 'categories found' : 'not all categories appear in the sentence']; }
-    if (kind === 'parties') { var m2 = (value || []).filter(function (p) { return t.indexOf(p) < 0; }); var ok3 = !!(value && value.length) && !m2.length; return [ok3, ok3 ? 'parties found' : 'parties not in the sentence']; }
-    if (kind === 'concurrent') return [t.indexOf('concurrent') >= 0, t.indexOf('concurrent') >= 0 ? 'mentions concurrent delay' : 'sentence doesn’t mention concurrent delay'];
-    if (kind === 'bool') return [t.indexOf('critical path') >= 0, t.indexOf('critical path') >= 0 ? 'mentions the critical path' : 'sentence doesn’t mention the critical path'];
+    var t = sentence.text.toLowerCase(), tc = t + ' ' + String(context || '').toLowerCase(), r;
+    if (isNumeric(kind)) {
+      var v = parseFloat(value); if (!isFinite(v)) return [false, 'no value'];
+      if (numbersIn(sentence.text).indexOf(v) < 0) return [false, 'value not in the sentence'];
+      var missing = (TERM_WORDS[key] || []).filter(function (g) { return !g.some(function (w) { return tc.indexOf(w) >= 0; }); }).map(function (g) { return g[0]; });
+      return missing.length ? [false, 'the sentence doesn’t mention ' + missing.join(' or ')] : [true, 'value found in a sentence about this term'];
+    }
+    if (kind === 'fee_on') return [false, 'categories need a person to confirm'];
+    if (kind === 'parties') { r = ruleParties(t); if (!r) return [false, 'no rule could read which parties; confirm']; return sameSet(r, value) ? [true, 'matches the sentence'] : [false, 'the sentence reads as: ' + r.join(', ')]; }
+    if (kind === 'concurrent') { r = ruleConcurrent(t); if (!r) return [false, 'no rule could read the treatment; confirm']; return r === value ? [true, 'matches the sentence'] : [false, 'the sentence reads as: ' + r.replace(/_/g, ' ')]; }
+    if (kind === 'bool') { r = ruleBoolCp(t); if (r === null) return [false, 'no rule could read it; confirm']; return r === value ? [true, 'matches the sentence'] : [false, 'the sentence reads as: yes']; }
     return [false, 'unknown kind'];
   }
   // Per-term reading {key: {value, quote, section, status}} -> contract terms for ClauseChecks.fromTerms (spec section 3).
@@ -99,6 +145,6 @@
       compensable_causes: r(C.compensableCauses.slice(), '6.5.6'), concurrent_delay: r(C.concurrentDelay, '6.5.6')
     };
   }
-  var api = { TERMS: TERMS, FEE_ON: FEE_ON, CONCURRENT: CONCURRENT, CAUSES: CAUSES, sentences: sentences, candidates: candidates, retrieve: retrieve, verify: verify, toTerms: toTerms, sampleReading: sampleReading, isNumeric: isNumeric };
+  var api = { TERMS: TERMS, FEE_ON: FEE_ON, CONCURRENT: CONCURRENT, CAUSES: CAUSES, sentences: sentences, candidates: candidates, retrieve: retrieve, verify: verify, headings: headings, contextFor: contextFor, toTerms: toTerms, sampleReading: sampleReading, isNumeric: isNumeric };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.ClauseContract = api;
 })(this);

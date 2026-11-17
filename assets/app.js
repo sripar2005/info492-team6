@@ -603,7 +603,7 @@
   function restatus(k) {
     var x = CS.read[k], kind = kindOfTerm(k);
     if (!x.sid) { x.status = x.value == null || x.value === '' ? 'none' : 'manual'; x.note = x.status === 'manual' ? 'entered without a source sentence' : 'not stated'; return; }
-    var v = CT.verify(kind, x.value, CS.by[x.sid]); x.status = v[0] ? 'verified' : 'check'; x.note = v[1];
+    var sn = CS.by[x.sid], v = CT.verify(k, kind, x.value, sn, CT.contextFor(sn, CS.sents, CS.heads || (CS.heads = CT.headings(CS.text)))); x.status = v[0] ? 'verified' : 'check'; x.note = v[1];
   }
   function pickSentence(k, sid) {
     var x = CS.read[k], s = sid ? CS.by[sid] : null;

@@ -84,6 +84,28 @@ def sentences(text):
     return out
 
 
+def headings(text):
+    """Section number -> the words around it that the sentence split drops (e.g. '3.3 Liquidated damages.')."""
+    out, sec = {}, ""
+    for raw in text.splitlines():
+        line = re.sub(r"[*_`#]", "", raw).strip(" -")
+        m = re.match(r"^(\d+(?:\.\d+){1,3})\s+(.{0,80})", line)
+        if m:
+            sec = m.group(1)
+            out[sec] = (out.get(sec, "") + " " + m.group(2)).strip()
+    return out
+
+
+def context_for(sentence, sents, heads):
+    """What the term-word check may read besides the sentence: its section heading and the section's first sentence."""
+    if sentence is None:
+        return ""
+    sec = sentence.get("section") or ""
+    parent = sec.split("(")[0]
+    first = next((x["text"] for x in sents if x["section"] in (sec, parent)), "")
+    return " ".join([heads.get(parent, ""), heads.get(sec, ""), first])
+
+
 def candidates(sents, keywords, k=6, numeric=True):
     scored = []
     for s in sents:
@@ -101,27 +123,91 @@ def numbers_in(text):
     return {float(x.replace(",", "")) for x in re.findall(r"\d[\d,]*(?:\.\d+)?", text)}
 
 
-def verify(kind, value, sentence):
-    """Does the chosen sentence actually say this? Returns (ok, note)."""
+# A number only counts if its sentence is about this term: each term has words that must appear with it.
+# (any-of groups; every group must match). Learned from the first run: a "25%" in a sentence about
+# self-performed work passed for sub markup because the check only looked for the number.
+TERM_WORDS = {
+    "markup_own_pct": [["markup", "mark-up", "overhead and profit"]],
+    "markup_lower_pct": [["markup", "mark-up", "overhead and profit"], ["lower", "sub-sub", "tier"]],
+    "markup_total_pct": [["markup", "mark-up", "overhead and profit"], ["total", "combined", "aggregate", "in no event", "cumulative", "all tiers"]],
+    "fee_pct": [["fee"]],
+    "labor_burden_pct": [["burden", "payroll", "fringe"]],
+    "blue_book_pct": [["blue book", "rental rate"]],
+    "approval_limit": [["approv", "authori", "execute", "sign"]],
+    "notice_days_standard": [["notice", "notify"]],
+    "notice_days_other": [["notice", "notify"]],
+    "contract_days": [["substantial completion", "contract time"]],
+    "liquidated_damages_per_day": [["liquidated"]],
+    "daily_delay_rate": [["day", "daily", "diem"], ["general conditions", "extended", "delay", "extension"]],
+    "sgc_total": [["general conditions", "sgc"]],
+}
+
+# Word answers are never taken on the model's say-so: fixed phrase rules read the same sentence,
+# and only a match is shown as verified.
+NEG = r"(?:other than|except|not|excluding|but not)\s+(?:by\s+)?(?:the\s+)?"
+
+
+def rule_concurrent(t):
+    if re.search(r"apportion", t):
+        return "apportioned"
+    if re.search(r"neither\b.{0,60}\b(?:extension|time)|no (?:time )?extension\b.{0,40}\bno (?:additional )?compensation", t):
+        return "no_time_no_money"
+    if re.search(r"(?:extension of (?:the contract )?time|time extension|additional time|\btime\b)\b.{0,80}\b(?:but|without)\b.{0,30}\b(?:no|not|without)?\s*(?:additional )?(?:compensation|cost|money|payment)", t):
+        return "time_no_money"
+    return None
+
+
+def rule_parties(t):
+    found = []
+    for p in ("owner", "architect"):
+        pos = [m.start() for m in re.finditer(p, t)]
+        good = [i for i in pos if not re.search(NEG + r"$", t[max(0, i - 40):i])]
+        if good and re.search(r"(caused by|delay(?:s|ed)? (?:caused )?by|attributable to|responsibility of|fault of|act or omission of)", t):
+            found.append(p)
+    return found or None
+
+
+def rule_bool_cp(t):
+    if "critical path" in t and re.search(r"\b(only|solely|unless|shall not|will not|no extension|provided that|if and only)\b", t):
+        return True
+    return None
+
+
+def verify(key, kind, value, sentence, context=""):
+    """Does the chosen sentence actually say this? Returns (ok, note). context: the sentence's section heading
+    and the section's first sentence, so a list item like '(a) seven days after...' still counts as about notice."""
     if sentence is None:
         return False, "not stated"
     t = sentence["text"].lower()
+    tc = t + " " + (context or "").lower()
     if kind in ("pct", "money", "days"):
         try:
             v = float(value)
         except (TypeError, ValueError):
             return False, "no value"
-        return (v in numbers_in(sentence["text"]), "value found in the sentence" if v in numbers_in(sentence["text"]) else "value not in the sentence")
+        if v not in numbers_in(sentence["text"]):
+            return False, "value not in the sentence"
+        missing = [g[0] for g in TERM_WORDS.get(key, []) if not any(w in tc for w in g)]
+        if missing:
+            return False, "the sentence doesn't mention " + " or ".join(missing)
+        return True, "value found in a sentence about this term"
     if kind == "fee_on":
-        missing = [p for p in value or [] if not any(w in t for w in FEE_WORDS.get(p, [p.lower()]))]
-        return (bool(value) and not missing, "categories found" if value and not missing else "not all categories appear in the sentence")
+        return False, "categories need a person to confirm"
     if kind == "parties":
-        missing = [p for p in value or [] if p not in t]
-        return (bool(value) and not missing, "parties found" if value and not missing else "parties not in the sentence")
+        r = rule_parties(t)
+        if r is None:
+            return False, "no rule could read which parties; confirm"
+        return (sorted(r) == sorted(value or []), "matches the sentence" if sorted(r) == sorted(value or []) else "the sentence reads as: " + ", ".join(r))
     if kind == "concurrent":
-        return ("concurrent" in t, "mentions concurrent delay" if "concurrent" in t else "sentence doesn't mention concurrent delay")
+        r = rule_concurrent(t)
+        if r is None:
+            return False, "no rule could read the treatment; confirm"
+        return (r == value, "matches the sentence" if r == value else "the sentence reads as: " + r.replace("_", " "))
     if kind == "bool":
-        return ("critical path" in t, "mentions the critical path" if "critical path" in t else "sentence doesn't mention the critical path")
+        r = rule_bool_cp(t)
+        if r is None:
+            return False, "no rule could read it; confirm"
+        return (r == value, "matches the sentence" if r == value else "the sentence reads as: yes")
     return False, "unknown kind"
 
 
@@ -161,15 +247,16 @@ def call(system, user, schema, model=MODEL, host=HOST):
         return json.loads(json.loads(r.read())["message"]["content"])
 
 
-def resolve(raws, cands, sents):
+def resolve(raws, cands, sents, heads=None):
     by_id = {s["id"]: s for s in sents}
+    heads = heads or {}
     out = {}
     for key, label, kind, _, _ in TERMS:
         picks = [r.get(key) or {} for r in raws]
         first = picks[0]
         sid = first.get("sentence", "none")
         s = by_id.get(sid) if sid != "none" else None
-        ok, note = verify(kind, first.get("value"), s)
+        ok, note = verify(key, kind, first.get("value"), s, context_for(s, sents, heads))
         agree = all(json.dumps(p, sort_keys=True) == json.dumps(first, sort_keys=True) for p in picks)
         status = "not_stated" if s is None else "verified" if ok and agree else "check"
         if s is not None and ok and not agree:
@@ -197,7 +284,7 @@ def extract(text, model=MODEL, host=HOST, runs=1):
     system, user, schema, cands = build_request(sents)
     t0 = time.time()
     raws = [call(system, user, schema, model, host) for _ in range(max(1, runs))]
-    read = resolve(raws, cands, sents)
+    read = resolve(raws, cands, sents, headings(text))
     return {"read": read, "terms": to_terms(read), "model": model, "runs": runs, "seconds": round(time.time() - t0, 1),
             "sentences": len(sents)}
 

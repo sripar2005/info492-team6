@@ -23,8 +23,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "demo4"))
 import contract_extract as ce  # noqa: E402
 
-FILES = {"A": ROOT / "demo1" / "data" / "synthetic_contract.md", "B": ROOT / "demo4" / "data" / "contract_b.md"}
-SPLIT = {"A": "dev", "B": "test"}
+FILES = {"A": ROOT / "demo1" / "data" / "synthetic_contract.md", "B": ROOT / "demo4" / "data" / "contract_b.md", "C": ROOT / "demo4" / "data" / "contract_c.md"}
+# A: tuned on. B: was held out for the first run (Nov 17); its failures were then studied, so it is "seen".
+# C: written afterwards by a separate helper that never saw the reader code; the honest test.
+SPLIT = {"A": "dev", "B": "seen", "C": "heldout"}
 OUT = ROOT / "demo4" / "results" / "contract_test.json"
 
 
@@ -35,7 +37,7 @@ def load_key():
         raw = {c.get("id") or c.get("contract"): c for c in raw}
     out = {}
     for k, v in raw.items():
-        name = "A" if k.upper().endswith("A") or "sample" in k.lower() else "B" if k.upper().endswith("B") else k
+        name = k if k in ("A", "B", "C") else "A" if "sample" in k.lower() else k
         out[name] = v.get("terms", v)
     return out
 
