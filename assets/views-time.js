@@ -246,7 +246,7 @@
   V['delay-fragnet'] = function () {
     if (!DX || !sched()) return A.go('delay');
     var reader = A.reader(), s = sched();
-    var src = DX.fragSrc === 'ai' ? '<div class="banner"><span><b>Drafted by ' + esc(DX.fragModel || 'the local model') + '</b>' + (DX.fragAgree === false ? ' — its three drafts <b>disagreed</b>, so look closely.' : DX.fragAgree ? '; its three drafts agreed.' : '.') + ' It could only link to IDs in this schedule. Check the durations and links against the change order.</span></div>' : '';
+    var src = DX.fragSrc === 'ai' ? '<div class="banner"><span><b>Drafted by ' + esc(DX.fragModel || 'the local model') + '</b>' + (DX.fragAgree === false ? ' — its three drafts <b>disagreed</b>, so look closely.' : DX.fragAgree ? '; its three drafts agreed.' : '.') + ' It could only link to IDs in this schedule. Check the durations and links against the change order.' + (DX.fragNotes && DX.fragNotes.length ? '<br>' + DX.fragNotes.map(esc).join('<br>') : '') + '</span></div>' : '';
     app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(DX.claim.id || 'change order') + ' · step 2 of 3</span><h1 style="margin-top:8px">The change’s activities</h1><p>Add the work the change creates and where it sits in the schedule. Durations in work days.</p></div>' +
       (reader ? '<button class="btn" data-fdraft="1">Draft with ' + esc(reader) + '</button>' : '') + '</div>' +
       '<div class="cols result"><div><div class="paper sched" id="fgantt"></div></div><div class="form">' +
@@ -279,10 +279,10 @@
     var s = sched(), t0 = Date.now();
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Drafting the change’s activities</h2><p class="fine" style="font-size:13.5px">' + esc(A.reader()) + ' drafts three times; you’ll see if the drafts disagree. <span id="tick">0:00</span></p></div></div>';
     var tick = setInterval(function () { var x = Math.round((Date.now() - t0) / 1000), el = document.getElementById('tick'); if (el) el.textContent = Math.floor(x / 60) + ':' + ('0' + x % 60).slice(-2); }, 1000);
-    fetch('/api/fragnet', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: DX.claim.narrative, claimed_days: DX.claim.claimed_days, activities: s.model.activities.map(function (a) { return { id: a.id, name: a.name, duration: a.duration, wbs: a.wbs }; }), runs: 3 }) })
+    fetch('/api/fragnet', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: DX.claim.narrative, claimed_days: DX.claim.claimed_days, activities: s.model.activities.map(function (a) { return { id: a.id, name: a.name, duration: a.duration, wbs: a.wbs }; }), critical: SE.cpm(s.model).critical_path, runs: 3 }) })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
       .then(function (j) {
-        clearInterval(tick); DX.frag = j.fragnet; DX.fragSrc = 'ai'; DX.fragModel = j.model; DX.fragAgree = j.agree;
+        clearInterval(tick); DX.frag = j.fragnet; DX.fragSrc = 'ai'; DX.fragModel = j.model; DX.fragAgree = j.agree; DX.fragNotes = j.notes || [];
         log('ai', j.model + ' drafted ' + j.fragnet.activities.length + ' activities: ' + j.fragnet.activities.map(function (a) { return a.id + ' ' + a.name + ' (' + a.duration + 'd)'; }).join('; ') + '. Links: ' + j.fragnet.relationships.map(function (r) { return r.pred + '→' + r.succ + (r.type !== 'FS' ? ' ' + r.type : ''); }).join(', ') + '. ' + (j.agree ? 'The three drafts agreed.' : 'The three drafts disagreed: ' + (j.disagreement || '') ));
         A.go('delay-fragnet'); V['delay-fragnet']();
       })

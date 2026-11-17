@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT / "demo4"))
 import agents  # noqa: E402
 import contract_extract  # noqa: E402
 import extract  # noqa: E402
+import fragnet_draft  # noqa: E402
 
 CASES = {c["id"]: c for c in json.loads((ROOT / "demo3" / "data" / "cases.json").read_text())["cases"]}
 CONTRACT = agents.CONTRACT_FILE.read_text(encoding="utf-8")
@@ -39,7 +40,7 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
-        if self.path.startswith("/api/extract") or self.path.startswith("/api/contract"):
+        if any(self.path.startswith(p) for p in ("/api/extract", "/api/contract", "/api/fragnet")):
             return self._json(200, {"ok": True, "model": MODEL})
         if self.path.startswith("/api/demo3"):
             return self._json(200, {"ok": True, "live": True, "backend": "ollama", "model": MODEL, "passcode_required": False})
@@ -62,6 +63,15 @@ class Handler(SimpleHTTPRequestHandler):
                 return self._json(400, {"error": "No readable contract text. A scanned image PDF has no text layer to read."})
             try:
                 return self._json(200, contract_extract.extract(text, MODEL, runs=int(req.get("runs") or 1)))
+            except Exception as e:  # noqa: BLE001
+                return self._json(502, {"error": f"The local model did not answer ({type(e).__name__}). Is Ollama running?"})
+        if self.path.startswith("/api/fragnet"):
+            req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or 0) or b"{}")
+            if not (req.get("narrative") or "").strip() or not req.get("activities"):
+                return self._json(400, {"error": "Needs the change order narrative and the schedule's activities."})
+            try:
+                return self._json(200, fragnet_draft.draft(req["narrative"], req["activities"], req.get("claimed_days"),
+                                                           req.get("critical") or (), MODEL, runs=int(req.get("runs") or 3)))
             except Exception as e:  # noqa: BLE001
                 return self._json(502, {"error": f"The local model did not answer ({type(e).__name__}). Is Ollama running?"})
         if not self.path.startswith("/api/demo3"):
