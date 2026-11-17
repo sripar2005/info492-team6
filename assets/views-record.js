@@ -78,7 +78,7 @@
               : '<div class="card sec"><p style="margin:0">No projects yet. Create one, or load the synthetic sample project to try the full flow. You may also have been invited: invites appear here after you sign in with the invited email.</p></div>') +
             '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>New project</h3></div><form id="newp" class="grid"><div class="fd"><label><span>Name</span></label><div class="inp"><input id="pname" required placeholder="e.g. Juanita HS modernization"></div></div>' +
             '<div class="fd"><label><span>You are the</span></label><div class="inp sel"><select id="pparty">' + Object.keys(PARTY).map(function (k) { return '<option value="' + k + '"' + (k === 'gc' ? ' selected' : '') + '>' + PARTY[k] + '</option>'; }).join('') + '</select></div></div>' +
-            '<div class="fd full"><button class="btn primary" type="submit">Create project</button> <button class="btn" type="button" data-sample="1">Load the synthetic sample project</button></div></form></div></div>' +
+            '<div class="fd full"><button class="btn primary" type="submit">Create project</button> <button class="btn" type="button" data-loadsample="1">Load the synthetic sample project</button></div></form></div></div>' +
             '<div id="pdetail">' + (cur ? '<div class="card sec"><p class="fine" style="margin:0">Loading members…</p></div>' : '<div class="card sec"><p style="margin:0;color:var(--muted)">Open a project to see who is on it and to invite the other parties.</p></div>') + '</div></div>';
           app.innerHTML = sheet('Projects', 'A-001 · Project', body);
           if (cur) detail(cur);
@@ -146,7 +146,7 @@
     if (!cos.length) return Promise.resolve(0);
     return q(sb.from('documents').select('id,number').eq('project_id', projectId).eq('kind', 'change_order')).then(function (docs) {
       var byNum = {}; docs.forEach(function (d) { byNum[d.number] = d.id; });
-      var rows = cos.map(function (d) { return { project_id: projectId, number: d.number, title: d.title, holder: 'sub', status: 'draft', document_id: byNum[d.number] || null }; });
+      var rows = cos.map(function (d) { return { project_id: projectId, number: d.number, title: String(d.title).replace(new RegExp('^' + d.number + '[\\s:–-]*'), ''), holder: 'sub', status: 'draft', document_id: byNum[d.number] || null }; });
       return q(sb.from('threads').insert(rows).select('id,number')).then(function (ts) {
         var ev = ts.map(function (t) { var d = cos.filter(function (c) { return c.number === t.number; })[0]; var note = (d.meta && d.meta.plain_note) || ((d.pieces || [])[0] || {}).body || d.title; return { thread_id: t.id, project_id: projectId, party: 'sub', kind: 'note', body: note, actor: user.id }; });
         return q(sb.from('events').insert(ev)).then(function () { return ts.length; });
@@ -159,11 +159,11 @@
     gate(function () {
       var cur = proj(); if (!cur) return A.go('project');
       q(sb.from('threads').select('id,number,title,status,holder,updated_at').eq('project_id', cur.id).order('number')).then(function (ts) {
-        var mine = ts.filter(function (t) { return t.holder === cur.party && !/approved|rejected|withdrawn/.test(t.status); }).length;
+        var me = actingParty(cur), mine = ts.filter(function (t) { return t.holder === me && !/approved|rejected|withdrawn/.test(t.status); }).length;
         var rows = ts.map(function (t) {
-          return '<tr data-topen="' + t.id + '"><td><span class="t">' + esc(t.title) + '</span><span class="id">' + esc(t.number) + '</span></td><td><span class="badge' + (t.status === 'approved' ? ' ok' : t.status === 'returned' ? ' fail' : '') + '">' + esc(STATUS[t.status]) + '</span></td><td>' + (/approved|rejected|withdrawn/.test(t.status) ? '—' : esc(PARTY[t.holder])) + '</td><td class="fine">' + when(t.updated_at) + '</td></tr>';
+          return '<tr data-topen="' + t.id + '"><td><span class="t">' + esc(t.title) + '</span><span class="id">' + esc(t.number) + '</span></td><td><span class="badge' + (t.status === 'approved' ? ' ok' : t.status === 'returned' ? ' fail' : '') + '">' + esc(STATUS[t.status]) + '</span></td><td>' + (/approved|rejected|withdrawn/.test(t.status) ? '—' : esc(PARTY[t.holder])) + '</td><td class="fine" style="white-space:nowrap">' + when(t.updated_at) + '</td></tr>';
         }).join('');
-        app.innerHTML = sheet('Changes', 'T-201 · ' + cur.name, '<p style="margin:-6px 0 16px;color:var(--muted)">' + ts.length + ' changes. ' + mine + ' waiting on you (' + esc(PARTY[cur.party]) + '). <a class="link" href="#project">Switch project</a></p>' +
+        app.innerHTML = sheet('Changes', 'T-201 · ' + cur.name, '<p style="margin:-6px 0 16px;color:var(--muted)">' + ts.length + ' changes. ' + mine + ' waiting on you (' + esc(PARTY[me]) + '). <a class="link" href="#project">Switch project</a></p>' +
           '<div class="cols" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)"><div class="card tbl-wrap">' + (ts.length ? '<table class="tbl"><thead><tr><th>Change</th><th>Status</th><th>With</th><th>Updated</th></tr></thead><tbody>' + rows + '</tbody></table>' : '<p style="padding:18px;margin:0">No changes yet.</p>') + '</div>' +
           '<div class="card sec"><div class="sec-h"><h3>Raise a change</h3></div><p class="fine" style="margin:0 0 10px">Write it the way you’d say it on site. The formal proposal is drafted from the record next.</p><form id="newt"><div class="fd"><label><span>Short title</span></label><div class="inp"><input id="ttitle" required placeholder="e.g. Extra drains at gym roof"></div></div>' +
           '<div class="fd" style="margin-top:10px"><label><span>What happened</span></label><div class="inp" style="height:auto"><textarea id="tnote" rows="5" required placeholder="e.g. RFI-112 answer adds two roof drains at the gym. We need to tie into the existing leader and cut the deck. About 3 days for our crew."></textarea></div></div>' +
@@ -221,9 +221,9 @@
   };
 
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-popen],[data-signout],[data-sample],[data-topen]'); if (!t) return;
+    var t = e.target.closest('[data-popen],[data-signout],[data-loadsample],[data-topen]'); if (!t) return;
     if (t.dataset.signout) { sb.auth.signOut().then(function () { setProj(null); V.project(); }); return; }
-    if (t.dataset.sample) { e.preventDefault(); return loadSample(); }
+    if (t.dataset.loadsample) { e.preventDefault(); return loadSample(); }
     if (t.dataset.topen) { store('cs_thread', t.dataset.topen); return A.go('change'); }
     if (t.dataset.popen) {
       Promise.all([q(sb.from('projects').select('id,name,synthetic').eq('id', t.dataset.popen).single()), q(sb.from('members').select('party,is_admin').eq('project_id', t.dataset.popen).eq('user_id', user.id).single())])

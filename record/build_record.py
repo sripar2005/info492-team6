@@ -73,7 +73,8 @@ with open(os.path.join(ROOT, "demo1/data/synthetic_contract.md"), encoding="utf-
 with open(os.path.join(ROOT, "demo3/data/cases.json"), encoding="utf-8") as f:
     CASES3 = json.load(f)["cases"]
 with open(os.path.join(ROOT, "demo4/data/cases.json"), encoding="utf-8") as f:
-    CASES4 = json.load(f)["cases"]
+    # CP-0501..0505 are the held-out test cases (written after the record); keep them out of the record.
+    CASES4 = [c for c in json.load(f)["cases"] if not c["id"].startswith("CP-05")]
 with open(os.path.join(ROOT, "demo4/data/schedule.json"), encoding="utf-8") as f:
     SCHED = json.load(f)
 with open(os.path.join(ROOT, "demo4/data/schedule.csv"), encoding="utf-8", newline="") as f:
