@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Demo 3 Results · ClauseStream</title>
 <meta name="description" content="Demo 3: four role agents review 36 priced change proposals against the contract. Results and evaluation.">
-<meta name="theme-color" content="#07090c">
+<meta name="theme-color" content="#0b0c0e">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/cs.css">
@@ -43,14 +44,10 @@ ul.clean b { color: var(--text); font-weight: 500; }
 </style>
 </head>
 <body>
-<div class="ambient" aria-hidden="true"></div>
 <header class="topbar">
   <div class="bar glass">
-    <a class="logo" href="/clausestream/" aria-label="ClauseStream home">
-      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="0.5" y="0.5" width="27" height="27" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.22)"/><path d="M6 22 L21 7" stroke="#eef2f6" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 7 H21 V12.5" stroke="#eef2f6" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.6 17.4 l2 2 M11.8 14.2 l2 2 M15 11 l2 2" stroke="#ff6a3d" stroke-width="1.6" stroke-linecap="round"/><text x="5.2" y="12.2" font-family="Geist Mono, monospace" font-size="8.5" fill="#eef2f6">§</text></svg>
-      ClauseStream
-    </a>
-    <nav><a class="hide-sm" href="/clausestream/">Home</a><a href="/app/">Sign in</a><a class="hide-sm" href="/demos/">All demos</a><a class="hide-sm" href="/">Project site</a></nav>
+    <a class="logo" href="/clausestream/" aria-label="ClauseStream home"><span class="mark">§</span><span class="hide-sm">ClauseStream</span></a>
+    <nav><a class="hide-sm" href="/demo3/" aria-current="page">How it works</a><a class="hide-sm" href="/app/">Agent dashboard</a><a class="hide-sm" href="/">Project site</a><a class="cta" href="/check/#upload">Check a proposal</a></nav>
   </div>
 </header>
 
@@ -59,7 +56,7 @@ ul.clean b { color: var(--text); font-weight: 500; }
     <span class="kicker">Demo 3 · Results with evaluation</span>
     <h1 class="shine">Four parties, four agents, one contract.</h1>
     <p>Every priced change proposal passes through the subcontractor's, GC/CM's, Architect's, and Owner's PM's agents. Each checks it from its own seat, within its own authority, quotes the clause, and hands a message to the next party. People make every decision. We scored the agents on 36 change proposals with 33 seeded contract issues, and compared them with a rules-and-keywords checker that uses no AI.</p>
-    <div class="btns"><a class="btn primary" href="/app/">Open the dashboard →</a><a class="btn" href="https://github.com/sripar2005/info492-team6/tree/main/demo3">Code and data</a></div>
+    <div class="btns"><a class="btn primary" href="/check/#upload">Try the check tool →</a><a class="btn" href="/app/">Agent dashboard</a><a class="btn" href="https://github.com/sripar2005/info492-team6/tree/main/demo3">Code and data</a></div>
   </section>
 
   <section class="panel glass fade-in" id="scores">

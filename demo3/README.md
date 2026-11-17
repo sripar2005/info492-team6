@@ -2,7 +2,9 @@
 
 Each party on a change runs its own agent: the **Subcontractor**, the **GC/CM**, the **Architect**, and the **Owner's PM**. Each one reviews a priced Change Proposal (CP) from its own seat and within its own authority, quotes the clause it relies on, and hands a message to the next party. People make every decision.
 
-Live: [landing](https://info492-team6.vercel.app/clausestream/) → [sign in with a role](https://info492-team6.vercel.app/app/) → [dashboard](https://info492-team6.vercel.app/app/dashboard.html) → [results with evaluation](https://info492-team6.vercel.app/demo3/)
+Live: [check tool](https://info492-team6.vercel.app/check/) (the product this demo led to) · [results with evaluation](https://info492-team6.vercel.app/demo3/) · [agent dashboard](https://info492-team6.vercel.app/app/)
+
+**What came out of it.** The agents on free 8B models caught 22 of 33 seeded issues and flagged every clean proposal. Every check that is plain arithmetic, moved into code (`rules.py`), caught 23 of 33 with no false alarms. The same small model, asked only to *copy* numbers from a PDF (`extract.py`), read 121 of 121 fields right on five sample PDFs. So the check tool splits the work: the model reads, code checks, a person confirms. These follow-ups were designed after seeing the Demo 3 runs and are scored beside them, not in place of them.
 
 ## What it tests (thesis claim 3)
 Can agents checking each handoff catch at least **85%** of seeded pricing and notice violations when the CP is submitted, rather than in a post-payment audit? They must do this without flagging clean CPs, and must send delay claims, site conditions, and amounts over the approval limit to a person.
@@ -22,17 +24,19 @@ Can agents checking each handoff catch at least **85%** of seeded pricing and no
 
 ## Run it
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt   # optional: only for PDFs, sample PDFs, or the Claude back end
 python tests/test_demo3.py        # offline checks
 python data/build_cases.py        # rebuilds cases.json and answer_key.json (deterministic)
 python agents.py --dry-run
 python agents.py --backend ollama --model llama3.1:8b   # free, local; or push RUN_LOCAL.txt to run on GitHub
-python baseline.py && python evaluate.py
+python baseline.py && python rules.py && python evaluate.py
+python hybrid.py --curve           # tradeoff of adding agent flags to the computed checks
+node ../tools/parity.js           # browser checks (assets/checks.js) match rules.py on all 36 CPs
 ```
 - **Cost.** About 140 calls at roughly 11k input tokens each.
 - **Local model.** See `LOCAL_MODEL.md`.
 - **Models.** Runs on open models through Ollama: Llama 3.1 8B (main) and Qwen2.5 7B (comparison). The `Demo 3 - local models` workflow runs them free on GitHub's runners in parallel jobs; `RUN_LOCAL.txt` lists the models. The same code runs on Claude with `--backend anthropic`.
-- **Live mode.** `python3 serve_local.py` serves the whole site on your computer, and the dashboard's "Run agents live" calls Ollama there, with no key and no cost. `vercel_api.py` is an optional, undeployed Claude endpoint.
+- **Live mode.** `python3 serve_local.py` serves the whole site on your computer: the check tool's PDF upload (`/api/extract`) and the dashboard's "Run agents live" (`/api/demo3`) call Ollama there, with no key and no cost.
 
 ## Files
 | Path | What |
@@ -48,8 +52,12 @@ python baseline.py && python evaluate.py
 | `results/` | Runs and evaluation |
 | `serve_local.py` | Site plus live agents on your own computer (Ollama) |
 | `merge_runs.py` | Merges the parallel GitHub jobs into one run per model |
-| `vercel_api.py` | Optional Claude endpoint, not deployed |
-| `../app/` | Sign-in with role selection, and the role dashboard |
+| `rules.py` | The computed checks with the arithmetic shown (pre-check sheet); scored as its own system |
+| `hybrid.py` | Tradeoff table: computed checks plus agent flags at different strictness |
+| `extract.py` | Reads a PDF's text into the check form with the local model; `--test` runs the sample PDFs |
+| `../assets/checks.js` | The same checks in the browser, for the check tool |
+| `../check/` | The check tool: upload, confirm the numbers, marked-up result |
+| `../app/` | Sign-in with role selection, and the agent dashboard (Demo 3 research) |
 
 ## Targets (set before running)
 - At least 85% of the 33 seeded issues caught.

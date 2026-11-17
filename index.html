@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Team 6 Handoff Checker</title>
 <meta name="description" content="INFO 492 C Construction Informatics, Team 6: an AI agent that checks each construction handoff, from RFI answer to change order, against the contract.">
@@ -28,7 +29,7 @@
       <div class="tb-cell"><span class="label">Team</span><span>Yousuf Shaik<br>Sriharshith Paruchuri<br>Nithika Yechuri</span></div>
       <div class="tb-cell"><span class="label">Course</span><span>University of Washington Information School, Autumn 2026</span></div>
       <div class="tb-cell"><span class="label">Project lens</span><span>Webster School Modernization &amp; Addition, Seattle</span></div>
-      <div class="tb-cell"><span class="label">Progress</span><span><strong>Demos 1 and 2 of 4 complete</strong> · <a href="/demos/">see results</a></span></div>
+      <div class="tb-cell"><span class="label">Progress</span><span><strong>Demos 1 to 3 of 4 complete</strong> · <a href="/demos/">see results</a></span></div>
     </div>
   </header>
 
@@ -65,10 +66,10 @@
       <div class="progress">
         <a class="step done" href="/demo1/" style="text-decoration:none"><span class="label">Demo 1 · Done</span><strong>Rules extractor</strong><span class="big">94.4%</span><span>of core contract rules extracted, against an 85% target. Target met.</span></a>
         <a class="step done" href="/demo2/" style="text-decoration:none"><span class="label">Demo 2 · Done</span><strong>Change classifier</strong><span class="big">30/30 ×2</span><span>documents matched the answer key on each of two test sets, one run each. Target met.</span></a>
-        <div class="step"><span class="label">Demo 3 · Next</span><strong>Handoff checker</strong><span>Flag change proposals that break the contract's rules.</span></div>
+        <a class="step done" href="/demo3/" style="text-decoration:none"><span class="label">Demo 3 · Done · target not met</span><strong>Handoff checker</strong><span class="big">22/33</span><span>seeded issues caught by free Llama 3.1 8B agents, against 85%. Code-only checks caught 23/33 with no false alarms, which became the <u>check tool</u>.</span></a>
         <div class="step"><span class="label">Demo 4 · Upcoming</span><strong>Linked thread</strong><span>One record from RFI to change order, with human sign-off.</span></div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="button" href="/demo2/">Open Demo 2 results →</a><a class="button ghost" href="/demo1/">Demo 1 results</a><a class="button ghost" href="/demos/">All demos</a></div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="button" href="/check/">Try the check tool →</a><a class="button ghost" href="/demo3/">Demo 3 results</a><a class="button ghost" href="/demos/">All demos</a></div>
     </div>
   </section>
 

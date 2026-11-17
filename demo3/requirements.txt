@@ -1,0 +1,4 @@
+# The checks, scoring, local agents and the local server use only the Python standard library.
+pypdf>=4        # only for extract.py reading PDFs from the command line
+reportlab>=4    # only for tools/make_samples.py
+anthropic       # only for agents.py --backend anthropic (not used in the published runs)

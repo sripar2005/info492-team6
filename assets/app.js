@@ -48,10 +48,11 @@
     if (!f._sub_manual) f.sub_total = c.sub_total;
     var c2 = K.recompute(clone(f)); // fee depends on sub_total
     if (!f._fee_manual) f.fee_amount = K.round(c2.fee_amount, 2);
-    var base = num(f.cm_direct) + num(f.sub_total) + num(f.fee_amount) + num(f.bond) + num(f.bo) + num(f.permits) + num(f.nss) + num(f.sgc) + num(f.ext_sgc);
-    if (!f._total_manual) f.total = K.round(base, 2);
-    f._lines_total = K.round(base, 2);
+    var base = linesTotal(f);
+    if (!f._total_manual) f.total = base;
+    f._lines_total = base;
   }
+  function linesTotal(f) { return K.round(num(f.cm_direct) + num(f.sub_total) + num(f.fee_amount) + num(f.bond) + num(f.bo) + num(f.permits) + num(f.nss) + num(f.sgc) + num(f.ext_sgc), 2); }
   function ready(f) { return f.cause && /^\d{4}-\d{2}-\d{2}$/.test(f.event_date) && /^\d{4}-\d{2}-\d{2}$/.test(f.notice_date); }
   function caseOf(f) { var c = K.toCase(f); c.id = f.id || 'Your proposal'; c.title = f.title || 'Change proposal'; return c; }
   function start(form, source, extra) {
@@ -194,21 +195,52 @@
       (marks[k] = marks[k] || []).push({ n: fd.n, kind: fd.kind, text: shortNote(fd.r, cp) });
       if (fd.r.flag === 'FEE_ON_EXCLUDED') cp.cover_sheet.fee_applied_to.forEach(function (p) { var kk = FEE_KEY[p]; if (kk) (marks[kk] = marks[kk] || []).push({ n: fd.n, kind: 'fail', text: 'fee was charged on this', echo: true }); });
     });
-    function note(k) { return (marks[k] || []).map(function (m) { return '<div><span class="num">' + m.n + '</span>' + esc(m.text) + '</div>'; }).join(''); }
-    function kindOf(k) { var m = marks[k] || []; return m.some(function (x) { return x.kind === 'fail'; }) ? '' : m.length ? ' person' : ''; }
+    function note(k) { return (marks[k] || []).map(function (m) { return '<div><span class="num"><b>' + m.n + '</b></span>' + esc(m.text) + '</div>'; }).join(''); }
+    function kindOf(k) { var m = marks[k] || []; return m.some(function (x) { return x.kind === 'fail'; }) ? '' : m.some(function (x) { return x.kind === 'person'; }) ? ' person' : m.length ? ' nc' : ''; }
     var c = cp.cover_sheet, meta = [
       ['cause', CAUSE_LABEL[cp.cause.type] || cp.cause.type || 'Cause not set'], ['ref', cp.cause.reference], ['event', cp.cause.event_date ? 'Happened ' + cp.cause.event_date : ''],
       ['notice', cp.notice_date ? 'Notice given ' + cp.notice_date : ''], ['time', cp.time_impact_days ? cp.time_impact_days + ' days of time claimed' : '']];
     var metaNotes = ['cause', 'notice', 'time'].map(function (k) { return marks['meta:' + k] ? '<div style="color:' + (kindOf('meta:' + k) ? 'var(--amber)' : 'var(--red)') + '">' + note('meta:' + k) + '</div>' : ''; }).join('');
     var h = '<div class="paper"><div class="ph"><span class="eyebrow">' + esc(caption || 'Change proposal') + '</span><span class="eyebrow">' + esc(cp.id) + '</span></div>' +
       '<h3>' + esc(cp.title) + '</h3><div class="meta">' + meta.filter(function (m) { return m[1]; }).map(function (m) {
-        var mk = marks['meta:' + m[0]]; return '<span class="' + (mk ? 'ring' + (kindOf('meta:' + m[0]) ? '' : ' red') : '') + '">' + esc(m[1]) + '</span>'; }).join('') + '</div>' +
+        var mk = marks['meta:' + m[0]]; return '<span' + (mk ? ' data-cloud="' + (kindOf('meta:' + m[0]).trim() || 'fail') + '"' : '') + '>' + esc(m[1]) + '</span>'; }).join('') + '</div>' +
       (metaNotes ? '<div class="meta-notes">' + metaNotes + '</div>' : '') +
       '<div class="lines-lbl">Cover sheet</div><table class="doc' + (findings && findings.length ? '' : ' nonotes') + '"><tbody>' + docLines(cp).map(function (l) {
-        var mk = marks[l.key]; return '<tr class="' + (l.tot ? 'tot ' : '') + (mk ? 'mk' + kindOf(l.key) : '') + (!mk && !l.amt && !l.tot ? ' dim' : '') + '"><td>' + esc(l.label) + '</td><td class="amt">' + M(l.amt || 0) + '</td><td class="note">' + note(l.key) + '</td></tr>';
+        var mk = marks[l.key]; return '<tr class="' + (l.tot ? 'tot ' : '') + (mk ? 'mk' + kindOf(l.key) : '') + (!mk && !l.amt && !l.tot ? ' dim' : '') + '"' + (mk ? ' data-cloud="' + (kindOf(l.key).trim() || 'fail') + '"' : '') + '><td>' + esc(l.label) + '</td><td class="amt">' + M(l.amt || 0) + '</td><td class="note">' + note(l.key) + '</td></tr>';
       }).join('') + '</tbody></table>';
+    var nf = (findings || []).filter(function (x) { return x.kind === 'fail'; }).length;
+    h += '<div class="tblock"><div><span>Project</span><b>Sample school modernization</b></div><div><span>Change proposal</span><b>' + esc(cp.id) + '</b></div>' +
+      '<div><span>Checked against</span><b>Sample GC/CM contract</b></div><div><span>' + (findings ? 'Result' : 'Status') + '</span><b>' + (findings ? (nf ? nf + ' to fix' : 'Checks pass') : 'Not checked yet') + '</b></div></div>';
     return h + '</div>';
   }
+
+  // Revision clouds: the scalloped outline used to mark changes on construction drawings.
+  function cloudPath(x, y, w, h, r) {
+    function edge(len) { var n = Math.max(2, Math.round(len / (r * 2))); return { n: n, s: len / n }; }
+    var t = edge(w), v = edge(h), d = 'M' + x.toFixed(1) + ' ' + y.toFixed(1), i, a;
+    for (i = 0; i < t.n; i++) { a = t.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 ' + t.s.toFixed(1) + ' 0'; }
+    for (i = 0; i < v.n; i++) { a = v.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 0 ' + v.s.toFixed(1); }
+    for (i = 0; i < t.n; i++) { a = t.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 ' + (-t.s).toFixed(1) + ' 0'; }
+    for (i = 0; i < v.n; i++) { a = v.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 0 ' + (-v.s).toFixed(1); }
+    return d + ' Z';
+  }
+  var COLORS = { fail: 'var(--red)', person: 'var(--amber)', nc: 'var(--blue)' };
+  function drawClouds() {
+    document.querySelectorAll('.paper').forEach(function (paper) {
+      var old = paper.querySelector('svg.clouds'); if (old) old.remove();
+      var marked = paper.querySelectorAll('[data-cloud]'); if (!marked.length) return;
+      var pb = paper.getBoundingClientRect(), svg = '<svg class="clouds" width="' + pb.width + '" height="' + pb.height + '" aria-hidden="true">';
+      marked.forEach(function (el) {
+        var b;
+        if (el.tagName === 'TR') { var c = el.children, l = c[0].getBoundingClientRect(), rgt = c[1].getBoundingClientRect(); b = { left: l.left, top: l.top, right: rgt.right, bottom: l.bottom }; }
+        else b = el.getBoundingClientRect();
+        var pad = el.tagName === 'TR' ? 5 : 4, x = b.left - pb.left - pad - 4, y = b.top - pb.top + (el.tagName === 'TR' ? 2 : -pad), w = b.right - b.left + pad * 2 + 6, h = b.bottom - b.top + (el.tagName === 'TR' ? -4 : pad * 2);
+        svg += '<path d="' + cloudPath(x, y, w, h, 6.5) + '" stroke="' + (COLORS[el.dataset.cloud] || COLORS.fail) + '"/>';
+      });
+      paper.insertAdjacentHTML('beforeend', svg + '</svg>');
+    });
+  }
+  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(drawClouds, 120); });
 
   /* ---------- step 2: confirm ---------- */
   function field(path, label, val, opt) {
@@ -277,7 +309,7 @@
   }
   function live() {
     var f = S.form, el = document.getElementById('live'), tn = document.getElementById('totnote'); if (!el) return;
-    retotal(f);
+    if (S.edited) retotal(f); else f._lines_total = linesTotal(f);
     var ft = document.querySelector('[data-p="fee_amount"]'), tt = document.querySelector('[data-p="total"]');
     if (ft && document.activeElement !== ft) ft.value = fmt(f.fee_amount); if (tt && document.activeElement !== tt) tt.value = fmt(f.total);
     if (tn) tn.innerHTML = Math.abs(f._lines_total - f.total) > 1 ? '<p class="hint" style="color:var(--amber)">The cover sheet says ' + M(f.total) + ' but its lines add up to ' + M(f._lines_total) + '. <button class="link" data-act="usecalc">Use the lines’ total</button></p>' : '';
@@ -315,9 +347,9 @@
     if (!ready(S.form)) { go('confirm'); return toast('Fill in what caused the change and both dates first.'); }
     var f = S.form, cp = caseOf(f), full = K.checksheet(cp), cs = filtered(full), fds = findingsOf(cs), v = K.verdict(cs, role), owner = role === 'owner' || role === 'architect';
     var fails = fds.filter(function (x) { return x.kind === 'fail'; }).length;
-    var head = v.tone === 'fail' ? '<em>' + esc(v.head.replace(/^(\d+ [a-z ]+?)( will| problem)/, '$1')) + '</em>' + esc(v.head.slice(v.head.replace(/^(\d+ [a-z ]+?)( will| problem)/, '$1').length)) : '<em>' + esc(v.head) + '</em>';
-    if (v.tone === 'fail' && owner) head = '<em>' + fails + ' pricing ' + (fails === 1 ? 'problem' : 'problems') + '</em> to send back';
-    if (v.tone === 'fail' && !owner) head = '<em>' + fails + (fails === 1 ? ' thing' : ' things') + '</em> will get this sent back';
+    var head = v.tone !== 'fail' ? '<em>' + esc(v.head) + '</em>'
+      : owner ? '<em>' + fails + ' pricing ' + (fails === 1 ? 'problem' : 'problems') + '</em> to send back'
+      : '<em>' + fails + (fails === 1 ? ' thing' : ' things') + '</em> will get this sent back';
     var noSub = role === 'sub' && !cp.subcontractor_quotes.length;
     var h = '<div class="wrap">' + steps(3) + '<div class="cols result"><div>' + paperHtml(cp, fds, 'Cover sheet · marked up') +
       '<p class="paper-cap">' + (S.source === 'pdf' ? 'Rebuilt from the numbers you confirmed, not the original file.' : S.source === 'sample' ? 'Synthetic sample proposal.' : 'Built from the numbers you entered.') + '</p></div>' +
@@ -337,6 +369,7 @@
       : '<button class="btn primary" data-act="edit">' + (fails ? 'Fix and re-check' : 'Edit the numbers') + '</button><button class="btn" data-act="copy">Copy summary</button><button class="btn ghost" data-act="new">Check another</button>';
     h += '<div class="acts">' + acts + '</div>' + (S.source !== 'sample' || S.edited ? '<p class="saved">Saved to <a class="link" href="#proposals">My proposals</a> in this browser.</p>' : '') + '</div></div></div>';
     app.innerHTML = h;
+    requestAnimationFrame(drawClouds); if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawClouds);
     if (S.source !== 'sample' || S.edited) saveProposal(full);
   }
   function notesText() {
@@ -357,7 +390,10 @@
     store('cs_saved', list.slice(0, 50));
   }
   function badge(cs) {
-    var n = cs.counts; return n.fail ? '<span class="badge fail">Fix ' + n.fail + (n.fail === 1 ? ' thing' : ' things') + '</span>' : n.person ? '<span class="badge person">Ready · owner decides 1</span>'.replace('1', n.person) : '<span class="badge ok">Ready to send</span>';
+    var n = cs.counts;
+    if (n.fail) return '<span class="badge fail">Fix ' + n.fail + (n.fail === 1 ? ' thing' : ' things') + '</span>';
+    if (n.person) return '<span class="badge person">Ready · ' + n.person + ' for the owner to decide</span>';
+    return '<span class="badge ok">Ready to send</span>';
   }
   function viewProposals() {
     var rows = saved().map(function (x) {
