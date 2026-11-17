@@ -210,7 +210,7 @@
       }).join('') + '</tbody></table>';
     var nf = (findings || []).filter(function (x) { return x.kind === 'fail'; }).length;
     h += '<div class="tblock"><div><span>Project</span><b>Sample school modernization</b></div><div><span>Change proposal</span><b>' + esc(cp.id) + '</b></div>' +
-      '<div><span>Checked against</span><b>Sample GC/CM contract</b></div><div><span>' + (findings ? 'Result' : 'Status') + '</span><b>' + (findings ? (nf ? nf + ' to fix' : 'Checks pass') : 'Not checked yet') + '</b></div></div>';
+      '<div><span>Checked against</span><b>' + esc(C().name) + '</b></div><div><span>' + (findings ? 'Result' : 'Status') + '</span><b>' + (findings ? (nf ? nf + ' to fix' : 'Checks pass') : 'Not checked yet') + '</b></div></div>';
     return h + '</div>';
   }
 
@@ -314,7 +314,7 @@
     if (ft && document.activeElement !== ft) ft.value = fmt(f.fee_amount); if (tt && document.activeElement !== tt) tt.value = fmt(f.total);
     if (tn) tn.innerHTML = Math.abs(f._lines_total - f.total) > 1 ? '<p class="hint" style="color:var(--amber)">The cover sheet says ' + M(f.total) + ' but its lines add up to ' + M(f._lines_total) + '. <button class="link" data-act="usecalc">Use the lines’ total</button></p>' : '';
     if (!ready(f)) { el.innerHTML = '<span>Fill in what caused the change and both dates to check it.</span>'; return; }
-    var cs = filtered(K.checksheet(caseOf(f))), n = cs.counts;
+    var cs = filtered(K.checksheet(caseOf(f), C())), n = cs.counts;
     el.innerHTML = '<span>Right now:</span>' + (n.fail ? '<b><span class="dotc" style="background:var(--red)"></span> ' + n.fail + ' problem' + (n.fail > 1 ? 's' : '') + '</b>' : '<b><span class="dotc" style="background:var(--green)"></span> no problems</b>') +
       (n.person ? '<span>· ' + n.person + ' for a person</span>' : '') + '<span>· ' + n.pass + ' checks pass</span>';
   }
@@ -340,12 +340,12 @@
     var order = { fail: 0, not_checked: 1, person: 2 };
     return cs.rows.filter(function (r) { return r.status !== 'pass'; })
       .sort(function (a, b) { return order[a.status] - order[b.status] || (b.difference || 0) - (a.difference || 0); })
-      .map(function (r, i) { return { n: i + 1, r: r, kind: r.status === 'fail' ? 'fail' : r.status === 'person' ? 'person' : 'nc', p: K.plain(r, role) }; });
+      .map(function (r, i) { return { n: i + 1, r: r, kind: r.status === 'fail' ? 'fail' : r.status === 'person' ? 'person' : 'nc', p: K.plain(r, role, C()) }; });
   }
   function viewResult() {
     if (!S) return go('upload');
     if (!ready(S.form)) { go('confirm'); return toast('Fill in what caused the change and both dates first.'); }
-    var f = S.form, cp = caseOf(f), full = K.checksheet(cp), cs = filtered(full), fds = findingsOf(cs), v = K.verdict(cs, role), owner = role === 'owner' || role === 'architect';
+    var f = S.form, cp = caseOf(f), full = K.checksheet(cp, C()), cs = filtered(full), fds = findingsOf(cs), v = K.verdict(cs, role), owner = role === 'owner' || role === 'architect';
     var fails = fds.filter(function (x) { return x.kind === 'fail'; }).length;
     var head = v.tone !== 'fail' ? '<em>' + esc(v.head) + '</em>'
       : owner ? '<em>' + fails + ' pricing ' + (fails === 1 ? 'problem' : 'problems') + '</em> to send back'
@@ -373,8 +373,8 @@
     if (S.source !== 'sample' || S.edited) saveProposal(full);
   }
   function notesText() {
-    var f = S.form, cp = caseOf(f), cs = filtered(K.checksheet(cp)), fds = findingsOf(cs), owner = role === 'owner' || role === 'architect';
-    var t = cp.id + ' · ' + cp.title + ' · ' + M(cp.cover_sheet.total_requested) + '\nChecked against the ' + K.CONTRACT.name + '.\n\n';
+    var f = S.form, cp = caseOf(f), cs = filtered(K.checksheet(cp, C())), fds = findingsOf(cs), owner = role === 'owner' || role === 'architect';
+    var t = cp.id + ' · ' + cp.title + ' · ' + M(cp.cover_sheet.total_requested) + '\nChecked against: ' + C().name + '.\n\n';
     if (!fds.length) t += 'Every computed check passes.\n';
     fds.forEach(function (fd) { t += fd.n + '. ' + fd.p.title + ' ' + fd.p.why + (fd.p.amt ? ' ' + M(fd.p.amt) + (owner ? ' more than allowed.' : ' too much.') : '') + ' (§ ' + fd.r.section + ')\n'; });
     if (cs.dollars_at_issue > 0) t += '\nTotal at issue: ' + M(cs.dollars_at_issue) + '\n';
@@ -397,11 +397,11 @@
   }
   function viewProposals() {
     var rows = saved().map(function (x) {
-      var f = x.form, cs = ready(f) ? filtered(K.checksheet(caseOf(f))) : null, days = Math.max(0, Math.floor((Date.now() - x.first) / 864e5));
+      var f = x.form, cs = ready(f) ? filtered(K.checksheet(caseOf(f), C())) : null, days = Math.max(0, Math.floor((Date.now() - x.first) / 864e5));
       return '<tr data-saved="' + esc(x.key) + '"><td><span class="t">' + esc(f.title || 'Untitled proposal') + '</span><span class="id">' + esc(f.id || '—') + '</span></td><td class="r">' + M(f.total || 0) + '</td><td>' + (cs ? badge(cs) : '<span class="badge">Incomplete</span>') +
         '</td><td class="stage">' + esc(x.stage) + '</td><td>' + esc(x.holder) + '</td><td class="r">' + days + '</td><td class="r">' + x.revisions + '</td></tr>';
     }).concat(SAMPLE_ROWS.map(function (s) {
-      var cp = cases[s[0]]; if (!cp) return ''; var cs = filtered(K.checksheet(cp));
+      var cp = cases[s[0]]; if (!cp) return ''; var cs = filtered(K.checksheet(cp, C()));
       return '<tr data-sample="' + s[0] + '"><td><span class="t">' + esc(cp.title) + '<span class="badge sample">sample</span></span><span class="id">' + s[0] + '</span></td><td class="r">' + M(cp.cover_sheet.total_requested) + '</td><td>' + badge(cs) +
         '</td><td class="stage">' + s[1] + '</td><td>' + s[2] + '</td><td class="r"><span class="age' + (s[3] > 14 ? ' late' : '') + '">' + s[3] + '</span></td><td class="r">' + s[4] + '</td></tr>';
     }));
@@ -411,9 +411,208 @@
       '<p class="fine">Days in stage, revisions and who holds it are tracked here for proposals you check. They’d come from your project system (e.g. Procore) in a real setup.</p></div>';
   }
 
+  /* ---------- contracts: load your own, confirm every term, then the checks use it ---------- */
+  var CT = window.ClauseContract, CS = null, _C = null;
+  var GROUPS = [['Pricing', 'Pricing limits'], ['Notice', 'Notice deadlines'], ['Time', 'Time and delay']];
+  function contracts() { return store('cs_contracts') || []; }
+  function activeId() { return store('cs_active') || 'sample'; }
+  function C() {
+    if (_C) return _C;
+    var x = contracts().filter(function (c) { return c.id === activeId(); })[0];
+    _C = x ? K.fromTerms(x.name, CT.toTerms(x.read)) : K.CONTRACT; return _C;
+  }
+  function setActive(id) { store('cs_active', id); _C = null; chip(); }
+  function chip() { var b = document.querySelector('#contractBtn b'); if (b) b.textContent = C().name; }
+  function pctTxt(v) { return v == null ? '—' : v + '%'; }
+  function feeOnTxt(a) { return (a || []).map(function (p) { var l = FEE_LABEL[p] || p; return /^[A-Z]{2}/.test(l) ? l : l.charAt(0).toLowerCase() + l.slice(1); }).join(' and ') || 'nothing'; }
+  function partiesTxt(a) { return (a || []).map(function (p) { return p === 'owner' ? 'the owner' : p === 'architect' ? 'the architect' : p; }).join(' or ') || 'no one'; }
+  function concTxt(v) { var x = CT.CONCURRENT.filter(function (c) { return c[0] === v; })[0]; return x ? x[1] : '—'; }
+  function renderModal() {
+    var c = C(), s = c.sections, nb = c.noticeByCause, list = contracts(), act = activeId();
+    var def = c.defaulted && c.defaulted.length ? '<p class="fine" style="color:var(--amber)">Not set for this contract, so the sample’s value is used: ' + c.defaulted.map(function (k) { var t = CT.TERMS.filter(function (x) { return x[0] === k || (k === 'notice_days_by_cause' && x[0] === 'notice_days_standard'); })[0]; return t ? t[1].split(':')[0] : k; }).join(', ') + '.</p>' : '';
+    var rules = [
+      ['Subcontractor markup', 'Up to ' + pctTxt(c.markupOwn) + ' on their own work, ' + pctTxt(c.markupLower) + ' on lower-tier subs, ' + pctTxt(c.markupTotal) + ' in total.', s.markup],
+      ['CM fee', pctTxt(c.feePercent) + ', and only on ' + feeOnTxt(c.feeAllowedOn) + '.', s.fee],
+      ['Labor burden', pctTxt(c.burdenPercent) + ' on top of wages.', s.burden],
+      ['CM-owned equipment', 'At most ' + pctTxt(c.blueBookPercent) + ' of the Rental Rate Blue Book rate.', s.equipment],
+      ['Notice', 'Within ' + nb['RFI response'] + ' days of an RFI answer, ASI, returned submittal, direction or hidden site condition; ' + nb['Other event'] + ' days for anything else. A deadline on a weekend or holiday moves to the next business day.', (c.noticeSection && c.noticeSection['RFI response']) || '6.2'],
+      ['Goes to a person', 'Time extensions, hidden site conditions, and anything over ' + M(c.approvalLimit) + '.', s.approval],
+      ['Time', c.contractDays + ' days to substantial completion; ' + M(c.ldPerDay) + '/day liquidated damages; extended general conditions at ' + M(c.dailyDelayRate) + '/day.', ''],
+      ['Delay', (c.extensionRequiresCriticalPath ? 'Extensions only for delays on the critical path. ' : '') + 'Delays caused by ' + partiesTxt(c.compensableCauses) + ' are paid. Concurrent delay: ' + concTxt(c.concurrentDelay).toLowerCase() + '.', '']
+    ];
+    document.getElementById('cmTitle').textContent = c.name;
+    document.getElementById('cmBody').innerHTML = '<ul class="rules">' + rules.map(function (r) { return '<li><b>' + r[0] + '</b><span>' + esc(r[1]) + '</span>' + (r[2] ? '<code>§ ' + esc(r[2]) + '</code>' : '<code></code>') + '</li>'; }).join('') + '</ul>' + def +
+      '<div class="clist"><div class="clist-h"><span class="eyebrow">Your contracts</span><a class="btn sm primary" href="#contract" data-close>+ Load a contract</a></div>' +
+      [{ id: 'sample', name: K.CONTRACT.name, sub: 'Synthetic, written for this project' }].concat(list.map(function (x) { return { id: x.id, name: x.name, sub: (x.file || 'Entered by hand') + ' · confirmed ' + new Date(x.saved).toLocaleDateString(), own: true }; })).map(function (x) {
+        return '<div class="crow' + (x.id === act ? ' on' : '') + '"><button class="cpick" data-cpick="' + esc(x.id) + '"><span class="radio"></span><span><b>' + esc(x.name) + '</b><small>' + esc(x.sub) + '</small></span></button>' +
+          (x.own ? '<button class="btn ghost sm" data-cedit="' + esc(x.id) + '">Edit terms</button><button class="btn ghost sm" data-cdel="' + esc(x.id) + '" aria-label="Remove">✕</button>' : '') + '</div>';
+      }).join('') + '</div>' +
+      '<p class="fine">Contracts you load are kept in this browser only. The sample is a synthetic contract modeled on the Webster School audit.</p>';
+  }
+
+  function viewContract(err) {
+    app.innerHTML = '<div class="wrap"><section class="upload"><span class="eyebrow">Load a contract</span><h1 style="margin-top:10px">Check proposals against your own contract</h1>' +
+      '<p class="lede">We find the clauses that set markups, the fee, notice deadlines and delay terms. You confirm each one, with the sentence it came from, before any check uses it.</p>' +
+      '<div class="drop" id="drop"><div class="ic"></div><b>Drop the contract here</b><p>PDF with a text layer, or .txt / .md.</p>' +
+      '<label class="btn primary">Choose a file<input type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" id="file" hidden></label>' +
+      '<span class="or">or <button class="link" data-act="csample">try it on the sample contract’s text</button></span>' +
+      '<div class="reader ' + (reader ? 'on' : '') + '"><span class="dot"></span>' + (reader ? 'Clause reading is on: ' + esc(reader) + ' running on this computer' : 'Here, keyword search finds the candidate sentences and you pick. The AI reader runs on the team’s laptop.') + '</div></div>' +
+      (err ? '<div class="err">' + esc(err) + '</div>' : '') +
+      '<ol class="how"><li><b>Code</b> splits the contract into numbered sentences and keeps each one’s section.</li><li><b>Code</b> finds the few sentences that could state each term.</li>' +
+      '<li><b>The AI</b> may only pick one of those sentences, or say “not stated”. It reads three times; if the readings differ, the term is flagged.</li><li><b>Code</b> checks the number is really in the sentence.</li><li><b>You</b> confirm every term. Terms not found use the sample’s value, and we say so.</li></ol></section></div>';
+    var drop = document.getElementById('drop');
+    ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+    ['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); }); });
+    drop.addEventListener('drop', function (e) { var f = e.dataTransfer.files[0]; if (f) contractFile(f); });
+    document.getElementById('file').addEventListener('change', function (e) { if (e.target.files[0]) contractFile(e.target.files[0]); });
+  }
+  function pdfText(file) {
+    return loadPdfjs().then(function (lib) { return file.arrayBuffer().then(function (buf) { return lib.getDocument({ data: buf }).promise; }); }).then(function (doc) {
+      var jobs = []; for (var i = 1; i <= doc.numPages; i++) jobs.push(doc.getPage(i).then(function (pg) { return pg.getTextContent().then(function (tc) { return { n: pg.pageNumber, t: tc.items.map(function (it) { return it.str + (it.hasEOL ? '\n' : ' '); }).join('') }; }); }));
+      return Promise.all(jobs).then(function (r) { return r.sort(function (a, b) { return a.n - b.n; }).map(function (x) { return x.t; }).join('\n'); });
+    });
+  }
+  function contractFile(file) {
+    var isPdf = /\.pdf$/i.test(file.name) || file.type === 'application/pdf';
+    if (!isPdf && !/\.(txt|md|markdown)$/i.test(file.name)) return viewContract('Use a PDF, .txt or .md file. For a Word file, save it as PDF first.');
+    app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Opening ' + esc(file.name) + '…</h2></div></div>';
+    (isPdf ? pdfText(file) : file.text()).then(function (text) {
+      if (text.replace(/\s/g, '').length < 200) return viewContract('No readable text in ' + file.name + '. A scanned PDF has no text layer.');
+      readContract(text, file.name.replace(/\.[^.]+$/, ''), file.name);
+    }).catch(function (e) { viewContract('Could not open that file: ' + e.message); });
+  }
+  function newCS(text, name, file) {
+    var r = CT.retrieve(text), by = {}; r.sentences.forEach(function (s) { by[s.id] = s; });
+    return { id: 'k' + Date.now().toString(36), name: name, file: file, text: text, sents: r.sentences, by: by, cands: r.candidates, read: {}, source: 'search' };
+  }
+  function readContract(text, name, file) {
+    var cs = newCS(text, name, file);
+    CT.TERMS.forEach(function (t) { cs.read[t[0]] = { value: null, quote: null, section: null, sid: null, status: 'pick', src: null, note: '' }; });
+    if (!reader) { CS = cs; return go('contract-confirm'); }
+    var t0 = Date.now(), cancelled = false;
+    app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Reading ' + esc(file || name) + '</h2><p class="fine" style="font-size:13.5px">' + esc(reader) +
+      ' is picking the clause for each of ' + CT.TERMS.length + ' terms, three times over. A few minutes. <span id="tick">0:00</span></p><p style="margin-top:18px"><button class="btn ghost sm" id="cancel">Pick the clauses myself instead</button></p></div></div>';
+    var tick = setInterval(function () { var s = Math.round((Date.now() - t0) / 1000), el = document.getElementById('tick'); if (el) el.textContent = Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }, 1000);
+    document.getElementById('cancel').onclick = function () { cancelled = true; clearInterval(tick); CS = cs; go('contract-confirm'); };
+    fetch('/api/contract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: text, runs: 3 }) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
+      .then(function (j) {
+        if (cancelled) return; clearInterval(tick);
+        Object.keys(j.read).forEach(function (k) {
+          var x = j.read[k], s = cs.sents.filter(function (y) { return y.text === x.quote; })[0];
+          cs.read[k] = { value: x.value, quote: x.quote, section: x.section, sid: s ? s.id : null, status: x.status === 'not_stated' ? 'none' : x.status, src: 'ai', note: x.note };
+        });
+        cs.source = 'ai'; cs.model = j.model; cs.secs = j.seconds; CS = cs; go('contract-confirm');
+      })
+      .catch(function (e) { if (cancelled) return; clearInterval(tick); cs.banner = 'The local model couldn’t read it (' + e.message + '). Pick the clauses below instead.'; CS = cs; go('contract-confirm'); });
+  }
+  // A value copied from a chosen sentence (no model): the number next to %, $ or "days". The person checks it.
+  // When a sentence has several numbers, take the one nearest a word specific to the term ("lower-tier", "total", "own").
+  var NEAR = { markup_own_pct: ['own'], markup_lower_pct: ['lower'], markup_total_pct: ['total', 'combined', 'in no event', 'aggregate'], notice_days_other: ['other'],
+    notice_days_standard: ['rfi', 'direction', 'concealed', 'asi'], daily_delay_rate: ['daily', 'per day'], sgc_total: ['sgc is', 'general conditions'], liquidated_damages_per_day: ['each day', 'per day'] };
+  function guess(kind, s, k) {
+    var t = s.text, l = t.toLowerCase(), re = kind === 'pct' ? /(\d+(?:\.\d+)?)\s*%/g : kind === 'money' ? /\$\s?([\d,]+(?:\.\d+)?)/g : kind === 'days' ? /(\d+)\s*(?:\(\d+\)\s*)?(?:calendar |working |business )?days?\b/gi : null, m;
+    if (re) {
+      var hits = []; while ((m = re.exec(t))) hits.push({ v: +m[1].replace(/,/g, ''), at: m.index });
+      if (!hits.length && kind === 'days' && (m = t.match(/\((\d+)\)/))) return +m[1];
+      if (!hits.length) return null;
+      var words = NEAR[k] || [], pos = []; words.forEach(function (w) { var i = -1; while ((i = l.indexOf(w, i + 1)) >= 0) pos.push(i); });
+      if (!pos.length) return hits[0].v;
+      hits.sort(function (a, b) { return Math.min.apply(null, pos.map(function (p) { return Math.abs(a.at - p); })) - Math.min.apply(null, pos.map(function (p) { return Math.abs(b.at - p); })); });
+      return hits[0].v;
+    }
+    var l = t.toLowerCase();
+    if (kind === 'bool') return l.indexOf('critical path') >= 0;
+    if (kind === 'parties') return ['owner', 'architect'].filter(function (p) { return l.indexOf(p) >= 0; });
+    if (kind === 'concurrent') return /time but no|no compensation|without compensation/.test(l) ? 'time_no_money' : /neither|no time/.test(l) ? 'no_time_no_money' : /apportion/.test(l) ? 'apportioned' : 'not_stated';
+    if (kind === 'fee_on') return CT.FEE_ON.filter(function (p) { return (p === 'CM direct costs' ? ['direct cost', 'cost of the work'] : p === 'subcontractor quotes' ? ['subcontract'] : []).some(function (w) { return l.indexOf(w) >= 0; }); });
+    return null;
+  }
+  function kindOfTerm(k) { return CT.TERMS.filter(function (t) { return t[0] === k; })[0][2]; }
+  function restatus(k) {
+    var x = CS.read[k], kind = kindOfTerm(k);
+    if (!x.sid) { x.status = x.value == null || x.value === '' ? 'none' : 'manual'; x.note = x.status === 'manual' ? 'entered without a source sentence' : 'not stated'; return; }
+    var v = CT.verify(kind, x.value, CS.by[x.sid]); x.status = v[0] ? 'verified' : 'check'; x.note = v[1];
+  }
+  function pickSentence(k, sid) {
+    var x = CS.read[k], s = sid ? CS.by[sid] : null;
+    x.sid = sid || null; x.quote = s ? s.text : null; x.section = s ? s.section : null;
+    if (s && x.src !== 'person') { x.value = guess(kindOfTerm(k), s, k); x.src = 'search'; }
+    if (!s && x.src !== 'person') x.value = null;
+    restatus(k);
+  }
+  function termInput(k, kind, v) {
+    if (kind === 'fee_on') return '<div class="pills">' + CT.FEE_ON.map(function (p) { return '<button class="pill" data-tpill="' + k + '|' + esc(p) + '" aria-pressed="' + ((v || []).indexOf(p) >= 0) + '">' + esc(FEE_LABEL[p]) + '</button>'; }).join('') + '</div>';
+    if (kind === 'parties') return '<div class="pills">' + ['owner', 'architect', 'contractor'].map(function (p) { return '<button class="pill" data-tpill="' + k + '|' + p + '" aria-pressed="' + ((v || []).indexOf(p) >= 0) + '">' + p.charAt(0).toUpperCase() + p.slice(1) + '</button>'; }).join('') + '</div>';
+    if (kind === 'concurrent') return '<div class="inp sel"><select data-t="' + k + '"><option value="">Choose…</option>' + CT.CONCURRENT.map(function (c) { return '<option value="' + c[0] + '"' + (c[0] === v ? ' selected' : '') + '>' + c[1] + '</option>'; }).join('') + '</select></div>';
+    if (kind === 'bool') return '<div class="inp sel"><select data-t="' + k + '"><option value="">Choose…</option><option value="true"' + (v === true ? ' selected' : '') + '>Yes</option><option value="false"' + (v === false ? ' selected' : '') + '>No</option></select></div>';
+    return '<div class="inp">' + (kind === 'money' ? '<span class="pre">$</span>' : '') + '<input data-t="' + k + '" inputmode="decimal" value="' + esc(v == null ? '' : v) + '">' + (kind === 'pct' ? '<span class="suf">%</span>' : kind === 'days' ? '<span class="suf">days</span>' : '') + '</div>';
+  }
+  var SAMPLE_VALUE = null;
+  function sampleVal(k) { SAMPLE_VALUE = SAMPLE_VALUE || CT.sampleReading(K.CONTRACT); var v = SAMPLE_VALUE[k].value; return Array.isArray(v) ? v.join(', ') : typeof v === 'boolean' ? (v ? 'yes' : 'no') : v; }
+  var TAG = { verified: '<span class="tagr ok">in the quote</span>', check: '<span class="tagr chk">check this</span>', none: '<span class="tagr none">not found</span>', pick: '<span class="tagr none">pick a sentence</span>', manual: '<span class="tagr chk">no source</span>' };
+  var SRC = { ai: 'AI pick', search: 'copied from the sentence you picked', person: 'you edited' };
+  function termHtml(t) {
+    var k = t[0], kind = t[2], x = CS.read[k], cands = CS.cands[k];
+    var quote = x.sid ? '<button class="quote" data-jump="' + x.sid + '"><span>“' + esc(x.quote) + '”</span><code>§ ' + esc(x.section || '—') + '</code></button>'
+      : '<div class="quote none">' + (x.status === 'pick' ? (cands.length ? 'Pick the sentence that states this:' : 'No sentence in this contract mentions it.') : 'Not stated in this contract.') + ' Left blank, the sample’s value (' + esc(sampleVal(k)) + ') is used.</div>';
+    var opts = cands.length ? '<details class="alts"' + (x.status === 'pick' || x.status === 'check' ? ' open' : '') + '><summary>' + (x.sid ? 'Other sentences' : 'Candidate sentences') + ' (' + cands.length + ')</summary>' +
+      cands.map(function (s) { return '<button class="alt' + (s.id === x.sid ? ' on' : '') + '" data-pick="' + k + '|' + s.id + '"><code>§ ' + esc(s.section || '—') + '</code><span>' + esc(s.text) + '</span></button>'; }).join('') +
+      '<button class="alt" data-pick="' + k + '|"><code>—</code><span>None of these states it</span></button></details>' : '';
+    return '<div class="term s-' + x.status + '" id="t-' + k + '"><div class="term-h"><b>' + esc(t[1]) + '</b>' + TAG[x.status] + '</div>' + termInput(k, kind, x.value) +
+      (x.src ? '<div class="src">' + esc(SRC[x.src] || '') + (x.note && x.status !== 'verified' ? ' · ' + esc(x.note) : '') + '</div>' : '') + quote + opts + '</div>';
+  }
+  function viewContractConfirm() {
+    if (!CS) return go('contract');
+    var used = {}; Object.keys(CS.read).forEach(function (k) { if (CS.read[k].sid) used[CS.read[k].sid] = 1; });
+    var cnt = { verified: 0, check: 0, none: 0, pick: 0, manual: 0 }; Object.keys(CS.read).forEach(function (k) { cnt[CS.read[k].status]++; });
+    var left = '<div class="paper ctext"><div class="ph"><span class="eyebrow">' + esc(CS.file || 'Contract') + '</span><span class="eyebrow">' + CS.sents.length + ' sentences</span></div><div class="ctext-body">' +
+      CS.sents.map(function (s, i) { var head = i === 0 || s.section !== CS.sents[i - 1].section; return (head ? '<div class="csec">§ ' + esc(s.section || '—') + '</div>' : '') + '<span id="s-' + s.id + '"' + (used[s.id] ? ' class="used"' : '') + '>' + esc(s.text) + ' </span>'; }).join('') + '</div></div>';
+    var banner = CS.banner ? '<div class="banner warn">' + esc(CS.banner) + '</div>'
+      : CS.source === 'ai' ? '<div class="banner"><span><b>' + esc(CS.model) + '</b> picked a sentence for each term' + (CS.secs ? ' in ' + Math.round(CS.secs) + ' s' : '') + '. <span class="tagr ok">in the quote</span> means code found the value in that sentence and all three readings agreed. Everything else needs your eye.</span></div>'
+      : CS.source === 'edit' ? '' : '<div class="banner"><span>Keyword search found the candidate sentences. Pick the one that states each term; we copy the number from it and you check it.</span></div>';
+    var h = '<div class="wrap"><div class="cols"><div>' + left + '</div><div class="form"><h2>Confirm the contract terms</h2><p class="sub">Every check uses these numbers. Click a quote to see it in the contract.</p>' + banner +
+      '<div class="card sec"><div class="grid"><div class="fd full"><label><span>Contract name</span></label><div class="inp"><input id="cname" value="' + esc(CS.name) + '"></div></div></div>' +
+      '<div class="ccount"><span class="tagr ok">' + cnt.verified + ' in the quote</span><span class="tagr chk">' + (cnt.check + cnt.manual) + ' to check</span><span class="tagr none">' + (cnt.none + cnt.pick) + ' not set</span></div></div>' +
+      GROUPS.map(function (g) { return '<div class="card sec"><div class="sec-h"><h3>' + g[1] + '</h3></div>' + CT.TERMS.filter(function (t) { return t[4] === g[0]; }).map(termHtml).join('') + '</div>'; }).join('') +
+      '<div class="stick"><div class="live"><span>' + (cnt.none + cnt.pick ? (cnt.none + cnt.pick) + ' terms will use the sample’s values' : 'All terms set') + '</span></div><button class="btn ghost" data-go="contract">Cancel</button><button class="btn primary" data-act="csave">Use this contract →</button></div></div></div></div>';
+    app.innerHTML = h;
+  }
+  function contractKeepScroll() { var y = window.scrollY; viewContractConfirm(); window.scrollTo(0, y); }
+  function saveContract() {
+    var name = (document.getElementById('cname').value || '').trim() || 'My contract', read = {};
+    Object.keys(CS.read).forEach(function (k) { var x = CS.read[k], ok = x.value != null && x.value !== '' && !(Array.isArray(x.value) && !x.value.length && kindOfTerm(k) !== 'parties');
+      read[k] = { value: ok ? x.value : null, quote: x.quote, section: x.section, status: ok ? x.status : 'none', src: x.src, note: x.note }; });
+    var rec = { id: CS.id, name: name, file: CS.file, saved: Date.now(), source: CS.source, model: CS.model || null, read: read, text: CS.text.length < 400000 ? CS.text : null };
+    var list = contracts().filter(function (c) { return c.id !== rec.id; }); list.unshift(rec); store('cs_contracts', list.slice(0, 10));
+    setActive(rec.id); CS = null; toast('Checks now use “' + name + '”.'); go(S ? 'result' : 'upload');
+  }
+  function editContract(id) {
+    var x = contracts().filter(function (c) { return c.id === id; })[0]; if (!x) return;
+    if (!x.text) return toast('The text of this contract wasn’t kept, so it can’t be re-opened.');
+    var cs = newCS(x.text, x.name, x.file); cs.id = x.id; cs.source = 'edit';
+    Object.keys(x.read).forEach(function (k) { var r = x.read[k], s = cs.sents.filter(function (y) { return y.text === r.quote; })[0]; cs.read[k] = { value: r.value, quote: r.quote, section: r.section, sid: s ? s.id : null, status: r.status, src: r.src, note: r.note }; });
+    CS = cs; go('contract-confirm');
+  }
+  function onContractClick(t) {
+    if (t.dataset.pick != null) { var p = t.dataset.pick.split('|'); pickSentence(p[0], p[1]); contractKeepScroll(); return true; }
+    if (t.dataset.tpill) { var q = t.dataset.tpill.split('|'), x = CS.read[q[0]], a = Array.isArray(x.value) ? x.value.slice() : [], i = a.indexOf(q[1]); if (i >= 0) a.splice(i, 1); else a.push(q[1]); x.value = a; x.src = 'person'; restatus(q[0]); contractKeepScroll(); return true; }
+    if (t.dataset.jump) { var el = document.getElementById('s-' + t.dataset.jump); if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); } return true; }
+    if (t.dataset.act === 'csave') { saveContract(); return true; }
+    if (t.dataset.act === 'csample') { fetch('/demo1/data/synthetic_contract.md').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(function (txt) { readContract(txt, 'Sample contract (re-read)', 'synthetic_contract.md'); }).catch(function (e) { viewContract('Could not load the sample text: ' + e.message); }); return true; }
+    return false;
+  }
+  app.addEventListener('change', function (e) {
+    var k = e.target.dataset && e.target.dataset.t; if (!k || !CS) return;
+    var kind = kindOfTerm(k), v = e.target.value, x = CS.read[k];
+    x.value = kind === 'bool' ? (v === '' ? null : v === 'true') : kind === 'concurrent' ? (v || null) : (v.trim() === '' ? null : num(v));
+    x.src = 'person'; restatus(k); contractKeepScroll();
+  });
+
   /* ---------- events ---------- */
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-act],[data-sample],[data-saved],[data-go],[data-feeon]'); if (!t) return;
+    var t = e.target.closest('[data-act],[data-sample],[data-saved],[data-go],[data-feeon],[data-pick],[data-tpill],[data-jump]'); if (!t) return;
+    if (CS && onContractClick(t)) return; if (t.dataset.act === 'csample') return onContractClick(t);
     if (t.dataset.go) return go(t.dataset.go);
     if (t.dataset.feeon) { var on = S.form.fee_on, p = t.dataset.feeon, i = on.indexOf(p); if (i >= 0) on.splice(i, 1); else on.push(p); S.edited = true; t.setAttribute('aria-pressed', i < 0); live(); saveSession(); return; }
     if (t.dataset.sample) { startSample(t.dataset.sample); return go(t.closest('table') ? 'result' : 'confirm'); }
@@ -437,8 +636,14 @@
     if (a === 'clear') { store('cs_saved', []); return viewProposals(); }
   });
   var modal = document.getElementById('contractModal');
-  document.getElementById('contractBtn').onclick = function () { modal.hidden = false; };
-  modal.addEventListener('click', function (e) { if (e.target === modal || e.target.closest('[data-close]')) modal.hidden = true; });
+  document.getElementById('contractBtn').onclick = function () { renderModal(); modal.hidden = false; };
+  modal.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-cpick],[data-cedit],[data-cdel]');
+    if (t && t.dataset.cpick) { setActive(t.dataset.cpick); renderModal(); toast('Checks now use “' + C().name + '”.'); if (/result|confirm|proposals/.test(location.hash)) route(); return; }
+    if (t && t.dataset.cedit) { modal.hidden = true; return editContract(t.dataset.cedit); }
+    if (t && t.dataset.cdel) { store('cs_contracts', contracts().filter(function (c) { return c.id !== t.dataset.cdel; })); if (activeId() === t.dataset.cdel) setActive('sample'); renderModal(); route(); return; }
+    if (e.target === modal || e.target.closest('[data-close]')) modal.hidden = true;
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
 
   /* ---------- routing ---------- */
@@ -446,8 +651,9 @@
   function route() {
     var v = (location.hash || '#upload').slice(1);
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = (a.dataset.nav === 'proposals') === (v === 'proposals'); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
+    if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
     if (v !== 'confirm') window.scrollTo(0, 0);
+    if (!/^contract/.test(v)) CS = null;
   }
   window.addEventListener('hashchange', route);
 
@@ -459,7 +665,7 @@
   ]).then(function (res) {
     res[0].cases.forEach(function (c) { cases[c.id] = c; });
     reader = res[1] && res[1].ok ? res[1].model : null;
-    loadSession();
+    loadSession(); chip();
     if (q.get('sample') && cases[q.get('sample')]) { startSample(q.get('sample')); history.replaceState(null, '', location.pathname + '#result'); }
     route();
   }).catch(function () { app.innerHTML = '<div class="wrap"><div class="err">Could not load the checker. Refresh to try again.</div></div>'; });

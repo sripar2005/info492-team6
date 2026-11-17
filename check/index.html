@@ -33,21 +33,13 @@
 <div class="modal" id="contractModal" hidden>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
     <div class="modal-h"><div><span class="eyebrow">Checking against</span><h2 id="cmTitle">Sample GC/CM contract</h2></div><button class="x" data-close aria-label="Close">✕</button></div>
-    <ul class="rules">
-      <li><b>Subcontractor markup</b><span>Up to 10% on their own work, 5% on lower-tier subs, 15% in total.</span><code>§ 6.5.2</code></li>
-      <li><b>CM fee</b><span>5%, and only on the CM's own work and subcontractor quotes. Not on site services, general conditions items, bond, insurance, taxes or permits.</span><code>§ 6.5.3</code></li>
-      <li><b>Labor burden</b><span>32% on top of wages.</span><code>§ 5.4</code></li>
-      <li><b>CM-owned equipment</b><span>At most 75% of the Rental Rate Blue Book rate.</span><code>§ 6.5.4</code></li>
-      <li><b>Backup</b><span>An itemized breakdown of labor, material and equipment. Time-and-material tags signed by the CM superintendent and the owner's rep.</span><code>§ 6.5.7</code></li>
-      <li><b>Notice</b><span>Within 7 days of an RFI answer, ASI, returned submittal, owner or architect direction, or a hidden site condition; 14 days for anything else. A deadline on a weekend or holiday moves to the next business day.</span><code>§ 6.2, 1.4</code></li>
-      <li><b>Goes to a person</b><span>Time extensions, hidden site conditions, and anything over $250,000.</span><code>§ 6.4, 6.2(c), Ex. D</code></li>
-    </ul>
-    <p class="fine">A synthetic contract written for this project, modeled on the Webster School audit. It is the only contract set up; adding your own is not built yet.</p>
+    <div id="cmBody"></div>
   </div>
 </div>
 <div class="toast" id="toast" hidden></div>
 
 <script src="/assets/checks.js"></script>
+<script src="/assets/contract.js"></script>
 <script src="/assets/app.js"></script>
 </body>
 </html>

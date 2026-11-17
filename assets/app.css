@@ -257,3 +257,47 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .rules b { font-weight: 500; } .rules span { color: var(--muted); } .rules code { color: var(--faint); font-size: 11.5px; white-space: nowrap; }
 @media (max-width: 560px) { .rules li { grid-template-columns: 1fr; gap: 2px; } }
 .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 70; background: var(--surface-3); border: 1px solid var(--line-2); padding: 10px 16px; border-radius: 10px; font-size: 13.5px; max-width: calc(100vw - 32px); }
+
+/* Contracts: load, confirm terms with their source sentence, switch */
+.tagr.ok { color: var(--green); background: var(--green-soft); }
+.tagr.none { color: var(--faint); background: var(--surface-3); }
+.how { max-width: 620px; margin: 26px auto 0; padding: 0; list-style: none; counter-reset: h; text-align: left; display: grid; gap: 8px; }
+.how li { counter-increment: h; display: grid; grid-template-columns: 26px 1fr; gap: 8px; color: var(--muted); font-size: 13.5px; }
+.how li::before { content: counter(h); font: 500 11px/20px var(--mono); width: 20px; height: 20px; text-align: center; border: 1px solid var(--line-2); border-radius: 50%; color: var(--faint); }
+.how b { color: var(--text); font-weight: 500; }
+.ctext { max-height: calc(100vh - 110px); display: flex; flex-direction: column; }
+.ctext-body { overflow: auto; margin-top: 14px; padding-right: 8px; font-size: 12.5px; line-height: 1.65; color: var(--muted); }
+.ctext-body .csec { font: 500 10.5px/1 var(--mono); color: var(--faint); letter-spacing: .06em; margin: 14px 0 5px; }
+.ctext-body .used { color: var(--text); background: var(--accent-soft); box-shadow: inset 0 -1px 0 rgba(255,106,61,.5); }
+.ctext-body .flash { animation: flash 1.6s ease-out; }
+@keyframes flash { 0%, 30% { background: rgba(255,106,61,.45); } }
+.ccount { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.term { padding: 13px 0; border-top: 1px solid var(--line); display: grid; gap: 7px; }
+.term:first-of-type { border-top: 0; padding-top: 2px; }
+.term-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13.5px; }
+.term-h b { font-weight: 500; }
+.term .inp { max-width: 220px; }
+.term .src { font-size: 11.5px; color: var(--faint); }
+.term.s-check .src { color: var(--amber); }
+.quote { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; text-align: left; width: 100%; border: 1px solid var(--line); border-left: 2px solid var(--accent); background: var(--surface-2); border-radius: 0 6px 6px 0; padding: 8px 10px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
+.quote:hover { border-color: var(--line-2); border-left-color: var(--accent); color: var(--text); }
+.quote code { color: var(--faint); font-size: 11px; white-space: nowrap; }
+.quote.none { border-left-color: var(--line-2); cursor: default; color: var(--faint); }
+.alts summary { font-size: 12px; color: var(--faint); cursor: pointer; list-style: none; }
+.alts summary::-webkit-details-marker { display: none; }
+.alts summary::before { content: "▸ "; } .alts[open] summary::before { content: "▾ "; }
+.alts { display: grid; }
+.alt { display: grid; grid-template-columns: 74px 1fr; gap: 8px; text-align: left; padding: 7px 8px; margin-top: 4px; border: 1px solid transparent; border-radius: 6px; background: transparent; font-size: 12.5px; color: var(--muted); cursor: pointer; }
+.alt:hover { background: var(--surface-2); border-color: var(--line); color: var(--text); }
+.alt.on { border-color: var(--accent); color: var(--text); }
+.alt code { color: var(--faint); font-size: 11px; padding-top: 1px; }
+.clist { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+.clist-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.crow { display: flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 8px; padding: 4px 6px 4px 4px; margin-top: 6px; }
+.crow.on { border-color: var(--line-2); background: var(--surface-2); }
+.cpick { flex: 1; display: flex; gap: 10px; align-items: center; text-align: left; background: none; border: 0; padding: 6px; cursor: pointer; min-width: 0; }
+.cpick b { display: block; font-weight: 500; font-size: 13.5px; } .cpick small { color: var(--faint); font-size: 12px; }
+.cpick .radio { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--faint); flex: none; }
+.crow.on .radio { border: 4px solid var(--accent); }
+@media (max-width: 1060px) { .ctext { max-height: 42vh; } }
+@media (max-width: 560px) { .alt { grid-template-columns: 58px 1fr; } .stick .live span { font-size: 12px; } .stick { flex-wrap: wrap; } .stick .live { flex-basis: 100%; } }
