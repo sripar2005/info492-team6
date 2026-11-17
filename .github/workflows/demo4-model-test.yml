@@ -38,8 +38,9 @@ jobs:
       - name: Commit results
         run: |
           M=$(echo "${{ inputs.model }}" | tr ':/' '__')
-          mv demo4/results/contract_test.json "demo4/results/contract_test_${M}.json"
-          mv demo4/results/fragnet_runs.json "demo4/results/fragnet_runs_${M}.json"
+          cp demo4/results/contract_test.json "demo4/results/contract_test_${M}.json"
+          cp demo4/results/fragnet_runs.json "demo4/results/fragnet_runs_${M}.json"
+          git checkout -- demo4/results/contract_test.json demo4/results/fragnet_runs.json
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add "demo4/results/contract_test_${M}.json" "demo4/results/fragnet_runs_${M}.json"
