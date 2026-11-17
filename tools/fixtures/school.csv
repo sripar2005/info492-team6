@@ -1,0 +1,10 @@
+Activity ID,Activity Name,Original Duration (d),Start,Finish,Predecessors,WBS
+A1000,Notice to Proceed,0,2020-02-03,2020-02-03,,Milestones
+A1010,Mobilize,5,02/03/2020,02/07/2020,A1000,Site Work
+A1020,Excavation,10 days,10-Feb-20,24-Feb-20,A1010FS,Site Work
+A1030,"Underground utilities",4d,2020-02-05,2020-02-10,A1010SS+2,Site Work
+A1040,Foundations,8,2020-02-25,2020-03-05,"A1020, A1030FS",Structure
+A1050,"Fabricate steel",15,2020-02-03,2020-02-24,A1000,Structure
+A1060,Erect steel,6,2020-03-06,2020-03-13,"A1040FS, A1050FS+2",Structure
+A1070,"Structural inspection",2,2020-03-13,2020-03-16,A1060FF+1,Structure
+A1099,"Substantial Completion & handover",0,2020-03-16,2020-03-16,A1070,Milestones
