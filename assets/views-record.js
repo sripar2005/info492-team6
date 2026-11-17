@@ -301,6 +301,42 @@
     return lines.join('\n');
   }
 
+  var KINDNAME = { rfi: 'RFI', asi: 'ASI', submittal: 'Submittal', daily_report: 'Daily report', minutes: 'Approved minutes', contract: 'Contract', spec: 'Spec section', change_order: 'Change order', other: 'Other' };
+  // Split a document into quotable pieces. Contracts and specs by section number; RFIs by Question / Answer headings;
+  // everything else by paragraph. Same idea as the synthetic record, so real documents land in the same shape.
+  function splitPieces(kind, text, date, party) {
+    var out = [];
+    if (kind === 'contract' || kind === 'spec') {
+      var CT = window.ClauseContract, by = {}, order = [];
+      CT.sentences(text).forEach(function (x) { var k = x.section || '—'; if (!by[k]) { by[k] = []; order.push(k); } by[k].push(x.text); });
+      order.forEach(function (k, i) { out.push({ ordinal: i + 1, section: k === '—' ? null : k, body: by[k].join(' '), piece_date: date || null, party: party }); });
+      return out;
+    }
+    var sec = null, buf = [];
+    function flush() { var b = buf.join(' ').replace(/\s+/g, ' ').trim(); if (b) out.push({ ordinal: out.length + 1, section: sec, body: b, piece_date: date || null, party: party }); buf = []; }
+    String(text).split(/\r?\n/).forEach(function (line) {
+      var m = line.match(/^\s*(?:#+\s*)?(question|answer|response|suggested solution|description|action|reviewer comments?|weather|crew counts?|work performed|issues?(?:\/delays)?|item\s+[\d.]+)\s*[:.-]\s*(.*)$/i);
+      if (m) { flush(); sec = m[1].replace(/^\w/, function (c) { return c.toUpperCase(); }); if (m[2]) buf.push(m[2]); return; }
+      if (!line.trim()) { flush(); return; }
+      buf.push(line.trim());
+    });
+    flush();
+    return out;
+  }
+  function upload(cur) {
+    var f = document.getElementById('ufile').files[0], kind = document.getElementById('ukind').value;
+    if (kind === 'minutes' && !document.getElementById('usub').checked) return A.toast('Only approved minutes go in the record. Tick the box once they’re approved.');
+    var date = document.getElementById('udate').value || null, party = document.getElementById('uparty').value;
+    var read = /\.pdf$/i.test(f.name) ? A.pdfText(f) : f.text();
+    read.then(function (text) {
+      if (text.replace(/\s/g, '').length < 40) throw new Error('No readable text in ' + f.name + '. A scanned PDF has no text layer.');
+      var doc = { key: 'up:' + Date.now(), kind: kind, number: document.getElementById('unum').value.trim() || null, title: document.getElementById('utitle').value.trim(), issued_on: date, author_party: party, source: 'upload', external_id: 'up:' + f.name + ':' + f.size, meta: { file_name: f.name }, pieces: splitPieces(kind, text, date, party) };
+      var path = cur.id + '/' + Date.now() + '-' + f.name.replace(/[^\w.-]+/g, '_');
+      var store1 = sb.storage ? sb.storage.from('documents').upload(path, f).then(function (r) { if (!r.error) doc.meta.file_path = path; }) : Promise.resolve();
+      return store1.then(function () { return importBundle(cur.id, { documents: [doc], links: [] }, function () {}); }).then(function () { A.toast('Added ' + (doc.number || doc.title) + ': ' + doc.pieces.length + ' pieces.'); V.record(); });
+    }).catch(fail);
+  }
+
   /* ---------- R-101 Record: search every piece, open any document ---------- */
   V.record = function () {
     gate(function () {
@@ -308,9 +344,21 @@
       q(sb.from('documents').select('id,kind').eq('project_id', cur.id)).then(function (docs) {
         var counts = {}; docs.forEach(function (d) { counts[d.kind] = (counts[d.kind] || 0) + 1; });
         var qv = store('cs_rq') || '';
-        app.innerHTML = sheet('Project record', 'R-101 · ' + cur.name, '<p style="margin:-6px 0 16px;color:var(--muted)">' + docs.length + ' documents: ' + Object.keys(counts).map(function (k) { return counts[k] + ' ' + k.replace('_', ' '); }).join(', ') + '. Answers below are quoted from the record, never written by AI.</p>' +
+        app.innerHTML = sheet('Project record', 'R-101 · ' + cur.name, '<p style="margin:-6px 0 16px;color:var(--muted)">' + docs.length + ' document' + (docs.length === 1 ? '' : 's') + (docs.length ? ': ' + Object.keys(counts).map(function (k) { return counts[k] + ' × ' + (KINDNAME[k] || k); }).join(', ') : '') + '. Answers below are quoted from the record, never written by AI.</p>' +
           '<form id="rsearch" class="grid" style="grid-template-columns:minmax(0,1fr) auto;gap:10px;max-width:760px"><div class="inp"><input id="rq" value="' + esc(qv) + '" placeholder="Ask or search, e.g. roof drains, notice for concealed conditions, asbestos mastic"></div><button class="btn primary" type="submit">Search the record</button></form>' +
-          '<div id="rres" style="margin-top:18px"></div>');
+          '<div class="cols" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);margin-top:18px"><div id="rres"><div class="card sec"><p style="margin:0;color:var(--muted)">Search finds the exact sentences in the RFIs, ASIs, submittals, daily reports, approved minutes, contract and specs. Each result links to its document and what it’s tied to.</p></div></div>' +
+          '<div><div class="card sec"><div class="sec-h"><h3>Add a document</h3></div><form id="rup" class="grid"><div class="fd"><label><span>Kind</span></label><div class="inp sel"><select id="ukind">' +
+          ['rfi', 'asi', 'submittal', 'daily_report', 'minutes', 'contract', 'spec', 'change_order', 'other'].map(function (k) { return '<option value="' + k + '">' + KINDNAME[k] + '</option>'; }).join('') + '</select></div></div>' +
+          '<div class="fd"><label><span>Number</span></label><div class="inp"><input id="unum" placeholder="e.g. RFI-241"></div></div>' +
+          '<div class="fd full"><label><span>Title</span></label><div class="inp"><input id="utitle" required></div></div>' +
+          '<div class="fd"><label><span>Dated</span></label><div class="inp"><input id="udate" type="date"></div></div>' +
+          '<div class="fd"><label><span>From the</span></label><div class="inp sel"><select id="uparty">' + Object.keys(PARTY).map(function (k) { return '<option value="' + k + '">' + PARTY[k] + '</option>'; }).join('') + '</select></div></div>' +
+          '<div class="fd full"><label><span>File (PDF with text, .txt or .md)</span></label><input id="ufile" type="file" accept=".pdf,.txt,.md" required></div>' +
+          '<div class="fd full"><label class="tog-row"><input type="checkbox" id="usub"> Approved meeting minutes only: these minutes were approved at a later meeting</label></div>' +
+          '<div class="fd full"><button class="btn primary" type="submit">Add to the record</button></div></form>' +
+          '<p class="fine" style="margin:10px 0 0">The document is split into quotable pieces (by section, question and answer, or paragraph). Unapproved minutes aren’t accepted.</p></div>' +
+          '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Procore</h3><span class="tagr none">not connected</span></div><p class="fine" style="margin:0">RFIs and change orders will sync from Procore through this same import once the project’s Procore developer account exists. Each synced item keeps its Procore id, so a re-sync updates instead of duplicating.</p></div></div></div>');
+        document.getElementById('rup').addEventListener('submit', function (e) { e.preventDefault(); upload(cur); });
         document.getElementById('rsearch').addEventListener('submit', function (e) { e.preventDefault(); search(cur, document.getElementById('rq').value.trim()); });
         if (qv) search(cur, qv);
       }).catch(fail);
