@@ -214,6 +214,16 @@
             if (k === 'return' && box && box.hidden) { box.hidden = false; b.textContent = 'Confirm return'; return; }
             if (k === 'comment' && !body) return A.toast('Write a comment first.');
             if (k === 'check') return runChecks(cur, t, me).then(function () { A.toast('Checks saved to the thread.'); V.change(); }).catch(fail);
+            if (k === 'aidraft') {
+              var note2 = (evs.filter(function (x) { return x.kind === 'note'; })[0] || {}).body || '';
+              var get = A.reader() ? fetch('/api/draft', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ note: note2, exclude: [t.number] }) }).then(function (r) { return r.json(); })
+                : fetch('/record/results/draft_llama3.1_8b.json').then(function (r) { if (!r.ok) throw new Error('No saved AI run yet; it is being produced on GitHub.'); return r.json(); }).then(function (j) { var row = j.rows.filter(function (x) { return x.id === t.number && x.variant === 'plain'; })[0]; if (!row) throw new Error('No saved AI run for ' + t.number + '.'); return { draft: { scope: row.scope }, cause: row.cause ? { doc: row.cause } : null, governing: (row.governing || []).map(function (g) { return { id: g }; }), notes: row.notes || [], model: j.meta.model + ' (saved run ' + j.meta.date + ')' }; });
+              return get.then(function (res) {
+                if (res.error) throw new Error(res.error);
+                var body = 'Scope: ' + (res.draft.scope || '') + '\nCause cited: ' + (res.cause ? (res.cause.number || res.cause.doc) + (res.cause.section ? ' ' + res.cause.section : '') : 'none') + '\nGoverning: ' + ((res.governing || []).map(function (g) { return g.id.replace('|', ' § '); }).join('; ') || 'none') + (res.notes && res.notes.length ? '\nCode flagged: ' + res.notes.join(' ') : '\nCode found nothing to flag.') + '\nDrafted by ' + res.model + '; it could only cite entries from the record.';
+                return q(sb.from('events').insert({ thread_id: t.id, project_id: cur.id, party: me, kind: 'draft', body: body, payload: { built_by: 'ai', model: res.model }, actor: user.id }));
+              }).then(function () { A.toast('AI draft added. Confirm or edit before sending.'); V.change(); }).catch(fail);
+            }
             if (k === 'draft') {
               var note = (evs.filter(function (x) { return x.kind === 'note'; })[0] || {}).body || '';
               return trail(cur, t).then(function (tr) { return q(sb.from('events').insert({ thread_id: t.id, project_id: cur.id, party: me, kind: 'draft', body: draftText(tr, t, note), payload: { built_by: 'code', sources: tr ? tr.links.length : 0 }, actor: user.id })); })

@@ -1,0 +1,37 @@
+# Record drafter test: does a free local model cite the right cause and governing terms from the project record?
+# No API key, no cost. Actions -> "Record drafter test" -> Run workflow (once per model).
+name: Record drafter test
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model"
+        required: true
+        default: "llama3.1:8b"
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama and pull the model
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          (OLLAMA_KEEP_ALIVE=3h ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -s localhost:11434/api/tags >/dev/null && break; sleep 2; done
+          ollama pull "${{ inputs.model }}"
+      - name: Draft and score
+        run: python3 record/draft_test.py --model "${{ inputs.model }}"
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add record/results/
+          git commit -m "Record drafter test results (${{ inputs.model }})" || echo "nothing to commit"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
