@@ -13,18 +13,18 @@ body{margin:0}
 a{color:#000000}a:hover{color:#C8102E}
 .table{background-color:#000000;background-image:radial-gradient(#2A2A2A 1px, transparent 1.3px);background-size:16px 16px}
 .graph{background-color:#FFFFFF;background-image:linear-gradient(#E6E6E6 1px, transparent 1px),linear-gradient(90deg,#E6E6E6 1px, transparent 1px),linear-gradient(#F3F3F3 1px, transparent 1px),linear-gradient(90deg,#F3F3F3 1px, transparent 1px);background-size:50px 50px,50px 50px,10px 10px,10px 10px}
-@media (max-width: 860px){.two{grid-template-columns:1fr !important}.three{grid-template-columns:1fr !important}.chain{flex-direction:column !important;align-items:stretch !important}}
+@media (max-width: 860px){.stamp{right:-6px !important; top:-48px !important}.two{grid-template-columns:1fr !important}.three{grid-template-columns:1fr !important}.chain{flex-direction:column !important;align-items:stretch !important}}
 
 html{scroll-behavior:smooth}
 a:focus-visible{outline:2px solid #FFFFFF; outline-offset:3px}
 .graph a:focus-visible{outline-color:#000000}
 .btn:hover{background:#C8102E !important; border-color:#C8102E !important; color:#FFFFFF !important}
 /* One moment on load: the reviewer's clouds are drawn, then the stamp lands. */
-.cl{stroke-dasharray:1400; stroke-dashoffset:1400; animation:draw 1.1s .5s ease-out forwards}
-.stamp{opacity:0; animation:land .28s 1.6s cubic-bezier(.3,1.6,.6,1) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
+.cl{opacity:0}
+.stamp{opacity:0}
+.stamp.in{animation:land .26s cubic-bezier(.2,1.4,.5,1) forwards}
 @keyframes land{from{opacity:0; transform:rotate(-5deg) scale(1.5)} to{opacity:1; transform:rotate(-5deg) scale(1)}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .cl{animation:none; stroke-dashoffset:0} .stamp{animation:none; opacity:1}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .cl{opacity:1} .stamp{opacity:1}}
 </style>
 </head>
 <body>
@@ -66,5 +66,40 @@ a:focus-visible{outline:2px solid #FFFFFF; outline-offset:3px}
 <p style="color:#8C8C8C; font-size:12.5px; margin:0; padding-bottom:30px">¹ Clearstory and Dodge Construction Network, change order research on specialty trade contractors, 2026.</p>
 </div></div>
 
+<script>
+/* The reviewer's markup: each cloud is drawn at the row's real size (round scallops at any width),
+   then traced like a pen, one row after the other, and the stamp lands last. */
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paths = [].slice.call(document.querySelectorAll('path.cl')), stamp = document.querySelector('.stamp');
+  function cloud(w, h, r, p) {
+    var nx = Math.max(2, Math.round(w / (2 * r))), sx = w / nx, ny = Math.max(2, Math.round(h / (2 * r))), sy = h / ny, d = 'M' + p + ',' + p, i;
+    for (i = 0; i < nx; i++) d += ' a' + sx / 2 + ',' + sx / 2 + ' 0 0 1 ' + sx + ',0';
+    for (i = 0; i < ny; i++) d += ' a' + sy / 2 + ',' + sy / 2 + ' 0 0 1 0,' + sy;
+    for (i = 0; i < nx; i++) d += ' a' + sx / 2 + ',' + sx / 2 + ' 0 0 1 ' + (-sx) + ',0';
+    for (i = 0; i < ny; i++) d += ' a' + sy / 2 + ',' + sy / 2 + ' 0 0 1 0,' + (-sy);
+    return d + ' Z';
+  }
+  function size() {
+    paths.forEach(function (pa) {
+      var svg = pa.ownerSVGElement, w = svg.getBoundingClientRect().width, h = Math.max(43, svg.parentNode.getBoundingClientRect().height - 4);
+      svg.style.height = h + 'px';
+      svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h); svg.removeAttribute('preserveAspectRatio');
+      pa.removeAttribute('vector-effect'); pa.setAttribute('d', cloud(w - 12, h - 12, 6, 6));
+    });
+  }
+  size();
+  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(size, 100); });
+  if (reduce || !paths[0] || !paths[0].getTotalLength) { paths.forEach(function (pa) { pa.style.opacity = 1; }); if (stamp) stamp.style.opacity = 1; return; }
+  var at = 500, dur = 750;
+  paths.forEach(function (pa) {
+    var L = Math.ceil(pa.getTotalLength()) + 2;
+    pa.style.strokeDasharray = L; pa.style.strokeDashoffset = L; pa.style.opacity = 1;
+    pa.animate([{ strokeDashoffset: L }, { strokeDashoffset: 0 }], { duration: dur, delay: at, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'forwards' });
+    at += dur - 150;
+  });
+  if (stamp) setTimeout(function () { stamp.classList.add('in'); }, at + 250);
+})();
+</script>
 </body>
 </html>
