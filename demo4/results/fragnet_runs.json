@@ -1,0 +1,2791 @@
+{
+ "meta": {
+  "model": "llama3.1:8b",
+  "runs": 3,
+  "date": "2026-11-17",
+  "synthetic": true
+ },
+ "summary": {
+  "dev": {
+   "delay_exact": 7,
+   "delay_within_2": 7,
+   "critical_same": 7,
+   "links_same": 8,
+   "agreed": 0,
+   "of": 10,
+   "exact_when_agreed": "0/0",
+   "exact_when_disagreed": "7/10"
+  },
+  "test": {
+   "delay_exact": 2,
+   "delay_within_2": 2,
+   "critical_same": 3,
+   "links_same": 3,
+   "agreed": 0,
+   "of": 4,
+   "exact_when_agreed": "0/0",
+   "exact_when_disagreed": "2/4"
+  }
+ },
+ "cases": [
+  {
+   "id": "CP-0401",
+   "split": "dev",
+   "scenario": "On critical path, Owner-caused, accurate claim",
+   "key_delay": 11,
+   "draft_delay": 11,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Excavate, form and pour stage lift pit",
+      "duration": 6
+     },
+     {
+      "id": "F-2",
+      "name": "Pit construction",
+      "duration": 0
+     },
+     {
+      "id": "F-3",
+      "name": "Pit inspection and acceptance",
+      "duration": 0
+     },
+     {
+      "id": "F-4",
+      "name": "Pit demolition",
+      "duration": 0
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-3",
+      "succ": "F-4",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1420",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "A1430",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Excavate, form and pour stage lift pit",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Pit construction",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Pit inspection and acceptance",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Pit demolition",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1420",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Excavate, form and pour stage lift pit",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Pit construction",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Slab on grade - addition",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Slab on grade - addition",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1420",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Excavate, form and pour stage lift pit",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Pit construction",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Slab on grade - addition (revised)",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Time extension and extended general conditions",
+       "duration": 11
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1420",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-4 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 376.9
+  },
+  {
+   "id": "CP-0402",
+   "split": "test",
+   "scenario": "On critical path, Architect-caused, accurate claim",
+   "key_delay": 7,
+   "draft_delay": 42,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": false,
+   "delay_within_2": false,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Field-weld revised gym truss bearing assemblies",
+      "duration": 4
+     },
+     {
+      "id": "F-2",
+      "name": "Field welding",
+      "duration": 15
+     },
+     {
+      "id": "F-3",
+      "name": "Metal deck and elevated slab - addition",
+      "duration": 15
+     },
+     {
+      "id": "F-4",
+      "name": "Inspect field welding",
+      "duration": 1
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1460",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 15
+     },
+     {
+      "pred": "F-1",
+      "succ": "A1470",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Field-weld revised gym truss bearing assemblies",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Field welding",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Metal deck and elevated slab - addition",
+       "duration": 15
+      },
+      {
+       "id": "F-4",
+       "name": "Inspect field welding",
+       "duration": 1
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1460",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 15
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1470",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Field-weld revised gym truss bearing assemblies",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Field welding",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Metal deck and elevated slab - addition",
+       "duration": 15
+      },
+      {
+       "id": "F-4",
+       "name": "Time extension and extended general conditions",
+       "duration": 7
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1460",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 15
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "A1470",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Field-weld revised gym truss bearing assemblies (RFI-214)",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Field welding",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Metal deck and elevated slab - addition",
+       "duration": 15
+      },
+      {
+       "id": "F-4",
+       "name": "Time extension and extended general conditions",
+       "duration": 7
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1460",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 15
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-3 has no successor: it can only delay the finish if it ends after it.",
+    "F-4 has no predecessor: it will start at the data date.",
+    "F-4 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 342.2
+  },
+  {
+   "id": "CP-0403",
+   "split": "dev",
+   "scenario": "On critical path, Owner-caused, claim stated in working days",
+   "key_delay": 12,
+   "draft_delay": 0,
+   "key_critical": true,
+   "draft_critical": false,
+   "delay_exact": false,
+   "delay_within_2": false,
+   "critical_same": false,
+   "links_same": false,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Install acoustic wall panels - addition music rooms",
+      "duration": 7
+     },
+     {
+      "id": "F-2",
+      "name": "Ceilings - addition",
+      "duration": 20
+     },
+     {
+      "id": "F-3",
+      "name": "Painting - addition",
+      "duration": 20
+     },
+     {
+      "id": "F-4",
+      "name": "Ceilings - addition",
+      "duration": 20
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-3",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "A1740",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install acoustic wall panels - addition music rooms",
+       "duration": 7
+      },
+      {
+       "id": "F-2",
+       "name": "Ceilings - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-3",
+       "name": "Painting - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-4",
+       "name": "Ceilings - addition",
+       "duration": 20
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-3",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1740",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install acoustic wall panels - addition music rooms",
+       "duration": 7
+      },
+      {
+       "id": "F-2",
+       "name": "Install acoustic wall panels - addition music rooms",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Ceilings - addition",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Ceilings - addition",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1760",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1740",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install acoustic wall panels - addition music rooms",
+       "duration": 7
+      },
+      {
+       "id": "F-2",
+       "name": "Ceilings - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-3",
+       "name": "Painting - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-4",
+       "name": "Temporary heat and dehumidification - addition",
+       "duration": 10
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-3",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1760",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1740",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-3 has no predecessor: it will start at the data date.",
+    "F-4 has no predecessor: it will start at the data date.",
+    "F-4 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 336.5
+  },
+  {
+   "id": "CP-0404",
+   "split": "dev",
+   "scenario": "Off critical path (sitework float), Owner-caused, days claimed",
+   "key_delay": 0,
+   "draft_delay": 0,
+   "key_critical": false,
+   "draft_critical": false,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Install added play structure and surfacing",
+      "duration": 10
+     },
+     {
+      "id": "F-2",
+      "name": "Striping and final site cleanup",
+      "duration": 5
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "A2140",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "A2170",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install added play structure and surfacing",
+       "duration": 10
+      },
+      {
+       "id": "F-2",
+       "name": "Striping and final site cleanup",
+       "duration": 5
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A2140",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A2170",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install added play structure and surfacing",
+       "duration": 10
+      },
+      {
+       "id": "F-2",
+       "name": "Finish added play structure and surfacing",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Final striping and site cleanup preparation",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Final striping and site cleanup",
+       "duration": 5
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2140",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A2170",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install added play structure and surfacing",
+       "duration": 10
+      },
+      {
+       "id": "F-2",
+       "name": "Final striping and site cleanup",
+       "duration": 5
+      },
+      {
+       "id": "F-3",
+       "name": "Time extension and extended general conditions",
+       "duration": 14
+      },
+      {
+       "id": "F-4",
+       "name": "Additional work for time extension",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A2140",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A2170",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-2 has no predecessor: it will start at the data date.",
+    "F-2 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 293.4
+  },
+  {
+   "id": "CP-0405",
+   "split": "dev",
+   "scenario": "Off critical path (existing-building float), Architect-caused, days claimed",
+   "key_delay": 0,
+   "draft_delay": 7,
+   "key_critical": false,
+   "draft_critical": true,
+   "delay_exact": false,
+   "delay_within_2": false,
+   "critical_same": false,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Rework casework blocking - Wing A",
+      "duration": 8
+     },
+     {
+      "id": "F-2",
+      "name": "Painting - existing building",
+      "duration": 35
+     },
+     {
+      "id": "F-3",
+      "name": "Painting - addition",
+      "duration": 20
+     },
+     {
+      "id": "F-4",
+      "name": "Extended General Conditions",
+      "duration": 12
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1700",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "A1750",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-4",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Rework casework blocking - Wing A",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Painting - existing building",
+       "duration": 35
+      },
+      {
+       "id": "F-3",
+       "name": "Painting - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-4",
+       "name": "Extended General Conditions",
+       "duration": 12
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1700",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1750",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Rework casework blocking - Wing A",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Painting - existing building",
+       "duration": 35
+      },
+      {
+       "id": "F-3",
+       "name": "Painting - addition",
+       "duration": 20
+      },
+      {
+       "id": "F-4",
+       "name": "In-wall and above-ceiling inspections - addition",
+       "duration": 5
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1700",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1750",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1750",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Rework casework blocking - Wing A",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Painting - existing building",
+       "duration": 35
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1700",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1750",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Dropped link F-1 -> F-2.",
+    "F-3 has no successor: it can only delay the finish if it ends after it.",
+    "F-4 has no predecessor: it will start at the data date."
+   ],
+   "error": null,
+   "seconds": 412.0
+  },
+  {
+   "id": "CP-0406",
+   "split": "dev",
+   "scenario": "Partial float consumption, Owner-caused, full event duration claimed",
+   "key_delay": 10,
+   "draft_delay": 10,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "PV-ready blocking and added roof insulation - addition",
+      "duration": 12
+     },
+     {
+      "id": "F-2",
+      "name": "Roofing - addition",
+      "duration": 18
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "A1520",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1470",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "PV-ready blocking and added roof insulation - addition",
+       "duration": 12
+      },
+      {
+       "id": "F-2",
+       "name": "Roofing - addition",
+       "duration": 18
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1520",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1470",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "PV-ready blocking and added roof insulation - addition",
+       "duration": 12
+      },
+      {
+       "id": "F-2",
+       "name": "Roofing - addition",
+       "duration": 18
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1470",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1520",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "PV-ready blocking and added roof insulation - addition",
+       "duration": 12
+      },
+      {
+       "id": "F-2",
+       "name": "Roofing - addition",
+       "duration": 18
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1470",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-2 has no predecessor: it will start at the data date.",
+    "F-2 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 221.1
+  },
+  {
+   "id": "CP-0407",
+   "split": "test",
+   "scenario": "On critical path, Architect-caused, padded claim",
+   "key_delay": 7,
+   "draft_delay": 7,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Install storefront head subframing (RFI-233)",
+      "duration": 4
+     },
+     {
+      "id": "F-2",
+      "name": "Install storefront",
+      "duration": 0
+     },
+     {
+      "id": "F-3",
+      "name": "Install windows",
+      "duration": 0
+     },
+     {
+      "id": "F-4",
+      "name": "Install storefront subframing",
+      "duration": 0
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "A1530",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1510",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install storefront head subframing (RFI-233)",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Install storefront",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Install windows",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Install storefront subframing",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install storefront head subframing",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Install storefront",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Install windows",
+       "duration": 15
+      },
+      {
+       "id": "F-4",
+       "name": "Install storefront head subframing (RFI-233)",
+       "duration": 4
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install storefront head subframing (RFI-233)",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Install storefront subframing (RFI-233)",
+       "duration": 4
+      },
+      {
+       "id": "F-3",
+       "name": "Install windows subframing (RFI-233)",
+       "duration": 4
+      },
+      {
+       "id": "F-4",
+       "name": "Install storefront and windows subframing (RFI-233)",
+       "duration": 12
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1530",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1510",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Dropped link F-1 -> A1530.",
+    "Dropped link F-1 -> A1530.",
+    "F-2 has no predecessor: it will start at the data date.",
+    "F-2 has no successor: it can only delay the finish if it ends after it.",
+    "F-3 has no predecessor: it will start at the data date.",
+    "F-3 has no successor: it can only delay the finish if it ends after it.",
+    "F-4 has no predecessor: it will start at the data date.",
+    "F-4 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 395.2
+  },
+  {
+   "id": "CP-0408",
+   "split": "dev",
+   "scenario": "Partial float consumption, Architect-caused, padded claim",
+   "key_delay": 7,
+   "draft_delay": 7,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Reroute sprinkler mains - addition",
+      "duration": 9
+     },
+     {
+      "id": "F-2",
+      "name": "In-wall and above-ceiling inspections - addition",
+      "duration": 5
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "A1640",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "A1685",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Reroute sprinkler mains - addition",
+       "duration": 9
+      },
+      {
+       "id": "F-2",
+       "name": "In-wall and above-ceiling inspections - addition",
+       "duration": 5
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1640",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1685",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Reroute sprinkler mains - addition",
+       "duration": 9
+      },
+      {
+       "id": "F-2",
+       "name": "In-wall and above-ceiling inspections - addition",
+       "duration": 5
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1640",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1685",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Reroute sprinkler mains - addition (ASI-070)",
+       "duration": 9
+      },
+      {
+       "id": "F-2",
+       "name": "In-wall and above-ceiling inspections - addition",
+       "duration": 5
+      },
+      {
+       "id": "F-3",
+       "name": "Test and balance HVAC",
+       "duration": 15
+      },
+      {
+       "id": "F-4",
+       "name": "Certificate of occupancy",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A2250",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1640",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1685",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-2 has no predecessor: it will start at the data date.",
+    "F-2 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 251.8
+  },
+  {
+   "id": "CP-0409",
+   "split": "dev",
+   "scenario": "On critical path, contractor-caused (no extension)",
+   "key_delay": 10,
+   "draft_delay": null,
+   "key_critical": true,
+   "draft_critical": null,
+   "delay_exact": false,
+   "delay_within_2": false,
+   "critical_same": false,
+   "links_same": false,
+   "agreed": false,
+   "fragnet": {
+    "activities": [],
+    "relationships": []
+   },
+   "drafts": null,
+   "notes": [],
+   "error": "ScheduleError: logic loop among: A1090, A1150, A1430, A1460, A1470, A1510, A1520, A1530, A1540, A1570",
+   "seconds": 319.0
+  },
+  {
+   "id": "CP-0410",
+   "split": "test",
+   "scenario": "Off critical path, contractor-caused, days claimed",
+   "key_delay": 0,
+   "draft_delay": 0,
+   "key_critical": false,
+   "draft_critical": false,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": false,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Flatwork crew unavailable (subcontractor shortage)",
+      "duration": 8
+     },
+     {
+      "id": "F-2",
+      "name": "Site electrical and lighting conduit work delay",
+      "duration": 0
+     },
+     {
+      "id": "F-3",
+      "name": "Curbs, sidewalks and flatwork delay",
+      "duration": 0
+     },
+     {
+      "id": "F-4",
+      "name": "Time extension",
+      "duration": 10
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-2",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A2110",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-3",
+      "succ": "A2130",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-4",
+      "succ": "A2340",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Flatwork crew unavailable (subcontractor shortage)",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Site electrical and lighting conduit work delay",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Curbs, sidewalks and flatwork delay",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Time extension",
+       "duration": 10
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-2",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2110",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "A2130",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A2340",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Flatwork crew unavailable",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Site electrical and lighting conduit rework",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Curbs, sidewalks and flatwork rework",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Abatement - Wing A classrooms rework",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A2110",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2110",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A2130",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2130",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Flatwork crew unavailable",
+       "duration": 8
+      },
+      {
+       "id": "F-2",
+       "name": "Flatwork crew mobilization",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Flatwork crew demobilization",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Flatwork crew idle time",
+       "duration": 2
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A2110",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2110",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A2130",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A2130",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-2 has no predecessor: it will start at the data date.",
+    "F-4 has no predecessor: it will start at the data date."
+   ],
+   "error": null,
+   "seconds": 360.0
+  },
+  {
+   "id": "CP-0411",
+   "split": "dev",
+   "scenario": "On critical path, weather (neither party), accurate claim",
+   "key_delay": 7,
+   "draft_delay": 7,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Weather standby - abnormal rainfall at addition footprint",
+      "duration": 4
+     },
+     {
+      "id": "F-2",
+      "name": "Weather recovery - addition footprint",
+      "duration": 0
+     },
+     {
+      "id": "F-3",
+      "name": "Re-excavation and re-shoring - addition",
+      "duration": 0
+     },
+     {
+      "id": "F-4",
+      "name": "Re-start excavation and shoring - addition",
+      "duration": 0
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "A1400",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1340",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-3",
+      "succ": "F-4",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-4",
+      "succ": "A1400",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Weather standby - abnormal rainfall at addition footprint",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Weather recovery - addition footprint",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Re-excavation and re-shoring - addition",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Re-start excavation and shoring - addition",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1340",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Weather standby - abnormal rainfall at addition footprint",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Weather recovery - abnormal rainfall at addition footprint",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Weather recovery - abnormal rainfall at addition footprint (continued)",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Weather recovery - abnormal rainfall at addition footprint (final)",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1340",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Weather standby - abnormal rainfall at addition footprint",
+       "duration": 4
+      },
+      {
+       "id": "F-2",
+       "name": "Weather recovery - abnormal rainfall at addition footprint",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Re-excavation and re-shoring - addition",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Re-start excavation and shoring - addition",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1340",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1400",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [],
+   "error": null,
+   "seconds": 429.3
+  },
+  {
+   "id": "CP-0412",
+   "split": "test",
+   "scenario": "Partial float consumption, weather (neither party), padded claim",
+   "key_delay": 7,
+   "draft_delay": 0,
+   "key_critical": true,
+   "draft_critical": false,
+   "delay_exact": false,
+   "delay_within_2": false,
+   "critical_same": false,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Dewater and re-excavate flooded underslab utility trench",
+      "duration": 15
+     },
+     {
+      "id": "F-2",
+      "name": "Recovery work",
+      "duration": 15
+     },
+     {
+      "id": "F-3",
+      "name": "Slab on grade - addition",
+      "duration": 10
+     },
+     {
+      "id": "F-4",
+      "name": "Underslab utilities - addition",
+      "duration": 8
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-4",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1410",
+      "succ": "F-4",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-4",
+      "succ": "A1430",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Dewater and re-excavate flooded underslab utility trench",
+       "duration": 15
+      },
+      {
+       "id": "F-2",
+       "name": "Recovery work",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Slab on grade - addition",
+       "duration": 10
+      },
+      {
+       "id": "F-4",
+       "name": "Underslab utilities - addition",
+       "duration": 8
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-4",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1410",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Dewater and re-excavate flooded underslab utility trench",
+       "duration": 15
+      },
+      {
+       "id": "F-2",
+       "name": "Recovery work",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Slab on grade - addition",
+       "duration": 10
+      },
+      {
+       "id": "F-4",
+       "name": "Underslab utilities - addition",
+       "duration": 8
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-4",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1410",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Dewater and re-excavate flooded underslab utility trench",
+       "duration": 15
+      },
+      {
+       "id": "F-2",
+       "name": "Recovery work",
+       "duration": 15
+      },
+      {
+       "id": "F-3",
+       "name": "Slab on grade - addition",
+       "duration": 10
+      },
+      {
+       "id": "F-4",
+       "name": "Underslab utilities - addition",
+       "duration": 8
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-4",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1410",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1430",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "F-3 has no successor: it can only delay the finish if it ends after it."
+   ],
+   "error": null,
+   "seconds": 362.8
+  },
+  {
+   "id": "CP-0413",
+   "split": "dev",
+   "scenario": "Concurrent delay: Owner flooring change and flooring sub crew shortage",
+   "key_delay": 11,
+   "draft_delay": 11,
+   "key_critical": true,
+   "draft_critical": true,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Resubmit and deliver rubber flooring (Owner change)",
+      "duration": 6
+     },
+     {
+      "id": "F-2",
+      "name": "Flooring crew shortage (subcontractor)",
+      "duration": 6
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "A1740",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1740",
+      "succ": "F-2",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-1",
+      "succ": "A1790",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "A1790",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Resubmit and deliver rubber flooring (Owner change)",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Flooring crew shortage (subcontractor)",
+       "duration": 6
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1740",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1740",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Resubmit and deliver rubber flooring (Owner change)",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Flooring crew shortage (subcontractor)",
+       "duration": 6
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1740",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1740",
+       "succ": "F-2",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Resubmit and deliver rubber flooring (Owner change)",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Flooring crew shortage (subcontractor)",
+       "duration": 6
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1740",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1790",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "A1740",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [],
+   "error": null,
+   "seconds": 283.1
+  },
+  {
+   "id": "CP-0414",
+   "split": "dev",
+   "scenario": "No time claimed; work off the critical path",
+   "key_delay": 0,
+   "draft_delay": 0,
+   "key_critical": false,
+   "draft_critical": false,
+   "delay_exact": true,
+   "delay_within_2": true,
+   "critical_same": true,
+   "links_same": true,
+   "agreed": false,
+   "fragnet": {
+    "activities": [
+     {
+      "id": "F-1",
+      "name": "Install sunshades - existing building",
+      "duration": 6
+     },
+     {
+      "id": "F-2",
+      "name": "Remove existing sunshades - existing building",
+      "duration": 2
+     },
+     {
+      "id": "F-3",
+      "name": "Store removed sunshades - existing building",
+      "duration": 1
+     },
+     {
+      "id": "F-4",
+      "name": "Reinstall stored sunshades - existing building",
+      "duration": 4
+     }
+    ],
+    "relationships": [
+     {
+      "pred": "F-1",
+      "succ": "A1580",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "A1560",
+      "succ": "F-1",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-2",
+      "succ": "F-3",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-3",
+      "succ": "F-4",
+      "type": "FS",
+      "lag": 0
+     },
+     {
+      "pred": "F-4",
+      "succ": "A1580",
+      "type": "FS",
+      "lag": 0
+     }
+    ]
+   },
+   "drafts": [
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install sunshades - existing building",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Remove existing sunshades - existing building",
+       "duration": 2
+      },
+      {
+       "id": "F-3",
+       "name": "Store removed sunshades - existing building",
+       "duration": 1
+      },
+      {
+       "id": "F-4",
+       "name": "Reinstall stored sunshades - existing building",
+       "duration": 4
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1580",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1560",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-2",
+       "succ": "F-3",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-3",
+       "succ": "F-4",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-4",
+       "succ": "A1580",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install sunshades - existing building",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Install sunshades - addition",
+       "duration": 0
+      },
+      {
+       "id": "F-3",
+       "name": "Install sunshades - interior",
+       "duration": 0
+      },
+      {
+       "id": "F-4",
+       "name": "Install sunshades - exterior",
+       "duration": 0
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "F-1",
+       "succ": "A1580",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "A1560",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    },
+    {
+     "activities": [
+      {
+       "id": "F-1",
+       "name": "Install sunshades - existing building",
+       "duration": 6
+      },
+      {
+       "id": "F-2",
+       "name": "Install sunshades - addition",
+       "duration": 6
+      }
+     ],
+     "relationships": [
+      {
+       "pred": "A1560",
+       "succ": "F-1",
+       "type": "FS",
+       "lag": 0
+      },
+      {
+       "pred": "F-1",
+       "succ": "A1580",
+       "type": "FS",
+       "lag": 0
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Dropped link F-1 -> A1580.",
+    "F-2 has no predecessor: it will start at the data date."
+   ],
+   "error": null,
+   "seconds": 313.9
+  }
+ ]
+}
