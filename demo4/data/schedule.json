@@ -1,0 +1,1811 @@
+{
+  "name": "Example School Modernization and Addition (synthetic)",
+  "data_date": "2020-06-01",
+  "start": "2020-02-03",
+  "calendar": {
+    "workdays": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "holidays": [
+      "2020-01-01",
+      "2020-01-20",
+      "2020-02-17",
+      "2020-05-25",
+      "2020-07-03",
+      "2020-09-07",
+      "2020-11-11",
+      "2020-11-26",
+      "2020-11-27",
+      "2020-12-25",
+      "2021-01-01",
+      "2021-01-18",
+      "2021-02-15",
+      "2021-05-31",
+      "2021-07-05",
+      "2021-09-06",
+      "2021-11-11",
+      "2021-11-25",
+      "2021-11-26",
+      "2021-12-24",
+      "2021-12-31"
+    ]
+  },
+  "activities": [
+    {
+      "id": "A1000",
+      "name": "Notice to Proceed",
+      "duration": 0,
+      "wbs": "Milestones",
+      "actual_start": "2020-02-03",
+      "actual_finish": "2020-02-03",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1090",
+      "name": "Substantial Completion",
+      "duration": 0,
+      "wbs": "Milestones",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1100",
+      "name": "Mobilize site office and trailers",
+      "duration": 8,
+      "wbs": "Mobilization",
+      "actual_start": "2020-02-03",
+      "actual_finish": "2020-02-12",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1110",
+      "name": "Temporary fencing and site security",
+      "duration": 4,
+      "wbs": "Mobilization",
+      "actual_start": "2020-02-05",
+      "actual_finish": "2020-02-10",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1120",
+      "name": "Temporary power and utilities",
+      "duration": 6,
+      "wbs": "Mobilization",
+      "actual_start": "2020-02-06",
+      "actual_finish": "2020-02-13",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1130",
+      "name": "Submittal schedule and long-lead buyout",
+      "duration": 15,
+      "wbs": "Mobilization",
+      "actual_start": "2020-02-03",
+      "actual_finish": "2020-02-24",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1140",
+      "name": "Erosion control and construction entrance",
+      "duration": 3,
+      "wbs": "Mobilization",
+      "actual_start": "2020-02-11",
+      "actual_finish": "2020-02-13",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1150",
+      "name": "Temporary heat and dehumidification - addition",
+      "duration": 10,
+      "wbs": "Mobilization",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1200",
+      "name": "Hazardous materials survey verification",
+      "duration": 5,
+      "wbs": "Abatement",
+      "actual_start": "2020-02-13",
+      "actual_finish": "2020-02-20",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1210",
+      "name": "Abatement - Wing A classrooms",
+      "duration": 20,
+      "wbs": "Abatement",
+      "actual_start": "2020-02-21",
+      "actual_finish": "2020-03-19",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1220",
+      "name": "Abatement - Wing B admin and library",
+      "duration": 15,
+      "wbs": "Abatement",
+      "actual_start": "2020-03-20",
+      "actual_finish": "2020-04-13",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1230",
+      "name": "Abatement - existing gym and commons",
+      "duration": 12,
+      "wbs": "Abatement",
+      "actual_start": "2020-04-14",
+      "actual_finish": "2020-04-29",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1240",
+      "name": "Abatement clearance air testing",
+      "duration": 4,
+      "wbs": "Abatement",
+      "actual_start": "2020-04-30",
+      "actual_finish": "2020-05-05",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1300",
+      "name": "Interior demolition - Wing A",
+      "duration": 15,
+      "wbs": "Demolition",
+      "actual_start": "2020-03-20",
+      "actual_finish": "2020-04-10",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1310",
+      "name": "Interior demolition - Wing B",
+      "duration": 12,
+      "wbs": "Demolition",
+      "actual_start": "2020-04-14",
+      "actual_finish": "2020-04-29",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1320",
+      "name": "Demolish existing gym (addition footprint)",
+      "duration": 15,
+      "wbs": "Demolition",
+      "actual_start": "2020-05-06",
+      "actual_finish": "2020-05-27",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1330",
+      "name": "Structural openings and selective demolition - Wing A",
+      "duration": 10,
+      "wbs": "Demolition",
+      "actual_start": "2020-04-13",
+      "actual_finish": "2020-04-24",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1340",
+      "name": "Haul-off and clear addition footprint",
+      "duration": 6,
+      "wbs": "Demolition",
+      "actual_start": "2020-05-28",
+      "actual_finish": null,
+      "remaining": 4,
+      "constraint": null
+    },
+    {
+      "id": "A1350",
+      "name": "Demolish existing paving and site utilities",
+      "duration": 10,
+      "wbs": "Demolition",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1400",
+      "name": "Excavation and shoring - addition",
+      "duration": 12,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1410",
+      "name": "Underslab utilities - addition",
+      "duration": 8,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1420",
+      "name": "Footings and foundation walls - addition",
+      "duration": 25,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1430",
+      "name": "Slab on grade - addition",
+      "duration": 10,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1440",
+      "name": "Structural steel shop drawings and approval",
+      "duration": 35,
+      "wbs": "Foundations and Structure",
+      "actual_start": "2020-02-10",
+      "actual_finish": "2020-04-02",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1450",
+      "name": "Fabricate and deliver structural steel",
+      "duration": 40,
+      "wbs": "Foundations and Structure",
+      "actual_start": "2020-04-03",
+      "actual_finish": "2020-05-29",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1460",
+      "name": "Erect structural steel - addition",
+      "duration": 25,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1470",
+      "name": "Metal deck and elevated slab - addition",
+      "duration": 15,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1480",
+      "name": "Seismic upgrade - Wing A shear walls",
+      "duration": 40,
+      "wbs": "Foundations and Structure",
+      "actual_start": "2020-04-27",
+      "actual_finish": null,
+      "remaining": 16,
+      "constraint": null
+    },
+    {
+      "id": "A1490",
+      "name": "Seismic upgrade - Wing B",
+      "duration": 35,
+      "wbs": "Foundations and Structure",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1500",
+      "name": "Window and storefront submittals and fabrication",
+      "duration": 60,
+      "wbs": "Envelope and Roofing",
+      "actual_start": "2020-02-18",
+      "actual_finish": "2020-05-11",
+      "remaining": 0,
+      "constraint": null
+    },
+    {
+      "id": "A1510",
+      "name": "Exterior framing and sheathing - addition",
+      "duration": 20,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1520",
+      "name": "Roofing - addition",
+      "duration": 18,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1530",
+      "name": "Windows and storefront - addition",
+      "duration": 15,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1540",
+      "name": "Exterior cladding - addition",
+      "duration": 30,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1550",
+      "name": "Reroof existing building",
+      "duration": 25,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1560",
+      "name": "Window replacement - existing building",
+      "duration": 25,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1570",
+      "name": "Addition dry-in",
+      "duration": 0,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1580",
+      "name": "Exterior painting and sealants - existing building",
+      "duration": 15,
+      "wbs": "Envelope and Roofing",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1600",
+      "name": "Procure switchgear and air handling units",
+      "duration": 80,
+      "wbs": "MEP Rough-In",
+      "actual_start": "2020-02-25",
+      "actual_finish": null,
+      "remaining": 12,
+      "constraint": null
+    },
+    {
+      "id": "A1610",
+      "name": "MEP rough-in - Wing A",
+      "duration": 40,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1620",
+      "name": "MEP rough-in - Wing B",
+      "duration": 35,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1630",
+      "name": "MEP rough-in - addition",
+      "duration": 35,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1640",
+      "name": "Fire sprinkler rough-in - addition",
+      "duration": 20,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1650",
+      "name": "Set rooftop units and air handlers",
+      "duration": 8,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1660",
+      "name": "Main switchgear and electrical service",
+      "duration": 12,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1670",
+      "name": "Fire sprinkler rough-in - existing building",
+      "duration": 35,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1680",
+      "name": "In-wall and above-ceiling inspections - existing building",
+      "duration": 5,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1685",
+      "name": "In-wall and above-ceiling inspections - addition",
+      "duration": 5,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1690",
+      "name": "Energize permanent power",
+      "duration": 3,
+      "wbs": "MEP Rough-In",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1700",
+      "name": "Framing and drywall - Wing A",
+      "duration": 35,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1710",
+      "name": "Framing and drywall - Wing B",
+      "duration": 30,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1720",
+      "name": "Framing and drywall - addition",
+      "duration": 30,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1730",
+      "name": "Ceilings - existing building",
+      "duration": 30,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1740",
+      "name": "Ceilings - addition",
+      "duration": 20,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1750",
+      "name": "Painting - existing building",
+      "duration": 35,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1760",
+      "name": "Painting - addition",
+      "duration": 20,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1770",
+      "name": "Flooring - existing building",
+      "duration": 30,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1780",
+      "name": "Casework and millwork - existing building",
+      "duration": 25,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1790",
+      "name": "Flooring - addition classrooms",
+      "duration": 15,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1800",
+      "name": "Gym wood floor",
+      "duration": 20,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1810",
+      "name": "Casework and millwork - addition",
+      "duration": 15,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1820",
+      "name": "MEP trim and fixtures - existing building",
+      "duration": 30,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1830",
+      "name": "MEP trim and fixtures - addition",
+      "duration": 20,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1840",
+      "name": "Doors, hardware and specialties - existing building",
+      "duration": 15,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1850",
+      "name": "Doors, hardware and specialties - addition",
+      "duration": 15,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1860",
+      "name": "Gym equipment and bleachers",
+      "duration": 10,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1870",
+      "name": "Interior signage",
+      "duration": 5,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1880",
+      "name": "Elevator installation - addition",
+      "duration": 35,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A1890",
+      "name": "Owner furniture delivery and install",
+      "duration": 15,
+      "wbs": "Interiors and Finishes",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": {
+        "type": "SNET",
+        "date": "2021-06-01"
+      }
+    },
+    {
+      "id": "A2100",
+      "name": "Site utilities - storm and sewer",
+      "duration": 20,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2110",
+      "name": "Site electrical and lighting conduit",
+      "duration": 12,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2120",
+      "name": "Fire lane and bus loop paving",
+      "duration": 15,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2130",
+      "name": "Curbs, sidewalks and flatwork",
+      "duration": 20,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2140",
+      "name": "Playground and play surfacing",
+      "duration": 15,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2150",
+      "name": "Landscaping and irrigation",
+      "duration": 20,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2160",
+      "name": "Site fencing, gates and signage",
+      "duration": 10,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2170",
+      "name": "Striping and final site cleanup",
+      "duration": 5,
+      "wbs": "Sitework",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2200",
+      "name": "Test and balance HVAC",
+      "duration": 15,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2210",
+      "name": "Fire alarm and sprinkler acceptance testing",
+      "duration": 5,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2220",
+      "name": "Functional performance testing and controls",
+      "duration": 15,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2230",
+      "name": "Elevator inspection and permit",
+      "duration": 5,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2240",
+      "name": "Envelope water testing and commissioning",
+      "duration": 5,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2250",
+      "name": "Fire marshal and building official final inspections",
+      "duration": 5,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2260",
+      "name": "Certificate of occupancy",
+      "duration": 0,
+      "wbs": "Commissioning",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2300",
+      "name": "Punch list - existing building",
+      "duration": 15,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2310",
+      "name": "Punch list - addition",
+      "duration": 15,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2320",
+      "name": "O&M manuals and warranties",
+      "duration": 20,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2330",
+      "name": "Owner training",
+      "duration": 5,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2340",
+      "name": "Final cleaning",
+      "duration": 8,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2350",
+      "name": "Record drawings",
+      "duration": 15,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    },
+    {
+      "id": "A2360",
+      "name": "Owner move-in readiness walkthrough",
+      "duration": 2,
+      "wbs": "Closeout",
+      "actual_start": null,
+      "actual_finish": null,
+      "remaining": null,
+      "constraint": null
+    }
+  ],
+  "relationships": [
+    {
+      "pred": "A2260",
+      "succ": "A1090",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2320",
+      "succ": "A1090",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2330",
+      "succ": "A1090",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2350",
+      "succ": "A1090",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2360",
+      "succ": "A1090",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1000",
+      "succ": "A1100",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1100",
+      "succ": "A1110",
+      "type": "SS",
+      "lag": 2
+    },
+    {
+      "pred": "A1100",
+      "succ": "A1120",
+      "type": "SS",
+      "lag": 3
+    },
+    {
+      "pred": "A1000",
+      "succ": "A1130",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1110",
+      "succ": "A1140",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1570",
+      "succ": "A1150",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1690",
+      "succ": "A1150",
+      "type": "SF",
+      "lag": 0
+    },
+    {
+      "pred": "A1100",
+      "succ": "A1200",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1200",
+      "succ": "A1210",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1120",
+      "succ": "A1210",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1210",
+      "succ": "A1220",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1220",
+      "succ": "A1230",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1230",
+      "succ": "A1240",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1210",
+      "succ": "A1300",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1220",
+      "succ": "A1310",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1300",
+      "succ": "A1310",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1240",
+      "succ": "A1320",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1300",
+      "succ": "A1330",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1320",
+      "succ": "A1340",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1340",
+      "succ": "A1350",
+      "type": "SS",
+      "lag": 2
+    },
+    {
+      "pred": "A1340",
+      "succ": "A1400",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1400",
+      "succ": "A1410",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1400",
+      "succ": "A1420",
+      "type": "SS",
+      "lag": 6
+    },
+    {
+      "pred": "A1420",
+      "succ": "A1430",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1410",
+      "succ": "A1430",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1130",
+      "succ": "A1440",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1440",
+      "succ": "A1450",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1430",
+      "succ": "A1460",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1450",
+      "succ": "A1460",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1460",
+      "succ": "A1470",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1460",
+      "succ": "A1470",
+      "type": "FF",
+      "lag": 5
+    },
+    {
+      "pred": "A1330",
+      "succ": "A1480",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1480",
+      "succ": "A1490",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1310",
+      "succ": "A1490",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1130",
+      "succ": "A1500",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1470",
+      "succ": "A1510",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1470",
+      "succ": "A1520",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1510",
+      "succ": "A1530",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1500",
+      "succ": "A1530",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1530",
+      "succ": "A1540",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1480",
+      "succ": "A1550",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1490",
+      "succ": "A1550",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1490",
+      "succ": "A1560",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1500",
+      "succ": "A1560",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1520",
+      "succ": "A1570",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1530",
+      "succ": "A1570",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1560",
+      "succ": "A1580",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1130",
+      "succ": "A1600",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1480",
+      "succ": "A1610",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1490",
+      "succ": "A1620",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1610",
+      "succ": "A1620",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1570",
+      "succ": "A1630",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1630",
+      "succ": "A1640",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1600",
+      "succ": "A1650",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1520",
+      "succ": "A1650",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1550",
+      "succ": "A1650",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1600",
+      "succ": "A1660",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1430",
+      "succ": "A1660",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1610",
+      "succ": "A1670",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1610",
+      "succ": "A1680",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1620",
+      "succ": "A1680",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1670",
+      "succ": "A1680",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1630",
+      "succ": "A1685",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1640",
+      "succ": "A1685",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1660",
+      "succ": "A1690",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1650",
+      "succ": "A1690",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1680",
+      "succ": "A1700",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1680",
+      "succ": "A1710",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1700",
+      "succ": "A1710",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1685",
+      "succ": "A1720",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1750",
+      "succ": "A1730",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1750",
+      "succ": "A1730",
+      "type": "FF",
+      "lag": 5
+    },
+    {
+      "pred": "A1760",
+      "succ": "A1740",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1700",
+      "succ": "A1750",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1710",
+      "succ": "A1750",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1720",
+      "succ": "A1760",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1730",
+      "succ": "A1770",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1770",
+      "succ": "A1780",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1740",
+      "succ": "A1790",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1740",
+      "succ": "A1800",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1150",
+      "succ": "A1800",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1790",
+      "succ": "A1810",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1730",
+      "succ": "A1820",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1780",
+      "succ": "A1820",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1740",
+      "succ": "A1830",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1810",
+      "succ": "A1830",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A1770",
+      "succ": "A1840",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1790",
+      "succ": "A1850",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1800",
+      "succ": "A1860",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1840",
+      "succ": "A1870",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1850",
+      "succ": "A1870",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1470",
+      "succ": "A1880",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1630",
+      "succ": "A1880",
+      "type": "SS",
+      "lag": 10
+    },
+    {
+      "pred": "A1770",
+      "succ": "A1890",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1790",
+      "succ": "A1890",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1350",
+      "succ": "A2100",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2100",
+      "succ": "A2110",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A2100",
+      "succ": "A2120",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1540",
+      "succ": "A2120",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2120",
+      "succ": "A2130",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2110",
+      "succ": "A2130",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2130",
+      "succ": "A2140",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A2130",
+      "succ": "A2150",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1540",
+      "succ": "A2150",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2130",
+      "succ": "A2160",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2150",
+      "succ": "A2170",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2160",
+      "succ": "A2170",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2140",
+      "succ": "A2170",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1820",
+      "succ": "A2200",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1830",
+      "succ": "A2200",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1690",
+      "succ": "A2200",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1820",
+      "succ": "A2210",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1830",
+      "succ": "A2210",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2200",
+      "succ": "A2220",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A2200",
+      "succ": "A2220",
+      "type": "FF",
+      "lag": 3
+    },
+    {
+      "pred": "A1880",
+      "succ": "A2230",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1540",
+      "succ": "A2240",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1580",
+      "succ": "A2240",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2210",
+      "succ": "A2250",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2220",
+      "succ": "A2250",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2230",
+      "succ": "A2250",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2240",
+      "succ": "A2250",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2250",
+      "succ": "A2260",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1840",
+      "succ": "A2300",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1820",
+      "succ": "A2300",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1850",
+      "succ": "A2310",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1860",
+      "succ": "A2310",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1830",
+      "succ": "A2310",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2200",
+      "succ": "A2320",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A2220",
+      "succ": "A2330",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2300",
+      "succ": "A2340",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2310",
+      "succ": "A2340",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2310",
+      "succ": "A2350",
+      "type": "SS",
+      "lag": 5
+    },
+    {
+      "pred": "A2340",
+      "succ": "A2360",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1890",
+      "succ": "A2360",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A2170",
+      "succ": "A2360",
+      "type": "FS",
+      "lag": 0
+    },
+    {
+      "pred": "A1870",
+      "succ": "A2360",
+      "type": "FS",
+      "lag": 0
+    }
+  ],
+  "source": {
+    "format": "json",
+    "file": "schedule.json",
+    "has_logic": true
+  }
+}
