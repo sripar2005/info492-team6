@@ -1,0 +1,42 @@
+# Tests the PDF reader (demo3/extract.py) with a free local model on the sample PDFs in check/samples.
+# No API key, no cost. Start: Actions -> "PDF reader test" -> Run workflow.
+name: PDF reader test
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Ollama model"
+        required: true
+        default: "llama3.1:8b"
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ollama and pull the model
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          (OLLAMA_KEEP_ALIVE=3h ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -s localhost:11434/api/tags >/dev/null && break; sleep 2; done
+          ollama pull "${{ inputs.model }}"
+      - name: Read the sample PDFs
+        run: |
+          pip install pypdf
+          python3 demo3/extract.py --test --model "${{ inputs.model }}"
+      - name: Score
+        run: node tools/extract_score.js
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase -q
+          git add demo3/results/extract_test.json demo3/results/extract_score.json
+          git commit -m "PDF reader test results (${{ inputs.model }})" || echo "nothing to commit"
+          git push
