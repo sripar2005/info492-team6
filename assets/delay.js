@@ -21,7 +21,8 @@
     if (C.dailyDelayRate) m.push({ id: 'contract_rate', label: 'Daily rate stated in the contract', value: C.dailyDelayRate, section: C.sections && C.sections.sgcRate || '5.2' });
     if (C.sgcTotal && C.contractDays) m.push({ id: 'sgc_spread', label: 'General conditions ÷ contract days (' + money(C.sgcTotal) + ' ÷ ' + C.contractDays + ')', value: C.sgcTotal / C.contractDays });
     if (input.claimedRate) m.push({ id: 'claimed', label: 'Rate used in the proposal', value: input.claimedRate });
-    var basis = m.filter(function (x) { return x.id !== 'claimed'; });
+    // A rate stated in the contract governs; the spread method is only used when the contract states none.
+    var basis = m.filter(function (x) { return x.id !== 'claimed'; }).slice(0, 1);
     var vals = basis.map(function (x) { return x.value; });
     return { value: basis.length ? basis[0].value : null, low: vals.length ? Math.min.apply(null, vals) : null, high: vals.length ? Math.max.apply(null, vals) : null, methods: m, used: basis[0] || null };
   }
@@ -56,7 +57,7 @@
     // 3. Rate and range.
     var R = rates(C, input), point = R.value != null ? r2(paidHigh * R.value) : null;
     var cost = { low: R.low != null ? r2(paidLow * R.low) : null, high: R.high != null ? r2(paidHigh * R.high) : null, point: paidLow === paidHigh ? point : null };
-    if (R.used) steps.push({ who: 'computed', text: 'Rate: ' + R.used.label + ' = ' + money(R.used.value) + '/day.' + (R.methods.length > 1 ? ' Range uses ' + R.methods.filter(function (m) { return m.id !== 'claimed'; }).map(function (m) { return money(m.value); }).join(' to ') + '.' : '') });
+    if (R.used) steps.push({ who: 'computed', text: 'Rate: ' + R.used.label + ' = ' + money(R.used.value) + '/day.' + (R.methods.filter(function (m) { return m.id === 'sgc_spread'; })[0] && R.used.id !== 'sgc_spread' ? ' (For reference, general conditions ÷ contract days = ' + money(R.methods.filter(function (m) { return m.id === 'sgc_spread'; })[0].value) + '/day.)' : '') });
     else steps.push({ who: 'computed', text: 'No daily rate or general conditions total in the contract: cost not computed.' });
 
     // 4. Flags.

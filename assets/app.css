@@ -340,3 +340,21 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .ein:focus { border-color: var(--accent); outline: none; }
 .gaxis { position: relative; height: 22px; border-bottom: 1px solid var(--line); }
 .gaxis span { position: absolute; top: 4px; transform: translateX(3px); font: 10px var(--mono); color: var(--faint); white-space: nowrap; }
+
+/* Delay check */
+textarea { width: 100%; background: transparent; border: 0; color: inherit; font: inherit; resize: vertical; padding: 10px 12px; outline: none; }
+.dcost { padding: 16px 18px; border-bottom: 1px solid var(--line); }
+.conds { display: grid; gap: 10px; }
+.conds > div > span { display: block; font: 500 10.5px/1.3 var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+.slider { margin-top: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.slider .sv { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.slider .sv b { font-size: 26px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.slider .sv span { color: var(--muted); font-size: 12.5px; }
+.slider input[type=range] { width: 100%; margin: 12px 0 2px; accent-color: var(--accent); }
+.slider .sbar { height: 4px; border-radius: 2px; background: var(--accent); margin: 14px 0 4px; }
+.slider .fine { margin-top: 6px; }
+.audit { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
+.audit li { display: grid !important; grid-template-columns: 92px 1fr; gap: 10px; font-size: 12.5px; color: var(--muted); }
+.audit .who { font: 500 10px/1.8 var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 0 6px; border-radius: 4px; height: fit-content; text-align: center; }
+.audit .who.ai { color: var(--blue); background: rgba(126,166,255,.1); } .audit .who.computed { color: var(--muted); background: var(--surface-3); } .audit .who.person { color: var(--green); background: var(--green-soft); }
+.how2 .how li { font-size: 13px; }

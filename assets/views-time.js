@@ -174,3 +174,213 @@
     }
   });
 })();
+
+/* Delay check: a change order's time claim -> fragnet -> time impact analysis in code -> what the contract pays.
+   Every step goes in an audit log tagged AI-proposed, computed, or person-confirmed. */
+(function () {
+  'use strict';
+  var A = window.CSApp, SE = window.ClauseSchedule, D = window.ClauseDelay, esc = A.esc, store = A.store, app = A.app, M = A.M;
+  var V = window.CSViews;
+  var DX = null; // { claim, frag: {activities, relationships}, fragSrc, result, cond, chosen, log: [] }
+  var PARTY = [['owner', 'Owner'], ['architect', 'Architect'], ['contractor', 'Contractor'], ['neither', 'Neither (e.g. weather)']];
+  var cases = null;
+
+  function log(who, text) { DX.log.push({ at: new Date().toISOString(), who: who, text: text }); }
+  function blank() { return { claim: { id: '', title: '', claimed_days: 0, narrative: '', cause_party: 'owner', concurrent: false, claimed_cost: null, claimed_rate: null, sgc_also: false },
+    frag: { activities: [], relationships: [] }, fragSrc: null, result: null, cond: null, chosen: null, log: [], step: 1 }; }
+  function sched() { return V.activeSchedule(); }
+
+  function loadCases() {
+    if (cases) return Promise.resolve(cases);
+    return fetch('/demo4/data/cases.json').then(function (r) { return r.ok ? r.json() : { cases: [] }; }).then(function (j) { cases = (j.cases || []).filter(function (c) { return c.time; }); return cases; }).catch(function () { cases = []; return cases; });
+  }
+  function fromCase(c) {
+    var d = blank(), cs = c.cover_sheet || {};
+    d.claim = { id: c.id, title: c.title, claimed_days: c.time.claimed_days || c.time_impact_days || 0, narrative: c.time.narrative || '', cause_party: c.time.cause_party || 'owner',
+      concurrent: !!c.time.concurrent, claimed_cost: cs.extended_sgc_time || null, claimed_rate: c.time.claimed_rate || null, sgc_also: !!(cs.sgc_items && cs.extended_sgc_time) };
+    d.caseId = c.id; return d;
+  }
+
+  /* ---------- step 1: the claim ---------- */
+  V.delay = function () {
+    var s = sched();
+    if (!DX) DX = blank();
+    loadCases().then(function (cs) {
+      var c = DX.claim;
+      var pick = cs.length ? '<div class="samples" style="justify-content:flex-start;margin:0 0 16px">Sample change orders:' + cs.slice(0, 8).map(function (x) { return '<button data-dcase="' + esc(x.id) + '">' + esc(x.id) + '</button>'; }).join('') + '</div>' : '';
+      app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check</span><h1 style="margin-top:8px">Is the time claim real, and what is it worth?</h1><p>We add the change’s work to the current schedule, rerun the critical path, and price the days the contract allows.</p></div></div>' +
+        (s ? '<div class="banner"><span>Schedule: <b>' + esc(s.name) + '</b> (' + esc(s.label) + ', ' + s.model.activities.length + ' activities). Contract: <b>' + esc(A.C().name) + '</b>. <a class="link" href="#schedule">Change</a></span></div>'
+          : '<div class="banner warn"><span>No schedule loaded yet. <a class="link" href="#schedule">Load the schedule</a> first; the delay check runs against it.</span></div>') +
+        '<div class="cols"><div class="form">' + pick +
+        '<div class="card sec"><div class="sec-h"><h3>The time claim</h3></div><div class="grid">' +
+        fld('id', 'Change order', c.id, 'e.g. CO-0407') + fld('claimed_days', 'Days claimed', c.claimed_days, '', 'calendar days', true) +
+        '<div class="fd full"><label><span>What happened <small>(the narrative from the change order)</small></span></label><div class="inp" style="height:auto"><textarea data-dc="narrative" rows="4" placeholder="e.g. Owner added a second elevator; shop drawings and install add about 3 weeks to the elevator work.">' + esc(c.narrative) + '</textarea></div></div>' +
+        '<div class="fd"><label><span>Who caused it</span></label><div class="inp sel"><select data-dc="cause_party">' + PARTY.map(function (p) { return '<option value="' + p[0] + '"' + (p[0] === c.cause_party ? ' selected' : '') + '>' + p[1] + '</option>'; }).join('') + '</select></div></div>' +
+        '<div class="fd"><label><span>Concurrent delay?</span></label><div class="inp sel"><select data-dc="concurrent"><option value="false"' + (c.concurrent ? '' : ' selected') + '>No</option><option value="true"' + (c.concurrent ? ' selected' : '') + '>Yes, another delay overlaps</option></select></div></div>' +
+        fld('claimed_cost', 'Extended general conditions asked', c.claimed_cost, '', '$', true) + fld('claimed_rate', 'Daily rate used in the claim', c.claimed_rate, 'if stated', '$/day', true) +
+        '</div></div>' +
+        '<div class="stick"><div class="live"><span>Next: describe the change’s work in the schedule</span></div><button class="btn primary" data-dnext="2"' + (s ? '' : ' disabled') + '>Next: the change’s activities →</button></div></div>' +
+        '<div><div class="card sec how2"><h3 style="font-size:14.5px;margin-bottom:10px">How the days are worked out</h3><ol class="how" style="margin:0"><li><b>You or the AI</b> describe the change’s work as a few activities linked into the schedule (a “fragnet”). The AI may only link to activity IDs that exist.</li><li><b>Code</b> inserts them into the current schedule and reruns the critical path (AACE 52R-06 time impact analysis).</li><li><b>Code</b> compares the finish dates. Off the critical path, the delay is 0.</li><li><b>Code</b> prices the days under the contract; the slider shows the range when conditions are unclear.</li><li><b>You</b> confirm. Every step is logged.</li></ol></div></div></div></div>';
+    });
+  };
+  function fld(k, label, v, ph, unit, numeric) {
+    var pre = unit === '$' || unit === '$/day' ? '<span class="pre">$</span>' : '', suf = unit && unit !== '$' ? '<span class="suf">' + (unit === '$/day' ? '/day' : unit) + '</span>' : '';
+    return '<div class="fd"><label><span>' + label + '</span></label><div class="inp">' + pre + '<input data-dc="' + k + '"' + (numeric ? ' inputmode="decimal" data-num="1"' : '') + ' value="' + esc(v == null ? '' : v) + '"' + (ph ? ' placeholder="' + esc(ph) + '"' : '') + '>' + suf + '</div></div>';
+  }
+
+  /* ---------- step 2: fragnet ---------- */
+  function fragHtml() {
+    var s = sched(), ids = s.model.activities.map(function (a) { return a.id; }), F = DX.frag;
+    var dl = '<datalist id="actids">' + s.model.activities.map(function (a) { return '<option value="' + esc(a.id) + '">' + esc(a.name) + '</option>'; }).join('') + F.activities.map(function (a) { return '<option value="' + esc(a.id) + '">' + esc(a.name) + '</option>'; }).join('') + '</datalist>';
+    var rows = F.activities.map(function (a, i) {
+      var after = F.relationships.filter(function (r) { return r.succ === a.id; }).map(function (r) { return r.pred + (r.type !== 'FS' ? r.type : '') + (r.lag ? (r.lag > 0 ? '+' : '') + r.lag : ''); }).join(', ');
+      var before = F.relationships.filter(function (r) { return r.pred === a.id; }).map(function (r) { return r.succ + (r.type !== 'FS' ? r.type : '') + (r.lag ? (r.lag > 0 ? '+' : '') + r.lag : ''); }).join(', ');
+      return '<tr><td><code>' + esc(a.id) + '</code></td><td><input class="ein w" data-fa="' + i + '|name" value="' + esc(a.name) + '" style="font-family:var(--sans)"></td><td class="r"><input class="ein" data-fa="' + i + '|duration" value="' + a.duration + '"></td>' +
+        '<td><input class="ein w" list="actids" data-fl="' + i + '|after" value="' + esc(after) + '" placeholder="starts after…"></td><td><input class="ein w" list="actids" data-fl="' + i + '|before" value="' + esc(before) + '" placeholder="must finish before…"></td><td><button class="del" data-fdel="' + i + '" aria-label="Remove">✕</button></td></tr>';
+    }).join('');
+    var bad = F.relationships.filter(function (r) { var all = ids.concat(F.activities.map(function (a) { return a.id; })); return all.indexOf(r.pred) < 0 || all.indexOf(r.succ) < 0; });
+    return dl + '<div class="etbl" style="margin:0;max-height:none"><table class="tbl"><thead><tr><th>ID</th><th>Activity</th><th class="r">Work days</th><th>After</th><th>Before</th><th></th></tr></thead><tbody>' + (rows || '<tr><td colspan="6" class="fine" style="padding:14px">No activities yet.</td></tr>') + '</tbody></table></div>' +
+      (bad.length ? '<p class="hint" style="color:var(--red)">Links to IDs not in the schedule: ' + esc(bad.map(function (r) { return r.pred + '→' + r.succ; }).join(', ')) + '</p>' : '') +
+      '<button class="btn ghost sm add" data-fadd="1" style="margin-top:10px">+ Activity</button>';
+  }
+  V['delay-fragnet'] = function () {
+    if (!DX || !sched()) return A.go('delay');
+    var reader = A.reader(), s = sched();
+    var src = DX.fragSrc === 'ai' ? '<div class="banner"><span><b>Drafted by ' + esc(DX.fragModel || 'the local model') + '</b>' + (DX.fragAgree === false ? ' — its three drafts <b>disagreed</b>, so look closely.' : DX.fragAgree ? '; its three drafts agreed.' : '.') + ' It could only link to IDs in this schedule. Check the durations and links against the change order.</span></div>' : '';
+    app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(DX.claim.id || 'change order') + ' · step 2 of 3</span><h1 style="margin-top:8px">The change’s activities</h1><p>Add the work the change creates and where it sits in the schedule. Durations in work days.</p></div>' +
+      (reader ? '<button class="btn" data-fdraft="1">Draft with ' + esc(reader) + '</button>' : '') + '</div>' +
+      '<div class="cols result"><div><div class="paper sched" id="fgantt"></div></div><div class="form">' +
+      (DX.claim.narrative ? '<div class="card sec"><span class="eyebrow">From the change order</span><p style="margin:8px 0 0;color:var(--muted);font-size:13.5px">' + esc(DX.claim.narrative) + '</p></div>' : '') + src +
+      '<div class="card sec"><div class="sec-h"><h3>Fragnet</h3><span class="fine" style="margin:0">IDs start with F-</span></div>' + fragHtml() + '</div>' +
+      (reader ? '' : '<p class="fine">The AI drafter runs on the team’s laptop. Here, enter the activities yourself.</p>') +
+      '<div class="stick"><div class="live" id="flive"></div><button class="btn ghost" data-dnext="1">← Back</button><button class="btn primary" data-dnext="3"' + (DX.frag.activities.length ? '' : ' disabled') + '>Run the analysis →</button></div></div></div></div>';
+    drawFragGantt();
+  };
+  function withFrag(model, F) {
+    var m = JSON.parse(JSON.stringify(model)), ids = {}; m.activities.forEach(function (a) { ids[a.id] = 1; });
+    F.activities.forEach(function (f) { m.activities.push({ id: f.id, name: f.name, duration: +f.duration || 0, wbs: 'Change', actual_start: null, actual_finish: null, remaining: null, constraint: null }); ids[f.id] = 1; });
+    F.relationships.forEach(function (r) { if (ids[r.pred] && ids[r.succ]) m.relationships.push({ pred: r.pred, succ: r.succ, type: r.type || 'FS', lag: +r.lag || 0 }); });
+    return m;
+  }
+  function drawFragGantt() {
+    var el = document.getElementById('fgantt'), s = sched(); if (!el) return;
+    var m = withFrag(s.model, DX.frag), c = SE.cpm(m), hl = {}; DX.frag.activities.forEach(function (a) { hl[a.id] = 1; });
+    el.innerHTML = V.gantt(m, c, { highlight: hl });
+    var r = DX.frag.activities.length ? SE.tia(s.model, DX.frag) : null, lv = document.getElementById('flive');
+    if (lv) lv.innerHTML = r ? '<span>Preview: finish moves <b>' + r.delay_calendar_days + ' calendar days</b> · claimed ' + (DX.claim.claimed_days || 0) + '</span>' : '<span>Add the change’s activities to preview the impact.</span>';
+  }
+  function nextFid() { var n = 1, have = DX.frag.activities.map(function (a) { return a.id; }); while (have.indexOf('F-' + n) >= 0) n++; return 'F-' + n; }
+  function setLinks(i, side, text) {
+    var id = DX.frag.activities[i].id, ps = SE.parsePredecessors(text);
+    DX.frag.relationships = DX.frag.relationships.filter(function (r) { return side === 'after' ? r.succ !== id : r.pred !== id; })
+      .concat(ps.map(function (p) { return side === 'after' ? { pred: p.pred, succ: id, type: p.type, lag: p.lag } : { pred: id, succ: p.pred, type: p.type, lag: p.lag }; }));
+  }
+  function draftWithAI() {
+    var s = sched(), t0 = Date.now();
+    app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Drafting the change’s activities</h2><p class="fine" style="font-size:13.5px">' + esc(A.reader()) + ' drafts three times; you’ll see if the drafts disagree. <span id="tick">0:00</span></p></div></div>';
+    var tick = setInterval(function () { var x = Math.round((Date.now() - t0) / 1000), el = document.getElementById('tick'); if (el) el.textContent = Math.floor(x / 60) + ':' + ('0' + x % 60).slice(-2); }, 1000);
+    fetch('/api/fragnet', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ narrative: DX.claim.narrative, claimed_days: DX.claim.claimed_days, activities: s.model.activities.map(function (a) { return { id: a.id, name: a.name, duration: a.duration, wbs: a.wbs }; }), runs: 3 }) })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status); return j; }); })
+      .then(function (j) {
+        clearInterval(tick); DX.frag = j.fragnet; DX.fragSrc = 'ai'; DX.fragModel = j.model; DX.fragAgree = j.agree;
+        log('ai', j.model + ' drafted ' + j.fragnet.activities.length + ' activities: ' + j.fragnet.activities.map(function (a) { return a.id + ' ' + a.name + ' (' + a.duration + 'd)'; }).join('; ') + '. Links: ' + j.fragnet.relationships.map(function (r) { return r.pred + '→' + r.succ + (r.type !== 'FS' ? ' ' + r.type : ''); }).join(', ') + '. ' + (j.agree ? 'The three drafts agreed.' : 'The three drafts disagreed: ' + (j.disagreement || '') ));
+        A.go('delay-fragnet'); V['delay-fragnet']();
+      })
+      .catch(function (e) { clearInterval(tick); A.toast('The local model couldn’t draft it (' + e.message + '). Enter the activities yourself.'); V['delay-fragnet'](); });
+  }
+
+  /* ---------- step 3: result ---------- */
+  function cond() { var c = DX.claim; return DX.cond || (DX.cond = { causeParty: c.cause_party, compensable: null, concurrent: !!c.concurrent }); }
+  V['delay-result'] = function () {
+    if (!DX || !DX.result) return A.go('delay');
+    var s = sched(), r = DX.result, C = A.C(), k = cond(), c = DX.claim;
+    var d = D.delayCheck(C, { computedDays: r.delay_calendar_days, claimedDays: +c.claimed_days || 0, onCriticalPath: r.delay_calendar_days > 0 || r.fragnet_critical, causeParty: k.causeParty, compensable: k.compensable, concurrent: k.concurrent,
+      claimedCost: c.claimed_cost ? +c.claimed_cost : null, claimedRate: c.claimed_rate ? +c.claimed_rate : null, sgcAlsoBilled: !!c.sgc_also });
+    if (!s.model.source.has_logic) d.flags.unshift({ flag: 'NO_LOGIC', severity: 'person', text: 'This schedule has no logic (dates only), so the impact can’t be verified from it.', section: '' });
+    DX.check = d;
+    var lo = d.cost.low || 0, hi = d.cost.high || 0, val = DX.chosen == null ? (d.cost.point != null ? d.cost.point : hi) : Math.min(hi, Math.max(lo, DX.chosen));
+    var m = withFrag(s.model, DX.frag), cc = SE.cpm(m), hl = {}; DX.frag.activities.forEach(function (a) { hl[a.id] = 1; });
+    var padded = (+c.claimed_days || 0) > r.delay_calendar_days;
+    var head = r.delay_calendar_days === 0 ? 'The change doesn’t move the finish' : padded ? 'Supports ' + r.delay_calendar_days + ' of ' + c.claimed_days + ' days claimed' : 'Supports the ' + r.delay_calendar_days + ' days claimed';
+    var tone = r.delay_calendar_days === 0 && c.claimed_days > 0 ? 'fail' : padded ? 'fail' : 'ok';
+    var tg = function (on, k2, v, label) { return '<button class="pill" data-dk="' + k2 + '|' + v + '" aria-pressed="' + on + '">' + label + '</button>'; };
+    var h = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(c.id || 'change order') + ' · step 3 of 3</span><h1 style="margin-top:8px">Result</h1></div><div style="display:flex;gap:8px"><button class="btn ghost" data-dnext="2">← Edit activities</button><button class="btn" data-dexport="1">Export audit log</button></div></div>' +
+      '<div class="cols result"><div><div class="paper sched">' + V.gantt(m, cc, { highlight: hl }) + '</div>' +
+      '<div class="tblock" style="margin-top:12px"><div><span>Finish before</span><b>' + esc(r.before_finish) + '</b></div><div><span>Finish after</span><b>' + esc(r.after_finish) + '</b></div><div><span>Delay</span><b>' + r.delay_calendar_days + ' cal · ' + r.delay_workdays + ' work days</b></div><div><span>Change on critical path</span><b>' + (r.fragnet_critical ? 'Yes' : 'No') + '</b></div></div></div>' +
+      '<div class="card findings"><div class="verdict ' + tone + '"><span class="eyebrow">Time impact analysis · computed</span><h2><em>' + esc(head) + '</em></h2><p>' + esc(r.notes[0] || '') + '</p></div>' +
+      '<div class="dcost"><div class="sec-h" style="margin:0 0 10px"><h3>What the contract pays</h3><span class="tagr">' + d.extensionDays + ' days extension</span></div>' +
+      '<div class="conds"><div><span>Who caused it</span><div class="pills">' + PARTY.map(function (p) { return tg(k.causeParty === p[0], 'causeParty', p[0], p[1].split(' (')[0]); }).join('') + '</div></div>' +
+      '<div><span>Paid or time only</span><div class="pills">' + tg(k.compensable === null, 'compensable', 'null', 'As the contract says') + tg(k.compensable === true, 'compensable', 'true', 'Paid') + tg(k.compensable === false, 'compensable', 'false', 'Time only') + '</div></div>' +
+      '<div><span>Concurrent delay</span><div class="pills">' + tg(!k.concurrent, 'concurrent', 'false', 'No') + tg(k.concurrent, 'concurrent', 'true', 'Yes') + '</div></div></div>' +
+      (hi > 0 ? '<div class="slider"><div class="sv"><b>' + M(val) + '</b><span>' + (lo === hi ? 'fixed by the contract' : 'range ' + M(lo) + ' – ' + M(hi)) + '</span></div>' +
+        (lo !== hi ? '<input type="range" id="dslide" min="' + lo + '" max="' + hi + '" step="1" value="' + val + '">' : '<div class="sbar"></div>') +
+        '<p class="fine">' + d.paidDays[0] + (d.paidDays[1] !== d.paidDays[0] ? '–' + d.paidDays[1] : '') + ' paid days × ' + (d.rate.low !== d.rate.high ? M(d.rate.low) + '–' + M(d.rate.high) : M(d.rate.value)) + '/day' + (c.claimed_cost ? ' · asked ' + M(+c.claimed_cost) : '') + '</p></div>'
+        : '<div class="slider"><div class="sv"><b>' + M(0) + '</b><span>' + (d.extensionDays ? 'time only: days, no money' : 'no paid delay') + '</span></div>' + (d.ldExposure ? '<p class="fine">Liquidated damages exposure: ' + M(d.ldExposure) + '</p>' : '') + '</div>') +
+      '</div>' +
+      (d.flags.length ? '<ol class="fl">' + d.flags.map(function (f, i) { return '<li class="' + (f.severity === 'fail' ? 'fail' : 'person') + '"><span class="n">' + (i + 1) + '</span><div><b>' + esc(f.text) + '</b>' + (f.section ? '<p>§ ' + esc(f.section) + '</p>' : '') + '</div></li>'; }).join('') + '</ol>' : '') +
+      '<details class="passed" open><summary><span style="color:var(--text)">Audit log · ' + (DX.log.length + d.steps.length) + ' entries</span><span>hide ▴</span></summary><ul class="audit">' +
+      DX.log.concat(d.steps.map(function (x) { return { who: x.who, text: x.text }; })).map(function (x) { return '<li><span class="who ' + x.who + '">' + ({ ai: 'AI proposed', computed: 'Computed', person: 'Person' }[x.who] || x.who) + '</span><span>' + esc(x.text) + '</span></li>'; }).join('') + '</ul></details>' +
+      '<div class="acts"><button class="btn primary" data-dapprove="1">Confirm this result</button><button class="btn ghost" data-dnew="1">Check another</button></div></div></div></div>';
+    app.innerHTML = h;
+    var sl = document.getElementById('dslide');
+    if (sl) sl.addEventListener('input', function () { DX.chosen = +sl.value; sl.parentNode.querySelector('.sv b').textContent = M(+sl.value); });
+  };
+  function runTIA() {
+    var s = sched(); DX.result = SE.tia(s.model, DX.frag); DX.cond = null; DX.chosen = null;
+    if (DX.fragSrc !== 'ai' || DX.fragEdited) log('person', 'Fragnet ' + (DX.fragSrc === 'ai' ? 'edited and confirmed' : 'entered') + ': ' + DX.frag.activities.map(function (a) { return a.id + ' ' + a.name + ' (' + a.duration + 'd)'; }).join('; ') + '.');
+    else log('person', 'AI fragnet confirmed without changes.');
+    log('computed', 'TIA on "' + s.name + '" (data date ' + (s.model.data_date || '—') + '): ' + DX.result.notes.join(' '));
+  }
+  function exportLog() {
+    var c = DX.claim, d = DX.check, lines = ['ClauseStream delay check', 'Change order: ' + (c.id || '—') + ' ' + (c.title || ''), 'Schedule: ' + sched().name, 'Contract: ' + A.C().name, 'Exported: ' + new Date().toISOString(), ''];
+    DX.log.concat(d.steps).forEach(function (x) { lines.push('[' + ({ ai: 'AI proposed', computed: 'Computed', person: 'Person' }[x.who]) + '] ' + x.text); });
+    if (d.flags.length) { lines.push('', 'Flags:'); d.flags.forEach(function (f) { lines.push('- ' + f.text + (f.section ? ' (§ ' + f.section + ')' : '')); }); }
+    var blob = new Blob([lines.join('\n') + '\n'], { type: 'text/plain' }), a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = 'delay-check-' + (c.id || 'co') + '.txt'; document.body.appendChild(a); a.click(); a.remove();
+  }
+  function approve() {
+    var d = DX.check, c = DX.claim;
+    log('person', 'Confirmed: ' + d.extensionDays + ' days extension, ' + M(DX.chosen != null ? DX.chosen : (d.cost.point != null ? d.cost.point : d.cost.high || 0)) + ' for delay.');
+    var m = document.createElement('div'); m.className = 'modal';
+    m.innerHTML = '<div class="modal-card" style="width:min(480px,100%)"><div class="modal-h"><div><span class="eyebrow">Result confirmed</span><h2>Update the schedule too?</h2></div></div><p style="color:var(--muted);margin:0 0 16px">Save a new update of “' + esc(sched().name) + '” with ' + esc(c.id || 'this change') + '’s activities in it, so the next delay check builds on it. The current version is kept.</p><div class="acts" style="margin:0"><button class="btn primary" data-up="yes">Save as a schedule update</button><button class="btn ghost" data-up="no">Not now</button></div></div>';
+    document.body.appendChild(m);
+    m.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-up]'); if (!b && e.target !== m) return;
+      if (b && b.dataset.up === 'yes') {
+        var s = sched(), nm = withFrag(s.model, DX.frag); nm.source = Object.assign({}, s.model.source, { edited: true });
+        var rec = { id: 's' + Date.now().toString(36), name: s.name + ' + ' + (c.id || 'change'), label: 'Update', file: s.file, saved: Date.now(), model: nm };
+        var L = store('cs_schedules') || []; L.unshift(rec); store('cs_schedules', L.slice(0, 8)); store('cs_sched_active', rec.id);
+        log('person', 'Saved schedule update "' + rec.name + '" and made it the one in use.'); A.toast('Schedule updated. The delay check now uses “' + rec.name + '”.');
+      } else A.toast('Result confirmed. Export the audit log to keep a copy.');
+      m.remove(); V['delay-result']();
+    });
+  }
+
+  app.addEventListener('input', function (e) {
+    var t = e.target; if (!DX) return;
+    if (t.dataset.dc) { var v = t.value; DX.claim[t.dataset.dc] = t.dataset.num ? (v.trim() === '' ? null : A.num(v)) : t.tagName === 'SELECT' && (v === 'true' || v === 'false') ? v === 'true' : v; }
+  });
+  app.addEventListener('change', function (e) {
+    var t = e.target; if (!DX) return;
+    if (t.dataset.dc && t.tagName === 'SELECT') { var v = t.value; DX.claim[t.dataset.dc] = v === 'true' ? true : v === 'false' ? false : v; }
+    if (t.dataset.fa) { var p = t.dataset.fa.split('|'), a = DX.frag.activities[+p[0]]; a[p[1]] = p[1] === 'duration' ? Math.max(0, A.num(t.value)) : t.value; DX.fragEdited = true; drawFragGantt(); }
+    if (t.dataset.fl) { var q = t.dataset.fl.split('|'); try { setLinks(+q[0], q[1], t.value); } catch (er) { A.toast('Use activity IDs like A1040, or A1040SS+2.'); } DX.fragEdited = true; var y = window.scrollY; V['delay-fragnet'](); window.scrollTo(0, y); }
+  });
+  app.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-dcase],[data-dnext],[data-fadd],[data-fdel],[data-fdraft],[data-dk],[data-dexport],[data-dapprove],[data-dnew]'); if (!t) return;
+    if (t.dataset.dcase) { var x = cases.filter(function (c) { return c.id === t.dataset.dcase; })[0]; DX = fromCase(x); return V.delay(); }
+    if (t.dataset.dnext) {
+      var n = t.dataset.dnext;
+      if (n === '2') { log('person', 'Claim entered: ' + (DX.claim.id || 'change order') + ', ' + (DX.claim.claimed_days || 0) + ' days claimed, caused by ' + DX.claim.cause_party + (DX.claim.concurrent ? ', concurrent delay' : '') + '.'); return A.go('delay-fragnet'); }
+      if (n === '3') { runTIA(); return A.go('delay-result'); }
+      return A.go(n === '1' ? 'delay' : 'delay-fragnet');
+    }
+    if (t.dataset.fadd) { DX.frag.activities.push({ id: nextFid(), name: '', duration: 5 }); DX.fragEdited = true; return V['delay-fragnet'](); }
+    if (t.dataset.fdel) { var id = DX.frag.activities[+t.dataset.fdel].id; DX.frag.activities.splice(+t.dataset.fdel, 1); DX.frag.relationships = DX.frag.relationships.filter(function (r) { return r.pred !== id && r.succ !== id; }); DX.fragEdited = true; return V['delay-fragnet'](); }
+    if (t.dataset.fdraft) return draftWithAI();
+    if (t.dataset.dk) { var kv = t.dataset.dk.split('|'), k = cond(); k[kv[0]] = kv[1] === 'null' ? null : kv[1] === 'true' ? true : kv[1] === 'false' ? false : kv[1]; DX.chosen = null; log('person', 'Condition set: ' + kv[0] + ' = ' + kv[1] + '.'); var y = window.scrollY; V['delay-result'](); window.scrollTo(0, y); return; }
+    if (t.dataset.dexport) return exportLog();
+    if (t.dataset.dapprove) return approve();
+    if (t.dataset.dnew) { DX = null; return A.go('delay'); }
+  });
+})();

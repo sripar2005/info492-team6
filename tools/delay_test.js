@@ -7,7 +7,9 @@ function eq(name, got, want) { const ok = JSON.stringify(got) === JSON.stringify
 
 let r = D.delayCheck(C, { computedDays: 10, claimedDays: 10, onCriticalPath: true, causeParty: 'owner', concurrent: false });
 eq('owner paid', [r.extensionDays, r.paidDays, r.cost.point], [10, [10, 10], 31850]);
-eq('range high uses the general conditions spread', [r.cost.low, r.cost.high], [31850, Math.round(10 * 1720000 / 540 * 100) / 100]);
+eq('contract rate governs', [r.cost.low, r.cost.high], [31850, 31850]);
+r = D.delayCheck(Object.assign({}, C, { dailyDelayRate: null }), { computedDays: 10, claimedDays: 10, onCriticalPath: true, causeParty: 'owner' });
+eq('no stated rate: general conditions spread', r.cost.point, Math.round(10 * 1720000 / 540 * 100) / 100);
 
 r = D.delayCheck(C, { computedDays: 10, claimedDays: 14, onCriticalPath: true, causeParty: 'owner', concurrent: false, claimedCost: 14 * 3185 });
 eq('padded days flagged', r.flags.map(f => f.flag), ['DAYS_OVER_ANALYSIS', 'DELAY_COST_OVER']);
@@ -19,7 +21,7 @@ r = D.delayCheck(C, { computedDays: 8, claimedDays: 8, onCriticalPath: true, cau
 eq('concurrent: time, no money', [r.extensionDays, r.paidDays, r.cost.high], [8, [0, 0], 0]);
 
 r = D.delayCheck(Object.assign({}, C, { concurrentDelay: 'apportioned' }), { computedDays: 8, claimedDays: 8, onCriticalPath: true, causeParty: 'owner', concurrent: true });
-eq('concurrent: apportioned range', r.paidDays, [4, 8]);
+eq('concurrent: apportioned range', [r.paidDays, r.cost.low, r.cost.high], [[4, 8], 12740, 25480]);
 
 r = D.delayCheck(C, { computedDays: 5, claimedDays: 5, onCriticalPath: true, causeParty: 'contractor', concurrent: false });
 eq('contractor caused', [r.extensionDays, r.paidDays, r.ldExposure], [0, [0, 0], 12500]);
