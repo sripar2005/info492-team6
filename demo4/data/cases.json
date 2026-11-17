@@ -1,0 +1,1520 @@
+{
+  "meta": {
+    "contract": "../../demo1/data/synthetic_contract.md",
+    "schedule": "schedule.json",
+    "generated_by": "demo4/build_data.py",
+    "schedule_data_date": "2020-06-01",
+    "calendar": "Washington State legal holidays 2020-2021",
+    "synthetic": true
+  },
+  "cases": [
+    {
+      "id": "CP-0401",
+      "title": "Stage lift pit added at addition per Owner direction",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-08",
+        "event_date": "2020-06-08"
+      },
+      "notice_date": "2020-06-11",
+      "cp_submitted": "2020-06-25",
+      "narrative": "Owner's Representative directed a hydraulic stage lift in the addition's multipurpose room. The lift needs a pit, excavated, formed and poured with the foundations. Concrete sub prices the pit.",
+      "scope_context": "Drawing S-101 shows a flat slab on grade at the multipurpose room; no pit.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Granite Concrete",
+          "trade": "Concrete",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 19466.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1946.6,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 21412.6,
+          "lines": [
+            {
+              "desc": "Excavate and haul pit",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 3800.0,
+              "amount": 3800.0
+            },
+            {
+              "desc": "Pit walls and slab, formed and poured",
+              "qty": 14,
+              "unit": "cy",
+              "rate": 690.0,
+              "amount": 9660.0
+            },
+            {
+              "desc": "Waterproofing at pit",
+              "qty": 420,
+              "unit": "sf",
+              "rate": 9.5,
+              "amount": 3990.0
+            },
+            {
+              "desc": "Finisher",
+              "qty": 24,
+              "unit": "hr",
+              "rate": 84.0,
+              "amount": 2016.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 11,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 21412.6,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1070.63,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 35035.0,
+        "total_requested": 57518.23
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 11,
+        "claimed_calendar": true,
+        "narrative": "The pit must be built after the footings and foundation walls and before the slab on grade is poured over the area. New activity F-0401A, Excavate, form and pour stage lift pit, takes 6 working days. F-0401A cannot start until A1420 (Footings and foundation walls - addition) finishes. A1430 (Slab on grade - addition) cannot start until F-0401A finishes. CM requests 11 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0401A",
+            "name": "Excavate, form and pour stage lift pit",
+            "duration": 6
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1420",
+            "succ": "F-0401A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0401A",
+            "succ": "A1430",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0402",
+      "title": "Field-modified gym truss bearings per RFI-214",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-214",
+        "event_date": "2020-06-12"
+      },
+      "notice_date": "2020-06-16",
+      "cp_submitted": "2020-06-30",
+      "narrative": "RFI-214 asked how the gym roof trusses bear on the existing masonry wall. Architect's response corrects a detailing error and requires new slotted bearing assemblies to be field-welded after the trusses are set.",
+      "scope_context": "Drawing S-301 detail 4 shows a standard bearing plate, which conflicts with the existing wall's anchor layout.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Puget Steel Erectors",
+          "trade": "Structural steel",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 15274.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1527.4,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 16801.4,
+          "lines": [
+            {
+              "desc": "Slotted bearing assembly",
+              "qty": 12,
+              "unit": "ea",
+              "rate": 640.0,
+              "amount": 7680.0
+            },
+            {
+              "desc": "Ironworker",
+              "qty": 64,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 6144.0
+            },
+            {
+              "desc": "Special inspection, welds",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1450.0,
+              "amount": 1450.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 7,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 16801.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 840.07,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 22295.0,
+        "total_requested": 39936.47
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 7,
+        "claimed_calendar": true,
+        "narrative": "The field welding can start 15 working days after steel erection starts, when the gym trusses are set, and the metal deck cannot start until the welding is done and inspected. New activity F-0402A, Field-weld revised gym truss bearing assemblies (RFI-214), takes 4 working days. F-0402A cannot start until 15 working days after A1460 (Erect structural steel - addition) starts. A1470 (Metal deck and elevated slab - addition) cannot start until F-0402A finishes. CM requests 7 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0402A",
+            "name": "Field-weld revised gym truss bearing assemblies (RFI-214)",
+            "duration": 4
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1460",
+            "succ": "F-0402A",
+            "type": "SS",
+            "lag": 15
+          },
+          {
+            "pred": "F-0402A",
+            "succ": "A1470",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0403",
+      "title": "Acoustic wall panels in addition music room",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner letter 2020-06-15",
+        "event_date": "2020-06-15"
+      },
+      "notice_date": "2020-06-17",
+      "cp_submitted": "2020-06-29",
+      "narrative": "Owner added fabric-wrapped acoustic wall panels and wall blocking in the addition's music and band rooms.",
+      "scope_context": "Spec 09 84 00 is not in the project manual; drawings show painted gypsum board in rooms 205 and 206.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Harmony Acoustics",
+          "trade": "Acoustic treatments",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 35772.0,
+          "lower_tier_total": 4100.0,
+          "markup_on_own": 3577.2,
+          "markup_on_lower_tier": 205.0,
+          "quote_total": 43654.2,
+          "lines": [
+            {
+              "desc": "Fabric-wrapped wall panels",
+              "qty": 1380,
+              "unit": "sf",
+              "rate": 23.0,
+              "amount": 31740.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 56,
+              "unit": "hr",
+              "rate": 72.0,
+              "amount": 4032.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Ridgeline Carpentry",
+              "scope": "In-wall blocking, rooms 205-206",
+              "amount": 4100.0
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 7,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 43654.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 2182.71,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 22295.0,
+        "total_requested": 68131.91
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 7,
+        "claimed_calendar": false,
+        "narrative": "The panels go on after the addition is painted and must be complete before the ceiling grid goes in, because the panels run to the deck. New activity F-0403A, Install acoustic wall panels - addition music rooms, takes 7 working days. F-0403A cannot start until A1760 (Painting - addition) finishes. A1740 (Ceilings - addition) cannot start until F-0403A finishes. CM requests 7 working days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0403A",
+            "name": "Install acoustic wall panels - addition music rooms",
+            "duration": 7
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1760",
+            "succ": "F-0403A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0403A",
+            "succ": "A1740",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0404",
+      "title": "Added play structure at primary playground",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-17",
+        "event_date": "2020-06-17"
+      },
+      "notice_date": "2020-06-20",
+      "cp_submitted": "2020-07-04",
+      "narrative": "Owner added a second play structure and its safety surfacing at the primary playground.",
+      "scope_context": "Drawing L-201 shows one play structure.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Site Works",
+          "trade": "Site improvements",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 70320.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 7032.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 77352.0,
+          "lines": [
+            {
+              "desc": "Play structure, furnished",
+              "qty": 1,
+              "unit": "ea",
+              "rate": 38500.0,
+              "amount": 38500.0
+            },
+            {
+              "desc": "Footings",
+              "qty": 8,
+              "unit": "ea",
+              "rate": 610.0,
+              "amount": 4880.0
+            },
+            {
+              "desc": "Poured-in-place surfacing",
+              "qty": 1650,
+              "unit": "sf",
+              "rate": 14.0,
+              "amount": 23100.0
+            },
+            {
+              "desc": "Laborer",
+              "qty": 60,
+              "unit": "hr",
+              "rate": 64.0,
+              "amount": 3840.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 14,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 77352.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 3867.6,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 44590.0,
+        "total_requested": 125809.6
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 14,
+        "claimed_calendar": true,
+        "narrative": "The new structure is installed after the playground and play surfacing work and must be finished before final striping and site cleanup. New activity F-0404A, Install added play structure and surfacing, takes 10 working days. F-0404A cannot start until A2140 (Playground and play surfacing) finishes. A2170 (Striping and final site cleanup) cannot start until F-0404A finishes. CM requests 14 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0404A",
+            "name": "Install added play structure and surfacing",
+            "duration": 10
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A2140",
+            "succ": "F-0404A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0404A",
+            "succ": "A2170",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0405",
+      "title": "Revised casework blocking per ASI-061",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-061",
+        "event_date": "2020-06-19"
+      },
+      "notice_date": "2020-06-23",
+      "cp_submitted": "2020-07-06",
+      "narrative": "ASI-061 moves the Wing A classroom casework to the opposite walls. Framing sub adds blocking and patches the moved locations.",
+      "scope_context": "Drawing A-401 shows casework on the corridor walls of rooms 110 to 118.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Framing",
+          "trade": "Framing and drywall",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 12798.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1279.8,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 14077.8,
+          "lines": [
+            {
+              "desc": "Blocking and backing",
+              "qty": 9,
+              "unit": "room",
+              "rate": 520.0,
+              "amount": 4680.0
+            },
+            {
+              "desc": "Framer",
+              "qty": 72,
+              "unit": "hr",
+              "rate": 74.0,
+              "amount": 5328.0
+            },
+            {
+              "desc": "Drywall patch at old locations",
+              "qty": 9,
+              "unit": "room",
+              "rate": 310.0,
+              "amount": 2790.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 12,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 14077.8,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 703.89,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 38220.0,
+        "total_requested": 53001.69
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 12,
+        "claimed_calendar": true,
+        "narrative": "The blocking work follows the Wing A framing and drywall and has to be done before painting in the existing building starts. New activity F-0405A, Rework casework blocking - Wing A (ASI-061), takes 8 working days. F-0405A cannot start until A1700 (Framing and drywall - Wing A) finishes. A1750 (Painting - existing building) cannot start until F-0405A finishes. CM requests 12 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0405A",
+            "name": "Rework casework blocking - Wing A (ASI-061)",
+            "duration": 8
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1700",
+            "succ": "F-0405A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0405A",
+            "succ": "A1750",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0406",
+      "title": "PV-ready roof upgrade at addition",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner letter 2020-06-22",
+        "event_date": "2020-06-22"
+      },
+      "notice_date": "2020-06-25",
+      "cp_submitted": "2020-07-09",
+      "narrative": "Owner directed a PV-ready roof at the addition: added blocking, conduit sleeves and thicker insulation under the membrane.",
+      "scope_context": "Spec 07 54 23 covers a standard TPO roof with R-30 insulation and no solar provisions.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Summit Roofing",
+          "trade": "Roofing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 50090.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 5009.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 55099.0,
+          "lines": [
+            {
+              "desc": "Added insulation R-30 to R-38",
+              "qty": 21000,
+              "unit": "sf",
+              "rate": 1.35,
+              "amount": 28350.0
+            },
+            {
+              "desc": "PV stanchion blocking",
+              "qty": 140,
+              "unit": "ea",
+              "rate": 85.0,
+              "amount": 11900.0
+            },
+            {
+              "desc": "Roofer",
+              "qty": 120,
+              "unit": "hr",
+              "rate": 82.0,
+              "amount": 9840.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 17,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 55099.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 2754.95,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 54145.0,
+        "total_requested": 111998.95
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 17,
+        "claimed_calendar": true,
+        "narrative": "The added blocking and insulation work starts after the metal deck and elevated slab are complete, and the roofing membrane cannot start until it is done. CM's claim counts the whole 12 working days of added work. New activity F-0406A, PV-ready blocking and added roof insulation - addition, takes 12 working days. F-0406A cannot start until A1470 (Metal deck and elevated slab - addition) finishes. A1520 (Roofing - addition) cannot start until F-0406A finishes. CM requests 17 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0406A",
+            "name": "PV-ready blocking and added roof insulation - addition",
+            "duration": 12
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1470",
+            "succ": "F-0406A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0406A",
+            "succ": "A1520",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0407",
+      "title": "Storefront head subframing per RFI-233",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-233",
+        "event_date": "2020-06-24"
+      },
+      "notice_date": "2020-06-29",
+      "cp_submitted": "2020-07-13",
+      "narrative": "RFI-233 response revises the storefront head detail at the addition and adds steel subframing above every storefront opening.",
+      "scope_context": "Drawing A-501 detail 7 shows storefront heads anchored directly to the framing.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Glazing",
+          "trade": "Glazing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 10900.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1090.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 11990.0,
+          "lines": [
+            {
+              "desc": "Steel head subframe",
+              "qty": 18,
+              "unit": "ea",
+              "rate": 410.0,
+              "amount": 7380.0
+            },
+            {
+              "desc": "Glazier",
+              "qty": 40,
+              "unit": "hr",
+              "rate": 88.0,
+              "amount": 3520.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 21,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 11990.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 599.5,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 66885.0,
+        "total_requested": 79474.5
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 21,
+        "claimed_calendar": true,
+        "narrative": "The subframing goes in after the exterior framing and sheathing at the addition and must be in place before windows and storefront can be set. New activity F-0407A, Install storefront head subframing (RFI-233), takes 4 working days. F-0407A cannot start until A1510 (Exterior framing and sheathing - addition) finishes. A1530 (Windows and storefront - addition) cannot start until F-0407A finishes. CM requests 21 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0407A",
+            "name": "Install storefront head subframing (RFI-233)",
+            "duration": 4
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1510",
+            "succ": "F-0407A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0407A",
+            "succ": "A1530",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0408",
+      "title": "Rerouted sprinkler mains per ASI-070",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-070",
+        "event_date": "2020-06-25"
+      },
+      "notice_date": "2020-06-29",
+      "cp_submitted": "2020-07-13",
+      "narrative": "ASI-070 reroutes the addition's sprinkler mains around the revised duct mains and adds two zones.",
+      "scope_context": "Drawing FP-201 shows the mains running through the corridor ceiling space.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sentinel Fire Protection",
+          "trade": "Fire sprinklers",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 29668.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 2966.8,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 32634.8,
+          "lines": [
+            {
+              "desc": "Rerouted main, pipe and fittings",
+              "qty": 420,
+              "unit": "lf",
+              "rate": 38.0,
+              "amount": 15960.0
+            },
+            {
+              "desc": "Zone valve assembly",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 2150.0,
+              "amount": 4300.0
+            },
+            {
+              "desc": "Sprinkler fitter",
+              "qty": 96,
+              "unit": "hr",
+              "rate": 98.0,
+              "amount": 9408.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 14,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 32634.8,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1631.74,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 44590.0,
+        "total_requested": 78856.54
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 14,
+        "claimed_calendar": true,
+        "narrative": "The rerouting follows the addition's sprinkler rough-in and must be done before the in-wall and above-ceiling inspections for the addition. New activity F-0408A, Reroute sprinkler mains - addition (ASI-070), takes 9 working days. F-0408A cannot start until A1640 (Fire sprinkler rough-in - addition) finishes. A1685 (In-wall and above-ceiling inspections - addition) cannot start until F-0408A finishes. CM requests 14 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0408A",
+            "name": "Reroute sprinkler mains - addition (ASI-070)",
+            "duration": 9
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1640",
+            "succ": "F-0408A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0408A",
+            "succ": "A1685",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0409",
+      "title": "Steel erection start: erector crane availability",
+      "cause": {
+        "type": "Other event",
+        "reference": "Erector letter 2020-06-10",
+        "event_date": "2020-06-10"
+      },
+      "notice_date": "2020-06-16",
+      "cp_submitted": "2020-06-30",
+      "narrative": "The steel erector advised that its crawler crane is committed to another job and will arrive 5 working days later than planned. CM asks for time and the erector's standby cost.",
+      "scope_context": "Subcontract with the erector requires mobilization within 3 days of notice.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Puget Steel Erectors",
+          "trade": "Structural steel",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 6400.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 640.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 7040.0,
+          "lines": [
+            {
+              "desc": "Crane standby, remobilization",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 6400.0,
+              "amount": 6400.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 7,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 7040.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 352.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 7392.0
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 7,
+        "claimed_calendar": true,
+        "narrative": "The crane wait sits between the slab on grade and the start of steel erection: erection cannot start until the crane arrives, and the wait begins when the slab is done. New activity F-0409A, Wait for erector's crane (erector's commitment elsewhere), takes 5 working days. F-0409A cannot start until A1430 (Slab on grade - addition) finishes. A1460 (Erect structural steel - addition) cannot start until F-0409A finishes. CM requests 7 calendar days of time extension, time only.",
+        "cause_party": "contractor",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0409A",
+            "name": "Wait for erector's crane (erector's commitment elsewhere)",
+            "duration": 5
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1430",
+            "succ": "F-0409A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0409A",
+            "succ": "A1460",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0410",
+      "title": "Flatwork crew shortage at site",
+      "cause": {
+        "type": "Other event",
+        "reference": "Sub letter 2020-06-15",
+        "event_date": "2020-06-15"
+      },
+      "notice_date": "2020-06-20",
+      "cp_submitted": "2020-07-04",
+      "narrative": "The flatwork sub reports a crew shortage and will start curbs and sidewalks 8 working days late. CM asks for time only.",
+      "scope_context": "Subcontract schedule requires flatwork to follow site electrical directly.",
+      "subcontractor_quotes": [],
+      "cm_lines": [],
+      "time_impact_days": 10,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 0.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 0.0
+      },
+      "backup_attached": [
+        "cause document",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 10,
+        "claimed_calendar": true,
+        "narrative": "The late start sits after the site electrical and lighting conduit work and before curbs, sidewalks and flatwork. New activity F-0410A, Flatwork crew unavailable (subcontractor shortage), takes 8 working days. F-0410A cannot start until A2110 (Site electrical and lighting conduit) finishes. A2130 (Curbs, sidewalks and flatwork) cannot start until F-0410A finishes. CM requests 10 calendar days of time extension, time only.",
+        "cause_party": "contractor",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0410A",
+            "name": "Flatwork crew unavailable (subcontractor shortage)",
+            "duration": 8
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A2110",
+            "succ": "F-0410A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0410A",
+            "succ": "A2130",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0411",
+      "title": "Abnormal rainfall at addition excavation",
+      "cause": {
+        "type": "Other event",
+        "reference": "Daily reports 2020-06-03 to 2020-06-08",
+        "event_date": "2020-06-03"
+      },
+      "notice_date": "2020-06-10",
+      "cp_submitted": "2020-06-24",
+      "narrative": "Rainfall in early June 2020 was well above the ten-year average at the nearest NOAA station and flooded the addition footprint. CM pumped the site and asks for time only.",
+      "scope_context": "Daily reports and NOAA data attached.",
+      "subcontractor_quotes": [],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Laborer, pumping and erosion control",
+          "hours": 24,
+          "wage": 41.0,
+          "burden_rate": 0.32,
+          "amount": 1298.88
+        },
+        {
+          "kind": "equipment",
+          "desc": "Trash pump (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 24,
+          "idle_hours": 0,
+          "blue_book_rate": 22.0,
+          "rate_charged": 16.5,
+          "amount": 396.0,
+          "daily_logs_attached": true
+        }
+      ],
+      "time_impact_days": 7,
+      "cover_sheet": {
+        "cm_direct_costs": 1694.88,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 84.74,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 1779.62
+      },
+      "backup_attached": [
+        "cause document",
+        "labor timesheets",
+        "equipment daily logs",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 7,
+        "claimed_calendar": true,
+        "narrative": "The weather days fall after the haul-off and clearing of the addition footprint and before excavation and shoring can start. New activity F-0411A, Weather standby - abnormal rainfall at addition footprint, takes 4 working days. F-0411A cannot start until A1340 (Haul-off and clear addition footprint) finishes. A1400 (Excavation and shoring - addition) cannot start until F-0411A finishes. CM requests 7 calendar days of time extension, time only.",
+        "cause_party": "neither",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0411A",
+            "name": "Weather standby - abnormal rainfall at addition footprint",
+            "duration": 4
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1340",
+            "succ": "F-0411A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0411A",
+            "succ": "A1400",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0412",
+      "title": "Flooded underslab utility trench",
+      "cause": {
+        "type": "Other event",
+        "reference": "Daily reports 2020-06-26 to 2020-06-30",
+        "event_date": "2020-06-26"
+      },
+      "notice_date": "2020-07-02",
+      "cp_submitted": "2020-07-16",
+      "narrative": "A second abnormal storm flooded the open underslab utility trench at the addition. The trench has to be dewatered, re-excavated and the bedding replaced. CM asks for time only.",
+      "scope_context": "Daily reports and NOAA data attached.",
+      "subcontractor_quotes": [],
+      "cm_lines": [
+        {
+          "kind": "labor",
+          "desc": "Laborer, dewatering and bedding",
+          "hours": 40,
+          "wage": 41.0,
+          "burden_rate": 0.32,
+          "amount": 2164.8
+        },
+        {
+          "kind": "equipment",
+          "desc": "Mini excavator (CM-owned)",
+          "owned_by_cm": true,
+          "hours_used": 16,
+          "idle_hours": 0,
+          "blue_book_rate": 68.0,
+          "rate_charged": 51.0,
+          "amount": 816.0,
+          "daily_logs_attached": true
+        },
+        {
+          "kind": "material",
+          "desc": "Pipe bedding gravel",
+          "amount": 1240.0
+        }
+      ],
+      "time_impact_days": 21,
+      "cover_sheet": {
+        "cm_direct_costs": 4220.8,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 211.04,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 4431.84
+      },
+      "backup_attached": [
+        "cause document",
+        "labor timesheets",
+        "equipment daily logs",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 21,
+        "claimed_calendar": true,
+        "narrative": "The recovery work follows the underslab utilities and must be finished before the slab on grade is poured. CM's claim counts all 15 working days of recovery work. New activity F-0412A, Dewater and re-excavate flooded underslab utility trench, takes 15 working days. F-0412A cannot start until A1410 (Underslab utilities - addition) finishes. A1430 (Slab on grade - addition) cannot start until F-0412A finishes. CM requests 21 calendar days of time extension, time only.",
+        "cause_party": "neither",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0412A",
+            "name": "Dewater and re-excavate flooded underslab utility trench",
+            "duration": 15
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1410",
+            "succ": "F-0412A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0412A",
+            "succ": "A1430",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0413",
+      "title": "Classroom flooring change (concurrent with crew shortage)",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-29",
+        "event_date": "2020-06-29"
+      },
+      "notice_date": "2020-07-02",
+      "cp_submitted": "2020-07-16",
+      "narrative": "Owner changed the addition classroom flooring from VCT to rubber tile, which adds a resubmittal and longer lead time. Separately, the flooring sub has told CM it will be short a crew for the same period.",
+      "scope_context": "Spec 09 65 19 specifies VCT in classrooms 201 to 212.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Northwest Floors",
+          "trade": "Flooring",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 35752.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 3575.2,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 39327.2,
+          "lines": [
+            {
+              "desc": "Rubber tile upcharge over VCT",
+              "qty": 9800,
+              "unit": "sf",
+              "rate": 3.4,
+              "amount": 33320.0
+            },
+            {
+              "desc": "Installer",
+              "qty": 32,
+              "unit": "hr",
+              "rate": 76.0,
+              "amount": 2432.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 11,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 39327.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1966.36,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 35035.0,
+        "total_requested": 76328.56
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 11,
+        "claimed_calendar": true,
+        "narrative": "Both delays fall between the addition ceilings and the addition classroom flooring. The Owner's change adds 6 working days for the resubmittal and delivery; the sub's crew shortage would by itself also hold the flooring start by 6 working days, over the same period. New activity F-0413A, Resubmit and deliver rubber flooring (Owner change), takes 6 working days. New activity F-0413B, Flooring crew shortage (subcontractor), takes 6 working days. F-0413A cannot start until A1740 (Ceilings - addition) finishes. A1790 (Flooring - addition classrooms) cannot start until F-0413A finishes. F-0413B cannot start until A1740 (Ceilings - addition) finishes. A1790 (Flooring - addition classrooms) cannot start until F-0413B finishes. CM requests 11 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": true
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0413A",
+            "name": "Resubmit and deliver rubber flooring (Owner change)",
+            "duration": 6
+          },
+          {
+            "id": "F-0413B",
+            "name": "Flooring crew shortage (subcontractor)",
+            "duration": 6
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1740",
+            "succ": "F-0413A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0413A",
+            "succ": "A1790",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "A1740",
+            "succ": "F-0413B",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0413B",
+            "succ": "A1790",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0414",
+      "title": "Sunshades at existing windows per ASI-075",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-075",
+        "event_date": "2020-06-30"
+      },
+      "notice_date": "2020-07-04",
+      "cp_submitted": "2020-07-18",
+      "narrative": "ASI-075 adds aluminum sunshades above the south-facing replacement windows in the existing building.",
+      "scope_context": "Drawing A-210 shows no sunshades on the existing building.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Glazing",
+          "trade": "Glazing",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 31768.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 3176.8,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 34944.8,
+          "lines": [
+            {
+              "desc": "Aluminum sunshade, 8 ft",
+              "qty": 22,
+              "unit": "ea",
+              "rate": 1180.0,
+              "amount": 25960.0
+            },
+            {
+              "desc": "Glazier",
+              "qty": 66,
+              "unit": "hr",
+              "rate": 88.0,
+              "amount": 5808.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 34944.8,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1747.24,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 36692.04
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ],
+      "time": {
+        "claimed_days": 0,
+        "claimed_calendar": true,
+        "narrative": "The sunshades are installed after the existing-building window replacement and before exterior painting and sealants. CM requests no time. New activity F-0414A, Install sunshades - existing building (ASI-075), takes 6 working days. F-0414A cannot start until A1560 (Window replacement - existing building) finishes. A1580 (Exterior painting and sealants - existing building) cannot start until F-0414A finishes. CM requests no extension of time.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0414A",
+            "name": "Install sunshades - existing building (ASI-075)",
+            "duration": 6
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1560",
+            "succ": "F-0414A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0414A",
+            "succ": "A1580",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0415",
+      "title": "Added data drops in Wing B offices",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-06-23",
+        "event_date": "2020-06-23"
+      },
+      "notice_date": "2020-06-25",
+      "cp_submitted": "2020-07-05",
+      "narrative": "Owner added 16 data drops in the Wing B administration offices. Work fits in the existing MEP rough-in for Wing B.",
+      "scope_context": "Drawing T-102 shows 20 data drops in Wing B offices.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 2912.0,
+          "lower_tier_total": 4800.0,
+          "markup_on_own": 291.2,
+          "markup_on_lower_tier": 240.0,
+          "quote_total": 8243.2,
+          "lines": [
+            {
+              "desc": "Electrician",
+              "qty": 24,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 2304.0
+            },
+            {
+              "desc": "Box, ring, conduit per drop",
+              "qty": 16,
+              "unit": "ea",
+              "rate": 38.0,
+              "amount": 608.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Lakeside Low Voltage",
+              "scope": "Cat 6 cabling, termination, testing",
+              "amount": 4800.0
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 0,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 8243.2,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 412.16,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 0.0,
+        "total_requested": 8655.36
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns"
+      ],
+      "time": {
+        "claimed_days": 0,
+        "claimed_calendar": true,
+        "narrative": "No schedule activities are added; the drops are installed by the existing crew within MEP rough-in - Wing B. CM requests no time. No new activities are added to the schedule. CM requests no extension of time.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [],
+        "relationships": []
+      }
+    }
+  ]
+}

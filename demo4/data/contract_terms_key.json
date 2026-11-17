@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "spec": "docs/demo4-spec.md section 3",
+    "verification": "each quote is a verbatim substring of its contract; each value appears in its quote (numbers as written, lists and enums by keyword); section is the numbered paragraph holding the quote"
+  },
+  "contracts": {
+    "A": {
+      "name": "Contract A: Demo 1 synthetic GC/CM contract (School Modernization and Addition)",
+      "file": "demo1/data/synthetic_contract.md",
+      "terms": {
+        "markup_own_pct": {
+          "value": 10,
+          "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+          "section": "6.5.2"
+        },
+        "markup_lower_pct": {
+          "value": 5,
+          "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+          "section": "6.5.2"
+        },
+        "markup_total_pct": {
+          "value": 15,
+          "quote": "Total markup on any portion of the work shall not exceed 15%.",
+          "section": "6.5.2"
+        },
+        "fee_pct": {
+          "value": 5,
+          "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+          "section": "6.5.3"
+        },
+        "fee_allowed_on": {
+          "value": [
+            "CM direct costs",
+            "subcontractor quotes"
+          ],
+          "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
+          "section": "6.5.3"
+        },
+        "labor_burden_pct": {
+          "value": 32,
+          "quote": "plus a fixed labor burden of 32% of direct wages",
+          "section": "5.4"
+        },
+        "blue_book_pct": {
+          "value": 75,
+          "quote": "Other CM-owned equipment is charged at 75% of the current published Blue Book rental rate",
+          "section": "6.5.4"
+        },
+        "approval_limit": {
+          "value": 250000,
+          "quote": "Owner's Representative may approve a CO of up to $250,000.",
+          "section": "6.7"
+        },
+        "notice_days_by_cause": {
+          "value": {
+            "RFI response": 7,
+            "ASI": 7,
+            "Submittal return": 7,
+            "Owner direction": 7,
+            "Architect direction": 7,
+            "Concealed condition": 7,
+            "Other event": 14
+          },
+          "quote": "(a) 7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time;\n- (b) 7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change;\n- (c) before disturbing the condition, and no later than 7 days after first observing it, for concealed or unknown physical conditions that differ from the Contract Documents;\n- (d) 14 days after CM first knew or should have known of any other event that may increase cost or time.",
+          "section": "6.2"
+        },
+        "contract_days": {
+          "value": 540,
+          "quote": "CM shall achieve Substantial Completion within 540 days after the Notice to Proceed",
+          "section": "3.2"
+        },
+        "liquidated_damages_per_day": {
+          "value": 2500,
+          "quote": "CM shall pay Owner $2,500 for each day of delay.",
+          "section": "3.3"
+        },
+        "daily_delay_rate": {
+          "value": 3185,
+          "quote": "SGC may be increased only by CO for an extension of Contract Time, at a daily rate of $3,185 per day.",
+          "section": "5.2"
+        },
+        "sgc_total": {
+          "value": 1720000,
+          "quote": "SGC is $1,720,000, billed as shown in Exhibit C.",
+          "section": "5.2"
+        },
+        "extension_requires_critical_path": {
+          "value": true,
+          "quote": "An extension is available only for delays outside CM's control that are shown on the critical path",
+          "section": "3.4"
+        },
+        "compensable_causes": {
+          "value": [
+            "owner",
+            "architect"
+          ],
+          "quote": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path, using the SGC daily rate in Section 5.2 and with no Fee.",
+          "section": "6.5.6"
+        },
+        "concurrent_delay": {
+          "value": "time_no_money",
+          "quote": "Delays with concurrent causes receive time but no compensation.",
+          "section": "6.5.6"
+        }
+      }
+    },
+    "B": {
+      "name": "Contract B: synthetic GC/CM contract (Middle School Replacement)",
+      "file": "demo4/data/contract_b.md",
+      "terms": {
+        "markup_own_pct": {
+          "value": 8,
+          "quote": "A Subcontractor may add a combined allowance for overhead and profit of not more than 8% of the cost of the changed work it performs with its own forces, and not more than 4% of the cost of changed work performed by its lower-tier subcontractors.",
+          "section": "7.5.2"
+        },
+        "markup_lower_pct": {
+          "value": 4,
+          "quote": "A Subcontractor may add a combined allowance for overhead and profit of not more than 8% of the cost of the changed work it performs with its own forces, and not more than 4% of the cost of changed work performed by its lower-tier subcontractors.",
+          "section": "7.5.2"
+        },
+        "markup_total_pct": {
+          "value": 12,
+          "quote": "In no event shall the cumulative markup of all tiers on any portion of the changed work exceed 12%.",
+          "section": "7.5.2"
+        },
+        "fee_pct": {
+          "value": 4.5,
+          "quote": "On each Change Order CM may add a Fee of 4.5%, computed only on CM direct costs and subcontractor quotes.",
+          "section": "7.5.3"
+        },
+        "fee_allowed_on": {
+          "value": [
+            "CM direct costs",
+            "subcontractor quotes"
+          ],
+          "quote": "On each Change Order CM may add a Fee of 4.5%, computed only on CM direct costs and subcontractor quotes.",
+          "section": "7.5.3"
+        },
+        "labor_burden_pct": {
+          "value": 30,
+          "quote": "plus a fixed labor burden equal to 30% of direct wages",
+          "section": "5.2"
+        },
+        "blue_book_pct": {
+          "value": 70,
+          "quote": "Equipment owned by CM or by an entity affiliated with CM shall be charged at 70% of the monthly, weekly, or daily rental rate",
+          "section": "7.5.4"
+        },
+        "approval_limit": {
+          "value": 150000,
+          "quote": "The Owner's Representative may execute any Change Order whose value does not exceed $150,000.",
+          "section": "7.7"
+        },
+        "notice_days_by_cause": {
+          "value": {
+            "RFI response": 10,
+            "ASI": 10,
+            "Submittal return": 10,
+            "Owner direction": 10,
+            "Architect direction": 10,
+            "Concealed condition": 10,
+            "Other event": 21
+          },
+          "quote": "CM shall give written notice of a Potential Change within 10 days after it receives an RFI response, Architect's Supplemental Instruction, submittal return, or written or oral direction from Owner or Architect, or after it first observes a concealed or unknown physical condition, which in that case it shall not disturb before giving notice. For any other event that may increase its cost or time, CM shall give notice within 21 days after it knew or reasonably should have known of the event.",
+          "section": "7.2"
+        },
+        "contract_days": {
+          "value": 420,
+          "quote": "CM shall achieve Substantial Completion of the entire Work not later than 420 days after the date of commencement",
+          "section": "3.2"
+        },
+        "liquidated_damages_per_day": {
+          "value": 1800,
+          "quote": "$1,800 for each day that Substantial Completion is late",
+          "section": "3.3"
+        },
+        "daily_delay_rate": {
+          "value": 2450,
+          "quote": "the General Conditions Costs shall be increased at the rate of $2,450 for each day of the extension, with no Fee added",
+          "section": "5.3"
+        },
+        "sgc_total": {
+          "value": 1286000,
+          "quote": "The General Conditions Costs are a fixed sum of $1,286,000",
+          "section": "5.3"
+        },
+        "extension_requires_critical_path": {
+          "value": true,
+          "quote": "that is shown by a time impact analysis to delay an activity on the critical path of the most recent accepted schedule update",
+          "section": "3.4"
+        },
+        "compensable_causes": {
+          "value": [
+            "owner"
+          ],
+          "quote": "CM is entitled to an increase in the General Conditions Costs for an extension of the Contract Time only when the delay was caused by Owner, or by a separate contractor or consultant retained by Owner other than Architect, and the delay affected the critical path.",
+          "section": "7.5.6"
+        },
+        "concurrent_delay": {
+          "value": "time_no_money",
+          "quote": "When a delay to the critical path has concurrent causes and one of them is the responsibility of CM or its Subcontractors, CM shall receive an extension of time but no additional compensation for the period of concurrency.",
+          "section": "7.5.6"
+        }
+      },
+      "notes": {
+        "architect_caused_delay": "time only (Section 7.5.6)",
+        "gc_base_fee": "fixed $1,214,600 (Section 5.1) is not the change-order Fee"
+      }
+    }
+  }
+}

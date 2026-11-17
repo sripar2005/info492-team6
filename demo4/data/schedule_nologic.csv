@@ -1,0 +1,92 @@
+Activity ID,Activity Name,WBS,Original Duration,Start,Finish,Actual Start,Actual Finish,Remaining Duration
+A1000,Notice to Proceed,Milestones,0,2020-02-03,2020-02-03,2020-02-03,2020-02-03,0
+A1090,Substantial Completion,Milestones,0,2021-07-02,2021-07-02,,,
+A1100,Mobilize site office and trailers,Mobilization,8,2020-02-03,2020-02-12,2020-02-03,2020-02-12,0
+A1110,Temporary fencing and site security,Mobilization,4,2020-02-05,2020-02-10,2020-02-05,2020-02-10,0
+A1120,Temporary power and utilities,Mobilization,6,2020-02-06,2020-02-13,2020-02-06,2020-02-13,0
+A1130,Submittal schedule and long-lead buyout,Mobilization,15,2020-02-03,2020-02-24,2020-02-03,2020-02-24,0
+A1140,Erosion control and construction entrance,Mobilization,3,2020-02-11,2020-02-13,2020-02-11,2020-02-13,0
+A1150,Temporary heat and dehumidification - addition,Mobilization,10,2020-10-21,2020-11-03,,,
+A1200,Hazardous materials survey verification,Abatement,5,2020-02-13,2020-02-20,2020-02-13,2020-02-20,0
+A1210,Abatement - Wing A classrooms,Abatement,20,2020-02-21,2020-03-19,2020-02-21,2020-03-19,0
+A1220,Abatement - Wing B admin and library,Abatement,15,2020-03-20,2020-04-13,2020-03-20,2020-04-13,0
+A1230,Abatement - existing gym and commons,Abatement,12,2020-04-14,2020-04-29,2020-04-14,2020-04-29,0
+A1240,Abatement clearance air testing,Abatement,4,2020-04-30,2020-05-05,2020-04-30,2020-05-05,0
+A1300,Interior demolition - Wing A,Demolition,15,2020-03-20,2020-04-10,2020-03-20,2020-04-10,0
+A1310,Interior demolition - Wing B,Demolition,12,2020-04-14,2020-04-29,2020-04-14,2020-04-29,0
+A1320,Demolish existing gym (addition footprint),Demolition,15,2020-05-06,2020-05-27,2020-05-06,2020-05-27,0
+A1330,Structural openings and selective demolition - Wing A,Demolition,10,2020-04-13,2020-04-24,2020-04-13,2020-04-24,0
+A1340,Haul-off and clear addition footprint,Demolition,6,2020-05-28,2020-06-04,2020-05-28,,4
+A1350,Demolish existing paving and site utilities,Demolition,10,2020-06-01,2020-06-12,,,
+A1400,Excavation and shoring - addition,Foundations and Structure,12,2020-06-05,2020-06-22,,,
+A1410,Underslab utilities - addition,Foundations and Structure,8,2020-06-23,2020-07-02,,,
+A1420,Footings and foundation walls - addition,Foundations and Structure,25,2020-06-15,2020-07-20,,,
+A1430,Slab on grade - addition,Foundations and Structure,10,2020-07-21,2020-08-03,,,
+A1440,Structural steel shop drawings and approval,Foundations and Structure,35,2020-02-10,2020-04-02,2020-02-10,2020-04-02,0
+A1450,Fabricate and deliver structural steel,Foundations and Structure,40,2020-04-03,2020-05-29,2020-04-03,2020-05-29,0
+A1460,Erect structural steel - addition,Foundations and Structure,25,2020-08-04,2020-09-08,,,
+A1470,Metal deck and elevated slab - addition,Foundations and Structure,15,2020-08-25,2020-09-15,,,
+A1480,Seismic upgrade - Wing A shear walls,Foundations and Structure,40,2020-04-27,2020-06-22,2020-04-27,,16
+A1490,Seismic upgrade - Wing B,Foundations and Structure,35,2020-06-23,2020-08-11,,,
+A1500,Window and storefront submittals and fabrication,Envelope and Roofing,60,2020-02-18,2020-05-11,2020-02-18,2020-05-11,0
+A1510,Exterior framing and sheathing - addition,Envelope and Roofing,20,2020-09-01,2020-09-29,,,
+A1520,Roofing - addition,Envelope and Roofing,18,2020-09-16,2020-10-09,,,
+A1530,Windows and storefront - addition,Envelope and Roofing,15,2020-09-30,2020-10-20,,,
+A1540,Exterior cladding - addition,Envelope and Roofing,30,2020-10-07,2020-11-18,,,
+A1550,Reroof existing building,Envelope and Roofing,25,2020-07-08,2020-08-11,,,
+A1560,Window replacement - existing building,Envelope and Roofing,25,2020-08-12,2020-09-16,,,
+A1570,Addition dry-in,Envelope and Roofing,0,2020-10-20,2020-10-20,,,
+A1580,Exterior painting and sealants - existing building,Envelope and Roofing,15,2020-09-17,2020-10-07,,,
+A1600,Procure switchgear and air handling units,MEP Rough-In,80,2020-02-25,2020-06-16,2020-02-25,,12
+A1610,MEP rough-in - Wing A,MEP Rough-In,40,2020-06-23,2020-08-18,,,
+A1620,MEP rough-in - Wing B,MEP Rough-In,35,2020-08-12,2020-09-30,,,
+A1630,MEP rough-in - addition,MEP Rough-In,35,2020-10-21,2020-12-11,,,
+A1640,Fire sprinkler rough-in - addition,MEP Rough-In,20,2020-11-04,2020-12-04,,,
+A1650,Set rooftop units and air handlers,MEP Rough-In,8,2020-10-12,2020-10-21,,,
+A1660,Main switchgear and electrical service,MEP Rough-In,12,2020-08-04,2020-08-19,,,
+A1670,Fire sprinkler rough-in - existing building,MEP Rough-In,35,2020-06-30,2020-08-18,,,
+A1680,In-wall and above-ceiling inspections - existing building,MEP Rough-In,5,2020-10-01,2020-10-07,,,
+A1685,In-wall and above-ceiling inspections - addition,MEP Rough-In,5,2020-12-14,2020-12-18,,,
+A1690,Energize permanent power,MEP Rough-In,3,2020-10-22,2020-10-26,,,
+A1700,Framing and drywall - Wing A,Interiors and Finishes,35,2020-10-08,2020-11-30,,,
+A1710,Framing and drywall - Wing B,Interiors and Finishes,30,2020-10-22,2020-12-07,,,
+A1720,Framing and drywall - addition,Interiors and Finishes,30,2020-12-21,2021-02-03,,,
+A1730,Ceilings - existing building,Interiors and Finishes,30,2020-12-15,2021-01-28,,,
+A1740,Ceilings - addition,Interiors and Finishes,20,2021-03-05,2021-04-01,,,
+A1750,Painting - existing building,Interiors and Finishes,35,2020-12-01,2021-01-21,,,
+A1760,Painting - addition,Interiors and Finishes,20,2021-02-04,2021-03-04,,,
+A1770,Flooring - existing building,Interiors and Finishes,30,2021-01-29,2021-03-12,,,
+A1780,Casework and millwork - existing building,Interiors and Finishes,25,2021-02-05,2021-03-12,,,
+A1790,Flooring - addition classrooms,Interiors and Finishes,15,2021-04-02,2021-04-22,,,
+A1800,Gym wood floor,Interiors and Finishes,20,2021-04-02,2021-04-29,,,
+A1810,Casework and millwork - addition,Interiors and Finishes,15,2021-04-23,2021-05-13,,,
+A1820,MEP trim and fixtures - existing building,Interiors and Finishes,30,2021-02-12,2021-03-26,,,
+A1830,MEP trim and fixtures - addition,Interiors and Finishes,20,2021-04-30,2021-05-27,,,
+A1840,"Doors, hardware and specialties - existing building",Interiors and Finishes,15,2021-03-15,2021-04-02,,,
+A1850,"Doors, hardware and specialties - addition",Interiors and Finishes,15,2021-04-23,2021-05-13,,,
+A1860,Gym equipment and bleachers,Interiors and Finishes,10,2021-04-30,2021-05-13,,,
+A1870,Interior signage,Interiors and Finishes,5,2021-05-14,2021-05-20,,,
+A1880,Elevator installation - addition,Interiors and Finishes,35,2020-11-04,2020-12-28,,,
+A1890,Owner furniture delivery and install,Interiors and Finishes,15,2021-06-01,2021-06-21,,,
+A2100,Site utilities - storm and sewer,Sitework,20,2020-06-15,2020-07-13,,,
+A2110,Site electrical and lighting conduit,Sitework,12,2020-06-22,2020-07-08,,,
+A2120,Fire lane and bus loop paving,Sitework,15,2020-11-19,2020-12-11,,,
+A2130,"Curbs, sidewalks and flatwork",Sitework,20,2020-12-14,2021-01-12,,,
+A2140,Playground and play surfacing,Sitework,15,2020-12-21,2021-01-12,,,
+A2150,Landscaping and irrigation,Sitework,20,2021-01-13,2021-02-10,,,
+A2160,"Site fencing, gates and signage",Sitework,10,2021-01-13,2021-01-27,,,
+A2170,Striping and final site cleanup,Sitework,5,2021-02-11,2021-02-18,,,
+A2200,Test and balance HVAC,Commissioning,15,2021-05-28,2021-06-18,,,
+A2210,Fire alarm and sprinkler acceptance testing,Commissioning,5,2021-05-28,2021-06-04,,,
+A2220,Functional performance testing and controls,Commissioning,15,2021-06-07,2021-06-25,,,
+A2230,Elevator inspection and permit,Commissioning,5,2020-12-29,2021-01-05,,,
+A2240,Envelope water testing and commissioning,Commissioning,5,2020-11-19,2020-11-25,,,
+A2250,Fire marshal and building official final inspections,Commissioning,5,2021-06-28,2021-07-02,,,
+A2260,Certificate of occupancy,Commissioning,0,2021-07-02,2021-07-02,,,
+A2300,Punch list - existing building,Closeout,15,2021-04-05,2021-04-23,,,
+A2310,Punch list - addition,Closeout,15,2021-05-28,2021-06-18,,,
+A2320,O&M manuals and warranties,Closeout,20,2021-06-07,2021-07-02,,,
+A2330,Owner training,Closeout,5,2021-06-28,2021-07-02,,,
+A2340,Final cleaning,Closeout,8,2021-06-21,2021-06-30,,,
+A2350,Record drawings,Closeout,15,2021-06-07,2021-06-25,,,
+A2360,Owner move-in readiness walkthrough,Closeout,2,2021-07-01,2021-07-02,,,
