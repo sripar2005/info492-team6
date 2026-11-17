@@ -2,7 +2,7 @@
 
 Each party on a change runs its own agent: the **Subcontractor**, the **GC/CM**, the **Architect**, and the **Owner's PM**. Each one reviews a priced Change Proposal (CP) from its own seat and within its own authority, quotes the clause it relies on, and hands a message to the next party. People make every decision.
 
-Live: [check tool](https://info492-team6.vercel.app/check/) (the product this demo led to) · [results with evaluation](https://info492-team6.vercel.app/demo3/) · [agent dashboard](https://info492-team6.vercel.app/app/)
+Live: [check tool](https://info492-team6.vercel.app/app/) (the product this demo led to) · [results with evaluation](https://info492-team6.vercel.app/demo3/) · [agent dashboard](https://info492-team6.vercel.app/app/)
 
 **What came out of it.** The agents on free 8B models caught 22 of 33 seeded issues and flagged every clean proposal. Every check that is plain arithmetic, moved into code (`rules.py`), caught 23 of 33 with no false alarms. The same small model, asked only to *copy* numbers from a PDF (`extract.py`), read 121 of 121 fields right on five sample PDFs. So the check tool splits the work: the model reads, code checks, a person confirms. These follow-ups were designed after seeing the Demo 3 runs and are scored beside them, not in place of them.
 
@@ -56,7 +56,7 @@ node ../tools/parity.js           # browser checks (assets/checks.js) match rule
 | `hybrid.py` | Tradeoff table: computed checks plus agent flags at different strictness |
 | `extract.py` | Reads a PDF's text into the check form with the local model; `--test` runs the sample PDFs |
 | `../assets/checks.js` | The same checks in the browser, for the check tool |
-| `../check/` | The check tool: upload, confirm the numbers, marked-up result |
+| `../app/` | The check tool: upload, confirm the numbers, marked-up result |
 | `../app/` | Sign-in with role selection, and the agent dashboard (Demo 3 research) |
 
 ## Targets (set before running)

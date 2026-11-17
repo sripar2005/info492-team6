@@ -2,7 +2,7 @@
 """Run the whole site on your own computer with live agents on a local model (no API key, no cost).
 
     ollama pull llama3.1:8b
-    python3 demo3/serve_local.py            # then open http://localhost:8000/clausestream/
+    python3 demo3/serve_local.py            # then open http://localhost:8000/
 
 "Run agents live" in the dashboard calls /api/demo3 here, which runs the role agent on Ollama.
 The check page's PDF upload calls /api/extract here, which reads the document's text into the form
@@ -108,7 +108,7 @@ def main():
     ap.add_argument("--port", type=int, default=8000)
     a = ap.parse_args()
     srv = ThreadingHTTPServer(("127.0.0.1", a.port), partial(Handler, directory=str(ROOT)))
-    print(f"Serving the site with live local agents ({MODEL}) at http://localhost:{a.port}/clausestream/")
+    print(f"Serving the site with live local agents ({MODEL}) at http://localhost:{a.port}/")
     srv.serve_forever()
 
 

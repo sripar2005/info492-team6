@@ -4,99 +4,56 @@
 <meta charset="utf-8">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sign in · ClauseStream</title>
-<meta name="theme-color" content="#0b0c0e">
+<title>ClauseStream</title>
+<meta name="description" content="Check a priced change proposal against the contract before you send it: markups, the CM fee, labor rates, equipment, deadlines and signatures.">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/cs.css">
-<style>
-main { max-width: 980px; margin: 0 auto; padding: 56px 16px 64px; }
-.head { text-align: center; margin-bottom: 30px; }
-.head h1 { font-size: clamp(2rem, 5vw, 3rem); margin-top: 14px; }
-.head p { color: var(--muted); max-width: 54ch; margin: 12px auto 0; }
-.card { padding: 26px; }
-.roles { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 14px; }
-@media (max-width: 640px) { .roles { grid-template-columns: 1fr; } }
-.role { position: relative; text-align: left; padding: 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--glass); cursor: pointer; display: grid; gap: 6px; transition: border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease); }
-.role:hover { border-color: var(--line-2); transform: translateY(-2px); }
-.role[aria-checked="true"] { border-color: rgba(255,106,61,0.6); background: rgba(255,106,61,0.07); }
-.role .top { display: flex; justify-content: space-between; align-items: center; }
-.role b { font-size: 1.08rem; font-weight: 600; letter-spacing: -0.02em; }
-.role .step { font: 500 .72rem/1 var(--mono); color: var(--faint); }
-.role p { margin: 0; color: var(--muted); font-size: .9rem; }
-.role .auth { font: 400 .76rem/1.45 var(--mono); color: var(--faint); }
-.role .tick { position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line-2); }
-.role[aria-checked="true"] .tick { background: var(--accent); border-color: var(--accent);  }
-.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-@media (max-width: 640px) { .fields { grid-template-columns: 1fr; } }
-label { display: grid; gap: 6px; font-size: .86rem; color: var(--muted); }
-input { font: inherit; color: var(--text); background: rgba(0,0,0,0.25); border: 1px solid var(--line-2); border-radius: 11px; padding: 11px 12px; }
-input:focus { outline: none; border-color: rgba(255,106,61,0.6); }
-.hint { font-size: .78rem; color: var(--faint); }
-.go { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
-.note { font-size: .8rem; color: var(--faint); max-width: 52ch; }
-.section-label { font: 500 .74rem/1 var(--mono); color: var(--faint); }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="bar glass">
-    <a class="logo" href="/clausestream/" aria-label="ClauseStream home"><span class="mark">§</span><span class="hide-sm">ClauseStream</span></a><span class="research hide-sm">Demo 3 research</span>
-    <nav><a class="hide-sm" href="/demo3/">How it works</a><a class="hide-sm" href="/app/" aria-current="page">Agent dashboard</a><a class="hide-sm" href="/">Project site</a><a class="cta" href="/check/#upload">Check a proposal</a></nav>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/" aria-label="ClauseStream home"><span class="mark">§</span><span class="hide-sm">ClauseStream</span></a>
+    <button class="chip-btn" id="contractBtn" title="The contract these checks use"><span class="dot"></span><span class="hide-md hide-lg">Checking against:</span> <b>Sample GC/CM contract</b></button>
+    <div class="seg" id="roles" role="radiogroup" aria-label="I am the">
+      <span class="seg-lbl hide-md">I'm the</span>
+      <button role="radio" data-role="sub">Sub</button><button role="radio" data-role="gc">GC/CM</button><button role="radio" data-role="architect">Architect</button><button role="radio" data-role="owner">Owner's rep</button>
+    </div>
   </div>
 </header>
-
-<main>
-  <div class="head fade-in">
-    <span class="kicker">Demo 3 · Priced change proposals</span>
-    <h1 class="shine">Sign in to your seat on the project.</h1>
-    <p>Each party runs its own agent. Pick the role you're working as. You'll see what that party's agent found, what it can and can't do on its own, and the full audit trail.</p>
+<div id="modeband" class="modeband" role="status" hidden></div>
+<nav class="sheets" aria-label="Sheets in this project">
+  <div class="sheets-in">
+    <a href="#project" data-nav="project"><b>A-001</b><span>Project</span></a>
+    <a href="#record" data-nav="record"><b>R-101</b><span>Record</span></a>
+    <a href="#changes" data-nav="changes"><b>T-201</b><span>Changes</span></a>
+    <a href="#contract" data-nav="contract"><b>G-001</b><span>Contract</span></a>
+    <a href="#schedule" data-nav="schedule"><b>S-101</b><span>Schedule</span></a>
+    <a href="#upload" data-nav="check"><b>C-201</b><span>Check a proposal</span></a>
+    <a href="#proposals" data-nav="proposals"><b>C-202</b><span>My proposals</span></a>
+    <a href="#delay" data-nav="delay"><b>D-301</b><span>Delay check</span></a>
   </div>
+</nav>
 
-  <form class="card glass fade-in" id="f" style="animation-delay:.1s">
-    <span class="section-label">Choose your role</span>
-    <div class="roles" role="radiogroup" aria-label="Role">
-      <button type="button" class="role" role="radio" aria-checked="false" data-role="sub"><span class="tick"></span>
-        <span class="top"><span class="step">01 · Prices the work</span></span><b>Subcontractor</b>
-        <p>Checks your own quote against the contract before it goes to the GC/CM.</p>
-        <span class="auth">Can submit or hold for fixes. Can't escalate.</span></button>
-      <button type="button" class="role" role="radio" aria-checked="false" data-role="gc"><span class="tick"></span>
-        <span class="top"><span class="step">02 · Packages the CP</span></span><b>GC/CM</b>
-        <p>Reviews sub pricing, backup, and tie-out before the CP goes to the Owner.</p>
-        <span class="auth">Can send on, return to the sub, or escalate to the CM PM.</span></button>
-      <button type="button" class="role" role="radio" aria-checked="false" data-role="architect"><span class="tick"></span>
-        <span class="top"><span class="step">03 · Confirms scope</span></span><b>Architect</b>
-        <p>Checks whether the priced work is really a change from the drawings and specs.</p>
-        <span class="auth">Reviews for the Owner. Can't approve cost or time.</span></button>
-      <button type="button" class="role" role="radio" aria-checked="true" data-role="owner"><span class="tick"></span>
-        <span class="top"><span class="step">04 · Recommends</span></span><b>Owner's PM</b>
-        <p>Checks Fee, markups, covered costs, notice, and claims before you recommend.</p>
-        <span class="auth">Recommends, returns, or escalates. Never approves on its own.</span></button>
-    </div>
-    <div class="fields">
-      <label>Your name <input id="name" autocomplete="name" placeholder="e.g. Alex Rivera" maxlength="60"></label>
-    </div>
-    <div class="go">
-      <span class="note">Demo sign-in: no account is created and nothing is sent anywhere until you run an agent live. Your name and actions stay in this browser tab.</span>
-      <button class="btn primary" type="submit">Open dashboard →</button>
-    </div>
-  </form>
-</main>
-<script>
-(function () {
-  var role = 'owner';
-  var btns = document.querySelectorAll('.role');
-  try { var saved = JSON.parse(sessionStorage.getItem('cs_session') || 'null'); if (saved) { role = saved.role; document.getElementById('name').value = saved.name || ''; } } catch (e) {}
-  function pick(r) { role = r; btns.forEach(function (b) { b.setAttribute('aria-checked', b.dataset.role === r ? 'true' : 'false'); }); }
-  pick(role);
-  btns.forEach(function (b) { b.addEventListener('click', function () { pick(b.dataset.role); }); });
-  document.getElementById('f').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var s = { role: role, name: document.getElementById('name').value.trim() || 'Guest', pass: '' };
-    try { sessionStorage.setItem('cs_session', JSON.stringify(s)); } catch (err) {}
-    location.href = '/app/dashboard.html?role=' + role;
-  });
-})();
-</script>
+<main id="app"></main>
+
+<div class="modal" id="contractModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <div class="modal-h"><div><span class="eyebrow">Checking against</span><h2 id="cmTitle">Sample GC/CM contract</h2></div><button class="x" data-close aria-label="Close">✕</button></div>
+    <div id="cmBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="/assets/checks.js"></script>
+<script src="/assets/contract.js"></script>
+<script src="/assets/schedule.js"></script>
+<script src="/assets/delay.js"></script>
+<script src="/assets/app.js"></script>
+<script src="/assets/views-time.js"></script>
+<script src="/assets/demo-db.js"></script>
+<script src="/assets/vendor/supabase/supabase.js"></script>
+<script src="/assets/views-record.js"></script>
 </body>
 </html>

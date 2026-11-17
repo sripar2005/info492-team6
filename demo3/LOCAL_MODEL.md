@@ -23,4 +23,4 @@ ollama pull llama3.1:8b
 ollama run llama3.1:8b "hi"      # warm the model up first
 python3 demo3/serve_local.py     # from the repo root
 ```
-Then open http://localhost:8000/clausestream/ and click **Check a proposal**. Drop in a PDF (try `check/samples/CP-0212-haul-off-fee-problem.pdf`): the local model reads it into the form (`/api/extract`, see `extract.py`), you confirm the numbers, and the checks run in the browser. The agent dashboard's "Run agents live" (`/api/demo3`) also works here. No key, no cost, nothing leaves the machine.
+Then open http://localhost:8000/ and click **Check a proposal**. Drop in a PDF (try `app/samples/CP-0212-haul-off-fee-problem.pdf`): the local model reads it into the form (`/api/extract`, see `extract.py`), you confirm the numbers, and the checks run in the browser. The agent dashboard's "Run agents live" (`/api/demo3`) also works here. No key, no cost, nothing leaves the machine.

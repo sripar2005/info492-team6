@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/check", "destination": "/app/", "permanent": false },
+    { "source": "/check/:path*", "destination": "/app/:path*", "permanent": false },
+    { "source": "/clausestream", "destination": "/", "permanent": false },
+    { "source": "/clausestream/:path*", "destination": "/", "permanent": false },
+    { "source": "/app/dashboard.html", "destination": "/research/agents/dashboard.html", "permanent": false }
+  ]
+}

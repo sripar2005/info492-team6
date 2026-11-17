@@ -6,7 +6,7 @@ After the Nov 17 meeting with an owner-side project manager (Lake Washington Sch
 2. **Load your schedule.** Primavera P6 `.xer`, Microsoft Project `.xml`, Excel, CSV or PDF. The critical path is recomputed from the logic in the file, with schedule quality checks, edits, and baseline/update versions.
 3. **Check a delay.** The change's work is inserted into the current schedule as a fragnet and the critical path rerun (a time impact analysis in the style of AACE 52R-06). The days are then priced under the contract, with toggles for who caused the delay, paid vs time-only, and concurrent delay.
 
-All of it is on the check page: `/check/#contract`, `/check/#schedule`, `/check/#delay`.
+All of it is on the check page: `/app/#contract`, `/app/#schedule`, `/app/#delay`.
 
 ## Who does what
 

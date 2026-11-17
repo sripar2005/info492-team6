@@ -14,8 +14,37 @@
   var KIND = { note: 'Note', draft: 'Draft', check: 'Check', submit: 'Sent up', return: 'Returned', approve: 'Approved', reject: 'Rejected', comment: 'Comment', link: 'Linked', attach: 'Attached', evidence: 'Evidence' };
 
   /* ---------- connection ---------- */
+  /* ---------- sample or live ----------
+     The sample project runs in this browser tab only (assets/demo-db.js): synthetic data, nothing saved, no sign-in.
+     A live project lives in the shared database and needs sign-in. The band under the header always says which one you're in. */
+  function isSample() { return store('cs_mode') === 'sample'; }
+  function enterSample(view) { store('cs_mode', 'sample'); location.href = location.pathname + '#' + (view || 'changes'); location.reload(); }
+  function leaveSample() { store('cs_mode', null); store('cs_project_sample', null); location.href = location.pathname + '#project'; location.reload(); }
+  function band() {
+    var el = document.getElementById('modeband'); if (!el) return;
+    var cur = proj(), sample = isSample();
+    document.body.classList.toggle('is-sample', sample);
+    el.hidden = false;
+    el.className = 'modeband ' + (sample ? 'sample' : 'live');
+    el.innerHTML = sample
+      ? '<span class="mb-k">Sample project</span><span class="mb-t">Synthetic data written for this research. Not a real project, and nothing you do here is saved.</span><button class="mb-b" data-leavesample="1">Leave the sample</button>'
+      : '<span class="mb-k">' + (cur ? (cur.synthetic ? 'Live account, synthetic project' : 'Live project') : 'Live') + '</span><span class="mb-t">' + (cur ? esc(cur.name) + '. Saved to your project and seen by everyone on it.' : 'Sign in to open a real project, or try the sample.') + '</span>' +
+        '<button class="mb-b" data-entersample="1">Open the sample instead</button>';
+  }
+  function seedSample() {
+    return fetch('/record/bundle.json').then(function (r) { if (!r.ok) throw new Error('The sample record could not load.'); return r.json(); }).then(function (b) {
+      return createProject(b.project.name, 'gc', true).then(function (p) {
+        return importBundle(p.id, b, function () {}).then(function () { return seedThreads(p.id, b); });
+      });
+    });
+  }
   function connect() {
     if (ready) return ready;
+    if (isSample()) {
+      sb = window.CSDemo.make(); user = window.CSDemo.user; cfg = { configured: true, sample: true };
+      ready = seedSample().then(function () { band(); return sb; });
+      return ready;
+    }
     ready = fetch('/api/config').then(function (r) { return r.ok ? r.json() : { configured: false }; }).catch(function () { return { configured: false }; })
       .then(function (c) {
         cfg = c; if (!c.configured || !window.supabase) return null;
@@ -28,7 +57,7 @@
         return sb.auth.getSession().then(function (r) { user = r.data.session ? r.data.session.user : null; if (user) return sb.rpc('claim_invites'); });
       }).then(function () {
         if (/[?&]signin=1/.test(location.search)) { history.replaceState(null, '', location.pathname + '#project'); A.go('project'); }
-        return sb;
+        band(); return sb;
       });
     return ready;
   }
@@ -36,14 +65,14 @@
   function sheet(title, eyebrow, body) { return '<div class="wrap"><div class="ph1"><div><span class="eyebrow">' + esc(eyebrow) + '</span><h1 style="margin-top:8px">' + esc(title) + '</h1></div></div>' + body + '</div>'; }
   function fail(e) { A.toast((e && e.message) || String(e)); }
   function q(p) { return p.then(function (r) { if (r.error) throw r.error; return r.data; }); }
-  function proj() { return store('cs_project'); }
-  function setProj(p) { store('cs_project', p ? { id: p.id, name: p.name, synthetic: p.synthetic, party: p.party, is_admin: p.is_admin } : null); }
+  function proj() { return store(isSample() ? 'cs_project_sample' : 'cs_project'); }
+  function setProj(p) { store(isSample() ? 'cs_project_sample' : 'cs_project', p ? { id: p.id, name: p.name, synthetic: p.synthetic, party: p.party, is_admin: p.is_admin } : null); }
   function when(d) { var t = new Date(d); return t.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ', ' + t.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); }
 
   function gate(render) {
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Opening the project record…</h2></div></div>';
     connect().then(function () {
-      if (!cfg || !cfg.configured) return app.innerHTML = sheet('Project record', 'A-001', '<div class="banner warn"><span>The shared record runs on the live site (it needs the project database). Open <a class="link" href="https://info492-team6.vercel.app/check/#project">info492-team6.vercel.app</a>.</span></div>');
+      if (!cfg || !cfg.configured) return app.innerHTML = sheet('Project record', 'A-001', '<div class="banner warn"><span>Live projects need the project database, which this copy of the site isn’t connected to. <button class="link" data-entersample="1">Open the sample project</button> instead.</span></div>');
       if (!user) return signIn();
       render();
     }).catch(fail);
@@ -56,7 +85,7 @@
     var f = document.getElementById('signin');
     if (f) f.addEventListener('submit', function (e) {
       e.preventDefault(); var email = document.getElementById('email').value.trim();
-      q(sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + '/check/?signin=1' } })).then(function () { signIn(email); }).catch(fail);
+      q(sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + '/app/?signin=1' } })).then(function () { signIn(email); }).catch(fail);
     });
   }
 
@@ -72,13 +101,14 @@
             return '<tr><td><span class="t">' + esc(p.name) + '</span><span class="id">' + (p.synthetic ? 'Synthetic sample' : 'Project') + '</span></td><td>' + esc(PARTY[p.party] || '—') + (p.is_admin ? ' · admin' : '') + '</td><td>' +
               (cur && cur.id === p.id ? '<b>Open</b>' : '<button class="btn sm" data-popen="' + p.id + '">Open</button>') + '</td></tr>';
           }).join('');
-          var body = '<p style="margin:-6px 0 18px;color:var(--muted)">Signed in as <b>' + esc(user.email) + '</b>. <button class="link" data-signout="1">Sign out</button></p>' +
+          var body = (isSample() ? '<p style="margin:-6px 0 18px;color:var(--muted)">You’re in the sample. To work on a real project, <button class="link" data-leavesample="1">leave the sample</button> and sign in.</p>'
+              : '<p style="margin:-6px 0 18px;color:var(--muted)">Signed in as <b>' + esc(user.email) + '</b>. <button class="link" data-signout="1">Sign out</button></p>') +
             '<div class="cols" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)"><div>' +
             (list.length ? '<div class="card tbl-wrap"><table class="tbl"><thead><tr><th>Project</th><th>You are</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div>'
               : '<div class="card sec"><p style="margin:0">No projects yet. Create one, or load the synthetic sample project to try the full flow. You may also have been invited: invites appear here after you sign in with the invited email.</p></div>') +
-            '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>New project</h3></div><form id="newp" class="grid"><div class="fd"><label><span>Name</span></label><div class="inp"><input id="pname" required placeholder="e.g. Juanita HS modernization"></div></div>' +
+            (isSample() ? '' : '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>New project</h3></div><form id="newp" class="grid"><div class="fd"><label><span>Name</span></label><div class="inp"><input id="pname" required placeholder="e.g. Juanita HS modernization"></div></div>' +
             '<div class="fd"><label><span>You are the</span></label><div class="inp sel"><select id="pparty">' + Object.keys(PARTY).map(function (k) { return '<option value="' + k + '"' + (k === 'gc' ? ' selected' : '') + '>' + PARTY[k] + '</option>'; }).join('') + '</select></div></div>' +
-            '<div class="fd full"><button class="btn primary" type="submit">Create project</button> <button class="btn" type="button" data-loadsample="1">Load the synthetic sample project</button></div></form></div></div>' +
+            '<div class="fd full"><button class="btn primary" type="submit">Create project</button> <button class="btn" type="button" data-loadsample="1">Load the synthetic sample into my account</button></div></form></div>') + '</div>' +
             '<div id="pdetail">' + (cur ? '<div class="card sec"><p class="fine" style="margin:0">Loading members…</p></div>' : '<div class="card sec"><p style="margin:0;color:var(--muted)">Open a project to see who is on it and to invite the other parties.</p></div>') + '</div></div>';
           app.innerHTML = sheet('Projects', 'A-001 · Project', body);
           if (cur) detail(cur);
@@ -94,7 +124,7 @@
         el.innerHTML = '<div class="card sec"><div class="sec-h"><h3>' + esc(cur.name) + '</h3>' + (cur.synthetic ? '<span class="tagr none">synthetic</span>' : '') + '</div>' +
           '<ul class="qual">' + r[0].map(function (m) { return '<li class="info"><span class="qd"></span><div><b>' + esc(PARTY[m.party]) + '</b> ' + esc(m.email || '') + (m.is_admin ? ' · admin' : '') + '</div></li>'; }).join('') +
           r[1].map(function (i) { return '<li class="info"><span class="qd"></span><div><b>' + esc(PARTY[i.party]) + '</b> ' + esc(i.email) + ' <span class="fine">· invited</span></div></li>'; }).join('') + '</ul>' +
-          (cur.is_admin ? '<form id="inv" class="grid" style="margin-top:14px"><div class="fd"><label><span>Invite by email</span></label><div class="inp"><input id="iemail" type="email" required placeholder="architect@firm.com"></div></div><div class="fd"><label><span>As the</span></label><div class="inp sel"><select id="iparty">' +
+          (cur.is_admin && !isSample() ? '<form id="inv" class="grid" style="margin-top:14px"><div class="fd"><label><span>Invite by email</span></label><div class="inp"><input id="iemail" type="email" required placeholder="architect@firm.com"></div></div><div class="fd"><label><span>As the</span></label><div class="inp sel"><select id="iparty">' +
             Object.keys(PARTY).map(function (k) { return '<option value="' + k + '">' + PARTY[k] + '</option>'; }).join('') + '</select></div></div><div class="fd full"><button class="btn sm" type="submit">Invite</button><span class="fine" style="margin-left:10px">They join when they sign in with that email.</span></div></form>' : '') +
           '<div class="sec-h" style="margin-top:18px"><h3>Record</h3><a class="link" href="#record">Open</a></div><p class="fine" style="margin:0">' + (Object.keys(counts).length ? Object.keys(counts).map(function (k) { return counts[k] + ' ' + k.replace('_', ' '); }).join(', ') : 'No documents yet.') + '</p>' +
           '<div class="acts" style="margin-top:16px"><a class="btn primary" href="#changes">Open changes</a></div></div>';
@@ -405,7 +435,9 @@
   };
 
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-popen],[data-signout],[data-loadsample],[data-topen],[data-dopen]'); if (!t) return;
+    var t = e.target.closest('[data-popen],[data-signout],[data-loadsample],[data-topen],[data-dopen],[data-entersample],[data-leavesample]'); if (!t) return;
+    if (t.dataset.entersample) { e.preventDefault(); return enterSample('changes'); }
+    if (t.dataset.leavesample) { e.preventDefault(); return leaveSample(); }
     if (t.dataset.dopen) { store('cs_doc', t.dataset.dopen); return A.go('doc'); }
     if (t.dataset.signout) { sb.auth.signOut().then(function () { setProj(null); V.project(); }); return; }
     if (t.dataset.loadsample) { e.preventDefault(); return loadSample(); }
@@ -419,6 +451,14 @@
     if (e.target.id !== 'newp') return; e.preventDefault();
     createProject(document.getElementById('pname').value.trim(), document.getElementById('pparty').value, false).then(function () { A.toast('Project created. Invite the other parties.'); V.project(); }).catch(fail);
   });
-  V.importBundle = importBundle; V.sb = function () { return sb; }; V.connect = connect;
-  if (/[?&](signin=1|code=)/.test(location.search)) connect();
+  V.importBundle = importBundle; V.sb = function () { return sb; }; V.connect = connect; V.isSample = isSample;
+  // The band lives outside the sheet, so it gets its own listener.
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('#modeband [data-leavesample],#modeband [data-entersample]'); if (t && app.contains(t)) return; if (!t) return;
+    if (t.dataset.leavesample) leaveSample(); else enterSample('changes');
+  });
+  window.addEventListener('hashchange', band);
+  // ?project=sample (the landing page's link) opens the sample directly.
+  if (/[?&]project=sample/.test(location.search)) { store('cs_mode', 'sample'); history.replaceState(null, '', location.pathname + (location.hash || '#changes')); }
+  band(); connect();
 })();
