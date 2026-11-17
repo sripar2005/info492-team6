@@ -1,0 +1,2070 @@
+{
+ "meta": {
+  "backend": "hybrid",
+  "model": "computed checks + agent judgment",
+  "model_run": "results/local/llama3.1-8b/runs.json",
+  "agents_own": [
+   "COVERED_COST",
+   "EQUIPMENT",
+   "NOT_A_CHANGE"
+  ],
+  "gate": {
+   "require_verified_quote": true,
+   "min_agents": 1
+  }
+ },
+ "results": [
+  {
+   "id": "CP-0201",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0201-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "Exhibit B",
+       "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+       "explanation": "The CP includes a line for 'Plumber' at $92.00 per hour, which is a cost of preparing and negotiating the CP, and should not be billed separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes adding two overflow roof drains at the gym roof, but the Contract Documents already show four primary roof drains at the gym; no overflow drains are shown.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 3,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0202",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0202-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 8,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0203",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0203-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment listed as included in SGC in Exhibit B, which is not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP narrative states that Owner's Representative directed 24 added data drops in the library, but Drawing T-101 shows 12 data drops in the library. This suggests that the work is already required by the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0204",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0204-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "The Contract Documents are this Agreement, Exhibits A through E, the Drawings and Specifications (including Division 01, excerpted in Exhibit E), Addenda, and Modifications issued after the Effective Date.",
+       "explanation": "The CP is for a covered walkway canopy, but the Contract Documents do not show a canopy at the bus loop.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 7,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0205",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0205-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP includes a scissor lift rental for 1 week, but it is not clear if the equipment was actually used for the entire week or if daily logs are attached to support the charge.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0206",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0206-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for T&M work for access panels, but the scope context shows no access panels in corridors, and the RFI response does not change the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 1,
+     "agent_flags_set_aside": 2,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0207",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0207-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP does not provide daily logs for the skid steer equipment, which is required by the contract for equipment to be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes work that is already required by the Contract Documents, as shown in the scope context.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 1,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0208",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0208-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+       "explanation": "The CP includes the cost of preparing, pricing, and negotiating the CP, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Exhibit B",
+       "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+       "explanation": "The CP charges for CM-owned equipment at 75% of the Blue Book rate, but the contract requires 75% of the current published Blue Book rental rate.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes the work as adding sprinkler heads at the stage rigging, but the scope context shows no heads above the stage rigging in the drawings (FP-102).",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 6,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0209",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0209-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Cascade Plumbing: markup: 15.0% on own work (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 309.1,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment listed as included in SGC in Exhibit B, which cannot be charged to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes work that is already required by the Contract Documents, specifically Drawing P-301.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect",
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 5,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0210",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0210-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Sound Electric: markup: 10.0% on lower tier (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 280.0,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for blocking and power for 16 smartboards, but the drawings show whiteboards only; no smartboards.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 3,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0211",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0211-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on bond and insurance, B&O tax (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 17.8,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes bond and insurance premiums, which are covered by the Fee or SGC and not billable separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment costs, but the contract states that equipment listed in Exhibit B is not chargeable to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes the work as 'added exterior lighting at parking', but the scope context shows no lighting at the staff lot in Drawing E-100. The cause document is an Owner direction, but it does not describe a change to the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0212",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0212-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on NSS items (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 210.0,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for abatement of asbestos mastic, which is not mentioned in the Contract Documents or the RFI that caused it.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 1,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0213",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0213-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "explanation": "Fee rate: 7.5% (contract: 5%)",
+       "amount_at_issue": 248.33,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee or SGC and not billable separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 8,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0214",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0214-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+       "explanation": "The CP includes the cost of preparing, pricing, and negotiating the CP, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Exhibit B",
+       "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+       "explanation": "The CP charges for CM-owned equipment at 75% of the Blue Book rate, but the contract states that equipment listed as included in SGC is not chargeable to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Changes are made by Change Order, Construction Change Directive, or Architect's Supplemental Instruction.",
+       "explanation": "The CP describes the change as 'revised casework per ASI-031', but the scope context states that the Contract Documents already specify standard-height casework in rooms 201 and 203.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 2,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0215",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0215-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes field supervision labor, which is a home office overhead cost covered by the Fee or SGC and not billable on a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes labor for installing aluminum abrasive nosings, which may be considered hand tools or small tools under $1,000 per item, and thus not billable on a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 6,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0216",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0216-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes a CM-owned project pickup truck, which is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Changes are made by Change Order, Construction Change Directive, or Architect's Supplemental Instruction.",
+       "explanation": "The CP is for bleacher anchor revisions, but the Contract Documents already specify epoxy anchors.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 6,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0217",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0217-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "explanation": "Owned equipment rate: Excavator (CM-owned): 100% of Blue Book (contract: No more than 75% of Blue Book)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes excavating around an abandoned vault, but Civil drawings C-201 show no structures along the storm line route. This suggests the work is already required by the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 5,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0218",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0218-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP includes a line for 'Mobile hoisting, 6 hours' but does not provide daily logs to support the charge.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 1,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0219",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0219-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "explanation": "Labor burden: Carpenter, in-wall blocking: 45% (contract: 32%)",
+       "amount_at_issue": 78.0,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Exhibit B",
+       "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+       "explanation": "The CP includes a line for 'CM-owned equipment' but does not specify the type or quantity of equipment, which is required by the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes the work as 'blocking with a 45% labor burden' which is not a change from the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0220",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0220-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "TIEOUT",
+       "section": "6.5",
+       "explanation": "Cover sheet ties out: Total requested $15,100.40 (contract: Lines sum to $13,300.40)",
+       "amount_at_issue": 1800.0,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "shall not be billed separately, including on a CP: home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable on a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes solar control film, which is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 8,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0221",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0221-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.5.7",
+       "explanation": "Sound Electric: T&M tags signed: Unsigned: TM-513, TM-514 (contract: Signed by CM superintendent and Owner's Representative)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "6.5.5",
+       "quote": "The items in Section 5.5 shall not be included in a CP.",
+       "explanation": "The CP includes labor burden, which is covered by the Fee or SGC and not billable separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP does not provide daily logs to support equipment usage.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP describes the work as 'added corridor outlets' but the scope context shows outlets at 40-foot spacing in corridors, which is already required by the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 10,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0222",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0222-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(a)",
+       "explanation": "Notice on time: Given 2020-03-16 (contract: Due 2020-03-09 (RFI response on 2020-03-02))",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+       "explanation": "The CP includes costs for preparing, pricing, and negotiating the CP itself, which are covered by the Fee and SGC and not chargeable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes costs for equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for fire alarm devices, but the scope context shows horn-only devices in classrooms, which is consistent with the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 7,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0223",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0223-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The cost of preparing, pricing, and negotiating Change Proposals is covered by Fee or SGC and not billed separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "Hand tools and small tools under $1,000 per item are covered by Fee or SGC and not billed separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 1,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0224",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0224-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "TIME_IMPACT",
+       "section": "6.4",
+       "explanation": "Time claim: 12 days claimed (contract: A claim for time is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CP includes costs that are covered by the Fee or SGC and should not be billed separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee or SGC and should not be billed separately.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP claims 12 days of extended SGC at the contract daily rate, but the cause document shows that the building permit was issued late, which is an Owner-held permit. The CP narrative does not mention any change to the Contract Documents, and the scope context shows mobilization on 2020-01-06 as a critical path activity, which is consistent with the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 5,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0225",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0225-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+       "explanation": "The CP includes the cost of preparing, pricing, and negotiating the CP itself, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP does not provide daily logs to support the equipment charge, which is required by the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "The Contract Documents are this Agreement, Exhibits A through E, the Drawings and Specifications (including Division 01, excerpted in Exhibit E), Addenda, and Modifications issued after the Effective Date.",
+       "explanation": "The CP describes work that is already required by the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 3,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0226",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0226-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "OVER_AUTHORITY",
+       "section": "Exhibit D",
+       "explanation": "Approval limit: Total requested $310,117.50 (contract: Owner's Representative may approve up to $250,000.00)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Exhibit B",
+       "quote": "CM-owned equipment at 75% of the current Blue Book rate",
+       "explanation": "The CP includes a line for 'Seismic bracing equipment' with a cost of $50,000, which is not allowed under the contract because it is CM-owned equipment used on changed Work.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "The Contract Documents are this Agreement, Exhibits A through E, the Drawings and Specifications (including Division 01, excerpted in Exhibit E), Addenda, and Modifications issued after the Effective Date.",
+       "explanation": "The CP scope context states that drawings show bracing only at rooftop equipment, but the cause document (ASI-040) adds seismic bracing to mechanical and electrical systems across the building after a code review.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 1,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 5,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0227",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0227-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on extended SGC (time) (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 955.5,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "TIME_IMPACT",
+       "section": "6.4",
+       "explanation": "Time claim: 6 days claimed (contract: A claim for time is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives; the supervisory and management positions listed in Exhibit C; field office and project vehicles; hand tools and small tools under $1,000 per item; and the cost of preparing, pricing, and negotiating Change Proposals.",
+       "explanation": "The CP includes the cost of preparing, pricing, and negotiating Change Proposals, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP claims 6 days of extended general conditions for a roofing delay, but the scope context shows roofing on the critical path in November, which is already required by the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0228",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0228-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on NSS items (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 72.5,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "explanation": "Owned equipment rate: Forklift (CM-owned): 100% of Blue Book (contract: No more than 75% of Blue Book)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP bills home office overhead, which is covered by the Fee or SGC and not chargeable to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP charges for relocating the kitchen hood, but the scope context shows the hood on the east wall, which is consistent with the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 7,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0229",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0229-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Pacific Specialties: markup: 12.0% on own work (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 70.4,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(a)",
+       "explanation": "Notice on time: Given 2020-06-01 (contract: Due 2020-05-26 (ASI on 2020-05-18))",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 7,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0230",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0230-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.5.7",
+       "explanation": "Harmony Acoustics: itemized breakdown: Lump sum, no breakdown (contract: Breakdown of labor, material and equipment attached)",
+       "amount_at_issue": null,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.5",
+       "explanation": "Cover sheet ties out: Total requested $18,898.70 (contract: Lines sum to $17,948.70)",
+       "amount_at_issue": 950.0,
+       "basis": "computed",
+       "tier": "computed"
+      },
+      {
+       "type": "COVERED_COST",
+       "section": "5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The subcontractor quote includes a lump-sum amount for 'home office overhead' which is covered by the Fee or SGC and not chargeable to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "sub"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The subcontractor quote includes equipment costs which are listed as included in SGC in Exhibit B and should not be charged to a CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner",
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 2,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 8,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0231",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0231-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for emergency gas shutoff valves in two science rooms, but the Contract Documents already require gas outlets at lab benches with no room shutoff.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      },
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 2,
+     "agent_flags_set_aside": 2,
+     "unparsed_quotes": [
+      "Cascade Plumbing"
+     ],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0232",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0232-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes coordination time, which is a CM executive salary.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 6, Section 6.5.4",
+       "quote": "Equipment is charged only for the hours it is actually used on the changed Work, supported by daily logs.",
+       "explanation": "The CP does not provide daily logs to support equipment usage.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP narrative states that the Owner moved the locker room benches, but Drawing A-140 shows benches along the north wall. This suggests that the benches were always intended to be along the north wall, and the CP is not a change from the Contract Documents.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 3,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0233",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0233-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "Equipment listed as included in SGC in Exhibit B shall not be charged to a CP.",
+       "explanation": "The CP includes equipment that is listed as included in SGC in Exhibit B and should not be charged to the CP.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "Article 5, Section 5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The CP does not provide the approved labor schedule rates, making it unclear if the labor burden is correct.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 4,
+     "agent_flags_set_aside": 4,
+     "unparsed_quotes": [
+      "Pacific Specialties"
+     ],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0234",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0234-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee and SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "Article 5, Section 5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The CP does not provide the approved labor schedule rates, making it unclear if the labor burden is correct.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "Article 6, Section 6.3",
+       "quote": "Every CP shall attach the RFI, ASI, or CCD that caused it, subcontractor quotes with their own breakdowns, equipment logs, and T&M tags.",
+       "explanation": "The CP is missing equipment logs, which are required by the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "Work on a change without a CO or CCD is at CM's risk.",
+       "explanation": "The CP is for ceiling fans in the gym, but the Contract Documents (Drawing E-301) show no fans in the gym. The cause document (Owner email 2020-07-13) does not support the change.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      },
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 6,
+     "agent_flags_set_aside": 3,
+     "unparsed_quotes": [
+      "Sound Electric"
+     ],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0235",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0235-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "home office overhead; estimating, accounting, and purchasing; salaries of CM's executives",
+       "explanation": "The CP includes home office overhead, which is covered by the Fee or SGC and not billable under the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc",
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee and SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "Article 5, Section 5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The CP does not provide the approved labor schedule rates, making it unclear if the labor burden is correct.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "MISSING_BACKUP",
+       "section": "Article 6, Section 6.3",
+       "quote": "Every CP shall attach the RFI, ASI, or CCD that caused it, subcontractor quotes with their own breakdowns, equipment logs, and T&M tags.",
+       "explanation": "The CP is missing equipment logs, which are required by the contract.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "gc"
+       ]
+      },
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 5,
+     "agent_flags_set_aside": 3,
+     "unparsed_quotes": [
+      "Brightline Painting"
+     ],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  },
+  {
+   "id": "CP-0236",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0236-hybrid",
+     "from_role": "hybrid",
+     "authority": "code computes, agents judge, a person decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "COVERED_COST",
+       "section": "Article 5, Section 5.5",
+       "quote": "the cost of preparing, pricing, and negotiating Change Proposals",
+       "explanation": "The CP includes the cost of preparing, pricing, and negotiating the CP itself, which is covered by the Fee and SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "Article 5, Section 5.5",
+       "quote": "hand tools and small tools under $1,000 per item",
+       "explanation": "The CP includes hand tools and small tools under $1,000 per item, which are covered by the Fee and SGC and not billable.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "LABOR_BURDEN",
+       "section": "Article 5, Section 5.4",
+       "quote": "CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages",
+       "explanation": "The CP does not provide the approved labor schedule rates, making it unclear if the labor burden is correct.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "owner"
+       ]
+      },
+      {
+       "type": "NOT_A_CHANGE",
+       "section": "Article 6",
+       "quote": "The Contract Documents are this Agreement, Exhibits A through E, the Drawings and Specifications (including Division 01, excerpted in Exhibit E), Addenda, and Modifications issued after the Effective Date.",
+       "explanation": "The CP is for added hose bibbs at the courtyard, but the Contract Documents already show two hose bibbs at the courtyard (Drawing P-102).",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "architect"
+       ]
+      },
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
+       "explanation": "The subcontractor's markup on its own work exceeds the contract limit of 10%.",
+       "quote_verified": true,
+       "tier": "inferred",
+       "tier_note": "agent judgment, needs review",
+       "raised_by": [
+        "sub"
+       ]
+      }
+     ],
+     "computed_count": 0,
+     "inferred_count": 5,
+     "agent_flags_set_aside": 1,
+     "unparsed_quotes": [
+      "Cascade Plumbing"
+     ],
+     "model": "computed checks + agent judgment"
+    }
+   ]
+  }
+ ]
+}

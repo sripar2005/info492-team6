@@ -1,0 +1,77 @@
+{
+ "model_run": "results/local/llama3.1-8b/runs.json",
+ "rows": [
+  {
+   "configuration": "computed checks only",
+   "caught": 23,
+   "of": 33,
+   "detection_rate": 0.697,
+   "clean_flagged": 0,
+   "clean_total": 10,
+   "false_alarms": 0,
+   "routes_right": 27,
+   "escalation_recall": 1.0,
+   "tricky_right": 5
+  },
+  {
+   "configuration": "+ agent leads, any quote",
+   "caught": 32,
+   "of": 33,
+   "detection_rate": 0.97,
+   "clean_flagged": 10,
+   "clean_total": 10,
+   "false_alarms": 113,
+   "routes_right": 25,
+   "escalation_recall": 1.0,
+   "tricky_right": 0
+  },
+  {
+   "configuration": "+ verified quote required",
+   "caught": 31,
+   "of": 33,
+   "detection_rate": 0.939,
+   "clean_flagged": 10,
+   "clean_total": 10,
+   "false_alarms": 88,
+   "routes_right": 26,
+   "escalation_recall": 1.0,
+   "tricky_right": 1
+  },
+  {
+   "configuration": "+ two agents must agree",
+   "caught": 28,
+   "of": 33,
+   "detection_rate": 0.848,
+   "clean_flagged": 8,
+   "clean_total": 10,
+   "false_alarms": 60,
+   "routes_right": 26,
+   "escalation_recall": 1.0,
+   "tricky_right": 1
+  },
+  {
+   "configuration": "+ verified and two agents",
+   "caught": 23,
+   "of": 33,
+   "detection_rate": 0.697,
+   "clean_flagged": 4,
+   "clean_total": 10,
+   "false_alarms": 22,
+   "routes_right": 26,
+   "escalation_recall": 1.0,
+   "tricky_right": 3
+  },
+  {
+   "configuration": "+ verified and three agents",
+   "caught": 23,
+   "of": 33,
+   "detection_rate": 0.697,
+   "clean_flagged": 0,
+   "clean_total": 10,
+   "false_alarms": 0,
+   "routes_right": 27,
+   "escalation_recall": 1.0,
+   "tricky_right": 5
+  }
+ ]
+}

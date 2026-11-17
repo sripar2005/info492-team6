@@ -1,0 +1,4356 @@
+{
+ "sheets": {
+  "CP-0201": {
+   "id": "CP-0201",
+   "title": "Gym roof drains added per RFI-112",
+   "total_requested": 6895.35,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cascade Plumbing: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $6,895.35",
+     "proposal": "Total requested $6,895.35",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-02-18 (RFI response on 2020-02-10)",
+     "proposal": "Given 2020-02-14",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $6,895.35",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0202": {
+   "id": "CP-0202",
+   "title": "Fire-rated door hardware per ASI-014",
+   "total_requested": 5276.04,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Northwest Door & Hardware: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Northwest Door & Hardware: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Northwest Door & Hardware: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $5,276.04",
+     "proposal": "Total requested $5,276.04",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-03-09 (ASI on 2020-03-02)",
+     "proposal": "Given 2020-03-06",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $5,276.04",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0203": {
+   "id": "CP-0203",
+   "title": "Library data drops per Owner email",
+   "total_requested": 12317.76,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Sound Electric: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work, 5.0% on lower tier",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $12,317.76",
+     "proposal": "Total requested $12,317.76",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-04-13 (Owner direction on 2020-04-06)",
+     "proposal": "Given 2020-04-09",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $12,317.76",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0204": {
+   "id": "CP-0204",
+   "title": "Delete covered walkway canopy (deductive)",
+   "total_requested": -56664.3,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Puget Steel Erectors: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Puget Steel Erectors: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Puget Steel Erectors: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to -$56,664.30",
+     "proposal": "Total requested -$56,664.30",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-05-11 (Owner direction on 2020-05-04)",
+     "proposal": "Given 2020-05-07",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested -$56,664.30",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0205": {
+   "id": "CP-0205",
+   "title": "Heavier stud gauge per submittal return",
+   "total_requested": 11761.05,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Evergreen Framing: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Framing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Framing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $11,761.05",
+     "proposal": "Total requested $11,761.05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-05-18 (Submittal return on 2020-05-11)",
+     "proposal": "Given 2020-05-15",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Submittal return",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $11,761.05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0206": {
+   "id": "CP-0206",
+   "title": "Hallway ceiling access panels, T&M",
+   "total_requested": 4414.41,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 11,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Evergreen Framing: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Framing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Framing: T&M tags signed",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Signed by CM superintendent and Owner's Representative",
+     "proposal": "3 of 3 signed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Framing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $4,414.41",
+     "proposal": "Total requested $4,414.41",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-06-08 (RFI response on 2020-06-01)",
+     "proposal": "Given 2020-06-04",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $4,414.41",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0207": {
+   "id": "CP-0207",
+   "title": "Self-performed generator pad",
+   "total_requested": 5659.58,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $5,659.58",
+     "proposal": "Total requested $5,659.58",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Concrete laborer",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Concrete finisher",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Owned equipment rate: Skid steer (CM-owned)",
+     "section": "6.5.4",
+     "status": "pass",
+     "contract": "No more than 75% of Blue Book",
+     "proposal": "75% of Blue Book",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-06-22 (Architect direction on 2020-06-15)",
+     "proposal": "Given 2020-06-18",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Architect direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $5,659.58",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0208": {
+   "id": "CP-0208",
+   "title": "Added fire sprinkler heads at stage",
+   "total_requested": 7875.46,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Sentinel Fire Protection: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sentinel Fire Protection: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sentinel Fire Protection: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $7,875.46",
+     "proposal": "Total requested $7,875.46",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-07-13 (ASI on 2020-07-06)",
+     "proposal": "Given 2020-07-10",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $7,875.46",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0209": {
+   "id": "CP-0209",
+   "title": "Added floor drains, kitchen",
+   "total_requested": 7464.77,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 309.1,
+   "rows": [
+    {
+     "check": "Cascade Plumbing: markup",
+     "section": "6.5.2",
+     "status": "fail",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "15.0% on own work",
+     "difference": 309.1,
+     "flag": "SUB_MARKUP",
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $7,464.77",
+     "proposal": "Total requested $7,464.77",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-07-20 (RFI response on 2020-07-13)",
+     "proposal": "Given 2020-07-16",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $7,464.77",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0210": {
+   "id": "CP-0210",
+   "title": "Classroom smartboard backing and power",
+   "total_requested": 12936.0,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 280.0,
+   "rows": [
+    {
+     "check": "Sound Electric: markup",
+     "section": "6.5.2",
+     "status": "fail",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on lower tier",
+     "difference": 280.0,
+     "flag": "SUB_MARKUP",
+     "note": null
+    },
+    {
+     "check": "Sound Electric: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $12,936.00",
+     "proposal": "Total requested $12,936.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-07-27 (Owner direction on 2020-07-20)",
+     "proposal": "Given 2020-07-23",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $12,936.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0211": {
+   "id": "CP-0211",
+   "title": "Added exterior lighting at parking",
+   "total_requested": 21672.0,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 17.8,
+   "rows": [
+    {
+     "check": "Sound Electric: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $21,672.00",
+     "proposal": "Total requested $21,672.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "fail",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee also taken on bond and insurance, B&O tax",
+     "difference": 17.8,
+     "flag": "FEE_ON_EXCLUDED",
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-08-10 (Owner direction on 2020-08-03)",
+     "proposal": "Given 2020-08-06",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $21,672.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0212": {
+   "id": "CP-0212",
+   "title": "Extra haul-off for abatement debris",
+   "total_requested": 24507.0,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 8,
+    "fail": 1,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 210.0,
+   "rows": [
+    {
+     "check": "Clearwater Abatement: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Clearwater Abatement: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Clearwater Abatement: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $24,507.00",
+     "proposal": "Total requested $24,507.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "fail",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee also taken on NSS items",
+     "difference": 210.0,
+     "flag": "FEE_ON_EXCLUDED",
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Due 2020-08-17 (Concealed condition on 2020-08-10)",
+     "proposal": "Given 2020-08-10",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "person",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause is a concealed condition",
+     "difference": null,
+     "flag": "CONCEALED_CONDITION",
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $24,507.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0213": {
+   "id": "CP-0213",
+   "title": "Add gym wall padding",
+   "total_requested": 10677.98,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 248.33,
+   "rows": [
+    {
+     "check": "Summit Athletic Interiors: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $10,677.98",
+     "proposal": "Total requested $10,677.98",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "fail",
+     "contract": "5%",
+     "proposal": "7.5%",
+     "difference": 248.33,
+     "flag": "FEE_RATE",
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-08-24 (Owner direction on 2020-08-17)",
+     "proposal": "Given 2020-08-20",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $10,677.98",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0214": {
+   "id": "CP-0214",
+   "title": "Revised casework per ASI-031",
+   "total_requested": 10891.19,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 12,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Timberline Casework: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Timberline Casework: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Timberline Casework: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $10,891.19",
+     "proposal": "Total requested $10,891.19",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Project Manager, pricing this CP",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Estimator, quantity takeoff",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-09-15 (ASI on 2020-09-08)",
+     "proposal": "Given 2020-09-11",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $10,891.19",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0215": {
+   "id": "CP-0215",
+   "title": "Stair nosing replacement per RFI-152",
+   "total_requested": 8897.2,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 11,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Evergreen Flooring: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Flooring: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Evergreen Flooring: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $8,897.20",
+     "proposal": "Total requested $8,897.20",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Field supervision",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-09-21 (RFI response on 2020-09-14)",
+     "proposal": "Given 2020-09-17",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $8,897.20",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0216": {
+   "id": "CP-0216",
+   "title": "Bleacher anchor revisions",
+   "total_requested": 3835.86,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 11,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Summit Athletic Interiors: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $3,835.86",
+     "proposal": "Total requested $3,835.86",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Owned equipment rate: Project pickup truck (CM-owned)",
+     "section": "6.5.4",
+     "status": "pass",
+     "contract": "No more than 75% of Blue Book",
+     "proposal": "75% of Blue Book",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-09-28 (RFI response on 2020-09-21)",
+     "proposal": "Given 2020-09-24",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $3,835.86",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0217": {
+   "id": "CP-0217",
+   "title": "Storm line reroute at playfield",
+   "total_requested": 7992.85,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 8,
+    "fail": 1,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $7,992.85",
+     "proposal": "Total requested $7,992.85",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Operator",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Laborer",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Owned equipment rate: Excavator (CM-owned)",
+     "section": "6.5.4",
+     "status": "fail",
+     "contract": "No more than 75% of Blue Book",
+     "proposal": "100% of Blue Book",
+     "difference": null,
+     "flag": "EQUIPMENT",
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Due 2020-10-12 (Concealed condition on 2020-10-05)",
+     "proposal": "Given 2020-10-05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "person",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause is a concealed condition",
+     "difference": null,
+     "flag": "CONCEALED_CONDITION",
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $7,992.85",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0218": {
+   "id": "CP-0218",
+   "title": "Rooftop unit curb adapters per RFI-166",
+   "total_requested": 9559.62,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Rainier Mechanical: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $9,559.62",
+     "proposal": "Total requested $9,559.62",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-10-19 (RFI response on 2020-10-12)",
+     "proposal": "Given 2020-10-15",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $9,559.62",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0219": {
+   "id": "CP-0219",
+   "title": "Added classroom sinks per ASI-036",
+   "total_requested": 5625.9,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 10,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 78.0,
+   "rows": [
+    {
+     "check": "Cascade Plumbing: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cascade Plumbing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $5,625.90",
+     "proposal": "Total requested $5,625.90",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Carpenter, in-wall blocking",
+     "section": "5.4",
+     "status": "fail",
+     "contract": "32%",
+     "proposal": "45%",
+     "difference": 78.0,
+     "flag": "LABOR_BURDEN",
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-10-26 (ASI on 2020-10-19)",
+     "proposal": "Given 2020-10-22",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $5,625.90",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0220": {
+   "id": "CP-0220",
+   "title": "Window film at south classrooms",
+   "total_requested": 15100.4,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 1800.0,
+   "rows": [
+    {
+     "check": "Clearview Glazing: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Clearview Glazing: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Clearview Glazing: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "fail",
+     "contract": "Lines sum to $13,300.40",
+     "proposal": "Total requested $15,100.40",
+     "difference": 1800.0,
+     "flag": "TIEOUT",
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-11-09 (Owner direction on 2020-11-02)",
+     "proposal": "Given 2020-11-05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $15,100.40",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0221": {
+   "id": "CP-0221",
+   "title": "Corridor outlet additions, T&M",
+   "total_requested": 3908.52,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 10,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Sound Electric: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: T&M tags signed",
+     "section": "6.5.7",
+     "status": "fail",
+     "contract": "Signed by CM superintendent and Owner's Representative",
+     "proposal": "Unsigned: TM-513, TM-514",
+     "difference": null,
+     "flag": "MISSING_BACKUP",
+     "note": null
+    },
+    {
+     "check": "Sound Electric: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $3,908.52",
+     "proposal": "Total requested $3,908.52",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-11-16 (Owner direction on 2020-11-09)",
+     "proposal": "Given 2020-11-12",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $3,908.52",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0222": {
+   "id": "CP-0222",
+   "title": "Revised fire alarm devices per RFI-171",
+   "total_requested": 7750.05,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 9,
+    "fail": 1,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Sentinel Fire Alarm: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sentinel Fire Alarm: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sentinel Fire Alarm: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $7,750.05",
+     "proposal": "Total requested $7,750.05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "fail",
+     "contract": "Due 2020-03-09 (RFI response on 2020-03-02)",
+     "proposal": "Given 2020-03-16",
+     "difference": null,
+     "flag": "LATE_NOTICE",
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $7,750.05",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0223": {
+   "id": "CP-0223",
+   "title": "Door closers at corridor doors per RFI-175",
+   "total_requested": 5031.18,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 10,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Northwest Door & Hardware: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Northwest Door & Hardware: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Northwest Door & Hardware: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $5,031.18",
+     "proposal": "Total requested $5,031.18",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-03-30 (RFI response on 2020-03-23)",
+     "proposal": "Given 2020-03-26",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $5,031.18",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0224": {
+   "id": "CP-0224",
+   "title": "Permit delay, 12 days",
+   "total_requested": 38220.0,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 6,
+    "fail": 0,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $38,220.00",
+     "proposal": "Total requested $38,220.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(d)",
+     "status": "pass",
+     "contract": "Due 2020-01-21 (Other event on 2020-01-06)",
+     "proposal": "Given 2020-01-14",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "person",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "12 days claimed",
+     "difference": null,
+     "flag": "TIME_IMPACT",
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Other event",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $38,220.00",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0225": {
+   "id": "CP-0225",
+   "title": "Unsuitable soils at gym footing",
+   "total_requested": 18075.75,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 9,
+    "fail": 0,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Granite Earthworks: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Granite Earthworks: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Granite Earthworks: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $18,075.75",
+     "proposal": "Total requested $18,075.75",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Due 2020-02-10 (Concealed condition on 2020-02-03)",
+     "proposal": "Given 2020-02-03",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "person",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause is a concealed condition",
+     "difference": null,
+     "flag": "CONCEALED_CONDITION",
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $18,075.75",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0226": {
+   "id": "CP-0226",
+   "title": "Seismic bracing upgrade per ASI-040",
+   "total_requested": 310117.5,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 12,
+    "fail": 0,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Rainier Mechanical: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Sound Electric: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $310,117.50",
+     "proposal": "Total requested $310,117.50",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-04-20 (ASI on 2020-04-13)",
+     "proposal": "Given 2020-04-16",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "person",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $310,117.50",
+     "difference": null,
+     "flag": "OVER_AUTHORITY",
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0227": {
+   "id": "CP-0227",
+   "title": "Weather-related delay with extended conditions",
+   "total_requested": 20065.5,
+   "route": "ESCALATE",
+   "result": "Goes to a person",
+   "counts": {
+    "pass": 5,
+    "fail": 1,
+    "person": 1,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 955.5,
+   "rows": [
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $20,065.50",
+     "proposal": "Total requested $20,065.50",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "fail",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee also taken on extended SGC (time)",
+     "difference": 955.5,
+     "flag": "FEE_ON_EXCLUDED",
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(d)",
+     "status": "pass",
+     "contract": "Due 2020-11-30 (Other event on 2020-11-16)",
+     "proposal": "Given 2020-11-24",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "person",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "6 days claimed",
+     "difference": null,
+     "flag": "TIME_IMPACT",
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Other event",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $20,065.50",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0228": {
+   "id": "CP-0228",
+   "title": "Kitchen hood relocation per RFI-180",
+   "total_requested": 17676.96,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 10,
+    "fail": 2,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 72.5,
+   "rows": [
+    {
+     "check": "Rainier Mechanical: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Rainier Mechanical: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $17,676.96",
+     "proposal": "Total requested $17,676.96",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "fail",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee also taken on NSS items",
+     "difference": 72.5,
+     "flag": "FEE_ON_EXCLUDED",
+     "note": null
+    },
+    {
+     "check": "Owned equipment rate: Forklift (CM-owned)",
+     "section": "6.5.4",
+     "status": "fail",
+     "contract": "No more than 75% of Blue Book",
+     "proposal": "100% of Blue Book",
+     "difference": null,
+     "flag": "EQUIPMENT",
+     "note": null
+    },
+    {
+     "check": "Labor burden: Project Engineer coordination",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-04-27 (RFI response on 2020-04-20)",
+     "proposal": "Given 2020-04-23",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $17,676.96",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0229": {
+   "id": "CP-0229",
+   "title": "Added restroom partitions per ASI-044",
+   "total_requested": 4139.52,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 8,
+    "fail": 2,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 70.4,
+   "rows": [
+    {
+     "check": "Pacific Specialties: markup",
+     "section": "6.5.2",
+     "status": "fail",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "12.0% on own work",
+     "difference": 70.4,
+     "flag": "SUB_MARKUP",
+     "note": null
+    },
+    {
+     "check": "Pacific Specialties: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Pacific Specialties: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $4,139.52",
+     "proposal": "Total requested $4,139.52",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "fail",
+     "contract": "Due 2020-05-26 (ASI on 2020-05-18)",
+     "proposal": "Given 2020-06-01",
+     "difference": null,
+     "flag": "LATE_NOTICE",
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $4,139.52",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0230": {
+   "id": "CP-0230",
+   "title": "Gym sound panels per Owner direction",
+   "total_requested": 18898.7,
+   "route": "RETURN",
+   "result": "Return for correction",
+   "counts": {
+    "pass": 7,
+    "fail": 2,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 950.0,
+   "rows": [
+    {
+     "check": "Harmony Acoustics: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Harmony Acoustics: itemized breakdown",
+     "section": "6.5.7",
+     "status": "fail",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Lump sum, no breakdown",
+     "difference": null,
+     "flag": "MISSING_BACKUP",
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "fail",
+     "contract": "Lines sum to $17,948.70",
+     "proposal": "Total requested $18,898.70",
+     "difference": 950.0,
+     "flag": "TIEOUT",
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-06-15 (Owner direction on 2020-06-08)",
+     "proposal": "Given 2020-06-11",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $18,898.70",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0231": {
+   "id": "CP-0231",
+   "title": "Science room gas shutoffs per RFI-183",
+   "total_requested": 6479.45,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 7,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 1
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cascade Plumbing: markup, breakdown and totals",
+     "section": "6.5.2, 6.5.7",
+     "status": "not_checked",
+     "contract": "10% own work, 5% lower tier, 15% total; itemized breakdown",
+     "proposal": "Quote arrived as email text",
+     "difference": null,
+     "flag": null,
+     "note": "Not read by the calculator. A person or an agent has to read it."
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $6,479.45",
+     "proposal": "Total requested $6,479.45",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-06-29 (RFI response on 2020-06-22)",
+     "proposal": "Given 2020-06-25",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: RFI response",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $6,479.45",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0232": {
+   "id": "CP-0232",
+   "title": "Locker room bench relocation",
+   "total_requested": 3414.18,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 11,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 0
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Summit Athletic Interiors: markup",
+     "section": "6.5.2",
+     "status": "pass",
+     "contract": "10% own work, 5% lower tier, 15% total",
+     "proposal": "10.0% on own work",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: itemized breakdown",
+     "section": "6.5.7",
+     "status": "pass",
+     "contract": "Breakdown of labor, material and equipment attached",
+     "proposal": "Attached",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Summit Athletic Interiors: lines add up",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to the quoted direct cost",
+     "proposal": "They do",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $3,414.18",
+     "proposal": "Total requested $3,414.18",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Labor burden: Coordination time, J. Park",
+     "section": "5.4",
+     "status": "pass",
+     "contract": "32%",
+     "proposal": "32%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-07-06 (Owner direction on 2020-06-29)",
+     "proposal": "Given 2020-07-01",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $3,414.18",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0233": {
+   "id": "CP-0233",
+   "title": "Additional whiteboards per ASI-047",
+   "total_requested": 4042.5,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 7,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 1
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Pacific Specialties: markup, breakdown and totals",
+     "section": "6.5.2, 6.5.7",
+     "status": "not_checked",
+     "contract": "10% own work, 5% lower tier, 15% total; itemized breakdown",
+     "proposal": "Quote arrived as email text",
+     "difference": null,
+     "flag": null,
+     "note": "Not read by the calculator. A person or an agent has to read it."
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $4,042.50",
+     "proposal": "Total requested $4,042.50",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-07-13 (ASI on 2020-07-06)",
+     "proposal": "Given 2020-07-09",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $4,042.50",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0234": {
+   "id": "CP-0234",
+   "title": "Ceiling fans in gym per Owner direction",
+   "total_requested": 20156.85,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 7,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 1
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Sound Electric: markup, breakdown and totals",
+     "section": "6.5.2, 6.5.7",
+     "status": "not_checked",
+     "contract": "10% own work, 5% lower tier, 15% total; itemized breakdown",
+     "proposal": "Quote arrived as email text",
+     "difference": null,
+     "flag": null,
+     "note": "Not read by the calculator. A person or an agent has to read it."
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $20,156.85",
+     "proposal": "Total requested $20,156.85",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-07-20 (Owner direction on 2020-07-13)",
+     "proposal": "Given 2020-07-16",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $20,156.85",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0235": {
+   "id": "CP-0235",
+   "title": "Patch and paint after abatement",
+   "total_requested": 8782.62,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 7,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 1
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Brightline Painting: markup, breakdown and totals",
+     "section": "6.5.2, 6.5.7",
+     "status": "not_checked",
+     "contract": "10% own work, 5% lower tier, 15% total; itemized breakdown",
+     "proposal": "Quote arrived as email text",
+     "difference": null,
+     "flag": null,
+     "note": "Not read by the calculator. A person or an agent has to read it."
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $8,782.62",
+     "proposal": "Total requested $8,782.62",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(a)",
+     "status": "pass",
+     "contract": "Due 2020-07-27 (ASI on 2020-07-20)",
+     "proposal": "Given 2020-07-23",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: ASI",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $8,782.62",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  },
+  "CP-0236": {
+   "id": "CP-0236",
+   "title": "Added hose bibbs, T&M",
+   "total_requested": 3132.36,
+   "route": "APPROVE",
+   "result": "Computed checks pass",
+   "counts": {
+    "pass": 7,
+    "fail": 0,
+    "person": 0,
+    "not_checked": 1
+   },
+   "dollars_at_issue": 0,
+   "rows": [
+    {
+     "check": "Cascade Plumbing: markup, breakdown and totals",
+     "section": "6.5.2, 6.5.7",
+     "status": "not_checked",
+     "contract": "10% own work, 5% lower tier, 15% total; itemized breakdown",
+     "proposal": "Quote arrived as email text",
+     "difference": null,
+     "flag": null,
+     "note": "Not read by the calculator. A person or an agent has to read it."
+    },
+    {
+     "check": "Cover sheet ties out",
+     "section": "6.5",
+     "status": "pass",
+     "contract": "Lines sum to $3,132.36",
+     "proposal": "Total requested $3,132.36",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee rate",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "5%",
+     "proposal": "5%",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Fee base",
+     "section": "6.5.3",
+     "status": "pass",
+     "contract": "Fee on CM direct costs and subcontractor quotes only",
+     "proposal": "Fee on CM direct costs and subcontractor quotes",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Notice on time",
+     "section": "6.2(b)",
+     "status": "pass",
+     "contract": "Due 2020-08-03 (Owner direction on 2020-07-27)",
+     "proposal": "Given 2020-07-29",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Time claim",
+     "section": "6.4",
+     "status": "pass",
+     "contract": "A claim for time is decided by a person",
+     "proposal": "No time claimed",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Site condition",
+     "section": "6.2(c)",
+     "status": "pass",
+     "contract": "Entitlement for a concealed condition is decided by a person",
+     "proposal": "Cause: Owner direction",
+     "difference": null,
+     "flag": null,
+     "note": null
+    },
+    {
+     "check": "Approval limit",
+     "section": "Exhibit D",
+     "status": "pass",
+     "contract": "Owner's Representative may approve up to $250,000.00",
+     "proposal": "Total requested $3,132.36",
+     "difference": null,
+     "flag": null,
+     "note": null
+    }
+   ],
+   "not_computed": [
+    "Whether a cost is already covered by the Fee (Section 5.5)",
+    "Whether the priced work is really a change from the drawings and specs",
+    "Whether an equipment item belongs in SGC or NSS (Exhibits B and C)",
+    "Whether hours, quantities and unit prices are reasonable"
+   ]
+  }
+ }
+}

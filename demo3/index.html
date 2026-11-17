@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/cs.css">
 <style>
-main { max-width: 1160px; margin: 0 auto; padding: 40px 16px 70px; display: grid; gap: 18px; }
+main { max-width: 1160px; margin: 0 auto; padding: 40px 16px 70px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .hero h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); margin-top: 12px; max-width: 22ch; }
 .hero p { color: var(--muted); max-width: 70ch; margin: 14px 0 0; }
 .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
@@ -67,6 +67,16 @@ ul.clean b { color: var(--text); font-weight: 500; }
     <p class="sub" id="scoreSub">Loading…</p>
     <div class="big4" id="big4"></div>
     <p class="target" id="target"></p>
+  </section>
+
+  <section class="panel glass fade-in" id="precheck">
+    <span class="kicker">Added November 16 · a second system, scored beside the first</span>
+    <h2 style="margin-top:8px">The pre-check sheet: computed checks only</h2>
+    <p class="sub">After Demo 3 we moved every check that is plain arithmetic into code and scored it on the same 36 proposals and answer key. It uses no model. The Demo 3 scores above are unchanged; the proposals, answer key and agent prompts were not touched. Which checks moved was decided after seeing the Demo 3 runs, so read this as a follow-up, not a blind test.</p>
+    <div class="big4"><div><b>23/33</b><span>seeded issues caught</span></div><div><b>0</b><span>false alarms</span></div><div><b>0/10</b><span>clean proposals flagged</span></div><div><b>6/6</b><span>claims sent to a person</span></div></div>
+    <p class="sub" style="margin-top:16px">The 10 it misses need judgment about what a line item means (7) or are inside quotes that arrived as email text (3). Layering the Llama agents' flags on top finds most of them, at this cost:</p>
+    <div class="tablewrap"><table id="curve"></table></div>
+    <p class="sub" style="margin-top:12px">With this model no setting adds catches without adding noise, and the strictest setting adds nothing. So the <a href="/app/" style="text-decoration:underline">dashboard</a> now leads with the sheet and keeps agent reviews collapsed as unverified leads. Code: <a href="https://github.com/sripar2005/info492-team6/blob/main/demo3/rules.py" style="text-decoration:underline">rules.py</a>, <a href="https://github.com/sripar2005/info492-team6/blob/main/demo3/hybrid.py" style="text-decoration:underline">hybrid.py</a>.</p>
   </section>
 
   <section class="panel glass fade-in">
@@ -141,6 +151,7 @@ ul.clean b { color: var(--text); font-weight: 500; }
       <li>The change proposals, labels, prompts, and baseline keyword lists were written by the same team, so the test favors whatever we expected. A second, independent set is the next step.</li>
       <li>36 proposals on one synthetic contract; real packages are longer PDFs with drawings and email threads.</li>
       <li>One run per model; model outputs can vary between runs. Four Llama proposals (CP-0209 to 0212) were rerun after one machine crashed on a malformed reply; we changed only the error handling, not prompts or labels. One owner review (CP-0210) still failed and counts as no flags.</li>
+      <li>The pre-check sheet reads structured fields. Real proposals are PDFs and spreadsheets that must be read into fields first; that step is not built or tested.</li>
       <li>Human actions in the dashboard are stored in your browser only, for the demo.</li>
     </ul>
   </section>
@@ -149,8 +160,8 @@ ul.clean b { color: var(--text); font-weight: 500; }
 <script>
 (function () {
   var PRETTY = { 'llama3.1-8b': 'Llama 3.1 8B', 'qwen2.5-7b': 'Qwen2.5 7B', 'qwen2.5-3b': 'Qwen2.5 3B', 'gemma2-9b': 'Gemma 2 9B' };
-  function NAME(k) { if (k === 'agents') return 'Agents (Claude API)'; if (k === 'baseline') return 'Baseline (no AI)'; var m = k.replace('local-', ''); return 'Agents · ' + (PRETTY[m] || m); }
-  function order(S) { var ks = Object.keys(S); return ks.filter(function (k) { return k.indexOf('local-llama') === 0; }).concat(ks.filter(function (k) { return k.indexOf('local-') === 0 && k.indexOf('local-llama') !== 0; }), ks.filter(function (k) { return k === 'agents'; }), ks.filter(function (k) { return k === 'baseline'; })); }
+  function NAME(k) { if (k === 'agents') return 'Agents (Claude API)'; if (k === 'baseline') return 'Baseline (no AI)'; if (k === 'rules') return 'Pre-check sheet (no AI)'; var m = k.replace('local-', ''); return 'Agents · ' + (PRETTY[m] || m); }
+  function order(S) { var ks = Object.keys(S); return ks.filter(function (k) { return k.indexOf('local-llama') === 0; }).concat(ks.filter(function (k) { return k.indexOf('local-') === 0 && k.indexOf('local-llama') !== 0; }), ks.filter(function (k) { return k === 'agents'; }), ks.filter(function (k) { return k === 'rules'; }), ks.filter(function (k) { return k === 'baseline'; })); }
   var data = null, sys = null, only = 'all';
   function pct(x) { return x == null ? '—' : (x * 100).toFixed(1).replace(/\.0$/, '') + '%'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
@@ -211,6 +222,10 @@ ul.clean b { color: var(--text); font-weight: 500; }
     if (b.dataset.o) { only = b.dataset.o; this.querySelectorAll('[data-o]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); }
     renderTrace();
   });
+  fetch('/demo3/results/tradeoff.json').then(function (r) { return r.json(); }).then(function (j) {
+    document.getElementById('curve').innerHTML = '<thead><tr><th>Setup</th><th class="num">Caught</th><th class="num">Clean proposals flagged</th><th class="num">False alarms</th></tr></thead><tbody>' +
+      j.rows.map(function (r) { return '<tr><td>' + esc(r.configuration) + '</td><td class="num">' + r.caught + '/' + r.of + '</td><td class="num">' + r.clean_flagged + '/' + r.clean_total + '</td><td class="num">' + r.false_alarms + '</td></tr>'; }).join('') + '</tbody>';
+  }).catch(function () {});
   fetch('/demo3/results/evaluation.json').then(function (r) { return r.json(); }).then(function (j) { data = j; var ks = order(j.systems); sys = ks[0]; document.getElementById('sysBtns').innerHTML = ks.map(function (k) { return '<button data-s="' + k + '" aria-pressed="' + (k === sys) + '">' + NAME(k) + '</button>'; }).join(''); render(); })
     .catch(function () { document.getElementById('scoreSub').textContent = 'Results not available yet.'; });
 })();

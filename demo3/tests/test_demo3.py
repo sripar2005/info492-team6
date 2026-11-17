@@ -51,3 +51,18 @@ r["CP-0201"]["trail"] = [env("owner", "RETURN", ["COVERED_COST"])]; r["CP-0201"]
 m = score(bad, key)["metrics"]
 assert m["issues_caught"] == 32 and m["extra_flags"] == 1 and m["clean_cases_flagged"] == 1 and m["routes_right"] == 34
 print("scoring ok\nAll offline tests passed.")
+
+# Pre-check sheet: computed checks only
+import rules  # noqa: E402
+cs = rules.checksheet(cases["CP-0212"])
+fee = [r for r in cs["rows"] if r["check"] == "Fee base"][0]
+assert fee["status"] == "fail" and fee["difference"] == 210.0, "5% Fee on $4,200 of NSS"
+assert cs["route"] == "ESCALATE" and cs["counts"]["person"] == 1
+clean = rules.checksheet(cases["CP-0201"])
+assert clean["counts"]["fail"] == 0 and clean["counts"]["person"] == 0 and clean["route"] == "APPROVE"
+email = rules.checksheet(cases["CP-0231"])
+assert email["counts"]["not_checked"] == 1, "email-text quotes are reported as not checked, never guessed"
+m = score({"results": [rules.check(c) for c in cases.values()]}, key)["metrics"]
+assert m["extra_flags"] == 0 and m["clean_cases_flagged"] == 0 and m["escalation_recall"] == 1.0
+assert m["issues_caught"] == 23, "computed checks reach 23 of the 33 seeded issues"
+print("pre-check sheet ok")

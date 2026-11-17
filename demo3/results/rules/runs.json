@@ -1,0 +1,736 @@
+{
+ "meta": {
+  "backend": "rules",
+  "model": "computed contract checks"
+ },
+ "results": [
+  {
+   "id": "CP-0201",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0201-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0202",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0202-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0203",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0203-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0204",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0204-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0205",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0205-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0206",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0206-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0207",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0207-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0208",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0208-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0209",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0209-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Cascade Plumbing: markup: 15.0% on own work (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 309.1,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0210",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0210-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Sound Electric: markup: 10.0% on lower tier (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 280.0,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0211",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0211-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on bond and insurance, B&O tax (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 17.8,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0212",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0212-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on NSS items (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 210.0,
+       "basis": "computed"
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0213",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0213-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_RATE",
+       "section": "6.5.3",
+       "explanation": "Fee rate: 7.5% (contract: 5%)",
+       "amount_at_issue": 248.33,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0214",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0214-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0215",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0215-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0216",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0216-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0217",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0217-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "explanation": "Owned equipment rate: Excavator (CM-owned): 100% of Blue Book (contract: No more than 75% of Blue Book)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      },
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0218",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0218-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0219",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0219-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LABOR_BURDEN",
+       "section": "5.4",
+       "explanation": "Labor burden: Carpenter, in-wall blocking: 45% (contract: 32%)",
+       "amount_at_issue": 78.0,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0220",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0220-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "TIEOUT",
+       "section": "6.5",
+       "explanation": "Cover sheet ties out: Total requested $15,100.40 (contract: Lines sum to $13,300.40)",
+       "amount_at_issue": 1800.0,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0221",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0221-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.5.7",
+       "explanation": "Sound Electric: T&M tags signed: Unsigned: TM-513, TM-514 (contract: Signed by CM superintendent and Owner's Representative)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0222",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0222-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(a)",
+       "explanation": "Notice on time: Given 2020-03-16 (contract: Due 2020-03-09 (RFI response on 2020-03-02))",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0223",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0223-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0224",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0224-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "TIME_IMPACT",
+       "section": "6.4",
+       "explanation": "Time claim: 12 days claimed (contract: A claim for time is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0225",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0225-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "CONCEALED_CONDITION",
+       "section": "6.2(c)",
+       "explanation": "Site condition: Cause is a concealed condition (contract: Entitlement for a concealed condition is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0226",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0226-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "OVER_AUTHORITY",
+       "section": "Exhibit D",
+       "explanation": "Approval limit: Total requested $310,117.50 (contract: Owner's Representative may approve up to $250,000.00)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0227",
+   "route": "ESCALATE",
+   "trail": [
+    {
+     "envelope_id": "CP-0227-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "ESCALATE",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on extended SGC (time) (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 955.5,
+       "basis": "computed"
+      },
+      {
+       "type": "TIME_IMPACT",
+       "section": "6.4",
+       "explanation": "Time claim: 6 days claimed (contract: A claim for time is decided by a person)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0228",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0228-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "FEE_ON_EXCLUDED",
+       "section": "6.5.3",
+       "explanation": "Fee base: Fee also taken on NSS items (contract: Fee on CM direct costs and subcontractor quotes only)",
+       "amount_at_issue": 72.5,
+       "basis": "computed"
+      },
+      {
+       "type": "EQUIPMENT",
+       "section": "6.5.4",
+       "explanation": "Owned equipment rate: Forklift (CM-owned): 100% of Blue Book (contract: No more than 75% of Blue Book)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0229",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0229-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "SUB_MARKUP",
+       "section": "6.5.2",
+       "explanation": "Pacific Specialties: markup: 12.0% on own work (contract: 10% own work, 5% lower tier, 15% total)",
+       "amount_at_issue": 70.4,
+       "basis": "computed"
+      },
+      {
+       "type": "LATE_NOTICE",
+       "section": "6.2(a)",
+       "explanation": "Notice on time: Given 2020-06-01 (contract: Due 2020-05-26 (ASI on 2020-05-18))",
+       "amount_at_issue": null,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0230",
+   "route": "RETURN",
+   "trail": [
+    {
+     "envelope_id": "CP-0230-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "RETURN",
+     "flags": [
+      {
+       "type": "MISSING_BACKUP",
+       "section": "6.5.7",
+       "explanation": "Harmony Acoustics: itemized breakdown: Lump sum, no breakdown (contract: Breakdown of labor, material and equipment attached)",
+       "amount_at_issue": null,
+       "basis": "computed"
+      },
+      {
+       "type": "TIEOUT",
+       "section": "6.5",
+       "explanation": "Cover sheet ties out: Total requested $18,898.70 (contract: Lines sum to $17,948.70)",
+       "amount_at_issue": 950.0,
+       "basis": "computed"
+      }
+     ],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0231",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0231-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [
+      "Cascade Plumbing"
+     ],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0232",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0232-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0233",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0233-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [
+      "Pacific Specialties"
+     ],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0234",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0234-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [
+      "Sound Electric"
+     ],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0235",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0235-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [
+      "Brightline Painting"
+     ],
+     "model": "computed contract checks"
+    }
+   ]
+  },
+  {
+   "id": "CP-0236",
+   "route": "APPROVE",
+   "trail": [
+    {
+     "envelope_id": "CP-0236-rules",
+     "from_role": "rules",
+     "authority": "computes, never decides",
+     "decision": "PASS",
+     "flags": [],
+     "unparsed_quotes": [
+      "Cascade Plumbing"
+     ],
+     "model": "computed contract checks"
+    }
+   ]
+  }
+ ]
+}

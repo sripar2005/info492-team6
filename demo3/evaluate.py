@@ -12,9 +12,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 TARGET = 0.85
+NOT_AGENTS = {"baseline", "rules", "hybrid"}  # systems with no role agents and no model quotes
 def run_files():
-    """Local open-model runs first (one folder per model), then an API run if any, then the baseline."""
-    runs = {f"local-{p.parent.name}": p for p in sorted((ROOT / "results" / "local").glob("*/runs.json"))}
+    """Computed checks first, then the agent runs and the no-AI baseline. The mix of computed checks and
+    agent leads is reported as a tradeoff table (hybrid.py --curve), not as one score."""
+    runs = {"rules": ROOT / "results" / "rules" / "runs.json"}
+    runs.update({f"local-{p.parent.name}": p for p in sorted((ROOT / "results" / "local").glob("*/runs.json"))})
     runs["agents"] = ROOT / "results" / "runs.json"
     runs["baseline"] = ROOT / "results" / "baseline" / "runs.json"
     return runs
@@ -37,7 +40,7 @@ def score(run, key):
         for e in r["trail"]:
             for f in e["flags"]:
                 got[f["type"]].add(e["from_role"])
-                if e["from_role"] != "baseline":
+                if e["from_role"] not in NOT_AGENTS:
                     quotes += 1
                     verified += int(f.get("quote_verified", False))
         caught, missed = [], []
@@ -46,7 +49,7 @@ def score(run, key):
             per_type[f["type"]][1] += 1
             if f["type"] in got:
                 found += 1; per_type[f["type"]][0] += 1; caught.append(f["type"])
-                by_resp += int(f["role"] in got[f["type"]] or "baseline" in got[f["type"]])
+                by_resp += int(f["role"] in got[f["type"]] or bool(got[f["type"]] & NOT_AGENTS))
             else:
                 missed.append(f["type"])
         extras = sorted(t for t in got if t not in exp_types)

@@ -1,5 +1,12 @@
 # Demo 3 evaluation
 
+## rules (computed contract checks)
+- Seeded issues caught: 23/33 (69.7%); target 85%: not met
+- Caught by the responsible party: 23/33
+- Routes right: 27/36; clean CPs flagged: 0/10; extra flags: 0
+- Citation validity: None of 0 quotes
+- Tricky cases right: 5/12
+
 ## local-llama3.1-8b (llama3.1:8b)
 - Seeded issues caught: 22/33 (66.7%); target 85%: not met
 - Caught by the responsible party: 20/33
