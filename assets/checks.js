@@ -9,21 +9,49 @@
 (function (root) {
   'use strict';
 
+  var CAUSES = ['RFI response', 'ASI', 'Submittal return', 'Owner direction', 'Architect direction', 'Concealed condition', 'Other event'];
+  var NOTICE_RULE = { 'RFI response': '6.2(a)', 'ASI': '6.2(a)', 'Submittal return': '6.2(a)',
+    'Owner direction': '6.2(b)', 'Architect direction': '6.2(b)', 'Concealed condition': '6.2(c)', 'Other event': '6.2(d)' };
+  // The sample contract (demo1/data/synthetic_contract.md). A loaded contract replaces these numbers via fromTerms().
   var CONTRACT = {
     name: 'Sample GC/CM contract',
     note: 'Synthetic contract written for this project, modeled on the Webster School audit.',
     burdenPercent: 32, feePercent: 5, feeAllowedOn: ['CM direct costs', 'subcontractor quotes'],
     blueBookPercent: 75, markupOwn: 10, markupLower: 5, markupTotal: 15, approvalLimit: 250000,
-    noticeDays: { '6.2(a)': 7, '6.2(b)': 7, '6.2(c)': 7, '6.2(d)': 14 }
+    noticeDays: { '6.2(a)': 7, '6.2(b)': 7, '6.2(c)': 7, '6.2(d)': 14 },
+    noticeByCause: { 'RFI response': 7, 'ASI': 7, 'Submittal return': 7, 'Owner direction': 7, 'Architect direction': 7, 'Concealed condition': 7, 'Other event': 14 },
+    noticeSection: NOTICE_RULE,
+    sections: { markup: '6.5.2', backup: '6.5.7', tieout: '6.5', fee: '6.5.3', burden: '5.4', equipment: '6.5.4', time: '6.4', concealed: '6.2(c)', approval: 'Exhibit D' },
+    contractDays: 540, ldPerDay: 2500, dailyDelayRate: 3185, sgcTotal: 1720000,
+    extensionRequiresCriticalPath: true, compensableCauses: ['owner', 'architect'], concurrentDelay: 'time_no_money'
   };
-  var NOTICE_RULE = { 'RFI response': '6.2(a)', 'ASI': '6.2(a)', 'Submittal return': '6.2(a)',
-    'Owner direction': '6.2(b)', 'Architect direction': '6.2(b)', 'Concealed condition': '6.2(c)', 'Other event': '6.2(d)' };
+  // Contract terms (docs/demo4-spec.md section 3) -> the numbers the checks use. Missing terms keep the sample's value
+  // and are listed in .defaulted so the page can say so.
+  function fromTerms(name, terms) {
+    var C = JSON.parse(JSON.stringify(CONTRACT)), d = [];
+    function v(k) { var t = terms && terms[k]; return t && t.value != null && t.value !== '' ? t.value : null; }
+    function set(prop, k, sec) { var x = v(k); if (x == null) { d.push(k); return; } C[prop] = x; if (sec && terms[k].section) C.sections[sec] = terms[k].section; }
+    C.name = name || 'Loaded contract'; C.note = 'Loaded and confirmed by the user.';
+    set('markupOwn', 'markup_own_pct', 'markup'); set('markupLower', 'markup_lower_pct'); set('markupTotal', 'markup_total_pct');
+    set('feePercent', 'fee_pct', 'fee'); set('feeAllowedOn', 'fee_allowed_on'); set('burdenPercent', 'labor_burden_pct', 'burden');
+    set('blueBookPercent', 'blue_book_pct', 'equipment'); set('approvalLimit', 'approval_limit', 'approval');
+    set('contractDays', 'contract_days'); set('ldPerDay', 'liquidated_damages_per_day'); set('dailyDelayRate', 'daily_delay_rate');
+    set('sgcTotal', 'sgc_total'); set('extensionRequiresCriticalPath', 'extension_requires_critical_path');
+    set('compensableCauses', 'compensable_causes'); set('concurrentDelay', 'concurrent_delay');
+    var nb = v('notice_days_by_cause');
+    if (nb) { C.noticeByCause = Object.assign({}, C.noticeByCause, nb); var sec = terms.notice_days_by_cause.section || '';
+      C.noticeSection = {}; CAUSES.forEach(function (c) { C.noticeSection[c] = sec || 'Notice'; }); }
+    else d.push('notice_days_by_cause');
+    C.defaulted = d;
+    return C;
+  }
   var FEE_BASE_FIELD = { 'NSS items': 'nss_items', 'SGC items': 'sgc_items', 'bond and insurance': 'bond_and_insurance',
     'B&O tax': 'bo_tax', 'permit fees': 'permit_fees', 'extended SGC (time)': 'extended_sgc_time' };
   var FORCE_ESCALATE = ['TIME_IMPACT', 'CONCEALED_CONDITION', 'OVER_AUTHORITY'];
   // Washington legal holidays 2020, observed (RCW 1.16.050). Same list as demo2/deadlines.py.
   var HOLIDAYS = ['2020-01-01', '2020-01-20', '2020-02-17', '2020-05-25', '2020-07-03', '2020-09-07',
-    '2020-11-11', '2020-11-26', '2020-11-27', '2020-12-25'];
+    '2020-11-11', '2020-11-26', '2020-11-27', '2020-12-25',
+    '2021-01-01', '2021-01-18', '2021-02-15', '2021-05-31', '2021-07-05', '2021-09-06', '2021-11-11', '2021-11-25', '2021-11-26', '2021-12-24'];
   var NOT_COMPUTED = ['Whether a cost is already covered by the Fee (Section 5.5)',
     'Whether the priced work is really a change from the drawings and specs',
     'Whether an equipment item belongs in SGC or NSS (Exhibits B and C)',
@@ -47,13 +75,19 @@
   function iso(d) { return d.toISOString().slice(0, 10); }
   function noticeDue(eventDate, rule) {
     if (!(rule in CONTRACT.noticeDays)) return null;
+    return dueAfter(eventDate, CONTRACT.noticeDays[rule]);
+  }
+  // Calendar days after the event; a deadline on a weekend or holiday rolls to the next business day.
+  function dueAfter(eventDate, days) {
+    if (days == null) return null;
     var d = new Date(eventDate + 'T00:00:00Z');
-    d.setUTCDate(d.getUTCDate() + CONTRACT.noticeDays[rule]);
+    d.setUTCDate(d.getUTCDate() + days);
     while (d.getUTCDay() === 0 || d.getUTCDay() === 6 || HOLIDAYS.indexOf(iso(d)) >= 0) d.setUTCDate(d.getUTCDate() + 1);
     return iso(d);
   }
 
-  function sheet(cp) {
+  function sheet(cp, C) {
+    C = C || CONTRACT;
     var out = { subcontractors: [], cm_lines: [], cover: {}, notice: {} };
     cp.subcontractor_quotes.forEach(function (q) {
       if (q.format === 'email text') {
@@ -86,16 +120,16 @@
       sum_of_cover_lines: round(parts, 2), total_requested: c.total_requested,
       difference_total_minus_lines: round(c.total_requested - parts, 2),
       fee_rate_percent: round(100 * c.fee_rate, 2), fee_applied_to: c.fee_applied_to,
-      extended_sgc_days: cp.time_impact_days, over_250000: c.total_requested > CONTRACT.approvalLimit
+      extended_sgc_days: cp.time_impact_days, over_250000: c.total_requested > C.approvalLimit
     };
-    var rule = NOTICE_RULE[cp.cause.type], due = noticeDue(cp.cause.event_date, rule);
+    var rule = (C.noticeSection || NOTICE_RULE)[cp.cause.type], due = dueAfter(cp.cause.event_date, C.noticeByCause[cp.cause.type]);
     out.notice = { cause_type: cp.cause.type, event_date: cp.cause.event_date, notice_date: cp.notice_date,
       notice_rule_for_cause_type: rule, notice_due: due, notice_on_time: cp.notice_date <= due };
     return out;
   }
 
-  function checksheet(cp) {
-    var s = sheet(cp), rows = [], C = CONTRACT;
+  function checksheet(cp, contract) {
+    var C = contract || CONTRACT, X = C.sections, s = sheet(cp, C), rows = [];
     function row(check, section, status, contract, proposal, flag, difference, note, firm) {
       rows.push({ check: check, section: section, status: status, contract: contract, proposal: proposal,
         difference: difference == null ? null : difference, flag: flag || null, note: note || null, firm: firm || null });
@@ -103,7 +137,7 @@
     cp.subcontractor_quotes.forEach(function (raw, i) {
       var q = s.subcontractors[i], firm = q.firm;
       if (q.format === 'email text') {
-        row(firm + ': markup, breakdown and totals', '6.5.2, 6.5.7', 'not_checked', '10% own work, 5% lower tier, 15% total; itemized breakdown',
+        row(firm + ': markup, breakdown and totals', X.markup + ', ' + X.backup, 'not_checked', g(C.markupOwn) + '% own work, ' + g(C.markupLower) + '% lower tier, ' + g(C.markupTotal) + '% total; itemized breakdown',
           'Quote arrived as email text', null, null, 'Not read by the calculator. A person or an agent has to read it.', firm);
         return;
       }
@@ -112,40 +146,40 @@
       if ((low || 0) > C.markupLower) { over.push(py(low) + '% on lower tier'); excess += raw.markup_on_lower_tier - raw.lower_tier_total * C.markupLower / 100; }
       if ((tot || 0) > C.markupTotal && !over.length) over.push(py(tot) + '% total');
       var shown = py(own) + '% on own work' + (low != null ? ', ' + py(low) + '% on lower tier' : '');
-      row(firm + ': markup', '6.5.2', over.length ? 'fail' : 'pass', g(C.markupOwn) + '% own work, ' + g(C.markupLower) + '% lower tier, ' + g(C.markupTotal) + '% total',
+      row(firm + ': markup', X.markup, over.length ? 'fail' : 'pass', g(C.markupOwn) + '% own work, ' + g(C.markupLower) + '% lower tier, ' + g(C.markupTotal) + '% total',
         over.length ? over.join(', ') : shown, over.length ? 'SUB_MARKUP' : null, excess > 0 ? round(excess, 2) : null, null, firm);
-      row(firm + ': itemized breakdown', '6.5.7', q.breakdown_attached ? 'pass' : 'fail', 'Breakdown of labor, material and equipment attached',
+      row(firm + ': itemized breakdown', X.backup, q.breakdown_attached ? 'pass' : 'fail', 'Breakdown of labor, material and equipment attached',
         q.breakdown_attached ? 'Attached' : 'Lump sum, no breakdown', q.breakdown_attached ? null : 'MISSING_BACKUP', null, null, firm);
       if (q.tm_tags.length) {
         var bad = q.tm_tags.filter(function (t) { return !(t.signed_by_cm_superintendent && t.signed_by_owner_rep); }).map(function (t) { return t.tag; });
-        row(firm + ': T&M tags signed', '6.5.7', bad.length ? 'fail' : 'pass', "Signed by CM superintendent and Owner's Representative",
+        row(firm + ': T&M tags signed', X.backup, bad.length ? 'fail' : 'pass', "Signed by CM superintendent and Owner's Representative",
           bad.length ? 'Unsigned: ' + bad.join(', ') : q.tm_tags.length + ' of ' + q.tm_tags.length + ' signed', bad.length ? 'MISSING_BACKUP' : null, null, null, firm);
       }
       var adds = q.lines_add_up_to_quote_direct !== false && q.lower_tier_adds_up;
       if (q.breakdown_attached && q.lines_add_up_to_quote_direct !== null)
-        row(firm + ': lines add up', '6.5', adds ? 'pass' : 'fail', 'Lines sum to the quoted direct cost', adds ? 'They do' : 'They do not', adds ? null : 'TIEOUT', null, null, firm);
+        row(firm + ': lines add up', X.tieout, adds ? 'pass' : 'fail', 'Lines sum to the quoted direct cost', adds ? 'They do' : 'They do not', adds ? null : 'TIEOUT', null, null, firm);
     });
     var c = s.cover, cov = cp.cover_sheet, diff = c.difference_total_minus_lines;
-    row('Cover sheet ties out', '6.5', Math.abs(diff) > 1 ? 'fail' : 'pass', 'Lines sum to ' + money(c.sum_of_cover_lines), 'Total requested ' + money(c.total_requested),
+    row('Cover sheet ties out', X.tieout, Math.abs(diff) > 1 ? 'fail' : 'pass', 'Lines sum to ' + money(c.sum_of_cover_lines), 'Total requested ' + money(c.total_requested),
       Math.abs(diff) > 1 ? 'TIEOUT' : null, Math.abs(diff) > 1 ? diff : null);
     var base = cov.cm_direct_costs + cov.subcontractor_quotes, rateOk = c.fee_rate_percent === C.feePercent;
-    row('Fee rate', '6.5.3', rateOk ? 'pass' : 'fail', g(C.feePercent) + '%', g(c.fee_rate_percent) + '%', rateOk ? null : 'FEE_RATE',
+    row('Fee rate', X.fee, rateOk ? 'pass' : 'fail', g(C.feePercent) + '%', g(c.fee_rate_percent) + '%', rateOk ? null : 'FEE_RATE',
       rateOk ? null : round((c.fee_rate_percent - C.feePercent) / 100 * base, 2));
     var excluded = c.fee_applied_to.filter(function (p) { return C.feeAllowedOn.indexOf(p) < 0; });
     var feeOnExcl = round(sum(excluded, function (p) { return cov[FEE_BASE_FIELD[p]] || 0; }) * cov.fee_rate, 2);
-    row('Fee base', '6.5.3', excluded.length ? 'fail' : 'pass', 'Fee on CM direct costs and subcontractor quotes only',
-      excluded.length ? 'Fee also taken on ' + excluded.join(', ') : 'Fee on CM direct costs and subcontractor quotes',
+    row('Fee base', X.fee, excluded.length ? 'fail' : 'pass', 'Fee on ' + C.feeAllowedOn.join(' and ') + ' only',
+      excluded.length ? 'Fee also taken on ' + excluded.join(', ') : 'Fee on ' + C.feeAllowedOn.join(' and '),
       excluded.length ? 'FEE_ON_EXCLUDED' : null, excluded.length && feeOnExcl ? feeOnExcl : null);
     cp.cm_lines.forEach(function (raw, i) {
       var l = s.cm_lines[i];
       if (l.burden_percent != null) {
         var ok = l.burden_percent === C.burdenPercent;
-        row('Labor burden: ' + l.desc, '5.4', ok ? 'pass' : 'fail', g(C.burdenPercent) + '%', g(l.burden_percent) + '%', ok ? null : 'LABOR_BURDEN',
+        row('Labor burden: ' + l.desc, X.burden, ok ? 'pass' : 'fail', g(C.burdenPercent) + '%', g(l.burden_percent) + '%', ok ? null : 'LABOR_BURDEN',
           ok ? null : round(raw.hours * raw.wage * (l.burden_percent - C.burdenPercent) / 100, 2));
       }
       if (l.rate_as_percent_of_blue_book != null) {
         var ok2 = l.rate_as_percent_of_blue_book <= C.blueBookPercent;
-        row('Owned equipment rate: ' + l.desc, '6.5.4', ok2 ? 'pass' : 'fail', 'No more than ' + g(C.blueBookPercent) + '% of Blue Book',
+        row('Owned equipment rate: ' + l.desc, X.equipment, ok2 ? 'pass' : 'fail', 'No more than ' + g(C.blueBookPercent) + '% of Blue Book',
           g(l.rate_as_percent_of_blue_book) + '% of Blue Book', ok2 ? null : 'EQUIPMENT');
       }
     });
@@ -153,11 +187,11 @@
     row('Notice on time', n.notice_rule_for_cause_type, n.notice_on_time ? 'pass' : 'fail', 'Due ' + n.notice_due + ' (' + n.cause_type + ' on ' + n.event_date + ')',
       'Given ' + n.notice_date, n.notice_on_time ? null : 'LATE_NOTICE');
     var days = c.extended_sgc_days;
-    row('Time claim', '6.4', days > 0 ? 'person' : 'pass', 'A claim for time is decided by a person', days > 0 ? days + ' days claimed' : 'No time claimed', days > 0 ? 'TIME_IMPACT' : null);
+    row('Time claim', X.time, days > 0 ? 'person' : 'pass', 'A claim for time is decided by a person', days > 0 ? days + ' days claimed' : 'No time claimed', days > 0 ? 'TIME_IMPACT' : null);
     var concealed = cp.cause.type === 'Concealed condition';
-    row('Site condition', '6.2(c)', concealed ? 'person' : 'pass', 'Entitlement for a concealed condition is decided by a person',
+    row('Site condition', X.concealed, concealed ? 'person' : 'pass', 'Entitlement for a concealed condition is decided by a person',
       concealed ? 'Cause is a concealed condition' : 'Cause: ' + cp.cause.type, concealed ? 'CONCEALED_CONDITION' : null);
-    row('Approval limit', 'Exhibit D', c.over_250000 ? 'person' : 'pass', "Owner's Representative may approve up to " + money(C.approvalLimit),
+    row('Approval limit', X.approval, c.over_250000 ? 'person' : 'pass', "Owner's Representative may approve up to " + money(C.approvalLimit),
       'Total requested ' + money(c.total_requested), c.over_250000 ? 'OVER_AUTHORITY' : null);
 
     var counts = { pass: 0, fail: 0, person: 0, not_checked: 0 }, at = 0, types = {};
@@ -174,15 +208,15 @@
     architect: { label: 'Architect', q: 'Is this change proposal priced the way the contract allows?', send: 'before you sign off on scope' },
     owner: { label: "Owner's rep", q: 'Is this change proposal priced the way the contract allows?', send: 'before you approve it' }
   };
-  function plain(r, role) {
-    var out = plain0(r, role);
+  function plain(r, role, C) {
+    var out = plain0(r, role, C || CONTRACT);
     out.why = out.why.replace(/(\d+)\.0%/g, '$1%'); out.title = out.title.replace(/(\d+)\.0%/g, '$1%');
     return out;
   }
-  function plain0(r, role) {
+  function plain0(r, role, C) {
     var owner = role === 'owner' || role === 'architect', amt = r.difference > 0 ? r.difference : null, f = r.firm ? r.firm + "'s" : 'The';
     switch (r.flag) {
-      case 'SUB_MARKUP': return { title: f + ' markup is over the limit.', why: 'The contract allows 10% on their own work, 5% on lower-tier subs, 15% total. This quote has ' + r.proposal + '.', amt: amt };
+      case 'SUB_MARKUP': return { title: f + ' markup is over the limit.', why: 'The contract allows ' + g(C.markupOwn) + '% on their own work, ' + g(C.markupLower) + '% on lower-tier subs, ' + g(C.markupTotal) + '% total. This quote has ' + r.proposal + '.', amt: amt };
       case 'MISSING_BACKUP': return r.check.indexOf('T&M') >= 0
         ? { title: 'Time-and-material tags are missing signatures.', why: r.proposal + '. Each tag needs the CM superintendent and the owner\'s rep.', amt: null }
         : { title: (r.firm || 'A subcontractor') + "'s quote has no breakdown.", why: 'It is a lump sum. The contract needs labor, material and equipment itemized.', amt: null };
@@ -190,13 +224,13 @@
         ? { title: "The cover sheet total doesn't add up.", why: 'The lines add to ' + r.contract.replace('Lines sum to ', '') + ' but the total says ' + r.proposal.replace('Total requested ', '') + '.', amt: r.difference != null ? Math.abs(r.difference) : null }
         : { title: (r.firm || 'A') + "'s quote lines don't add up to its total.", why: 'The itemized lines and the quoted cost differ.', amt: null };
       case 'FEE_RATE': return { title: 'The CM fee is at the wrong rate.', why: 'The contract fee is ' + r.contract + '. This proposal uses ' + r.proposal + '.', amt: amt };
-      case 'FEE_ON_EXCLUDED': return { title: 'The CM fee was charged on items the contract excludes.', why: 'The fee is allowed only on the CM\'s own work and subcontractor quotes. ' + r.proposal.replace('Fee also taken on', 'It was also taken on') + '.', amt: amt };
+      case 'FEE_ON_EXCLUDED': return { title: 'The CM fee was charged on items the contract excludes.', why: 'The fee is allowed only on ' + C.feeAllowedOn.map(function (p) { return p === 'CM direct costs' ? 'the CM\'s own work' : p; }).join(' and ') + '. ' + r.proposal.replace('Fee also taken on', 'It was also taken on') + '.', amt: amt };
       case 'LABOR_BURDEN': return { title: 'Labor burden is above the contract rate.', why: r.check.replace('Labor burden: ', '') + ' is billed with ' + r.proposal + ' burden. The contract rate is ' + r.contract + '.', amt: amt };
-      case 'EQUIPMENT': return { title: 'Owned equipment is billed above the allowed rate.', why: r.check.replace('Owned equipment rate: ', '') + ' is at ' + r.proposal + '. The limit is 75%.', amt: null };
+      case 'EQUIPMENT': return { title: 'Owned equipment is billed above the allowed rate.', why: r.check.replace('Owned equipment rate: ', '') + ' is at ' + r.proposal + '. The limit is ' + g(C.blueBookPercent) + '%.', amt: null };
       case 'LATE_NOTICE': return { title: 'Notice was given late.', why: 'It was ' + r.contract.replace('Due ', 'due ').replace(/ \(.*\)/, '') + '; it was ' + r.proposal.replace('Given ', 'given ') + '. Costs before notice may not be owed.', amt: null };
       case 'TIME_IMPACT': return { title: 'A time extension is being claimed.', why: r.proposal + '. ' + (owner ? 'That is your decision, not the checklist\'s.' : 'The owner\'s rep decides this, so expect a conversation.'), amt: null };
       case 'CONCEALED_CONDITION': return { title: 'A hidden site condition goes to the owner\'s rep.', why: owner ? 'Whether it is owed is your call. Nothing here to recompute.' : 'Nothing to fix, but expect them to decide whether it is owed.', amt: null };
-      case 'OVER_AUTHORITY': return { title: 'It is over the $250,000 approval limit.', why: owner ? 'It needs approval above the owner\'s representative.' : 'It will need approval above the owner\'s representative, which takes longer.', amt: null };
+      case 'OVER_AUTHORITY': return { title: 'It is over the ' + money(C.approvalLimit).replace('.00', '') + ' approval limit.', why: owner ? 'It needs approval above the owner\'s representative.' : 'It will need approval above the owner\'s representative, which takes longer.', amt: null };
     }
     if (r.status === 'not_checked') return { title: (r.firm || 'A') + "'s quote came as email text.", why: 'We don\'t read free text, so its markup and breakdown are not checked. Read it yourself.', amt: null };
     return { title: r.check, why: r.proposal, amt: amt };
@@ -284,7 +318,7 @@
     };
   }
 
-  var api = { CONTRACT: CONTRACT, NOTICE_RULE: NOTICE_RULE, FEE_ON: FEE_ON, ROLE: ROLE, noticeDue: noticeDue, sheet: sheet, checksheet: checksheet,
+  var api = { CONTRACT: CONTRACT, CAUSES: CAUSES, fromTerms: fromTerms, dueAfter: dueAfter, NOTICE_RULE: NOTICE_RULE, FEE_ON: FEE_ON, ROLE: ROLE, noticeDue: noticeDue, sheet: sheet, checksheet: checksheet,
     plain: plain, verdict: verdict, toForm: toForm, toCase: toCase, recompute: recompute, subTotal: subTotal, money: money, round: round };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.ClauseChecks = api;
 })(this);
