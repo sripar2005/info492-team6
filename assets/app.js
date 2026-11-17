@@ -294,8 +294,35 @@
     if (n == null) return; var zr = zoneRange(marksFor(n)); if (!zr) return; var z = zr.z;
     w.insertAdjacentHTML('beforeend', '<div class="zhl" style="left:' + (z.b + z.cw * zr.c0) + 'px;top:' + (z.b + z.rh * zr.r0) + 'px;width:' + (z.cw * (zr.c1 - zr.c0 + 1)) + 'px;height:' + (z.rh * (zr.r1 - zr.r0 + 1)) + 'px"><b>' + esc(zr.label) + '</b></div>');
   }
-  var fq = 0; function queueFrame() { if (fq) return; fq = requestAnimationFrame(function () { fq = 0; frame(); }); }
-  new MutationObserver(function () { if (!app.querySelector(':scope > .wrap > .zf')) queueFrame(); }).observe(app, { childList: true });
+  // Plain definitions for trade terms, shown on hover or focus the first time each term appears on a sheet.
+  var GLOSS = [
+    ['fragnet', 'The few new activities a change adds to the schedule, linked to existing work.'],
+    ['critical path', 'The chain of work with no slack: if any of it slips, the finish date slips.'],
+    ['float', 'How many days an activity can slip before it moves the finish date.'],
+    ['data date', 'The date the schedule was last updated to; work before it is recorded, work after it is forecast.'],
+    ['NSS', 'Negotiated support services: site costs the CM bills at cost, without fee.'],
+    ['SGC', 'Specified general conditions: the CM’s site overhead (staff, trailer, utilities), usually a fixed amount.'],
+    ['general conditions', 'The contractor’s site overhead for the time on site: staff, trailer, utilities, equipment.'],
+    ['liquidated damages', 'A fixed amount per day the contractor owes if it finishes late, agreed in the contract.'],
+    ['ASI', 'Architect’s supplemental instructions: a drawing or spec clarification issued by the architect.'],
+    ['RFI', 'Request for information: a written question from the contractor that the architect answers.'],
+    ['time impact analysis', 'Add the change’s work to the current schedule, recompute the critical path, and compare finish dates.'],
+    ['Blue Book', 'The Rental Rate Blue Book: the industry reference for equipment hourly rates.']];
+  function gloss() {
+    var w = app.querySelector(':scope > .wrap'); if (!w || w.dataset.gl) return; w.dataset.gl = '1';
+    var done = {}, walker = document.createTreeWalker(w, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { return n.parentNode.closest('input,textarea,select,button,a,abbr,code,svg,.zf,.tblock,.stamp,h1') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } }), nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (n) {
+      GLOSS.forEach(function (g) {
+        if (done[g[0]] || !n.parentNode) return;
+        var re = new RegExp('\\b' + g[0].replace(/ /g, '\\s') + '\\b', g[0] === g[0].toUpperCase() || g[0] === 'Blue Book' ? '' : 'i'), m = re.exec(n.nodeValue); if (!m) return;
+        var after = n.splitText(m.index), rest = after.splitText(m[0].length), ab = document.createElement('abbr');
+        ab.className = 'gl'; ab.tabIndex = 0; ab.dataset.def = g[1]; ab.textContent = after.nodeValue; after.parentNode.replaceChild(ab, after); done[g[0]] = 1; n = rest;
+      });
+    });
+  }
+  var fq = 0; function queueFrame() { if (fq) return; fq = requestAnimationFrame(function () { fq = 0; frame(); gloss(); }); }
+  new MutationObserver(function () { var wr = app.querySelector(':scope > .wrap'); if (!app.querySelector(':scope > .wrap > .zf') || (wr && !wr.dataset.gl)) queueFrame(); }).observe(app, { childList: true });
   if (window.ResizeObserver) new ResizeObserver(queueFrame).observe(app);
   app.addEventListener('mouseover', function (e) { var li = e.target.closest('.fl > li[data-n]'); var cur = app.querySelector('.fl > li.hot'); if (cur === li) return; if (cur) cur.classList.remove('hot'); if (li) { li.classList.add('hot'); lightZone(li.dataset.n); } else lightZone(null); });
   app.addEventListener('focusin', function (e) { var li = e.target.closest('.fl > li[data-n]'); if (li) lightZone(li.dataset.n); });
@@ -426,6 +453,7 @@
     }
     var acts = owner ? '<button class="btn primary" data-act="copy">Copy notes to send back</button><button class="btn" data-act="edit">Edit the numbers</button><button class="btn ghost" data-act="new">Check another</button>'
       : '<button class="btn primary" data-act="edit">' + (fails ? 'Fix and re-check' : 'Edit the numbers') + '</button><button class="btn" data-act="copy">Copy summary</button><button class="btn ghost" data-act="new">Check another</button>';
+    if (cp.time_impact_days > 0) acts += '<button class="btn" data-act="todelay">Check the ' + cp.time_impact_days + ' days against the schedule</button>';
     h += '<div class="acts">' + acts + '</div>' + (S.source !== 'sample' || S.edited ? '<p class="saved">Saved to <a class="link" href="#proposals">My proposals</a> in this browser.</p>' : '') + '</div></div></div>';
     app.innerHTML = h;
     requestAnimationFrame(function () { frame(); drawClouds(true); }); if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { frame(); drawClouds(false); });
@@ -708,6 +736,7 @@
       if (!ready(f)) { ['cause', 'event_date', 'notice_date'].forEach(function (k) { if (!f[k] || (k !== 'cause' && !/^\d{4}-/.test(f[k]))) S.need.indexOf(k) < 0 && S.need.push(k); }); viewConfirmKeepScroll(); return toast('Fill in what caused the change and both dates first.'); }
       saveSession(); return go('result');
     }
+    if (a === 'todelay') { var cq = caseOf(S.form); store('cs_delay_prefill', { id: cq.id, title: cq.title, claimed_days: cq.time_impact_days, narrative: cq.narrative || '' }); return go('delay'); }
     if (a === 'lift') { S.lifted = !S.lifted; var pp = app.querySelector('.cols.result .paper'); if (pp) pp.classList.toggle('lifted', S.lifted); t.textContent = S.lifted ? 'Lay the markup back' : 'Lift the markup'; return; }
     if (a === 'edit') return go('confirm');
     if (a === 'new') { S = null; try { sessionStorage.removeItem('cs_current'); } catch (er) {} return go('upload'); }

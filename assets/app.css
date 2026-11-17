@@ -629,3 +629,7 @@ h1, h2, h3 { letter-spacing: -0.01em; font-weight: 700; }
 .hits li p, .pieces li p { margin: 4px 0 0; font-size: 14px; white-space: pre-wrap; }
 .hits .ev-h { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13.5px; }
 .hits .who { font: 600 11.5px/1.7 var(--mono); padding: 0 6px; background: #E9E9E9; }
+abbr.gl { text-decoration: underline dotted 1.5px; text-underline-offset: 3px; cursor: help; position: relative; }
+abbr.gl:hover::after, abbr.gl:focus::after { content: attr(data-def); position: absolute; left: 0; top: calc(100% + 6px); z-index: 40; width: max-content; max-width: 280px; padding: 8px 10px; background: #000000; color: #FFFFFF; font: 400 13px/1.45 var(--sans); white-space: normal; text-transform: none; letter-spacing: 0; box-shadow: 3px 3px 0 #FFFFFF, 3px 3px 0 1.5px #000000; }
+abbr.gl:focus { outline: 1.5px solid #000000; outline-offset: 1px; }
+abbr.gl { font-variant: normal; font-size: inherit; }

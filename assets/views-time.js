@@ -207,7 +207,8 @@
 
   /* ---------- step 1: the claim ---------- */
   V.delay = function () {
-    var s = sched();
+    var s = sched(), pre = store('cs_delay_prefill');
+    if (pre) { store('cs_delay_prefill', null); DX = blank(); DX.claim.id = pre.id; DX.claim.title = pre.title; DX.claim.claimed_days = pre.claimed_days; DX.claim.narrative = pre.narrative; DX.caseId = pre.id; }
     if (!DX) DX = blank();
     loadCases().then(function (cs) {
       var c = DX.claim;
