@@ -138,7 +138,7 @@
       }).join('') + '</tbody></table></div></div>' +
       '<div class="card sec"><div class="grid"><div class="fd"><label><span>Name</span></label><div class="inp"><input id="sname" value="' + esc(SX.name || m.name || SX.opts.name || 'Schedule') + '"></div></div>' +
       '<div class="fd"><label><span>This version is the</span></label><div class="inp sel"><select id="slabel">' + ['Baseline', 'Update'].map(function (l) { return '<option' + (SX.label === l ? ' selected' : '') + '>' + l + '</option>'; }).join('') + '</select></div></div></div></div>' +
-      '<div class="stick"><div class="live"><span>' + (m.source.has_logic ? 'Finish ' + shortDate(c.finish_date) + ' · ' + c.critical_path.length + ' on the critical path' : 'Dates only') + '</span></div><button class="btn ghost" data-go="schedule">Cancel</button><button class="btn primary" data-ssave="1">Use this schedule →</button></div>' +
+      '<div class="stick"><div class="live"><span>' + (m.source.has_logic ? 'Finish ' + shortDate(c.finish_date) : 'Dates only') + '</span></div><button class="btn ghost" data-go="schedule">Cancel</button><button class="btn primary" data-ssave="1">Use this schedule →</button></div>' +
       '</div></div></div>';
     app.innerHTML = h;
   };
@@ -223,7 +223,7 @@
         '<div class="fd"><label><span>Concurrent delay?</span></label><div class="inp sel"><select data-dc="concurrent"><option value="false"' + (c.concurrent ? '' : ' selected') + '>No</option><option value="true"' + (c.concurrent ? ' selected' : '') + '>Yes, another delay overlaps</option></select></div></div>' +
         fld('claimed_cost', 'Extended general conditions asked', c.claimed_cost, '', '$', true) + fld('claimed_rate', 'Daily rate used in the claim', c.claimed_rate, 'if stated', '$/day', true) +
         '</div></div>' +
-        '<div class="stick"><div class="live"><span>Next: describe the change’s work in the schedule</span></div><button class="btn primary" data-dnext="2"' + (s ? '' : ' disabled') + '>Next: the change’s activities →</button></div></div>' +
+        '<div class="stick"><div class="live"><span>Step 1 of 3</span></div><button class="btn primary" data-dnext="2"' + (s ? '' : ' disabled') + '>Next: the change’s activities →</button></div></div>' +
         '<div><div class="card sec how2"><h3 style="font-size:14.5px;margin-bottom:10px">How the days are worked out</h3><ol class="how" style="margin:0"><li><b>You or the AI</b> describe the change’s work as a few activities linked into the schedule (a “fragnet”). The AI may only link to activity IDs that exist.</li><li><b>Code</b> inserts them into the current schedule and reruns the critical path (AACE 52R-06 time impact analysis).</li><li><b>Code</b> compares the finish dates. Off the critical path, the delay is 0.</li><li><b>Code</b> prices the days under the contract; the slider shows the range when conditions are unclear.</li><li><b>You</b> confirm. Every step is logged.</li></ol></div></div></div></div>';
     });
   };
@@ -239,11 +239,13 @@
     var rows = F.activities.map(function (a, i) {
       var after = F.relationships.filter(function (r) { return r.succ === a.id; }).map(function (r) { return r.pred + (r.type !== 'FS' ? r.type : '') + (r.lag ? (r.lag > 0 ? '+' : '') + r.lag : ''); }).join(', ');
       var before = F.relationships.filter(function (r) { return r.pred === a.id; }).map(function (r) { return r.succ + (r.type !== 'FS' ? r.type : '') + (r.lag ? (r.lag > 0 ? '+' : '') + r.lag : ''); }).join(', ');
-      return '<tr><td><code>' + esc(a.id) + '</code></td><td><input class="ein w" data-fa="' + i + '|name" value="' + esc(a.name) + '" style="font-family:var(--sans)"></td><td class="r"><input class="ein" data-fa="' + i + '|duration" value="' + a.duration + '"></td>' +
-        '<td><input class="ein w" list="actids" data-fl="' + i + '|after" value="' + esc(after) + '" placeholder="starts after…"></td><td><input class="ein w" list="actids" data-fl="' + i + '|before" value="' + esc(before) + '" placeholder="must finish before…"></td><td><button class="del" data-fdel="' + i + '" aria-label="Remove">✕</button></td></tr>';
+      return '<div class="frow"><div class="frow-h"><code>' + esc(a.id) + '</code><input class="ein w" data-fa="' + i + '|name" value="' + esc(a.name) + '" placeholder="What the work is" style="font-family:var(--sans)"><button class="del" data-fdel="' + i + '" aria-label="Remove">✕</button></div>' +
+        '<div class="frow-g"><label><span>Work days</span><input class="ein" data-fa="' + i + '|duration" value="' + a.duration + '"></label>' +
+        '<label><span>Starts after</span><input class="ein w" list="actids" data-fl="' + i + '|after" value="' + esc(after) + '" placeholder="e.g. A1470"></label>' +
+        '<label><span>Must finish before</span><input class="ein w" list="actids" data-fl="' + i + '|before" value="' + esc(before) + '" placeholder="e.g. A1520"></label></div></div>';
     }).join('');
     var bad = F.relationships.filter(function (r) { var all = ids.concat(F.activities.map(function (a) { return a.id; })); return all.indexOf(r.pred) < 0 || all.indexOf(r.succ) < 0; });
-    return dl + '<div class="etbl" style="margin:0;max-height:none"><table class="tbl"><thead><tr><th>ID</th><th>Activity</th><th class="r">Work days</th><th>After</th><th>Before</th><th></th></tr></thead><tbody>' + (rows || '<tr><td colspan="6" class="fine" style="padding:14px">No activities yet.</td></tr>') + '</tbody></table></div>' +
+    return dl + (rows || '<p class="fine" style="margin:0">No activities yet. Add the work the change creates.</p>') +
       (bad.length ? '<p class="hint" style="color:var(--red)">Links to IDs not in the schedule: ' + esc(bad.map(function (r) { return r.pred + '→' + r.succ; }).join(', ')) + '</p>' : '') +
       '<button class="btn ghost sm add" data-fadd="1" style="margin-top:10px">+ Activity</button>';
   }
@@ -273,7 +275,7 @@
     var m = withFrag(s.model, DX.frag), c = SE.cpm(m), hl = {}; DX.frag.activities.forEach(function (a) { hl[a.id] = 1; });
     el.innerHTML = V.gantt(m, c, { highlight: hl });
     var r = DX.frag.activities.length ? SE.tia(s.model, DX.frag) : null, lv = document.getElementById('flive');
-    if (lv) lv.innerHTML = r ? '<span>Preview: finish moves <b>' + r.delay_calendar_days + ' calendar days</b> · claimed ' + (DX.claim.claimed_days || 0) + '</span>' : '<span>Add the change’s activities to preview the impact.</span>';
+    if (lv) lv.innerHTML = r ? '<span>Finish <b>+' + r.delay_calendar_days + ' days</b></span>' : '<span>Add activities to preview</span>';
   }
   function nextFid() { var n = 1, have = DX.frag.activities.map(function (a) { return a.id; }); while (have.indexOf('F-' + n) >= 0) n++; return 'F-' + n; }
   function setLinks(i, side, text) {
@@ -312,7 +314,7 @@
     var tg = function (on, k2, v, label) { return '<button class="pill" data-dk="' + k2 + '|' + v + '" aria-pressed="' + on + '">' + label + '</button>'; };
     var h = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check · ' + esc(c.id || 'change order') + ' · step 3 of 3</span><h1 style="margin-top:8px">Result</h1></div><div style="display:flex;gap:8px"><button class="btn ghost" data-dnext="2">← Edit activities</button><button class="btn" data-dexport="1">Export audit log</button></div></div>' +
       '<div class="cols result"><div><div class="paper sched">' + V.gantt(m, cc, { highlight: hl }) + '</div>' +
-      '<div class="tblock" style="margin-top:12px"><div><span>Finish before</span><b>' + esc(r.before_finish) + '</b></div><div><span>Finish after</span><b>' + esc(r.after_finish) + '</b></div><div><span>Delay</span><b>' + r.delay_calendar_days + ' cal · ' + r.delay_workdays + ' work days</b></div><div><span>Change on critical path</span><b>' + (r.fragnet_critical ? 'Yes' : 'No') + '</b></div></div></div>' +
+      '<div class="tblock" style="margin-top:12px"><div><span>Finish before</span><b>' + esc(r.before_finish) + '</b></div><div><span>Finish after</span><b>' + esc(r.after_finish) + '</b></div><div><span>Delay</span><b>' + r.delay_calendar_days + ' cal · ' + r.delay_workdays + ' work days</b></div><div><span>On critical path</span><b>' + (r.fragnet_critical ? 'Yes' : 'No') + '</b></div></div></div>' +
       '<div class="card findings"><div class="verdict ' + tone + '"><span class="eyebrow">Time impact analysis · computed</span><h2><em>' + esc(head) + '</em></h2><p>' + esc(r.notes[0] || '') + '</p></div>' +
       '<div class="dcost"><div class="sec-h" style="margin:0 0 10px"><h3>What the contract pays</h3><span class="tagr">' + d.extensionDays + ' days extension</span></div>' +
       '<div class="conds"><div><span>Who caused it</span><div class="pills">' + PARTY.map(function (p) { return tg(k.causeParty === p[0], 'causeParty', p[0], p[1].split(' (')[0]); }).join('') + '</div></div>' +

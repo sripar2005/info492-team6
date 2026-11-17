@@ -579,7 +579,7 @@
       '<div class="card sec"><div class="grid"><div class="fd full"><label><span>Contract name</span></label><div class="inp"><input id="cname" value="' + esc(CS.name) + '"></div></div></div>' +
       '<div class="ccount"><span class="tagr ok">' + cnt.verified + ' in the quote</span><span class="tagr chk">' + (cnt.check + cnt.manual) + ' to check</span><span class="tagr none">' + (cnt.none + cnt.pick) + ' not set</span></div></div>' +
       GROUPS.map(function (g) { return '<div class="card sec"><div class="sec-h"><h3>' + g[1] + '</h3></div>' + CT.TERMS.filter(function (t) { return t[4] === g[0]; }).map(termHtml).join('') + '</div>'; }).join('') +
-      '<div class="stick"><div class="live"><span>' + (cnt.none + cnt.pick ? (cnt.none + cnt.pick) + ' terms will use the sample’s values' : 'All terms set') + '</span></div><button class="btn ghost" data-go="contract">Cancel</button><button class="btn primary" data-act="csave">Use this contract →</button></div></div></div></div>';
+      '<div class="stick"><div class="live"><span>' + (cnt.none + cnt.pick ? (cnt.none + cnt.pick) + ' not set' : 'All terms set') + '</span></div><button class="btn ghost" data-go="contract">Cancel</button><button class="btn primary" data-act="csave">Use this contract →</button></div></div></div></div>';
     app.innerHTML = h;
   }
   function contractKeepScroll() { var y = window.scrollY; viewContractConfirm(); window.scrollTo(0, y); }
