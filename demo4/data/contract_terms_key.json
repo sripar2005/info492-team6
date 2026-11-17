@@ -1,7 +1,8 @@
 {
   "meta": {
     "spec": "docs/demo4-spec.md section 3",
-    "verification": "each quote is a verbatim substring of its contract; each value appears in its quote (numbers as written, lists and enums by keyword); section is the numbered paragraph holding the quote"
+    "verification": "each quote is a verbatim substring of its contract; each value appears in its quote (numbers as written, lists and enums by keyword); section is the numbered paragraph holding the quote",
+    "heldout": "contract C is a held-out contract written after the A/B evaluation; do not tune the reader on it"
   },
   "contracts": {
     "A": {
@@ -205,6 +206,123 @@
       "notes": {
         "architect_caused_delay": "time only (Section 7.5.6)",
         "gc_base_fee": "fixed $1,214,600 (Section 5.1) is not the change-order Fee"
+      }
+    },
+    "C": {
+      "name": "Contract C (HELD OUT): synthetic GC/CM contract (Middle School HVAC Replacement and Seismic Retrofit)",
+      "file": "demo4/data/contract_c.md",
+      "split": "heldout",
+      "terms": {
+        "markup_own_pct": {
+          "value": 12,
+          "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+          "section": "9.4.2"
+        },
+        "markup_lower_pct": {
+          "value": 6,
+          "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+          "section": "9.4.2"
+        },
+        "markup_total_pct": {
+          "value": 17,
+          "quote": "The total of all overhead and profit markups by all tiers on any item of changed Work, excluding the Contractor's Fee, shall not exceed seventeen percent (17%).",
+          "section": "9.4.2"
+        },
+        "fee_pct": {
+          "value": 3.75,
+          "quote": "Section 9.4.3 is amended by deleting \"four percent (4%)\" and substituting \"three and three-quarters percent (3.75%)\".",
+          "section": "16.3",
+          "note": "Section 9.4.3 states 4%, but Supplementary Condition 16.3 replaces it with 3.75%; Section 1.2 makes Article 16 govern over the Articles."
+        },
+        "fee_allowed_on": {
+          "value": [
+            "CM direct costs",
+            "subcontractor quotes",
+            "bond and insurance premiums"
+          ],
+          "quote": "The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.",
+          "section": "9.4.3",
+          "note": "The base of the Fee is unchanged by 16.3; only the rate is amended."
+        },
+        "labor_burden_pct": {
+          "value": 35,
+          "quote": "plus a labor burden of thirty-five percent (35%) of base wages",
+          "section": "5.2"
+        },
+        "blue_book_pct": {
+          "value": 80,
+          "quote": "Equipment owned by the Contractor or an affiliate is charged at eighty percent (80%) of the rates in the current Equipment Watch Rental Rate Blue Book",
+          "section": "9.4.5"
+        },
+        "approval_limit": {
+          "value": 100000,
+          "quote": "Change Orders whose individual value does not exceed One Hundred Thousand Dollars ($100,000) may be executed by the District's Capital Projects Director.",
+          "section": "9.6"
+        },
+        "notice_days_by_cause": {
+          "value": {
+            "RFI response": 5,
+            "ASI": 5,
+            "Submittal return": 5,
+            "Owner direction": 5,
+            "Architect direction": 5,
+            "Concealed condition": 5,
+            "Other event": 20
+          },
+          "quote": "The Contractor shall give the District written notice of a Potential Change within five (5) days after receipt of an RFI response, Architect's supplemental instruction, submittal return, or direction from the District or the Architect, or after first observing a concealed or unknown physical condition at the site, which the Contractor shall not disturb until the District has had an opportunity to observe it. For any other event or circumstance on which the Contractor intends to base a request for additional cost or time, notice shall be given within twenty (20) days after the Contractor knew or should have known of it.",
+          "section": "9.2"
+        },
+        "contract_days": {
+          "value": 455,
+          "quote": "The Contractor shall achieve Substantial Completion of the entire Work within four hundred fifty-five (455) calendar days after the date of the Notice to Proceed for Construction.",
+          "section": "3.2"
+        },
+        "liquidated_damages_per_day": {
+          "value": 2200,
+          "quote": "For each calendar day after the Contract Time that Substantial Completion has not been achieved, the Contractor shall pay the District Two Thousand Two Hundred Dollars ($2,200) as liquidated damages and not as a penalty.",
+          "section": "3.3"
+        },
+        "daily_delay_rate": {
+          "value": 2975,
+          "quote": "the Specified General Conditions shall be increased by $2,975.00 per calendar day of the extension",
+          "section": "5.3",
+          "note": "Repeated in Exhibit B; Section 5.3 governs (Section 1.2: Articles over Exhibits)."
+        },
+        "sgc_total": {
+          "value": 1412750,
+          "quote": "The Specified General Conditions are a lump sum of $1,412,750",
+          "section": "5.3"
+        },
+        "extension_requires_critical_path": {
+          "value": null,
+          "quote": "the Contract Time shall be extended by Change Order for such reasonable time as the District's Project Manager may determine.",
+          "section": "8.3.1",
+          "note": "not stated. Section 8.3.1 extends time 'for such reasonable time as the District's Project Manager may determine' and Section 8.3.2 asks only for a narrative and 'such schedule information as ... may reasonably require'. Section 3.5 requires the schedule to show the critical path but does not make critical-path delay a condition of an extension. A reader should return null / not found, not true."
+        },
+        "compensable_causes": {
+          "value": [
+            "owner",
+            "architect",
+            "concealed condition"
+          ],
+          "quote": "The Contractor shall be compensated for extended Specified General Conditions under Section 5.3 only for a delay caused by the District, by the Architect, or by a concealed physical condition at the site that differs materially from the Contract Documents.",
+          "section": "9.4.7",
+          "note": "'District' is the Owner. Weather and other causes beyond both parties' control: time only."
+        },
+        "concurrent_delay": {
+          "value": "apportioned",
+          "quote": "Where a delay results from concurrent causes, one attributable to the District and one to the Contractor, the extension shall be granted for the full period of delay, but the compensation for extended Specified General Conditions shall be apportioned between the District and the Contractor in proportion to their respective contributions to the delay.",
+          "section": "9.4.7",
+          "note": "Full time extension; extended Specified General Conditions apportioned by each party's share of the delay (not 'time, no money')."
+        }
+      },
+      "notes": {
+        "extension_requires_critical_path": "not stated in contract C (value null); see the term's note",
+        "fee_pct": "4% in Section 9.4.3 is superseded by 3.75% in Section 16.3",
+        "gc_base_fee": "5.25% of the MACC (Section 5.1) is not the change-order Fee",
+        "phase_1_liquidated_damages": "$750 per day (Section 3.3) is an interim milestone rate, not the Substantial Completion rate",
+        "field_order_limit": "$7,500 (Section 9.5) is the site representative's Field Order limit, not the Change Order approval limit",
+        "architect_non_compensable": "Section 7.2 bars time and money for Architect review of resubmittals the Contractor caused; Architect-caused delay is otherwise compensable under 9.4.7"
       }
     }
   }

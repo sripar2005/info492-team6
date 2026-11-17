@@ -5,7 +5,8 @@
     "generated_by": "demo4/build_data.py",
     "schedule_data_date": "2020-06-01",
     "calendar": "Washington State legal holidays 2020-2021",
-    "synthetic": true
+    "synthetic": true,
+    "heldout": "CP-0501..CP-0505 are held out (split 'heldout'): written after the dev/test evaluation by a helper that did not see the reader or drafter code; same schedule and contract A rules. Do not tune on them."
   },
   "cases": [
     {
@@ -1514,6 +1515,627 @@
       "fragnet_truth": {
         "activities": [],
         "relationships": []
+      }
+    },
+    {
+      "id": "CP-0501",
+      "title": "Convert addition storage room 231 to IDF with dedicated cooling",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner email 2020-07-06",
+        "event_date": "2020-07-06"
+      },
+      "notice_date": "2020-07-09",
+      "cp_submitted": "2020-07-24",
+      "narrative": "District IT asked, and the Owner's Representative directed by email, that storage room 231 in the addition become an intermediate distribution frame (IDF) room with its own ductless split cooling unit, a dedicated 30-amp circuit and a fire-rated plywood backboard.",
+      "scope_context": "Drawings M-201 and E-201 show room 231 as unconditioned storage with one convenience outlet.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Rainier Mechanical",
+          "trade": "HVAC",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 13410.0,
+          "lower_tier_total": 1850.0,
+          "markup_on_own": 1341.0,
+          "markup_on_lower_tier": 92.5,
+          "quote_total": 16693.5,
+          "lines": [
+            {
+              "desc": "Ductless split unit, 2-ton, furnished",
+              "qty": 1,
+              "unit": "ea",
+              "rate": 6850.0,
+              "amount": 6850.0
+            },
+            {
+              "desc": "Line set and condensate",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 2400.0,
+              "amount": 2400.0
+            },
+            {
+              "desc": "Refrigeration fitter",
+              "qty": 40,
+              "unit": "hr",
+              "rate": 104.0,
+              "amount": 4160.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Northwest Controls",
+              "scope": "Unit alarm tie-in to BAS",
+              "amount": 1850.0
+            }
+          ]
+        },
+        {
+          "firm": "Sound Electric",
+          "trade": "Electrical",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 2986.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 298.6,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 3284.6,
+          "lines": [
+            {
+              "desc": "30A dedicated circuit",
+              "qty": 1,
+              "unit": "ea",
+              "rate": 1450.0,
+              "amount": 1450.0
+            },
+            {
+              "desc": "Electrician",
+              "qty": 16,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 1536.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 10,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 19978.1,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 998.91,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 31850.0,
+        "total_requested": 52827.01
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 10,
+        "claimed_calendar": true,
+        "narrative": "Room 231 sits in the middle of the second-floor rough-in area of the new wing. The added line set, condensate drain, dedicated circuit and rated penetrations for the IDF can't go in until our MEP rough-in up there is otherwise complete, because the mechanical and electrical crews work that whole floor in sequence, and all of it has to be in before the in-wall and above-ceiling inspection for the new wing. Mechanical and electrical together figure 5 working days for the added rough-in. Run against the June update, this pushes Substantial Completion. CM requests 10 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0501A",
+            "name": "Added IDF rough-in: line set, condensate, dedicated circuit, rated penetrations - addition",
+            "duration": 5
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1630",
+            "succ": "F-0501A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0501A",
+            "succ": "A1685",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0502",
+      "title": "Collector straps and drag struts at Wing B roof per ASI-088",
+      "cause": {
+        "type": "ASI",
+        "reference": "ASI-088",
+        "event_date": "2020-07-09"
+      },
+      "notice_date": "2020-07-14",
+      "cp_submitted": "2020-07-28",
+      "narrative": "ASI-088 adds steel collector straps and two drag struts at the Wing B roof diaphragm to complete the load path to the new shear walls.",
+      "scope_context": "Drawing S-402 shows the Wing B shear walls with no collectors at the roof diaphragm.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Olympic Structural",
+          "trade": "Structural steel",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 23770.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 2377.0,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 26147.0,
+          "lines": [
+            {
+              "desc": "Collector strap, galvanized",
+              "qty": 140,
+              "unit": "lf",
+              "rate": 46.0,
+              "amount": 6440.0
+            },
+            {
+              "desc": "Drag strut, fabricated",
+              "qty": 2,
+              "unit": "ea",
+              "rate": 3900.0,
+              "amount": 7800.0
+            },
+            {
+              "desc": "Ironworker",
+              "qty": 80,
+              "unit": "hr",
+              "rate": 96.0,
+              "amount": 7680.0
+            },
+            {
+              "desc": "Special inspection, welds",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1850.0,
+              "amount": 1850.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 15,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 26147.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1307.35,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 47775.0,
+        "total_requested": 75229.35
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 15,
+        "claimed_calendar": true,
+        "narrative": "Time impact analysis against schedule update 2020-06-01. Fragnet inserted: F-0502A Install collector straps and drag struts - Wing B roof diaphragm (ASI-088), original duration 10 working days. Predecessor: A1490 Seismic upgrade - Wing B (finish-to-start, no lag). Successor: A1620 MEP rough-in - Wing B (finish-to-start, no lag); the MEP trades cannot work overhead in Wing B while the ironworkers are welding at the roof diaphragm. CM requests 15 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0502A",
+            "name": "Install collector straps and drag struts - Wing B roof diaphragm (ASI-088)",
+            "duration": 10
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1490",
+            "succ": "F-0502A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0502A",
+            "succ": "A1620",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0503",
+      "title": "Moisture vapor mitigation coating at addition gym slab",
+      "cause": {
+        "type": "Owner direction",
+        "reference": "Owner letter 2020-07-13",
+        "event_date": "2020-07-13"
+      },
+      "notice_date": "2020-07-17",
+      "cp_submitted": "2020-08-01",
+      "narrative": "After reviewing the wood flooring manufacturer's warranty terms, the Owner directed CM to add a moisture vapor mitigation coating over the gym slab in the addition, in addition to the specified vapor retarder under the sleepers.",
+      "scope_context": "Spec 09 64 66 relies on a 6-mil poly vapor retarder under the sleepers; no slab coating is specified.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Cascade Coatings",
+          "trade": "Concrete coatings",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 47734.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 4773.4,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 52507.4,
+          "lines": [
+            {
+              "desc": "Shot-blast slab prep",
+              "qty": 7200,
+              "unit": "sf",
+              "rate": 1.1,
+              "amount": 7920.0
+            },
+            {
+              "desc": "Two-coat epoxy vapor mitigation",
+              "qty": 7200,
+              "unit": "sf",
+              "rate": 4.85,
+              "amount": 34920.0
+            },
+            {
+              "desc": "Slab RH testing",
+              "qty": 1,
+              "unit": "ls",
+              "rate": 1150.0,
+              "amount": 1150.0
+            },
+            {
+              "desc": "Applicator",
+              "qty": 48,
+              "unit": "hr",
+              "rate": 78.0,
+              "amount": 3744.0
+            }
+          ],
+          "lower_tier": []
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 21,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 52507.4,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 2625.37,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 66885.0,
+        "total_requested": 122017.77
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 21,
+        "claimed_calendar": true,
+        "narrative": "The gym wood floor installer won't start until the slab under it is coated and cured. We can't start the coating until the ceilings in the new wing are done, because the ceiling crew's lifts are on the gym floor until then. The coating work is RH testing, shot-blasting and two coats of epoxy, 9 working days, and then the manufacturer wants 5 working days of cure before the sleepers go down. That is 14 working days of added work in front of the gym floor, about three calendar weeks. CM requests 21 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0503A",
+            "name": "RH test, shot-blast and apply vapor mitigation coating - gym slab",
+            "duration": 9
+          },
+          {
+            "id": "F-0503B",
+            "name": "Cure vapor mitigation coating before gym wood floor",
+            "duration": 5
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1740",
+            "succ": "F-0503A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0503A",
+            "succ": "F-0503B",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0503B",
+            "succ": "A1800",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0504",
+      "title": "Lowered corridor ceiling and soffits at addition per RFI-341",
+      "cause": {
+        "type": "RFI response",
+        "reference": "RFI-341",
+        "event_date": "2020-07-16"
+      },
+      "notice_date": "2020-07-20",
+      "cp_submitted": "2020-08-04",
+      "narrative": "RFI-341 reported that the supply duct mains in the addition's second-floor corridor clash with the beams at the specified ceiling height. Architect's response lowers the corridor ceiling 10 inches and adds framed soffits at the classroom doors.",
+      "scope_context": "Drawing A-521 shows the corridor ceiling at 9'-6\" with no soffits.",
+      "subcontractor_quotes": [
+        {
+          "firm": "Evergreen Framing",
+          "trade": "Framing and drywall",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 19846.0,
+          "lower_tier_total": 0.0,
+          "markup_on_own": 1984.6,
+          "markup_on_lower_tier": 0.0,
+          "quote_total": 21830.6,
+          "lines": [
+            {
+              "desc": "Soffit framing",
+              "qty": 380,
+              "unit": "lf",
+              "rate": 21.0,
+              "amount": 7980.0
+            },
+            {
+              "desc": "Gypsum board at soffits",
+              "qty": 1150,
+              "unit": "sf",
+              "rate": 6.2,
+              "amount": 7130.0
+            },
+            {
+              "desc": "Framer",
+              "qty": 64,
+              "unit": "hr",
+              "rate": 74.0,
+              "amount": 4736.0
+            }
+          ],
+          "lower_tier": []
+        },
+        {
+          "firm": "Rainier Mechanical",
+          "trade": "HVAC",
+          "markup_rates_stated": {
+            "own_work": 0.1,
+            "lower_tier": 0.05
+          },
+          "own_direct": 10952.0,
+          "lower_tier_total": 2850.0,
+          "markup_on_own": 1095.2,
+          "markup_on_lower_tier": 142.5,
+          "quote_total": 15039.7,
+          "lines": [
+            {
+              "desc": "Drop and re-hang branch duct",
+              "qty": 14,
+              "unit": "ea",
+              "rate": 520.0,
+              "amount": 7280.0
+            },
+            {
+              "desc": "Sheet metal worker",
+              "qty": 36,
+              "unit": "hr",
+              "rate": 102.0,
+              "amount": 3672.0
+            }
+          ],
+          "lower_tier": [
+            {
+              "firm": "Sentinel Fire Protection",
+              "scope": "Lower sprinkler drops to new ceiling height",
+              "amount": 2850.0
+            }
+          ]
+        }
+      ],
+      "cm_lines": [],
+      "time_impact_days": 8,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 36870.3,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 1843.52,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 25480.0,
+        "total_requested": 64193.82
+      },
+      "backup_attached": [
+        "cause document",
+        "subcontractor quotes with breakdowns",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 8,
+        "claimed_calendar": false,
+        "narrative": "Per the RFI 341 answer (rec'd 7/16) the 2nd floor corridor lid in the new building comes down 10\" and we get soffits at every classroom door. Talked to Rainier Mech - their guys drop and re-hang the branch ducts and the sprinkler sub lowers the heads at the same time, figure 3 working days, and they can't start until drywall in the new building is finished (they'd be fighting the tapers for the same lifts). After that our framers frame, board and tape the soffits, 5 working days. Painters were going to roll straight in behind the drywall in the new building and now they can't start until the soffits are done, and the ceiling grid and everything after it slides with them. Inspector says she'll look at the relocated duct the same morning we close it, so no extra time for the re-inspection. This is separate from RFI 327 (stair rail), which is answered and has no time. Requesting 8 working days and the extended general conditions that go with them.",
+        "cause_party": "architect",
+        "concurrent": false
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0504A",
+            "name": "Relocate branch ducts and sprinkler drops for lowered corridor ceiling - addition",
+            "duration": 3
+          },
+          {
+            "id": "F-0504B",
+            "name": "Frame, board and tape corridor soffits - addition (RFI-341)",
+            "duration": 5
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A1720",
+            "succ": "F-0504A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0504A",
+            "succ": "F-0504B",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0504B",
+            "succ": "A1760",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "CP-0505",
+      "title": "Access control integration by Owner's vendor (concurrent with controls retest)",
+      "cause": {
+        "type": "Other event",
+        "reference": "Owner letter 2020-07-20",
+        "event_date": "2020-07-20"
+      },
+      "notice_date": "2020-07-28",
+      "cp_submitted": "2020-08-11",
+      "narrative": "The Owner's separately contracted security vendor advised, through the Owner, that it cannot integrate the addition's access control with the fire alarm door releases until functional performance testing is complete. Separately, CM's controls subcontractor has told CM that its smoke-control sequence for the addition will need a correction and retest pass after functional testing.",
+      "scope_context": "The Owner's security vendor contract is outside CM's scope; Spec 23 09 93 requires the smoke-control sequence to pass functional testing before final inspection.",
+      "subcontractor_quotes": [],
+      "cm_lines": [],
+      "time_impact_days": 7,
+      "cover_sheet": {
+        "cm_direct_costs": 0.0,
+        "subcontractor_quotes": 0.0,
+        "fee_rate": 0.05,
+        "fee_applied_to": [
+          "CM direct costs",
+          "subcontractor quotes"
+        ],
+        "fee": 0.0,
+        "bond_and_insurance": 0.0,
+        "bo_tax": 0.0,
+        "permit_fees": 0.0,
+        "nss_items": 0.0,
+        "sgc_items": 0.0,
+        "extended_sgc_time": 22295.0,
+        "total_requested": 22295.0
+      },
+      "backup_attached": [
+        "cause document",
+        "time impact narrative",
+        "schedule update 2020-06-01"
+      ],
+      "time": {
+        "claimed_days": 7,
+        "claimed_calendar": true,
+        "narrative": "Both items fall in the same window at the end of the job: after functional performance testing and controls is finished and before the fire marshal and building official final inspections. The Owner's vendor needs 4 working days to integrate and demonstrate the door releases, and the fire marshal will not start the final inspection until that is done. Our controls sub's correction and retest of the smoke-control sequence also takes 4 working days over the same period, and the final inspection would wait for it too. CM requests 7 calendar days of time extension and extended general conditions for those days.",
+        "cause_party": "owner",
+        "concurrent": true
+      },
+      "fragnet_truth": {
+        "activities": [
+          {
+            "id": "F-0505A",
+            "name": "Owner's security vendor: access control and door release integration - addition",
+            "duration": 4
+          },
+          {
+            "id": "F-0505B",
+            "name": "Controls subcontractor: correct and retest smoke-control sequence - addition",
+            "duration": 4
+          }
+        ],
+        "relationships": [
+          {
+            "pred": "A2220",
+            "succ": "F-0505A",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0505A",
+            "succ": "A2250",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "A2220",
+            "succ": "F-0505B",
+            "type": "FS",
+            "lag": 0
+          },
+          {
+            "pred": "F-0505B",
+            "succ": "A2250",
+            "type": "FS",
+            "lag": 0
+          }
+        ]
       }
     }
   ]

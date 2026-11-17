@@ -12,8 +12,10 @@ Writes to demo4/data/:
   schedule_nologic.csv      the same table without predecessors (critical path not verifiable)
   schedule.pdf              printed Gantt-style table (id, name, duration, start, finish; no logic)
   contract_b.md / .pdf      second synthetic GC/CM contract with different numbers
-  contract_terms_key.json   expected contract terms for contract A and contract B, with verified quotes
-  cases.json                15 change proposals (CP-0401..CP-0415) with a time section and fragnet_truth
+  contract_c.md / .pdf      third synthetic contract, HELD OUT (written after the A/B evaluation; see DATA_NOTE)
+  contract_terms_key.json   expected contract terms for contracts A, B and C, with verified quotes
+  cases.json                15 change proposals (CP-0401..CP-0415) plus 5 held-out ones (CP-0501..CP-0505)
+                            with a time section and fragnet_truth
   answer_key.json           expected delay, extension, compensability and cost per case, from cpm_ref.tia
   pdfs/*.pdf                change-proposal PDFs for 4 dev cases
   DATA_NOTE.md              what is synthetic, how it was built, the split rule, limits
@@ -42,6 +44,7 @@ sys.path.insert(1, str(ROOT / "demo2"))
 import cpm_ref as C  # noqa: E402
 import schedule_src as S  # noqa: E402
 from contract_b_text import CONTRACT_B  # noqa: E402
+from contract_c_text import CONTRACT_C  # noqa: E402
 from deadlines import notice_due  # noqa: E402  (Demo 2's contract A Section 6.2 + 1.4 date code)
 
 SEED = 20200601                 # fixes the dev/test split before anything is computed
@@ -748,8 +751,140 @@ def terms_key():
         assert n == 1, (s, n)
     return {"meta": {"spec": "docs/demo4-spec.md section 3",
                      "verification": "each quote is a verbatim substring of its contract; each value appears in its quote "
-                                     "(numbers as written, lists and enums by keyword); section is the numbered paragraph holding the quote"},
-            "contracts": {"A": contract_a, "B": contract_b}}
+                                     "(numbers as written, lists and enums by keyword); section is the numbered paragraph holding the quote",
+                     "heldout": "contract C is a held-out contract written after the A/B evaluation; do not tune the reader on it"},
+            "contracts": {"A": contract_a, "B": contract_b, "C": terms_key_c()}}
+
+
+# ---------------------------------------------------------------------------- contract C (held out)
+def find_section_c(text, quote):
+    """Contract C numbers its paragraphs "**§ 9.4.3 ...**": section of the last such heading before the quote."""
+    pos = text.index(quote)
+    heads = [(m.start(), m.group(1)) for m in re.finditer(r"\*\*§ (\d+(?:\.\d+)*)\b", text) if m.start() < pos]
+    return heads[-1][1]
+
+
+def term_c(text, value, quote, section, note=None):
+    if quote not in text:
+        raise AssertionError(f"contract C quote not found verbatim: {quote[:70]!r}")
+    sec = find_section_c(text, quote)
+    if sec != section:
+        raise AssertionError(f"contract C section mismatch for {quote[:40]!r}: found {sec}, expected {section}")
+    t = {"value": value, "quote": quote, "section": sec}
+    if note:
+        t["note"] = note
+    return t
+
+
+C_CAUSE_WORDS = {"owner": "district", "architect": "architect", "concealed condition": "concealed"}
+
+
+def value_in_quote_c(key, value, quote):
+    """Contract C writes numbers as 'twelve percent (12%)', 'five (5) days', '$2,975.00'."""
+    q = quote.lower()
+    if value is None:
+        return True                      # term not stated; the note says so
+    if key == "fee_allowed_on":
+        return "direct cost" in q and "subcontractor" in q and "bonds and insurance" in q
+    if key == "compensable_causes":
+        return all(C_CAUSE_WORDS[v] in q for v in value)
+    if key == "concurrent_delay":
+        return "concurrent" in q and "apportion" in q and value == "apportioned"
+    if isinstance(value, dict):
+        return all(f"({v}) days" in q for v in set(value.values()))
+    if key.endswith("_pct"):
+        return f"({value:g}%)" in quote
+    if key == "contract_days":
+        return f"({value}) calendar days" in quote
+    return f"${value:,}" in quote
+
+
+def terms_key_c():
+    T = CONTRACT_C
+    c_markup = ("For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall "
+                "not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, "
+                "the Subcontractor may add six percent (6%) to the lower-tier cost.")
+    c_fee_on = ("The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, "
+                "Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.")
+    c_notice = ("The Contractor shall give the District written notice of a Potential Change within five (5) days after receipt of an "
+                "RFI response, Architect's supplemental instruction, submittal return, or direction from the District or the Architect, "
+                "or after first observing a concealed or unknown physical condition at the site, which the Contractor shall not disturb "
+                "until the District has had an opportunity to observe it. For any other event or circumstance on which the Contractor "
+                "intends to base a request for additional cost or time, notice shall be given within twenty (20) days after the "
+                "Contractor knew or should have known of it.")
+    c_comp = ("The Contractor shall be compensated for extended Specified General Conditions under Section 5.3 only for a delay caused "
+              "by the District, by the Architect, or by a concealed physical condition at the site that differs materially from the "
+              "Contract Documents.")
+    c_conc = ("Where a delay results from concurrent causes, one attributable to the District and one to the Contractor, the extension "
+              "shall be granted for the full period of delay, but the compensation for extended Specified General Conditions shall be "
+              "apportioned between the District and the Contractor in proportion to their respective contributions to the delay.")
+    no_cp = ("not stated. Section 8.3.1 extends time 'for such reasonable time as the District's Project Manager may determine' and "
+             "Section 8.3.2 asks only for a narrative and 'such schedule information as ... may reasonably require'. Section 3.5 "
+             "requires the schedule to show the critical path but does not make critical-path delay a condition of an extension. "
+             "A reader should return null / not found, not true.")
+    contract_c = {
+        "name": "Contract C (HELD OUT): synthetic GC/CM contract (Middle School HVAC Replacement and Seismic Retrofit)",
+        "file": "demo4/data/contract_c.md",
+        "split": "heldout",
+        "terms": {
+            "markup_own_pct": term_c(T, 12, c_markup, "9.4.2"),
+            "markup_lower_pct": term_c(T, 6, c_markup, "9.4.2"),
+            "markup_total_pct": term_c(T, 17, "The total of all overhead and profit markups by all tiers on any item of changed Work, "
+                                              "excluding the Contractor's Fee, shall not exceed seventeen percent (17%).", "9.4.2"),
+            "fee_pct": term_c(T, 3.75, 'Section 9.4.3 is amended by deleting "four percent (4%)" and substituting '
+                                       '"three and three-quarters percent (3.75%)".', "16.3",
+                              note="Section 9.4.3 states 4%, but Supplementary Condition 16.3 replaces it with 3.75%; "
+                                   "Section 1.2 makes Article 16 govern over the Articles."),
+            "fee_allowed_on": term_c(T, ["CM direct costs", "subcontractor quotes", "bond and insurance premiums"], c_fee_on, "9.4.3",
+                                     note="The base of the Fee is unchanged by 16.3; only the rate is amended."),
+            "labor_burden_pct": term_c(T, 35, "plus a labor burden of thirty-five percent (35%) of base wages", "5.2"),
+            "blue_book_pct": term_c(T, 80, "Equipment owned by the Contractor or an affiliate is charged at eighty percent (80%) of the "
+                                           "rates in the current Equipment Watch Rental Rate Blue Book", "9.4.5"),
+            "approval_limit": term_c(T, 100000, "Change Orders whose individual value does not exceed One Hundred Thousand Dollars "
+                                                "($100,000) may be executed by the District's Capital Projects Director.", "9.6"),
+            "notice_days_by_cause": term_c(T, {"RFI response": 5, "ASI": 5, "Submittal return": 5, "Owner direction": 5,
+                                               "Architect direction": 5, "Concealed condition": 5, "Other event": 20}, c_notice, "9.2"),
+            "contract_days": term_c(T, 455, "The Contractor shall achieve Substantial Completion of the entire Work within four hundred "
+                                            "fifty-five (455) calendar days after the date of the Notice to Proceed for Construction.", "3.2"),
+            "liquidated_damages_per_day": term_c(T, 2200, "For each calendar day after the Contract Time that Substantial Completion has "
+                                                          "not been achieved, the Contractor shall pay the District Two Thousand Two "
+                                                          "Hundred Dollars ($2,200) as liquidated damages and not as a penalty.", "3.3"),
+            "daily_delay_rate": term_c(T, 2975, "the Specified General Conditions shall be increased by $2,975.00 per calendar day of "
+                                                "the extension", "5.3",
+                                       note="Repeated in Exhibit B; Section 5.3 governs (Section 1.2: Articles over Exhibits)."),
+            "sgc_total": term_c(T, 1412750, "The Specified General Conditions are a lump sum of $1,412,750", "5.3"),
+            "extension_requires_critical_path": term_c(T, None, "the Contract Time shall be extended by Change Order for such reasonable "
+                                                                "time as the District's Project Manager may determine.", "8.3.1",
+                                                       note=no_cp),
+            "compensable_causes": term_c(T, ["owner", "architect", "concealed condition"], c_comp, "9.4.7",
+                                         note="'District' is the Owner. Weather and other causes beyond both parties' control: time only."),
+            "concurrent_delay": term_c(T, "apportioned", c_conc, "9.4.7",
+                                       note="Full time extension; extended Specified General Conditions apportioned by each party's "
+                                            "share of the delay (not 'time, no money')."),
+        },
+        "notes": {"extension_requires_critical_path": "not stated in contract C (value null); see the term's note",
+                  "fee_pct": "4% in Section 9.4.3 is superseded by 3.75% in Section 16.3",
+                  "gc_base_fee": "5.25% of the MACC (Section 5.1) is not the change-order Fee",
+                  "phase_1_liquidated_damages": "$750 per day (Section 3.3) is an interim milestone rate, not the Substantial Completion rate",
+                  "field_order_limit": "$7,500 (Section 9.5) is the site representative's Field Order limit, not the Change Order approval limit",
+                  "architect_non_compensable": "Section 7.2 bars time and money for Architect review of resubmittals the Contractor caused; "
+                                               "Architect-caused delay is otherwise compensable under 9.4.7"},
+    }
+    for k, t in contract_c["terms"].items():
+        assert value_in_quote_c(k, t["value"], t["quote"]), ("C", k)
+    assert set(contract_c["terms"]) == set(terms_key_a_keys()), "contract C must cover every spec term"
+    # how often each key figure appears in contract C: once, except where the contract repeats or amends it
+    expected = {"(12%)": 1, "(6%)": 1, "(17%)": 1, "(3.75%)": 1, "(4%)": 2, "(35%)": 1, "(80%)": 1, "$100,000": 1,
+                "five (5) days": 1, "twenty (20) days": 1, "(455)": 1, "$2,200": 1, "$2,975.00": 2, "$1,412,750": 3}
+    for s, n in expected.items():
+        assert T.count(s) == n, (s, T.count(s), n)
+    return contract_c
+
+
+def terms_key_a_keys():
+    return ["markup_own_pct", "markup_lower_pct", "markup_total_pct", "fee_pct", "fee_allowed_on", "labor_burden_pct",
+            "blue_book_pct", "approval_limit", "notice_days_by_cause", "contract_days", "liquidated_damages_per_day",
+            "daily_delay_rate", "sgc_total", "extension_requires_critical_path", "compensable_causes", "concurrent_delay"]
 
 
 def md_to_pdf(md, path, title):
@@ -1013,6 +1148,118 @@ CASE_DEFS = [
          fragnet={"activities": [], "relationships": []}),
 ]
 
+# ---------------------------------------------------------------------------- held-out cases (CP-0501..CP-0505)
+# Written after the A/B / CP-0401..0415 evaluation by a helper that did not see the reader or drafter code.
+# Same schedule and contract A rules as above. Differences from the seen set, on purpose (realism, not difficulty):
+#   * time_narrative is written by hand in a superintendent's or scheduler's words. Four of the five do not name any
+#     schedule activity ID or fragnet ID; they describe the tie-in work ("drywall in the new building", "ceilings in
+#     the new wing"), and one (CP-0504) is a loose field note with an aside about an unrelated RFI.
+#   * claims are fixed numbers; claim_check states the design ("matches" the computed delay in the claim's units,
+#     "padded", or "absorbed") and the builder asserts it.
+HELDOUT_DEFS = [
+    dict(id="CP-0501", stratum="heldout_critical", scenario="Held out: on critical path, Owner-caused, accurate claim, narrative without IDs",
+         title="Convert addition storage room 231 to IDF with dedicated cooling",
+         cause_type="Owner direction", ref="Owner email 2020-07-06", event="2020-07-06", notice_after=3, cp_after=15,
+         party="owner", concurrent=False, claim=("fixed", 10), calendar=True, expect="critical", claim_check="matches",
+         narrative="District IT asked, and the Owner's Representative directed by email, that storage room 231 in the addition become an "
+                   "intermediate distribution frame (IDF) room with its own ductless split cooling unit, a dedicated 30-amp circuit and a "
+                   "fire-rated plywood backboard.",
+         scope="Drawings M-201 and E-201 show room 231 as unconditioned storage with one convenience outlet.",
+         subs=[sub("Rainier Mechanical", "HVAC", [("Ductless split unit, 2-ton, furnished", 1, "ea", 6850.0), ("Line set and condensate", 1, "ls", 2400.0),
+                                                  ("Refrigeration fitter", 40, "hr", 104.0)],
+                   lower=[("Northwest Controls", "Unit alarm tie-in to BAS", 1850.0)]),
+               sub("Sound Electric", "Electrical", [("30A dedicated circuit", 1, "ea", 1450.0), ("Electrician", 16, "hr", 96.0)])],
+         time_narrative="Room 231 sits in the middle of the second-floor rough-in area of the new wing. The added line set, condensate "
+                        "drain, dedicated circuit and rated penetrations for the IDF can't go in until our MEP rough-in up there is "
+                        "otherwise complete, because the mechanical and electrical crews work that whole floor in sequence, and all of it "
+                        "has to be in before the in-wall and above-ceiling inspection for the new wing. Mechanical and electrical together "
+                        "figure 5 working days for the added rough-in. Run against the June update, this pushes Substantial Completion. "
+                        "CM requests 10 calendar days of time extension and extended general conditions for those days.",
+         fragnet={"activities": [F("F-0501A", "Added IDF rough-in: line set, condensate, dedicated circuit, rated penetrations - addition", 5)],
+                  "relationships": [R("A1630", "F-0501A"), R("F-0501A", "A1685")]}),
+    dict(id="CP-0502", stratum="heldout_off_critical", scenario="Held out: off critical path (Wing B float), Architect-caused, days claimed",
+         title="Collector straps and drag struts at Wing B roof per ASI-088",
+         cause_type="ASI", ref="ASI-088", event="2020-07-09", notice_after=5, cp_after=14,
+         party="architect", concurrent=False, claim=("fixed", 15), calendar=True, expect="absorbed", claim_check="absorbed",
+         narrative="ASI-088 adds steel collector straps and two drag struts at the Wing B roof diaphragm to complete the load path to the "
+                   "new shear walls.",
+         scope="Drawing S-402 shows the Wing B shear walls with no collectors at the roof diaphragm.",
+         subs=[sub("Olympic Structural", "Structural steel", [("Collector strap, galvanized", 140, "lf", 46.0), ("Drag strut, fabricated", 2, "ea", 3900.0),
+                                                              ("Ironworker", 80, "hr", 96.0), ("Special inspection, welds", 1, "ls", 1850.0)])],
+         time_narrative="Time impact analysis against schedule update 2020-06-01. Fragnet inserted: F-0502A Install collector straps and "
+                        "drag struts - Wing B roof diaphragm (ASI-088), original duration 10 working days. Predecessor: A1490 Seismic "
+                        "upgrade - Wing B (finish-to-start, no lag). Successor: A1620 MEP rough-in - Wing B (finish-to-start, no lag); "
+                        "the MEP trades cannot work overhead in Wing B while the ironworkers are welding at the roof diaphragm. "
+                        "CM requests 15 calendar days of time extension and extended general conditions for those days.",
+         fragnet={"activities": [F("F-0502A", "Install collector straps and drag struts - Wing B roof diaphragm (ASI-088)", 10)],
+                  "relationships": [R("A1490", "F-0502A"), R("F-0502A", "A1620")]}),
+    dict(id="CP-0503", stratum="heldout_padded", scenario="Held out: partial float consumption, Owner-caused, padded claim, narrative without IDs",
+         title="Moisture vapor mitigation coating at addition gym slab",
+         cause_type="Owner direction", ref="Owner letter 2020-07-13", event="2020-07-13", notice_after=4, cp_after=15,
+         party="owner", concurrent=False, claim=("fixed", 21), calendar=True, expect="partial", claim_check="padded",
+         narrative="After reviewing the wood flooring manufacturer's warranty terms, the Owner directed CM to add a moisture vapor "
+                   "mitigation coating over the gym slab in the addition, in addition to the specified vapor retarder under the sleepers.",
+         scope="Spec 09 64 66 relies on a 6-mil poly vapor retarder under the sleepers; no slab coating is specified.",
+         subs=[sub("Cascade Coatings", "Concrete coatings", [("Shot-blast slab prep", 7200, "sf", 1.10), ("Two-coat epoxy vapor mitigation", 7200, "sf", 4.85),
+                                                             ("Slab RH testing", 1, "ls", 1150.0), ("Applicator", 48, "hr", 78.0)])],
+         time_narrative="The gym wood floor installer won't start until the slab under it is coated and cured. We can't start the coating "
+                        "until the ceilings in the new wing are done, because the ceiling crew's lifts are on the gym floor until then. "
+                        "The coating work is RH testing, shot-blasting and two coats of epoxy, 9 working days, and then the manufacturer "
+                        "wants 5 working days of cure before the sleepers go down. That is 14 working days of added work in front of the "
+                        "gym floor, about three calendar weeks. CM requests 21 calendar days of time extension and extended general "
+                        "conditions for those days.",
+         fragnet={"activities": [F("F-0503A", "RH test, shot-blast and apply vapor mitigation coating - gym slab", 9),
+                                 F("F-0503B", "Cure vapor mitigation coating before gym wood floor", 5)],
+                  "relationships": [R("A1740", "F-0503A"), R("F-0503A", "F-0503B"), R("F-0503B", "A1800")]}),
+    dict(id="CP-0504", stratum="heldout_messy", scenario="Held out: on critical path, Architect-caused, field-note narrative without IDs, claim in working days",
+         title="Lowered corridor ceiling and soffits at addition per RFI-341",
+         cause_type="RFI response", ref="RFI-341", event="2020-07-16", notice_after=4, cp_after=15,
+         party="architect", concurrent=False, claim=("fixed", 8), calendar=False, expect="critical", claim_check="matches",
+         narrative="RFI-341 reported that the supply duct mains in the addition's second-floor corridor clash with the beams at the "
+                   "specified ceiling height. Architect's response lowers the corridor ceiling 10 inches and adds framed soffits at the "
+                   "classroom doors.",
+         scope="Drawing A-521 shows the corridor ceiling at 9'-6\" with no soffits.",
+         subs=[sub("Evergreen Framing", "Framing and drywall", [("Soffit framing", 380, "lf", 21.0), ("Gypsum board at soffits", 1150, "sf", 6.20),
+                                                                ("Framer", 64, "hr", 74.0)]),
+               sub("Rainier Mechanical", "HVAC", [("Drop and re-hang branch duct", 14, "ea", 520.0), ("Sheet metal worker", 36, "hr", 102.0)],
+                   lower=[("Sentinel Fire Protection", "Lower sprinkler drops to new ceiling height", 2850.0)])],
+         time_narrative="Per the RFI 341 answer (rec'd 7/16) the 2nd floor corridor lid in the new building comes down 10\" and we get "
+                        "soffits at every classroom door. Talked to Rainier Mech - their guys drop and re-hang the branch ducts and the "
+                        "sprinkler sub lowers the heads at the same time, figure 3 working days, and they can't start until drywall in the "
+                        "new building is finished (they'd be fighting the tapers for the same lifts). After that our framers frame, board "
+                        "and tape the soffits, 5 working days. Painters were going to roll straight in behind the drywall in the new "
+                        "building and now they can't start until the soffits are done, and the ceiling grid and everything after it slides "
+                        "with them. Inspector says she'll look at the relocated duct the same morning we close it, so no extra time for the "
+                        "re-inspection. This is separate from RFI 327 (stair rail), which is answered and has no time. Requesting 8 working "
+                        "days and the extended general conditions that go with them.",
+         fragnet={"activities": [F("F-0504A", "Relocate branch ducts and sprinkler drops for lowered corridor ceiling - addition", 3),
+                                 F("F-0504B", "Frame, board and tape corridor soffits - addition (RFI-341)", 5)],
+                  "relationships": [R("A1720", "F-0504A"), R("F-0504A", "F-0504B"), R("F-0504B", "A1760")]}),
+    dict(id="CP-0505", stratum="heldout_concurrent", scenario="Held out: concurrent delay, Owner's separate vendor and controls sub rework, narrative without IDs",
+         title="Access control integration by Owner's vendor (concurrent with controls retest)",
+         cause_type="Other event", ref="Owner letter 2020-07-20", event="2020-07-20", notice_after=8, cp_after=14,
+         party="owner", concurrent=True, claim=("fixed", 7), calendar=True, expect="critical", claim_check="matches",
+         narrative="The Owner's separately contracted security vendor advised, through the Owner, that it cannot integrate the addition's "
+                   "access control with the fire alarm door releases until functional performance testing is complete. Separately, CM's "
+                   "controls subcontractor has told CM that its smoke-control sequence for the addition will need a correction and "
+                   "retest pass after functional testing.",
+         scope="The Owner's security vendor contract is outside CM's scope; Spec 23 09 93 requires the smoke-control sequence to pass "
+               "functional testing before final inspection.",
+         subs=[],
+         time_narrative="Both items fall in the same window at the end of the job: after functional performance testing and controls is "
+                        "finished and before the fire marshal and building official final inspections. The Owner's vendor needs 4 working "
+                        "days to integrate and demonstrate the door releases, and the fire marshal will not start the final inspection "
+                        "until that is done. Our controls sub's correction and retest of the smoke-control sequence also takes 4 working "
+                        "days over the same period, and the final inspection would wait for it too. CM requests 7 calendar days of time "
+                        "extension and extended general conditions for those days.",
+         fragnet={"activities": [F("F-0505A", "Owner's security vendor: access control and door release integration - addition", 4),
+                                 F("F-0505B", "Controls subcontractor: correct and retest smoke-control sequence - addition", 4)],
+                  "relationships": [R("A2220", "F-0505A"), R("F-0505A", "A2250"), R("A2220", "F-0505B"), R("F-0505B", "A2250")]},
+         concurrent_split={"owner": ["F-0505A"], "contractor": ["F-0505B"]}),
+]
+HELDOUT_IDS = [d["id"] for d in HELDOUT_DEFS]
+ID_RE = re.compile(r"\b(?:A\d{4}|F-\d{4}[A-Z])\b")
+
 
 def split_cases():
     """Fix the dev/test split from the seed before anything is computed: one test case per stratum."""
@@ -1055,12 +1302,13 @@ def describe_fragnet(frag, names):
     return " ".join(out)
 
 
-def build_cases(sch, split):
+def build_cases(sch, split, defs=CASE_DEFS):
+    """Public case packages and answer-key rows. Held-out defs carry their own split, stratum and hand-written narrative."""
     names = {a["id"]: a["name"] for a in sch["activities"]}
     ids = set(names)
     status = {a["id"]: ("complete" if a["actual_finish"] else "active" if a["actual_start"] else "open") for a in sch["activities"]}
     public, key = [], []
-    for d in CASE_DEFS:
+    for d in defs:
         frag = d["fragnet"]
         for a in frag["activities"]:
             assert a["id"].startswith("F-" + d["id"][3:]), a["id"]
@@ -1099,6 +1347,10 @@ def build_cases(sch, split):
             claimed = 0
         computed_in_claim_units = dc if d["calendar"] else dw
         padded = claimed > computed_in_claim_units
+        if "claim_check" in d:      # held-out cases state the claim design explicitly
+            assert {"matches": claimed == computed_in_claim_units > 0,
+                    "padded": claimed > computed_in_claim_units > 0,
+                    "absorbed": claimed > 0 and dw == 0}[d["claim_check"]], (d["id"], d["claim_check"], claimed, dc, dw)
         if d["party"] == "contractor" or claimed == 0 or dw == 0:
             ext = 0
         elif claimed >= computed_in_claim_units:
@@ -1121,7 +1373,11 @@ def build_cases(sch, split):
         claim_txt = (f"CM requests {claimed} {unit} days of time extension"
                      + (" and extended general conditions for those days." if money_days else ", time only.")
                      if claimed else "CM requests no extension of time.")
-        time_narr = f"{d['context']} {describe_fragnet(frag, names)} {claim_txt}"
+        if "time_narrative" in d:
+            time_narr = d["time_narrative"]
+            assert str(claimed) in time_narr and unit in time_narr, (d["id"], "narrative must state the claim")
+        else:
+            time_narr = f"{d['context']} {describe_fragnet(frag, names)} {claim_txt}"
         pkg = {
             "id": d["id"], "title": d["title"],
             "cause": {"type": d["cause_type"], "reference": d["ref"], "event_date": d["event"]},
@@ -1154,8 +1410,9 @@ def build_cases(sch, split):
             pay = {"owner": "Owner-caused, compensable", "architect": "Architect-caused, compensable under 6.5.6",
                    "neither": "weather, time only"}[d["party"]]
             why = f"Critical-path delay of {dc} calendar days ({dw} working); {basis}; {pay}."
-        k = {"id": d["id"], "scenario": d["scenario"], "stratum": next(s for s, m in STRATA.items() if d["id"] in m),
-             "split": split[d["id"]], "cause_party": d["party"], "concurrent": d["concurrent"],
+        k = {"id": d["id"], "scenario": d["scenario"],
+             "stratum": d.get("stratum") or next(s for s, m in STRATA.items() if d["id"] in m),
+             "split": "heldout" if d["id"] in HELDOUT_IDS else split[d["id"]], "cause_party": d["party"], "concurrent": d["concurrent"],
              "claimed_days": claimed, "claimed_calendar": d["calendar"],
              "before_finish": t["before_finish"], "after_finish": t["after_finish"],
              "delay_workdays": dw, "delay_calendar_days": dc, "fragnet_critical": t["fragnet_critical"],
@@ -1293,6 +1550,11 @@ def verify(sch, res, cases, key, terms):
             head = re.sub(r"\s+", " ", t["quote"][:40])
             assert head in re.sub(r"\s+", " ", bt), (k, head)
         report.append("PDFs: schedule.pdf text has all activity ids and no logic; contract_b.pdf text holds every quote's start")
+        ct = re.sub(r"\s+", " ", "".join(p.extract_text() for p in PdfReader(str(DATA / "contract_c.pdf")).pages))
+        for k, t in terms["contracts"]["C"]["terms"].items():
+            head = re.sub(r"\s+", " ", t["quote"][:40])
+            assert head in ct, ("C", k, head)
+        report.append("Contract C PDF text holds every quote's start")
     except ImportError:
         report.append("PDFs: pypdf not installed; text check skipped")
 
@@ -1305,15 +1567,31 @@ def verify(sch, res, cases, key, terms):
             assert (r["pred"] in ids or r["pred"] in fids) and (r["succ"] in ids or r["succ"] in fids)
         if fids:
             assert any(r["pred"] in ids for r in fr["relationships"]) and any(r["succ"] in ids for r in fr["relationships"]), cp["id"]
-        for a in fr["activities"]:
-            assert a["id"] in cp["time"]["narrative"] and a["name"] in cp["time"]["narrative"], cp["id"]
+        narr = cp["time"]["narrative"]
+        if cp["id"] in HELDOUT_IDS and not ID_RE.search(narr):
+            # ID-free held-out narrative: every fragnet duration must still be stated, and no schedule or fragnet ID named
+            for a in fr["activities"]:
+                assert f"{a['duration']} working days" in narr, (cp["id"], a["id"])
+        else:
+            for a in fr["activities"]:
+                assert a["id"] in narr and a["name"] in narr, cp["id"]
+    held = [cp for cp in cases if cp["id"] in HELDOUT_IDS]
+    id_free = [cp["id"] for cp in held if not ID_RE.search(cp["time"]["narrative"])]
+    assert len(held) == 5 and len(id_free) >= 3, id_free
+    ids_open = {a["id"] for a in sch["activities"] if not a["actual_start"]}
+    for cp in held:
+        for r in cp["fragnet_truth"]["relationships"]:
+            for end in ("pred", "succ"):
+                assert r[end].startswith("F-") or r[end] in ids_open, (cp["id"], r[end], "held-out tie to a started activity")
     # recompute every key value from scratch
     for cp, k in zip(cases, key):
         t = C.tia(sch, cp["fragnet_truth"])
         assert (t["delay_workdays"], t["delay_calendar_days"], t["fragnet_critical"]) == (k["delay_workdays"], k["delay_calendar_days"], k["fragnet_critical"])
         assert k["expected_cost"] == (k["extension_days_allowed"] * SGC_DAILY_A if k["compensable"] else 0)
-    report.append(f"Cases: {len(cases)} fragnets reference existing schedule ids, every F- activity appears in its narrative, "
+    report.append(f"Cases: {len(cases)} fragnets reference existing schedule ids, every F- activity appears in its narrative "
+                  f"(held-out ID-free narratives {', '.join(id_free)} state every fragnet duration instead), "
                   "and every answer-key delay re-computes")
+    report.append("Held-out fragnets tie only to activities not started at the data date")
     return report
 
 
@@ -1333,6 +1611,7 @@ def data_note(sch, res, planned, key, report):
     for r in sch["relationships"]:
         types[r["type"]] = types.get(r["type"], 0) + 1
     lags = sum(1 for r in sch["relationships"] if r["lag"])
+    words_c = len(re.findall(r"\b\w[\w'.,$%-]*\b", CONTRACT_C))
     return f"""# Demo 4 data note
 
 ## What is synthetic
@@ -1356,6 +1635,12 @@ Run `python3 demo4/build_data.py` from the repo root. It rebuilds every file her
 
 ## Dev/test split
 The split is fixed by `random.Random({SEED})` before anything is computed. The 15 cases are grouped into 5 strata of 3 (critical-path accurate claims; off-critical claims; padded or partial-float claims; non-compensable causes; concurrent or no claim), and one case per stratum is drawn as test. That gives 10 dev and 5 test cases, with every stratum in both. Tune prompts and rules on dev only.
+
+## Held-out set (contract C, CP-0501..0505)
+Contracts A and B and CP-0401 to CP-0415 have been used to inspect failures, so they are no longer independent. This set was written **after** that evaluation, by a separate helper (an AI assistant working from this folder's formats and `cpm_ref.py`) that did **not** open the contract reader, the fragnet drafter, their test scripts, or `results/`. It is synthetic and AI-assisted, and it was not made easy or hard for any particular method; it is meant to read like ordinary project documents.
+- **Contract C** (`contract_c.md`, `contract_c.pdf`, key under `contracts.C` in `contract_terms_key.json`, marked `"split": "heldout"`): a Washington middle-school HVAC replacement and seismic retrofit on a GC/CM (MACC) contract, {words_c} words, numbered "§ 9.4.3", with "District" and "Contractor" for Owner and CM and numbers spelled out ("twelve percent (12%)"). Key values: markup 12% / 6% / 17%; change-order Fee 3.75% (Section 9.4.3 says 4%, amended by Supplementary Condition 16.3, which governs under 1.2) on Contractor direct costs, subcontractor quotes and bond and insurance premiums; 35% labor burden; owned equipment at 80% of Blue Book; $100,000 approval limit; 5-day notice except 20 days for other events; 455 days; $2,200/day liquidated damages; $2,975/day extended general conditions (also repeated in Exhibit B; 5.3 governs); $1,412,750 general conditions; delay compensable for District, Architect or concealed-condition causes; concurrent delay gets full time with the extended general conditions apportioned. Whether an extension requires critical-path delay is **not stated** (key value null, with a note). Distractors sit near the real numbers: the 5.25% base Fee, a $750/day Phase 1 milestone rate, a $7,500 Field Order limit, a 50% standby rate, 60/40 savings, a 15% apprenticeship rule, and an Architect sentence in a non-compensable context (7.2).
+- **CP-0501 to CP-0505** (in `cases.json` and `answer_key.json` with `"split": "heldout"`, strata `heldout_*`): five change proposals on the same June 2020 schedule, scored under contract A's rules exactly like the cases above. One critical Owner change, one Architect change absorbed by float, one padded claim with partial float use, one loose field-note narrative (Architect RFI, claimed in working days, mentions an unrelated RFI and later activities that are not tie-ins), and one concurrent Owner/contractor delay. The time narratives are written by hand; four of the five name no activity or fragnet IDs and describe the tie-in work in a superintendent's words. Every fragnet ties only to activities not started at the data date, and the answers come from `cpm_ref.tia` like the rest.
+- **How to use it.** Run the reader and drafter on it once, after tuning is finished, and report it separately from dev/test. Once its failures are inspected it is no longer held out; write a new set rather than tuning on this one.
 
 ## Conventions the answer key depends on
 - Day numbering follows the spec: an activity with ES = day 0 and duration 5 occupies working days 0-4 and EF = 5; its finish date is working day 4. Milestones are dated on working day EF - 1 (day 0 for the start milestone), so Substantial Completion sits on the last working day of the work that drives it.
@@ -1398,12 +1683,23 @@ def main():
     words = len(re.findall(r"\b\w[\w'.,$%-]*\b", CONTRACT_B))
     assert 2000 <= words <= 3500, words
     md_to_pdf(CONTRACT_B, DATA / "contract_b.pdf", "Contract B - synthetic GC/CM agreement")
+    (DATA / "contract_c.md").write_text(CONTRACT_C.lstrip(), encoding="utf-8")
+    words_c = len(re.findall(r"\b\w[\w'.,$%-]*\b", CONTRACT_C))
+    assert 2500 <= words_c <= 3500, words_c
+    md_to_pdf(CONTRACT_C, DATA / "contract_c.pdf", "Contract C - synthetic GC/CM contract (held out)")
     terms = terms_key()
+    c_md = (DATA / "contract_c.md").read_text(encoding="utf-8")
+    for k, t in terms["contracts"]["C"]["terms"].items():
+        assert t["quote"] in c_md, ("contract_c.md", k)
     dump_json(DATA / "contract_terms_key.json", terms)
 
     cases, key = build_cases(sch, split)
+    h_cases, h_key = build_cases(sch, split, HELDOUT_DEFS)
+    cases, key = cases + h_cases, key + h_key
     meta = {"contract": "../../demo1/data/synthetic_contract.md", "schedule": "schedule.json", "generated_by": "demo4/build_data.py",
-            "schedule_data_date": sch["data_date"], "calendar": "Washington State legal holidays 2020-2021", "synthetic": True}
+            "schedule_data_date": sch["data_date"], "calendar": "Washington State legal holidays 2020-2021", "synthetic": True,
+            "heldout": "CP-0501..CP-0505 are held out (split 'heldout'): written after the dev/test evaluation by a helper that "
+                       "did not see the reader or drafter code; same schedule and contract A rules. Do not tune on them."}
     dump_json(DATA / "cases.json", {"meta": meta, "cases": cases})
     dump_json(DATA / "answer_key.json", {"meta": dict(meta, seed=SEED, split_rule="one test case per stratum of 3, drawn with random.Random(seed)",
                                                       forecast_finish_before=res["finish_date"],
@@ -1425,12 +1721,14 @@ def main():
     report = verify(sch, res, cases, key, terms)
     report.append(f"CP PDFs written for dev cases {', '.join(picks)}")
     report.append(f"Contract B: {words} words")
+    report.append(f"Contract C (held out): {words_c} words; every key quote is verbatim in contract_c.md and holds its value")
     (DATA / "DATA_NOTE.md").write_text(data_note(sch, res, planned, key, report), encoding="utf-8")
     for r in report:
         print("ok -", r)
     print(f"{len(sch['activities'])} activities, {len(sch['relationships'])} relationships, finish {res['finish_date']} "
           f"(contract {contract_completion_date()}); {len(cases)} cases, split "
-          f"{sum(k['split'] == 'dev' for k in key)} dev / {sum(k['split'] == 'test' for k in key)} test")
+          f"{sum(k['split'] == 'dev' for k in key)} dev / {sum(k['split'] == 'test' for k in key)} test / "
+          f"{sum(k['split'] == 'heldout' for k in key)} heldout")
 
 
 if __name__ == "__main__":

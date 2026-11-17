@@ -32,11 +32,22 @@ Run `python3 demo4/build_data.py` from the repo root. It rebuilds every file her
 | CP-0413 | Concurrent delay: Owner flooring change and flooring sub crew shortage | owner (concurrent) | 11 cal | 11 / 6 | 11 | no | $0 | dev |
 | CP-0414 | No time claimed; work off the critical path | architect | 0 cal | 0 / 0 | 0 | no | $0 | dev |
 | CP-0415 | No time claimed; no schedule impact | owner | 0 cal | 0 / 0 | 0 | no | $0 | test |
+| CP-0501 | Held out: on critical path, Owner-caused, accurate claim, narrative without IDs | owner | 10 cal | 10 / 5 | 10 | yes | $31,850 | heldout |
+| CP-0502 | Held out: off critical path (Wing B float), Architect-caused, days claimed | architect | 15 cal | 0 / 0 | 0 | no | $0 | heldout |
+| CP-0503 | Held out: partial float consumption, Owner-caused, padded claim, narrative without IDs | owner | 21 cal | 7 / 4 | 7 | yes | $22,295 | heldout |
+| CP-0504 | Held out: on critical path, Architect-caused, field-note narrative without IDs, claim in working days | architect | 8 work | 13 / 8 | 13 | yes | $41,405 | heldout |
+| CP-0505 | Held out: concurrent delay, Owner's separate vendor and controls sub rework, narrative without IDs | owner (concurrent) | 7 cal | 7 / 4 | 7 | no | $0 | heldout |
 
 "Expected cost" is only the time-related cost (allowed compensable days x the contract A daily rate). The pricing sections are simple and tie out; every notice is on time, so the time question stands alone.
 
 ## Dev/test split
 The split is fixed by `random.Random(20200601)` before anything is computed. The 15 cases are grouped into 5 strata of 3 (critical-path accurate claims; off-critical claims; padded or partial-float claims; non-compensable causes; concurrent or no claim), and one case per stratum is drawn as test. That gives 10 dev and 5 test cases, with every stratum in both. Tune prompts and rules on dev only.
+
+## Held-out set (contract C, CP-0501..0505)
+Contracts A and B and CP-0401 to CP-0415 have been used to inspect failures, so they are no longer independent. This set was written **after** that evaluation, by a separate helper (an AI assistant working from this folder's formats and `cpm_ref.py`) that did **not** open the contract reader, the fragnet drafter, their test scripts, or `results/`. It is synthetic and AI-assisted, and it was not made easy or hard for any particular method; it is meant to read like ordinary project documents.
+- **Contract C** (`contract_c.md`, `contract_c.pdf`, key under `contracts.C` in `contract_terms_key.json`, marked `"split": "heldout"`): a Washington middle-school HVAC replacement and seismic retrofit on a GC/CM (MACC) contract, 2848 words, numbered "§ 9.4.3", with "District" and "Contractor" for Owner and CM and numbers spelled out ("twelve percent (12%)"). Key values: markup 12% / 6% / 17%; change-order Fee 3.75% (Section 9.4.3 says 4%, amended by Supplementary Condition 16.3, which governs under 1.2) on Contractor direct costs, subcontractor quotes and bond and insurance premiums; 35% labor burden; owned equipment at 80% of Blue Book; $100,000 approval limit; 5-day notice except 20 days for other events; 455 days; $2,200/day liquidated damages; $2,975/day extended general conditions (also repeated in Exhibit B; 5.3 governs); $1,412,750 general conditions; delay compensable for District, Architect or concealed-condition causes; concurrent delay gets full time with the extended general conditions apportioned. Whether an extension requires critical-path delay is **not stated** (key value null, with a note). Distractors sit near the real numbers: the 5.25% base Fee, a $750/day Phase 1 milestone rate, a $7,500 Field Order limit, a 50% standby rate, 60/40 savings, a 15% apprenticeship rule, and an Architect sentence in a non-compensable context (7.2).
+- **CP-0501 to CP-0505** (in `cases.json` and `answer_key.json` with `"split": "heldout"`, strata `heldout_*`): five change proposals on the same June 2020 schedule, scored under contract A's rules exactly like the cases above. One critical Owner change, one Architect change absorbed by float, one padded claim with partial float use, one loose field-note narrative (Architect RFI, claimed in working days, mentions an unrelated RFI and later activities that are not tie-ins), and one concurrent Owner/contractor delay. The time narratives are written by hand; four of the five name no activity or fragnet IDs and describe the tie-in work in a superintendent's words. Every fragnet ties only to activities not started at the data date, and the answers come from `cpm_ref.tia` like the rest.
+- **How to use it.** Run the reader and drafter on it once, after tuning is finished, and report it separately from dev/test. Once its failures are inspected it is no longer held out; write a new set rather than tuning on this one.
 
 ## Conventions the answer key depends on
 - Day numbering follows the spec: an activity with ES = day 0 and duration 5 occupies working days 0-4 and EF = 5; its finish date is working day 4. Milestones are dated on working day EF - 1 (day 0 for the start milestone), so Substantial Completion sits on the last working day of the work that drives it.
@@ -52,9 +63,12 @@ The split is fixed by `random.Random(20200601)` before anything is computed. The
 - XLSX: 91 rows identical to the CSV
 - No-logic CSV: 91 rows, no Predecessors column
 - PDFs: schedule.pdf text has all activity ids and no logic; contract_b.pdf text holds every quote's start
-- Cases: 15 fragnets reference existing schedule ids, every F- activity appears in its narrative, and every answer-key delay re-computes
+- Contract C PDF text holds every quote's start
+- Cases: 20 fragnets reference existing schedule ids, every F- activity appears in its narrative (held-out ID-free narratives CP-0501, CP-0503, CP-0504, CP-0505 state every fragnet duration instead), and every answer-key delay re-computes
+- Held-out fragnets tie only to activities not started at the data date
 - CP PDFs written for dev cases CP-0401, CP-0404, CP-0406, CP-0413
 - Contract B: 3130 words
+- Contract C (held out): 2848 words; every key quote is verbatim in contract_c.md and holds its value
 
 ## Limits
 - **Same author.** The schedule, contract B, cases, narratives and answer key were written by our team, the same people building the tool. No independent scheduler or contract reviewer checked them.
