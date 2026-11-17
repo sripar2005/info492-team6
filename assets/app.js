@@ -646,12 +646,17 @@
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
 
+  // Shared with the schedule and delay views (assets/views-time.js).
+  window.CSApp = { app: app, esc: esc, store: store, toast: toast, num: num, go: function (v) { go(v); }, loadPdfjs: loadPdfjs, pdfText: function (f) { return pdfText(f); },
+    C: function () { return C(); }, reader: function () { return reader; }, M: M };
+
   /* ---------- routing ---------- */
   function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
   function route() {
     var v = (location.hash || '#upload').slice(1);
-    document.querySelectorAll('[data-nav]').forEach(function (a) { var on = (a.dataset.nav === 'proposals') === (v === 'proposals'); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
+    document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === ((window.CSViews || {})[v] ? (v.split('-')[0]) : v === 'proposals' ? 'proposals' : 'check'); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    var V = window.CSViews || {};
+    if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
     if (v !== 'confirm') window.scrollTo(0, 0);
     if (!/^contract/.test(v)) CS = null;
   }

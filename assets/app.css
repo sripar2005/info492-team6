@@ -301,3 +301,42 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .crow.on .radio { border: 4px solid var(--accent); }
 @media (max-width: 1060px) { .ctext { max-height: 42vh; } }
 @media (max-width: 560px) { .alt { grid-template-columns: 58px 1fr; } .stick .live span { font-size: 12px; } .stick { flex-wrap: wrap; } .stick .live { flex-basis: 100%; } }
+
+/* Schedules: Gantt, critical path, quality, edit table */
+.paper.sched { padding: 18px; max-height: calc(100vh - 110px); overflow: auto; }
+.gantt { display: grid; grid-template-columns: minmax(150px, 34%) minmax(0, 1fr); }
+.gnames { border-right: 1px solid var(--line); }
+.gn { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); padding-right: 10px; white-space: nowrap; overflow: hidden; }
+.gn code { font-size: 10.5px; color: var(--faint); flex: none; } .gn span { overflow: hidden; text-overflow: ellipsis; }
+.gn.crit span { color: var(--text); } .gn.frag span { color: var(--blue); }
+.gchart svg { width: 100%; display: block; }
+.gt { stroke: var(--line); stroke-width: 1; } .gl { fill: var(--faint); font: 10px var(--mono); }
+.gdd { stroke: var(--amber); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.gcrit { fill: var(--accent); } .gnorm { fill: #4a4f59; } .gdone { fill: #2b2e34; } .gfrag { fill: var(--blue); }
+.glegend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; font-size: 12px; color: var(--faint); }
+.glegend i { display: inline-block; width: 12px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.glegend i.gcrit { background: var(--accent); } .glegend i.gnorm { background: #4a4f59; } .glegend i.gdone { background: #2b2e34; } .glegend i.gfrag { background: var(--blue); }
+.glegend i.gdd { background: none; border-left: 2px dashed var(--amber); width: 2px; height: 10px; border-radius: 0; }
+.kv { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.kv span { display: block; font: 500 10.5px/1.3 var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+.kv b { font-weight: 500; font-size: 15px; }
+@media (max-width: 560px) { .kv { grid-template-columns: 1fr 1fr; } .gantt { grid-template-columns: 110px minmax(0, 1fr); } }
+.cpath { margin: 0; padding: 0; list-style: none; counter-reset: c; display: grid; gap: 3px; font-size: 13px; }
+.cpath li { display: flex; gap: 8px; align-items: baseline; color: var(--muted); }
+.cpath li::before { content: "↓"; color: var(--accent); font-size: 11px; width: 10px; }
+.cpath li:first-child::before { content: "●"; font-size: 8px; }
+.cpath code { font-size: 11.5px; color: var(--text); min-width: 54px; }
+.qual { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 13px; }
+.qual li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; }
+.qual .qd { width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-top: 6px; }
+.qual li.warn .qd { background: var(--amber); } .qual li.error .qd, .qual li.fail .qd { background: var(--red); }
+.qual li.info b { color: var(--muted); font-weight: 400; } .qual b { font-weight: 500; } .qual p { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+.qual code { font-size: 11px; color: var(--faint); }
+.etbl { max-height: 360px; overflow: auto; margin: 0 -18px -16px; }
+.etbl .tbl td { padding: 6px 10px; font-size: 12.5px; } .etbl .tbl th { padding: 8px 10px; position: sticky; top: 0; background: var(--surface); }
+.etbl .tbl tbody tr { cursor: default; } .etbl tr.crit td:nth-child(2) { color: var(--text); } .etbl tr:not(.crit) td:nth-child(2) { color: var(--muted); }
+.ein { width: 52px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; text-align: right; font-size: 12.5px; }
+.ein.w { width: 100%; min-width: 130px; text-align: left; font-family: var(--mono); font-size: 11.5px; }
+.ein:focus { border-color: var(--accent); outline: none; }
+.gaxis { position: relative; height: 22px; border-bottom: 1px solid var(--line); }
+.gaxis span { position: absolute; top: 4px; transform: translateX(3px); font: 10px var(--mono); color: var(--faint); white-space: nowrap; }
