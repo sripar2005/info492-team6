@@ -1,0 +1,2457 @@
+{
+ "meta": {
+  "model": "llama3.1:8b",
+  "date": "2026-11-18",
+  "synthetic": true
+ },
+ "summary": {
+  "dev/plain": {
+   "of": 36,
+   "cause_in_candidates": 36,
+   "cause_right": 30,
+   "governing_precision": 0.303,
+   "flagged_numbers": 14
+  },
+  "dev/blind": {
+   "of": 36,
+   "cause_in_candidates": 36,
+   "cause_right": 27,
+   "governing_precision": 0.306,
+   "flagged_numbers": 17
+  },
+  "test/plain": {
+   "of": 15,
+   "cause_in_candidates": 15,
+   "cause_right": 12,
+   "governing_precision": 0.211,
+   "flagged_numbers": 8
+  },
+  "test/blind": {
+   "of": 15,
+   "cause_in_candidates": 15,
+   "cause_right": 9,
+   "governing_precision": 0.218,
+   "flagged_numbers": 7
+  }
+ },
+ "rows": [
+  {
+   "id": "CP-0201",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-112"
+   ],
+   "cause": "RFI-112",
+   "cause_right": true,
+   "governing": [
+    "Section 22 14 26|1.01.A",
+    "Section 22 14 26|2.01.A",
+    "Section 22 14 26|2.02.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add two overflow roof drains at the gym roof, next to primary drains RD-2 and RD-4, with 4-inch cast iron leaders discharging to daylight at the north wall, per the response to RFI-112.",
+   "error": null,
+   "seconds": 131.1
+  },
+  {
+   "id": "CP-0201",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-112"
+   ],
+   "cause": "ASI-007",
+   "cause_right": false,
+   "governing": [
+    "Section 22 14 26|1.01.A",
+    "Section 22 14 26|2.02.A",
+    "Section 22 14 26|2.03.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 14, 2.02, 22, 26. Removed or check them."
+   ],
+   "scope": "The scope of work includes the addition of two overflow roof drains at the gym roof, located next to primary drains RD-2 and RD-4, with 2-inch water dams and 4-inch cast iron leaders discharging to daylight at the north wall, as indicated on the revised Drawing P-201 and specified in Section 22 14 26 paragraph 2.02.A.",
+   "error": null,
+   "seconds": 126.9
+  },
+  {
+   "id": "CP-0202",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-014"
+   ],
+   "cause": "ASI-014",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.2",
+    "Contract A|6.8",
+    "Contract A|7.4",
+    "Section 08 71 00|2.03.B"
+   ],
+   "governing_right": 3,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Replace standard, non-rated hardware sets at corridor doors C101 to C108 with fire-rated hardware sets, HW-2R, to meet 90-minute assembly requirements.",
+   "error": null,
+   "seconds": 128.5
+  },
+  {
+   "id": "CP-0202",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-014"
+   ],
+   "cause": "ASI-014",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.2",
+    "Contract A|6.8",
+    "Contract A|7.4",
+    "Section 08 71 00|2.03.B"
+   ],
+   "governing_right": 3,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 014. Removed or check them."
+   ],
+   "scope": "The CM is required to replace the standard, non-rated hardware set HW-2 at corridor doors C101 to C108 with the fire-rated hardware set HW-2R, as specified in ASI-014.",
+   "error": null,
+   "seconds": 130.8
+  },
+  {
+   "id": "CP-0203",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-04-06"
+   ],
+   "cause": "OE-2020-04-06",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add 24 data drops in the library, in addition to the 12 shown on Drawing T-101, at locations per the librarian's markup attached.",
+   "error": null,
+   "seconds": 111.3
+  },
+  {
+   "id": "CP-0203",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-04-06"
+   ],
+   "cause": "OE-2020-04-06",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 04, 06, 2020. Removed or check them."
+   ],
+   "scope": "The electrical subcontractor will add 24 data drops in the library, in addition to the 12 shown on Drawing T-101, at the locations marked by the librarian. The data drops will be installed in accordance with the Owner's Representative's direction of 2020-04-06.",
+   "error": null,
+   "seconds": 42.0
+  },
+  {
+   "id": "CP-0204",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-05-04"
+   ],
+   "cause": "OL-2020-05-04",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|4.1",
+    "Contract A|5.5",
+    "Contract A|6.5.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The District deleted the covered walkway canopy at the bus loop, as shown on Drawing S-401. The credit for the deleted canopy will be applied to the project, and the CM's Fee will be reduced by 5%.",
+   "error": null,
+   "seconds": 122.3
+  },
+  {
+   "id": "CP-0204",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-05-04"
+   ],
+   "cause": "OL-2020-05-04",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|4.1",
+    "Contract A|5.5",
+    "Contract A|6.5.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Delete the covered walkway canopy at the bus loop, as shown on Drawing S-401, and credit the cost of the canopy from the steel subcontractor.",
+   "error": null,
+   "seconds": 32.9
+  },
+  {
+   "id": "CP-0205",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "09 22 16-02"
+   ],
+   "cause": "09 22 16-02",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.2",
+    "Section 09 22 16|1.04.A",
+    "Section 09 22 16|2.01.B",
+    "Section 09 22 16|2.01.C"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 02. Removed or check them."
+   ],
+   "scope": "The scope of work includes revising the metal stud framing submittal to provide 18-gauge studs at the gym walls in place of the originally specified 20-gauge studs, as per the approved submittal 09 22 16-02.",
+   "error": null,
+   "seconds": 117.8
+  },
+  {
+   "id": "CP-0205",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "09 22 16-02"
+   ],
+   "cause": "09 22 16-02",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.2",
+    "Section 09 22 16|1.04.A",
+    "Section 09 22 16|2.01.B",
+    "Section 09 22 16|2.01.C"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 02. Removed or check them."
+   ],
+   "scope": "The framing subcontractor will provide 18-gauge studs at the gym walls (gridlines G1 to G6) in place of the 20-gauge studs originally specified, in accordance with the approved submittal 09 22 16-02 and the requirements of Section 09 22 16 of the Contract Documents.",
+   "error": null,
+   "seconds": 50.8
+  },
+  {
+   "id": "CP-0206",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-131"
+   ],
+   "cause": "RFI-131",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.5.7",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The CM shall install 14 flush, gypsum-board-faced access panels, 24 x 24 inches, at the locations on SK-131, using fire-rated panels where the ceiling is part of a rated assembly. The work shall be performed on a time-and-material basis, with tags signed by the CM superintendent and Owner's Representative within 3 business days after the work is performed.",
+   "error": null,
+   "seconds": 138.7
+  },
+  {
+   "id": "CP-0206",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-131"
+   ],
+   "cause": "RFI-131",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|6.5.7",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM is requesting a change to add 14 corridor access panels, which were not shown on the reflected ceiling plan A-501. The work will be performed on a time-and-material basis, with tags signed by the CM superintendent and Owner's Representative.",
+   "error": null,
+   "seconds": 136.4
+  },
+  {
+   "id": "CP-0207",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "FO-07"
+   ],
+   "cause": "FO-07",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.1",
+    "Contract A|6.4",
+    "Contract A|6.5.2",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 07, 6.1. Removed or check them."
+   ],
+   "scope": "The CM self-performed a 4-inch reinforced concrete pad, 6 x 10 feet, under the emergency generator, set 2 inches above finished grade, as directed by the Architect's field order FO-07, which was issued under Section 6.1 of the Contract.",
+   "error": null,
+   "seconds": 122.6
+  },
+  {
+   "id": "CP-0207",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "FO-07"
+   ],
+   "cause": "FO-07",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.1",
+    "Contract A|6.4",
+    "Contract A|6.5.2",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 07. Removed or check them."
+   ],
+   "scope": "The CM self-performed a 4-inch reinforced concrete pad, 6 x 10 feet, under the emergency generator, set 2 inches above finished grade, in accordance with the Architect's field order FO-07, which was issued due to the generator manufacturer's installation requirements.",
+   "error": null,
+   "seconds": 40.7
+  },
+  {
+   "id": "CP-0208",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-022"
+   ],
+   "cause": "ASI-022",
+   "cause_right": true,
+   "governing": [
+    "Contract A|12.1",
+    "Contract A|4.1",
+    "Contract A|5.4",
+    "Contract A|6.5.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The scope of work includes the addition of upright sprinkler heads above the stage rigging grid, on a new branch line from the stage main, and the revision of the hydraulic calculation for the stage area. This change includes the fire marshal permit revision fee, bond, insurance, and B&O tax, all without fee. The change is based on the revised drawing FP-102.",
+   "error": null,
+   "seconds": 146.0
+  },
+  {
+   "id": "CP-0208",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-022"
+   ],
+   "cause": "ASI-022",
+   "cause_right": true,
+   "governing": [
+    "Contract A|12.1",
+    "Contract A|5.4",
+    "Contract A|6.5.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add upright sprinkler heads above the stage rigging grid, on a new branch line from the stage main, and revise the hydraulic calculation for the stage area, including the fire marshal permit revision fee, bond, insurance, and B&O tax, without Fee.",
+   "error": null,
+   "seconds": 133.3
+  },
+  {
+   "id": "CP-0209",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-140"
+   ],
+   "cause": "RFI-140",
+   "cause_right": true,
+   "governing": [
+    "Contract A|5.4",
+    "Contract A|6.5.2",
+    "Contract A|Exhibit A",
+    "Section 22 14 26|2.01.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The scope of work includes the addition of three floor drains in the kitchen, connected to the grease waste line, as confirmed by the response to RFI-140. The plumbing sub's price includes 15% overhead and profit, as per the subcontractor's markup. The floor drains are sized as shown on the plumbing drawings.",
+   "error": null,
+   "seconds": 130.3
+  },
+  {
+   "id": "CP-0209",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-140"
+   ],
+   "cause": "RFI-140",
+   "cause_right": true,
+   "governing": [
+    "Contract A|5.4",
+    "Contract A|5.5",
+    "Contract A|6.5.2",
+    "Section 22 14 26|2.01.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add three floor drains in the kitchen, at the dish machine, the tilting kettle, and the walk-in cooler, connected to the grease waste line.",
+   "error": null,
+   "seconds": 117.0
+  },
+  {
+   "id": "CP-0210",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-20"
+   ],
+   "cause": "OE-2020-07-20",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The Owner directed the installation of blocking and power for 16 classroom smartboards, which deviates from the original scope of work as shown on the drawings, which depict whiteboards only.",
+   "error": null,
+   "seconds": 120.1
+  },
+  {
+   "id": "CP-0210",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-20"
+   ],
+   "cause": "OE-2020-07-20",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The Owner directed the addition of blocking and power for 16 classroom smartboards, as per the District technology standard attached to the direction.",
+   "error": null,
+   "seconds": 28.3
+  },
+  {
+   "id": "CP-0211",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-08-03"
+   ],
+   "cause": "OE-2020-08-03",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|5.4",
+    "Contract A|5.5",
+    "Contract A|6.5.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add four pole lights at the staff parking lot, matching the site fixtures on Drawing E-100.",
+   "error": null,
+   "seconds": 110.2
+  },
+  {
+   "id": "CP-0211",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-08-03"
+   ],
+   "cause": "RFI-112",
+   "cause_right": false,
+   "governing": [
+    "Contract A|5.4",
+    "Contract A|5.5",
+    "Contract A|6.5.3",
+    "Contract A|Exhibit C"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 03, 08, 2020. Removed or check them."
+   ],
+   "scope": "The addition of four pole lights at the staff parking lot, as directed by the Owner on 2020-08-03, to match the site fixtures shown on Drawing E-100.",
+   "error": null,
+   "seconds": 33.0
+  },
+  {
+   "id": "CP-0212",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-33"
+   ],
+   "cause": "FR-33",
+   "cause_right": true,
+   "governing": [
+    "Contract A|4.1",
+    "Contract A|6.3",
+    "Contract A|6.6",
+    "Section 02 82 00|1.04.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM added dumpsters and haul-off for non-ACM demolition debris from classrooms 110 to 116, and put the 5% Fee on them, due to the discovery of asbestos mastic under the classroom flooring, which was not identified in the hazardous materials survey.",
+   "error": null,
+   "seconds": 133.8
+  },
+  {
+   "id": "CP-0212",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-33"
+   ],
+   "cause": "FR-33",
+   "cause_right": true,
+   "governing": [
+    "Contract A|4.1",
+    "Contract A|6.3",
+    "Contract A|6.6",
+    "Section 02 82 00|1.04.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM added dumpsters and haul-off for the asbestos mastic found under the classroom flooring in classrooms 110 to 116, and applied the 5% Fee to these added items. The hazardous materials survey did not identify mastic in these classrooms.",
+   "error": null,
+   "seconds": 40.7
+  },
+  {
+   "id": "CP-0213",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-08-17"
+   ],
+   "cause": "RFI-112",
+   "cause_right": false,
+   "governing": [
+    "Contract A|5.1",
+    "Contract A|5.2",
+    "Contract A|5.3",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add wall padding to the east and west gym walls to match the north wall padding in Section 11 66 23, as recommended by the owner's acoustic consultant to improve sound quality in the gym.",
+   "error": null,
+   "seconds": 119.8
+  },
+  {
+   "id": "CP-0213",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-08-17"
+   ],
+   "cause": "RFI-112",
+   "cause_right": false,
+   "governing": [
+    "Contract A|5.1",
+    "Contract A|5.2",
+    "Contract A|5.3",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add wall padding to the east and west gym walls to match the north wall padding in Section 11 66 23.",
+   "error": null,
+   "seconds": 28.9
+  },
+  {
+   "id": "CP-0214",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-031"
+   ],
+   "cause": "ASI-031",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Contract A|Exhibit E 01 26 00"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Revised casework in science rooms 201 and 203 includes adding one accessible-height work section with knee space in each room and changing the tall storage units to chemical-resistant tops, as per Drawing A-601.",
+   "error": null,
+   "seconds": 127.2
+  },
+  {
+   "id": "CP-0214",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-031"
+   ],
+   "cause": "ASI-031",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|Exhibit E 01 26 00"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The scope of work includes revising the casework in science rooms 201 and 203 to add one accessible-height work section with knee space in each room and change the tall storage units to chemical-resistant tops.",
+   "error": null,
+   "seconds": 123.1
+  },
+  {
+   "id": "CP-0215",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-152"
+   ],
+   "cause": "RFI-152",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|5.5",
+    "Contract A|Exhibit C",
+    "Contract A|Exhibit D"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Replace stair nosings at both existing stairs with aluminum abrasive nosings anchored into the concrete, with epoxy fill at the chipped edges, as per RFI-152.",
+   "error": null,
+   "seconds": 131.7
+  },
+  {
+   "id": "CP-0215",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-152"
+   ],
+   "cause": "RFI-152",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|5.5",
+    "Contract A|Exhibit C",
+    "Contract A|Exhibit D"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 14, 2020. Removed or check them."
+   ],
+   "scope": "Replace rubber stair nosings at both existing stairs with aluminum abrasive nosings anchored into the concrete, with epoxy fill at the chipped edges, as per the RFI answer dated 2020-09-14.",
+   "error": null,
+   "seconds": 133.4
+  },
+  {
+   "id": "CP-0216",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-158"
+   ],
+   "cause": "RFI-158",
+   "cause_right": true,
+   "governing": [
+    "Contract A|11.2",
+    "Contract A|14.2",
+    "Contract A|2.3",
+    "Contract A|5.6"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Replace wedge anchors with epoxy adhesive anchors, 5/8 inch diameter with 5 inch embedment, at the spacing shown on Drawing S-310, with special inspection required.",
+   "error": null,
+   "seconds": 110.0
+  },
+  {
+   "id": "CP-0216",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-158"
+   ],
+   "cause": "RFI-158",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.1",
+    "Contract A|2.3",
+    "Contract A|5.6"
+   ],
+   "governing_right": 0,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The scope of work has been revised to use epoxy adhesive anchors, 5/8 inch diameter with 5 inch embedment, at the spacing shown on S-310 for the telescoping bleachers, requiring special inspection.",
+   "error": null,
+   "seconds": 110.2
+  },
+  {
+   "id": "CP-0217",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-41"
+   ],
+   "cause": "DR-2020-10-05",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|6.5.2",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 6, 7, 8. Removed or check them."
+   ],
+   "scope": "Reroute the storm line around an abandoned concrete vault, approximately 6 x 8 feet and 7 feet deep, located on the storm line route to the playfield, as shown on Civil drawing C-201.",
+   "error": null,
+   "seconds": 109.9
+  },
+  {
+   "id": "CP-0217",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-41"
+   ],
+   "cause": "DR-2020-10-05",
+   "cause_right": false,
+   "governing": [
+    "Contract A|6.5.2",
+    "Contract A|6.5.4",
+    "Contract A|7.2",
+    "Contract A|Exhibit E 01 26 00"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Reroute the storm line around an abandoned concrete vault discovered during excavation, using the CM-owned excavator at the full Blue Book rate.",
+   "error": null,
+   "seconds": 33.9
+  },
+  {
+   "id": "CP-0218",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-166"
+   ],
+   "cause": "RFI-166",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|5.4",
+    "Contract A|6.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The CM shall provide manufactured curb adapters for RTU-3 and RTU-4 to fit the scheduled units on the existing curbs, as per the response to RFI-166.",
+   "error": null,
+   "seconds": 111.4
+  },
+  {
+   "id": "CP-0218",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-166"
+   ],
+   "cause": "ASI-034",
+   "cause_right": false,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|5.4",
+    "Contract A|6.3"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add curb adapters for two rooftop units, RTU-3 and RTU-4, to fit the scheduled units on the existing curbs, as per the revised detail on Drawing M-501.",
+   "error": null,
+   "seconds": 112.9
+  },
+  {
+   "id": "CP-0219",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-036"
+   ],
+   "cause": "ASI-036",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.3",
+    "Contract A|5.4",
+    "Contract A|6.5.1"
+   ],
+   "governing_right": 0,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 401. Removed or check them."
+   ],
+   "scope": "Add a single-compartment stainless steel sink with gooseneck faucet in classrooms 105 and 107, with in-wall blocking, supply, and waste, as per Drawing P-210 (revised) and Drawing A-401 (casework elevation 4).",
+   "error": null,
+   "seconds": 120.5
+  },
+  {
+   "id": "CP-0219",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-036"
+   ],
+   "cause": "ASI-036",
+   "cause_right": true,
+   "governing": [
+    "Contract A|5.4",
+    "Contract A|6.5.1",
+    "Contract A|Exhibit A",
+    "Contract A|Exhibit B"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 401. Removed or check them."
+   ],
+   "scope": "Add a single-compartment stainless steel sink with gooseneck faucet in classrooms 105 and 107, with in-wall blocking, supply, and waste, as shown on revised Drawing P-210 and Drawing A-401 (casework elevation 4).",
+   "error": null,
+   "seconds": 123.9
+  },
+  {
+   "id": "CP-0220",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-11-02"
+   ],
+   "cause": "ASI-075",
+   "cause_right": false,
+   "governing": [
+    "Contract A|11.2",
+    "Contract A|2.3",
+    "Contract A|6.2",
+    "Contract A|6.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 075. Removed or check them."
+   ],
+   "scope": "Add solar control window film at the south classrooms, as directed by ASI-075, which was issued on 2020-06-30. The addition of this film is not intended to change the Contract Sum or Contract Time. The scope basis is Spec 08 80 00, which has clear glazing with no film.",
+   "error": null,
+   "seconds": 126.2
+  },
+  {
+   "id": "CP-0220",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-11-02"
+   ],
+   "cause": "ASI-075",
+   "cause_right": false,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|5.1",
+    "Contract A|6.2",
+    "Contract A|6.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 02, 11. Removed or check them."
+   ],
+   "scope": "Add solar control window film at the south classrooms, as directed by the Owner on 2020-11-02, per the attached cut sheet.",
+   "error": null,
+   "seconds": 30.3
+  },
+  {
+   "id": "CP-0221",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-11-09"
+   ],
+   "cause": "DR-2020-11-18",
+   "cause_right": false,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.5.7",
+    "Contract A|Exhibit D",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 20. Removed or check them."
+   ],
+   "scope": "The CM added corridor outlets at 20-foot spacing in the corridors, as directed by the Owner's Representative, on a time-and-material basis. The work was performed on the third day, but the tags were not signed by the Owner's Representative.",
+   "error": null,
+   "seconds": 124.3
+  },
+  {
+   "id": "CP-0221",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-11-09"
+   ],
+   "cause": "OE-2020-11-09",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.3",
+    "Contract A|6.5.7",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 3,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The CM will add duplex outlets in the corridors at 20-foot spacing, between the outlets shown on Drawing E-201, and will perform this work on a time-and-material basis.",
+   "error": null,
+   "seconds": 34.1
+  },
+  {
+   "id": "CP-0222",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-171"
+   ],
+   "cause": "RFI-171",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|1.3",
+    "Contract A|6.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2, 2020. Removed or check them."
+   ],
+   "scope": "Replace horn-only fire alarm devices in classrooms with horn/strobe devices, as confirmed by the Architect's response to RFI-171 on March 2, 2020.",
+   "error": null,
+   "seconds": 111.4
+  },
+  {
+   "id": "CP-0222",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-171"
+   ],
+   "cause": "RFI-171",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|1.3",
+    "Contract A|10.1",
+    "Contract A|6.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 02, 03, 171, 2020. Removed or check them."
+   ],
+   "scope": "Replace classroom horns with horn/strobe devices, as confirmed by the Architect's response to RFI-171 on 2020-03-02, to provide visible notification in occupied classrooms.",
+   "error": null,
+   "seconds": 113.9
+  },
+  {
+   "id": "CP-0223",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-175"
+   ],
+   "cause": "RFI-175",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.4",
+    "Section 08 71 00|1.01.A",
+    "Section 08 71 00|2.03.B",
+    "Section 08 71 00|2.03.C"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Installation of door closers at corridor doors C201 to C212, as confirmed by RFI-175, in accordance with hardware set HW-4, which includes a surface closer on each door.",
+   "error": null,
+   "seconds": 111.1
+  },
+  {
+   "id": "CP-0223",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-175"
+   ],
+   "cause": "RFI-175",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.4",
+    "Section 08 71 00|1.01.A",
+    "Section 08 71 00|2.03.B",
+    "Section 08 71 00|2.03.C"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add surface closers to corridor doors C201 to C212, as required by HW-4, which includes a surface closer on each door.",
+   "error": null,
+   "seconds": 104.2
+  },
+  {
+   "id": "CP-0224",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "PERMIT-2020-01-18"
+   ],
+   "cause": "PERMIT-2020-01-18",
+   "cause_right": true,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "A 12-day delay in the building permit issuance caused a delay in the mobilization activity, which is a critical path activity in the baseline schedule. The delay resulted in a 12-day extension of the SGC at the contract daily rate, with no Fee.",
+   "error": null,
+   "seconds": 132.6
+  },
+  {
+   "id": "CP-0224",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "PERMIT-2020-01-18"
+   ],
+   "cause": "PERMIT-2020-01-18",
+   "cause_right": true,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The CM is requesting a 12-day time extension due to a 12-day delay in the issuance of the building permit, which was a critical path activity in the baseline schedule.",
+   "error": null,
+   "seconds": 124.1
+  },
+  {
+   "id": "CP-0225",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-12"
+   ],
+   "cause": "FR-12",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.2",
+    "Contract A|2.3",
+    "Contract A|5.6",
+    "Contract A|5.7"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM must over-excavate and replace the unsuitable soils at the gym footing F-12 with structural fill, as recommended by the geotechnical engineer, due to the discovery of soft, dark organic silt at the footing depth, contrary to the geotechnical report's assumption of medium-dense sand.",
+   "error": null,
+   "seconds": 128.0
+  },
+  {
+   "id": "CP-0225",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "FR-12"
+   ],
+   "cause": "FR-12",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.2",
+    "Contract A|4.3",
+    "Contract A|5.6",
+    "Contract A|5.7"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM must over-excavate and replace the unsuitable soils at the gym footing F-12 with structural fill, as recommended by the geotechnical engineer, due to the discovery of soft, dark organic silt during a test pit excavation.",
+   "error": null,
+   "seconds": 36.6
+  },
+  {
+   "id": "CP-0226",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-040"
+   ],
+   "cause": "ASI-040",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 04, 13, 2020. Removed or check them."
+   ],
+   "scope": "Seismic bracing will be added to mechanical and electrical systems throughout the building, including ductwork, piping, conduit racks, and suspended equipment, as per ASI-040 issued by the Project Architect on 2020-04-13.",
+   "error": null,
+   "seconds": 126.9
+  },
+  {
+   "id": "CP-0226",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-040"
+   ],
+   "cause": "ASI-040",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Section 01 26 00|1.05.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 001, 040. Removed or check them."
+   ],
+   "scope": "Seismic bracing upgrade per ASI-040, which adds seismic bracing to mechanical and electrical systems across the building after a code review, as per the installing trades' engineers' design, and includes drawings M-001 and E-001 with new general notes, and structural general notes S-001.",
+   "error": null,
+   "seconds": 130.9
+  },
+  {
+   "id": "CP-0227",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "NL-09"
+   ],
+   "cause": "LTR-ERECTOR-2020-06-10",
+   "cause_right": false,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6",
+    "Contract A|Exhibit C"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The CM is requesting a change proposal to adjust the contract time due to a weather-related delay with extended conditions. The delay was caused by sustained rain and wind on specific dates in November, which impacted the roofing work, a critical path activity. The CM is seeking compensation for the extended general conditions, which will be priced in accordance with the specified general conditions (SGC) daily rate of $3,185 per day.",
+   "error": null,
+   "seconds": 141.6
+  },
+  {
+   "id": "CP-0227",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "NL-09"
+   ],
+   "cause": "LTR-ERECTOR-2020-06-10",
+   "cause_right": false,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6",
+    "Contract A|Exhibit C"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 21. Removed or check them."
+   ],
+   "scope": "The CM requests a time extension for the roofing work due to a delay caused by the late arrival of the crawler crane, which was committed to another project. The delay is on the critical path in November, as shown in the schedule. The CM will submit a Change Proposal within 21 days to adjust the GMP and Contract Time accordingly.",
+   "error": null,
+   "seconds": 46.5
+  },
+  {
+   "id": "CP-0228",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-180"
+   ],
+   "cause": "RFI-180",
+   "cause_right": true,
+   "governing": [
+    "Contract A|4.1",
+    "Contract A|5.3",
+    "Contract A|5.6",
+    "Contract A|6.5.4"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 04, 20, 2020. Removed or check them."
+   ],
+   "scope": "Relocate the kitchen hood to the south wall as suggested in RFI-180, which was answered on 2020-04-20. This change includes the use of a CM-owned forklift at full Blue Book rate and Project Engineer coordination hours.",
+   "error": null,
+   "seconds": 115.1
+  },
+  {
+   "id": "CP-0228",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-180"
+   ],
+   "cause": "RFI-180",
+   "cause_right": true,
+   "governing": [
+    "Contract A|5.3",
+    "Contract A|5.5",
+    "Contract A|6.3",
+    "Contract A|Exhibit C"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Relocate the kitchen hood to the south wall as suggested. Revised layout on sketch SK-180 attached.",
+   "error": null,
+   "seconds": 102.2
+  },
+  {
+   "id": "CP-0229",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-044"
+   ],
+   "cause": "ASI-044",
+   "cause_right": true,
+   "governing": [
+    "Contract A|10.1",
+    "Contract A|13.1",
+    "Contract A|6.2",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 05, 18, 2020. Removed or check them."
+   ],
+   "scope": "The subcontractor added two toilet partitions in restroom 140 to match the existing six, for a total of eight compartments, as per ASI-044, which was issued on 2020-05-18 and revised Drawing A-120.",
+   "error": null,
+   "seconds": 118.1
+  },
+  {
+   "id": "CP-0229",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-044"
+   ],
+   "cause": "ASI-044",
+   "cause_right": true,
+   "governing": [
+    "Contract A|10.1",
+    "Contract A|13.1",
+    "Contract A|6.2",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 05, 18, 2020. Removed or check them."
+   ],
+   "scope": "The scope of work includes adding two toilet partitions in restroom 140 to match the existing six, for a total of eight compartments, as per Drawing A-120 (revised enlarged plan) issued by the Project Architect on 2020-05-18.",
+   "error": null,
+   "seconds": 118.6
+  },
+  {
+   "id": "CP-0230",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-08"
+   ],
+   "cause": "OE-2020-06-08",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.3",
+    "Section 01 26 00|1.04.A"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 8. Removed or check them."
+   ],
+   "scope": "Add acoustic wall panels in the gym, as directed by the Owner on June 8, 2020, to improve acoustics in the gym.",
+   "error": null,
+   "seconds": 114.8
+  },
+  {
+   "id": "CP-0230",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-08"
+   ],
+   "cause": "OAC-19",
+   "cause_right": false,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.3",
+    "Section 01 26 00|1.04.A"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add acoustic wall panels in the gym, as directed by the Owner on 2020-06-08, to improve acoustics as recommended by the District's acoustic consultant.",
+   "error": null,
+   "seconds": 33.2
+  },
+  {
+   "id": "CP-0231",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-183"
+   ],
+   "cause": "RFI-183",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Contract A|7.5"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 06, 2020, 22. Removed or check them."
+   ],
+   "scope": "Add a solenoid emergency gas shutoff valve with a push-button station at the exit door of rooms 201 and 203, as per RFI-183, which was answered on 2020-06-22.",
+   "error": null,
+   "seconds": 114.5
+  },
+  {
+   "id": "CP-0231",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-183"
+   ],
+   "cause": "RFI-183",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Contract A|7.5"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 183. Removed or check them."
+   ],
+   "scope": "Add a solenoid emergency gas shutoff valve with a push-button station at the exit door of rooms 201 and 203, as suggested in response to RFI-183, to provide an emergency gas shutoff for each lab room in accordance with the fire code.",
+   "error": null,
+   "seconds": 116.8
+  },
+  {
+   "id": "CP-0232",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-29"
+   ],
+   "cause": "OE-2020-06-29",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.4",
+    "Contract A|14.2",
+    "Contract A|2.3",
+    "Contract A|Exhibit E 01 31 00"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 29. Removed or check them."
+   ],
+   "scope": "The owner has directed the relocation of the locker room benches from the north wall to the center of each locker room, as per the coach's request, which was communicated to the CM through a written direction on June 29, 2020.",
+   "error": null,
+   "seconds": 139.7
+  },
+  {
+   "id": "CP-0232",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-29"
+   ],
+   "cause": "OE-2020-06-29",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.4",
+    "Contract A|14.2",
+    "Contract A|2.3",
+    "Contract A|Exhibit E 01 31 00"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 29. Removed or check them."
+   ],
+   "scope": "The owner directed the relocation of the locker room benches from the north wall to the center of each locker room, as per the coach's request, which was documented in a written direction on June 29, 2020. This change required 10 hours of coordination by J. Park, the CM project manager.",
+   "error": null,
+   "seconds": 48.3
+  },
+  {
+   "id": "CP-0233",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-047"
+   ],
+   "cause": "ASI-047",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|2.3",
+    "Contract A|4.1",
+    "Contract A|9.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Replace the tackboards shown in rooms 210 to 213 with 4 x 12 foot porcelain-steel whiteboards with map rail, as specified in ASI-047.",
+   "error": null,
+   "seconds": 114.7
+  },
+  {
+   "id": "CP-0233",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-047"
+   ],
+   "cause": "ASI-047",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|4.1",
+    "Contract A|4.3",
+    "Contract A|9.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 12, 4. Removed or check them."
+   ],
+   "scope": "Replace the tackboards shown in rooms 210 to 213 with 4 x 12 foot porcelain-steel whiteboards with map rail.",
+   "error": null,
+   "seconds": 112.7
+  },
+  {
+   "id": "CP-0234",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-13"
+   ],
+   "cause": "OE-2020-07-13",
+   "cause_right": true,
+   "governing": [
+    "Contract A|5.4",
+    "Contract A|5.6",
+    "Contract A|6.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add four high-volume, low-speed ceiling fans in the gym, including structural support to be confirmed by the fan supplier's engineer.",
+   "error": null,
+   "seconds": 106.5
+  },
+  {
+   "id": "CP-0234",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-13"
+   ],
+   "cause": "OE-2020-07-13",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.2",
+    "Contract A|5.4",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Add four high-volume, low-speed ceiling fans in the gym, including structural support to be confirmed by the fan supplier's engineer, based on Drawing E-301 which shows no fans in the gym.",
+   "error": null,
+   "seconds": 33.8
+  },
+  {
+   "id": "CP-0235",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-050"
+   ],
+   "cause": "ASI-050",
+   "cause_right": true,
+   "governing": [
+    "Contract A|6.6",
+    "Contract A|9.4",
+    "Section 02 82 00|3.06.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "Patching and painting of walls opened or damaged during abatement in Wing A and Wing B, to match adjacent finishes, using the paint system in Section 09 91 23 for new gypsum board.",
+   "error": null,
+   "seconds": 113.4
+  },
+  {
+   "id": "CP-0235",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-050"
+   ],
+   "cause": "ASI-050",
+   "cause_right": true,
+   "governing": [
+    "Contract A|4.1",
+    "Contract A|6.6",
+    "Contract A|9.4",
+    "Section 02 82 00|3.06.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The Contractor shall perform patching and painting of walls opened or damaged during abatement in Wing A and Wing B, to match adjacent finishes, using the paint system in Section 09 91 23 for new gypsum board.",
+   "error": null,
+   "seconds": 120.2
+  },
+  {
+   "id": "CP-0236",
+   "split": "dev",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-27"
+   ],
+   "cause": "DR-2020-08-04",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.3",
+    "Contract A|6.3",
+    "Contract A|6.5.7",
+    "Contract A|Exhibit E 01 26 00"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 27. Removed or check them."
+   ],
+   "scope": "The Contractor added four hose bibbs at the courtyard on a time-and-material basis, as directed by the Owner on July 27, 2020. The added hose bibbs were installed in accordance with the Owner's direction, but the tags were not signed by the CM superintendent and the Owner's Representative as required by the Contract.",
+   "error": null,
+   "seconds": 134.2
+  },
+  {
+   "id": "CP-0236",
+   "split": "dev",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-07-27"
+   ],
+   "cause": "DR-2020-08-04",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.3",
+    "Contract A|6.3",
+    "Contract A|6.5.7",
+    "Contract A|Exhibit E 01 26 00"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 27. Removed or check them."
+   ],
+   "scope": "The CM added four hose bibbs at the courtyard on a time-and-material basis, as directed by the Owner on July 27, 2020, and documented with tags signed by the CM superintendent and Owner's Representative. The addition of hose bibbs was not shown on the original drawings, P-102, which indicated only two hose bibbs at the courtyard. The CM's T&M tags for the work were submitted within three business days after the work was performed.",
+   "error": null,
+   "seconds": 58.4
+  },
+  {
+   "id": "CP-0401",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-08"
+   ],
+   "cause": "RFI-162",
+   "cause_right": false,
+   "governing": [
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Contract A|6.5.7"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 06, 08, 2020. Removed or check them."
+   ],
+   "scope": "The addition's multipurpose room will include a hydraulic stage lift pit, excavated, formed, and poured with the foundations, as directed by the Owner's Representative and confirmed by the Owner's email of 2020-06-08.",
+   "error": null,
+   "seconds": 117.3
+  },
+  {
+   "id": "CP-0401",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-08"
+   ],
+   "cause": "RFI-162",
+   "cause_right": false,
+   "governing": [
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|6.4",
+    "Contract A|7.1"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The addition's multipurpose room will have a hydraulic stage lift, which requires a pit excavated, formed, and poured with the foundations. The pit will be priced by the concrete sub.",
+   "error": null,
+   "seconds": 32.8
+  },
+  {
+   "id": "CP-0402",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-214"
+   ],
+   "cause": "RFI-214",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|2.2",
+    "Contract A|6.4",
+    "Contract A|7.3"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The gym roof trusses will be supported by new slotted bearing assemblies that are field-welded after the trusses are set. The bearing assemblies will be installed to accommodate the existing masonry wall's anchor layout, as per the revised detail 4 in Drawing S-301.",
+   "error": null,
+   "seconds": 123.4
+  },
+  {
+   "id": "CP-0402",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-214"
+   ],
+   "cause": "ASI-058",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|6.2",
+    "Contract A|7.1"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 058. Removed or check them."
+   ],
+   "scope": "The gym roof trusses will be supported by new slotted bearing assemblies, field-welded after the trusses are set, with special inspection of the welds. The bearing assemblies will be installed in accordance with the revised detail 4/S-301, as specified in ASI-058.",
+   "error": null,
+   "seconds": 122.5
+  },
+  {
+   "id": "CP-0403",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-06-15"
+   ],
+   "cause": "OE-2020-06-08",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|Exhibit D",
+    "Contract A|Exhibit E 01 31 00"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 8. Removed or check them."
+   ],
+   "scope": "Add fabric-wrapped acoustic wall panels and wall blocking in music room 205 and band room 206, full height to the deck, as directed by the Owner on June 8, 2020.",
+   "error": null,
+   "seconds": 119.5
+  },
+  {
+   "id": "CP-0403",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-06-15"
+   ],
+   "cause": "OE-2020-06-08",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|14.2",
+    "Contract A|Exhibit D"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 8. Removed or check them."
+   ],
+   "scope": "The addition of fabric-wrapped acoustic wall panels and wall blocking in the music and band rooms, as directed by the Owner on June 8, 2020.",
+   "error": null,
+   "seconds": 34.1
+  },
+  {
+   "id": "CP-0404",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-17"
+   ],
+   "cause": "OE-2020-06-17",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 17, 2020. Removed or check them."
+   ],
+   "scope": "The Owner added a second play structure and its safety surfacing at the primary playground, as directed by the Owner on June 17, 2020. The scope basis for this change is Drawing L-201, which shows one play structure. The added play structure and safety surfacing will be installed in accordance with the Owner's direction.",
+   "error": null,
+   "seconds": 127.1
+  },
+  {
+   "id": "CP-0404",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-17"
+   ],
+   "cause": "RFI-112",
+   "cause_right": false,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|6.5.2"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The Owner added a second play structure and its safety surfacing at the primary playground, as directed by the Owner's request to confirm whether overflow drains are required, which was confirmed to be necessary due to the plumbing code requirements.",
+   "error": null,
+   "seconds": 33.8
+  },
+  {
+   "id": "CP-0405",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-061"
+   ],
+   "cause": "ASI-061",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|7.1",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Revised casework blocking per ASI-061, which relocates casework in rooms 110 to 118 from the corridor walls to the exterior walls, and adds new in-wall blocking at the new locations and patches the abandoned blocking locations.",
+   "error": null,
+   "seconds": 120.8
+  },
+  {
+   "id": "CP-0405",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-061"
+   ],
+   "cause": "ASI-061",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Section 01 26 00|1.03.B",
+    "Section 02 82 00|1.03.A",
+    "Section 08 71 00|2.03.B"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 061. Removed or check them."
+   ],
+   "scope": "Revised casework blocking per ASI-061 relocates the Wing A classroom casework to the exterior walls of rooms 110 to 118, with new in-wall blocking at the new locations and patching the abandoned blocking locations.",
+   "error": null,
+   "seconds": 123.2
+  },
+  {
+   "id": "CP-0406",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-06-22"
+   ],
+   "cause": "OL-2020-06-22",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.3",
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The addition roof was upgraded to be PV-ready by adding blocking, conduit sleeves, and increasing the insulation under the membrane to R-38, in accordance with the Owner's direction to meet the requirements for a solar array installation.",
+   "error": null,
+   "seconds": 138.8
+  },
+  {
+   "id": "CP-0406",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OL-2020-06-22"
+   ],
+   "cause": "OL-2020-06-22",
+   "cause_right": true,
+   "governing": [
+    "Contract A|14.3",
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2020, 22. Removed or check them."
+   ],
+   "scope": "The addition roof was upgraded to be PV-ready by adding blocking, conduit sleeves, and increasing the insulation under the membrane to R-38, in accordance with the Owner's direction on June 22, 2020.",
+   "error": null,
+   "seconds": 42.3
+  },
+  {
+   "id": "CP-0407",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-233"
+   ],
+   "cause": "RFI-233",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|2.3",
+    "Section 07 62 00|1.01.A",
+    "Section 07 62 00|3.02.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add steel subframing (HSS 4x4) above every storefront opening at the addition, with head flashing per Section 07 62 00 paragraph 3.02.A, to provide additional support for storefront wind loads.",
+   "error": null,
+   "seconds": 114.8
+  },
+  {
+   "id": "CP-0407",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "RFI-233"
+   ],
+   "cause": "RFI-233",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.2",
+    "Contract A|2.3",
+    "Section 07 62 00|1.01.A",
+    "Section 07 62 00|3.02.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "Add steel subframing (HSS 4x4) above every storefront opening at the addition, with head flashing per Section 07 62 00 paragraph 3.02.A, to provide additional support for storefront wind loads.",
+   "error": null,
+   "seconds": 114.8
+  },
+  {
+   "id": "CP-0408",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-070"
+   ],
+   "cause": "ASI-070",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|14.2",
+    "Contract A|6.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2.02, 22, 26. Removed or check them."
+   ],
+   "scope": "Reroute the addition's sprinkler mains around the revised duct mains and add two zones with zone control valves, as per Drawing FP-201 (revised) and the requirements of Section 22 14 26 paragraph 2.02.A.",
+   "error": null,
+   "seconds": 114.5
+  },
+  {
+   "id": "CP-0408",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-070"
+   ],
+   "cause": "RFI-221",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|1.2",
+    "Contract A|6.4"
+   ],
+   "governing_right": 0,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 2.02, 22, 26. Removed or check them."
+   ],
+   "scope": "Reroute the addition's sprinkler mains around the revised duct mains and add two zones, as per the revised Drawing FP-201 and the requirements of Section 22 14 26 paragraph 2.02.A.",
+   "error": null,
+   "seconds": 107.1
+  },
+  {
+   "id": "CP-0409",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "LTR-ERECTOR-2020-06-10"
+   ],
+   "cause": "LTR-ERECTOR-2020-06-10",
+   "cause_right": true,
+   "governing": [
+    "Contract A|10.1",
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|8.3"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The steel erector's crawler crane is committed to another project and will arrive at the site 5 working days later than planned. The subcontract with the erector requires mobilization within 3 days of notice. The CM requests the schedule be adjusted and the erector's standby cost.",
+   "error": null,
+   "seconds": 130.4
+  },
+  {
+   "id": "CP-0409",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "LTR-ERECTOR-2020-06-10"
+   ],
+   "cause": "LTR-ERECTOR-2020-06-10",
+   "cause_right": true,
+   "governing": [
+    "Contract A|10.1",
+    "Contract A|6.2",
+    "Contract A|6.3",
+    "Contract A|8.3"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The steel erector's crawler crane is committed to another project and will arrive 5 working days later than planned for erecting structural steel. The erector requests that the schedule be adjusted and will submit standby costs.",
+   "error": null,
+   "seconds": 38.5
+  },
+  {
+   "id": "CP-0410",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "LTR-FLATWORK-2020-06-15"
+   ],
+   "cause": "LTR-FLATWORK-2020-06-15",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.3",
+    "Contract A|1.4",
+    "Contract A|6.7",
+    "Contract A|Exhibit E 01 33 00"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The flatwork subcontractor, Cornerstone Flatwork, will start curbs, sidewalks, and flatwork 8 working days later than the subcontract schedule due to a crew shortage. The subcontract schedule requires flatwork to follow site electrical directly.",
+   "error": null,
+   "seconds": 135.2
+  },
+  {
+   "id": "CP-0410",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "LTR-FLATWORK-2020-06-15"
+   ],
+   "cause": "LTR-FLATWORK-2020-06-15",
+   "cause_right": true,
+   "governing": [
+    "Contract A|1.3",
+    "Contract A|1.4",
+    "Contract A|6.7",
+    "Contract A|Exhibit E 01 33 00"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The flatwork subcontract requires Cornerstone Flatwork to start curbs, sidewalks, and flatwork 8 working days after the site electrical work is completed.",
+   "error": null,
+   "seconds": 37.8
+  },
+  {
+   "id": "CP-0411",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "DR-2020-06-03",
+    "DR-2020-06-04",
+    "DR-2020-06-05",
+    "DR-2020-06-08"
+   ],
+   "cause": "DR-2020-06-03",
+   "cause_right": true,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 9. Removed or check them."
+   ],
+   "scope": "The addition excavation was delayed due to abnormal rainfall in early June 2020, which flooded the addition footprint. The contractor was unable to start excavation and shoring work until the site was pumped down on June 9, 2020. The delay was caused by an external event outside the contractor's control.",
+   "error": null,
+   "seconds": 137.5
+  },
+  {
+   "id": "CP-0411",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "DR-2020-06-03",
+    "DR-2020-06-04",
+    "DR-2020-06-05",
+    "DR-2020-06-08"
+   ],
+   "cause": "DR-2020-06-03",
+   "cause_right": true,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 2,
+   "governing_n": 3,
+   "notes": [],
+   "scope": "The addition excavation was delayed due to abnormal rainfall in early June 2020, which caused flooding of the addition footprint. The contractor was able to pump the site and resume work after the rainfall subsided. The delay was outside the contractor's control and impacted the critical path.",
+   "error": null,
+   "seconds": 41.7
+  },
+  {
+   "id": "CP-0412",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "DR-2020-06-26",
+    "DR-2020-06-29",
+    "DR-2020-06-30"
+   ],
+   "cause": "DR-2020-06-26",
+   "cause_right": true,
+   "governing": [
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.4",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 3,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The underslab utility trench at the addition was flooded by a storm, requiring dewatering, re-excavation, and replacement of the bedding. The CM has requested time only for this work, based on daily reports and NOAA data.",
+   "error": null,
+   "seconds": 132.0
+  },
+  {
+   "id": "CP-0412",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "DR-2020-06-26",
+    "DR-2020-06-29",
+    "DR-2020-06-30"
+   ],
+   "cause": "DR-2020-06-26",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|3.4",
+    "Contract A|5.2",
+    "Contract A|6.5.6"
+   ],
+   "governing_right": 2,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The underslab utility trench at the addition was flooded by a storm, requiring dewatering, re-excavation, and replacement of the bedding material.",
+   "error": null,
+   "seconds": 35.0
+  },
+  {
+   "id": "CP-0413",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-29"
+   ],
+   "cause": "OE-2020-06-29",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.2",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 6. Removed or check them."
+   ],
+   "scope": "The Owner directed a change to the addition classroom flooring from VCT to rubber tile in classrooms 201 to 212, which requires a resubmittal and longer lead time due to the supplier's 6-week delivery time.",
+   "error": null,
+   "seconds": 119.2
+  },
+  {
+   "id": "CP-0413",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-29"
+   ],
+   "cause": "OE-2020-06-29",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.2",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 1,
+   "governing_n": 3,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 06, 2020, 29. Removed or check them."
+   ],
+   "scope": "Change the addition classroom flooring from VCT to rubber tile in classrooms 201 to 212, which will require a resubmittal and longer lead time due to the Owner's direction of 2020-06-29.",
+   "error": null,
+   "seconds": 35.8
+  },
+  {
+   "id": "CP-0414",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-075"
+   ],
+   "cause": "ASI-075",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|7.1",
+    "Section 02 82 00|1.01.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 00, 07, 62. Removed or check them."
+   ],
+   "scope": "The addition of aluminum horizontal sunshades above the south-facing replacement windows of the existing building, anchored through the new head flashing, as shown on the revised south elevation of Drawing A-210 and in Section 07 62 00 head flashing coordination.",
+   "error": null,
+   "seconds": 130.1
+  },
+  {
+   "id": "CP-0414",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "ASI-075"
+   ],
+   "cause": "ASI-075",
+   "cause_right": true,
+   "governing": [
+    "Contract A|2.3",
+    "Contract A|6.4",
+    "Contract A|7.1",
+    "Section 02 82 00|1.01.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 00, 07, 62. Removed or check them."
+   ],
+   "scope": "The addition of aluminum horizontal sunshades above the south-facing replacement windows of the existing building, anchored through the new head flashing, as shown on the revised south elevation of Drawing A-210 and in Section 07 62 00 head flashing coordination.",
+   "error": null,
+   "seconds": 130.3
+  },
+  {
+   "id": "CP-0415",
+   "split": "test",
+   "variant": "plain",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-23"
+   ],
+   "cause": "RFI-205",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|7.1",
+    "Section 02 82 00|1.01.A",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [
+    "The scope has numbers that aren't in the note or the cited entries: 06, 12, 2020, 205. Removed or check them."
+   ],
+   "scope": "Add 16 data drops in the Wing B administration offices, locations per the attached markup, as directed by the Owner's response to RFI-205, which was issued on 2020-06-12. This work fits in the existing MEP rough-in for Wing B, as shown on Drawing T-102, which indicates 20 data drops in Wing B offices.",
+   "error": null,
+   "seconds": 151.2
+  },
+  {
+   "id": "CP-0415",
+   "split": "test",
+   "variant": "blind",
+   "retrieved": true,
+   "truth_cause": [
+    "OE-2020-06-23"
+   ],
+   "cause": "RFI-205",
+   "cause_right": false,
+   "governing": [
+    "Contract A|1.1",
+    "Contract A|2.3",
+    "Contract A|7.1",
+    "Section 02 82 00|1.03.A"
+   ],
+   "governing_right": 0,
+   "governing_n": 4,
+   "notes": [],
+   "scope": "The Owner added 16 data drops in the Wing B administration offices, which fit within the existing MEP rough-in for Wing B, as shown on Drawing T-102, which originally specified 20 data drops in Wing B offices.",
+   "error": null,
+   "seconds": 38.7
+  }
+ ]
+}
