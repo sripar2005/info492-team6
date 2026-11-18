@@ -421,11 +421,24 @@
       return { model: j.meta.model, where: 'saved run from ' + j.meta.date + ' (online, the model can’t run here)', live: false, scope: row.scope || '', cites: [row.cause].concat(row.governing || []).filter(Boolean).map(function (g) { return String(g).replace('|', ' § '); }), notes: row.notes || [], inputs: row.candidates || null };
     });
   }
-  // Code checks each citation against the record the viewer can see.
+  // Code checks each citation against the record the viewer can see: the document, and the section if one is named.
   function verifyCites(cites) {
     return q(P.sb().from('documents').select('*').eq('project_id', ctx().project.id)).then(function (docs) {
       var vis = docs.filter(function (d) { return d.number && P.sees.doc(d); }).sort(function (a, b) { return b.number.length - a.number.length; });
-      return cites.map(function (x) { var s = String(x); var d = vis.filter(function (v) { return s === v.number || s.indexOf(v.number + ' ') === 0 || s.indexOf(v.number + ' §') === 0; })[0]; return { cite: x, doc: d || null }; });
+      var out = cites.map(function (x) {
+        var s = String(x), d = vis.filter(function (v) { return s === v.number || s.indexOf(v.number + ' ') === 0; })[0];
+        return { cite: x, doc: d || null, section: d ? s.slice(d.number.length).replace(/^\s*§?\s*/, '').trim() : '' };
+      });
+      var ids = out.filter(function (x) { return x.doc && x.section; }).map(function (x) { return x.doc.id; });
+      if (!ids.length) return out;
+      return q(P.sb().from('pieces').select('document_id,section').in('document_id', ids)).then(function (ps) {
+        out.forEach(function (x) {
+          if (!x.doc || !x.section) return;
+          var hit = ps.some(function (p) { return p.document_id === x.doc.id && String(p.section || '').trim() === x.section; });
+          if (!hit) { x.missing = 'section ' + x.section + ' is not in ' + x.doc.number; x.doc = null; }
+        });
+        return out;
+      });
     });
   }
   // Code: do the sub requests add up, against their own lines and against the cover sheet?
@@ -456,7 +469,7 @@
       (d.ai && d.ai.inputs ? '<dt>Inputs</dt><dd>' + esc(String(d.ai.inputs)) + ' record entries offered</dd>' : '') + '</dl></div>';
   }
   function aiModal(d, readOnly) {
-    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li>' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '">' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (not in the record)</span>') + '</li>'; }).join('') + '</ol>';
+    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li>' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '">' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (' + esc(x.missing || 'not in the record') + ')</span>') + '</li>'; }).join('') + '</ol>';
     var body = '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div>' + (readOnly ? '<pre class="draft">' + esc(d.text) + '</pre>' : '<div class="inp" style="height:auto"><textarea id="aidraft" rows="14">' + esc(d.text) + '</textarea></div>') +
       '<div class="sec-h" style="margin-top:12px"><h3>Citations</h3></div>' + cites + '</div><div>' + receiptHtml(d) + '</div></div>';
     if (readOnly) return modal('AI step detail', 'Receipt', body, []);

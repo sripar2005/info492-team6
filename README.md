@@ -59,7 +59,7 @@ Run `supabase/migrations/0003_platform.sql` once in the Supabase SQL Editor. It 
 ## Not built yet
 - Real email and reminders (the app shows in-app alerts today).
 - Text-message check on the field link.
-- A long-term way to give users AI online. Today: saved runs online, live AI on a laptop running Ollama.
+- A long-term way to give users AI online. Today: saved runs online (`record/results/draft_llama3.1_8b.json`), live AI on a laptop running Ollama.
 - Procore and Newforma connections (stubs only).
 
 All contracts, change proposals and sample PDFs are synthetic, written by the team with AI assistance and modeled on public audit findings.
