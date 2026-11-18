@@ -188,21 +188,21 @@
    ]
   },
   "B": {
-   "split": "test",
-   "right": 13,
-   "wrong": 3,
+   "split": "seen",
+   "right": 14,
+   "wrong": 2,
    "missed": 0,
-   "confident_wrong": 3,
-   "verified": 16,
+   "confident_wrong": 0,
+   "verified": 12,
    "of": 16,
    "rows": [
     {
      "term": "markup_own_pct",
-     "result": "wrong",
-     "status": "verified",
-     "got": 25,
+     "result": "right",
+     "status": "check",
+     "got": 8,
      "want": 8,
-     "section": "2.4",
+     "section": "7.5.2",
      "want_section": "7.5.2"
     },
     {
@@ -235,7 +235,7 @@
     {
      "term": "fee_allowed_on",
      "result": "right",
-     "status": "verified",
+     "status": "check",
      "got": [
       "CM direct costs",
       "subcontractor quotes"
@@ -347,7 +347,7 @@
     {
      "term": "compensable_causes",
      "result": "wrong",
-     "status": "verified",
+     "status": "check",
      "got": [
       "owner",
       "architect"
@@ -361,11 +361,189 @@
     {
      "term": "concurrent_delay",
      "result": "wrong",
-     "status": "verified",
+     "status": "check",
      "got": "no_time_no_money",
      "want": "time_no_money",
      "section": "7.5.6",
      "want_section": "7.5.6"
+    }
+   ]
+  },
+  "C": {
+   "split": "heldout",
+   "right": 12,
+   "wrong": 3,
+   "missed": 0,
+   "confident_wrong": 1,
+   "verified": 12,
+   "of": 15,
+   "rows": [
+    {
+     "term": "markup_own_pct",
+     "result": "right",
+     "status": "verified",
+     "got": 12,
+     "want": 12,
+     "section": "",
+     "want_section": "9.4.2"
+    },
+    {
+     "term": "markup_lower_pct",
+     "result": "right",
+     "status": "verified",
+     "got": 6,
+     "want": 6,
+     "section": "",
+     "want_section": "9.4.2"
+    },
+    {
+     "term": "markup_total_pct",
+     "result": "right",
+     "status": "verified",
+     "got": 17,
+     "want": 17,
+     "section": "",
+     "want_section": "9.4.2"
+    },
+    {
+     "term": "fee_pct",
+     "result": "wrong",
+     "status": "verified",
+     "got": 4,
+     "want": 3.75,
+     "section": "",
+     "want_section": "16.3"
+    },
+    {
+     "term": "fee_allowed_on",
+     "result": "right",
+     "status": "check",
+     "got": [
+      "CM direct costs",
+      "subcontractor quotes",
+      "bond and insurance"
+     ],
+     "want": [
+      "CM direct costs",
+      "subcontractor quotes",
+      "bond and insurance premiums"
+     ],
+     "section": "",
+     "want_section": "9.4.3"
+    },
+    {
+     "term": "labor_burden_pct",
+     "result": "right",
+     "status": "verified",
+     "got": 35,
+     "want": 35,
+     "section": "",
+     "want_section": "5.2"
+    },
+    {
+     "term": "blue_book_pct",
+     "result": "right",
+     "status": "verified",
+     "got": 80,
+     "want": 80,
+     "section": "",
+     "want_section": "9.4.5"
+    },
+    {
+     "term": "approval_limit",
+     "result": "wrong",
+     "status": "check",
+     "got": 7500,
+     "want": 100000,
+     "section": "",
+     "want_section": "9.6"
+    },
+    {
+     "term": "notice_days_by_cause",
+     "result": "right",
+     "status": "verified",
+     "got": {
+      "RFI response": 5,
+      "ASI": 5,
+      "Submittal return": 5,
+      "Owner direction": 5,
+      "Architect direction": 5,
+      "Concealed condition": 5,
+      "Other event": 20
+     },
+     "want": {
+      "RFI response": 5,
+      "ASI": 5,
+      "Submittal return": 5,
+      "Owner direction": 5,
+      "Architect direction": 5,
+      "Concealed condition": 5,
+      "Other event": 20
+     },
+     "section": "",
+     "want_section": "9.2"
+    },
+    {
+     "term": "contract_days",
+     "result": "right",
+     "status": "verified",
+     "got": 455,
+     "want": 455,
+     "section": "",
+     "want_section": "3.2"
+    },
+    {
+     "term": "liquidated_damages_per_day",
+     "result": "right",
+     "status": "verified",
+     "got": 2200,
+     "want": 2200,
+     "section": "",
+     "want_section": "3.3"
+    },
+    {
+     "term": "daily_delay_rate",
+     "result": "right",
+     "status": "verified",
+     "got": 2975,
+     "want": 2975,
+     "section": "",
+     "want_section": "5.3"
+    },
+    {
+     "term": "sgc_total",
+     "result": "right",
+     "status": "verified",
+     "got": 1412750,
+     "want": 1412750,
+     "section": "",
+     "want_section": "5.3"
+    },
+    {
+     "term": "compensable_causes",
+     "result": "wrong",
+     "status": "check",
+     "got": [
+      "owner",
+      "architect",
+      "owner"
+     ],
+     "want": [
+      "owner",
+      "architect",
+      "concealed condition"
+     ],
+     "section": "",
+     "want_section": "9.4.7"
+    },
+    {
+     "term": "concurrent_delay",
+     "result": "right",
+     "status": "verified",
+     "got": "apportioned",
+     "want": "apportioned",
+     "section": "",
+     "want_section": "9.4.7"
     }
    ]
   }
@@ -380,7 +558,7 @@
      "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
      "section": "6.5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "markup_lower_pct": {
      "label": "Sub markup on lower-tier work",
@@ -389,7 +567,7 @@
      "quote": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors.",
      "section": "6.5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "markup_total_pct": {
      "label": "Total sub markup cap",
@@ -398,7 +576,7 @@
      "quote": "Total markup on any portion of the work shall not exceed 15%.",
      "section": "6.5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "fee_pct": {
      "label": "CM fee",
@@ -407,7 +585,7 @@
      "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
      "section": "6.5.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "fee_allowed_on": {
      "label": "Fee allowed on",
@@ -419,7 +597,7 @@
      "quote": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change.",
      "section": "6.5.3",
      "status": "check",
-     "note": "not all categories appear in the sentence"
+     "note": "categories need a person to confirm"
     },
     "labor_burden_pct": {
      "label": "Labor burden",
@@ -428,7 +606,7 @@
      "quote": "Reimbursable Cost of the Work includes subcontract payments, materials, CM labor at the rates in the approved labor schedule plus a fixed labor burden of 32% of direct wages, bond and insurance premiums at actual cost, Washington B&O taxes at actual cost, and permit fees.",
      "section": "5.4",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "blue_book_pct": {
      "label": "Owned equipment rate",
@@ -437,7 +615,7 @@
      "quote": "Other CM-owned equipment is charged at 75% of the current published Blue Book rental rate, and rented equipment at the invoiced cost with no markup other than the Fee.",
      "section": "6.5.4",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "approval_limit": {
      "label": "Owner's rep approval limit",
@@ -446,7 +624,7 @@
      "quote": "Owner's Representative may approve a CO of up to $250,000.",
      "section": "6.7",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "notice_days_standard": {
      "label": "Notice window (RFI, directions, site conditions)",
@@ -455,7 +633,7 @@
      "quote": "(a) 7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time;",
      "section": "6.2(a)",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "notice_days_other": {
      "label": "Notice window (other events)",
@@ -464,7 +642,7 @@
      "quote": "(d) 14 days after CM first knew or should have known of any other event that may increase cost or time.",
      "section": "6.2(d)",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "contract_days": {
      "label": "Contract time",
@@ -473,7 +651,7 @@
      "quote": "CM shall achieve Substantial Completion within 540 days after the Notice to Proceed, and Final Completion within 60 days after Substantial Completion.",
      "section": "3.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "liquidated_damages_per_day": {
      "label": "Liquidated damages",
@@ -482,7 +660,7 @@
      "quote": "If CM fails to achieve Substantial Completion on time, CM shall pay Owner $2,500 for each day of delay.",
      "section": "3.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "daily_delay_rate": {
      "label": "Daily rate for extended general conditions",
@@ -491,7 +669,7 @@
      "quote": "SGC may be increased only by CO for an extension of Contract Time, at a daily rate of $3,185 per day.",
      "section": "5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "sgc_total": {
      "label": "General conditions total",
@@ -500,7 +678,7 @@
      "quote": "SGC is $1,720,000, billed as shown in Exhibit C.",
      "section": "5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "extension_requires_critical_path": {
      "label": "Extension needs the critical path",
@@ -509,7 +687,7 @@
      "quote": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path, using the SGC daily rate in Section 5.2 and with no Fee.",
      "section": "6.5.6",
      "status": "verified",
-     "note": "mentions the critical path"
+     "note": "matches the sentence"
     },
     "compensable_causes": {
      "label": "Delays that earn money",
@@ -521,7 +699,7 @@
      "quote": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path, using the SGC daily rate in Section 5.2 and with no Fee.",
      "section": "6.5.6",
      "status": "verified",
-     "note": "parties found"
+     "note": "matches the sentence"
     },
     "concurrent_delay": {
      "label": "Concurrent delay",
@@ -530,7 +708,7 @@
      "quote": "Delays with concurrent causes receive time but no compensation.",
      "section": "6.5.6",
      "status": "verified",
-     "note": "mentions concurrent delay"
+     "note": "matches the sentence"
     }
    },
    "terms": {
@@ -647,7 +825,7 @@
    },
    "model": "llama3.1:8b",
    "runs": 3,
-   "seconds": 639.5,
+   "seconds": 498.0,
    "sentences": 215
   },
   "B": {
@@ -655,11 +833,11 @@
     "markup_own_pct": {
      "label": "Sub markup on its own work",
      "kind": "pct",
-     "value": 25,
-     "quote": "Self-performed work shall not exceed 25% of the combined cost of subcontracted and self-performed work over the life of the Project.",
-     "section": "2.4",
-     "status": "verified",
-     "note": "value found in the sentence"
+     "value": 8,
+     "quote": "A Subcontractor may add a combined allowance for overhead and profit of not more than 8% of the cost of the changed work it performs with its own forces, and not more than 4% of the cost of changed work performed by its lower-tier subcontractors.",
+     "section": "7.5.2",
+     "status": "check",
+     "note": "the 3 readings disagreed"
     },
     "markup_lower_pct": {
      "label": "Sub markup on lower-tier work",
@@ -668,7 +846,7 @@
      "quote": "A Subcontractor may add a combined allowance for overhead and profit of not more than 8% of the cost of the changed work it performs with its own forces, and not more than 4% of the cost of changed work performed by its lower-tier subcontractors.",
      "section": "7.5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "markup_total_pct": {
      "label": "Total sub markup cap",
@@ -677,7 +855,7 @@
      "quote": "In no event shall the cumulative markup of all tiers on any portion of the changed work exceed 12%.",
      "section": "7.5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "fee_pct": {
      "label": "CM fee",
@@ -686,7 +864,7 @@
      "quote": "On each Change Order CM may add a Fee of 4.5%, computed only on CM direct costs and subcontractor quotes.",
      "section": "7.5.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "fee_allowed_on": {
      "label": "Fee allowed on",
@@ -697,8 +875,8 @@
      ],
      "quote": "On each Change Order CM may add a Fee of 4.5%, computed only on CM direct costs and subcontractor quotes.",
      "section": "7.5.3",
-     "status": "verified",
-     "note": "categories found"
+     "status": "check",
+     "note": "categories need a person to confirm"
     },
     "labor_burden_pct": {
      "label": "Labor burden",
@@ -707,7 +885,7 @@
      "quote": "Wages of CM's field labor shall be paid at the rates in the approved labor rate schedule plus a fixed labor burden equal to 30% of direct wages, which covers payroll taxes, workers' compensation, benefits, and union fringes.",
      "section": "5.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "blue_book_pct": {
      "label": "Owned equipment rate",
@@ -716,7 +894,7 @@
      "quote": "Equipment owned by CM or by an entity affiliated with CM shall be charged at 70% of the monthly, weekly, or daily rental rate, whichever is lowest for the duration of use, published in the current edition of the Equipment Watch Rental Rate Blue Book, without separate charges for fuel or maintenance.",
      "section": "7.5.4",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "approval_limit": {
      "label": "Owner's rep approval limit",
@@ -725,7 +903,7 @@
      "quote": "The Owner's Representative may execute any Change Order whose value does not exceed $150,000.",
      "section": "7.7",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "notice_days_standard": {
      "label": "Notice window (RFI, directions, site conditions)",
@@ -734,7 +912,7 @@
      "quote": "CM shall give written notice of a Potential Change within 10 days after it receives an RFI response, Architect's Supplemental Instruction, submittal return, or written or oral direction from Owner or Architect, or after it first observes a concealed or unknown physical condition, which in that case it shall not disturb before giving notice.",
      "section": "7.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "notice_days_other": {
      "label": "Notice window (other events)",
@@ -743,7 +921,7 @@
      "quote": "For any other event that may increase its cost or time, CM shall give notice within 21 days after it knew or reasonably should have known of the event.",
      "section": "7.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "contract_days": {
      "label": "Contract time",
@@ -752,7 +930,7 @@
      "quote": "CM shall achieve Substantial Completion of the entire Work not later than 420 days after the date of commencement, subject to adjustment only by Change Order.",
      "section": "3.2",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "liquidated_damages_per_day": {
      "label": "Liquidated damages",
@@ -761,7 +939,7 @@
      "quote": "If CM fails to achieve Substantial Completion within the Contract Time, CM shall pay Owner, as liquidated damages and not as a penalty, $1,800 for each day that Substantial Completion is late.",
      "section": "3.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "daily_delay_rate": {
      "label": "Daily rate for extended general conditions",
@@ -770,7 +948,7 @@
      "quote": "If the Contract Time is extended by Change Order for a delay for which CM is entitled to compensation under Section 7.5.6, the General Conditions Costs shall be increased at the rate of $2,450 for each day of the extension, with no Fee added.",
      "section": "5.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "sgc_total": {
      "label": "General conditions total",
@@ -779,7 +957,7 @@
      "quote": "The General Conditions Costs are a fixed sum of $1,286,000, covering the project manager, superintendents, project engineers, safety staff, field office, temporary toilets, project vehicles, and small tools.",
      "section": "5.3",
      "status": "verified",
-     "note": "value found in the sentence"
+     "note": "value found in a sentence about this term"
     },
     "extension_requires_critical_path": {
      "label": "Extension needs the critical path",
@@ -788,7 +966,7 @@
      "quote": "The Contract Time may be extended only by Change Order and only for a delay that is beyond the control and without the fault of CM and its Subcontractors, that is shown by a time impact analysis to delay an activity on the critical path of the most recent accepted schedule update, and for which CM has given timely notice under Section 7.2.",
      "section": "3.4",
      "status": "verified",
-     "note": "mentions the critical path"
+     "note": "matches the sentence"
     },
     "compensable_causes": {
      "label": "Delays that earn money",
@@ -799,8 +977,8 @@
      ],
      "quote": "CM is entitled to an increase in the General Conditions Costs for an extension of the Contract Time only when the delay was caused by Owner, or by a separate contractor or consultant retained by Owner other than Architect, and the delay affected the critical path.",
      "section": "7.5.6",
-     "status": "verified",
-     "note": "parties found"
+     "status": "check",
+     "note": "the sentence reads as: owner"
     },
     "concurrent_delay": {
      "label": "Concurrent delay",
@@ -808,16 +986,16 @@
      "value": "no_time_no_money",
      "quote": "When a delay to the critical path has concurrent causes and one of them is the responsibility of CM or its Subcontractors, CM shall receive an extension of time but no additional compensation for the period of concurrency.",
      "section": "7.5.6",
-     "status": "verified",
-     "note": "mentions concurrent delay"
+     "status": "check",
+     "note": "the sentence reads as: time no money"
     }
    },
    "terms": {
     "markup_own_pct": {
-     "value": 25,
-     "quote": "Self-performed work shall not exceed 25% of the combined cost of subcontracted and self-performed work over the life of the Project.",
-     "section": "2.4",
-     "status": "verified"
+     "value": 8,
+     "quote": "A Subcontractor may add a combined allowance for overhead and profit of not more than 8% of the cost of the changed work it performs with its own forces, and not more than 4% of the cost of changed work performed by its lower-tier subcontractors.",
+     "section": "7.5.2",
+     "status": "check"
     },
     "markup_lower_pct": {
      "value": 4,
@@ -844,7 +1022,7 @@
      ],
      "quote": "On each Change Order CM may add a Fee of 4.5%, computed only on CM direct costs and subcontractor quotes.",
      "section": "7.5.3",
-     "status": "verified"
+     "status": "check"
     },
     "labor_burden_pct": {
      "value": 30,
@@ -901,13 +1079,13 @@
      ],
      "quote": "CM is entitled to an increase in the General Conditions Costs for an extension of the Contract Time only when the delay was caused by Owner, or by a separate contractor or consultant retained by Owner other than Architect, and the delay affected the critical path.",
      "section": "7.5.6",
-     "status": "verified"
+     "status": "check"
     },
     "concurrent_delay": {
      "value": "no_time_no_money",
      "quote": "When a delay to the critical path has concurrent causes and one of them is the responsibility of CM or its Subcontractors, CM shall receive an extension of time but no additional compensation for the period of concurrency.",
      "section": "7.5.6",
-     "status": "verified"
+     "status": "check"
     },
     "notice_days_by_cause": {
      "value": {
@@ -926,8 +1104,291 @@
    },
    "model": "llama3.1:8b",
    "runs": 3,
-   "seconds": 776.7,
+   "seconds": 609.5,
    "sentences": 130
+  },
+  "C": {
+   "read": {
+    "markup_own_pct": {
+     "label": "Sub markup on its own work",
+     "kind": "pct",
+     "value": 12,
+     "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "markup_lower_pct": {
+     "label": "Sub markup on lower-tier work",
+     "kind": "pct",
+     "value": 6,
+     "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "markup_total_pct": {
+     "label": "Total sub markup cap",
+     "kind": "pct",
+     "value": 17,
+     "quote": "The total of all overhead and profit markups by all tiers on any item of changed Work, excluding the Contractor's Fee, shall not exceed seventeen percent (17%).",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "fee_pct": {
+     "label": "CM fee",
+     "kind": "pct",
+     "value": 4,
+     "quote": "The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "fee_allowed_on": {
+     "label": "Fee allowed on",
+     "kind": "fee_on",
+     "value": [
+      "CM direct costs",
+      "subcontractor quotes",
+      "bond and insurance"
+     ],
+     "quote": "The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.",
+     "section": "",
+     "status": "check",
+     "note": "categories need a person to confirm"
+    },
+    "labor_burden_pct": {
+     "label": "Labor burden",
+     "kind": "pct",
+     "value": 35,
+     "quote": "The Cost of the Work includes payments to Subcontractors, materials and equipment incorporated in the Work, sales tax, and the wages of the Contractor's craft workers at the rates in the approved labor rate sheet, plus a labor burden of thirty-five percent (35%) of base wages for payroll taxes, industrial insurance, benefits, and union fringes.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "blue_book_pct": {
+     "label": "Owned equipment rate",
+     "kind": "pct",
+     "value": 80,
+     "quote": "Equipment owned by the Contractor or an affiliate is charged at eighty percent (80%) of the rates in the current Equipment Watch Rental Rate Blue Book, using the lowest of the monthly, weekly, or daily rate that fits the period of use.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "approval_limit": {
+     "label": "Owner's rep approval limit",
+     "kind": "money",
+     "value": 7500,
+     "quote": "The District's site representative may issue Field Orders for work not exceeding Seven Thousand Five Hundred Dollars ($7,500) each.",
+     "section": "",
+     "status": "check",
+     "note": "the sentence doesn't mention approv"
+    },
+    "notice_days_standard": {
+     "label": "Notice window (RFI, directions, site conditions)",
+     "kind": "days",
+     "value": 5,
+     "quote": "The Contractor shall give the District written notice of a Potential Change within five (5) days after receipt of an RFI response, Architect's supplemental instruction, submittal return, or direction from the District or the Architect, or after first observing a concealed or unknown physical condition at the site, which the Contractor shall not disturb until the District has had an opportunity to observe it.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "notice_days_other": {
+     "label": "Notice window (other events)",
+     "kind": "days",
+     "value": 20,
+     "quote": "For any other event or circumstance on which the Contractor intends to base a request for additional cost or time, notice shall be given within twenty (20) days after the Contractor knew or should have known of it.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "contract_days": {
+     "label": "Contract time",
+     "kind": "days",
+     "value": 455,
+     "quote": "The Contractor shall achieve Substantial Completion of the entire Work within four hundred fifty-five (455) calendar days after the date of the Notice to Proceed for Construction.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "liquidated_damages_per_day": {
+     "label": "Liquidated damages",
+     "kind": "money",
+     "value": 2200,
+     "quote": "For each calendar day after the Contract Time that Substantial Completion has not been achieved, the Contractor shall pay the District Two Thousand Two Hundred Dollars ($2,200) as liquidated damages and not as a penalty.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "daily_delay_rate": {
+     "label": "Daily rate for extended general conditions",
+     "kind": "money",
+     "value": 2975,
+     "quote": "| Extended Specified General Conditions (Section 5.3), per calendar day | $2,975.00 |",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "sgc_total": {
+     "label": "General conditions total",
+     "kind": "money",
+     "value": 1412750,
+     "quote": "The Specified General Conditions are a lump sum of $1,412,750 and include the project manager, superintendent, project engineer, safety coordinator, field office, temporary toilets, and project vehicles.",
+     "section": "",
+     "status": "verified",
+     "note": "value found in a sentence about this term"
+    },
+    "extension_requires_critical_path": {
+     "label": "Extension needs the critical path",
+     "kind": "bool",
+     "value": true,
+     "quote": "Within fourteen (14) days after the Notice to Proceed for Construction the Contractor shall submit a critical path method schedule in native Primavera P6 format.",
+     "section": "",
+     "status": "check",
+     "note": "no rule could read it; confirm"
+    },
+    "compensable_causes": {
+     "label": "Delays that earn money",
+     "kind": "parties",
+     "value": [
+      "owner",
+      "architect",
+      "owner"
+     ],
+     "quote": "The Contractor shall be compensated for extended Specified General Conditions under Section 5.3 only for a delay caused by the District, by the Architect, or by a concealed physical condition at the site that differs materially from the Contract Documents.",
+     "section": "",
+     "status": "check",
+     "note": "the sentence reads as: architect"
+    },
+    "concurrent_delay": {
+     "label": "Concurrent delay",
+     "kind": "concurrent",
+     "value": "apportioned",
+     "quote": "Where a delay results from concurrent causes, one attributable to the District and one to the Contractor, the extension shall be granted for the full period of delay, but the compensation for extended Specified General Conditions shall be apportioned between the District and the Contractor in proportion to their respective contributions to the delay.",
+     "section": "",
+     "status": "verified",
+     "note": "matches the sentence"
+    }
+   },
+   "terms": {
+    "markup_own_pct": {
+     "value": 12,
+     "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+     "section": "",
+     "status": "verified"
+    },
+    "markup_lower_pct": {
+     "value": 6,
+     "quote": "For changed Work performed by a Subcontractor with its own forces, the Subcontractor's overhead and profit shall not exceed twelve percent (12%) of its direct cost; for changed Work performed by its lower-tier subcontractors, the Subcontractor may add six percent (6%) to the lower-tier cost.",
+     "section": "",
+     "status": "verified"
+    },
+    "markup_total_pct": {
+     "value": 17,
+     "quote": "The total of all overhead and profit markups by all tiers on any item of changed Work, excluding the Contractor's Fee, shall not exceed seventeen percent (17%).",
+     "section": "",
+     "status": "verified"
+    },
+    "fee_pct": {
+     "value": 4,
+     "quote": "The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.",
+     "section": "",
+     "status": "verified"
+    },
+    "fee_allowed_on": {
+     "value": [
+      "CM direct costs",
+      "subcontractor quotes",
+      "bond and insurance"
+     ],
+     "quote": "The Contractor's Fee on a Change Order shall be four percent (4%) of the sum of the Contractor's direct costs, Subcontractor quotes as marked up under Section 9.4.2, and the premiums for bonds and insurance attributable to the change.",
+     "section": "",
+     "status": "check"
+    },
+    "labor_burden_pct": {
+     "value": 35,
+     "quote": "The Cost of the Work includes payments to Subcontractors, materials and equipment incorporated in the Work, sales tax, and the wages of the Contractor's craft workers at the rates in the approved labor rate sheet, plus a labor burden of thirty-five percent (35%) of base wages for payroll taxes, industrial insurance, benefits, and union fringes.",
+     "section": "",
+     "status": "verified"
+    },
+    "blue_book_pct": {
+     "value": 80,
+     "quote": "Equipment owned by the Contractor or an affiliate is charged at eighty percent (80%) of the rates in the current Equipment Watch Rental Rate Blue Book, using the lowest of the monthly, weekly, or daily rate that fits the period of use.",
+     "section": "",
+     "status": "verified"
+    },
+    "approval_limit": {
+     "value": 7500,
+     "quote": "The District's site representative may issue Field Orders for work not exceeding Seven Thousand Five Hundred Dollars ($7,500) each.",
+     "section": "",
+     "status": "check"
+    },
+    "contract_days": {
+     "value": 455,
+     "quote": "The Contractor shall achieve Substantial Completion of the entire Work within four hundred fifty-five (455) calendar days after the date of the Notice to Proceed for Construction.",
+     "section": "",
+     "status": "verified"
+    },
+    "liquidated_damages_per_day": {
+     "value": 2200,
+     "quote": "For each calendar day after the Contract Time that Substantial Completion has not been achieved, the Contractor shall pay the District Two Thousand Two Hundred Dollars ($2,200) as liquidated damages and not as a penalty.",
+     "section": "",
+     "status": "verified"
+    },
+    "daily_delay_rate": {
+     "value": 2975,
+     "quote": "| Extended Specified General Conditions (Section 5.3), per calendar day | $2,975.00 |",
+     "section": "",
+     "status": "verified"
+    },
+    "sgc_total": {
+     "value": 1412750,
+     "quote": "The Specified General Conditions are a lump sum of $1,412,750 and include the project manager, superintendent, project engineer, safety coordinator, field office, temporary toilets, and project vehicles.",
+     "section": "",
+     "status": "verified"
+    },
+    "extension_requires_critical_path": {
+     "value": true,
+     "quote": "Within fourteen (14) days after the Notice to Proceed for Construction the Contractor shall submit a critical path method schedule in native Primavera P6 format.",
+     "section": "",
+     "status": "check"
+    },
+    "compensable_causes": {
+     "value": [
+      "owner",
+      "architect",
+      "owner"
+     ],
+     "quote": "The Contractor shall be compensated for extended Specified General Conditions under Section 5.3 only for a delay caused by the District, by the Architect, or by a concealed physical condition at the site that differs materially from the Contract Documents.",
+     "section": "",
+     "status": "check"
+    },
+    "concurrent_delay": {
+     "value": "apportioned",
+     "quote": "Where a delay results from concurrent causes, one attributable to the District and one to the Contractor, the extension shall be granted for the full period of delay, but the compensation for extended Specified General Conditions shall be apportioned between the District and the Contractor in proportion to their respective contributions to the delay.",
+     "section": "",
+     "status": "verified"
+    },
+    "notice_days_by_cause": {
+     "value": {
+      "RFI response": 5,
+      "ASI": 5,
+      "Submittal return": 5,
+      "Owner direction": 5,
+      "Architect direction": 5,
+      "Concealed condition": 5,
+      "Other event": 20
+     },
+     "quote": "The Contractor shall give the District written notice of a Potential Change within five (5) days after receipt of an RFI response, Architect's supplemental instruction, submittal return, or direction from the District or the Architect, or after first observing a concealed or unknown physical condition at the site, which the Contractor shall not disturb until the District has had an opportunity to observe it.",
+     "section": "",
+     "status": "verified"
+    }
+   },
+   "model": "llama3.1:8b",
+   "runs": 3,
+   "seconds": 674.2,
+   "sentences": 206
   }
  }
 }
