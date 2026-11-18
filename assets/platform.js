@@ -111,9 +111,9 @@
       }).join('') + '</select></label>';
     }
     el.innerHTML = sample
-      ? '<span class="mb-k">Sample project</span><span class="mb-t">Synthetic data written for this research. Not a real project, and nothing you do here is saved.</span>' + picker + '<button class="mb-b" data-leavesample="1">Leave the sample</button>'
+      ? '<span class="mb-k">Sample project</span><span class="mb-t">Synthetic data written for this research. Not a real project, and nothing you do here is saved.</span>' + picker + '<button class="mb-b" data-guideopen="1">Guide</button><button class="mb-b" data-leavesample="1">Leave the sample</button>'
       : '<span class="mb-k">' + (ctx ? (ctx.project.synthetic ? 'Live account, synthetic project' : 'Live project') : 'Live') + '</span><span class="mb-t">' + (ctx ? esc(ctx.project.name) + '. Saved, and each party sees only what its contracts allow.' : 'Sign in to open a real project, or try the sample.') + '</span>' + picker +
-        (ctx ? '' : '<button class="mb-b" data-entersample="1">Open the sample</button>');
+        '<button class="mb-b" data-guideopen="1">Guide</button>' + (ctx ? '' : '<button class="mb-b" data-entersample="1">Open the sample</button>');
     var s = document.getElementById('viewas'); if (s) s.onchange = function () { P.setViewAs(s.value); };
   };
 

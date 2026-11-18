@@ -518,6 +518,7 @@
       '<label class="btn primary">Choose a file<input type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" id="file" hidden></label>' +
       '<span class="or">or try a sample: <button class="link" data-act="csample" data-c="A">contract A</button> · <button class="link" data-act="csample" data-c="B">contract B (different terms)</button></span>' +
       '<div class="reader ' + (reader ? 'on' : '') + '"><span class="dot"></span>' + (reader ? 'Clause reading is on: ' + esc(reader) + ' running on this computer' : 'Here, keyword search finds the candidate sentences and you pick. The AI reader runs on the team’s laptop.') + '</div></div>' +
+      (store('cs_reader_target') ? '<div class="banner"><span>Reading the terms of <b>' + esc(store('cs_reader_target').title) + '</b>. They’ll be saved to that contract on your project. <button class="link" data-act="cuntarget">Not this contract</button></span></div>' : '') +
       (err ? '<div class="err">' + esc(err) + '</div>' : '') +
       '<ol class="how"><li><b>Code</b> splits the contract into numbered sentences and keeps each one’s section.</li><li><b>Code</b> finds the few sentences that could state each term.</li>' +
       '<li><b>The AI</b> may only pick one of those sentences, or say “not stated”. It reads three times; if the readings differ, the term is flagged.</li><li><b>Code</b> checks the number is really in the sentence.</li><li><b>You</b> confirm every term. Terms not found use the sample’s value, and we say so.</li></ol></section></div>';
@@ -648,9 +649,26 @@
     var name = (document.getElementById('cname').value || '').trim() || 'My contract', read = {};
     Object.keys(CS.read).forEach(function (k) { var x = CS.read[k], ok = x.value != null && x.value !== '' && !(Array.isArray(x.value) && !x.value.length && kindOfTerm(k) !== 'parties');
       read[k] = { value: ok ? x.value : null, quote: x.quote, section: x.section, status: ok ? x.status : 'none', src: x.src, note: x.note }; });
+    // Reading the terms of a contract on a project: save them to that contract, then go back to 03 Contracts.
+    var tgt = store('cs_reader_target'), PL = window.CSPlat;
+    if (tgt && PL && PL.ctx() && PL.ctx().project.id === tgt.project) return saveToProject(tgt, read, PL);
     var rec = { id: CS.id, name: name, file: CS.file, saved: Date.now(), source: CS.source, model: CS.model || null, read: read, text: CS.text.length < 400000 ? CS.text : null };
     var list = contracts().filter(function (c) { return c.id !== rec.id; }); list.unshift(rec); store('cs_contracts', list.slice(0, 10));
     setActive(rec.id); CS = null; toast('Checks now use “' + name + '”.'); go(S ? 'result' : 'upload');
+  }
+  function saveToProject(tgt, read, PL) {
+    var sb = PL.sb(), now = new Date().toISOString(), uid = PL.user() && PL.user().id;
+    // A term marked "to check" in the reader is saved unconfirmed, so it waits for a Confirm on 03 Contracts.
+    var rows = Object.keys(read).filter(function (k) { return read[k].value != null; }).map(function (k) {
+      var x = read[k], ok = x.status !== 'check';
+      return { project_id: tgt.project, contract_id: tgt.contract, key: k, value: x.value, clause: x.section ? '§ ' + x.section : null, sentence: x.quote || null, confirmed_by: ok ? uid : null, confirmed_at: ok ? now : null };
+    });
+    PL.q(sb.from('contract_terms').select('id,key').eq('contract_id', tgt.contract)).then(function (have) {
+      var byKey = {}; have.forEach(function (h) { byKey[h.key] = h.id; });
+      return Promise.all(rows.map(function (r) { return byKey[r.key] ? PL.q(sb.from('contract_terms').update(r).eq('id', byKey[r.key])) : PL.q(sb.from('contract_terms').insert(r)); }));
+    }).then(function () { return PL.loadCtx(tgt.project); }).then(function () {
+      store('cs_reader_target', null); CS = null; toast(rows.length + ' terms saved to ' + tgt.title + '.'); go('contracts');
+    }).catch(function (e) { toast('Could not save the terms: ' + (e.message || e)); });
   }
   function editContract(id) {
     var x = contracts().filter(function (c) { return c.id === id; })[0]; if (!x) return;
@@ -684,6 +702,7 @@
   /* ---------- events ---------- */
   app.addEventListener('click', function (e) {
     var t = e.target.closest('[data-act],[data-sample],[data-go],[data-feeon],[data-pick],[data-tpill],[data-jump]'); if (!t) return;
+    if (t.dataset.act === 'cuntarget') { store('cs_reader_target', null); return viewContract(); }
     if (CS && onContractClick(t)) return; if (t.dataset.act === 'csample') return onContractClick(t);
     if (t.dataset.go) return go(t.dataset.go);
     if (t.dataset.feeon) { var on = S.form.fee_on, p = t.dataset.feeon, i = on.indexOf(p); if (i >= 0) on.splice(i, 1); else on.push(p); S.edited = true; t.setAttribute('aria-pressed', i < 0); live(); saveSession(); return; }
@@ -727,6 +746,8 @@
   function route() {
     var full = (location.hash || '#home').slice(1), v = full.split('?')[0] || 'home';
     if (v === 'proposals') return go('changes');
+    // A first visit to the app with no mode chosen opens the getting-started screen.
+    if (v === 'home' && !store('cs_seen_start') && !store('cs_mode') && !store('cs_project') && !/[?&](signin|project|mode|sample)=/.test(location.search)) return go('start');
     var navKey = /^(upload|confirm|result)$/.test(v) ? 'check' : /^(record|doc)$/.test(v) ? 'record' : /^change/.test(v) ? 'changes' : /^contract/.test(v) ? 'contracts' : /^(schedule|delay|gantt)/.test(v) ? 'schedule' : v;
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.body.classList.toggle('v-check', navKey === 'check' || v === 'contract' || v === 'contract-confirm');

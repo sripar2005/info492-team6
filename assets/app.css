@@ -693,3 +693,46 @@ ol.steps .flag { display: block; margin-top: 4px; color: var(--red); font-weight
 .fphotos { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 8px; } .fphotos img { width: 96px; height: 72px; object-fit: cover; border: 1.5px solid #000000; background: #E9E9E9; }
 /* Phones: every two-column screen stacks. */
 @media (max-width: 720px) { .cols, .cols.result, .tblock.two { grid-template-columns: minmax(0, 1fr); } .grid.filt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; } }
+
+/* ---------- Getting started: welcome screen and guide panel ---------- */
+.gs-lede { max-width: 680px; margin: -4px 0 18px; }
+.gs-how { max-width: 760px; margin: 0 0 22px; }
+.gs-how li { margin-bottom: 8px; }
+.gs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 900px; margin-bottom: 18px; }
+.gs-card { display: flex; flex-direction: column; gap: 6px; text-align: left; padding: 18px 20px; background: #FFFFFF; color: #000000; border: 1.5px solid #000000; box-shadow: 4px 4px 0 #000000; cursor: pointer; font: inherit; }
+.gs-card b { font-size: 19px; }
+.gs-card span { color: #3A3A3A; line-height: 1.45; }
+.gs-card em { font-style: normal; font-size: 13px; color: #616161; margin-top: 4px; }
+.gs-card:hover, .gs-card:focus-visible { background: #000000; color: #FFFFFF; outline: none; }
+.gs-card:hover span, .gs-card:hover em, .gs-card:focus-visible span, .gs-card:focus-visible em { color: #FFFFFF; }
+@media (max-width: 720px) { .gs-grid { grid-template-columns: minmax(0, 1fr); } }
+
+.guide { position: fixed; right: 16px; bottom: 16px; z-index: 60; width: 360px; max-height: calc(100vh - 32px); overflow: auto; background: #FFFFFF; color: #000000; border: 2px solid #000000; box-shadow: 6px 6px 0 #000000; font-size: 14.5px; }
+.guide[hidden] { display: none; }
+.guide .gd-h { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: #000000; color: #FFFFFF; font-weight: 600; font-size: 13px; }
+.guide .gd-n { margin-left: auto; color: #BDBDBD; font-weight: 500; }
+.guide .gd-x { background: none; border: 1px solid #FFFFFF; color: #FFFFFF; font: inherit; font-size: 12px; padding: 2px 8px; cursor: pointer; }
+.guide .gd-bar { display: flex; gap: 3px; padding: 8px 12px 0; }
+.guide .gd-bar i { flex: 1; height: 4px; background: #D6D6D6; }
+.guide .gd-bar i.on { background: #000000; } .guide .gd-bar i.now { background: repeating-linear-gradient(90deg, #000000 0 4px, #FFFFFF 4px 6px); }
+.guide .gd-b { padding: 10px 14px 14px; }
+.guide h3 { margin: 4px 0 6px; font-size: 17px; }
+.guide h3:focus { outline: none; }
+.guide p { margin: 0 0 8px; line-height: 1.45; }
+.guide .gd-why { color: #3A3A3A; font-size: 13.5px; }
+.guide .gd-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.guide .gd-list { list-style: none; margin: 0 0 10px; padding: 0; font-size: 13.5px; }
+.guide .gd-list li { display: flex; gap: 8px; align-items: center; padding: 3px 0; color: #616161; }
+.guide .gd-list li span { width: 20px; height: 20px; flex: none; display: grid; place-items: center; border: 1.5px solid #9E9E9E; font-size: 11px; font-weight: 700; }
+.guide .gd-list li.done span { background: #000000; border-color: #000000; color: #FFFFFF; }
+.guide .gd-list li.now { color: #000000; font-weight: 600; } .guide .gd-list li.now span { border-color: #000000; }
+.guide.min { width: auto; box-shadow: 4px 4px 0 #000000; }
+.guide .gd-open { background: #000000; color: #FFFFFF; border: 0; font: inherit; font-weight: 600; padding: 10px 14px; cursor: pointer; }
+.g-target { outline: 3px solid #000000 !important; outline-offset: 3px; box-shadow: 0 0 0 9px rgba(0, 0, 0, 0.12) !important; animation: gpulse 1.6s ease-in-out infinite; }
+@keyframes gpulse { 50% { outline-offset: 6px; } }
+@media (prefers-reduced-motion: reduce) { .g-target { animation: none; } }
+@media (max-width: 720px) {
+  .guide { left: 8px; right: 8px; bottom: 8px; width: auto; max-height: 46vh; box-shadow: 4px 4px 0 #000000; }
+  .guide.min { left: auto; }
+  body.has-guide #app { padding-bottom: 48vh; }
+}

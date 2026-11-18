@@ -225,7 +225,8 @@
     var cl = clocks(c, evs).map(function (k) { return '<span class="clock' + (k.bad ? ' bad' : '') + '">' + esc(k.what) + ' ' + esc(k.text) + ' <span class="fine">' + esc(k.clause) + '</span></span>'; }).join('');
     var head = '<div class="thead"><div>' + badge(c.status) + (OPEN[c.status] && c.holder ? ' <span class="fine">with ' + esc(name(c.holder)) + '</span>' : '') + '</div><div class="fine">' + (c.tier === 'sub_request' ? 'Sub request from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company)) : 'Proposal from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company))) + ' · ' + money(c.amount) + (c.days ? ' · ' + c.days + ' days claimed' : '') + '</div>' + (cl ? '<div class="clocks-row">' + cl + '</div>' : '') + '</div>';
     var body = head + '<div class="tgrid"><div class="card sec">' + rail + '</div><div>' + stepPanel() + timePanel() + '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Activity on this change</h3><span class="fine">permanent</span></div>' + eventsHtml(evs) + '</div></div>' +
-      '<div>' + linkedPanel() + '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Evidence, cited</h3></div>' + trailHtml(T.trail) + '</div></div></div>';
+      '<div><div id="tlinked">' + linkedPanel() + '</div><div class="card sec" id="tevidence" style="margin-top:16px"><div class="sec-h"><h3>Evidence, cited</h3></div>' + trailHtml(T.trail) + '</div></div></div>';
+    document.body.dataset.change = c.number; // the guide reads which change is on screen
     app.innerHTML = sheet('01 Changes · ' + c.number, c.title, body);
   }
   function linkedPanel() {
@@ -653,10 +654,26 @@
       var canConfirm = cur && R.partyTo(cur, me());
       var tt = terms.map(function (t) { return '<tr><td><b>' + esc(TERM[t.key] || t.key) + '</b></td><td>' + esc(fmtVal(t.value)) + '</td><td class="fine">' + esc(t.clause || '') + '</td><td class="fine">“' + esc(t.sentence || '') + '”</td><td>' + (t.confirmed_at ? '<span class="badge ok">confirmed</span>' : canConfirm ? '<button class="btn ghost sm" data-tconf="' + t.id + '">Confirm</button>' : '<span class="fine">—</span>') + '</td></tr>'; }).join('');
       app.innerHTML = sheet('03 Contracts', 'The contract chain', '<div class="cols" style="--cols:minmax(0,0.9fr) minmax(0,2fr)"><div><div class="card sec"><div class="sec-h"><h3>Contracts</h3></div>' + tree + '</div>' + gapHtml +
-        '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Read a contract’s terms</h3></div><p class="fine" style="margin:0 0 10px">Upload a contract and pick the sentence that states each term; we copy the number from it and you confirm it.</p><a class="btn sm" href="#contract">Open the contract reader</a></div></div>' +
+        (C.admin ? '<div class="card sec" id="addk" style="margin-top:16px"><div class="sec-h"><h3>Add a contract</h3></div>' + (Object.keys(C.companies).length < 2 ? '<p class="fine" style="margin:0">A contract is between two companies on the project. Invite the other company on 06 Project; once they sign in, add the contract here.</p>' :
+          '<form id="newk" class="grid"><div class="fd full"><label><span>Title</span></label><div class="inp"><input id="ktitle" required placeholder="e.g. Subcontract: Plumbing"></div></div>' +
+          '<div class="fd full"><label><span>Kind</span></label><div class="inp sel"><select id="kkind"><option value="prime">Prime: owner and GC/CM</option><option value="design">Design: owner and architect</option><option value="sub">Subcontract: GC/CM and a sub</option></select></div></div>' +
+          '<div class="fd"><label><span>Upper party</span></label><div class="inp sel"><select id="kup">' + Object.keys(C.companies).map(function (id) { return '<option value="' + id + '">' + esc(C.companies[id].name) + ' (' + esc(P.ROLE[C.role[id]] || '') + ')</option>'; }).join('') + '</select></div></div><div class="fd"><label><span>Lower party</span></label><div class="inp sel"><select id="kdown">' + Object.keys(C.companies).map(function (id) { return '<option value="' + id + '">' + esc(C.companies[id].name) + ' (' + esc(P.ROLE[C.role[id]] || '') + ')</option>'; }).join('') + '</select></div></div>' +
+          '<div class="fd full"><button class="btn sm" type="submit">Add the contract</button></div></form>') + '</div>' : '') +
+        '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Read a contract’s terms</h3></div><p class="fine" style="margin:0 0 10px">Upload a contract and pick the sentence that states each term; we copy the number from it and you confirm it.</p>' + (canConfirm ? '<button class="btn sm" id="kread">Read the terms of ' + esc(cur.title) + '</button>' : '<a class="btn sm" href="#contract">Open the contract reader</a>') + '</div></div>' +
         '<div class="card sec"><div class="sec-h"><h3>' + esc(cur ? cur.title : 'No contract') + '</h3>' + (cur && cur.document_id ? '<button class="link" data-dopen="' + cur.document_id + '">Open the document</button>' : '') + '</div>' +
         (terms.length ? '<div class="tbl-wrap"><table class="tbl terms"><thead><tr><th>Term</th><th>Value</th><th>Clause</th><th>The sentence it came from</th><th></th></tr></thead><tbody>' + tt + '</tbody></table></div>' : '<p class="fine" style="margin:0">No terms read yet.</p>') +
         '<p class="fine" style="margin:12px 0 0">Every value is shown with the sentence it came from. A person confirms each before checks rely on it.</p></div></div>');
+      var kr = document.getElementById('kread');
+      if (kr) kr.onclick = function () { store('cs_reader_target', { contract: cur.id, project: C.project.id, title: cur.title }); A.go('contract'); };
+      var nk = document.getElementById('newk');
+      if (nk) nk.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var kind = document.getElementById('kkind').value, up = document.getElementById('kup').value, down = document.getElementById('kdown').value;
+        if (up === down) return A.toast('Pick two different companies.');
+        var prime = P.prime();
+        q(P.sb().from('contracts').insert({ project_id: C.project.id, kind: kind, up_company: up, down_company: down, parent_id: kind === 'sub' && prime ? prime.id : null, title: document.getElementById('ktitle').value.trim() }).select().single())
+          .then(function (k) { store('cs_contract_sel', k.id); return P.loadCtx(C.project.id); }).then(function () { A.toast('Contract added. Now read its terms.'); V.contracts(); }).catch(fail);
+      });
     });
   };
 
