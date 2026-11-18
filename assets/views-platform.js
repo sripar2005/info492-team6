@@ -872,5 +872,7 @@
   });
   // ?project=sample (the landing page's link) opens the sample directly.
   if (/[?&]project=sample/.test(location.search)) { store('cs_mode', 'sample'); history.replaceState(null, '', location.pathname + (location.hash || '#home')); }
+  // ?mode=live (the landing page's Sign in link) leaves the sample and shows sign-in.
+  if (/[?&]mode=live/.test(location.search)) { store('cs_mode', 'live'); history.replaceState(null, '', location.pathname + (location.hash || '#home')); }
   P.connect().then(function () { P.band(); }).catch(function () {});
 })();
