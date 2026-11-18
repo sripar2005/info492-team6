@@ -41,23 +41,23 @@
   }
   function openFile(file) {
     var n = file.name.toLowerCase(), kind = /\.xer$/.test(n) ? 'xer' : /\.xml$/.test(n) ? 'mspdi' : /\.csv$|\.txt$/.test(n) ? 'csv' : /\.xlsx?$|\.xlsm$/.test(n) ? 'xlsx' : /\.pdf$/.test(n) ? 'pdf' : null;
-    if (/\.mpp$/.test(n)) return V.schedule('A .mpp file can’t be read in the browser. In Microsoft Project use File → Save As → XML, then load the .xml.');
-    if (!kind) return V.schedule('Use a P6 .xer, a Microsoft Project .xml, a .csv, an Excel file or a PDF.');
+    if (/\.mpp$/.test(n)) return V['schedule-load']('A .mpp file can’t be read in the browser. In Microsoft Project use File → Save As → XML, then load the .xml.');
+    if (!kind) return V['schedule-load']('Use a P6 .xer, a Microsoft Project .xml, a .csv, an Excel file or a PDF.');
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Opening ' + esc(file.name) + '…</h2></div></div>';
     var got = kind === 'xlsx' ? loadSheetJS().then(function (X) { return file.arrayBuffer().then(function (b) { var wb = X.read(b, { type: 'array', cellDates: false }); return X.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, raw: true, defval: '' }); }); })
       : kind === 'pdf' ? A.pdfText(file).then(pdfRows) : file.text();
     got.then(function (raw) {
-      if (kind === 'pdf' && raw.length < 3) return V.schedule('No activity rows found in that PDF. A scanned PDF has no text; try exporting the schedule to Excel or XML.');
+      if (kind === 'pdf' && raw.length < 3) return V['schedule-load']('No activity rows found in that PDF. A scanned PDF has no text; try exporting the schedule to Excel or XML.');
       var opts = { name: file.name.replace(/\.[^.]+$/, ''), file: file.name, calendar: { workdays: [1, 2, 3, 4, 5], holidays: needsOpts(kind) ? WA_HOLIDAYS.slice() : undefined } };
       if (!needsOpts(kind)) delete opts.calendar;
       var model = parse(raw, kind, opts);
       SX = { model: model, file: file.name, raw: raw, kind: kind, opts: opts, label: 'Baseline', edited: false };
       A.go('schedule-confirm');
-    }).catch(function (e) { V.schedule('Could not read ' + file.name + ': ' + e.message); });
+    }).catch(function (e) { V['schedule-load']('Could not read ' + file.name + ': ' + e.message); });
   }
 
   /* ---------- list + upload ---------- */
-  V.schedule = function (err) {
+  V['schedule-load'] = function (err) {
     var L = list(), act = active();
     var rows = L.map(function (x) {
       var c = SE.cpm(x.model);
@@ -113,7 +113,7 @@
 
   /* ---------- confirm ---------- */
   V['schedule-confirm'] = function () {
-    if (!SX) return A.go('schedule');
+    if (!SX) return A.go('schedule-load');
     var m = SX.model, c = SE.cpm(m), q = SE.quality(m), byId = {}; c.activities.forEach(function (a) { byId[a.id] = a; });
     var warns = (m.source.warnings || []).concat(c.warnings || []);
     var issues = q.filter(function (x) { return x.severity !== 'info'; });
@@ -138,7 +138,7 @@
       }).join('') + '</tbody></table></div></div>' +
       '<div class="card sec"><div class="grid"><div class="fd"><label><span>Name</span></label><div class="inp"><input id="sname" value="' + esc(SX.name || m.name || SX.opts.name || 'Schedule') + '"></div></div>' +
       '<div class="fd"><label><span>This version is the</span></label><div class="inp sel"><select id="slabel">' + ['Baseline', 'Update'].map(function (l) { return '<option' + (SX.label === l ? ' selected' : '') + '>' + l + '</option>'; }).join('') + '</select></div></div></div></div>' +
-      '<div class="stick"><div class="live"><span>' + (m.source.has_logic ? 'Finish ' + shortDate(c.finish_date) : 'Dates only') + '</span></div><button class="btn ghost" data-go="schedule">Cancel</button><button class="btn primary" data-ssave="1">Use this schedule →</button></div>' +
+      '<div class="stick"><div class="live"><span>' + (m.source.has_logic ? 'Finish ' + shortDate(c.finish_date) : 'Dates only') + '</span></div><button class="btn ghost" data-go="schedule-load">Cancel</button><button class="btn primary" data-ssave="1">Use this schedule →</button></div>' +
       '</div></div></div>';
     app.innerHTML = h;
   };
@@ -160,7 +160,7 @@
   app.addEventListener('click', function (e) {
     var t = e.target.closest('[data-ssample],[data-sopen],[data-suse],[data-ssave],[data-swd]'); if (!t) return;
     if (t.dataset.ssample) { fetch('/demo4/data/schedule.xer').then(function (r) { if (!r.ok) return fetch('/tools/fixtures/school.xer'); return r; }).then(function (r) { return r.text(); }).then(function (txt) { openFile(new File([txt], 'sample-schedule.xer')); }); return; }
-    if (t.dataset.suse) { e.stopPropagation(); store('cs_sched_active', t.dataset.suse); A.toast('Delay checks now use this schedule.'); return V.schedule(); }
+    if (t.dataset.suse) { e.stopPropagation(); store('cs_sched_active', t.dataset.suse); A.toast('Delay checks now use this schedule.'); return V['schedule-load'](); }
     if (t.dataset.sopen) { var x = list().filter(function (s) { return s.id === t.dataset.sopen; })[0]; if (!x) return; SX = { model: x.model, file: x.file, raw: null, kind: 'manual', opts: { calendar: x.model.calendar }, label: x.label, name: x.name, id: x.id, edited: false }; return A.go('schedule-confirm'); }
     if (t.dataset.swd != null) { var w = SX.opts.calendar.workdays, i = +t.dataset.swd, k = w.indexOf(i); if (k >= 0) w.splice(k, 1); else w.push(i); w.sort(); reparse(); return keep(V['schedule-confirm']); }
     if (t.dataset.ssave) {
@@ -170,7 +170,9 @@
       var L = list().filter(function (s) { return s.id !== rec.id; }); L.unshift(rec);
       try { store('cs_schedules', L.slice(0, 8)); } catch (er) { return A.toast('This browser’s storage is full. Remove an old schedule first.'); }
       if (!store('cs_schedules') || !store('cs_schedules').length) return A.toast('This schedule is too large to keep in the browser.');
-      store('cs_sched_active', rec.id); SX = null; A.toast('Delay checks now use “' + name + '”.'); return A.go('schedule');
+      store('cs_sched_active', rec.id); SX = null;
+      if (store('cs_sched_target') === 'project' && V.delayUpdate) { store('cs_sched_target', null); return V.delayUpdate({ claim: {} }, rec.model, name).then(function () { A.toast('Added “' + name + '” to the project schedule.'); A.go('schedule'); }).catch(function (er) { A.toast(er.message); }); }
+      A.toast('Delay checks now use “' + name + '”.'); return A.go('schedule-load');
     }
   });
 })();
@@ -208,14 +210,15 @@
   /* ---------- step 1: the claim ---------- */
   V.delay = function () {
     var s = sched(), pre = store('cs_delay_prefill');
-    if (pre) { store('cs_delay_prefill', null); DX = blank(); DX.claim.id = pre.id; DX.claim.title = pre.title; DX.claim.claimed_days = pre.claimed_days; DX.claim.narrative = pre.narrative; DX.caseId = pre.id; }
+    if (pre) { store('cs_delay_prefill', null); DX = blank(); DX.claim.id = pre.id; DX.claim.title = pre.title; DX.claim.claimed_days = pre.claimed_days; DX.claim.narrative = pre.narrative; DX.caseId = pre.id; DX.pendingCase = pre.fromCase ? pre.caseId : null; }
     if (!DX) DX = blank();
     loadCases().then(function (cs) {
+      if (DX.pendingCase) { var pc = cs.filter(function (x) { return x.id === DX.pendingCase; })[0]; DX.pendingCase = null; if (pc) DX = fromCase(pc); }
       var c = DX.claim;
       var pick = cs.length ? '<div class="samples" style="justify-content:flex-start;margin:0 0 16px">Sample change orders:' + cs.slice(0, 8).map(function (x) { return '<button data-dcase="' + esc(x.id) + '">' + esc(x.id) + '</button>'; }).join('') + '</div>' : '';
       app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Delay check</span><h1 style="margin-top:8px">Is the time claim real, and what is it worth?</h1><p>We add the change’s work to the current schedule, rerun the critical path, and price the days the contract allows.</p></div></div>' +
-        (s ? '<div class="banner"><span>Schedule: <b>' + esc(s.name) + '</b> (' + esc(s.label) + ', ' + s.model.activities.length + ' activities). Contract: <b>' + esc(A.C().name) + '</b>. <a class="link" href="#schedule">Change</a></span></div>'
-          : '<div class="banner warn"><span>No schedule loaded yet. <a class="link" href="#schedule">Load the schedule</a> first; the delay check runs against it.</span></div>') +
+        (s ? '<div class="banner"><span>Schedule: <b>' + esc(s.name) + '</b> (' + esc(s.label) + ', ' + s.model.activities.length + ' activities). Contract: <b>' + esc(A.C().name) + '</b>. <a class="link" href="#schedule-load">Change</a></span></div>'
+          : '<div class="banner warn"><span>No schedule loaded yet. <a class="link" href="#schedule-load">Load the schedule</a> first; the delay check runs against it.</span></div>') +
         '<div class="cols"><div class="form">' + pick +
         '<div class="card sec"><div class="sec-h"><h3>The time claim</h3></div><div class="grid">' +
         fld('id', 'Change order', c.id, 'e.g. CO-0407') + '<div class="fd"><label><span>Days claimed</span></label><div style="display:flex;gap:8px"><div class="inp" style="flex:1"><input data-dc="claimed_days" inputmode="decimal" data-num="1" value="' + esc(c.claimed_days == null ? '' : c.claimed_days) + '"></div><div class="inp sel" style="flex:1.3"><select data-dc="claimed_unit"><option value="calendar"' + (c.claimed_unit !== 'work' ? ' selected' : '') + '>calendar days</option><option value="work"' + (c.claimed_unit === 'work' ? ' selected' : '') + '>working days</option></select></div></div></div>' +
@@ -361,7 +364,14 @@
         var L = store('cs_schedules') || []; L.unshift(rec); store('cs_schedules', L.slice(0, 8)); store('cs_sched_active', rec.id);
         log('person', 'Saved schedule update "' + rec.name + '" and made it the one in use.'); A.toast('Schedule updated. The delay check now uses “' + rec.name + '”.');
       } else A.toast('Result confirmed. Export the audit log to keep a copy.');
-      m.remove(); V['delay-result']();
+      m.remove();
+      // Opened from a change in a project: save the result to that change (and the update to the project's schedule).
+      if (store('cs_delay_return') && V.delayDone) {
+        var cost = DX.chosen != null ? DX.chosen : (d.cost.point != null ? d.cost.point : d.cost.high || 0);
+        var up = b && b.dataset.up === 'yes' && V.delayUpdate ? V.delayUpdate(DX, withFrag(sched().model, DX.frag), sched().name + ' + ' + (c.id || 'change')) : Promise.resolve();
+        return up.then(function () { return V.delayDone(DX, d, cost); }).catch(function (er) { A.toast(er.message); });
+      }
+      V['delay-result']();
     });
   }
 

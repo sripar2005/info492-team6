@@ -1,0 +1,3871 @@
+{
+  "meta": {
+    "synthetic": true,
+    "note": "Synthetic sample data for the shared platform, written with AI assistance for INFO 492 C coursework. No real firm, person or project. Extends the synthetic school project in record/bundle.json. Rebuild with python3 record/platform/build/build.py; see record/platform/DATA_NOTE.md.",
+    "built": "2026-11-17"
+  },
+  "project": {
+    "name": "School Modernization and Addition (synthetic)",
+    "contract_type": "gccm"
+  },
+  "companies": [
+    {
+      "key": "owner",
+      "name": "Example School District No. 1",
+      "kind": "owner"
+    },
+    {
+      "key": "architect",
+      "name": "Example Architecture, PLLC",
+      "kind": "architect"
+    },
+    {
+      "key": "gc",
+      "name": "Example Builders, Inc.",
+      "kind": "gc"
+    },
+    {
+      "key": "sub-cascade-plumbing",
+      "name": "Cascade Plumbing",
+      "kind": "sub",
+      "trade": "Plumbing",
+      "tier": 1
+    },
+    {
+      "key": "sub-northwest-door-hardware",
+      "name": "Northwest Door & Hardware",
+      "kind": "sub",
+      "trade": "Doors and hardware",
+      "tier": 1
+    },
+    {
+      "key": "sub-sound-electric",
+      "name": "Sound Electric",
+      "kind": "sub",
+      "trade": "Electrical",
+      "tier": 1
+    },
+    {
+      "key": "sub-puget-steel-erectors",
+      "name": "Puget Steel Erectors",
+      "kind": "sub",
+      "trade": "Structural steel",
+      "tier": 1
+    },
+    {
+      "key": "sub-evergreen-framing",
+      "name": "Evergreen Framing",
+      "kind": "sub",
+      "trade": "Framing and drywall",
+      "tier": 1
+    },
+    {
+      "key": "sub-sentinel-fire-protection",
+      "name": "Sentinel Fire Protection",
+      "kind": "sub",
+      "trade": "Fire sprinklers",
+      "tier": 1
+    },
+    {
+      "key": "sub-clearwater-abatement",
+      "name": "Clearwater Abatement",
+      "kind": "sub",
+      "trade": "Abatement",
+      "tier": 1
+    },
+    {
+      "key": "sub-summit-athletic-interiors",
+      "name": "Summit Athletic Interiors",
+      "kind": "sub",
+      "trade": "Athletic equipment",
+      "tier": 1
+    },
+    {
+      "key": "sub-timberline-casework",
+      "name": "Timberline Casework",
+      "kind": "sub",
+      "trade": "Casework",
+      "tier": 1
+    },
+    {
+      "key": "sub-evergreen-flooring",
+      "name": "Evergreen Flooring",
+      "kind": "sub",
+      "trade": "Flooring",
+      "tier": 1
+    },
+    {
+      "key": "sub-rainier-mechanical",
+      "name": "Rainier Mechanical",
+      "kind": "sub",
+      "trade": "HVAC",
+      "tier": 1
+    },
+    {
+      "key": "sub-clearview-glazing",
+      "name": "Clearview Glazing",
+      "kind": "sub",
+      "trade": "Glazing",
+      "tier": 1
+    },
+    {
+      "key": "sub-sentinel-fire-alarm",
+      "name": "Sentinel Fire Alarm",
+      "kind": "sub",
+      "trade": "Fire alarm",
+      "tier": 1
+    },
+    {
+      "key": "sub-granite-earthworks",
+      "name": "Granite Earthworks",
+      "kind": "sub",
+      "trade": "Earthwork",
+      "tier": 1
+    },
+    {
+      "key": "sub-pacific-specialties",
+      "name": "Pacific Specialties",
+      "kind": "sub",
+      "trade": "Specialties",
+      "tier": 1
+    },
+    {
+      "key": "sub-harmony-acoustics",
+      "name": "Harmony Acoustics",
+      "kind": "sub",
+      "trade": "Acoustic treatments",
+      "tier": 1
+    },
+    {
+      "key": "sub-brightline-painting",
+      "name": "Brightline Painting",
+      "kind": "sub",
+      "trade": "Painting",
+      "tier": 1
+    },
+    {
+      "key": "sub-granite-concrete",
+      "name": "Granite Concrete",
+      "kind": "sub",
+      "trade": "Concrete",
+      "tier": 1
+    },
+    {
+      "key": "sub-evergreen-site-works",
+      "name": "Evergreen Site Works",
+      "kind": "sub",
+      "trade": "Site improvements",
+      "tier": 1
+    },
+    {
+      "key": "sub-summit-roofing",
+      "name": "Summit Roofing",
+      "kind": "sub",
+      "trade": "Roofing",
+      "tier": 1
+    },
+    {
+      "key": "sub-cascade-glazing",
+      "name": "Cascade Glazing",
+      "kind": "sub",
+      "trade": "Glazing",
+      "tier": 1
+    },
+    {
+      "key": "sub-northwest-floors",
+      "name": "Northwest Floors",
+      "kind": "sub",
+      "trade": "Flooring",
+      "tier": 1
+    },
+    {
+      "key": "sub-olympic-structural",
+      "name": "Olympic Structural",
+      "kind": "sub",
+      "trade": "Structural steel",
+      "tier": 1
+    },
+    {
+      "key": "sub-cascade-coatings",
+      "name": "Cascade Coatings",
+      "kind": "sub",
+      "trade": "Concrete coatings",
+      "tier": 1
+    },
+    {
+      "key": "sub-cornerstone-flatwork",
+      "name": "Cornerstone Flatwork",
+      "kind": "sub",
+      "trade": "Site concrete flatwork",
+      "tier": 1
+    },
+    {
+      "key": "sub-lakeside-low-voltage",
+      "name": "Lakeside Low Voltage",
+      "kind": "sub",
+      "trade": "Low voltage cabling",
+      "tier": 2,
+      "parent": "sub-sound-electric"
+    },
+    {
+      "key": "sub-ridgeline-carpentry",
+      "name": "Ridgeline Carpentry",
+      "kind": "sub",
+      "trade": "Rough carpentry and blocking",
+      "tier": 2,
+      "parent": "sub-sound-electric",
+      "also_under": [
+        "sub-harmony-acoustics"
+      ]
+    },
+    {
+      "key": "sub-northwest-controls",
+      "name": "Northwest Controls",
+      "kind": "sub",
+      "trade": "Building automation controls",
+      "tier": 2,
+      "parent": "sub-rainier-mechanical"
+    },
+    {
+      "key": "sub-ironwood-structural",
+      "name": "Ironwood Structural",
+      "kind": "sub",
+      "trade": "Miscellaneous steel",
+      "tier": 2,
+      "parent": "sub-sound-electric"
+    }
+  ],
+  "contracts": [
+    {
+      "key": "prime",
+      "kind": "prime",
+      "up": "owner",
+      "down": "gc",
+      "parent": null,
+      "title": "Agreement Between Owner and Construction Manager as Constructor (GC/CM), GMP $26,240,507",
+      "document_key": "Contract A",
+      "file": null,
+      "source_file": "demo1/data/synthetic_contract.md",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 7,
+          "clause": "§ 6.2(a)",
+          "sentence": "7 days after CM receives an RFI response, ASI, or submittal return that CM believes changes cost or time"
+        },
+        {
+          "key": "notice_days_direction",
+          "value": 7,
+          "clause": "§ 6.2(b)",
+          "sentence": "7 days after CM receives a written or oral direction from Owner or Architect that CM believes is a change"
+        },
+        {
+          "key": "notice_days_other",
+          "value": 14,
+          "clause": "§ 6.2(d)",
+          "sentence": "14 days after CM first knew or should have known of any other event that may increase cost or time"
+        },
+        {
+          "key": "cp_days",
+          "value": 21,
+          "clause": "§ 6.3",
+          "sentence": "After a notice under Section 6.2, CM shall submit a CP within 21 days."
+        },
+        {
+          "key": "cp_days_proposal_request",
+          "value": 14,
+          "clause": "§ 6.3",
+          "sentence": "If Architect issues a Proposal Request, CM shall submit a CP within 14 days after receiving it (see Exhibit E)."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 6.5.2",
+          "sentence": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors."
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 6.5.2",
+          "sentence": "A subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work performed by its lower-tier subcontractors."
+        },
+        {
+          "key": "markup_total_cap",
+          "value": 15,
+          "clause": "§ 6.5.2",
+          "sentence": "Total markup on any portion of the work shall not exceed 15%."
+        },
+        {
+          "key": "fee_on_changes",
+          "value": 5,
+          "clause": "§ 6.5.3",
+          "sentence": "CM may add a Fee of 5% to the direct costs and subcontractor markups of a change."
+        },
+        {
+          "key": "contract_time_days",
+          "value": 540,
+          "clause": "§ 3.2",
+          "sentence": "CM shall achieve Substantial Completion within 540 days after the Notice to Proceed, and Final Completion within 60 days after Substantial Completion."
+        },
+        {
+          "key": "sgc_total",
+          "value": 1720000,
+          "clause": "§ 5.2",
+          "sentence": "SGC is $1,720,000, billed as shown in Exhibit C."
+        },
+        {
+          "key": "sgc_daily_rate",
+          "value": 3185,
+          "clause": "§ 5.2",
+          "sentence": "SGC may be increased only by CO for an extension of Contract Time, at a daily rate of $3,185 per day."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only for delays caused by Owner or Architect that are on the critical path",
+          "clause": "§ 6.5.6",
+          "sentence": "A time extension is compensated only for delays caused by Owner or Architect that are on the critical path, using the SGC daily rate in Section 5.2 and with no Fee."
+        },
+        {
+          "key": "payment_days",
+          "value": 30,
+          "clause": "§ 9.2",
+          "sentence": "Owner shall pay the approved amount within 30 days after receiving a complete Application."
+        },
+        {
+          "key": "liquidated_damages_per_day",
+          "value": 2500,
+          "clause": "§ 3.3",
+          "sentence": "If CM fails to achieve Substantial Completion on time, CM shall pay Owner $2,500 for each day of delay."
+        }
+      ]
+    },
+    {
+      "key": "design",
+      "kind": "design",
+      "up": "owner",
+      "down": "architect",
+      "parent": null,
+      "title": "Owner-Architect Agreement (summary)",
+      "file": "record/platform/docs/design_summary.md",
+      "terms": [
+        {
+          "key": "rfi_review_days",
+          "value": 10,
+          "clause": "§ 3.4.1",
+          "sentence": "Architect shall respond to each RFI from the GC/CM within 10 days after receipt."
+        },
+        {
+          "key": "rfi_critical_days",
+          "value": 3,
+          "clause": "§ 3.4.1",
+          "sentence": "RFIs marked Critical Path shall be answered within 3 business days."
+        },
+        {
+          "key": "submittal_review_days",
+          "value": 21,
+          "clause": "§ 3.4.2",
+          "sentence": "Architect shall review each submittal within 21 days after receipt and each resubmittal within 14 days."
+        },
+        {
+          "key": "resubmittal_review_days",
+          "value": 14,
+          "clause": "§ 3.4.2",
+          "sentence": "Architect shall review each submittal within 21 days after receipt and each resubmittal within 14 days."
+        },
+        {
+          "key": "cp_review_days",
+          "value": 10,
+          "clause": "§ 3.4.3",
+          "sentence": "Architect shall review each Change Proposal and send Owner a written recommendation within 10 days after receipt."
+        },
+        {
+          "key": "basic_fee",
+          "value": 1968000,
+          "clause": "§ 11.1",
+          "sentence": "Owner shall pay Architect a stipulated sum of $1,968,000 for Basic Services."
+        },
+        {
+          "key": "additional_services_rate",
+          "value": 165,
+          "clause": "§ 11.3",
+          "sentence": "Additional Services are billed at a blended rate of $165 per hour."
+        }
+      ]
+    },
+    {
+      "key": "sub-cascade-plumbing",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-cascade-plumbing",
+      "parent": "prime",
+      "title": "Subcontract: Plumbing (Cascade Plumbing)",
+      "file": "record/platform/docs/subcontract_cascade_plumbing.md",
+      "amount": 1150000,
+      "executed": "2019-11-25",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 3 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-northwest-door-hardware",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-northwest-door-hardware",
+      "parent": "prime",
+      "title": "Subcontract: Doors and hardware (Northwest Door & Hardware)",
+      "file": "record/platform/docs/subcontract_northwest_door_hardware.md",
+      "amount": 430000,
+      "executed": "2019-12-23",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 3 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 7 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-sound-electric",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-sound-electric",
+      "parent": "prime",
+      "title": "Subcontract: Electrical (Sound Electric)",
+      "file": "record/platform/docs/subcontract_sound_electric.md",
+      "amount": 1780000,
+      "executed": "2019-11-25",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 3 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 10% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 10% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 7 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": false,
+          "clause": "¶ 6",
+          "sentence": "Owner's payment to Contractor is not a condition precedent to payment to Subcontractor; Contractor shall pay within 30 days after a proper application."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors, and shall pass through Owner-caused delay costs as Owner pays them."
+        }
+      ]
+    },
+    {
+      "key": "sub-puget-steel-erectors",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-puget-steel-erectors",
+      "parent": "prime",
+      "title": "Subcontract: Structural steel (Puget Steel Erectors)",
+      "file": "record/platform/docs/subcontract_puget_steel_erectors.md",
+      "amount": 1450000,
+      "executed": "2019-11-18",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 10,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 10 business days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "business days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": false,
+          "clause": "¶ 3",
+          "sentence": "Prime Contract terms do not apply to Subcontractor except the Drawings and Specifications; the notice periods in this Subcontract are the only ones that apply."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 10 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time",
+          "clause": "¶ 13",
+          "sentence": "Subcontractor's sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time."
+        }
+      ]
+    },
+    {
+      "key": "sub-evergreen-framing",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-evergreen-framing",
+      "parent": "prime",
+      "title": "Subcontract: Framing and drywall (Evergreen Framing)",
+      "file": "record/platform/docs/subcontract_evergreen_framing.md",
+      "amount": 1820000,
+      "executed": "2019-12-02",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 3 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": false,
+          "clause": "§ 5.2",
+          "sentence": "Contractor shall pay Subcontractor within 10 days after Contractor receives payment from Owner, and in any event within 45 days after Subcontractor's application; receipt of Owner payment is not a condition precedent to payment."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors, and shall pass through Owner-caused delay costs as Owner pays them."
+        }
+      ]
+    },
+    {
+      "key": "sub-sentinel-fire-protection",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-sentinel-fire-protection",
+      "parent": "prime",
+      "title": "Subcontract: Fire sprinklers (Sentinel Fire Protection)",
+      "file": "record/platform/docs/subcontract_sentinel_fire_protection.md",
+      "amount": 430000,
+      "executed": "2019-12-09",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 4 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-clearwater-abatement",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-clearwater-abatement",
+      "parent": "prime",
+      "title": "Subcontract: Abatement (Clearwater Abatement)",
+      "file": "record/platform/docs/subcontract_clearwater_abatement.md",
+      "amount": 540000,
+      "executed": "2019-12-02",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 3 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-summit-athletic-interiors",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-summit-athletic-interiors",
+      "parent": "prime",
+      "title": "Subcontract: Athletic equipment (Summit Athletic Interiors)",
+      "file": "record/platform/docs/subcontract_summit_athletic_interiors.md",
+      "amount": 365000,
+      "executed": "2020-01-27",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 5 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 10 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-timberline-casework",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-timberline-casework",
+      "parent": "prime",
+      "title": "Subcontract: Casework (Timberline Casework)",
+      "file": "record/platform/docs/subcontract_timberline_casework.md",
+      "amount": 470000,
+      "executed": "2020-01-13",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 4 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 10 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-evergreen-flooring",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-evergreen-flooring",
+      "parent": "prime",
+      "title": "Subcontract: Flooring (Evergreen Flooring)",
+      "file": "record/platform/docs/subcontract_evergreen_flooring.md",
+      "amount": 410000,
+      "executed": "2020-01-06",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 5 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time",
+          "clause": "§ 3.2",
+          "sentence": "Subcontractor's sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time."
+        }
+      ]
+    },
+    {
+      "key": "sub-rainier-mechanical",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-rainier-mechanical",
+      "parent": "prime",
+      "title": "Subcontract: HVAC (Rainier Mechanical)",
+      "file": "record/platform/docs/subcontract_rainier_mechanical.md",
+      "amount": 2050000,
+      "executed": "2019-11-25",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 2,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 2 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 21,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 21 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": false,
+          "clause": "Section 5.2",
+          "sentence": "Payment to Subcontractor is due within 7 days after Contractor is paid for the Work, but receipt of Owner payment is not a condition precedent; if Owner has not paid within 60 days for reasons not caused by Subcontractor, Contractor shall pay."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors, and shall pass through Owner-caused delay costs as Owner pays them."
+        }
+      ]
+    },
+    {
+      "key": "sub-clearview-glazing",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-clearview-glazing",
+      "parent": "prime",
+      "title": "Subcontract: Glazing (Clearview Glazing)",
+      "file": "record/platform/docs/subcontract_clearview_glazing.md",
+      "amount": 185000,
+      "executed": "2020-02-24",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 5 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 8,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 8% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 8% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 7 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time",
+          "clause": "¶ 13",
+          "sentence": "Subcontractor's sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time."
+        }
+      ]
+    },
+    {
+      "key": "sub-sentinel-fire-alarm",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-sentinel-fire-alarm",
+      "parent": "prime",
+      "title": "Subcontract: Fire alarm (Sentinel Fire Alarm)",
+      "file": "record/platform/docs/subcontract_sentinel_fire_alarm.md",
+      "amount": 285000,
+      "executed": "2019-12-09",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 4 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 7 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-granite-earthworks",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-granite-earthworks",
+      "parent": "prime",
+      "title": "Subcontract: Earthwork (Granite Earthworks)",
+      "file": "record/platform/docs/subcontract_granite_earthworks.md",
+      "amount": 920000,
+      "executed": "2019-12-09",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 14,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 14 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": false,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is listed for reference only, and its notice, claim and change periods do not apply to Subcontractor."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 10 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time",
+          "clause": "Section 8.1",
+          "sentence": "Subcontractor's sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time."
+        }
+      ]
+    },
+    {
+      "key": "sub-pacific-specialties",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-pacific-specialties",
+      "parent": "prime",
+      "title": "Subcontract: Specialties (Pacific Specialties)",
+      "file": "record/platform/docs/subcontract_pacific_specialties.md",
+      "amount": 210000,
+      "executed": "2020-01-27",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 5 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 12,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 12% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 12% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-harmony-acoustics",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-harmony-acoustics",
+      "parent": "prime",
+      "title": "Subcontract: Acoustic treatments (Harmony Acoustics)",
+      "file": "record/platform/docs/subcontract_harmony_acoustics.md",
+      "amount": 240000,
+      "executed": "2020-01-27",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 21,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 21 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": false,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is listed for reference only, and its notice, claim and change periods do not apply to Subcontractor."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 14,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 14 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time",
+          "clause": "Section 8.1",
+          "sentence": "Subcontractor's sole remedy for any delay, whatever its cause, is an extension of the Subcontract Time."
+        }
+      ]
+    },
+    {
+      "key": "sub-brightline-painting",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-brightline-painting",
+      "parent": "prime",
+      "title": "Subcontract: Painting (Brightline Painting)",
+      "file": "record/platform/docs/subcontract_brightline_painting.md",
+      "amount": 520000,
+      "executed": "2020-01-06",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 5 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 7 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-granite-concrete",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-granite-concrete",
+      "parent": "prime",
+      "title": "Subcontract: Concrete (Granite Concrete)",
+      "file": "record/platform/docs/subcontract_granite_concrete.md",
+      "amount": 1320000,
+      "executed": "2019-12-16",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 3,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 3 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 7 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": false,
+          "clause": "Section 5.2",
+          "sentence": "Payment to Subcontractor is due within 7 days after Contractor is paid for the Work, but receipt of Owner payment is not a condition precedent; if Owner has not paid within 60 days for reasons not caused by Subcontractor, Contractor shall pay."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor's documented extended field costs for delay caused by Contractor or its other subcontractors, and shall pass through Owner-caused delay costs as Owner pays them."
+        }
+      ]
+    },
+    {
+      "key": "sub-evergreen-site-works",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-evergreen-site-works",
+      "parent": "prime",
+      "title": "Subcontract: Site improvements (Evergreen Site Works)",
+      "file": "record/platform/docs/subcontract_evergreen_site_works.md",
+      "amount": 610000,
+      "executed": "2020-01-20",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 4 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 10 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-summit-roofing",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-summit-roofing",
+      "parent": "prime",
+      "title": "Subcontract: Roofing (Summit Roofing)",
+      "file": "record/platform/docs/subcontract_summit_roofing.md",
+      "amount": 1010000,
+      "executed": "2020-01-13",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 10,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 10 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": false,
+          "clause": "§ 4.2",
+          "sentence": "Notwithstanding § 2.1, the notice period in this § 4.2 governs over any notice period in the Prime Contract."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 10 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-cascade-glazing",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-cascade-glazing",
+      "parent": "prime",
+      "title": "Subcontract: Glazing (Cascade Glazing)",
+      "file": "record/platform/docs/subcontract_cascade_glazing.md",
+      "amount": 820000,
+      "executed": "2019-12-16",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "Section 7.1",
+          "sentence": "Notice of any claim for added cost or time shall be given to Contractor in writing no later than 4 days after the event giving rise to it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "Section 3.2",
+          "sentence": "The Prime Contract is incorporated by reference, and Subcontractor is bound to Contractor by its terms, including the notice and claim periods in Articles 6 and 10, as Contractor is bound to Owner."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "Section 6.3",
+          "sentence": "Overhead and profit on changes is limited to 10% of Subcontractor's own direct cost and 5% of lower-tier subcontract cost.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "Section 6.2",
+          "sentence": "When Contractor requests a price for a change, Subcontractor shall deliver it within 10 days.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "Section 5.2",
+          "sentence": "Contractor's receipt of payment from Owner is a condition precedent to any payment to Subcontractor for that Work."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "Section 8.1",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-northwest-floors",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-northwest-floors",
+      "parent": "prime",
+      "title": "Subcontract: Flooring (Northwest Floors)",
+      "file": "record/platform/docs/subcontract_northwest_floors.md",
+      "amount": 560000,
+      "executed": "2020-01-06",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 4,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 4 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 10,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 10 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-olympic-structural",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-olympic-structural",
+      "parent": "prime",
+      "title": "Subcontract: Structural steel (Olympic Structural)",
+      "file": "record/platform/docs/subcontract_olympic_structural.md",
+      "amount": 480000,
+      "executed": "2020-03-09",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "§ 4.2",
+          "sentence": "Subcontractor shall give Contractor written notice of any event, direction or condition that Subcontractor believes changes its cost or time within 5 days after Subcontractor first learns of it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "§ 2.1",
+          "sentence": "To the extent of the Subcontract Work, Subcontractor assumes toward Contractor all obligations that Contractor assumes toward Owner and Architect under the Prime Contract, including its notice, claim and change procedures."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "§ 4.4",
+          "sentence": "On changed work, Subcontractor may add overhead and profit of up to 10% on its own direct cost and up to 5% on the cost of work by its lower-tier subcontractors.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "§ 4.3",
+          "sentence": "Subcontractor shall submit a complete, itemized price for a change within 7 days after Contractor's written request.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "§ 5.2",
+          "sentence": "Receipt of payment from Owner for the Subcontract Work is a condition precedent to Contractor's obligation to pay Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "§ 3.2",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-cascade-coatings",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-cascade-coatings",
+      "parent": "prime",
+      "title": "Subcontract: Concrete coatings (Cascade Coatings)",
+      "file": "record/platform/docs/subcontract_cascade_coatings.md",
+      "amount": 145000,
+      "executed": "2020-07-20",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 5 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 7 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    },
+    {
+      "key": "sub-cornerstone-flatwork",
+      "kind": "sub",
+      "up": "gc",
+      "down": "sub-cornerstone-flatwork",
+      "parent": "prime",
+      "title": "Subcontract: Site concrete flatwork (Cornerstone Flatwork)",
+      "file": "record/platform/docs/subcontract_cornerstone_flatwork.md",
+      "amount": 385000,
+      "executed": "2020-01-20",
+      "terms": [
+        {
+          "key": "notice_days",
+          "value": 5,
+          "clause": "¶ 9",
+          "sentence": "Subcontractor must notify Contractor in writing within 5 days of any instruction, RFI response, submittal comment or site condition it believes is a change.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "notice_flowdown",
+          "value": true,
+          "clause": "¶ 3",
+          "sentence": "Subcontractor is bound to Contractor by every term of the Prime Contract that applies to the Subcontract Work, including the notice and change provisions."
+        },
+        {
+          "key": "markup_own",
+          "value": 10,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "markup_lower_tier",
+          "value": 5,
+          "clause": "¶ 11",
+          "sentence": "Markup on changed work: 10% on Subcontractor's own costs, 5% on lower-tier costs, and nothing on markup.",
+          "unit": "percent"
+        },
+        {
+          "key": "pricing_days",
+          "value": 7,
+          "clause": "¶ 10",
+          "sentence": "Change pricing is due 7 days after Contractor asks for it.",
+          "unit": "calendar days"
+        },
+        {
+          "key": "pay_if_paid",
+          "value": true,
+          "clause": "¶ 6",
+          "sentence": "Payment by Owner to Contractor is a condition precedent to payment to Subcontractor."
+        },
+        {
+          "key": "delay_compensable",
+          "value": "only to the extent the Owner pays Contractor for that delay",
+          "clause": "¶ 13",
+          "sentence": "Contractor shall pay Subcontractor for delay only to the extent the Owner pays Contractor for that delay under the Prime Contract."
+        }
+      ]
+    }
+  ],
+  "sov": [
+    {
+      "contract": "prime",
+      "code": "22-000",
+      "description": "Plumbing, subcontract with Cascade Plumbing",
+      "amount": 1150000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-cascade-plumbing"
+    },
+    {
+      "contract": "prime",
+      "code": "08-100",
+      "description": "Doors and hardware, subcontract with Northwest Door & Hardware",
+      "amount": 430000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-northwest-door-hardware"
+    },
+    {
+      "contract": "prime",
+      "code": "26-000",
+      "description": "Electrical, subcontract with Sound Electric",
+      "amount": 1780000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-sound-electric"
+    },
+    {
+      "contract": "prime",
+      "code": "05-120",
+      "description": "Structural steel, subcontract with Puget Steel Erectors",
+      "amount": 1450000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-puget-steel-erectors"
+    },
+    {
+      "contract": "prime",
+      "code": "09-210",
+      "description": "Framing and drywall, subcontract with Evergreen Framing",
+      "amount": 1820000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-evergreen-framing"
+    },
+    {
+      "contract": "prime",
+      "code": "21-000",
+      "description": "Fire sprinklers, subcontract with Sentinel Fire Protection",
+      "amount": 430000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-sentinel-fire-protection"
+    },
+    {
+      "contract": "prime",
+      "code": "02-820",
+      "description": "Abatement, subcontract with Clearwater Abatement",
+      "amount": 540000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-clearwater-abatement"
+    },
+    {
+      "contract": "prime",
+      "code": "11-660",
+      "description": "Athletic equipment, subcontract with Summit Athletic Interiors",
+      "amount": 365000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-summit-athletic-interiors"
+    },
+    {
+      "contract": "prime",
+      "code": "06-410",
+      "description": "Casework, subcontract with Timberline Casework",
+      "amount": 470000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-timberline-casework"
+    },
+    {
+      "contract": "prime",
+      "code": "09-651",
+      "description": "Flooring, subcontract with Evergreen Flooring",
+      "amount": 410000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-evergreen-flooring"
+    },
+    {
+      "contract": "prime",
+      "code": "23-000",
+      "description": "HVAC, subcontract with Rainier Mechanical",
+      "amount": 2050000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-rainier-mechanical"
+    },
+    {
+      "contract": "prime",
+      "code": "08-870",
+      "description": "Glazing, subcontract with Clearview Glazing",
+      "amount": 185000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-clearview-glazing"
+    },
+    {
+      "contract": "prime",
+      "code": "28-310",
+      "description": "Fire alarm, subcontract with Sentinel Fire Alarm",
+      "amount": 285000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-sentinel-fire-alarm"
+    },
+    {
+      "contract": "prime",
+      "code": "31-200",
+      "description": "Earthwork, subcontract with Granite Earthworks",
+      "amount": 920000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-granite-earthworks"
+    },
+    {
+      "contract": "prime",
+      "code": "10-200",
+      "description": "Specialties, subcontract with Pacific Specialties",
+      "amount": 210000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-pacific-specialties"
+    },
+    {
+      "contract": "prime",
+      "code": "09-840",
+      "description": "Acoustic treatments, subcontract with Harmony Acoustics",
+      "amount": 240000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-harmony-acoustics"
+    },
+    {
+      "contract": "prime",
+      "code": "09-900",
+      "description": "Painting, subcontract with Brightline Painting",
+      "amount": 520000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-brightline-painting"
+    },
+    {
+      "contract": "prime",
+      "code": "03-300",
+      "description": "Concrete, subcontract with Granite Concrete",
+      "amount": 1320000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-granite-concrete"
+    },
+    {
+      "contract": "prime",
+      "code": "32-310",
+      "description": "Site improvements, subcontract with Evergreen Site Works",
+      "amount": 610000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-evergreen-site-works"
+    },
+    {
+      "contract": "prime",
+      "code": "07-500",
+      "description": "Roofing, subcontract with Summit Roofing",
+      "amount": 1010000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-summit-roofing"
+    },
+    {
+      "contract": "prime",
+      "code": "08-400",
+      "description": "Glazing, subcontract with Cascade Glazing",
+      "amount": 820000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-cascade-glazing"
+    },
+    {
+      "contract": "prime",
+      "code": "09-650",
+      "description": "Flooring, subcontract with Northwest Floors",
+      "amount": 560000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-northwest-floors"
+    },
+    {
+      "contract": "prime",
+      "code": "05-125",
+      "description": "Structural steel, subcontract with Olympic Structural",
+      "amount": 480000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-olympic-structural"
+    },
+    {
+      "contract": "prime",
+      "code": "09-960",
+      "description": "Concrete coatings, subcontract with Cascade Coatings",
+      "amount": 145000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-cascade-coatings"
+    },
+    {
+      "contract": "prime",
+      "code": "32-130",
+      "description": "Site concrete flatwork, subcontract with Cornerstone Flatwork",
+      "amount": 385000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": "sub-cornerstone-flatwork"
+    },
+    {
+      "contract": "prime",
+      "code": "14-210",
+      "description": "Elevator, subcontract not yet awarded",
+      "amount": 310000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": null
+    },
+    {
+      "contract": "prime",
+      "code": "32-900",
+      "description": "Landscaping, irrigation, signage and other trades, subcontracts not yet awarded",
+      "amount": 255000,
+      "general_conditions": false,
+      "basis": "fixed",
+      "subcontract": null
+    },
+    {
+      "contract": "prime",
+      "code": "06-100",
+      "description": "Self-performed rough carpentry and blocking",
+      "amount": 1150000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "02-410",
+      "description": "Self-performed selective demolition",
+      "amount": 900000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "08-710",
+      "description": "Self-performed door and Division 10 installation",
+      "amount": 650000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-740S",
+      "description": "Self-performed cleanup and final cleaning",
+      "amount": 600000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-310",
+      "description": "Project Manager (SGC)",
+      "amount": 360000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-311",
+      "description": "Superintendent (SGC)",
+      "amount": 520000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-312",
+      "description": "Project Engineer (SGC)",
+      "amount": 280000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-313",
+      "description": "Safety and quality staff (SGC)",
+      "amount": 180000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-500",
+      "description": "Field office and trailers, monthly rental (SGC)",
+      "amount": 120000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-501",
+      "description": "Field office and trailers, mobilize and demobilize (SGC)",
+      "amount": 30000,
+      "general_conditions": true,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-510",
+      "description": "Project vehicles and small tools (SGC)",
+      "amount": 90000,
+      "general_conditions": true,
+      "basis": "time"
+    },
+    {
+      "contract": "prime",
+      "code": "01-520",
+      "description": "Document reproduction (SGC)",
+      "amount": 60000,
+      "general_conditions": true,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-580",
+      "description": "Signage and miscellaneous (SGC)",
+      "amount": 80000,
+      "general_conditions": true,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-511",
+      "description": "Temporary power and lighting (NSS)",
+      "amount": 120000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-540",
+      "description": "Site security and fencing (NSS)",
+      "amount": 95000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-512",
+      "description": "Temporary sanitary facilities (NSS)",
+      "amount": 40000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-740",
+      "description": "Dumpsters and haul-off (NSS)",
+      "amount": 140000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-545",
+      "description": "Hoisting and crane (NSS)",
+      "amount": 215000,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-900",
+      "description": "CM's Fee (5% of subcontract work and SPW)",
+      "amount": 1122500,
+      "general_conditions": false,
+      "basis": "fixed"
+    },
+    {
+      "contract": "prime",
+      "code": "01-950",
+      "description": "CM Contingency",
+      "amount": 338007,
+      "general_conditions": false,
+      "basis": "fixed"
+    }
+  ],
+  "schedule_versions": [
+    {
+      "key": "baseline",
+      "label": "Baseline",
+      "data_date": "2020-02-03",
+      "file": "record/platform/schedule_baseline.json",
+      "caused_by": null,
+      "forecast_substantial_completion": "2021-06-30"
+    },
+    {
+      "key": "u1",
+      "label": "Update 1",
+      "data_date": "2020-06-01",
+      "file": "demo4/data/schedule.json",
+      "caused_by": null,
+      "forecast_substantial_completion": "2021-07-02"
+    },
+    {
+      "key": "u2",
+      "label": "Update 2",
+      "data_date": "2020-09-01",
+      "file": "record/platform/schedule_u2.json",
+      "caused_by": [
+        "CP-0401",
+        "CP-0402"
+      ],
+      "forecast_substantial_completion": "2021-07-19"
+    }
+  ],
+  "sub_requests": [
+    {
+      "key": "CR-0225-GE",
+      "number": "CR 001",
+      "change": "CP-0225",
+      "from": "sub-granite-earthworks",
+      "to": "gc",
+      "submitted": "2020-02-10",
+      "amount": 17215.0,
+      "days": 0,
+      "narrative": "Soft organic soil at gym footing F-12. Geotech had us over-ex and replace with structural fill. Price covers the dig, haul-off, fill and compaction testing support.",
+      "lines": [
+        {
+          "desc": "Over-excavation, 140 cy",
+          "amount": 5320.0
+        },
+        {
+          "desc": "Structural fill, placed and compacted, 140 cy",
+          "amount": 8680.0
+        },
+        {
+          "desc": "Geotech testing, 1 ls",
+          "amount": 1650.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1565.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0201-CP",
+      "number": "COR-001",
+      "change": "CP-0201",
+      "from": "sub-cascade-plumbing",
+      "to": "gc",
+      "submitted": "2020-02-19",
+      "amount": 6567.0,
+      "days": 0,
+      "narrative": "RFI-112 came back adding two overflow drains on the gym roof. Our price covers the drain bodies, the leaders down to the storm tie-in and our plumber's time. No schedule impact if we get the go-ahead before the roofer closes up.",
+      "lines": [
+        {
+          "desc": "Overflow roof drain body and dome, 2 ea",
+          "amount": 1280.0
+        },
+        {
+          "desc": "4\" cast iron leader and fittings, 86 lf",
+          "amount": 2666.0
+        },
+        {
+          "desc": "Plumber, 22 hr",
+          "amount": 2024.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 597.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0202-NDH",
+      "number": "PCO-001",
+      "change": "CP-0202",
+      "from": "sub-northwest-door-hardware",
+      "to": "gc",
+      "submitted": "2020-03-11",
+      "amount": 5024.8,
+      "days": 0,
+      "narrative": "ASI-014 bumps eight corridor doors to 90-minute. That means new rated hardware and labels on all eight. ASI says no cost but the rated sets cost more than what we bought, so here's the difference.",
+      "lines": [
+        {
+          "desc": "Fire-rated hardware set, 8 ea",
+          "amount": 3320.0
+        },
+        {
+          "desc": "Door installer, 16 hr",
+          "amount": 1248.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 456.8
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0222-SFA",
+      "number": "CR 001",
+      "change": "CP-0222",
+      "from": "sub-sentinel-fire-alarm",
+      "to": "gc",
+      "submitted": "2020-03-13",
+      "amount": 7381.0,
+      "days": 0,
+      "narrative": "RFI-171 adds strobes in the corridors. Devices, wire and programming. Our guys started on the 4th when the answer came out.",
+      "lines": [
+        {
+          "desc": "Horn/strobe device upgrade, 26 ea",
+          "amount": 3770.0
+        },
+        {
+          "desc": "Technician, 30 hr",
+          "amount": 2940.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 671.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0223-NDH",
+      "number": "PCO-002",
+      "change": "CP-0223",
+      "from": "sub-northwest-door-hardware",
+      "to": "gc",
+      "submitted": "2020-03-31",
+      "amount": 4791.6,
+      "days": 0,
+      "narrative": "Closers for corridor doors C201 to C212 per RFI-175. Closers, templates and install.",
+      "lines": [
+        {
+          "desc": "Surface closer, 12 ea",
+          "amount": 3420.0
+        },
+        {
+          "desc": "Door installer, 12 hr",
+          "amount": 936.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 435.6
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0203-SE",
+      "number": "PCO-001",
+      "change": "CP-0203",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-04-15",
+      "amount": 11731.2,
+      "days": 0,
+      "narrative": "District wants 24 more data drops in the library. We do the boxes, rings and conduit; Lakeside pulls and terminates the Cat 6. Their quote is attached with our 5 percent on it.",
+      "lines": [
+        {
+          "desc": "Electrician, 30 hr",
+          "amount": 2880.0
+        },
+        {
+          "desc": "Box, ring, conduit per drop, 24 ea",
+          "amount": 912.0
+        },
+        {
+          "desc": "Lower tier: Lakeside Low Voltage, Cat 6 cabling, termination, testing",
+          "amount": 7200.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 379.2
+        },
+        {
+          "desc": "Markup 5% on lower tier",
+          "amount": 360.0
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Lakeside Low Voltage",
+          "amount": 7200.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0226-RM",
+      "number": "CR 001",
+      "change": "CP-0226",
+      "from": "sub-rainier-mechanical",
+      "to": "gc",
+      "submitted": "2020-04-24",
+      "amount": 198550.0,
+      "days": 0,
+      "narrative": "ASI-040 seismic bracing for all mechanical systems. Big one. Bracing hardware, engineering and install crews across both wings and the addition.",
+      "lines": [
+        {
+          "desc": "Seismic bracing, ductwork and piping, 1 ls",
+          "amount": 168000.0
+        },
+        {
+          "desc": "Engineering and submittals, 1 ls",
+          "amount": 12500.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 18050.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0226-SE",
+      "number": "PCO-002",
+      "change": "CP-0226",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-04-24",
+      "amount": 96800.0,
+      "days": 0,
+      "narrative": "ASI-040 seismic bracing on the electrical side: conduit racks, panels and lighting. Hardware plus labor.",
+      "lines": [
+        {
+          "desc": "Seismic bracing, conduit and equipment, 1 ls",
+          "amount": 88000.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 8800.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0228-RM",
+      "number": "CR 002",
+      "change": "CP-0228",
+      "from": "sub-rainier-mechanical",
+      "to": "gc",
+      "submitted": "2020-04-28",
+      "amount": 13648.8,
+      "days": 0,
+      "narrative": "RFI-180 moves the kitchen hood. Re-hang hood, extend the duct and rework the fire wrap.",
+      "lines": [
+        {
+          "desc": "Relocate hood and duct, 1 ls",
+          "amount": 9400.0
+        },
+        {
+          "desc": "Sheet metal worker, 32 hr",
+          "amount": 3008.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1240.8
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0204-PSE",
+      "number": "PCO-001",
+      "change": "CP-0204",
+      "from": "sub-puget-steel-erectors",
+      "to": "gc",
+      "submitted": "2020-05-12",
+      "amount": -53966.0,
+      "days": 0,
+      "narrative": "Credit for deleting the bus loop walkway canopy. Steel was not fabricated yet so the full canopy package comes out, less what we already spent on shop drawings.",
+      "lines": [
+        {
+          "desc": "Canopy steel, fabricated (credit), 1 ls",
+          "amount": -38500.0
+        },
+        {
+          "desc": "Erection crew (credit), 120 hr",
+          "amount": -10560.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": -4906.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0205-EF",
+      "number": "COR-001",
+      "change": "CP-0205",
+      "from": "sub-evergreen-framing",
+      "to": "gc",
+      "submitted": "2020-05-20",
+      "amount": 10021.0,
+      "days": 0,
+      "narrative": "Submittal came back Approved as Noted calling for 18 gauge studs at the gym instead of 20. This is the material difference plus extra labor for the heavier stud.",
+      "lines": [
+        {
+          "desc": "18 ga stud upcharge, 1 ls",
+          "amount": 6150.0
+        },
+        {
+          "desc": "Framer, 40 hr",
+          "amount": 2960.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 911.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0229-PS",
+      "number": "COR-001",
+      "change": "CP-0229",
+      "from": "sub-pacific-specialties",
+      "to": "gc",
+      "submitted": "2020-05-29",
+      "amount": 3942.4,
+      "days": 0,
+      "narrative": "Two added toilet partitions per ASI-044. Our subcontract allows 12 percent so that's what we carried.",
+      "lines": [
+        {
+          "desc": "Phenolic partition and hardware, 2 ea",
+          "amount": 2960.0
+        },
+        {
+          "desc": "Installer, 8 hr",
+          "amount": 560.0
+        },
+        {
+          "desc": "OH&P 12% on own work",
+          "amount": 422.4
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0206-EF",
+      "number": "COR-002",
+      "change": "CP-0206",
+      "from": "sub-evergreen-framing",
+      "to": "gc",
+      "submitted": "2020-06-09",
+      "amount": 4204.2,
+      "days": 0,
+      "narrative": "T&M for the 14 access panels from RFI-131. All tags were signed by your super and the district rep each day. Totals below match the tags.",
+      "lines": [
+        {
+          "desc": "Access panel 24x24, 14 ea",
+          "amount": 2310.0
+        },
+        {
+          "desc": "Drywall finisher, 21 hr",
+          "amount": 1512.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 382.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0230-HA",
+      "number": "CR 001",
+      "change": "CP-0230",
+      "from": "sub-harmony-acoustics",
+      "to": "gc",
+      "submitted": "2020-06-16",
+      "amount": 17094.0,
+      "days": 0,
+      "narrative": "Gym sound panels per the district. Lump sum, supplied and installed.",
+      "lines": [
+        {
+          "desc": "Lump sum, supplied and installed (no breakdown)",
+          "amount": 15540.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1554.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0401-GC",
+      "number": "CR 001",
+      "change": "CP-0401",
+      "from": "sub-granite-concrete",
+      "to": "gc",
+      "submitted": "2020-06-16",
+      "amount": 21412.6,
+      "days": 6,
+      "narrative": "District wants a stage lift in the multipurpose room so we need a pit. Dig, form, pour and waterproof after footings and before the slab. About 6 working days of our crew, and the slab can't go until it's done.",
+      "lines": [
+        {
+          "desc": "Excavate and haul pit, 1 ls",
+          "amount": 3800.0
+        },
+        {
+          "desc": "Pit walls and slab, formed and poured, 14 cy",
+          "amount": 9660.0
+        },
+        {
+          "desc": "Waterproofing at pit, 420 sf",
+          "amount": 3990.0
+        },
+        {
+          "desc": "Finisher, 24 hr",
+          "amount": 2016.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1946.6
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0409-PSE",
+      "number": "PCO-002",
+      "change": "CP-0409",
+      "from": "sub-puget-steel-erectors",
+      "to": "gc",
+      "submitted": "2020-06-19",
+      "amount": 7040.0,
+      "days": 7,
+      "narrative": "Our crawler crane is tied up on another job and gets to you 5 working days late. Asking for the time and our standby while the crew waits.",
+      "lines": [
+        {
+          "desc": "Crane standby, remobilization, 1 ls",
+          "amount": 6400.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 640.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0402-PSE",
+      "number": "PCO-003",
+      "change": "CP-0402",
+      "from": "sub-puget-steel-erectors",
+      "to": "gc",
+      "submitted": "2020-06-19",
+      "amount": 16801.4,
+      "days": 4,
+      "narrative": "RFI-214 changed the gym truss bearings. We have to field weld new slotted bearing assemblies after the trusses are set. Figure 4 working days of welding before deck can go on.",
+      "lines": [
+        {
+          "desc": "Slotted bearing assembly, 12 ea",
+          "amount": 7680.0
+        },
+        {
+          "desc": "Ironworker, 64 hr",
+          "amount": 6144.0
+        },
+        {
+          "desc": "Special inspection, welds, 1 ls",
+          "amount": 1450.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1527.4
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0403-HA",
+      "number": "CR 002",
+      "change": "CP-0403",
+      "from": "sub-harmony-acoustics",
+      "to": "gc",
+      "submitted": "2020-06-19",
+      "amount": 39349.2,
+      "days": 7,
+      "narrative": "Fabric-wrapped panels in the music and band rooms per the district letter. This is our panels and install. The blocking from Ridgeline will come separately once they price it.",
+      "lines": [
+        {
+          "desc": "Fabric-wrapped wall panels, 1380 sf",
+          "amount": 31740.0
+        },
+        {
+          "desc": "Installer, 56 hr",
+          "amount": 4032.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 3577.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0403-HA-S1",
+      "number": "CR 003",
+      "change": "CP-0403",
+      "from": "sub-harmony-acoustics",
+      "to": "gc",
+      "submitted": "2020-06-26",
+      "amount": 4305.0,
+      "days": 0,
+      "narrative": "Supplement to our earlier request: Ridgeline's price for the wall blocking behind the music room panels, with our 5 percent.",
+      "lines": [
+        {
+          "desc": "Lower tier: Ridgeline Carpentry, In-wall blocking, rooms 205-206",
+          "amount": 4100.0
+        },
+        {
+          "desc": "Markup 5% on lower tier",
+          "amount": 205.0
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Ridgeline Carpentry",
+          "amount": 4100.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0404-ESW",
+      "number": "COR-001",
+      "change": "CP-0404",
+      "from": "sub-evergreen-site-works",
+      "to": "gc",
+      "submitted": "2020-06-25",
+      "amount": 77352.0,
+      "days": 0,
+      "narrative": "Second play structure and surfacing at the primary playground per the district. Equipment, footings, surfacing and install.",
+      "lines": [
+        {
+          "desc": "Play structure, furnished, 1 ea",
+          "amount": 38500.0
+        },
+        {
+          "desc": "Footings, 8 ea",
+          "amount": 4880.0
+        },
+        {
+          "desc": "Poured-in-place surfacing, 1650 sf",
+          "amount": 23100.0
+        },
+        {
+          "desc": "Laborer, 60 hr",
+          "amount": 3840.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 7032.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0405-EF",
+      "number": "COR-003",
+      "change": "CP-0405",
+      "from": "sub-evergreen-framing",
+      "to": "gc",
+      "submitted": "2020-06-26",
+      "amount": 14077.8,
+      "days": 0,
+      "narrative": "ASI-061 flips the Wing A casework to the other walls. We add new blocking and patch the old locations.",
+      "lines": [
+        {
+          "desc": "Blocking and backing, 9 room",
+          "amount": 4680.0
+        },
+        {
+          "desc": "Framer, 72 hr",
+          "amount": 5328.0
+        },
+        {
+          "desc": "Drywall patch at old locations, 9 room",
+          "amount": 2790.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1279.8
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0231-CP",
+      "number": "COR-002",
+      "change": "CP-0231",
+      "from": "sub-cascade-plumbing",
+      "to": "gc",
+      "submitted": "2020-06-30",
+      "amount": 6170.9,
+      "days": 0,
+      "narrative": "Pricing for the two emergency gas shutoffs from RFI-183, same as my email. Valves with buttons, piping and plumber time.",
+      "lines": [
+        {
+          "desc": "Emergency gas shutoff valve with button, 2 ea",
+          "amount": 2770.0
+        },
+        {
+          "desc": "Gas piping and fittings",
+          "amount": 940.0
+        },
+        {
+          "desc": "Plumber, 18 hr",
+          "amount": 1656.0
+        },
+        {
+          "desc": "OH&P 15% on own work",
+          "amount": 804.9
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0406-SR",
+      "number": "COR-001",
+      "change": "CP-0406",
+      "from": "sub-summit-roofing",
+      "to": "gc",
+      "submitted": "2020-06-30",
+      "amount": 57849.0,
+      "days": 12,
+      "narrative": "PV-ready roof at the addition: blocking, conduit sleeves and thicker insulation under the membrane. Includes a crane pick to get the extra insulation and blocking up. Adds about 12 working days before membrane.",
+      "lines": [
+        {
+          "desc": "Added insulation R-30 to R-38, 21000 sf",
+          "amount": 28350.0
+        },
+        {
+          "desc": "PV stanchion blocking, 140 ea",
+          "amount": 11900.0
+        },
+        {
+          "desc": "Roofer, 120 hr",
+          "amount": 9840.0
+        },
+        {
+          "desc": "Crane pick for added insulation and blocking",
+          "amount": 2500.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 5259.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0415-SE",
+      "number": "PCO-003",
+      "change": "CP-0415",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-06-29",
+      "amount": 8243.2,
+      "days": 0,
+      "narrative": "16 data drops in the Wing B offices. We do boxes and conduit, Lakeside does the cable. Fits in with our Wing B rough-in.",
+      "lines": [
+        {
+          "desc": "Electrician, 24 hr",
+          "amount": 2304.0
+        },
+        {
+          "desc": "Box, ring, conduit per drop, 16 ea",
+          "amount": 608.0
+        },
+        {
+          "desc": "Lower tier: Lakeside Low Voltage, Cat 6 cabling, termination, testing",
+          "amount": 4800.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 291.2
+        },
+        {
+          "desc": "Markup 5% on lower tier",
+          "amount": 240.0
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Lakeside Low Voltage",
+          "amount": 4800.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0407-CGNG",
+      "number": "CR 001",
+      "change": "CP-0407",
+      "from": "sub-cascade-glazing",
+      "to": "gc",
+      "submitted": "2020-07-03",
+      "amount": 11990.0,
+      "days": 0,
+      "narrative": "RFI-233 changed the storefront head detail. Steel subframing above every opening. Ours to furnish and install.",
+      "lines": [
+        {
+          "desc": "Steel head subframe, 18 ea",
+          "amount": 7380.0
+        },
+        {
+          "desc": "Glazier, 40 hr",
+          "amount": 3520.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1090.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0408-SFP",
+      "number": "COR-001",
+      "change": "CP-0408",
+      "from": "sub-sentinel-fire-protection",
+      "to": "gc",
+      "submitted": "2020-07-03",
+      "amount": 32634.8,
+      "days": 0,
+      "narrative": "ASI-070 reroutes our mains around the new duct mains and adds two zones. Pipe, heads, valves and fitter time.",
+      "lines": [
+        {
+          "desc": "Rerouted main, pipe and fittings, 420 lf",
+          "amount": 15960.0
+        },
+        {
+          "desc": "Zone valve assembly, 2 ea",
+          "amount": 4300.0
+        },
+        {
+          "desc": "Sprinkler fitter, 96 hr",
+          "amount": 9408.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 2966.8
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0232-SAI",
+      "number": "PCO-001",
+      "change": "CP-0232",
+      "from": "sub-summit-athletic-interiors",
+      "to": "gc",
+      "submitted": "2020-07-06",
+      "amount": 2354.0,
+      "days": 0,
+      "narrative": "Move the locker room benches per the district email. Pull, patch anchor holes, reset.",
+      "lines": [
+        {
+          "desc": "Remove and reinstall benches, 6 ea",
+          "amount": 1440.0
+        },
+        {
+          "desc": "Installer, 10 hr",
+          "amount": 700.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 214.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0413-NF",
+      "number": "PCO-001",
+      "change": "CP-0413",
+      "from": "sub-northwest-floors",
+      "to": "gc",
+      "submitted": "2020-07-07",
+      "amount": 39327.2,
+      "days": 6,
+      "narrative": "District switched the addition classrooms from VCT to rubber tile. Price is the material difference and resubmittal. New lead time is about 6 working days longer.",
+      "lines": [
+        {
+          "desc": "Rubber tile upcharge over VCT, 9800 sf",
+          "amount": 33320.0
+        },
+        {
+          "desc": "Installer, 32 hr",
+          "amount": 2432.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 3575.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0414-CGNG",
+      "number": "CR 002",
+      "change": "CP-0414",
+      "from": "sub-cascade-glazing",
+      "to": "gc",
+      "submitted": "2020-07-09",
+      "amount": 34944.8,
+      "days": 0,
+      "narrative": "Aluminum sunshades over the south replacement windows per ASI-075.",
+      "lines": [
+        {
+          "desc": "Aluminum sunshade, 8 ft, 22 ea",
+          "amount": 25960.0
+        },
+        {
+          "desc": "Glazier, 66 hr",
+          "amount": 5808.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 3176.8
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0208-SFP",
+      "number": "COR-002",
+      "change": "CP-0208",
+      "from": "sub-sentinel-fire-protection",
+      "to": "gc",
+      "submitted": "2020-07-14",
+      "amount": 6745.2,
+      "days": 0,
+      "narrative": "ASI-022 added heads at the stage rigging. Price is heads, pipe and fitter time. The fire marshal revision fee is on your side, not in our number.",
+      "lines": [
+        {
+          "desc": "Sprinkler head and drop, 18 ea",
+          "amount": 3780.0
+        },
+        {
+          "desc": "Sprinkler fitter, 24 hr",
+          "amount": 2352.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 613.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0233-PS",
+      "number": "COR-002",
+      "change": "CP-0233",
+      "from": "sub-pacific-specialties",
+      "to": "gc",
+      "submitted": "2020-07-14",
+      "amount": 3850.0,
+      "days": 0,
+      "narrative": "Four whiteboards per ASI-047. We'll pick them up at the supplier ourselves, that's the delivery line.",
+      "lines": [
+        {
+          "desc": "Whiteboard 4x12, installed, 4 ea",
+          "amount": 2760.0
+        },
+        {
+          "desc": "Pickup and delivery from supplier",
+          "amount": 180.0
+        },
+        {
+          "desc": "Installer, 8 hr",
+          "amount": 560.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 350.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0501-RM",
+      "number": "CR 003",
+      "change": "CP-0501",
+      "from": "sub-rainier-mechanical",
+      "to": "gc",
+      "submitted": "2020-07-15",
+      "amount": 16693.5,
+      "days": 0,
+      "narrative": "Room 231 is turning into an IDF, so it needs a ductless split. Unit, line set, condensate and our controls sub to tie it into the BAS.",
+      "lines": [
+        {
+          "desc": "Ductless split unit, 2-ton, furnished, 1 ea",
+          "amount": 6850.0
+        },
+        {
+          "desc": "Line set and condensate, 1 ls",
+          "amount": 2400.0
+        },
+        {
+          "desc": "Refrigeration fitter, 40 hr",
+          "amount": 4160.0
+        },
+        {
+          "desc": "Lower tier: Northwest Controls, Unit alarm tie-in to BAS",
+          "amount": 1850.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1341.0
+        },
+        {
+          "desc": "Markup 5% on lower tier",
+          "amount": 92.5
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Northwest Controls",
+          "amount": 1850.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0501-SE",
+      "number": "PCO-004",
+      "change": "CP-0501",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-07-15",
+      "amount": 3284.6,
+      "days": 0,
+      "narrative": "Dedicated 30 amp circuit for the new IDF cooling unit in room 231.",
+      "lines": [
+        {
+          "desc": "30A dedicated circuit, 1 ea",
+          "amount": 1450.0
+        },
+        {
+          "desc": "Electrician, 16 hr",
+          "amount": 1536.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 298.6
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0502-OS",
+      "number": "COR-001",
+      "change": "CP-0502",
+      "from": "sub-olympic-structural",
+      "to": "gc",
+      "submitted": "2020-07-17",
+      "amount": 26147.0,
+      "days": 0,
+      "narrative": "ASI-088 adds collector straps and two drag struts at the Wing B roof. Steel, connections and erection.",
+      "lines": [
+        {
+          "desc": "Collector strap, galvanized, 140 lf",
+          "amount": 6440.0
+        },
+        {
+          "desc": "Drag strut, fabricated, 2 ea",
+          "amount": 7800.0
+        },
+        {
+          "desc": "Ironworker, 80 hr",
+          "amount": 7680.0
+        },
+        {
+          "desc": "Special inspection, welds, 1 ls",
+          "amount": 1850.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 2377.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0209-CP",
+      "number": "COR-003",
+      "change": "CP-0209",
+      "from": "sub-cascade-plumbing",
+      "to": "gc",
+      "submitted": "2020-07-21",
+      "amount": 7109.3,
+      "days": 0,
+      "narrative": "Three new floor drains in the kitchen per RFI-140. Includes the drains, trap primers and saw-cut tie-in. We used our standard 15 percent.",
+      "lines": [
+        {
+          "desc": "Floor drain with trap primer, 3 ea",
+          "amount": 2340.0
+        },
+        {
+          "desc": "Plumber, 26 hr",
+          "amount": 2392.0
+        },
+        {
+          "desc": "Saw-cut and patch slab, 1 ls",
+          "amount": 1450.0
+        },
+        {
+          "desc": "OH&P 15% on own work",
+          "amount": 927.3
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0234-SE",
+      "number": "PCO-005",
+      "change": "CP-0234",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-07-21",
+      "amount": 19197.0,
+      "days": 0,
+      "narrative": "Three big gym fans per district email. Wiring and controls are ours; Ironwood does the mounting steel. Ironwood is at 8 percent.",
+      "lines": [
+        {
+          "desc": "HVLS fan wiring and controls, 3 ea",
+          "amount": 4950.0
+        },
+        {
+          "desc": "Electrician, 30 hr",
+          "amount": 2880.0
+        },
+        {
+          "desc": "Lower tier: Ironwood Structural, fan mounting steel",
+          "amount": 9800.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 783.0
+        },
+        {
+          "desc": "Markup 8% on lower tier",
+          "amount": 784.0
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Ironwood Structural",
+          "amount": 9800.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0503-CC",
+      "number": "PCO-001",
+      "change": "CP-0503",
+      "from": "sub-cascade-coatings",
+      "to": "gc",
+      "submitted": "2020-07-22",
+      "amount": 52507.4,
+      "days": 0,
+      "narrative": "Moisture vapor mitigation coating on the addition gym slab per the district letter. Prep, coating and testing.",
+      "lines": [
+        {
+          "desc": "Shot-blast slab prep, 7200 sf",
+          "amount": 7920.0
+        },
+        {
+          "desc": "Two-coat epoxy vapor mitigation, 7200 sf",
+          "amount": 34920.0
+        },
+        {
+          "desc": "Slab RH testing, 1 ls",
+          "amount": 1150.0
+        },
+        {
+          "desc": "Applicator, 48 hr",
+          "amount": 3744.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 4773.4
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0504-EF",
+      "number": "COR-004",
+      "change": "CP-0504",
+      "from": "sub-evergreen-framing",
+      "to": "gc",
+      "submitted": "2020-07-24",
+      "amount": 21830.6,
+      "days": 0,
+      "narrative": "RFI-341 drops the second floor corridor ceiling 10 inches and adds soffits at the classroom doors. Framing, board and finish.",
+      "lines": [
+        {
+          "desc": "Soffit framing, 380 lf",
+          "amount": 7980.0
+        },
+        {
+          "desc": "Gypsum board at soffits, 1150 sf",
+          "amount": 7130.0
+        },
+        {
+          "desc": "Framer, 64 hr",
+          "amount": 4736.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1984.6
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0504-RM",
+      "number": "CR 004",
+      "change": "CP-0504",
+      "from": "sub-rainier-mechanical",
+      "to": "gc",
+      "submitted": "2020-07-24",
+      "amount": 15039.7,
+      "days": 0,
+      "narrative": "Same RFI-341 change, our side: re-hang the supply mains lower and Sentinel moves their heads to the new ceiling. Sentinel's number is included.",
+      "lines": [
+        {
+          "desc": "Drop and re-hang branch duct, 14 ea",
+          "amount": 7280.0
+        },
+        {
+          "desc": "Sheet metal worker, 36 hr",
+          "amount": 3672.0
+        },
+        {
+          "desc": "Lower tier: Sentinel Fire Protection, Lower sprinkler drops to new ceiling height",
+          "amount": 2850.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1095.2
+        },
+        {
+          "desc": "Markup 5% on lower tier",
+          "amount": 142.5
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Sentinel Fire Protection",
+          "amount": 2850.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0210-SE",
+      "number": "PCO-006",
+      "change": "CP-0210",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-07-28",
+      "amount": 12320.0,
+      "days": 0,
+      "narrative": "16 smartboards need power and backing. We run the circuits; Ridgeline does the blocking. Ridgeline's number is in here with our 10 percent on it.",
+      "lines": [
+        {
+          "desc": "Electrician, 48 hr",
+          "amount": 4608.0
+        },
+        {
+          "desc": "Receptacle and box, 16 ea",
+          "amount": 992.0
+        },
+        {
+          "desc": "Lower tier: Ridgeline Carpentry, In-wall blocking at 16 locations",
+          "amount": 5600.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 560.0
+        },
+        {
+          "desc": "Markup 10% on lower tier",
+          "amount": 560.0
+        }
+      ],
+      "lower_tier": [
+        {
+          "firm": "Ridgeline Carpentry",
+          "amount": 5600.0
+        }
+      ]
+    },
+    {
+      "key": "CR-0235-BP",
+      "number": "CR 001",
+      "change": "CP-0235",
+      "from": "sub-brightline-painting",
+      "to": "gc",
+      "submitted": "2020-07-28",
+      "amount": 8364.4,
+      "days": 0,
+      "narrative": "Patch and paint after abatement per ASI-050. Square footage is from our walk with your super.",
+      "lines": [
+        {
+          "desc": "Patch and paint walls, 2800 sf",
+          "amount": 6020.0
+        },
+        {
+          "desc": "Painter, 24 hr",
+          "amount": 1584.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 760.4
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0236-CP",
+      "number": "COR-004",
+      "change": "CP-0236",
+      "from": "sub-cascade-plumbing",
+      "to": "gc",
+      "submitted": "2020-08-03",
+      "amount": 2983.2,
+      "days": 0,
+      "narrative": "T&M for the four courtyard hose bibbs. Tags TM-601 to TM-603, signed by our foreman Luis each day.",
+      "lines": [
+        {
+          "desc": "Hose bibb and piping, 4 ea",
+          "amount": 1240.0
+        },
+        {
+          "desc": "Plumber, 16 hr",
+          "amount": 1472.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 271.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0211-SE",
+      "number": "PCO-007",
+      "change": "CP-0211",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-08-11",
+      "amount": 20284.0,
+      "days": 0,
+      "narrative": "Four new pole lights at the staff lot per the district email. Poles, bases, fixtures, wire and trenching.",
+      "lines": [
+        {
+          "desc": "Pole light, base, and wiring, 4 ea",
+          "amount": 14600.0
+        },
+        {
+          "desc": "Electrician, 40 hr",
+          "amount": 3840.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1844.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0212-CA",
+      "number": "COR-001",
+      "change": "CP-0212",
+      "from": "sub-clearwater-abatement",
+      "to": "gc",
+      "submitted": "2020-08-17",
+      "amount": 19410.0,
+      "days": 0,
+      "narrative": "Found black mastic under the classroom VCT, tested positive. Price covers removal, bagging, our crew and air monitoring. Haul-off of your dumpsters is not in our price.",
+      "lines": [
+        {
+          "desc": "Mastic abatement, 2400 sf",
+          "amount": 15600.0
+        },
+        {
+          "desc": "Air monitoring, 1 ls",
+          "amount": 1800.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1740.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0213-SAI",
+      "number": "PCO-002",
+      "change": "CP-0213",
+      "from": "sub-summit-athletic-interiors",
+      "to": "gc",
+      "submitted": "2020-08-25",
+      "amount": 9933.0,
+      "days": 0,
+      "narrative": "Wall padding on two gym walls per the district. Pads, Z-clips and install.",
+      "lines": [
+        {
+          "desc": "Wall pad panels, 420 sf",
+          "amount": 7770.0
+        },
+        {
+          "desc": "Installer, 18 hr",
+          "amount": 1260.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 903.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0214-TC",
+      "number": "CR 001",
+      "change": "CP-0214",
+      "from": "sub-timberline-casework",
+      "to": "gc",
+      "submitted": "2020-09-16",
+      "amount": 7986.0,
+      "days": 0,
+      "narrative": "ASI-031 changed the science room casework layout. Price is the added cabinets and rework in the shop.",
+      "lines": [
+        {
+          "desc": "Revised base cabinets, 14 lf",
+          "amount": 5740.0
+        },
+        {
+          "desc": "Installer, 20 hr",
+          "amount": 1520.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 726.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0215-EFNG",
+      "number": "COR-001",
+      "change": "CP-0215",
+      "from": "sub-evergreen-flooring",
+      "to": "gc",
+      "submitted": "2020-09-22",
+      "amount": 6446.0,
+      "days": 0,
+      "narrative": "RFI-152 changed the stair nosings at both stairs. Remove existing, supply and set the new nosings.",
+      "lines": [
+        {
+          "desc": "Aluminum abrasive nosing, 180 lf",
+          "amount": 4320.0
+        },
+        {
+          "desc": "Installer, 22 hr",
+          "amount": 1540.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 586.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0216-SAI",
+      "number": "PCO-003",
+      "change": "CP-0216",
+      "from": "sub-summit-athletic-interiors",
+      "to": "gc",
+      "submitted": "2020-09-29",
+      "amount": 3401.2,
+      "days": 0,
+      "narrative": "Revised bleacher anchors per RFI-158. New anchors and the extra install hours.",
+      "lines": [
+        {
+          "desc": "Epoxy anchor upcharge, 96 ea",
+          "amount": 2112.0
+        },
+        {
+          "desc": "Installer, 14 hr",
+          "amount": 980.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 309.2
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0218-RM",
+      "number": "CR 005",
+      "change": "CP-0218",
+      "from": "sub-rainier-mechanical",
+      "to": "gc",
+      "submitted": "2020-10-20",
+      "amount": 6824.4,
+      "days": 0,
+      "narrative": "Curb adapters for the two rooftop units per RFI-166. Adapters, sheet metal labor and flashing coordination. Lift is by others.",
+      "lines": [
+        {
+          "desc": "Curb adapter, 2 ea",
+          "amount": 4700.0
+        },
+        {
+          "desc": "Sheet metal worker, 16 hr",
+          "amount": 1504.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 620.4
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0219-CP",
+      "number": "COR-005",
+      "change": "CP-0219",
+      "from": "sub-cascade-plumbing",
+      "to": "gc",
+      "submitted": "2020-10-27",
+      "amount": 4488.0,
+      "days": 0,
+      "narrative": "ASI-036 adds sinks in two classrooms. Sinks, faucets, supply and waste rough and connection.",
+      "lines": [
+        {
+          "desc": "Sink, faucet, and trap, 2 ea",
+          "amount": 2240.0
+        },
+        {
+          "desc": "Plumber, 20 hr",
+          "amount": 1840.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 408.0
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0220-CG",
+      "number": "PCO-001",
+      "change": "CP-0220",
+      "from": "sub-clearview-glazing",
+      "to": "gc",
+      "submitted": "2020-11-10",
+      "amount": 12667.05,
+      "days": 0,
+      "narrative": "Solar film on the south classroom windows per district email. Film and install.",
+      "lines": [
+        {
+          "desc": "Solar control film, 1350 sf",
+          "amount": 9787.5
+        },
+        {
+          "desc": "Installer, 24 hr",
+          "amount": 1728.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 1151.55
+        }
+      ],
+      "lower_tier": []
+    },
+    {
+      "key": "CR-0221-SE",
+      "number": "PCO-008",
+      "change": "CP-0221",
+      "from": "sub-sound-electric",
+      "to": "gc",
+      "submitted": "2020-11-17",
+      "amount": 3722.4,
+      "days": 0,
+      "narrative": "T&M for the corridor outlets. Tags attached. One day's tags didn't get the district rep's signature yet, we're chasing it.",
+      "lines": [
+        {
+          "desc": "Electrician, 28 hr",
+          "amount": 2688.0
+        },
+        {
+          "desc": "Duplex receptacle and box, 12 ea",
+          "amount": 696.0
+        },
+        {
+          "desc": "OH&P 10% on own work",
+          "amount": 338.4
+        }
+      ],
+      "lower_tier": []
+    }
+  ],
+  "field_samples": [
+    {
+      "from": "sub-cascade-plumbing",
+      "date": "2020-02-07",
+      "text": "gym roof dwgs only show the 4 main drains, no overflows?? pretty sure code wants overflows. can u guys send an rfi before roofer closes it up",
+      "name": "Luis",
+      "becomes": "CP-0201"
+    },
+    {
+      "from": "sub-granite-earthworks",
+      "date": "2020-02-03",
+      "text": "F-12 footing hole is soft organic junk down maybe 4ft. stopped digging, need geotech out here b4 we go further",
+      "name": "Tony",
+      "becomes": "CP-0225"
+    },
+    {
+      "from": "sub-sound-electric",
+      "date": "2020-04-02",
+      "text": "librarian asked if we could add data drops along the window wall, like 20 something. told her to go thru the district, not doing anything till we hear",
+      "name": "Kyle",
+      "becomes": "CP-0203"
+    },
+    {
+      "from": "sub-clearwater-abatement",
+      "date": "2020-08-10",
+      "text": "black mastic under the vct in the classrooms, sent sample, came back positive. bagging it now, gonna need way more haul off than planned",
+      "name": "Marco",
+      "becomes": "CP-0212"
+    },
+    {
+      "from": "sub-puget-steel-erectors",
+      "date": "2020-06-09",
+      "text": "heads up crane is stuck on our other job, earliest it shows is a week late. office is sending a letter",
+      "name": "Ray",
+      "becomes": "CP-0409"
+    },
+    {
+      "from": "sub-cornerstone-flatwork",
+      "date": "2020-06-12",
+      "text": "short 2 guys for the next couple wks so curbs and walks start is gonna slide, sorry",
+      "name": "Sam",
+      "becomes": "CP-0410"
+    },
+    {
+      "from": "sub-rainier-mechanical",
+      "date": "2020-07-15",
+      "text": "2nd flr corridor supply mains hit the beams at the ceiling ht on the plans. cant make it work at 9 ft. need an answer before we hang anything",
+      "name": "Pete",
+      "becomes": "CP-0504"
+    },
+    {
+      "from": "sub-evergreen-framing",
+      "date": "2020-06-03",
+      "text": "out of 5/8 type x again on 2nd flr, truck coming tmrw am. guys moving to wing b soffits til then",
+      "name": "Jess",
+      "becomes": null
+    },
+    {
+      "from": "sub-northwest-floors",
+      "date": "2020-07-01",
+      "text": "cleaned up the adhesive spill in corridor b, no damage to base. all good",
+      "name": "Ana",
+      "becomes": null
+    }
+  ]
+}

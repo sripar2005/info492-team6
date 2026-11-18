@@ -4,7 +4,7 @@
 
 ## What this is
 
-ClauseStream's shared project record: the documents of one construction project (a public school modernization and addition in Washington State, GC/CM delivery under contract A) split into small citable **pieces**. Every party (sub, GC/CM, architect, owner's rep) checks change proposals and RFIs against the same pieces. The record is the seed data for the tables in `supabase/migrations/0001_project_record.sql` (`documents`, `pieces`, `links`).
+ClauseStream's shared project record: the documents of one construction project (a public school modernization and addition in Washington State, GC/CM delivery under contract A) split into small citable **pieces**. Every party (sub, GC/CM, architect, owner's rep) checks change proposals and RFIs against the same pieces. The record is the seed data for the `documents`, `pieces` and `links` tables in `supabase/migrations/0003_platform.sql`. The companies, contracts, schedule of values, schedule versions and sub requests that sit on top of it are in `platform/` (see `platform/DATA_NOTE.md`).
 
 We do not yet have real project documents (a public-records request for real RFI logs is in progress). This set lets us build and test now, and is designed to be **swapped one document at a time** for real ones.
 

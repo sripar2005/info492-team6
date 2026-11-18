@@ -5,7 +5,7 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ClauseStream</title>
-<meta name="description" content="Check a priced change proposal against the contract before you send it: markups, the CM fee, labor rates, equipment, deadlines and signatures.">
+<meta name="description" content="One record every party on a construction project checks changes against: sub, GC/CM, architect and owner, each seeing what its contracts allow.">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
@@ -25,14 +25,14 @@
 <div id="modeband" class="modeband" role="status" hidden></div>
 <nav class="sheets" aria-label="Sheets in this project">
   <div class="sheets-in">
-    <a href="#project" data-nav="project"><b>A-001</b><span>Project</span></a>
-    <a href="#record" data-nav="record"><b>R-101</b><span>Record</span></a>
-    <a href="#changes" data-nav="changes"><b>T-201</b><span>Changes</span></a>
-    <a href="#contract" data-nav="contract"><b>G-001</b><span>Contract</span></a>
-    <a href="#schedule" data-nav="schedule"><b>S-101</b><span>Schedule</span></a>
-    <a href="#upload" data-nav="check"><b>C-201</b><span>Check a proposal</span></a>
-    <a href="#proposals" data-nav="proposals"><b>C-202</b><span>My proposals</span></a>
-    <a href="#delay" data-nav="delay"><b>D-301</b><span>Delay check</span></a>
+    <a href="#home" data-nav="home"><b>Home</b><span>Waiting on you</span></a>
+    <a href="#changes" data-nav="changes"><b>01</b><span>Changes</span></a>
+    <a href="#record" data-nav="record"><b>02</b><span>Record</span></a>
+    <a href="#contracts" data-nav="contracts"><b>03</b><span>Contracts</span></a>
+    <a href="#schedule" data-nav="schedule"><b>04</b><span>Schedule</span></a>
+    <a href="#activity" data-nav="activity"><b>05</b><span>Activity</span></a>
+    <a href="#project" data-nav="project"><b>06</b><span>Project</span></a>
+    <a href="#upload" data-nav="check" class="quick"><b>QC</b><span>Quick check</span></a>
   </div>
 </nav>
 
@@ -52,8 +52,10 @@
 <script src="/assets/delay.js"></script>
 <script src="/assets/app.js"></script>
 <script src="/assets/views-time.js"></script>
+<script src="/assets/rules.js"></script>
 <script src="/assets/demo-db.js"></script>
 <script src="/assets/vendor/supabase/supabase.js"></script>
-<script src="/assets/views-record.js"></script>
+<script src="/assets/platform.js"></script>
+<script src="/assets/views-platform.js"></script>
 </body>
 </html>

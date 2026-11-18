@@ -1,4 +1,4 @@
-/* ClauseStream check tool: upload -> confirm the numbers -> results, plus My proposals.
+/* ClauseStream quick check: upload -> confirm the numbers -> results. The full flow is the change thread (views-platform.js).
  * The checks themselves are in checks.js and run in the browser. Reading a PDF needs the local model
  * on the team's laptop (demo3/serve_local.py, POST /api/extract); everything else works anywhere. */
 (function () {
@@ -13,9 +13,6 @@
     'SGC items': 'General conditions items (SGC)', 'bond and insurance': 'Bond and insurance', 'B&O tax': 'B&O tax', 'permit fees': 'Permit fees', 'extended SGC (time)': 'Extended general conditions (time)' };
   var FEE_KEY = { 'NSS items': 'nss', 'SGC items': 'sgc', 'bond and insurance': 'bond', 'B&O tax': 'bo', 'permit fees': 'permits', 'extended SGC (time)': 'ext_sgc' };
   var SAMPLES = [['CP-0212', 'Haul-off with a fee problem'], ['CP-0201', 'A clean roof-drain change'], ['CP-0231', 'Plumbing quote sent by email']];
-  // Sample status for My proposals. Made up for the demo; the checklist column is computed live.
-  var SAMPLE_ROWS = [['CP-0212', 'Sent to owner', "Owner's rep", 6, 0], ['CP-0226', 'Sent to owner', "Owner's rep", 19, 1], ['CP-0209', 'Returned for revision', 'Subcontractor', 3, 1],
-    ['CP-0219', 'Returned for revision', 'GC/CM', 4, 2], ['CP-0220', 'Draft', 'GC/CM', 1, 0], ['CP-0231', 'Draft', 'GC/CM', 2, 0], ['CP-0224', 'Sent to owner', "Owner's rep", 11, 0], ['CP-0201', 'Approved', '—', 0, 0]];
 
   var cases = {}, role = 'gc', S = null, reader = null, pdfjs = null;
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -454,10 +451,9 @@
     var acts = owner ? '<button class="btn primary" data-act="copy">Copy notes to send back</button><button class="btn" data-act="edit">Edit the numbers</button><button class="btn ghost" data-act="new">Check another</button>'
       : '<button class="btn primary" data-act="edit">' + (fails ? 'Fix and re-check' : 'Edit the numbers') + '</button><button class="btn" data-act="copy">Copy summary</button><button class="btn ghost" data-act="new">Check another</button>';
     if (cp.time_impact_days > 0) acts += '<button class="btn" data-act="todelay">Check the ' + cp.time_impact_days + ' days against the schedule</button>';
-    h += '<div class="acts">' + acts + '</div>' + (S.source !== 'sample' || S.edited ? '<p class="saved">Saved to <a class="link" href="#proposals">My proposals</a> in this browser.</p>' : '') + '</div></div></div>';
+    h += '<div class="acts">' + acts + '</div>' + '' + '</div></div></div>';
     app.innerHTML = h;
     requestAnimationFrame(function () { frame(); drawClouds(true); }); if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { frame(); drawClouds(false); });
-    if (S.source !== 'sample' || S.edited) saveProposal(full);
   }
   // The verdict as a submittal review stamp, the way a reviewer returns a submittal.
   function stamp(cs, fails) {
@@ -474,36 +470,6 @@
     fds.forEach(function (fd) { t += fd.n + '. ' + fd.p.title + ' ' + fd.p.why + (fd.p.amt ? ' ' + M(fd.p.amt) + (owner ? ' more than allowed.' : ' too much.') : '') + ' (§ ' + fd.r.section + ')\n'; });
     if (cs.dollars_at_issue > 0) t += '\nTotal at issue: ' + M(cs.dollars_at_issue) + '\n';
     return t;
-  }
-
-  /* ---------- My proposals ---------- */
-  function saved() { return store('cs_saved') || []; }
-  function saveProposal(cs) {
-    var list = saved(), now = Date.now(), f = S.form, i = list.map(function (x) { return x.key; }).indexOf(S.key), sig = JSON.stringify(f);
-    if (i >= 0) { if (list[i].sig !== sig) { list[i].revisions++; list[i].sig = sig; } list[i].form = f; list[i].last = now; list[i].route = cs.route; }
-    else list.unshift({ key: S.key, form: f, sig: sig, first: now, last: now, revisions: 0, route: cs.route, stage: 'Checked, not sent', holder: K.ROLE[role].label });
-    store('cs_saved', list.slice(0, 50));
-  }
-  function badge(cs) {
-    var n = cs.counts;
-    if (n.fail) return '<span class="badge fail">Fix ' + n.fail + (n.fail === 1 ? ' thing' : ' things') + '</span>';
-    if (n.person) return '<span class="badge person">Ready · ' + n.person + ' for the owner to decide</span>';
-    return '<span class="badge ok">Ready to send</span>';
-  }
-  function viewProposals() {
-    var rows = saved().map(function (x) {
-      var f = x.form, cs = ready(f) ? filtered(K.checksheet(caseOf(f), C())) : null, days = Math.max(0, Math.floor((Date.now() - x.first) / 864e5));
-      return '<tr data-saved="' + esc(x.key) + '"><td><span class="t">' + esc(f.title || 'Untitled proposal') + '</span><span class="id">' + esc(f.id || '—') + '</span></td><td class="r">' + M(f.total || 0) + '</td><td>' + (cs ? badge(cs) : '<span class="badge">Incomplete</span>') +
-        '</td><td class="stage">' + esc(x.stage) + '</td><td>' + esc(x.holder) + '</td><td class="r">' + days + '</td><td class="r">' + x.revisions + '</td></tr>';
-    }).concat(SAMPLE_ROWS.map(function (s) {
-      var cp = cases[s[0]]; if (!cp) return ''; var cs = filtered(K.checksheet(cp, C()));
-      return '<tr data-sample="' + s[0] + '"><td><span class="t">' + esc(cp.title) + '<span class="badge sample">sample</span></span><span class="id">' + s[0] + '</span></td><td class="r">' + M(cp.cover_sheet.total_requested) + '</td><td>' + badge(cs) +
-        '</td><td class="stage">' + s[1] + '</td><td>' + s[2] + '</td><td class="r"><span class="age' + (s[3] > 14 ? ' late' : '') + '">' + s[3] + '</span></td><td class="r">' + s[4] + '</td></tr>';
-    }));
-    app.innerHTML = '<div class="wrap"><div class="ph1"><div><h1>My proposals</h1><p>Every proposal you check is saved here, in this browser only. Rows marked <span class="badge sample" style="margin:0">sample</span> are made-up examples; their status is invented, their checklist is real.</p></div>' +
-      '<div style="display:flex;gap:8px"><a class="btn primary" href="#upload">Check a proposal</a>' + (saved().length ? '<button class="btn ghost" data-act="clear">Clear mine</button>' : '') + '</div></div>' +
-      '<div class="card tbl-wrap"><table class="tbl"><thead><tr><th>Proposal</th><th class="r">Requested</th><th>Checklist</th><th>Stage</th><th>With</th><th class="r">Days in stage</th><th class="r">Revisions</th></tr></thead><tbody>' + rows.join('') + '</tbody></table></div>' +
-      '<p class="fine">Days in stage, revisions and who holds it are tracked here for proposals you check. They’d come from your project system (e.g. Procore) in a real setup.</p></div>';
   }
 
   /* ---------- contracts: load your own, confirm every term, then the checks use it ---------- */
@@ -717,12 +683,11 @@
 
   /* ---------- events ---------- */
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-act],[data-sample],[data-saved],[data-go],[data-feeon],[data-pick],[data-tpill],[data-jump]'); if (!t) return;
+    var t = e.target.closest('[data-act],[data-sample],[data-go],[data-feeon],[data-pick],[data-tpill],[data-jump]'); if (!t) return;
     if (CS && onContractClick(t)) return; if (t.dataset.act === 'csample') return onContractClick(t);
     if (t.dataset.go) return go(t.dataset.go);
     if (t.dataset.feeon) { var on = S.form.fee_on, p = t.dataset.feeon, i = on.indexOf(p); if (i >= 0) on.splice(i, 1); else on.push(p); S.edited = true; t.setAttribute('aria-pressed', i < 0); live(); saveSession(); return; }
     if (t.dataset.sample) { startSample(t.dataset.sample); return go(t.closest('table') ? 'result' : 'confirm'); }
-    if (t.dataset.saved) { var x = saved().filter(function (s) { return s.key === t.dataset.saved; })[0]; if (x) { S = { form: x.form, source: 'saved', key: x.key, read: false, need: [], pdf: null, edited: true }; saveSession(); go('result'); } return; }
     var a = t.dataset.act, f = S && S.form;
     if (a === 'manual') { start(blankForm(), 'manual'); return go('confirm'); }
     if (a === 'addsub') { f.subs.push(blankSub()); S.edited = true; return viewConfirmKeepScroll(); }
@@ -741,13 +706,12 @@
     if (a === 'edit') return go('confirm');
     if (a === 'new') { S = null; try { sessionStorage.removeItem('cs_current'); } catch (er) {} return go('upload'); }
     if (a === 'copy') { var txt = notesText(); (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('Copied. Paste it into your email or Procore.'); }, function () { window.prompt('Copy this:', txt); }); return; }
-    if (a === 'clear') { store('cs_saved', []); return viewProposals(); }
   });
   var modal = document.getElementById('contractModal');
   document.getElementById('contractBtn').onclick = function () { renderModal(); modal.hidden = false; };
   modal.addEventListener('click', function (e) {
     var t = e.target.closest('[data-cpick],[data-cedit],[data-cdel]');
-    if (t && t.dataset.cpick) { setActive(t.dataset.cpick); renderModal(); toast('Checks now use “' + C().name + '”.'); if (/result|confirm|proposals/.test(location.hash)) route(); return; }
+    if (t && t.dataset.cpick) { setActive(t.dataset.cpick); renderModal(); toast('Checks now use “' + C().name + '”.'); if (/result|confirm/.test(location.hash)) route(); return; }
     if (t && t.dataset.cedit) { modal.hidden = true; return editContract(t.dataset.cedit); }
     if (t && t.dataset.cdel) { store('cs_contracts', contracts().filter(function (c) { return c.id !== t.dataset.cdel; })); if (activeId() === t.dataset.cdel) setActive('sample'); renderModal(); route(); return; }
     if (e.target === modal || e.target.closest('[data-close]')) modal.hidden = true;
@@ -761,11 +725,14 @@
   /* ---------- routing ---------- */
   function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
   function route() {
-    var v = (location.hash || '#upload').slice(1);
-    var navKey = v === 'project' ? 'project' : /^(record|doc)$/.test(v) ? 'record' : /^change/.test(v) ? 'changes' : /^contract/.test(v) ? 'contract' : /^schedule/.test(v) ? 'schedule' : /^delay/.test(v) ? 'delay' : v === 'proposals' ? 'proposals' : 'check';
+    var full = (location.hash || '#home').slice(1), v = full.split('?')[0] || 'home';
+    if (v === 'proposals') return go('changes');
+    var navKey = /^(upload|confirm|result)$/.test(v) ? 'check' : /^(record|doc)$/.test(v) ? 'record' : /^change/.test(v) ? 'changes' : /^contract/.test(v) ? 'contracts' : /^(schedule|delay|gantt)/.test(v) ? 'schedule' : v;
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    document.body.classList.toggle('v-check', navKey === 'check' || v === 'contract' || v === 'contract-confirm');
+    document.body.classList.toggle('v-field', v === 'field');
     var V = window.CSViews || {};
-    if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'proposals') viewProposals(); else viewUpload();
+    if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'upload') viewUpload(); else go('home');
     if (v !== 'confirm') window.scrollTo(0, 0);
     requestAnimationFrame(frame);
     if (!/^contract/.test(v)) CS = null;

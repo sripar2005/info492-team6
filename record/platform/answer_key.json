@@ -1,0 +1,1079 @@
+{
+  "meta": {
+    "synthetic": true,
+    "built": "2026-11-17",
+    "note": "Computed by record/platform/build/build.py from the data in platform.json and the cases; written with AI assistance."
+  },
+  "flowdown_gaps": {
+    "rule": "gc_days_left = prime notice window (contract A § 6.2(a)-(c), 7 calendar days) minus the sub's notice window in calendar days (business days converted to the fewest calendar days they can span). A gap is gc_days_left <= 0: the sub may give notice on or after the day the GC/CM's own notice to Owner is due. The operative window is the one the subcontract makes govern.",
+    "subs": {
+      "sub-cascade-plumbing": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-northwest-door-hardware": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-sound-electric": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-puget-steel-erectors": {
+        "notice_days": 10,
+        "notice_unit": "business days",
+        "notice_calendar_days": 12,
+        "notice_flowdown": false,
+        "prime_notice_days": 7,
+        "gc_days_left": -5,
+        "gap": true,
+        "short_by_days": 5,
+        "gc_days_left_other_events": 2,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-evergreen-framing": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-sentinel-fire-protection": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-clearwater-abatement": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-summit-athletic-interiors": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-timberline-casework": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-evergreen-flooring": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-rainier-mechanical": {
+        "notice_days": 2,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 2,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 5,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 12,
+        "pricing_days": 21,
+        "gc_days_left_to_submit_cp": 0,
+        "gc_days_left_after_proposal_request": -7
+      },
+      "sub-clearview-glazing": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-sentinel-fire-alarm": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-granite-earthworks": {
+        "notice_days": 14,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 14,
+        "notice_flowdown": false,
+        "prime_notice_days": 7,
+        "gc_days_left": -7,
+        "gap": true,
+        "short_by_days": 7,
+        "gc_days_left_other_events": 0,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-pacific-specialties": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-harmony-acoustics": {
+        "notice_days": 21,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 21,
+        "notice_flowdown": false,
+        "prime_notice_days": 7,
+        "gc_days_left": -14,
+        "gap": true,
+        "short_by_days": 14,
+        "gc_days_left_other_events": -7,
+        "pricing_days": 14,
+        "gc_days_left_to_submit_cp": 7,
+        "gc_days_left_after_proposal_request": 0
+      },
+      "sub-brightline-painting": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-granite-concrete": {
+        "notice_days": 3,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 3,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 4,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 11,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-evergreen-site-works": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-summit-roofing": {
+        "notice_days": 10,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 10,
+        "notice_flowdown": false,
+        "prime_notice_days": 7,
+        "gc_days_left": -3,
+        "gap": true,
+        "short_by_days": 3,
+        "gc_days_left_other_events": 4,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-cascade-glazing": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-northwest-floors": {
+        "notice_days": 4,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 4,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 3,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 10,
+        "pricing_days": 10,
+        "gc_days_left_to_submit_cp": 11,
+        "gc_days_left_after_proposal_request": 4
+      },
+      "sub-olympic-structural": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-cascade-coatings": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      },
+      "sub-cornerstone-flatwork": {
+        "notice_days": 5,
+        "notice_unit": "calendar days",
+        "notice_calendar_days": 5,
+        "notice_flowdown": true,
+        "prime_notice_days": 7,
+        "gc_days_left": 2,
+        "gap": false,
+        "short_by_days": 0,
+        "gc_days_left_other_events": 9,
+        "pricing_days": 7,
+        "gc_days_left_to_submit_cp": 14,
+        "gc_days_left_after_proposal_request": 7
+      }
+    },
+    "gap_subs": [
+      "sub-puget-steel-erectors",
+      "sub-granite-earthworks",
+      "sub-harmony-acoustics",
+      "sub-summit-roofing"
+    ],
+    "clean_subs": [
+      "sub-cascade-plumbing",
+      "sub-northwest-door-hardware",
+      "sub-sound-electric",
+      "sub-evergreen-framing",
+      "sub-sentinel-fire-protection",
+      "sub-clearwater-abatement",
+      "sub-summit-athletic-interiors",
+      "sub-timberline-casework",
+      "sub-evergreen-flooring",
+      "sub-rainier-mechanical",
+      "sub-clearview-glazing",
+      "sub-sentinel-fire-alarm",
+      "sub-pacific-specialties",
+      "sub-brightline-painting",
+      "sub-granite-concrete",
+      "sub-evergreen-site-works",
+      "sub-cascade-glazing",
+      "sub-northwest-floors",
+      "sub-olympic-structural",
+      "sub-cascade-coatings",
+      "sub-cornerstone-flatwork"
+    ]
+  },
+  "cost_per_day": {
+    "sov_time_based_gc_total": 1550000,
+    "sov_time_based_lines": [
+      "01-310",
+      "01-311",
+      "01-312",
+      "01-313",
+      "01-500",
+      "01-510"
+    ],
+    "contract_days": 540,
+    "contract_days_basis": "contract A § 3.2: Substantial Completion within 540 days after Notice to Proceed",
+    "sov_cost_per_day": 2870.37,
+    "contract_stated_rate": 3185,
+    "contract_stated_rate_clause": "§ 5.2",
+    "difference_per_day": 314.63,
+    "difference_pct_of_sov_rate": 11.0,
+    "agree": false,
+    "tolerance": "agree means within 1% of the stated rate",
+    "explanation": "The stated rate equals all SGC ($1,720,000) / 540 = $3,185.19, which includes fixed SOV lines (mobilization, reproduction, signage, $170,000) that do not grow with time. Time-based lines alone give $2,870.37 per day.",
+    "alternative_basis_600_days": 2583.33
+  },
+  "rollups": {
+    "CP-0201": {
+      "requests": [
+        "CR-0201-CP"
+      ],
+      "sub_requests_total": 6567.0,
+      "case_quotes_total": 6567.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0202": {
+      "requests": [
+        "CR-0202-NDH"
+      ],
+      "sub_requests_total": 5024.8,
+      "case_quotes_total": 5024.8,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0203": {
+      "requests": [
+        "CR-0203-SE"
+      ],
+      "sub_requests_total": 11731.2,
+      "case_quotes_total": 11731.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0204": {
+      "requests": [
+        "CR-0204-PSE"
+      ],
+      "sub_requests_total": -53966.0,
+      "case_quotes_total": -53966.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0205": {
+      "requests": [
+        "CR-0205-EF"
+      ],
+      "sub_requests_total": 10021.0,
+      "case_quotes_total": 10021.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0206": {
+      "requests": [
+        "CR-0206-EF"
+      ],
+      "sub_requests_total": 4204.2,
+      "case_quotes_total": 4204.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0208": {
+      "requests": [
+        "CR-0208-SFP"
+      ],
+      "sub_requests_total": 6745.2,
+      "case_quotes_total": 6745.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0209": {
+      "requests": [
+        "CR-0209-CP"
+      ],
+      "sub_requests_total": 7109.3,
+      "case_quotes_total": 7109.3,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0210": {
+      "requests": [
+        "CR-0210-SE"
+      ],
+      "sub_requests_total": 12320.0,
+      "case_quotes_total": 12320.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0211": {
+      "requests": [
+        "CR-0211-SE"
+      ],
+      "sub_requests_total": 20284.0,
+      "case_quotes_total": 20284.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0212": {
+      "requests": [
+        "CR-0212-CA"
+      ],
+      "sub_requests_total": 19410.0,
+      "case_quotes_total": 19140.0,
+      "difference": 270.0,
+      "match": false,
+      "deliberate_mismatch": true,
+      "reason": "Transposed total: the request's lines add to $19,140.00 (the case's quote) but the request total reads $19,410.00."
+    },
+    "CP-0213": {
+      "requests": [
+        "CR-0213-SAI"
+      ],
+      "sub_requests_total": 9933.0,
+      "case_quotes_total": 9933.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0214": {
+      "requests": [
+        "CR-0214-TC"
+      ],
+      "sub_requests_total": 7986.0,
+      "case_quotes_total": 7986.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0215": {
+      "requests": [
+        "CR-0215-EFNG"
+      ],
+      "sub_requests_total": 6446.0,
+      "case_quotes_total": 6446.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0216": {
+      "requests": [
+        "CR-0216-SAI"
+      ],
+      "sub_requests_total": 3401.2,
+      "case_quotes_total": 3401.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0218": {
+      "requests": [
+        "CR-0218-RM"
+      ],
+      "sub_requests_total": 6824.4,
+      "case_quotes_total": 6824.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0219": {
+      "requests": [
+        "CR-0219-CP"
+      ],
+      "sub_requests_total": 4488.0,
+      "case_quotes_total": 4488.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0220": {
+      "requests": [
+        "CR-0220-CG"
+      ],
+      "sub_requests_total": 12667.05,
+      "case_quotes_total": 12667.05,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0221": {
+      "requests": [
+        "CR-0221-SE"
+      ],
+      "sub_requests_total": 3722.4,
+      "case_quotes_total": 3722.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0222": {
+      "requests": [
+        "CR-0222-SFA"
+      ],
+      "sub_requests_total": 7381.0,
+      "case_quotes_total": 7381.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0223": {
+      "requests": [
+        "CR-0223-NDH"
+      ],
+      "sub_requests_total": 4791.6,
+      "case_quotes_total": 4791.6,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0225": {
+      "requests": [
+        "CR-0225-GE"
+      ],
+      "sub_requests_total": 17215.0,
+      "case_quotes_total": 17215.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0226": {
+      "requests": [
+        "CR-0226-RM",
+        "CR-0226-SE"
+      ],
+      "sub_requests_total": 295350.0,
+      "case_quotes_total": 295350.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0228": {
+      "requests": [
+        "CR-0228-RM"
+      ],
+      "sub_requests_total": 13648.8,
+      "case_quotes_total": 13648.8,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0229": {
+      "requests": [
+        "CR-0229-PS"
+      ],
+      "sub_requests_total": 3942.4,
+      "case_quotes_total": 3942.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0230": {
+      "requests": [
+        "CR-0230-HA"
+      ],
+      "sub_requests_total": 17094.0,
+      "case_quotes_total": 17094.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0231": {
+      "requests": [
+        "CR-0231-CP"
+      ],
+      "sub_requests_total": 6170.9,
+      "case_quotes_total": 6170.9,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0232": {
+      "requests": [
+        "CR-0232-SAI"
+      ],
+      "sub_requests_total": 2354.0,
+      "case_quotes_total": 2354.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0233": {
+      "requests": [
+        "CR-0233-PS"
+      ],
+      "sub_requests_total": 3850.0,
+      "case_quotes_total": 3850.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0234": {
+      "requests": [
+        "CR-0234-SE"
+      ],
+      "sub_requests_total": 19197.0,
+      "case_quotes_total": 19197.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0235": {
+      "requests": [
+        "CR-0235-BP"
+      ],
+      "sub_requests_total": 8364.4,
+      "case_quotes_total": 8364.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0236": {
+      "requests": [
+        "CR-0236-CP"
+      ],
+      "sub_requests_total": 2983.2,
+      "case_quotes_total": 2983.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0401": {
+      "requests": [
+        "CR-0401-GC"
+      ],
+      "sub_requests_total": 21412.6,
+      "case_quotes_total": 21412.6,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0402": {
+      "requests": [
+        "CR-0402-PSE"
+      ],
+      "sub_requests_total": 16801.4,
+      "case_quotes_total": 16801.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0403": {
+      "requests": [
+        "CR-0403-HA",
+        "CR-0403-HA-S1"
+      ],
+      "sub_requests_total": 43654.2,
+      "case_quotes_total": 43654.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0404": {
+      "requests": [
+        "CR-0404-ESW"
+      ],
+      "sub_requests_total": 77352.0,
+      "case_quotes_total": 77352.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0405": {
+      "requests": [
+        "CR-0405-EF"
+      ],
+      "sub_requests_total": 14077.8,
+      "case_quotes_total": 14077.8,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0406": {
+      "requests": [
+        "CR-0406-SR"
+      ],
+      "sub_requests_total": 57849.0,
+      "case_quotes_total": 55099.0,
+      "difference": 2750.0,
+      "match": false,
+      "deliberate_mismatch": true,
+      "reason": "Sub's request includes a $2,500 crane pick (plus 10% markup, $2,750 in all) that the GC/CM struck before the CP, because hoisting and crane are already in NSS (contract A Exhibit C). The case's quote is the negotiated amount."
+    },
+    "CP-0407": {
+      "requests": [
+        "CR-0407-CGNG"
+      ],
+      "sub_requests_total": 11990.0,
+      "case_quotes_total": 11990.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0408": {
+      "requests": [
+        "CR-0408-SFP"
+      ],
+      "sub_requests_total": 32634.8,
+      "case_quotes_total": 32634.8,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0409": {
+      "requests": [
+        "CR-0409-PSE"
+      ],
+      "sub_requests_total": 7040.0,
+      "case_quotes_total": 7040.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0413": {
+      "requests": [
+        "CR-0413-NF"
+      ],
+      "sub_requests_total": 39327.2,
+      "case_quotes_total": 39327.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0414": {
+      "requests": [
+        "CR-0414-CGNG"
+      ],
+      "sub_requests_total": 34944.8,
+      "case_quotes_total": 34944.8,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0415": {
+      "requests": [
+        "CR-0415-SE"
+      ],
+      "sub_requests_total": 8243.2,
+      "case_quotes_total": 8243.2,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0501": {
+      "requests": [
+        "CR-0501-RM",
+        "CR-0501-SE"
+      ],
+      "sub_requests_total": 19978.1,
+      "case_quotes_total": 19978.1,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0502": {
+      "requests": [
+        "CR-0502-OS"
+      ],
+      "sub_requests_total": 26147.0,
+      "case_quotes_total": 26147.0,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0503": {
+      "requests": [
+        "CR-0503-CC"
+      ],
+      "sub_requests_total": 52507.4,
+      "case_quotes_total": 52507.4,
+      "difference": 0.0,
+      "match": true
+    },
+    "CP-0504": {
+      "requests": [
+        "CR-0504-EF",
+        "CR-0504-RM"
+      ],
+      "sub_requests_total": 36870.3,
+      "case_quotes_total": 36870.3,
+      "difference": 0.0,
+      "match": true
+    }
+  },
+  "visibility": {
+    "rule": "A sub sees only its own requests; the GC/CM sees all requests sent to it; Owner and Architect see none (they see the GC/CM's proposal).",
+    "by_company": {
+      "owner": [],
+      "architect": [],
+      "gc": [
+        "CR-0225-GE",
+        "CR-0201-CP",
+        "CR-0202-NDH",
+        "CR-0222-SFA",
+        "CR-0223-NDH",
+        "CR-0203-SE",
+        "CR-0226-RM",
+        "CR-0226-SE",
+        "CR-0228-RM",
+        "CR-0204-PSE",
+        "CR-0205-EF",
+        "CR-0229-PS",
+        "CR-0206-EF",
+        "CR-0230-HA",
+        "CR-0401-GC",
+        "CR-0409-PSE",
+        "CR-0402-PSE",
+        "CR-0403-HA",
+        "CR-0403-HA-S1",
+        "CR-0404-ESW",
+        "CR-0405-EF",
+        "CR-0231-CP",
+        "CR-0406-SR",
+        "CR-0415-SE",
+        "CR-0407-CGNG",
+        "CR-0408-SFP",
+        "CR-0232-SAI",
+        "CR-0413-NF",
+        "CR-0414-CGNG",
+        "CR-0208-SFP",
+        "CR-0233-PS",
+        "CR-0501-RM",
+        "CR-0501-SE",
+        "CR-0502-OS",
+        "CR-0209-CP",
+        "CR-0234-SE",
+        "CR-0503-CC",
+        "CR-0504-EF",
+        "CR-0504-RM",
+        "CR-0210-SE",
+        "CR-0235-BP",
+        "CR-0236-CP",
+        "CR-0211-SE",
+        "CR-0212-CA",
+        "CR-0213-SAI",
+        "CR-0214-TC",
+        "CR-0215-EFNG",
+        "CR-0216-SAI",
+        "CR-0218-RM",
+        "CR-0219-CP",
+        "CR-0220-CG",
+        "CR-0221-SE"
+      ],
+      "sub-cascade-plumbing": [
+        "CR-0201-CP",
+        "CR-0231-CP",
+        "CR-0209-CP",
+        "CR-0236-CP",
+        "CR-0219-CP"
+      ],
+      "sub-northwest-door-hardware": [
+        "CR-0202-NDH",
+        "CR-0223-NDH"
+      ],
+      "sub-sound-electric": [
+        "CR-0203-SE",
+        "CR-0226-SE",
+        "CR-0415-SE",
+        "CR-0501-SE",
+        "CR-0234-SE",
+        "CR-0210-SE",
+        "CR-0211-SE",
+        "CR-0221-SE"
+      ],
+      "sub-puget-steel-erectors": [
+        "CR-0204-PSE",
+        "CR-0409-PSE",
+        "CR-0402-PSE"
+      ],
+      "sub-evergreen-framing": [
+        "CR-0205-EF",
+        "CR-0206-EF",
+        "CR-0405-EF",
+        "CR-0504-EF"
+      ],
+      "sub-sentinel-fire-protection": [
+        "CR-0408-SFP",
+        "CR-0208-SFP"
+      ],
+      "sub-clearwater-abatement": [
+        "CR-0212-CA"
+      ],
+      "sub-summit-athletic-interiors": [
+        "CR-0232-SAI",
+        "CR-0213-SAI",
+        "CR-0216-SAI"
+      ],
+      "sub-timberline-casework": [
+        "CR-0214-TC"
+      ],
+      "sub-evergreen-flooring": [
+        "CR-0215-EFNG"
+      ],
+      "sub-rainier-mechanical": [
+        "CR-0226-RM",
+        "CR-0228-RM",
+        "CR-0501-RM",
+        "CR-0504-RM",
+        "CR-0218-RM"
+      ],
+      "sub-clearview-glazing": [
+        "CR-0220-CG"
+      ],
+      "sub-sentinel-fire-alarm": [
+        "CR-0222-SFA"
+      ],
+      "sub-granite-earthworks": [
+        "CR-0225-GE"
+      ],
+      "sub-pacific-specialties": [
+        "CR-0229-PS",
+        "CR-0233-PS"
+      ],
+      "sub-harmony-acoustics": [
+        "CR-0230-HA",
+        "CR-0403-HA",
+        "CR-0403-HA-S1"
+      ],
+      "sub-brightline-painting": [
+        "CR-0235-BP"
+      ],
+      "sub-granite-concrete": [
+        "CR-0401-GC"
+      ],
+      "sub-evergreen-site-works": [
+        "CR-0404-ESW"
+      ],
+      "sub-summit-roofing": [
+        "CR-0406-SR"
+      ],
+      "sub-cascade-glazing": [
+        "CR-0407-CGNG",
+        "CR-0414-CGNG"
+      ],
+      "sub-northwest-floors": [
+        "CR-0413-NF"
+      ],
+      "sub-olympic-structural": [
+        "CR-0502-OS"
+      ],
+      "sub-cascade-coatings": [
+        "CR-0503-CC"
+      ],
+      "sub-cornerstone-flatwork": [],
+      "sub-lakeside-low-voltage": [],
+      "sub-ridgeline-carpentry": [],
+      "sub-northwest-controls": [],
+      "sub-ironwood-structural": []
+    }
+  },
+  "extra_checks": {
+    "markup_above_prime": [
+      {
+        "sub": "sub-sound-electric",
+        "term": "markup_lower_tier",
+        "sub_value": 10,
+        "prime_value": 5
+      },
+      {
+        "sub": "sub-pacific-specialties",
+        "term": "markup_own",
+        "sub_value": 12,
+        "prime_value": 10
+      }
+    ],
+    "design_vs_prime_review_times": [
+      {
+        "item": "submittal review",
+        "design_agreement_days": 21,
+        "prime_contract_days": 14,
+        "prime_clause": "§ 8.2",
+        "design_clause": "§ 3.4.2"
+      },
+      {
+        "item": "resubmittal review",
+        "design_agreement_days": 14,
+        "prime_contract_days": 10,
+        "prime_clause": "§ 8.2",
+        "design_clause": "§ 3.4.2"
+      }
+    ],
+    "schedule": {
+      "baseline_finish": "2021-06-30",
+      "u1_finish": "2021-07-02",
+      "u2_finish": "2021-07-19",
+      "u2_delay_vs_u1_calendar": 17,
+      "u2_delay_vs_u1_workdays": 10,
+      "u2_complete": 34,
+      "u2_in_progress": 3,
+      "u2_activities": 93,
+      "u2_relationships": 146,
+      "bundle_forecasts_checked": 91,
+      "fragnet_status": {
+        "F-0401A": "complete",
+        "F-0402A": "not started"
+      },
+      "delay_alone_CP-0401_calendar": 11,
+      "delay_alone_CP-0402_calendar": 7
+    },
+    "first_tier_firm_also_lower_tier": [
+      {
+        "firm": "Sentinel Fire Protection",
+        "also_lower_tier_under": [
+          "sub-rainier-mechanical"
+        ]
+      }
+    ]
+  }
+}

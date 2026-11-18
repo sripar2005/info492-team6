@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tell your PM what happened · ClauseStream</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<main id="app"><div class="wrap phone"><div class="card sec"><p>Opening…</p></div></div></main>
+<div class="toast" id="toast" hidden></div>
+<script src="/assets/vendor/supabase/supabase.js"></script>
+<script>
+/* The field link: a foreman adds one unverified note for a sub, with no account. The token in the link can only call
+   submit_field (add) and field_link_info (the project and company names); it can't read anything else. */
+(function () {
+  'use strict';
+  var el = document.getElementById('app'), token = new URLSearchParams(location.search).get('t') || '';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function msg(h, p) { el.innerHTML = '<div class="wrap phone"><div class="card sec"><h2>' + esc(h) + '</h2><p class="fine">' + esc(p) + '</p></div></div>'; }
+  fetch('/api/config').then(function (r) { return r.ok ? r.json() : { configured: false }; }).catch(function () { return { configured: false }; }).then(function (c) {
+    if (!c.configured || !window.supabase) return msg('Not available here', 'This copy of the site isn’t connected to the project database.');
+    var sb = window.supabase.createClient(c.url, c.anonKey, { auth: { persistSession: false } });
+    sb.rpc('field_link_info', { p_token: token }).then(function (r) {
+      var info = r.data && r.data[0];
+      if (!info) return msg('This link isn’t active', 'Ask your project manager for a new one.');
+      el.innerHTML = '<div class="wrap phone"><div class="card sec"><span class="eyebrow">' + esc(info.project) + '</span><h2 style="margin:6px 0 2px">' + esc(info.company) + '</h2><p class="fine" style="margin:0 0 14px">Tell your PM what happened. It goes to ' + esc(info.company) + ' only, unverified until they confirm it.</p>' +
+        '<form id="ff"><div class="fd"><label><span>What happened?</span></label><div class="inp" style="height:auto"><textarea id="fbody" rows="6" required minlength="3"></textarea></div></div>' +
+        '<div class="fd" style="margin-top:10px"><label><span>Photos (optional, up to 4)</span></label><input id="fphotos" type="file" accept="image/*" multiple></div>' +
+        '<div class="fd" style="margin-top:10px"><label><span>Your name</span></label><div class="inp"><input id="fname" autocomplete="name"></div></div>' +
+        '<button class="btn primary" type="submit" style="margin-top:14px;width:100%">Send to ' + esc(info.company) + '</button></form><p class="fine" style="margin:12px 0 0">Typing and photos. Your phone keyboard’s own dictation works too.</p></div></div>';
+      document.getElementById('ff').addEventListener('submit', function (e) {
+        e.preventDefault(); var b = e.target.querySelector('button'); b.disabled = true;
+        var files = [].slice.call(document.getElementById('fphotos').files || []).filter(function (f) { return /^image\//.test(f.type) && f.size < 10e6; }).slice(0, 4);
+        Promise.all(files.map(function (f, i) { var path = 'field/' + token + '/' + Date.now() + '-' + i + '-' + f.name.replace(/[^\w.-]+/g, '_'); return sb.storage.from('documents').upload(path, f).then(function (u) { return u.error ? null : path; }); }))
+        .then(function (paths) { return sb.rpc('submit_field', { p_token: token, p_body: document.getElementById('fbody').value.trim(), p_name: document.getElementById('fname').value.trim(), p_photos: paths.filter(Boolean) }); }).then(function (r2) {
+          if (r2.error) { b.disabled = false; var t = document.getElementById('toast'); t.textContent = r2.error.message; t.hidden = false; setTimeout(function () { t.hidden = true; }, 4000); return; }
+          msg('Sent', info.company + ' will see it in their inbox.');
+        });
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
