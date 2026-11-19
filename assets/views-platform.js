@@ -33,7 +33,11 @@
   function sheet(no, title, body) {
     return '<div class="wrap"><div class="ph1"><div><span class="eyebrow">' + esc(no) + (ctx() ? ' · ' + esc(ctx().project.name) : '') + '</span><h1 style="margin-top:8px">' + esc(title) + '</h1></div></div>' + body + '</div>';
   }
-  function badge(status) { return '<span class="badge' + (status === 'approved' ? ' ok' : status === 'returned' || status === 'rejected' ? ' fail' : '') + '">' + esc(STATUS[status] || status) + '</span>'; }
+  // Markup colors: green = approved, red = a problem, amber = your turn. (Blue is kept for what the AI wrote.)
+  function badge(status, c) {
+    var turn = c && OPEN[status] && c.holder && ctx() && c.holder === ctx().viewAs;
+    return '<span class="badge' + (status === 'approved' ? ' ok' : status === 'returned' || status === 'rejected' ? ' fail' : turn ? ' turn' : '') + '">' + esc(STATUS[status] || status) + (turn ? ' · your turn' : '') + '</span>';
+  }
   function primeTerm(key) { return P.term(P.prime(), key); }
   function primeClause(key) { var k = P.prime(), t = k && k.terms[key]; return t ? t.clause : ''; }
 
@@ -112,6 +116,7 @@
       if (rd) { var start = String(sent.created_at).slice(0, 10), waited = R.daysBetween(start, today()), dueR = R.addDays(start, +rd);
         out.push({ what: 'Review', text: 'day ' + waited + ' of ' + rd + (waited > rd ? ', ' + (waited - rd) + ' days overdue' : ''), clause: primeClause('review_days'), due: dueR, bad: waited > rd, waited: waited }); }
     }
+    out.forEach(function (k) { if (!k.bad && k.due) { var left = R.daysBetween(today(), k.due); if (left >= 0 && left <= 3) k.soon = true; } });
     return out;
   }
 
@@ -144,7 +149,7 @@
         var body = '<p style="margin:-6px 0 18px;color:var(--muted)">Viewing as <b>' + esc(name(me())) + '</b> (' + esc(P.ROLE[role()]) + '). ' + todo.length + ' waiting on you.' + (P.isSample() ? ' Switch who you’re viewing as in the band above to see what each party sees.' : '') + '</p>' +
           '<div class="cols" style="--cols:minmax(0,1.5fr) minmax(0,1fr)"><div>' +
           (fieldRows ? '<div class="card sec" style="margin-bottom:16px"><div class="sec-h"><h3>From your field link (' + subs.length + ')</h3><span class="tagr chk">unverified</span></div><ul class="qual">' + fieldRows + '</ul><p class="fine" style="margin:8px 0 0">Nothing from the field reaches the GC/CM until you confirm it.</p></div>' : '') +
-          '<div class="card tbl-wrap">' + (todo.length ? '<table class="tbl"><thead><tr><th>Waiting on you</th><th>Status</th><th>Next</th></tr></thead><tbody>' + waitRows + '</tbody></table>' : '<p style="padding:18px;margin:0">Nothing is waiting on you. <a class="link" href="#changes">See all changes</a></p>') + '</div></div>' +
+          '<div class="card tbl-wrap">' + (todo.length ? '<table class="tbl turn"><thead><tr><th>Waiting on you</th><th>Status</th><th>Next</th></tr></thead><tbody>' + waitRows + '</tbody></table>' : '<p style="padding:18px;margin:0">Nothing is waiting on you. <a class="link" href="#changes">See all changes</a></p>') + '</div></div>' +
           '<div><div class="card sec"><div class="sec-h"><h3>Clocks</h3><span class="fine">from the contracts</span></div>' + (dl.length ? '<ul class="clocks">' + dl.slice(0, 7).map(function (x) { return '<li class="' + (x.k.bad ? 'bad' : '') + '"><button class="link" data-copen="' + x.c.id + '">' + esc(x.c.number) + '</button> ' + esc(x.k.what) + ' ' + esc(x.k.text) + ' <span class="fine">' + esc(x.k.clause) + '</span></li>'; }).join('') + '</ul>' : '<p class="fine" style="margin:0">No open clocks.</p>') + '</div>' +
           '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Money</h3></div><div class="tblock"><div><span>Pending</span><b>' + money(sum(pend)) + '</b></div><div><span>Approved</span><b>' + money(sum(appr)) + '</b></div><div><span>Returned</span><b>' + ret.length + '</b></div>' +
           (role() !== 'sub' && rate.value ? '<div><span>Delay exposure</span><b>' + days + ' days × ' + money(rate.value) + '</b></div>' : '') + '</div>' + (role() !== 'sub' && rate.value ? '<p class="fine" style="margin:8px 0 0">Days claimed on open proposals, at ' + esc(rate.label) + '. Not a finding: each claim still needs its schedule analysis.</p>' : '') + '</div>' +
@@ -160,7 +165,7 @@
       loadChanges().then(function (ch) {
         var filt = store('cs_chfilter') || 'all', rows = ch.filter(function (c) { return filt === 'mine' ? !!nextStep(c) : filt === 'open' ? OPEN[c.status] : true; });
         var tr = rows.map(function (c) {
-          return '<tr data-copen="' + c.id + '"><td><span class="t">' + esc(c.title) + '</span><span class="id">' + esc(c.number) + ' · ' + (c.tier === 'sub_request' ? 'Sub request' : 'Proposal') + '</span></td><td>' + esc(name(c.from_company)) + '</td><td>' + badge(c.status) + '</td><td>' + (OPEN[c.status] && c.holder ? esc(name(c.holder)) : '—') + '</td><td class="r">' + money(c.amount) + '</td><td class="r">' + (c.days ? c.days + ' d' : '—') + '</td></tr>';
+          return '<tr data-copen="' + c.id + '"><td><span class="t">' + esc(c.title) + '</span><span class="id">' + esc(c.number) + ' · ' + (c.tier === 'sub_request' ? 'Sub request' : 'Proposal') + '</span></td><td>' + esc(name(c.from_company)) + '</td><td>' + badge(c.status, c) + '</td><td>' + (OPEN[c.status] && c.holder ? esc(name(c.holder)) : '—') + '</td><td class="r">' + money(c.amount) + '</td><td class="r">' + (c.days ? c.days + ' d' : '—') + '</td></tr>';
         }).join('');
         var canRaise = role() === 'sub' || role() === 'gc';
         app.innerHTML = sheet('01 Changes', 'Changes', '<div class="pills" style="margin:-6px 0 14px">' + [['all', 'All you can see (' + ch.length + ')'], ['open', 'Open'], ['mine', 'Waiting on you']].map(function (f) { return '<button class="pill" data-chf="' + f[0] + '" aria-pressed="' + (filt === f[0]) + '">' + f[1] + '</button>'; }).join('') + '</div>' +
@@ -222,8 +227,8 @@
     var c = T.c, v = me(), r = role(), evs = T.evs;
     var st = stagesFor(c), now = st.findIndex(function (s) { return !s[1]; });
     var rail = '<ol class="stages">' + st.map(function (s, i) { return '<li class="' + (s[1] ? 'done' : i === now ? 'now' : 'todo') + '"><span class="dot"></span>' + esc(s[0]) + '</li>'; }).join('') + '</ol>';
-    var cl = clocks(c, evs).map(function (k) { return '<span class="clock' + (k.bad ? ' bad' : '') + '">' + esc(k.what) + ' ' + esc(k.text) + ' <span class="fine">' + esc(k.clause) + '</span></span>'; }).join('');
-    var head = '<div class="thead"><div>' + badge(c.status) + (OPEN[c.status] && c.holder ? ' <span class="fine">with ' + esc(name(c.holder)) + '</span>' : '') + '</div><div class="fine">' + (c.tier === 'sub_request' ? 'Sub request from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company)) : 'Proposal from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company))) + ' · ' + money(c.amount) + (c.days ? ' · ' + c.days + ' days claimed' : '') + '</div>' + (cl ? '<div class="clocks-row">' + cl + '</div>' : '') + '</div>';
+    var cl = clocks(c, evs).map(function (k) { return '<span class="clock' + (k.bad ? ' bad' : k.soon ? ' soon' : '') + '">' + esc(k.what) + ' ' + esc(k.text) + ' <span class="fine">' + esc(k.clause) + '</span></span>'; }).join('');
+    var head = '<div class="thead"><div>' + badge(c.status, c) + (OPEN[c.status] && c.holder ? ' <span class="fine">with ' + esc(name(c.holder)) + '</span>' : '') + '</div><div class="fine">' + (c.tier === 'sub_request' ? 'Sub request from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company)) : 'Proposal from ' + esc(name(c.from_company)) + ' to ' + esc(name(c.to_company))) + ' · ' + money(c.amount) + (c.days ? ' · ' + c.days + ' days claimed' : '') + '</div>' + (cl ? '<div class="clocks-row">' + cl + '</div>' : '') + '</div>';
     var body = head + '<div class="tgrid"><div class="card sec">' + rail + '</div><div>' + stepPanel() + timePanel() + '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Activity on this change</h3><span class="fine">permanent</span></div>' + eventsHtml(evs) + '</div></div>' +
       '<div><div id="tlinked">' + linkedPanel() + '</div><div class="card sec" id="tevidence" style="margin-top:16px"><div class="sec-h"><h3>Evidence, cited</h3></div>' + trailHtml(T.trail) + '</div></div></div>';
     document.body.dataset.change = c.number; // the guide reads which change is on screen
@@ -235,7 +240,7 @@
       ((c.meta || {}).lines && c.meta.lines.length ? '<table class="tbl" style="margin-top:10px"><tbody>' + c.meta.lines.map(function (l) { return '<tr><td>' + esc(l.desc) + '</td><td class="r">' + money(l.amount) + '</td></tr>'; }).join('') + '</tbody></table>' : '') +
       (function () { var f = subFlags(c); return f.length ? '<div class="sec-h" style="margin-top:14px"><h3>Checks on this request</h3><span class="fine">code</span></div><ul class="plain">' + f.map(function (x) { return '<li class="flagline">' + esc(x) + '</li>'; }).join('') + '</ul>' : (c.meta || {}).lines && c.meta.lines.length ? '<p class="fine" style="margin:10px 0 0">Lines add up, and markups are within the subcontract and the prime contract.</p>' : ''; })() + '</div>';
     var reqs = (c.meta || {}).requests || [];
-    var visible = T.kids.map(function (k) { return '<li><button class="link" data-copen="' + k.id + '">' + esc(k.number) + '</button> ' + esc(name(k.from_company)) + ' <b>' + money(k.amount) + '</b> ' + badge(k.status) + '</li>'; }).join('');
+    var visible = T.kids.map(function (k) { return '<li><button class="link" data-copen="' + k.id + '">' + esc(k.number) + '</button> ' + esc(name(k.from_company)) + ' <b>' + money(k.amount) + '</b> ' + badge(k.status, k) + '</li>'; }).join('');
     var summary = !visible && reqs.length ? reqs.map(function (x) { return '<li>' + esc(x.number) + ' ' + esc(x.company) + ' <b>' + money(x.amount) + '</b></li>'; }).join('') : '';
     return '<div class="card sec"><div class="sec-h"><h3>Sub requests in it</h3></div>' + (visible || summary ? '<ul class="plain">' + (visible || summary) + '</ul>' + (summary ? '<p class="fine" style="margin:8px 0 0">Numbers and amounts as the GC/CM listed them. The subs’ own lines stay between each sub and the GC/CM.</p>' : '') : '<p class="fine" style="margin:0">None yet.</p>') + '</div>';
   }
@@ -470,8 +475,8 @@
       (d.ai && d.ai.inputs ? '<dt>Inputs</dt><dd>' + esc(String(d.ai.inputs)) + ' record entries offered</dd>' : '') + '</dl></div>';
   }
   function aiModal(d, readOnly) {
-    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li>' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '">' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (' + esc(x.missing || 'not in the record') + ')</span>') + '</li>'; }).join('') + '</ol>';
-    var body = '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div>' + (readOnly ? '<pre class="draft">' + esc(d.text) + '</pre>' : '<div class="inp" style="height:auto"><textarea id="aidraft" rows="14">' + esc(d.text) + '</textarea></div>') +
+    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li class="' + (x.doc ? 'ok' : 'miss') + '">' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '">' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (' + esc(x.missing || 'not in the record') + ')</span>') + '</li>'; }).join('') + '</ol>';
+    var body = '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div>' + (readOnly ? '<pre class="draft' + (d.ai ? ' ai' : '') + '">' + esc(d.text) + '</pre>' : '<div class="inp' + (d.ai ? ' ai' : '') + '" style="height:auto"><textarea id="aidraft" rows="14">' + esc(d.text) + '</textarea></div>') +
       '<div class="sec-h" style="margin-top:12px"><h3>Citations</h3></div>' + cites + '</div><div>' + receiptHtml(d) + '</div></div>';
     if (readOnly) return modal('AI step detail', 'Receipt', body, []);
     modal(d.ai ? 'AI draft' : 'Draft from the record', 'Step 3 · ' + T.c.number, body, [
@@ -699,7 +704,7 @@
           : '<div class="card sec"><p class="fine" style="margin:0">The schedule of values isn’t shared with ' + esc(name(me())) + '. Cost per day is between the owner and the GC/CM.</p></div>';
         app.innerHTML = sheet('04 Schedule', 'Schedule and delay', '<div class="cols" style="--cols:minmax(0,1.5fr) minmax(0,1fr)"><div><div class="card tbl-wrap"><table class="tbl"><thead><tr><th>Version</th><th>Data date</th><th>Finish</th><th>After changes</th><th>Activities</th></tr></thead><tbody>' + (vrows || '<tr><td colspan="5">No schedule yet.</td></tr>') + '</tbody></table></div>' +
           '<div class="acts" style="margin-top:12px"><button class="btn" data-schadd="1">Add an update</button><span class="fine">P6 .xer, Microsoft Project .xml, Excel or CSV. Each update can name the changes it absorbs.</span></div>' +
-          '<div class="card tbl-wrap" style="margin-top:16px"><table class="tbl"><thead><tr><th>Change with time</th><th class="r">Days claimed</th><th>Status</th></tr></thead><tbody>' + (timed.map(function (c) { return '<tr data-copen="' + c.id + '"><td><span class="t">' + esc(c.title) + '</span><span class="id">' + esc(c.number) + '</span></td><td class="r">' + c.days + '</td><td>' + badge(c.status) + '</td></tr>'; }).join('') || '<tr><td colspan="3">None you can see.</td></tr>') + '</tbody></table></div></div>' +
+          '<div class="card tbl-wrap" style="margin-top:16px"><table class="tbl"><thead><tr><th>Change with time</th><th class="r">Days claimed</th><th>Status</th></tr></thead><tbody>' + (timed.map(function (c) { return '<tr data-copen="' + c.id + '"><td><span class="t">' + esc(c.title) + '</span><span class="id">' + esc(c.number) + '</span></td><td class="r">' + c.days + '</td><td>' + badge(c.status, c) + '</td></tr>'; }).join('') || '<tr><td colspan="3">None you can see.</td></tr>') + '</tbody></table></div></div>' +
           '<div>' + money2 + '<div class="card sec" style="margin-top:16px"><p class="fine" style="margin:0">A delay is paid only if the change’s work is on the critical path (' + esc(primeClause('extension_requires_critical_path') || 'see the contract') + '). Open a change with days claimed to analyze it against the latest version.</p></div></div></div>');
       }).catch(fail);
     });

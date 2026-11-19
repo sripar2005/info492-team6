@@ -395,8 +395,10 @@ h1, h2, h3, p, li, .banner, .fl b { text-wrap: pretty; }
   --bg: #FFFFFF; --surface: #FFFFFF; --surface-2: #F4F4F4; --surface-3: #E9E9E9; --paper: #FFFFFF;
   --line: #000000; --line-2: #000000; --text: #000000; --muted: #3A3A3A; --faint: #616161;
   --accent: #000000; --accent-ink: #FFFFFF; --accent-soft: rgba(0,0,0,.06);
-  --red: #C8102E; --red-soft: rgba(200,16,46,.07); --amber: #000000; --amber-soft: #F1F1F1;
-  --green: #000000; --green-soft: #F1F1F1; --blue: #5E5E5E;
+  /* Markup colors: each means one thing. Red = a problem or late. Amber = your turn or due soon.
+     Green = approved or verified. Blueprint blue = written by AI. Everything else stays black and white. */
+  --red: #C8102E; --red-soft: #FCEDEF; --amber: #8A6100; --amber-soft: #FFF4CC; --amber-fill: #F2B705; --amber-ink: #3D2B00;
+  --green: #1E6B2A; --green-soft: #E8F3E9; --blue: #1F4E9C; --blue-soft: #EEF3FB;
   --sans: "Barlow", "Helvetica Neue", Arial, sans-serif; --mono: "Barlow Condensed", "Arial Narrow", sans-serif;
   --r: 0px; --r-lg: 0px; --table: #000000; --grid-a: #E6E6E6; --grid-b: #F3F3F3;
   color-scheme: light;
@@ -736,3 +738,27 @@ ol.steps .flag { display: block; margin-top: 4px; color: var(--red); font-weight
   .guide.min { left: auto; }
   body.has-guide #app { padding-bottom: 48vh; }
 }
+
+/* ---------- Markup colors (see the variables at the top of the light theme) ---------- */
+/* Red: a problem or late */
+.badge.fail { color: #FFFFFF; background: var(--red); border-color: var(--red); }
+.clock.bad { background: var(--red); color: #FFFFFF; border-color: var(--red); } .clock.bad .fine { color: #FFFFFF; }
+/* Amber: your turn, due soon, a person needs to look */
+.badge.turn { background: var(--amber-fill); border-color: var(--amber); color: var(--amber-ink); }
+.clock.soon { background: var(--amber-soft); border-color: var(--amber); color: var(--amber-ink); }
+.clocks li.soon { color: var(--amber-ink); background: var(--amber-soft); box-shadow: -6px 0 0 var(--amber-soft), 6px 0 0 var(--amber-soft); }
+.tbl.turn tbody tr td:first-child { box-shadow: inset 4px 0 0 var(--amber-fill); }
+.badge.person, .tagr.chk { color: var(--amber-ink); background: var(--amber-soft); border-color: var(--amber); }
+.stages li.now { color: var(--amber-ink); } .stages li.now .dot { border-color: var(--amber); background: var(--amber-fill); box-shadow: none; }
+.g-target { outline-color: var(--amber-fill) !important; box-shadow: 0 0 0 9px rgba(242, 183, 5, .25) !important; }
+/* Green: approved, verified, passed */
+.badge.ok, .tagr.ok { color: var(--green); background: var(--green-soft); border-color: var(--green); }
+.stages li.done .dot { background: var(--green); border-color: var(--green); }
+.cites li.ok::marker { color: var(--green); }
+.passed summary { color: var(--green); }
+/* Blueprint blue: written by AI */
+pre.draft.ai, .inp.ai { border-color: var(--blue); border-left: 4px solid var(--blue); background: var(--blue-soft); }
+.inp.ai textarea { background: transparent; }
+.tagr.ai, .audit .who.ai, .who.ai { color: var(--blue); background: var(--blue-soft); border: 1px solid var(--blue); }
+.receipt .sec-h h3 { color: var(--blue); }
+.cites li.ok .link { color: var(--blue); }
