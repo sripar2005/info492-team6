@@ -752,6 +752,7 @@
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.body.classList.toggle('v-check', navKey === 'check' || v === 'contract' || v === 'contract-confirm');
     document.body.classList.toggle('v-field', v === 'field');
+    document.body.classList.toggle('v-start', v === 'start');
     var V = window.CSViews || {};
     if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'upload') viewUpload(); else go('home');
     if (v !== 'confirm') window.scrollTo(0, 0);

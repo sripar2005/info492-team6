@@ -762,3 +762,13 @@ pre.draft.ai, .inp.ai { border-color: var(--blue); border-left: 4px solid var(--
 .tagr.ai, .audit .who.ai, .who.ai { color: var(--blue); background: var(--blue-soft); border: 1px solid var(--blue); }
 .receipt .sec-h h3 { color: var(--blue); }
 .cites li.ok .link { color: var(--blue); }
+/* Phones: the eight tabs sit in a 4 x 2 grid, so none is hidden off the side of the screen. */
+@media (max-width: 760px) {
+  .sheets-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; overflow: visible; padding: 10px 10px 0; }
+  .sheets a { height: auto; min-height: 38px; padding: 7px 6px; gap: 5px; justify-content: center; align-items: center; border-bottom: 1.5px solid #4A4A4A; font-size: 13px; }
+  .sheets a span { display: inline; } .sheets a[data-nav="home"] span { display: none; }
+  .sheets a[aria-current] { height: auto; } .sheets a.quick { margin-left: 0; }
+}
+/* The quick check's contract chip only shows on the quick check. The getting-started screen shows only its choices. */
+body:not(.v-check) #contractBtn { display: none; }
+body.v-start .sheets, body.v-start #modeband { display: none; }

@@ -21,7 +21,7 @@
   'use strict';
   var el = document.getElementById('app'), token = new URLSearchParams(location.search).get('t') || '';
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function msg(h, p) { el.innerHTML = '<div class="wrap phone"><div class="card sec"><h2>' + esc(h) + '</h2><p class="fine">' + esc(p) + '</p></div></div>'; }
+  function msg(h, p) { el.innerHTML = '<div class="wrap phone"><div class="card sec"><h2>' + esc(h) + '</h2><p class="fine">' + esc(p) + '</p><p class="fine" style="margin-top:12px"><a class="link" href="/">About ClauseStream</a></p></div></div>'; }
   fetch('/api/config').then(function (r) { return r.ok ? r.json() : { configured: false }; }).catch(function () { return { configured: false }; }).then(function (c) {
     if (!c.configured || !window.supabase) return msg('Not available here', 'This copy of the site isn’t connected to the project database.');
     var sb = window.supabase.createClient(c.url, c.anonKey, { auth: { persistSession: false } });
