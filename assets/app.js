@@ -22,12 +22,12 @@
   function num(v) { var x = parseFloat(String(v).replace(/[$,\s%]/g, '')); return isFinite(x) ? x : 0; }
   function fmt(x) { return x === 0 || x ? String(x) : ''; }
   // Revision triangle, drawn the way a delta tag is on a drawing: double outline, number inside.
-  // kind: 'fail' red filled, 'person' black outline, 'nc' grey outline.
+  // kind: 'fail' red filled, 'person' amber outline (a person needs to look), 'nc' grey outline.
   function tag(n, kind, size) {
     size = size || 24; var w = size, h = Math.round(size * 0.88), i = size >= 22 ? 2.6 : 2.1, o = 0.8, fs = Math.round(size * 0.48);
     var outer = 'M' + (w / 2) + ' ' + o + ' L' + (w - o) + ' ' + (h - o) + ' L' + o + ' ' + (h - o) + ' Z';
     var inner = 'M' + (w / 2) + ' ' + (o + i * 1.9).toFixed(1) + ' L' + (w - o - i * 1.7).toFixed(1) + ' ' + (h - o - i).toFixed(1) + ' L' + (o + i * 1.7).toFixed(1) + ' ' + (h - o - i).toFixed(1) + ' Z';
-    var ink = kind === 'fail' ? '#C8102E' : kind === 'nc' ? '#7A7A7A' : '#000000', fill = kind === 'fail' ? ink : '#FFFFFF', txt = kind === 'fail' ? '#FFFFFF' : ink;
+    var ink = kind === 'fail' ? '#C8102E' : kind === 'nc' ? '#7A7A7A' : '#8A6100', fill = kind === 'fail' ? ink : '#FFFFFF', txt = kind === 'fail' ? '#FFFFFF' : ink;
     return '<svg class="dtag" role="img" aria-label="' + (kind === 'fail' ? 'Must fix ' : kind === 'person' ? 'For a person, ' : 'Not checked, ') + n + '" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
       '<path d="' + outer + '" fill="' + fill + '" stroke="' + ink + '" stroke-width="1.6"/><path d="' + inner + '" fill="none" stroke="' + (kind === 'fail' ? '#FFFFFF' : ink) + '" stroke-width="0.9"' + (kind === 'nc' ? ' stroke-dasharray="2 1.5"' : '') + '/>' +
       '<text x="' + (w / 2) + '" y="' + (h - o - i - 2.2).toFixed(1) + '" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="' + fs + '" fill="' + txt + '">' + n + '</text></svg>';
@@ -233,7 +233,7 @@
     for (i = 0; i < v.n; i++) { a = v.s * 0.62; d += ' a' + a + ' ' + a + ' 0 0 1 0 ' + (-v.s).toFixed(1); }
     return d + ' Z';
   }
-  var COLORS = { fail: '#C8102E', person: '#000000', nc: '#7A7A7A' };
+  var COLORS = { fail: '#C8102E', person: '#B88700', nc: '#7A7A7A' };
   // Clouds go on a vellum layer over the drawing. They plot on once per render; a resize redraws them still.
   function drawClouds(plot) {
     document.querySelectorAll('.paper').forEach(function (paper) {
@@ -752,6 +752,7 @@
     document.querySelectorAll('[data-nav]').forEach(function (a) { var on = a.dataset.nav === navKey; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.body.classList.toggle('v-check', navKey === 'check' || v === 'contract' || v === 'contract-confirm');
     document.body.classList.toggle('v-field', v === 'field');
+    document.body.classList.toggle('v-start', v === 'start');
     var V = window.CSViews || {};
     if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'upload') viewUpload(); else go('home');
     if (v !== 'confirm') window.scrollTo(0, 0);

@@ -51,6 +51,7 @@ node tools/rules_test.js              # who sees what, in the browser stand-in, 
 node tools/platform_test.js           # flow-down gaps, cost per day, roll-ups, visibility vs the helper's answer key, 107 checks
 bash tools/db_test.sh                 # the same visibility scenario on a real Postgres with the migration
 python3 tools/guide_test.py           # all four sample guides end to end, in Chrome (serve the site on :8765 first)
+python3 tools/nav_audit.py            # navigation audit: every page and link, every app screen for all four parties, every control (~40 min)
 node tools/extract_score.js           # PDF reader on the sample PDFs (needs Ollama)
 ```
 
