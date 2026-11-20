@@ -1,0 +1,279 @@
+{
+ "model": "llama3.1:8b",
+ "project": "illinois-idot-materials-lab",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T01:08:23Z",
+ "rows": [
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:1",
+   "question": "Page 4 of the RFP states submittals will only be accepted via e-Builder, however page 6, item 3 states to return original and copies with the envelope clearly labeled, and there are various references to double sided printing and 3 ring binder requests. Please confirm how our proposal should be submitted.",
+   "official_answer": "Section 00 42 10.1.3 will be revised by Amendment to more accurately reflect the submittal requirements for e-Builder.",
+   "discipline": null,
+   "retrieved": [
+    "ff01a77248",
+    "0d2e5f75fb",
+    "0e4f2632d4",
+    "fcefd4a659",
+    "1851085d60",
+    "3ea629f113"
+   ],
+   "prompt_sha": "9a969a3b0c35",
+   "output": {
+    "decision": "no",
+    "answer": "Hand-carried proposals will not be accepted. Please submit your proposal electronically via CDB's e-Builder Bidding Module.",
+    "citations": [
+     {
+      "piece": "0e4f2632d4",
+      "quote": "HAND CARRIED PROPOSALS: Hand Carried Proposals WILL NOT be accepted."
+     },
+     {
+      "piece": "0e4f2632d4",
+      "quote": "A. Phases I and II: Offerors must submit one (1) electronic copy via CDB\u2019s e-Builder Bidding Module for this specific project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 206.3,
+   "eval_count": 150,
+   "prompt_eval_count": 2270
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:2",
+   "question": "If the proposal is to be submitted via e-builder, can you provide additional information on where we access the link? The RFP states the link will be on the website for the project, but we are not seeing a link.",
+   "official_answer": "Link has been posted to the website.",
+   "discipline": null,
+   "retrieved": [
+    "0e4f2632d4",
+    "7ba2de9995",
+    "ff32e50613",
+    "cf263b4a0e",
+    "1851085d60",
+    "661d825405"
+   ],
+   "prompt_sha": "6a9869fb42c4",
+   "output": {
+    "decision": "yes",
+    "answer": "The link to access the e-builder proposal submission is on the CDB website, specifically under the Design-Build section of the Illinois Procurement Bulletin.",
+    "citations": [
+     {
+      "piece": "0e4f2632d4",
+      "quote": "All responses to inquiries, questions or requests for clarifications will be published under the Design-Build section of CDB\u2019s volume of the Illinois Procurement Bulletin located on the CDB website at https://cdb.illinois.gov/procurement/design-buildprojects.html."
+     },
+     {
+      "piece": "0e4f2632d4",
+      "quote": "A. Phases I and II: Offerors must submit one (1) electronic copy via CDB\u2019s e-Builder Bidding Module for this specific project. The portal can be accessed via the \u201cSUBMIT PROPOSAL/QUALIFICATIONS\u201d link on the webpage for the project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 207.1,
+   "eval_count": 215,
+   "prompt_eval_count": 2266
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:3",
+   "question": "If a firm is pre-qualified registrant with IL CDB/IPG, is it still required for firm to provide the Standard Business Terms and Conditions and Standard Certifications, Financial Disclosures, and Illinois State Board of Elections Certificate?",
+   "official_answer": "Yes. This will need to be included in Section 1- General Documents for each firm.",
+   "discipline": null,
+   "retrieved": [
+    "c45ab3c5c0",
+    "65f6b24583",
+    "3ea629f113",
+    "fbe4986079",
+    "64fdeee6a9",
+    "4b2cbc320b"
+   ],
+   "prompt_sha": "44dba34b019c",
+   "output": {
+    "decision": "no",
+    "answer": "If a firm is pre-qualified registrant with IL CDB/IPG, it is not required to provide the Standard Business Terms and Conditions and Standard Certifications, Financial Disclosures, and Illinois State Board of Elections Certificate.",
+    "citations": [
+     {
+      "piece": "c45ab3c5c0",
+      "quote": "2) For each firm identified on the DB PTF include in this section of your submittal the following: o Standard Business Terms and Conditions and Standard Certifications o Illinois State Board of Elections Certification o Financial Disclosures and Conflicts of Interest."
+     },
+     {
+      "piece": "c45ab3c5c0",
+      "quote": "Failure to submit the Financial Disclosures and Conflicts of Interest with the submittal will be a material deficiency and the submittal will be rejected."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 211.1,
+   "eval_count": 200,
+   "prompt_eval_count": 2355
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:4",
+   "question": "Do the projects submitted in Section 2 Design-Build Entity Qualifications need to be the same as the projects listed in Section 3 Technical Capability, or can they be different?",
+   "official_answer": "They may be the same but they are not required to be.",
+   "discipline": null,
+   "retrieved": [
+    "1c5e7bec84",
+    "ff32e50613",
+    "010793d8b1",
+    "65f6b24583",
+    "9bb5eb9c24",
+    "463f03872a"
+   ],
+   "prompt_sha": "9924878999c6",
+   "output": {
+    "decision": "no",
+    "answer": "The projects submitted in Section 2 Design-Build Entity Qualifications and Section 3 Technical Capability must be the same.",
+    "citations": [
+     {
+      "piece": "1c5e7bec84",
+      "quote": "References: Offerors shall complete in detail the Design-Build Entity Qualifications Form (DBQ) listing a minimum of five (5), maximum of seven (7) contracts (complete or substantially complete) to be used for reference and evaluation purposes."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 166.4,
+   "eval_count": 129,
+   "prompt_eval_count": 2124
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:5",
+   "question": "If our team has relevant past performance experience to show, do we still need to respond to question 5 on page 11 of the RFP?",
+   "official_answer": "No",
+   "discipline": null,
+   "retrieved": [
+    "412e67d8fa",
+    "010793d8b1",
+    "d876755975",
+    "c64119f57a",
+    "c011cc7291",
+    "566c4b6971"
+   ],
+   "prompt_sha": "73dcbb56e320",
+   "output": {
+    "decision": "no",
+    "answer": "If your team has relevant past performance experience to show, you do not need to respond to question 5 on page 11 of the RFP.",
+    "citations": [
+     {
+      "piece": "010793d8b1",
+      "quote": "Preference will be given to experience with current firm. However, if experience with current firm is limited, experience with previous firms will be considered."
+     },
+     {
+      "piece": "c64119f57a",
+      "quote": "The CDB may take into account past performance information regarding predecessor companies, key personnel who have relevant experience or subcontractors that will perform major or critical aspects of the requirement when such information is relevant to this project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 179.3,
+   "eval_count": 170,
+   "prompt_eval_count": 2113
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:6",
+   "question": "Section 00 21 16, Item 1H states, \u201cThe designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline. CDB does not prequalify the DB entity separately.\u201d Until the design is progressed, it is very difficult to determine the Plumbing, Heating, Ventilation, and Electrical Subcontracts that will have the proper experience, necessary resources, and provide the most competitive pricing to complete the work. We believe it will provide the best value to CDB and IDOT to allow subcontractors to be prequalified prior to the phase II submission on November 16, 2023. Please confirm this is acceptable.",
+   "official_answer": "Any subconsultant or subcontractor that is required to be prequalified must be prequalified at the time of submittal if they are identified in the submittal. Including a subconsultant or subcontractor that is required to be prequalified but that is not prequalified would be considered a material deficiency.",
+   "discipline": null,
+   "retrieved": [
+    "3ea629f113",
+    "7ba2de9995",
+    "1c5e7bec84",
+    "4b2cbc320b",
+    "673ea90231",
+    "a73263af56"
+   ],
+   "prompt_sha": "f59eb6f193f4",
+   "output": {
+    "decision": "no",
+    "answer": "Prequalification of subcontractors is not required before Phase II submission on November 16, 2023.",
+    "citations": [
+     {
+      "piece": "3ea629f113",
+      "quote": "The designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline."
+     },
+     {
+      "piece": "673ea90231",
+      "quote": "The designers, performing licensed design services, and meeting other certification and licensing requirements specified in the request for proposal."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 199.2,
+   "eval_count": 165,
+   "prompt_eval_count": 2388
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:7",
+   "question": "Please confirm the Design-Build Contract will be awarded as a single prime contract, with all subcontractors working for the contractor.",
+   "official_answer": "CDB does not use Multi-Prime contracts for Design-Build projects.",
+   "discipline": null,
+   "retrieved": [
+    "3ea629f113",
+    "77d32a516b",
+    "673ea90231",
+    "1c5e7bec84",
+    "a73263af56",
+    "661d825405"
+   ],
+   "prompt_sha": "49d0e375363c",
+   "output": {
+    "decision": "yes",
+    "answer": "The Design-Build Contract will be awarded as a single prime contract, with all subcontractors working for the contractor.",
+    "citations": [
+     {
+      "piece": "3ea629f113",
+      "quote": "Both are referred to as the design-build offeror (or simply "
+     },
+     {
+      "piece": "3ea629f113",
+      "quote": "The lead firm submitting the proposal is the \u201cofferor\u201d. The lead firm and all design and construction team members will be considered the design-build entity."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 170.9,
+   "eval_count": 137,
+   "prompt_eval_count": 2153
+  },
+  {
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:8",
+   "question": "2) Section 00 42 10, 2, B references past performance. a. Item 1 states (emphasis added), \u201cPast Performance will be evaluated using the evaluation criteria set forth in Sections 00 51 00 and 00 51 01 of the RFP. Past Performance includes current and on-going performance.\u201d b. Items 3a states, \u201cReferences: Offerors shall complete in detail the Design-Build Entity Qualifications Form (DBQ) listing a minimum of five (5), maximum of seven (7) contracts (complete or substantially complete) to be used for reference and evaluation purposes.\u201d c. Item 3e states (emphasis added), \u201cOfferors should consider the currency and relevancy of the past performance information. To be considered, the performance must have been completed during the past ten (10) years. The period begins ten (10) years prior to the RFP release date and includes current performance. Current performance may have greater impact than older performance.\u201d Please confirm, per Item 1 and 3e, that past performance, includes current performance on projects that have not yet reached substantial completion.",
+   "official_answer": "Per the language of the RFP current performance may be considered. POST LINK: https://gateway.app.e-builder.net/app/bidders/landing?accountid=ddb76823-c165-4574-8b20- 20bf7c1667f7&projectid=93ac06d6-c56a-48f4-8426-492521e208b7&bidpackageid=ee23dc52-54fa- 4f87-84da-16df5d2ff176",
+   "discipline": null,
+   "retrieved": [
+    "1c5e7bec84",
+    "c011cc7291",
+    "c64119f57a",
+    "412e67d8fa",
+    "566c4b6971",
+    "010793d8b1"
+   ],
+   "prompt_sha": "f1060361d576",
+   "output": {
+    "decision": "yes",
+    "answer": "Past performance includes current performance on projects that have not yet reached substantial completion.",
+    "citations": [
+     {
+      "piece": "c011cc7291",
+      "quote": "Current performance may have greater impact than older performance."
+     },
+     {
+      "piece": "010793d8b1",
+      "quote": "Experience must include experience relevant to position on this project team."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 178.3,
+   "eval_count": 109,
+   "prompt_eval_count": 2345
+  }
+ ]
+}

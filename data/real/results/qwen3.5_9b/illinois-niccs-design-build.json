@@ -1,0 +1,776 @@
+{
+ "model": "qwen3.5:9b",
+ "project": "illinois-niccs-design-build",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T01:42:42Z",
+ "rows": [
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:1",
+   "question": "Can you please clarify/define what \"General work\" includes in reference to item H on page 1, section 1. For example, would designers performing general work such as lighting or acoustics need to be pre-qualified with CDB? Some designers are registered with CDB as \"vendor\" but are not necessarily \"pre-qualified.\"",
+   "official_answer": "The designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline. CDB does not prequalify the DB entity separately. Prequalification as a Construction Manager is not acceptable.",
+   "discipline": null,
+   "retrieved": [
+    "efdaab95a9",
+    "f60a0c8270",
+    "d84c27c93e",
+    "4aaf62278d",
+    "6a26dcef40",
+    "0224b98ef0"
+   ],
+   "prompt_sha": "34fe3c4c97f4",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not define 'General work' for item H on page 1, section 1, nor do they specify the pre-qualification requirements for designers performing lighting or acoustics work versus those registered as vendors. Additional information from the specific contract documents referenced in the RFI is required to answer this question.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 140.3,
+   "eval_count": 109,
+   "prompt_eval_count": 2553
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:2",
+   "question": "For the evaluation of the MBE/WBE/VBE/PBE Goals are the percentage under or over the goals in aggregate for both the MBE/WBE bucker and the VBE/PBE bucket, or are they treated separately. For example, the Design Team Goals are 20% and 3%, would we get credit for exceeding 23% by 25% or more with the excess in one of the two buckets, or do we get the credit if we exceed both the 20% and the 3% separately?",
+   "official_answer": "The total design goal is 23% and the scoring evaluation will be in aggregate.",
+   "discipline": null,
+   "retrieved": [
+    "2f0d19df53",
+    "42014db2de",
+    "6a26dcef40",
+    "79f313fc51",
+    "36909de672",
+    "d84c27c93e"
+   ],
+   "prompt_sha": "c2da07d96f7b",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents define specific participation goals for Minority, Women, and Veteran-owned businesses but do not specify whether credit is calculated by exceeding the aggregate combined percentage or by meeting each category's goal separately. The Design Team must determine the calculation methodology based on these definitions.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 147.3,
+   "eval_count": 96,
+   "prompt_eval_count": 2856
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:3",
+   "question": "On the pre-bid call it was mentioned that the design team goal is 20% MBE / 5% WBE. Can you please clarify if there is a VBE requirement for the Design Team?",
+   "official_answer": "The CDB Design Goal is 3% to veteran-owned and/or persons with disability owned businesses. See Page 12 of the RFP for detailed information regarding participation goals for this project.",
+   "discipline": null,
+   "retrieved": [
+    "4aaf62278d",
+    "2f0d19df53",
+    "1ec72fea40",
+    "55ac861553",
+    "aeb494e982",
+    "bfc407ff2f"
+   ],
+   "prompt_sha": "1986a4e2e05c",
+   "output": {
+    "decision": "no",
+    "answer": "No, there is no specific VBE requirement for the Design Team. The Design Goals explicitly state that 3% of design services value must go to veteran-owned and/or persons with disability owned businesses, but this applies to the total design services value rather than a separate mandate for the lead design team composition.",
+    "citations": [
+     {
+      "piece": "2f0d19df53",
+      "quote": "The CDB MBE/WBE/VBE/PBE Design Goals are as follows: 20% of the design services value to minority-owned and women-owned businesses and 3% to veteran-owned and/or persons with disability owned businesses."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 148.4,
+   "eval_count": 181,
+   "prompt_eval_count": 2578
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:4",
+   "question": "Would it be possible for you to share the attendee list from the pre-proposal meeting that was held today?",
+   "official_answer": "The attendee list has been posted the project website.",
+   "discipline": null,
+   "retrieved": [
+    "824a97d21a",
+    "de184686b4",
+    "2c7307563d",
+    "aeb494e982",
+    "d24661df1a",
+    "1ec72fea40"
+   ],
+   "prompt_sha": "4fc7f3813c3f",
+   "output": {
+    "decision": "no",
+    "answer": "No, the attendee list from the pre-proposal meeting will not be shared. Information discussed in these meetings is considered confidential and will not be shared with any party not participating in the meeting.",
+    "citations": [
+     {
+      "piece": "de184686b4",
+      "quote": "All information discussed in these meetings will be considered confidential and will not be shared with any other party not participating in the meeting."
+     },
+     {
+      "piece": "2c7307563d",
+      "quote": "All information discussed in these meetings will be considered confidential and will not be shared with any other party not participating in the meeting."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 139.5,
+   "eval_count": 189,
+   "prompt_eval_count": 2332
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:5",
+   "question": "We are a flooring contractor located in Dixon, IL and are interested in bidding for RFP D/B - Construct Northern Illinois Center for Community Sustainability Project. If you are the rep who is dealing with this project could you please share with us the ITB and the bid docs (Flooring package). If not, Can I please have the email of the person who is handling this project?",
+   "official_answer": "The project manager is Kenneth.Watkins@Illinois.gov.",
+   "discipline": null,
+   "retrieved": [
+    "de184686b4",
+    "1a1ede353f",
+    "b50ee9ee0e",
+    "48d947df19",
+    "5de1bc15f9",
+    "1c049ba48b"
+   ],
+   "prompt_sha": "84860b85e83e",
+   "output": {
+    "decision": "no",
+    "answer": "The provided excerpts do not contain the full Invitation to Bid (ITB) or specific Flooring package documents. These documents are part of the RFP process and must be accessed via the CDB e-Builder Bidding Module portal, as indicated in Section 00 21 16.",
+    "citations": [
+     {
+      "piece": "de184686b4",
+      "quote": "Offerors must submit one (1) electronic copy via CDB's e-Builder Bidding Module for this specific project."
+     },
+     {
+      "piece": "b50ee9ee0e",
+      "quote": "The portal can be accessed via the 'SUBMIT PROPOSAL/QUALIFICATIONS' link on the webpage for the project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 145.4,
+   "eval_count": 209,
+   "prompt_eval_count": 2401
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:6",
+   "question": "For the evaluation of the MBE/WBE/VBE/PBE Goals, is there a requirement for the VBE/PBE category as there appears to be for the MBE/WBE category, based on the phrase \"some level of participation from both MBE and WBE firms is required to satisfy the 20% goal\"",
+   "official_answer": "No, the 3% design requirement can be met with either a VBE or a PBE.",
+   "discipline": null,
+   "retrieved": [
+    "55ac861553",
+    "2f0d19df53",
+    "36909de672",
+    "1c6ea7d436",
+    "9bfd8ec9ee",
+    "79f313fc51"
+   ],
+   "prompt_sha": "5496634a7666",
+   "output": {
+    "decision": "no",
+    "answer": "No, there is no requirement for a VBE/PBE category goal. The stated goals are specifically for Minority-owned (20%), Women-owned (5%), and Veteran/Disability-owned (3%) businesses.",
+    "citations": [
+     {
+      "piece": "2f0d19df53",
+      "quote": "The CDB MBE/WBE/VBE/PBE Construction Goals are as follows: 28% of the construction value with 20% to minority-owned businesses, 5% to women-owned businesses and 3% to veteran-owned and/or persons with disability owned businesses."
+     },
+     {
+      "piece": "2f0d19df53",
+      "quote": "The CDB MBE/WBE/VBE/PBE Design Goals are as follows: 20% of the design services value to minority-owned and women-owned businesses and 3% to veteran-owned and/or persons with disability owned businesses."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 168.5,
+   "eval_count": 248,
+   "prompt_eval_count": 2725
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:7",
+   "question": "On the Phase 1 Utilization Plan Goals Section, there is a statement that the goals 20% and 3% are of the amount of the contract awarded by CDB. Is this a percentage of the entire construction contract, in this case $15m, or a percentage of the A/E design fees or a percentage of a combination of A/E firms and Construction Firms, in which case the 20% and 3% could consist of both A/E firms and Construction Suppliers or Contractors?",
+   "official_answer": "The 20% and 3% are only related to the A/E design portion and not related to any construction costs.",
+   "discipline": null,
+   "retrieved": [
+    "2f0d19df53",
+    "42014db2de",
+    "286122af4a",
+    "1ec72fea40",
+    "aa687c13a8",
+    "db4e15baf1"
+   ],
+   "prompt_sha": "1a46b28a0c36",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts define the specific percentage goals for Minority, Women, Veteran, and Persons with Disability (MBE/WBE/VBE/PBE) businesses separately for 'Construction' (28% total, with 20% to MBE/WBE and 3% to VBE/PWD) and 'Design' services (20% to MBE/WBE and 3% to VBE/PWD). However, the documents do not explicitly state whether these percentages apply to the entire construction contract value or if they are calculated based on a specific subset of the contract amount. Therefore, clarification is needed.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 145.8,
+   "eval_count": 165,
+   "prompt_eval_count": 2554
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:8",
+   "question": "Do we need to submit form 330?",
+   "official_answer": "No. The contents required for Phase I submittal can be found in the RFP under SECTION 00 42 10 \u2013 SUBMISSION REQUIREMENTS AND INSTRUCTIONS.",
+   "discipline": null,
+   "retrieved": [
+    "80c0dd4b3b",
+    "36909de672",
+    "f6b2bc36ec",
+    "002a830840",
+    "aa297815ff",
+    "040c29e2b5"
+   ],
+   "prompt_sha": "5feb1750eec4",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not mention a specific 'Form 330'. Please clarify which form you are referring to so we can determine the submission requirements based on the available project specifications.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 112.4,
+   "eval_count": 78,
+   "prompt_eval_count": 2172
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:9",
+   "question": "Does the DBQ count towards the page count of Section 2?",
+   "official_answer": "Yes.",
+   "discipline": null,
+   "retrieved": [
+    "73375fa5cf",
+    "52cc32b7c8",
+    "d3c2edb826",
+    "f6b2bc36ec",
+    "76294c0e7e",
+    "28f13d51e3"
+   ],
+   "prompt_sha": "6d36b84a1f25",
+   "output": {
+    "decision": "no",
+    "answer": "No, the Design-Build Entity Qualifications Form (DBQ) does not count towards the page limit of Section 2. The page limit for Section 2 is explicitly stated as exclusive of the DBQ and the MBE/WBE/VBE/PBE Phase I Utilization Plan.",
+    "citations": [
+     {
+      "piece": "f6b2bc36ec",
+      "quote": "The Past Performance section of the proposal is limited to a maximum of 25 pages, exclusive of the Past Performance Evaluation Questionnaires and MBE/WBE/VBE/PBE Phase I Utilization Plan. It includes the offeror's Design-Build Entity Qualifications Form (DBQ)..."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 132.4,
+   "eval_count": 188,
+   "prompt_eval_count": 2198
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:10",
+   "question": "What contributes to the page count of Section 2?",
+   "official_answer": "It includes the offeror\u2019s Design-Build Entity Qualifications Form (DBQ) and any discussion and or additional information, awards, letters, etc. concerning past performance the offeror includes.",
+   "discipline": null,
+   "retrieved": [
+    "73375fa5cf",
+    "46dc271b43",
+    "55bda291ad",
+    "76294c0e7e",
+    "bfc407ff2f",
+    "52cc32b7c8"
+   ],
+   "prompt_sha": "3ae9cc75e09c",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain information regarding the specific page count of Section 2. They only state that Proposal Sections 2 and 3 shall not exceed the page limits stated in the RFP instructions.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 105.2,
+   "eval_count": 82,
+   "prompt_eval_count": 1994
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:11",
+   "question": "What are the page count limits for Section 1 and Section 4, respectively?",
+   "official_answer": "There are no page limits for section 1. Section 2, 3 and 4 has a combined page limit of 50 pages. Section 2 has a 25 pages limit. Section 3 has a 12 pages total limit with 5 pages limit for technical capacity, 5 pages limit for team experience narrative and 2 pages limit for other capability information.",
+   "discipline": null,
+   "retrieved": [
+    "73375fa5cf",
+    "55bda291ad",
+    "46dc271b43",
+    "76294c0e7e",
+    "449287e0a2",
+    "bfc407ff2f"
+   ],
+   "prompt_sha": "9cc3f3cd9d1f",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not state the specific page count limits for Section 1 or Section 4. The text mentions that Sections 2 and 3 shall not exceed stated limits, but does not provide the corresponding limits for the other sections.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 108.7,
+   "eval_count": 90,
+   "prompt_eval_count": 2048
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:12",
+   "question": "The purpose in writing was to inquire whether the pre-bid conference that was held on the 29th was recorded, or not. If so, I would like to replay the meeting for our review. Not sure if an attendance sheet was recorded but would also be interested in seeing who else was in the room.",
+   "official_answer": "The recording has been posted to the project website.",
+   "discipline": null,
+   "retrieved": [
+    "aeb494e982",
+    "824a97d21a",
+    "2c7307563d",
+    "de184686b4",
+    "d24661df1a",
+    "1ec72fea40"
+   ],
+   "prompt_sha": "1bcf3347699c",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain information regarding whether the pre-bid conference held on the 29th was recorded or if an attendance sheet exists. Please contact the project administrator for specific records of that meeting.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 122.8,
+   "eval_count": 83,
+   "prompt_eval_count": 2374
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:13",
+   "question": "During Phase II, will the unselected firms retain ownership of their work product?",
+   "official_answer": "The Design-Build Act states that the drawings and specifications of the proposal shall remain the property of the design-build entity.",
+   "discipline": null,
+   "retrieved": [
+    "2c7307563d",
+    "286122af4a",
+    "824a97d21a",
+    "93ae08c51e",
+    "de184686b4",
+    "aeb494e982"
+   ],
+   "prompt_sha": "c81f862803b6",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding the ownership of work product for unselected firms during Phase II. This matter requires a specific decision from the owner or design team based on applicable laws and contract terms not found in the text.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 119.3,
+   "eval_count": 88,
+   "prompt_eval_count": 2275
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:14",
+   "question": "When will the pre-bid PowerPoint file be shared?",
+   "official_answer": "It has been posted to the project website.",
+   "discipline": null,
+   "retrieved": [
+    "de184686b4",
+    "e647bbbbb4",
+    "824a97d21a",
+    "14e196739a",
+    "2c7307563d",
+    "80c0dd4b3b"
+   ],
+   "prompt_sha": "b523344109dd",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify a date for sharing the pre-bid PowerPoint file. Information regarding specific meeting details, including any presentation materials, will be provided to firms at a later date via the Phase II Invitation.",
+    "citations": [
+     {
+      "piece": "de184686b4",
+      "quote": "Specific information regarding this meeting will be provided to firms at a later date."
+     },
+     {
+      "piece": "2c7307563d",
+      "quote": "Specific information regarding the time and location of the meeting(s) July 2025 11 CDB 822-010-135 will be provided in the Phase II Invitation."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 143.3,
+   "eval_count": 203,
+   "prompt_eval_count": 2377
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:15",
+   "question": "Is there a way for subconsultants to submit Financial Disclosures and Conflicts of Interest Forms (containing confidential information) directly to the State vs. sending it to various architectural firms to handle? This information looks very similar to what is asked via the CDB and IPG prequalification criteria. Do we still submit this if we are prequalified?",
+   "official_answer": "Financial Disclosures and Conflicts of Interest forms must be included in the submittal. Failure to include these documents for firms listed on the DB-PTF is a material deficiency that may result in rejection of the entire proposal.",
+   "discipline": null,
+   "retrieved": [
+    "80c0dd4b3b",
+    "de184686b4",
+    "249bdbb5d4",
+    "2c7307563d",
+    "52cc32b7c8",
+    "1a1ede353f"
+   ],
+   "prompt_sha": "952fc2ca0551",
+   "output": {
+    "decision": "no",
+    "answer": "No, subconsultants cannot submit Financial Disclosures directly to the State. The contract requires the Contractor to submit these disclosures for all subcontractors over $50,000 to the CDB within 20 days of contract execution.",
+    "citations": [
+     {
+      "piece": "249bdbb5d4",
+      "quote": "Financial and Conflict of Interest disclosures and standard certifications for each subcontractor over $50,000 must be submitted to CDB by the contractor within 20 days..."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 137.1,
+   "eval_count": 156,
+   "prompt_eval_count": 2418
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:16",
+   "question": "Do the General Documents Section forms count towards page count, or no, because they are requested under separate cover?",
+   "official_answer": "No. There are no page limits for section 1.",
+   "discipline": null,
+   "retrieved": [
+    "73375fa5cf",
+    "76294c0e7e",
+    "6af32be344",
+    "cdc77ae139",
+    "80c0dd4b3b",
+    "1780739836"
+   ],
+   "prompt_sha": "757928e8ebf5",
+   "output": {
+    "decision": "no",
+    "answer": "The General Documents Section forms do not count toward the page limitation because they are submitted under separate cover as part of Volume 1.",
+    "citations": [
+     {
+      "piece": "6af32be344",
+      "quote": "B. Volume 1 - General Documents, Price Proposal and MBE/WBE/VBE/PBE Utilization Plan. This information should be submitted in an envelope labeled 'General Requirements.'"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 115.5,
+   "eval_count": 134,
+   "prompt_eval_count": 2036
+  },
+  {
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:17",
+   "question": "Please advise if a design consultant to the listed Architect of Record is required to be prequalified prior to the RFP Phase I due date. We won\u2019t be listing them in the DB-PTF, however, they will be listed in our Phase I Utilization plan as well as possibly in DB Qualifications.",
+   "official_answer": "It depends upon the services the consultant will be providing to the AOR. Per the RFP: \"The designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline.\" If they are not providing these licensed services, then they do not need to be prequalified with CDB before the Phase I due date. They will need to get registered with CDB as soon as possible.",
+   "discipline": null,
+   "retrieved": [
+    "de184686b4",
+    "52cc32b7c8",
+    "2c7307563d",
+    "bfc407ff2f",
+    "0e84b62941",
+    "93ae08c51e"
+   ],
+   "prompt_sha": "9d9d37e0b925",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific requirements regarding the prequalification of design consultants to the Architect of Record prior to the Phase I due date. The documents outline submission requirements for the Design-Build Entity and evaluation criteria but do not address the status or listing of external design consultants in the Phase I Utilization Plan.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 130.7,
+   "eval_count": 106,
+   "prompt_eval_count": 2456
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:1",
+   "question": "Amendment 4 did not have an updated Room Data Sheet for the High Bay Space. Can you provide it? (ASK-10 was uploaded twice)",
+   "official_answer": "This has been updated. 2.. With all the room modifications, it would be helpful to have an updated Spaces Summary Sheet. Can you provide one? And can you clarify if that Summary of Spaces is usable or gross? A. An updated Spaces Summary Sheet will be provided in Amendment 5.",
+   "discipline": null,
+   "retrieved": [
+    "48d947df19",
+    "55bda291ad",
+    "c95e963a23",
+    "cdc77ae139",
+    "aeb494e982",
+    "76294c0e7e"
+   ],
+   "prompt_sha": "0330c54d1733",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding the specific Room Data Sheet for the High Bay Space or confirm whether Amendment 4 included an updated version. This request requires a search of the project's drawing sets and amendment logs to verify if the data sheet was issued.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 114.6,
+   "eval_count": 97,
+   "prompt_eval_count": 2140
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:3",
+   "question": "In a previous RFI you mentioned the classroom does not need additional storage, can you provide an updated Room Data Sheet for the \u201cConnected Classrooms\u201d?",
+   "official_answer": "An updated classroom data sheet will be provided in Amendment 5.",
+   "discipline": null,
+   "retrieved": [
+    "c95e963a23",
+    "46dc271b43",
+    "e226918023",
+    "de184686b4",
+    "76294c0e7e",
+    "c5f14bb56a"
+   ],
+   "prompt_sha": "35970901b613",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding previous RFIs, specific room data sheets, or storage requirements for 'Connected Classrooms'. The documents focus on general submission requirements and proposal evaluation criteria. Therefore, the design team must review project records to determine if an updated Room Data Sheet is available or required.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 120.0,
+   "eval_count": 105,
+   "prompt_eval_count": 2221
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:4",
+   "question": "The Bridging documents list that the Instrumentation lab contains humidity sensitive equipment, but HVAC basis of design conditions for lab spaces do not include a winter humidity requirement. Is maintaining a year-round minimum humidity level required for instrumentation or other labs? If so, what is the requirement?",
+   "official_answer": "Humidity ranges for specific lab equipment are listed in the cut sheets. Ensure that the HVAC systems can maintain the minimum and maximum humidity ranges for the lab spaces during occupied and non-occupied hours.",
+   "discipline": null,
+   "retrieved": [
+    "c9ec296ce6",
+    "c95e963a23",
+    "46dc271b43",
+    "a86bd0c442",
+    "1c049ba48b",
+    "47cdaff11a"
+   ],
+   "prompt_sha": "c0e798af49ac",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain specific HVAC design conditions or humidity requirements for instrumentation labs. The documents only list general submission requirements for mechanical narratives and energy analyses without defining the necessary winter humidity levels.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 115.7,
+   "eval_count": 83,
+   "prompt_eval_count": 2215
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:5",
+   "question": "Can you provide some background on why the budget changed a second time?",
+   "official_answer": "In calculating the \"originally published\" budget CDB failed to take into consideration all of the soft costs that had already been committed to. Then when we subsequently increased the funding by Amendment, we failed to realize the original budget error. Once this was identified we \"re-adjusted\" the budget to what we have now.",
+   "discipline": null,
+   "retrieved": [
+    "aa687c13a8",
+    "2f0d19df53",
+    "dee3f5e694",
+    "1780739836",
+    "aeb494e982",
+    "29ba84a53f"
+   ],
+   "prompt_sha": "749930affd08",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding the specific reasons for a second budget change. The documents discuss budget limitations, proposal evaluation criteria, and requirements for deviations or betterments, but they do not explain historical budget adjustments.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 115.2,
+   "eval_count": 86,
+   "prompt_eval_count": 2189
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:6",
+   "question": "Is there a scope change to go along with the new budget?",
+   "official_answer": "The scope of work has not changed.",
+   "discipline": null,
+   "retrieved": [
+    "aa687c13a8",
+    "aa297815ff",
+    "48d947df19",
+    "dee3f5e694",
+    "de184686b4",
+    "27874fcaa2"
+   ],
+   "prompt_sha": "e8c520739520",
+   "output": {
+    "decision": "no",
+    "answer": "No, there is no scope change associated with the new budget. The RFP explicitly states that significant variation from the published budget could result in the inability to award the contract due to lack of funding authority.",
+    "citations": [
+     {
+      "piece": "aa687c13a8",
+      "quote": "Significant variation from this amount could result in the CDB's inability to award based on lack of funding authority."
+     },
+     {
+      "piece": "dee3f5e694",
+      "quote": "Any offer (proposal) received that exceeds the CDB budget amount may result in proposal rejection without discussion"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 135.0,
+   "eval_count": 184,
+   "prompt_eval_count": 2219
+  },
+  {
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:7",
+   "question": "Are there additional funds outside of the CDB provided funds for the project? And if so, are alternates expected to be proposed?",
+   "official_answer": "There is no additional funding anticipated for this project at this time. There will be no alternate bids.",
+   "discipline": null,
+   "retrieved": [
+    "8d22942d7b",
+    "0e84b62941",
+    "f60a0c8270",
+    "aa687c13a8",
+    "de184686b4",
+    "6af32be344"
+   ],
+   "prompt_sha": "92a54f875d0a",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents confirm that the project has a specific design-build cost limitation of $15,329,988.00 and state that the contract is contingent on the availability of sufficient funds. However, the excerpts do not specify if additional funds exist outside this amount or explicitly mandate whether alternates are expected to be proposed for this specific project.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 131.6,
+   "eval_count": 114,
+   "prompt_eval_count": 2421
+  },
+  {
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:1",
+   "question": "Confirm that all design documents need to be submitted as 8 \u00bd x 11 documents.",
+   "official_answer": "The submission is a digital file. Document format size is not limited to 8 1/2 x 11.",
+   "discipline": null,
+   "retrieved": [
+    "76294c0e7e",
+    "cdc77ae139",
+    "46dc271b43",
+    "1780739836",
+    "1c049ba48b",
+    "de184686b4"
+   ],
+   "prompt_sha": "c2de5c98035f",
+   "output": {
+    "decision": "no",
+    "answer": "The provided documents specify that proposals must be formatted on standard 8.5 x 11 inch paper, but they do not explicitly state that all design documents must be submitted in this format. Therefore, the requirement is not confirmed based on the available excerpts.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 113.0,
+   "eval_count": 96,
+   "prompt_eval_count": 2077
+  },
+  {
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:2",
+   "question": "Does NIU have any prescribed air change rates for laboratory spaces?",
+   "official_answer": "Per ASHRAE 62.1 requirements, laboratory spaces shall be provided with the code required outdoor air ventilation rates dictated by table 6-1 for University/College Laboratories.",
+   "discipline": null,
+   "retrieved": [
+    "fd66aebcc2",
+    "aa297815ff",
+    "c9ec296ce6",
+    "0224b98ef0",
+    "48d947df19",
+    "c95e963a23"
+   ],
+   "prompt_sha": "a2ca0dc07ebf",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain specific air change rates for laboratory spaces. The documents discuss general HVAC design requirements, energy conservation codes, and submission instructions but do not specify the required ventilation rates for this project.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 111.5,
+   "eval_count": 86,
+   "prompt_eval_count": 2088
+  },
+  {
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:3",
+   "question": "Are there preferred manufacturers for mechanical equipment where they can be accommodated?",
+   "official_answer": "Refer to the No Deviations list in the bridging documents for BAS requirements. Also refer to the NIU Construction Standards for mechanical equipment requirements.",
+   "discipline": null,
+   "retrieved": [
+    "a21cf526ee",
+    "c9ec296ce6",
+    "79f313fc51",
+    "5de1bc15f9",
+    "62395befb8",
+    "fd66aebcc2"
+   ],
+   "prompt_sha": "f5b48637fa5e",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify preferred manufacturers for mechanical equipment. The project encourages the use of Illinois-manufactured products where listed, but does not mandate specific brands or restrict accommodation of other manufacturers.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 122.6,
+   "eval_count": 83,
+   "prompt_eval_count": 2332
+  },
+  {
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:4",
+   "question": "What are the building\u2019s anticipated operating hours? Do these vary seasonally?",
+   "official_answer": "Proposed hours of operation are 7:00am to 7:00pm Monday through Friday. There is no seasonal variability to these hours. There will be occasional weekend and evening events. For energy calculation purposes estimate 1 weekend day per month and 4 evening events per month.",
+   "discipline": null,
+   "retrieved": [
+    "46dc271b43",
+    "e861c64811",
+    "55bda291ad",
+    "c9ec296ce6",
+    "de184686b4",
+    "4aaf62278d"
+   ],
+   "prompt_sha": "984629ed75c5",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding the building's anticipated operating hours or any seasonal variations. This information is typically determined by the owner's program requirements and may be addressed during design development or site meetings.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 106.9,
+   "eval_count": 83,
+   "prompt_eval_count": 1994
+  },
+  {
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:5",
+   "question": "Page 39 of the bridging document states that mechanical equipment shall be selected to target EUI no higher than 25 based on a 70% reduction on baseline using ZEROTool. Please provide additional information on how this target was determined.",
+   "official_answer": "Please see RFI responses #17 and #29 from the 11/25/25 published RFIs. Additionally, the 70% reduction is based on AIA 2030 Goals for Net Zero as well as other industry standards such as Living Building Challenge.",
+   "discipline": null,
+   "retrieved": [
+    "c9ec296ce6",
+    "aa687c13a8",
+    "aeb494e982",
+    "db4e15baf1",
+    "2c7307563d",
+    "0e84b62941"
+   ],
+   "prompt_sha": "f610739e1dd4",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding how the specific Energy Use Intensity (EUI) target of 25 was determined or the methodology used for the 70% reduction calculation. This technical detail requires further clarification from the design team.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 130.0,
+   "eval_count": 95,
+   "prompt_eval_count": 2454
+  }
+ ]
+}

@@ -1,0 +1,645 @@
+{
+ "model": "llama3.1:8b",
+ "project": "maine-2995-capitol-garage",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T01:34:52Z",
+ "rows": [
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:1",
+   "question": "There is conflicting information regarding the requirement for Filed Sub-bids. Section 00 11 13 and Section 00 41 13 state they are not required, while Section 00 12 13 states they are required. Please clarify if Filed Sub-bids are required for this project. If so, please provide the due date for Filed Sub-bids, as it is currently left blank in Section 00 12 13.",
+   "official_answer": "Filed sub bids are not required",
+   "discipline": null,
+   "retrieved": [
+    "b623f1a590",
+    "a7344395a2",
+    "efe5e1dd9c",
+    "20984c6dc4",
+    "333d9150da",
+    "07e29ed4c2"
+   ],
+   "prompt_sha": "fc2ee12827c8",
+   "output": {
+    "decision": "no",
+    "answer": "Filed Sub-bids are not required on this project.",
+    "citations": [
+     {
+      "piece": "b623f1a590",
+      "quote": "7. Filed Sub-bids are not required on this project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 203.2,
+   "eval_count": 78,
+   "prompt_eval_count": 2135
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:2",
+   "question": "Please clarify if Pre-qualified General Contractors are utilized for this project. Section 00 11 13 indicates they are utilized but does not list names, while Section 00 12 13 states there are none.",
+   "official_answer": "Prequalified subcontractors are not utilized",
+   "discipline": null,
+   "retrieved": [
+    "efe5e1dd9c",
+    "b623f1a590",
+    "1674c32e4c",
+    "cc47b88de6",
+    "881485d423",
+    "c5ae004517"
+   ],
+   "prompt_sha": "2211bda9d9ba",
+   "output": {
+    "decision": "no",
+    "answer": "Pre-qualified General Contractors are not utilized for this project.",
+    "citations": [
+     {
+      "piece": "b623f1a590",
+      "quote": "there are none"
+     },
+     {
+      "piece": "1674c32e4c",
+      "quote": "The Contractor shall not employ any Subcontractor or use any material until they have been approved"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 164.0,
+   "eval_count": 105,
+   "prompt_eval_count": 1856
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:3",
+   "question": "Please provide an electrical allowance for bidding purposes, as it is difficult for contractors to accurately identify and quantify the electrical work required.",
+   "official_answer": "We will carry a $3,000 dollar allowance for this.",
+   "discipline": null,
+   "retrieved": [
+    "efe5e1dd9c",
+    "71c4c41440",
+    "07e29ed4c2",
+    "62da854a45",
+    "626a7195d7",
+    "8451a60a32"
+   ],
+   "prompt_sha": "4c915bc49a54",
+   "output": {
+    "decision": "yes",
+    "answer": "The electrical allowance is included in the contract documents and is $3,000.",
+    "citations": [
+     {
+      "piece": "efe5e1dd9c",
+      "quote": "Allowances No. Description 1 Electrical $3,000"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 142.3,
+   "eval_count": 83,
+   "prompt_eval_count": 1695
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:4",
+   "question": "Please confirm whether the Contractor is required to include temporary heating costs in the bid, as the anticipated completion date of December 30, 2026 may result in significant heating-related expenses.",
+   "official_answer": "Contractor is required to provide heating as required to complete the repairs as needed in 2026. Contractor may be able to complete repairs without additional heat in spring 2027.",
+   "discipline": null,
+   "retrieved": [
+    "626a7195d7",
+    "efe5e1dd9c",
+    "b623f1a590",
+    "a015dce910",
+    "81072e2a35",
+    "a7344395a2"
+   ],
+   "prompt_sha": "3cc9c35ab120",
+   "output": {
+    "decision": "no",
+    "answer": "The Contractor is not required to include temporary heating costs in the bid, as the anticipated completion date of December 30, 2026 may result in significant heating-related expenses.",
+    "citations": [
+     {
+      "piece": "626a7195d7",
+      "quote": "Overhead reflected in Change Orders shall be limited to the following: bond premium, supervision, wages of clerks, time keepers, and watchmen, small tools, incidental expenses, general office expenses, and all other overhead expenses directly related to the Change Order."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 190.6,
+   "eval_count": 142,
+   "prompt_eval_count": 2100
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:5",
+   "question": "Is there any reason the project would not be able to start in the Spring 2027, when 14 York Street, Suite 201 | Portland ME 04101 - 7408 | T 207.245.6060 | F | www.ThorntonTomasetti.com RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 2 weather conditions would be more favorable for performing the work?",
+   "official_answer": "We would prefer to have a start date this fall and can extend the finish date to Spring 2027, June 18, 2027.",
+   "discipline": null,
+   "retrieved": [
+    "efe5e1dd9c",
+    "b623f1a590",
+    "a7344395a2",
+    "a015dce910",
+    "881485d423",
+    "fffaf50c9c"
+   ],
+   "prompt_sha": "a94f4bd1112d",
+   "output": {
+    "decision": "other",
+    "answer": "The project's start date is not solely dependent on weather conditions. The project schedule and completion date are subject to change based on various factors, including the Contractor's performance and any necessary extensions or reductions of time.",
+    "citations": [
+     {
+      "piece": "id: a015dce910",
+      "quote": "The Contractor may make a written request to the Owner for an extension or reduction of time, if necessary."
+     },
+     {
+      "piece": "id: a015dce910",
+      "quote": "The Owner may grant the revision of the contract completion date if the Work was delayed due to conditions beyond the control and the responsibility of the Contractor."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 210.5,
+   "eval_count": 167,
+   "prompt_eval_count": 2239
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:6",
+   "question": "Please confirm the designated location(s) for material storage and dumpster staging during construction.",
+   "official_answer": "This will be coordinated during the preconstruction meeting.",
+   "discipline": null,
+   "retrieved": [
+    "5cacb8045a",
+    "bde6035393",
+    "c8420717b8",
+    "1674c32e4c",
+    "8759e80d42",
+    "a9b2d15bf2"
+   ],
+   "prompt_sha": "822e5a61a11c",
+   "output": {
+    "decision": "other",
+    "answer": "The designated location(s) for material storage and dumpster staging during construction will be determined by the Consultant, in consultation with the Contractor, to ensure compliance with the Contract Documents and to protect the Owner's interests.",
+    "citations": [
+     {
+      "piece": "c8420717b8",
+      "quote": "The Consultant has authority to act on behalf of the Owner only to the extent expressly provided by the Contract Documents or otherwise demonstrated to the Contractor."
+     },
+     {
+      "piece": "1674c32e4c",
+      "quote": "The Contractor shall not employ any Subcontractor or use any material until they have been approved, or where there is reason to believe the resulting work will not comply with the Contract Documents."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 118.6,
+   "eval_count": 180,
+   "prompt_eval_count": 1209
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:7",
+   "question": "For Bid Item 3- Supplemental Steel Beam- Please confirm that the North side of the garage will get 3ea of the supplemental beams and south side will get 4ea of the supplemental beams. In sheet S1.5, the North side only shows two beams.",
+   "official_answer": "That is correct. There are 7 beams total. 4 beams on the north and 3 on the south side of the parking structure. There is a partial plan for the portion of the ramp that extends from gridlines 13- 14 that is included on sheet S1.5.",
+   "discipline": null,
+   "retrieved": [
+    "efe5e1dd9c",
+    "b623f1a590",
+    "54a8c89d99",
+    "b41e3ec3ed",
+    "20984c6dc4",
+    "5cacb8045a"
+   ],
+   "prompt_sha": "c663f10e033b",
+   "output": {
+    "decision": "other",
+    "answer": "The quantity of supplemental steel beams for the North and South sides of the garage is not clearly stated in the provided excerpts. However, the Bid Item 3- Supplemental Steel Beam in the Unit Price Quantities table shows 7 as the unit price quantity, which may indicate that the quantity is not fixed.",
+    "citations": [
+     {
+      "piece": "b623f1a590",
+      "quote": "3 Supplemental Steel Beam EA 7 $ $"
+     },
+     {
+      "piece": "b623f1a590",
+      "quote": "If installed quantities differ, then cost will be adjusted by Change Order according to the ADD and DEDUCT unit prices as provided above."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 179.2,
+   "eval_count": 173,
+   "prompt_eval_count": 1867
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:9",
+   "question": "For Item 16- Wall repairs- please provide repair detail.",
+   "official_answer": "Repair details are 6 and 7 / S2.2",
+   "discipline": null,
+   "retrieved": [
+    "b623f1a590",
+    "efe5e1dd9c",
+    "b41e3ec3ed",
+    "20984c6dc4",
+    "c65fb83f55",
+    "a67c7f2cf0"
+   ],
+   "prompt_sha": "c8b61ad55c2c",
+   "output": {
+    "decision": "other",
+    "answer": "The repair detail for Item 16-Wall repairs is not explicitly provided in the Contract Documents. The Contractor may submit a detailed proposal for the repair, including the materials and methods to be used, for review and approval by the Consultant.",
+    "citations": [
+     {
+      "piece": "b623f1a590",
+      "quote": "16 Wall Repair SF 10 $ $"
+     },
+     {
+      "piece": "b41e3ec3ed",
+      "quote": "The specific item or material specified establishes a minimum standard for the general design, level of quality, type, function, durability, efficiency, reliability, compatibility, warranty coverage, installation factors and required maintenance."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 191.7,
+   "eval_count": 170,
+   "prompt_eval_count": 2008
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:11",
+   "question": "Please provide available as-built drawings for the garage.",
+   "official_answer": "We have electronic copies and can provide.",
+   "discipline": null,
+   "retrieved": [
+    "d53bbd640d",
+    "89af0add16",
+    "20984c6dc4",
+    "125ba7bd06",
+    "23486d0d6c",
+    "a7190f029c"
+   ],
+   "prompt_sha": "d423a9894437",
+   "output": {
+    "decision": "no",
+    "answer": "The available as-built drawings for the garage are not provided by the owner or design team. The contractor is responsible for administering and verifying shop drawings.",
+    "citations": [
+     {
+      "piece": "d53bbd640d",
+      "quote": "The Contractor shall administer Shop Drawings prepared by the Contractor, Subcontractors, suppliers or others to conform to the approved Schedule of the Work."
+     },
+     {
+      "piece": "d53bbd640d",
+      "quote": "The Contractor is the responsible party and contact for the Contractor's work as well as that of Subcontractors, suppliers or others who provide Shop Drawings."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 114.3,
+   "eval_count": 162,
+   "prompt_eval_count": 1190
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:12",
+   "question": "Please confirm whether water will be available for the Contractor's use on site.",
+   "official_answer": "Water is on site and available for contractor use. However, the meter is typically removed at the start of winter to prevent freezing and reinstalled in the spring.",
+   "discipline": null,
+   "retrieved": [
+    "1674c32e4c",
+    "5cacb8045a",
+    "eb363bb53b",
+    "bde6035393",
+    "532572c3f7",
+    "c65fb83f55"
+   ],
+   "prompt_sha": "2c6e5b8df324",
+   "output": {
+    "decision": "other",
+    "answer": "Water availability for the Contractor's use on site is not explicitly stated in the provided excerpts. However, the Contractor is responsible for protecting the site and its surroundings, and the Owner shall furnish all property surveys unless otherwise specified.",
+    "citations": [
+     {
+      "piece": "1674c32e4c",
+      "quote": "The Contractor shall not employ any Subcontractor or use any material until they have been approved, or where there is reason to believe the resulting work will not comply with the Contract Documents."
+     },
+     {
+      "piece": "bde6035393",
+      "quote": "The Owner shall furnish all property surveys unless otherwise specified."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 116.4,
+   "eval_count": 162,
+   "prompt_eval_count": 1185
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:13",
+   "question": "Please confirm whether power and functioning electrical outlets will be available for the Contractor's use on site.",
+   "official_answer": "Functional outlets are located in the stairwells, however, all receptacles have limited capacity and should not be counted on for running heavy grinders or electric chipping guns.",
+   "discipline": null,
+   "retrieved": [
+    "eb363bb53b",
+    "5cacb8045a",
+    "4f97461b70",
+    "278d24c9e4",
+    "1674c32e4c",
+    "532572c3f7"
+   ],
+   "prompt_sha": "06e5d1b08ed3",
+   "output": {
+    "decision": "no",
+    "answer": "The Contract Documents do not mention the availability of power and functioning electrical outlets for the Contractor's use on site.",
+    "citations": [
+     {
+      "piece": "eb363bb53b",
+      "quote": "The Contractor shall protect from damage existing trees and other significant plantings and landscape features of the site which will remain a permanent part of the site."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 108.3,
+   "eval_count": 107,
+   "prompt_eval_count": 1248
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:14",
+   "question": "Please confirm the maximum number of parking stalls that may be closed at any one time and identify any required work area enclosures, barriers, or other protection measures that must be maintained during construction.",
+   "official_answer": "25 Spaces are allowed for your use. These spaces do not include the top deck while it remains closed until the post tensioning repairs are completed.",
+   "discipline": null,
+   "retrieved": [
+    "881485d423",
+    "4f97461b70",
+    "a67c7f2cf0",
+    "eb363bb53b",
+    "a7344395a2",
+    "a9b2d15bf2"
+   ],
+   "prompt_sha": "befe7a1e452e",
+   "output": {
+    "decision": "other",
+    "answer": "The maximum number of parking stalls that may be closed at any one time is not specified in the provided excerpts. However, the Contractor is required to maintain security on the premises and protect from unreasonable occasion of injury all people authorized to be on the job site.",
+    "citations": [
+     {
+      "piece": "881485d423",
+      "quote": "The Contractor shall continuously maintain security on the premises and protect from unreasonable occasion of injury all people authorized to be on the job site."
+     },
+     {
+      "piece": "4f97461b70",
+      "quote": "The Contractor shall continuously maintain security on the premises and protect from unreasonable occasion of injury all people authorized to be on the job site."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 165.8,
+   "eval_count": 171,
+   "prompt_eval_count": 1749
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:15",
+   "question": "Please confirm that the bid due date and time is September 25, 2026, at 1:30 PM, as there appears to be conflicting information regarding the bid opening date within the contract documents.",
+   "official_answer": "The bid due date is September 30, 2026 at 1:30 PM. The bids will be opened at 2:00 PM.",
+   "discipline": null,
+   "retrieved": [
+    "a7344395a2",
+    "efe5e1dd9c",
+    "049ae1a750",
+    "b623f1a590",
+    "a015dce910",
+    "8b95a7552e"
+   ],
+   "prompt_sha": "9593aa9e2a9a",
+   "output": {
+    "decision": "yes",
+    "answer": "The bid due date and time is confirmed as September 25, 2026, at 1:30 PM.",
+    "citations": [
+     {
+      "piece": "a7344395a2",
+      "quote": "The Bidder agrees, if the Owner offers to award the contract, to provide any and all bonds and certificates of insurance, as well as Schedule of Values, Project Schedule, and List of Subcontractors and Suppliers if required by the Owner, and to sign the designated Construction Contract within twelve calendar days after the date of notification of such acceptance, except if the twelfth day falls on a State of Maine government holiday or other closure day, or a Saturday, or a Sunday, in which case the aforementioned documents must be received before 12:00 noon on the first available business day following the holiday, other closure day, Saturday, or Sunday."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 230.3,
+   "eval_count": 208,
+   "prompt_eval_count": 2274
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:16",
+   "question": "Please confirm if contractor is responsible for obtaining permits required for this project.",
+   "official_answer": "Contractor is responsible for obtaining any required permits.",
+   "discipline": null,
+   "retrieved": [
+    "cd3281a396",
+    "c30fca84d0",
+    "b2dd5c3553",
+    "886e8dbe2b",
+    "d53bbd640d",
+    "a9b2d15bf2"
+   ],
+   "prompt_sha": "21780b7d4098",
+   "output": {
+    "decision": "no",
+    "answer": "The contractor is not responsible for obtaining permits required for this project, as the Owner is responsible for obtaining all necessary permits and licenses.",
+    "citations": [
+     {
+      "piece": "cd3281a396",
+      "quote": "The Contractor is responsible for obtaining and paying for all permits and licenses necessary for the implementation of the Work."
+     },
+     {
+      "piece": "c30fca84d0",
+      "quote": "The Owner is responsible for obtaining any federal agency project approvals necessary to complete the Work, unless otherwise indicated in the Contract Documents."
+     },
+     {
+      "piece": "b2dd5c3553",
+      "quote": "The Owner is responsible for obtaining any zoning approvals or other similar local project approvals necessary to complete the Work, unless otherwise specified in the Contract Documents."
+     },
+     {
+      "piece": "886e8dbe2b",
+      "quote": "The Owner is responsible for obtaining Maine Department of Environmental Protection, Maine Department of Transportation, or other similar state government project approvals necessary to complete the Work, unless otherwise indicated in the Contract Documents."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 110.4,
+   "eval_count": 242,
+   "prompt_eval_count": 944
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:17",
+   "question": "Please confirm if contractor is responsible for paying any permit fees required for this project. RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 4",
+   "official_answer": "Contractor is responsible for permit fees.",
+   "discipline": null,
+   "retrieved": [
+    "b623f1a590",
+    "efe5e1dd9c",
+    "cd3281a396",
+    "c30fca84d0",
+    "b2dd5c3553",
+    "a7344395a2"
+   ],
+   "prompt_sha": "f32086afcdba",
+   "output": {
+    "decision": "no",
+    "answer": "The contractor is not responsible for paying permit fees. The contractor is responsible for obtaining and paying for all permits and licenses necessary for the implementation of the Work.",
+    "citations": [
+     {
+      "piece": "cd3281a396",
+      "quote": "The Contractor is responsible for obtaining and paying for all permits and licenses necessary for the implementation of the Work."
+     },
+     {
+      "piece": "cd3281a396",
+      "quote": "The Contractor shall notify the Owner of any delays, variance or restrictions that may result from the issuing of permits and licenses."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 142.5,
+   "eval_count": 144,
+   "prompt_eval_count": 1553
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:18",
+   "question": "Please confirm whether this project is exempt from sales tax and whether bids should be submitted on a tax-exempt basis.",
+   "official_answer": "Yes, this project is exempt from sales tax. BGS will issue the required paperwork to the selected contractor.",
+   "discipline": null,
+   "retrieved": [
+    "e11e08fc00",
+    "8332327128",
+    "efe5e1dd9c",
+    "b623f1a590",
+    "a7344395a2",
+    "27767d8de7"
+   ],
+   "prompt_sha": "78fe32002cbd",
+   "output": {
+    "decision": "yes",
+    "answer": "The project is exempt from Maine State sales and use taxes, as per 36 M.R.S. \u00a71760 (1).",
+    "citations": [
+     {
+      "piece": "e11e08fc00",
+      "quote": "The Owner is exempt from the payment of Maine State sales and use taxes as provided in 36 M.R.S. \u00a71760 (1)."
+     },
+     {
+      "piece": "e11e08fc00",
+      "quote": "The Contractor and Subcontractors shall not include taxes on exempt items in the construction contract."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 171.4,
+   "eval_count": 145,
+   "prompt_eval_count": 1858
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:19",
+   "question": "Please confirm whether the project is to be bid using open shop labor rates.",
+   "official_answer": "Please use the Kennebec County Prevailing wages.",
+   "discipline": null,
+   "retrieved": [
+    "efe5e1dd9c",
+    "881485d423",
+    "62da854a45",
+    "6140ff5b79",
+    "b623f1a590",
+    "71c4c41440"
+   ],
+   "prompt_sha": "a6d09fb61514",
+   "output": {
+    "decision": "no",
+    "answer": "The project is to be bid using open shop labor rates, but the Contractor shall know local labor conditions and pay the minimum wages required to be paid to each category of labor employed on the project.",
+    "citations": [
+     {
+      "piece": "6140ff5b79",
+      "quote": "The document shows the minimum wages required to be paid to each category of labor employed on the project."
+     },
+     {
+      "piece": "6140ff5b79",
+      "quote": "The Contractor shall submit monthly payroll records to the Owner showing the name and occupation of all workers and all independent contractors employed on the project."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 190.9,
+   "eval_count": 156,
+   "prompt_eval_count": 1990
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:20",
+   "question": "For Waterproofing Membrane repairs- A 5 year warranty may not be available from the manufacturer for localized installations and repairs, which is the scope for this project. Please confirm that the warranty duration and terms made available by the manufacturer will be acceptable even if they are different than what is included in the current bid documents.",
+   "official_answer": "A 5 year warranty is not required for repair areas.",
+   "discipline": null,
+   "retrieved": [
+    "b623f1a590",
+    "efe5e1dd9c",
+    "a015dce910",
+    "8b95a7552e",
+    "b41e3ec3ed",
+    "8759e80d42"
+   ],
+   "prompt_sha": "11de86546920",
+   "output": {
+    "decision": "other",
+    "answer": "The warranty duration and terms made available by the manufacturer will be reviewed and verified by the Consultant to ensure they meet the requirements of the Contract Documents.",
+    "citations": [
+     {
+      "piece": "b41e3ec3ed",
+      "quote": "The specific item or material specified establishes a minimum standard for the general design, level of quality, type, function, durability, efficiency, reliability, compatibility, warranty coverage, installation factors and required maintenance."
+     },
+     {
+      "piece": "8759e80d42",
+      "quote": "The Consultant shall verify and certify each Requisition for Payment which appears to be complete and correct prior to payment being made by the Owner."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 203.2,
+   "eval_count": 170,
+   "prompt_eval_count": 2130
+  },
+  {
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:21",
+   "question": "Are Liquidated Damages required for this project.",
+   "official_answer": "Liquidated damages are included in this project. Please see the requirements in Section 00 72 13 General Conditions added to the addendum.",
+   "discipline": null,
+   "retrieved": [
+    "d744325b49",
+    "e968a94d81",
+    "b623f1a590",
+    "efe5e1dd9c",
+    "333d9150da",
+    "573a8c8632"
+   ],
+   "prompt_sha": "8c8925c0e8fb",
+   "output": {
+    "decision": "yes",
+    "answer": "Liquidated Damages are required for this project, as specified in the Contract Documents.",
+    "citations": [
+     {
+      "piece": "d744325b49",
+      "quote": "37.5 Liquidated Damages may be deducted from the sum due to the Contractor for each calendar day that the Work remains uncompleted after the completion date specified in the Contract or an approved amended completion date."
+     },
+     {
+      "piece": "d744325b49",
+      "quote": "The dollar amount per day shall be calculated using the Schedule of Liquidated Damages table shown below."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 169.2,
+   "eval_count": 147,
+   "prompt_eval_count": 1801
+  }
+ ]
+}

@@ -1,0 +1,1633 @@
+{
+ "model": "llama3.1:8b",
+ "project": "ny-rioc-eleanors-pier",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T02:17:59Z",
+ "rows": [
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:1",
+   "question": "The RFP asks that \u201cProposal Form should include, at a minimum, the following \u2013 labor rates, direct construction costs, administrative expenses, general conditions, contractor overhead, contractor profit, subcontractor costs and materials\u201d, however the supplied Fee Proposal Form does not align with that request.",
+   "official_answer": "Proposers should add to the provided Fee Proposal Form as needed to meet the criteria of the RFP.",
+   "discipline": null,
+   "retrieved": [
+    "71cf96de45",
+    "a1ab82829f",
+    "6680a64b3c",
+    "6fcb136bce",
+    "645c70cbe2",
+    "7f91e171a3"
+   ],
+   "prompt_sha": "b668cff63201",
+   "output": {
+    "decision": "no",
+    "answer": "The Fee Proposal Form does not align with the RFP's request for specific items, but it is not required to include all the items listed in the RFP.",
+    "citations": [
+     {
+      "piece": "71cf96de45",
+      "quote": "The Proposal Form should include, at a minimum, the following \u2013 labor rates, direct construction costs, administrative expenses, general conditions, contractor overhead, contractor profit, subcontractor costs and materials."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 143.5,
+   "eval_count": 124,
+   "prompt_eval_count": 2330
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:2",
+   "question": "Please confirm whether the Fee Proposal Form is intended as a Schedule of Values supporting a lump sum bid, and whether bidders may define their own cost breakdown categories.",
+   "official_answer": "Confirmed, bidders may define their own breakdown, however, we request that the bids be submitted broken out by trade, Iron, Wood, and Piles.",
+   "discipline": null,
+   "retrieved": [
+    "71cf96de45",
+    "7565129cd6",
+    "645c70cbe2",
+    "7565129cd6",
+    "ed38aa2299",
+    "a1ab82829f"
+   ],
+   "prompt_sha": "eb2a537a2afa",
+   "output": {
+    "decision": "no",
+    "answer": "The Fee Proposal Form is not intended as a Schedule of Values supporting a lump sum bid. Instead, it is a separate document that must be submitted with the bid proposal.",
+    "citations": [
+     {
+      "piece": "71cf96de45",
+      "quote": "Each cost and fee proposal (the \u201cFee Proposal\u201d) must state the total lump-sum cost for the performance of all Work."
+     },
+     {
+      "piece": "71cf96de45",
+      "quote": "The Fee Proposal must be clearly labeled as \u201cFee Proposal \u2013 Eleanor\u2019s Pier Project.\u201d"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 113.6,
+   "eval_count": 145,
+   "prompt_eval_count": 2006
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:3",
+   "question": "Please confirm whether the project will be administered as a lump sum contract and whether the provided fee breakdown is for informational purposes only.",
+   "official_answer": "The project will be administered as a lump sum contract. The fee proposal form is intended as a Schedule of Values to support that lump sum bid",
+   "discipline": null,
+   "retrieved": [
+    "71cf96de45",
+    "7565129cd6",
+    "1437242546",
+    "6680a64b3c",
+    "7565129cd6",
+    "b6cc50d8cf"
+   ],
+   "prompt_sha": "0ac06bf7de5d",
+   "output": {
+    "decision": "yes",
+    "answer": "The project will be administered as a lump sum contract.",
+    "citations": [
+     {
+      "piece": "71cf96de45",
+      "quote": "Each cost and fee proposal (the \u201cFee Proposal\u201d) must state the total lump-sum cost for the performance of all Work."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 92.9,
+   "eval_count": 89,
+   "prompt_eval_count": 1827
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:4",
+   "question": "Please confirm that labor rates should be supplied separately for information only.",
+   "official_answer": "Confirmed.",
+   "discipline": null,
+   "retrieved": [
+    "b3afbd941a",
+    "71cf96de45",
+    "339bb4f605",
+    "a4e7f9ad28",
+    "9dded8f1cd",
+    "338b814d3a"
+   ],
+   "prompt_sha": "ed4b65845354",
+   "output": {
+    "decision": "yes",
+    "answer": "Labor rates should be supplied separately for information only, as per Section 3.1 of the RFP.",
+    "citations": [
+     {
+      "piece": "71cf96de45",
+      "quote": "The Fee Proposal must be clearly labeled as \u201cFee Proposal \u2013 Eleanor\u2019s Pier Project.\u201d Bidder must submit with its Fee Proposal form attached to this RFP an itemized cost for the Work, according to the form of bid breakdown included in the Fee Proposal form."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 118.1,
+   "eval_count": 128,
+   "prompt_eval_count": 2152
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:5",
+   "question": "Are there any noise restrictions or permitted working hours for this project?",
+   "official_answer": "The contractor should conform to normal DOB work hours of 7am - 6pm. While there are no noise restrictions, RIOC asks that the contractor notify them prior to any loud work commencing so it can be properly noticed.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "fab3a13e20",
+    "66c0f77004",
+    "339bb4f605",
+    "1437242546",
+    "c6c0eb0342"
+   ],
+   "prompt_sha": "f06e0b63e470",
+   "output": {
+    "decision": "no",
+    "answer": "Noise restrictions and permitted working hours are specified in the contract.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Any barges are to be spudded or anchored in place in a manner designed to minimize localized noise, disturbance and interference."
+     },
+     {
+      "piece": "fab3a13e20",
+      "quote": "Subject to all requirements stated elsewhere herein, the Work shall be performed between the hours of 8:00 AM and 4:30 PM Monday through Friday."
+     },
+     {
+      "piece": "66c0f77004",
+      "quote": "The Contractor shall use only machinery and equipment adapted to operate with the least possible noise, and shall so conduct its operations that annoyance to occupants of nearby property and the general public will be reduced to a minimum."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 113.4,
+   "eval_count": 195,
+   "prompt_eval_count": 1832
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:6",
+   "question": "Will road closures be permitted in front of the pier during construction?",
+   "official_answer": "The area immediately in front of the pier can be utilized for load in/load out and lay down. The West Road cannot be closed to vehicular traffic.",
+   "discipline": null,
+   "retrieved": [
+    "2cf305c2a0",
+    "c6c0eb0342",
+    "d573c685bf",
+    "69b6f53600",
+    "eee11caeae",
+    "b92694ebce"
+   ],
+   "prompt_sha": "23eedc6e892d",
+   "output": {
+    "decision": "no",
+    "answer": "Road closures in front of the pier during construction are not permitted.",
+    "citations": [
+     {
+      "piece": "d573c685bf",
+      "quote": "RFP complies with the 2025 New York State Procurement Guidelines."
+     },
+     {
+      "piece": "69b6f53600",
+      "quote": "Any deviations to schedule can only be accepted via formal written approval through RIOC\u2019s change order process"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 96.9,
+   "eval_count": 117,
+   "prompt_eval_count": 1806
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:7",
+   "question": "Can designated parking spaces be secured in front of the pier for construction personnel?",
+   "official_answer": "RIOC will coordinate with the selected contractor and RIOC Public Safety to coordinate parking of construction vehicles on site.",
+   "discipline": null,
+   "retrieved": [
+    "2cf305c2a0",
+    "60b06a0647",
+    "4c4f70020d",
+    "c767a4bc80",
+    "69b6f53600",
+    "eee11caeae"
+   ],
+   "prompt_sha": "f9dff5350464",
+   "output": {
+    "decision": "no",
+    "answer": "Designated parking spaces cannot be secured in front of the pier for construction personnel.",
+    "citations": [
+     {
+      "piece": "2cf305c2a0",
+      "quote": "RIOC reserves the right to modify the above schedule at its sole and absolute discretion, to alter the overall scope of work and/or to make no award on this RFP."
+     },
+     {
+      "piece": "c767a4bc80",
+      "quote": "Bidders assume all risks for timely delivery of their submission. Late bids will not be accepted."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 123.8,
+   "eval_count": 142,
+   "prompt_eval_count": 2183
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:8",
+   "question": "Please provide the full project specifications",
+   "official_answer": "Please see updated drawings and specifications",
+   "discipline": null,
+   "retrieved": [
+    "41c62e1c4e",
+    "b6cc50d8cf",
+    "73d073e494",
+    "71cf96de45",
+    "2cf305c2a0",
+    "ac48fb1917"
+   ],
+   "prompt_sha": "75376509e107",
+   "output": {
+    "decision": "other",
+    "answer": "The full project specifications are available on the RIOC website, but they are not provided in this response. The specifications are part of the project documents, which include drawings and technical specifications.",
+    "citations": [
+     {
+      "piece": "41c62e1c4e",
+      "quote": "DRAWINGS LIST AND TECHNICAL SPECIFICATIONS are posted on the website, https://www.rioc.ny.gov/info/rfps-and-bids"
+     },
+     {
+      "piece": "73d073e494",
+      "quote": "the Work described in Schedule B1 attached hereto and in the Drawings and Specifications"
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 114.8,
+   "eval_count": 155,
+   "prompt_eval_count": 1989
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:9",
+   "question": "Is this project federally funded?",
+   "official_answer": "NO",
+   "discipline": null,
+   "retrieved": [
+    "2cf305c2a0",
+    "6fcb136bce",
+    "d573c685bf",
+    "b11e776653",
+    "4de8eab55c",
+    "1437242546"
+   ],
+   "prompt_sha": "4ddd4e098fa8",
+   "output": {
+    "decision": "no",
+    "answer": "This project is funded by RIOC and is a public benefit corporation, but there is no indication that it is federally funded.",
+    "citations": [
+     {
+      "piece": "2cf305c2a0",
+      "quote": "Roosevelt Island Operating Corporation (RIOC) is a public benefit corporation and a political subdivision of the State of New York."
+     },
+     {
+      "piece": "2cf305c2a0",
+      "quote": "This project is funded by RIOC and RIOC is the issuing agency for this RFP."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 104.6,
+   "eval_count": 143,
+   "prompt_eval_count": 1849
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:10",
+   "question": "Please provide the size and quantity of steel sleeves to be removed",
+   "official_answer": "Please see updated drawings and specifications",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "c7e9f33ed6",
+    "2cf305c2a0",
+    "1437242546",
+    "f505f90eea"
+   ],
+   "prompt_sha": "89d1df2639ad",
+   "output": {
+    "decision": "other",
+    "answer": "The size and quantity of steel sleeves to be removed are not specified in the provided documents. The scope of work includes the replacement of the railing system, which consists of hollow steel tube posts with metal bar balusters and a wooden topped rail. However, the size and quantity of steel sleeves to be removed are not mentioned.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "The railings are made of hollow steel tube posts with metal bar balusters and a wooden topped rail."
+     },
+     {
+      "piece": "c7e9f33ed6",
+      "quote": "The temporary structures shall be removed from the construction site following completion of the Work."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 115.2,
+   "eval_count": 175,
+   "prompt_eval_count": 1923
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:11",
+   "question": "Is there any existing hardware embedded in the current wood deck?",
+   "official_answer": "No",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "ab358c83b7",
+    "69b6f53600",
+    "b92694ebce",
+    "48b96e3e84"
+   ],
+   "prompt_sha": "d81fa8b197d4",
+   "output": {
+    "decision": "no",
+    "answer": "There is no existing hardware embedded in the current wood deck, as the scope of work includes demolition of all existing wood framing and hardware.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Demolition of all existing wood framing and hardware while maintaining perimeter shiplap decorative trim"
+     },
+     {
+      "piece": "eee11caeae",
+      "quote": "Demolition of all existing wood framing and hardware"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 100.0,
+   "eval_count": 123,
+   "prompt_eval_count": 1835
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:12",
+   "question": "Please confirm that there are no utilities within the work area that would interfere with the pile repairs.",
+   "official_answer": "Confirmed",
+   "discipline": null,
+   "retrieved": [
+    "4c4f70020d",
+    "eee11caeae",
+    "522a7e8927",
+    "1dc2282a5d",
+    "c4441363bb",
+    "66c0f77004"
+   ],
+   "prompt_sha": "4b86c1761cfe",
+   "output": {
+    "decision": "no",
+    "answer": "There are no utilities within the work area that would interfere with the pile repairs, as the Contract Drawings do not show all details of the Work and may be supplemented during performance.",
+    "citations": [
+     {
+      "piece": "1dc2282a5d",
+      "quote": "An indication on the Contract Drawings of the existence, nature or location of any utilities, structures, obstructions, conditions or materials does not constitute a representation as to the conclusions to be drawn therefrom nor a representation that no others exist in addition to those shown, even in the same location;"
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 115.3,
+   "eval_count": 153,
+   "prompt_eval_count": 2013
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:13",
+   "question": "The wood framing drawings show different post spacing compared to the railing post layout. Please clarify.",
+   "official_answer": "All railing work to follow the railing drawings. Railing posts are located by the railing drawings.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "1dc2282a5d",
+    "ac48fb1917",
+    "b56b700bb2",
+    "60b06a0647"
+   ],
+   "prompt_sha": "5a2f49c93999",
+   "output": {
+    "decision": "other",
+    "answer": "The wood framing drawings show different post spacing compared to the railing post layout. The Contractor should verify the correct post spacing through the Contract Drawings and Specifications.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "These repairs must be done in accordance with the drawings and specifications included as part of this RFP."
+     },
+     {
+      "piece": "1dc2282a5d",
+      "quote": "The Contract Drawings do not show all of the details of the Work and are intended only to illustrate the v."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 108.7,
+   "eval_count": 147,
+   "prompt_eval_count": 1912
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:14",
+   "question": "Please confirm whether the railing posts are the same as those shown in the wood framing drawings. If they differ, will the railing posts be connected at the concrete level or mounted on the wood decking?",
+   "official_answer": "All railing work to follow the railing drawings. Railing posts are located by the railing drawings. Rails are mounted to the concrete deck per the details on the railing drawings.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "c4441363bb",
+    "60b06a0647",
+    "ac48fb1917",
+    "69b6f53600",
+    "1dc2282a5d"
+   ],
+   "prompt_sha": "70b9ec3d684e",
+   "output": {
+    "decision": "other",
+    "answer": "The railing posts are made of hollow steel tube posts with metal bar balusters and a wooden topped rail, but it's unclear if they are the same as those shown in the wood framing drawings.",
+    "citations": [
+     {
+      "piece": "eee11caeae",
+      "quote": "The railings are made of hollow steel tube posts with metal bar balusters and a wooden topped rail."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 112.5,
+   "eval_count": 115,
+   "prompt_eval_count": 2089
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:15",
+   "question": "Please clarify the limits of temporary fencing, including starting and ending points. Note: It may not be feasible to install fencing on the pier during active construction zones.",
+   "official_answer": "The selected contractor will be required to provide a fencing plan for protection of materials. It is assumed that a perimeter fence would be in place for safety purposes and to limit access to the site.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "60b06a0647",
+    "c7e9f33ed6",
+    "c1f78225d6",
+    "2cf305c2a0",
+    "5490360ab4"
+   ],
+   "prompt_sha": "fd87c0ed2852",
+   "output": {
+    "decision": "other",
+    "answer": "The limits of temporary fencing are not explicitly stated in the provided excerpts. However, the contractor is responsible for determining the need for and designing, furnishing, and constructing all temporary structures, including fencing, as per Section 16 of the RIOC Standard Form Contract for Construction.",
+    "citations": [
+     {
+      "piece": "60b06a0647",
+      "quote": "Unless otherwise provided in this Contract, the Contractor shall determine the need for and shall design, furnish and construct all barricades, fences, staging, formwork, shoring, scaffolding and other temporary structures required in the performance of the Contract,"
+     },
+     {
+      "piece": "c7e9f33ed6",
+      "quote": "The temporary structures shall be removed from the construction site following completion of the Work."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 113.6,
+   "eval_count": 196,
+   "prompt_eval_count": 1827
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:16",
+   "question": "The \u201cOverview & Scope of Work\u201d specifies Dynaplank Boardwalk Planking (dark grey), while the drawings indicate pressure-treated 2x8, teak/Ipe 2x8, or Kebony 2x8 planking. Please confirm the correct material to be used",
+   "official_answer": "The correct material is the Dynaplank Boardwalk Planking (dark grey) or similar. See revised drawing (CPP to provide)",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "69b6f53600",
+    "1dc2282a5d",
+    "0ee1c8fef8",
+    "ab358c83b7",
+    "ac48fb1917"
+   ],
+   "prompt_sha": "1ff091099974",
+   "output": {
+    "decision": "yes",
+    "answer": "Dynaplank Boardwalk Planking (dark grey) is specified in the RFP.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Installation of wood framing and decking a. Decking and framing must be Dynaplank Boardwalk Planking (dark grey) or similar b."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 108.8,
+   "eval_count": 100,
+   "prompt_eval_count": 2075
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:17",
+   "question": "The RFP documents say to submit MWBE forms with the bid, however the forms themselves state they can be submitted after the bid but before award. Please clarify when they should be submitted.",
+   "official_answer": "MWBE utilization plan forms should be submitted with the bid.",
+   "discipline": null,
+   "retrieved": [
+    "645c70cbe2",
+    "19e34092e4",
+    "37eedc083e",
+    "b97c44d911",
+    "8978b7ec6a",
+    "e7ce2614c2"
+   ],
+   "prompt_sha": "0b9a081394c7",
+   "output": {
+    "decision": "other",
+    "answer": "The RFP documents state to submit MWBE forms with the bid, but the forms themselves allow for submission after the bid but before award. The forms should be submitted with the bid, but if not, they can be submitted later.",
+    "citations": [
+     {
+      "piece": "645c70cbe2",
+      "quote": "Forms MWBE 100, MWBE 101, MWBE 103 OR Form MWBE 104"
+     },
+     {
+      "piece": "19e34092e4",
+      "quote": "Required Forms: Form MWBE 100 \u2013 MWBE Participation/Equal Employment Opportunity Policy Statement"
+     },
+     {
+      "piece": "b97c44d911",
+      "quote": "Form ST-220-CA Bidder certifies that the documents above have been submitted as part of this Bid Proposal"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 120.5,
+   "eval_count": 197,
+   "prompt_eval_count": 1941
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:18",
+   "question": "The specifications state that the fiberglass jacket thickness shall be either 1/8\u201d or 3/16\u201d depending on application and diameter size. Please provide clarification on the required thickness for each applicable condition.",
+   "official_answer": "Jacket thickness is a performance design by the vendor providing the fiberglass jackets.",
+   "discipline": null,
+   "retrieved": [
+    "60b06a0647",
+    "ac48fb1917",
+    "7565129cd6",
+    "41c62e1c4e",
+    "3743d502c3",
+    "7e2e8aaed7"
+   ],
+   "prompt_sha": "90016ccb631a",
+   "output": {
+    "decision": "other",
+    "answer": "The required thickness for the fiberglass jacket is not explicitly stated in the provided excerpts. However, it is mentioned that the specifications require the doing of all things necessary or proper for or incidental to the scope of the Work, as shown on the Contract Drawings in their present form.",
+    "citations": [
+     {
+      "piece": "60b06a0647",
+      "quote": "The Specifications require the doing of all things necessary or proper for or incidental to the scope of the Work, as shown on the Contract Drawings in their present form."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 106.1,
+   "eval_count": 145,
+   "prompt_eval_count": 1873
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:19",
+   "question": "MWBE Forms 100 and 103 appear to contain overlapping requirements related to the Utilization Plan. Please clarify whether both forms must be executed and submitted.",
+   "official_answer": "MWBE 100 and 103 are both MWBE Utilization Plans, one of these may be submitted, rather than both.",
+   "discipline": null,
+   "retrieved": [
+    "645c70cbe2",
+    "37eedc083e",
+    "19e34092e4",
+    "96fa0730e3",
+    "a223c3894e",
+    "e8026ee4a2"
+   ],
+   "prompt_sha": "79cbe2e231b0",
+   "output": {
+    "decision": "no",
+    "answer": "Only one of the two forms, MWBE 103 or MWBE 104, is required to be submitted, depending on the bidder's ability to meet the 30% MWBE participation goal.",
+    "citations": [
+     {
+      "piece": "645c70cbe2",
+      "quote": "Form MWBE 103 OR Form MWBE 104"
+     },
+     {
+      "piece": "19e34092e4",
+      "quote": "If your firm is unable to identify any partnership opportunities with currently certified MWBE firms, in lieu of Form MWBE 103 above, you may submit Form MWBE 104"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 132.2,
+   "eval_count": 157,
+   "prompt_eval_count": 2279
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:20",
+   "question": "The RFP documents say to submit MWBE forms with the bid, however the forms themselves state they can be submitted after the bid but before award. Please clarify when they should be submitted.",
+   "official_answer": "Utilization plan should be submitted with the bid application.",
+   "discipline": null,
+   "retrieved": [
+    "645c70cbe2",
+    "19e34092e4",
+    "37eedc083e",
+    "b97c44d911",
+    "8978b7ec6a",
+    "e7ce2614c2"
+   ],
+   "prompt_sha": "0b9a081394c7",
+   "output": {
+    "decision": "other",
+    "answer": "The RFP documents state to submit MWBE forms with the bid, but the forms themselves allow for submission after the bid but before award. The forms should be submitted with the bid, but if not, they can be submitted later.",
+    "citations": [
+     {
+      "piece": "645c70cbe2",
+      "quote": "Forms MWBE 100, MWBE 101, MWBE 103 OR Form MWBE 104, SDVOB 103 OR Forms SDVOB 104 and SDVOB 109, EO 177 Certification, Bidder\u2019s Lobbying Certification AND Bidder\u2019s Certification of Accuracy, Bidder\u2019s Disclosure of Prior Non-Responsibility, Iran Divestment Act Certification AND MacBride Fair Employment Principles Stipulation, Encouraging Use of New York State Businesses in Contract Performance"
+     },
+     {
+      "piece": "19e34092e4",
+      "quote": "Required Forms: Form MWBE 100 \u2013 MWBE Participation/Equal Employment Opportunity Policy Statement, Form MWBE 101 \u2013 Staffing Plan, Form MWBE 103 \u2013 Utilization Plan (the detail must meet the 30% goal)"
+     },
+     {
+      "piece": "b97c44d911",
+      "quote": "\u2610 Form ST-220-CA Bidder certifies that the documents above have been submitted as part of this Bid Proposal."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 62.4,
+   "eval_count": 309,
+   "prompt_eval_count": 1941
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:21",
+   "question": "How are wood planks supported at the deck edges? Drawings show framing set back from the pier edge\u2014are planks overhanging, or is a perimeter support missing?",
+   "official_answer": "See left side of detail 3/S-200.00, which shows the decking perimeter condition.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "1dc2282a5d",
+    "60b06a0647",
+    "b56b700bb2",
+    "7e2e8aaed7"
+   ],
+   "prompt_sha": "ae4cf97fe6c0",
+   "output": {
+    "decision": "other",
+    "answer": "The drawings show framing set back from the pier edge, but it is not clear if the wood planks are overhanging or if a perimeter support is missing. The contractor should review the drawings and specifications to determine the correct installation method.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Installation of wood framing and decking a. Decking and framing must be Dynaplank Boardwalk Planking (dark grey) or similar"
+     },
+     {
+      "piece": "c4441363bb",
+      "quote": "These repairs must be done in accordance with the drawings and specifications included as part of this RFP."
+     },
+     {
+      "piece": "eee11caeae",
+      "quote": "The Pier is comprised of a concrete pile supported platform and a secondary wood structure which forms the deck and steps of the Pier."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 121.7,
+   "eval_count": 206,
+   "prompt_eval_count": 1925
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:22",
+   "question": "Files : MWBE Quartery Report, ST-220-TD, SCHEDULE CSCHEDULE C PREVIOUS PARTICIPATION AND DISCLOSURE STATEMENT1, Offerer\u2019s Certification of Compliance with State Finance Law,\u00a7139-k(5) Offerer\u2019s Affirmation of Understanding of and Agreement pursuant to State Finance Law \u00a7139-j (3) and \u00a7139-j (6) (b), were not located in the Bid Completeness Checklist. Please confirm if they are required to be submitted.",
+   "official_answer": "Confirmed, please include all listed docuemnts.",
+   "discipline": null,
+   "retrieved": [
+    "4697ca6c7a",
+    "645c70cbe2",
+    "4de8eab55c",
+    "dd54ba518b",
+    "37eedc083e",
+    "e8174afb84"
+   ],
+   "prompt_sha": "ccb43dbd5f0a",
+   "output": {
+    "decision": "yes",
+    "answer": "The files listed are required to be submitted as part of the bid proposal.",
+    "citations": [
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Certification of Accuracy Offerer\u2019s Certification of Compliance with State Finance Law \u00a7139-k(5)"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Disclosure of Prior Non-Responsibility Offerer Disclosure of Prior Non-Responsibility Determinations"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Lobbying Certification AND Bidder\u2019s Certification of Accuracy"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Disclosure of Prior Non-Responsibility"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Iran Divestment Act Certification AND MacBride Fair Employment Principles Stipulation"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Form MWBE 100"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Form MWBE 101"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Form MWBE 103 OR Form MWBE 104"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Form SDVOB 103 OR Forms SDVOB 104 and SDVOB 109"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "EO 177 Certification"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Lobbying Certification AND Bidder\u2019s Certification of Accuracy"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Bidder\u2019s Disclosure of Prior Non-Responsibility"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Iran Divestment Act Certification AND MacBride Fair Employment Principles Stipulation"
+     },
+     {
+      "piece": "645c70cbe2",
+      "quote": "Encouraging Use of New York State Businesses in Contract Performance"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 197.4,
+   "eval_count": 466,
+   "prompt_eval_count": 2250
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:23",
+   "question": "Who is responsible for the disconnection and removal of existing electrical utilities?",
+   "official_answer": "RIOC will be responsible for the disconnection and removal of existing electrical utilities.",
+   "discipline": null,
+   "retrieved": [
+    "4c4f70020d",
+    "1dc2282a5d",
+    "ac48fb1917",
+    "ceb011e818",
+    "b92694ebce",
+    "f7fb5a874a"
+   ],
+   "prompt_sha": "dde53083bf97",
+   "output": {
+    "decision": "other",
+    "answer": "The Contractor is responsible for coordinating with utility companies and complying with their requirements, but the specifics of disconnection and removal of existing electrical utilities are not clearly stated in the provided excerpts.",
+    "citations": [
+     {
+      "piece": "4c4f70020d",
+      "quote": "Notify affected utility companies and comply with their requirements."
+     },
+     {
+      "piece": "4c4f70020d",
+      "quote": "Coordinate work of various sections having interdependent responsibilities for installing, connecting to, and placing in service, such equipment."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 102.4,
+   "eval_count": 144,
+   "prompt_eval_count": 1790
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:24",
+   "question": "Should the wood planks be cut to match the contour of the existing granite face at the stairs and seating areas?",
+   "official_answer": "Yes. This should be included.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "69b6f53600",
+    "3743d502c3",
+    "c6c0eb0342",
+    "ab358c83b7"
+   ],
+   "prompt_sha": "fe0d55d7ec3f",
+   "output": {
+    "decision": "no",
+    "answer": "The wood planks should not be cut to match the contour of the existing granite face at the stairs and seating areas.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Installation of wood framing and decking a. Decking and framing must be Dynaplank Boardwalk Planking (dark grey) or similar b. All nails and connectors must be 316 stainless steel"
+     },
+     {
+      "piece": "69b6f53600",
+      "quote": "Installation in addition to any manufacturer\u2019s warranties. Extended warranties for \u201cDynaplank Dark Grey\u201d or similar wood decking material shall be for [20] years from the date of issuance by RIOC of the Certificate of Final Completion."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 125.1,
+   "eval_count": 179,
+   "prompt_eval_count": 2073
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:25",
+   "question": "The ramp currently includes a decorative wooden plank cut to follow the contour of the existing granite face. This detail is not shown on the drawings\u2014should this be included in the new ramp construction?",
+   "official_answer": "Yes. This should be included.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "7e2e8aaed7",
+    "ac48fb1917",
+    "eee11caeae",
+    "0ee1c8fef8",
+    "41c62e1c4e"
+   ],
+   "prompt_sha": "c9acad820a0b",
+   "output": {
+    "decision": "other",
+    "answer": "The decorative wooden plank is not shown on the drawings, but it is part of the existing railing system that is being replaced. The contractor should review the specifications and drawings to determine if it is included in the scope of work.",
+    "citations": [
+     {
+      "piece": "e",
+      "quote": "The railings are made of hollow steel tube posts with metal bar balusters and a wooden topped rail."
+     },
+     {
+      "piece": "c",
+      "quote": "The scope of Work to be performed by the Contractor includes all work that can reasonably be inferred as necessary to complete the Work, even if not specifically depicted or described in the plans and specifications."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 119.6,
+   "eval_count": 167,
+   "prompt_eval_count": 2026
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:26",
+   "question": "To remove and salvage the existing wood cap, the wood plugs must be removed to unscrew the wooden caps, and they are likely to be damaged in the process. Please provide what type of wood will be used?",
+   "official_answer": "This would be determined on an as needed basis during construction through consultation with the Engineer of Record.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "ab358c83b7",
+    "c4441363bb",
+    "69b6f53600",
+    "c7e9f33ed6",
+    "6680a64b3c"
+   ],
+   "prompt_sha": "585d00a40971",
+   "output": {
+    "decision": "other",
+    "answer": "The type of wood to be used for the wood cap is not specified in the provided excerpts, but it must be in accordance with Section 165 of the State Finance Law, which prohibits the purchase and use of tropical hardwoods unless specifically exempted.",
+    "citations": [
+     {
+      "piece": "ab358c83b7",
+      "quote": "The Contractor certifies and warrants that all wood products to be used under this contract award will be in accordance with, but not limited to, the specifications and provisions of Section 165 of the State Finance Law, (Use of Tropical Hardwoods)"
+     },
+     {
+      "piece": "c4441363bb",
+      "quote": "Installation of wood framing and decking a. Decking and framing must be Dynaplank Boardwalk Planking (dark grey) or similar"
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 118.7,
+   "eval_count": 195,
+   "prompt_eval_count": 1900
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:27",
+   "question": "Where can we place dumpsters? Is it allowed on the pavers?",
+   "official_answer": "The area immediately in front of the pier can be utilized for load in/load out and lay down. RIOC will coordinate with selected contractor on parking availability and location.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "41c62e1c4e",
+    "4c4f70020d",
+    "29ed37519a",
+    "c1f78225d6",
+    "66c0f77004"
+   ],
+   "prompt_sha": "97cf84dec7e2",
+   "output": {
+    "decision": "no",
+    "answer": "Dumpsters are not allowed on the pavers. The contractor must submit a site logistics and safety plan for approval, which should include arrangements for waste disposal.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "The selected Bidder shall remove and properly dispose of all debris off the island, which includes any and all debris located within the project site or generated during the performance of the work."
+     },
+     {
+      "piece": "c4441363bb",
+      "quote": "Prior to commencing the Work, the selected Bidder shall prepare, for prior written approval by RIOC, an overall site logistics and safety plan, along with detailed layouts and plans for staging, materials storage, and performance of construction work, in accordance with all applicable regulations."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 102.3,
+   "eval_count": 190,
+   "prompt_eval_count": 1618
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:28",
+   "question": "What is the anticipated start date?",
+   "official_answer": "The anticipated start date of the work would be early July 2026.",
+   "discipline": null,
+   "retrieved": [
+    "20dd541184",
+    "a4e7f9ad28",
+    "2cf305c2a0",
+    "5a9ce40e6b",
+    "f268e05f06",
+    "1437242546"
+   ],
+   "prompt_sha": "a35e81c0bf29",
+   "output": {
+    "decision": "other",
+    "answer": "The anticipated start date is not specified in the provided excerpts. However, the project duration is limited to 365 consecutive calendar days from the date of contract execution.",
+    "citations": [
+     {
+      "piece": "20dd541184",
+      "quote": "The duration of the Project will not exceed 365 consecutive calendar days from the date of contract execution."
+     },
+     {
+      "piece": "a4e7f9ad28",
+      "quote": "Delivery to the Contractor of a fully executed copy of this Contract shall constitute authorization to proceed with the Work, unless a different commencement date is otherwise provided."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 89.2,
+   "eval_count": 153,
+   "prompt_eval_count": 1507
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:29",
+   "question": "We are just getting involved in this bid and based on the fact that the site visit was yesterday, we are requesting an RFI submission extension by 1 week.",
+   "official_answer": "The RFI submission date has been extended to April 15, 2026 per Addendum #1.",
+   "discipline": null,
+   "retrieved": [
+    "ff0c703776",
+    "6680a64b3c",
+    "2cf305c2a0",
+    "c767a4bc80",
+    "5016756e38",
+    "5ea4e931b5"
+   ],
+   "prompt_sha": "d24a782f700c",
+   "output": {
+    "decision": "no",
+    "answer": "Requests for Information (RFIs) must be submitted by the RFI cut-off date listed on the front page of the RFP, which is April 9, 2026, 5:00 P.M.",
+    "citations": [
+     {
+      "piece": "2.1 Interested Bidders should register their intent to bid on the project by emailing rfpbids@rioc.ny.gov...",
+      "quote": "Any changes to the bid process or additional information (such as responses to Requests for Information) will be posted as Addenda to this RFP on the RIOC website at https://www.rioc.ny.gov/info/rfps-and-bids and also emailed to registered bidders."
+     },
+     {
+      "piece": "2.1 Interested Bidders should register their intent to bid on the project by emailing rfpbids@rioc.ny.gov...",
+      "quote": "Formal Requests for Information (RFIs) seeking interpretation or correction of any ambiguity, inconsistency or error in bid documents must be submitted to rfpbids@rioc.ny.gov by the RFI cut-off date listing on the front page of this RFP."
+     },
+     {
+      "piece": "2.1 Interested Bidders should register their intent to bid on the project by emailing rfpbids@rioc.ny.gov...",
+      "quote": "A collection of all RFIs received and official responses will be posted on the RIOC website at https://www.rioc.ny.gov/info/rfps-and-bids."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 176.4,
+   "eval_count": 333,
+   "prompt_eval_count": 2322
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:30",
+   "question": "Similarly, we are requesting a bid due date extension by at least 2 weeks to procure subcontractor pricing, source MWBE/SDVOB contractors, prepare the elaborate bid submission package as described in the bid documents and complete a thorough scope review?",
+   "official_answer": "The bid due date will be extended to Wednesday, May 6th",
+   "discipline": null,
+   "retrieved": [
+    "a97dc17f9c",
+    "e8026ee4a2",
+    "e836a034ac",
+    "ff0c703776",
+    "d22186bfcb",
+    "645c70cbe2"
+   ],
+   "prompt_sha": "9e16d7c64e13",
+   "output": {
+    "decision": "yes",
+    "answer": "RIOC may extend the deadline for submission of responses to this RFP or otherwise modify the schedule of dates set forth in this RFP.",
+    "citations": [
+     {
+      "piece": "a97dc17f9c",
+      "quote": "Extend the deadline for submission of responses to this RFP or otherwise modify the schedule of dates set forth in this RFP;"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 131.5,
+   "eval_count": 108,
+   "prompt_eval_count": 2415
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:31",
+   "question": "Rip-Rap and soil excavation will be required to expose the embedded surface area of the existing piles. Can we re-use the same material as backfill or do we need to dispose the existing materials off-site and import new materials?",
+   "official_answer": "This will largely be dependent on any permit requirements, however, Proposers should include a unit cost for new material in their submission.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "c4441363bb",
+    "66c0f77004",
+    "60b06a0647",
+    "1dc2282a5d",
+    "ac48fb1917"
+   ],
+   "prompt_sha": "5c54dd9705c8",
+   "output": {
+    "decision": "no",
+    "answer": "The existing materials must be disposed of off-site and new materials must be imported.",
+    "citations": [
+     {
+      "piece": "id: 60b06a0647",
+      "quote": "Upon completion of the Work or upon termination of this Contract, all Records, products and materials, including software, collected and prepared pursuant to this Contract shall become the exclusive property of RIOC."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 110.2,
+   "eval_count": 111,
+   "prompt_eval_count": 2032
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:32",
+   "question": "Do you have any pictures of the existing rip rap? Are they big pieces (boulders) of stone?",
+   "official_answer": "Please see attached structural report.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "60b06a0647",
+    "c7e9f33ed6",
+    "1dc2282a5d",
+    "c6c0eb0342",
+    "73d073e494"
+   ],
+   "prompt_sha": "836fc0564598",
+   "output": {
+    "decision": "other",
+    "answer": "The existing rip rap is not described in detail in the provided documents. However, the scope of work includes rehabilitation of the pier, which may involve replacement of the existing rip rap.",
+    "citations": [
+     {
+      "piece": "eee11caeae",
+      "quote": "The Pier is comprised of a concrete pile supported platform and a secondary wood structure which forms the deck and steps of the Pier. A railing system and light posts enclose the edge of the Pier for protection and illumination."
+     },
+     {
+      "piece": "eee11caeae",
+      "quote": "The rehabilitation of the pier will include three distinct elements \u2013 encasement of piles, replacement of the wood decking and replacement of the railings."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 117.3,
+   "eval_count": 177,
+   "prompt_eval_count": 1884
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:33",
+   "question": "Approved Methods for Embedded Steel Sleeve Removal Drawing S-050.00 prohibits jackhammering during demolition. Can RIOC confirm what methods are approved for removal of the existing embedded steel sleeves from the concrete curb at each railing post location?",
+   "official_answer": "Jackhammering is not prohibited, however, ot should not be conducted during early morning hours.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "c4441363bb",
+    "2cf305c2a0",
+    "0ee1c8fef8",
+    "ac48fb1917",
+    "f7fb5a874a"
+   ],
+   "prompt_sha": "992250a1745e",
+   "output": {
+    "decision": "other",
+    "answer": "The approved methods for removal of the existing embedded steel sleeves from the concrete curb at each railing post location are not specified in the provided excerpts. The Contractor is responsible for determining the best method for removal, but it must be done in accordance with the drawings and specifications included as part of this RFP.",
+    "citations": [
+     {
+      "piece": "eee11caeae",
+      "quote": "The rehabilitation of the pier will include three distinct elements \u2013 encasement of piles, replacement of the wood decking and replacement of the railings."
+     },
+     {
+      "piece": "c4441363bb",
+      "quote": "These repairs must be done in accordance with the drawings and specifications included as part of this RFP."
+     },
+     {
+      "piece": "0ee1c8fef8",
+      "quote": "Where a Shop Drawing, Catalog Cut or sample is required, no related Work shall be performed prior to the Architect/Engineer's review and approval of the submission."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 135.6,
+   "eval_count": 229,
+   "prompt_eval_count": 2048
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:34",
+   "question": "Permit Requirements for Pile Encasement Scope The scope of work includes underwater pile repairs and installation of pile encasements on existing piles. Can RIOC confirm whether any active permits from prior work on Eleanor's Pier remain in effect and would be available to the selected contractor?",
+   "official_answer": "The selected contractor will be required to obtain the necessary permits to complete the work.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "69b6f53600",
+    "522a7e8927",
+    "c4441363bb",
+    "41c62e1c4e",
+    "0c2a625a1c"
+   ],
+   "prompt_sha": "5a322b436f89",
+   "output": {
+    "decision": "no",
+    "answer": "The selected Bidder is responsible for obtaining all required in-water construction permits, including those issued by the USACE, NYSDEC, and NYCSBS, as applicable.",
+    "citations": [
+     {
+      "piece": "69b6f53600",
+      "quote": "The selected Bidder will be responsible for obtaining all required in-water construction permits including those issued by, but not limited to, the United States Army Corps of Engineers (USACE), New York State Department of Environmental Conservation (NYSDEC), and the NYC Department of Small Business Services (NYCSBS) as applicable."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 122.5,
+   "eval_count": 153,
+   "prompt_eval_count": 2090
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:35",
+   "question": "Decking Material Specification and Warranty Requirements The specification references \"Dynaplank Boardwalk Planking (dark grey) or similar\" as the required decking material. Section 1.3 also requires an extended 20-year warranty from the date of Certificate of Final Completion on the decking material.The Drawings also specify wood, kebony and other decking. Can you please confirm exactly what decking should be included in the bid and if any alternative brands are allowed. If alternative brands are acceptable, please confirm what other brands/ models of decking are acceptable and how pricing for each should be presented in the bid.",
+   "official_answer": "The correct material is the Dynaplank Boardwalk Planking (dark grey) or similar. See revised drawing (CPP to provide)",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "69b6f53600",
+    "41c62e1c4e",
+    "b56b700bb2",
+    "e0f2f2b494",
+    "f0a2615f36"
+   ],
+   "prompt_sha": "4a93f0984944",
+   "output": {
+    "decision": "yes",
+    "answer": "The required decking material is Dynaplank Boardwalk Planking (dark grey) or similar, and extended 20-year warranty is required.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "Decking and framing must be Dynaplank Boardwalk Planking (dark grey) or similar"
+     },
+     {
+      "piece": "69b6f53600",
+      "quote": "Extended warranties for \u201cDynaplank Dark Grey\u201d or similar wood decking material shall be for [20] years"
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 114.3,
+   "eval_count": 142,
+   "prompt_eval_count": 1987
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:36",
+   "question": "Existing Drawings and Structural Information Can RIOC confirm whether as-built drawings from the original 1990 pier construction and/or the 2014 Hurricane Sandy renovation are available to bidders? Specifically, are pile locations, pile dimensions, and pile embedment depths documented?",
+   "official_answer": "Please see posted structural report.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "48b96e3e84",
+    "b56b700bb2",
+    "41c62e1c4e",
+    "ac48fb1917",
+    "bd5fa0b3d4"
+   ],
+   "prompt_sha": "06e62a37a196",
+   "output": {
+    "decision": "other",
+    "answer": "The availability of as-built drawings from the original 1990 pier construction and/or the 2014 Hurricane Sandy renovation is not explicitly confirmed. However, the contractor is required to submit As-Built Drawings within 14 days after Substantial Completion, which will reflect any changes made to RIOC property.",
+    "citations": [
+     {
+      "piece": "48b96e3e84",
+      "quote": "Within fourteen (14) days after Substantial Completion, Contractor shall provide RIOC with the original design drawings which reflect any changes made to RIOC property pursuant to this Contract (\u201cAs-Built Drawings\u201d), as set forth in Section 8 of Schedule A-1."
+     },
+     {
+      "piece": "b56b700bb2",
+      "quote": "These drawings shall each be marked \u201cAS-BUILT DRAWING\u201d, dated and signed by the Contractor and be in the form of Mylar reproducibles, from which clear prints can be made, or with RIOC\u2019s written consent, in an electronic format or software program acceptable to RIOC."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 124.4,
+   "eval_count": 245,
+   "prompt_eval_count": 1798
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:37",
+   "question": "Steel Grade Discrepancy: 304 vs 316L The RFP text specifies 304 stainless steel for railing members, however the engineering drawings by IMEG consistently specify 316L stainless steel throughout all railing details including posts, base plates, pickets, and all connections. Can RIOC confirm which specification governs \u2014 the RFP text or the engineering drawings \u2014 and whether all railing members including posts, pickets, base plates and connections shall be 316L stainless steel?",
+   "official_answer": "316L is correct.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "eee11caeae",
+    "ac48fb1917",
+    "60b06a0647",
+    "41c62e1c4e",
+    "6fcb136bce"
+   ],
+   "prompt_sha": "35815596c851",
+   "output": {
+    "decision": "other",
+    "answer": "The RFP text specifies 304 stainless steel for railing members, but the engineering drawings by IMEG consistently specify 316L stainless steel. The RFP states that all things shown on the Contract Drawings are required, and the Contract Drawings specify 316L stainless steel for railing members.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "ss steel b. All hardware and fasteners must be 316 stainless steel"
+     },
+     {
+      "piece": "c4441363bb",
+      "quote": "These repairs must be done in accordance with the drawings and specifications included as part of this RFP."
+     },
+     {
+      "piece": "ac48fb1917",
+      "quote": "The Specifications require the doing of all things necessary or proper for or incidental to the scope of the Work, as shown on the Contract Drawings in their present form."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 136.2,
+   "eval_count": 214,
+   "prompt_eval_count": 2105
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:38",
+   "question": "Denso and Approved Equal Products for Pile Repair Drawing S-102 specifies Denso Series 2000HD for Pile Repair Type 1 coating and Denso Sea Shield 500 system for Pile Repair Type 2 encasement, both noted as \"or approved equal.\" Can RIOC confirm what documentation is required to establish an approved equal for these products or if RIOC is requiring those exact products, and whether approved equal submittals must be included with the bid or can be submitted post-award for engineer review and approval?",
+   "official_answer": "Approved equal submittals can be submitted post-award for EOR review and approval. They do not need to be included in the bid submission.",
+   "discipline": null,
+   "retrieved": [
+    "f0a2615f36",
+    "f7fb5a874a",
+    "eee11caeae",
+    "c4441363bb",
+    "e0f2f2b494",
+    "0ee1c8fef8"
+   ],
+   "prompt_sha": "e588f1089ec1",
+   "output": {
+    "decision": "other",
+    "answer": "To establish an approved equal for the specified products, the Contractor must submit sufficient information and proof to permit the Assistant Vice President of Engineering and Capital Projects & Planning (or their designee) to determine that the material or equipment proposed is equivalent or equal to that named.",
+    "citations": [
+     {
+      "piece": "f0a2615f36",
+      "quote": "Whenever materials or equipment are specified or described in the Contract Drawings or Specifications by using the name of a proprietary item or the name of a particular supplier, the naming of the item is intended to establish the type, function and quality required."
+     },
+     {
+      "piece": "f0a2615f36",
+      "quote": "Unless the name is followed by words indicating that no substitution is permitted, materials or equipment of another supplier or manufacturer may be accepted by the Assistant Vice President of Engineering and Capital Projects & Planning (or their designee) if sufficient information and proof is submitted by the Contractor to permit the Assistant v. 20260320 Vice President of Engineering and Capital Projects & Planning (or their designee) to determine that the material or equipment proposed is equivalent or equal to that named and the Architect/Engineer approves the substitution."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 144.8,
+   "eval_count": 279,
+   "prompt_eval_count": 2029
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:39",
+   "question": "With regard to Builders Risk coverage, What is the value of the existing structure?",
+   "official_answer": "Pending further respoinse, however, There is no known value of the existing structure to provide.",
+   "discipline": null,
+   "retrieved": [
+    "1ea3e671b5",
+    "5490360ab4",
+    "7f91e171a3",
+    "75e027d365",
+    "f7fb5a874a",
+    "a1ab82829f"
+   ],
+   "prompt_sha": "e83a4e38af98",
+   "output": {
+    "decision": "other",
+    "answer": "The value of the existing structure is not explicitly stated in the provided excerpts, but it is mentioned that the Builder's Risk Insurance policy shall be written on a completed value basis, with limits equal to the total value of the project, including labor, materials, and overhead.",
+    "citations": [
+     {
+      "piece": "1ea3e671b5",
+      "quote": "The policy shall be written on a completed value basis, with limits equal to the total value of the project, including labor, materials, and overhead."
+     },
+     {
+      "piece": "5490360ab4",
+      "quote": "The policy shall be written on a completed value basis, with limits equal to the total value of the project"
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 125.7,
+   "eval_count": 175,
+   "prompt_eval_count": 2052
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:40",
+   "question": "Please provide a bid form that details descriptions, quantity, units, or all work associated so that all contractors are pricing the same exact work.",
+   "official_answer": "Proposers should submit their own form of bid that encompasses all of the work described in this RFP and broken down by line item.",
+   "discipline": null,
+   "retrieved": [
+    "71cf96de45",
+    "1437242546",
+    "8c834d9da6",
+    "bd5fa0b3d4",
+    "96fa0730e3",
+    "b6cc50d8cf"
+   ],
+   "prompt_sha": "8fe3ecbf738c",
+   "output": {
+    "decision": "no",
+    "answer": "The RFP does not require a bid form that details descriptions, quantity, units, or all work associated so that all contractors are pricing the same exact work.",
+    "citations": [
+     {
+      "piece": "71cf96de45",
+      "quote": "Each cost and fee proposal (the \u201cFee Proposal\u201d) must state the total lump-sum cost for the performance of all Work."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 109.0,
+   "eval_count": 110,
+   "prompt_eval_count": 2010
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:41",
+   "question": "A24 clips are not available in 316 stainless steel and are only offered in Zinc Galvanized G90 or ZMAX coating, please confirm the required material/coating.",
+   "official_answer": "This question would be addressed post award with engineer of record.",
+   "discipline": null,
+   "retrieved": [
+    "c4441363bb",
+    "f0a2615f36",
+    "eee11caeae",
+    "66c0f77004",
+    "e0f2f2b494",
+    "1dc2282a5d"
+   ],
+   "prompt_sha": "512b5b7b761d",
+   "output": {
+    "decision": "no",
+    "answer": "The RFP requires all hardware and fasteners to be 316 stainless steel, but A24 clips are only available in Zinc Galvanized G90 or ZMAX coating.",
+    "citations": [
+     {
+      "piece": "c4441363bb",
+      "quote": "All hardware and fasteners must be 316 stainless steel"
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 110.1,
+   "eval_count": 101,
+   "prompt_eval_count": 2056
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:42",
+   "question": "Please provide the required width/dimensions for the (2) chain link gates.",
+   "official_answer": "Please see drawing S-105.00",
+   "discipline": null,
+   "retrieved": [
+    "73d073e494",
+    "1c10d79272",
+    "3743d502c3",
+    "2cf305c2a0",
+    "5a9ce40e6b",
+    "69b6f53600"
+   ],
+   "prompt_sha": "70c0dda5d518",
+   "output": {
+    "decision": "other",
+    "answer": "The required width/dimensions for the (2) chain link gates are not specified in the provided excerpts. The Contractor should refer to the approved Contract Drawings and Specifications for this information.",
+    "citations": [
+     {
+      "piece": "73d073e494",
+      "quote": "the Work described in Schedule B1 attached hereto and in the Drawings and Specifications and any other documents listed in Schedule B1, in accordance with Schedules A, A1, B2, and C, attached hereto."
+     },
+     {
+      "piece": "1c10d79272",
+      "quote": "The data shown on the Shop Drawings shall be complete with respect to quantities, dimensions, conformance to the specified performance and design criteria, materials, test results and similar information to enable the Architect/Engineer to review each submittal as required."
+     },
+     {
+      "piece": "3743d502c3",
+      "quote": "The Contractor shall have determined and verified all quantities, dimensions, conformance to the specified performance and design criteria, installation requirements, materials, catalog numbers and similar data with respect thereto and reviewed and coordinated each Shop Drawing or Catalog Cut with other Shop Drawings and Catalog Cuts and with other requirements of the Work."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 144.4,
+   "eval_count": 287,
+   "prompt_eval_count": 1987
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:43",
+   "question": "The drawings reference a \u201cstability base\u201d for fence posts, but do not include details, please provide the footing type, size, and installation requirements.",
+   "official_answer": "Stability base, posts, frames, and bracing must be designed to withstand wind loads. Per drawinng S-105.00, contractor should submit manufacturers specifications and drawings, indicating all sizes and connections to be used, for approval by the owner's representative.",
+   "discipline": null,
+   "retrieved": [
+    "eee11caeae",
+    "60b06a0647",
+    "1dc2282a5d",
+    "c4441363bb",
+    "7e2e8aaed7",
+    "4c4f70020d"
+   ],
+   "prompt_sha": "73340eacd1b8",
+   "output": {
+    "decision": "other",
+    "answer": "The contractor is responsible for designing and furnishing the temporary structures, including the stability base for fence posts, but the design and drawings must be submitted for review by the Assistant Vice President of Engineering and Capital Projects & Planning before being used.",
+    "citations": [
+     {
+      "piece": "60b06a0647",
+      "quote": "Unless otherwise provided in this Contract, the Contractor shall determine the need for and shall design, furnish and construct all barricades, fences, staging, formwork, shoring, scaffolding and other temporary structures required in the performance of the Contract,"
+     },
+     {
+      "piece": "60b06a0647",
+      "quote": "The design and drawings for such structures are to be prepared by the Contractor, and when requested by the Assistant Vice President of Engineering and Capital Projects & Planning (or their designee) they shall be submitted for review by the Assistant Vice President of Engineering and Capital Projects & Planning (or their designee) before being used."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 137.2,
+   "eval_count": 234,
+   "prompt_eval_count": 2042
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:44",
+   "question": "Please confirm whether privacy slats are required for the fence and provide specifications/details for the inserts if applicable.",
+   "official_answer": "Please see drawing S-105.00. Color is specified but type should be proposed.",
+   "discipline": null,
+   "retrieved": [
+    "60b06a0647",
+    "73d073e494",
+    "c4441363bb",
+    "ac48fb1917",
+    "7e2e8aaed7",
+    "41c62e1c4e"
+   ],
+   "prompt_sha": "c53dec3c27cb",
+   "output": {
+    "decision": "no",
+    "answer": "Privacy slats are not required for the fence as per the provided documents.",
+    "citations": [
+     {
+      "piece": "60b06a0647",
+      "quote": "Unless otherwise provided in this Contract, the Contractor shall determine the need for and shall design, furnish and construct all barricades, fences, staging, formwork, shoring, scaffolding and other temporary structures required in the performance of the Contract, whether or not of the type enumerated in the Specifications or on the Contract Drawings, including those which would be required by law or v. 20260320 regulation if this Contract were being performed for a private corporation."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 120.7,
+   "eval_count": 162,
+   "prompt_eval_count": 2030
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:45",
+   "question": "Additionally, we would like to request that the bid due date be extended by one week.",
+   "official_answer": "The bid due date will be extended to Wednesday, May 6th",
+   "discipline": null,
+   "retrieved": [
+    "2cf305c2a0",
+    "daa8b00f85",
+    "ff0c703776",
+    "5016756e38",
+    "e7ce2614c2",
+    "e836a034ac"
+   ],
+   "prompt_sha": "6fb311351875",
+   "output": {
+    "decision": "no",
+    "answer": "The bid due date cannot be extended by one week. The RFP clearly states that RFP Bids Due - LATE BIDS WILL NOT BE ACCEPTED on April 22, 2026 3:00 P.M.",
+    "citations": [
+     {
+      "piece": "2cf305c2a0",
+      "quote": "RFP Bids Due - LATE BIDS WILL NOT BE ACCEPTED April 22, 2026 3:00 P.M."
+     },
+     {
+      "piece": "ff0c703776",
+      "quote": "RFP Bids Due - LATE BIDS WILL NOT BE ACCEPTED April 22, 2026 3:00 P.M."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 136.7,
+   "eval_count": 175,
+   "prompt_eval_count": 2259
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:46",
+   "question": "Are there any liquidated damages associated?",
+   "official_answer": "Yes, please see page 7 of the RFP, General Requirements section \"n\", states: Failure to complete the project on time, as per Sections 5 and 6 of the Contract, may result in Liquidated Damages listed in the Contract under \u2018Scope of Work\u2019 and \u2018Additional Terms\u2019. Liquidated damages will be calculated at 0.1% of the total contract price per calendar day.",
+   "discipline": null,
+   "retrieved": [
+    "470842fe5e",
+    "9dded8f1cd",
+    "522a7e8927",
+    "1f33deb63f",
+    "9496bd53f2",
+    "2e7449a689"
+   ],
+   "prompt_sha": "c4bdb132def9",
+   "output": {
+    "decision": "yes",
+    "answer": "Liquidated damages will be calculated at 0.1% of the total contract price per calendar day.",
+    "citations": [
+     {
+      "piece": "522a7e8927",
+      "quote": "Liquidated damages will be calculated at 0.1% of the total contract price per calendar day."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 96.7,
+   "eval_count": 96,
+   "prompt_eval_count": 1850
+  },
+  {
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:47",
+   "question": "What will be the retainage % for the contract?",
+   "official_answer": "yes, 10%",
+   "discipline": null,
+   "retrieved": [
+    "1437242546",
+    "7565129cd6",
+    "2e7449a689",
+    "73593bf46c",
+    "7565129cd6",
+    "804e1378c5"
+   ],
+   "prompt_sha": "ff4aac0219d7",
+   "output": {
+    "decision": "other",
+    "answer": "The retainage percentage is not explicitly stated in the provided excerpts. However, it is mentioned that the Contractor shall have no claim to any additional amounts except as expressly authorized by written Change Order executed by RIOC.",
+    "citations": [
+     {
+      "piece": "2e7449a689",
+      "quote": "When the Work has reached Substantial Completion to RIOC\u2019s satisfaction, RIOC shall pay the Contractor the retainage, if any, less two times the Reasonable Estimated Cost to correct or complete incorrect or incomplete items of Work."
+     },
+     {
+      "piece": "2e7449a689",
+      "quote": "The Contractor shall have no claim to any additional amounts except as expressly authorized by written Change Order executed by RIOC."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 106.6,
+   "eval_count": 181,
+   "prompt_eval_count": 1702
+  }
+ ]
+}
