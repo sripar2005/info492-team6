@@ -114,7 +114,7 @@
     if (c.tier === 'proposal' && sent && (c.status === 'with_architect' || c.status === 'with_owner')) {
       var rd = primeTerm('review_days');
       if (rd) { var start = String(sent.created_at).slice(0, 10), waited = R.daysBetween(start, today()), dueR = R.addDays(start, +rd);
-        out.push({ what: 'Review', text: 'day ' + waited + ' of ' + rd + (waited > rd ? ', ' + (waited - rd) + ' days overdue' : ''), clause: primeClause('review_days'), due: dueR, bad: waited > rd, waited: waited }); }
+        out.push({ what: 'Review', waited: waited, text: 'day ' + waited + ' of ' + rd + (waited > rd ? ', ' + (waited - rd) + ' days overdue' : ''), clause: primeClause('review_days'), due: dueR, bad: waited > rd, waited: waited }); }
     }
     out.forEach(function (k) { if (!k.bad && k.due) { var left = R.daysBetween(today(), k.due); if (left >= 0 && left <= 3) k.soon = true; } });
     return out;
@@ -146,13 +146,64 @@
         var ret = ch.filter(function (c) { return c.status === 'returned'; }), days = open.filter(function (c) { return c.tier === 'proposal'; }).reduce(function (s, c) { return s + (+c.days || 0); }, 0);
         var waitRows = todo.map(function (x) { return '<tr data-copen="' + x.c.id + '"><td><span class="t">' + esc(x.c.title) + '</span><span class="id">' + esc(x.c.number) + ' · ' + (x.c.tier === 'sub_request' ? 'Sub request from ' + esc(name(x.c.from_company)) : 'Proposal') + '</span></td><td>' + badge(x.c.status, x.c) + '</td><td><b>' + esc(x.step) + '</b></td></tr>'; }).join('');
         var fieldRows = subs.map(function (s) { return '<li class="info"><span class="qd"></span><div><b>From the field' + (s.sender_name ? ', ' + esc(s.sender_name) : '') + '</b> <span class="fine">' + when(s.created_at) + ' · unverified</span><p style="margin:4px 0 8px">' + esc(s.body) + '</p><button class="btn sm" data-fconfirm="' + s.id + '">Make it a change request</button> <button class="btn ghost sm" data-fdiscard="' + s.id + '">Discard</button></div></li>'; }).join('');
-        var body = '<p style="margin:-6px 0 18px;color:var(--muted)">Signed in as <b>' + esc({ gc: 'GC/CM project manager', sub: 'Subcontractor project manager', architect: 'Architect', owner: 'Owner’s rep' }[role()] || P.ROLE[role()]) + '</b> · ' + esc(name(me())) + (/\.$/.test(name(me())) ? ' ' : '. ') + todo.length + ' waiting on you.' + (P.isSample() ? ' In the sample, switch roles in the band above to see what each party sees.' : '') + '</p>' +
+        // ---- Role-specific Home: same frame for everyone (signed-in line, strip, waiting list, clocks), different numbers and side panel. ----
+        var R_ = role(), seenCh = ch, mineSet = {}; todo.forEach(function (x) { mineSet[x.c.id] = 1; });
+        var lateOf = function (c) { return clocks(c, evs).some(function (k) { return k.bad; }); };
+        var stripHtml = function (items) { return '<div class="sumstrip">' + items.map(function (x) { return '<button class="sum ' + (x[3] || '') + '" data-sumgo="' + x[0] + '"><b>' + x[1] + '</b><span>' + esc(x[2]) + '</span></button>'; }).join('') + '</div>'; };
+        var strip = '', panel = '';
+        var empty = function (t) { return '<p class="fine" style="margin:0">' + esc(t) + '</p>'; };
+        if (R_ === 'gc') {
+          var lateN = open.filter(lateOf).length;
+          strip = stripHtml([['mine', todo.length, 'waiting on you', todo.length ? 'turn' : ''], ['open', ret.length, 'returned', ret.length ? 'fail' : ''], ['open', rate.value ? money(days * rate.value) : days + ' d', rate.value ? 'delay exposure (' + days + ' d × ' + money(rate.value) + ')' : 'days claimed, open', ''], ['open', lateN, 'open changes with a late clock', lateN ? 'fail' : '']]);
+          // Subs: open requests, pending dollars, and whether the subcontract's notice window is shorter than the prime's.
+          var byCause = primeTerm('notice_days_by_cause'), primeDays = byCause ? Math.min.apply(null, Object.keys(byCause).map(function (k) { return +byCause[k]; })) : null;
+          var subs_ = {}; seenCh.forEach(function (c) { if (c.tier !== 'sub_request' || !OPEN[c.status]) return; var x = subs_[c.from_company] = subs_[c.from_company] || { n: 0, amt: 0 }; x.n++; x.amt += +c.amount || 0; });
+          var list = Object.keys(subs_).map(function (co) {
+            var k = P.subcontractOf(co), sd = k ? P.term(k, 'notice_days') : null, gap = primeDays != null && sd != null ? R.flowdownGap(primeDays, +sd).gap : null;
+            return { co: co, n: subs_[co].n, amt: subs_[co].amt, gap: gap };
+          }).sort(function (a, b) { return (b.gap === true) - (a.gap === true) || b.n - a.n || b.amt - a.amt; });
+          panel = '<div class="card tbl-wrap" style="margin-top:16px"><table class="tbl"><thead><tr><th>Subs with open requests</th><th class="r">Open</th><th class="r">Pending</th><th>Notice gap</th></tr></thead><tbody>' +
+            (list.length ? list.slice(0, 6).map(function (x) { return '<tr><td>' + esc(name(x.co)) + '</td><td class="r">' + x.n + '</td><td class="r">' + money(x.amt) + '</td><td>' + (x.gap === true ? '<span class="bad">yes</span>' : x.gap === false ? 'no' : '—') + '</td></tr>'; }).join('') +
+              (list.length > 6 ? '<tr><td colspan="4" class="fine">' + (list.length - 6) + ' more subs</td></tr>' : '') : '<tr><td colspan="4" class="fine">No open sub requests.</td></tr>') +
+            '</tbody></table><p class="fine" style="padding:0 14px 10px;margin:6px 0 0">Notice gap: the subcontract gives the sub less time to give notice than the GC/CM has under the prime contract.</p></div>';
+        } else if (R_ === 'sub') {
+          var mineReq = seenCh.filter(function (c) { return c.tier === 'sub_request' && c.from_company === me(); });
+          var openReq = mineReq.filter(function (c) { return OPEN[c.status] || c.status === 'bundled'; }), apprAmt = sum(mineReq.filter(function (c) { return c.status === 'approved'; }));
+          var nl = dl.filter(function (x) { return x.k.what === 'Notice' && x.c.from_company === me(); }).map(function (x) { return x.k; });
+          var nextNotice = nl.filter(function (k) { return k.bad; }).length ? 'late' : nl.length ? R.daysBetween(today(), nl.map(function (k) { return k.due; }).sort()[0]) + ' days' : '—';
+          strip = stripHtml([['mine', subs.length, 'crew notes to confirm', subs.length ? 'turn' : ''], ['open', openReq.length, 'requests open', ''], ['closed', money(apprAmt), 'approved to date', 'ok'], ['open', nextNotice, 'until your next notice deadline', nextNotice === 'late' ? 'fail' : nl.length ? 'turn' : '']]);
+          var STEPS = [['sent', 'Sent'], ['with', 'With the GC/CM'], ['in', 'In a proposal'], ['done', 'Approved']];
+          var at = function (c) { return c.status === 'approved' ? 3 : c.status === 'bundled' || c.parent_id ? 2 : c.status === 'draft' ? -1 : 1; };
+          panel = '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Your requests</h3></div>' + (mineReq.length ? mineReq.slice(0, 8).map(function (c) {
+            var i = at(c);
+            return '<div class="reqline"><button class="link" data-copen="' + c.id + '"><b>' + esc(c.number) + '</b></button> ' + esc(c.title) + ' <span class="fine">' + money(c.amount) + '</span>' +
+              (c.status === 'returned' || c.status === 'rejected' ? ' <span class="badge fail">' + esc(STATUS[c.status]) + '</span>' : i < 0 ? ' <span class="badge turn">Draft · not sent</span>' :
+              '<div class="prog">' + STEPS.map(function (st, k) { return '<span class="' + (k < i || (k === i && k === 3) ? 'done' : k === i ? 'now' : '') + '">' + st[1] + '</span>'; }).join('') + '</div>') + '</div>';
+          }).join('') : empty('No requests yet. Raise one on 01 Changes, or confirm a note from your crew.')) + '</div>';
+        } else if (R_ === 'architect') {
+          var inRev = seenCh.filter(function (c) { return c.status === 'with_architect'; }), overdue = inRev.filter(lateOf);
+          var revDays = inRev.map(function (c) { var k = clocks(c, evs).filter(function (k) { return k.what === 'Review'; })[0]; return k && k.waited != null ? +k.waited : null; }).filter(function (x) { return x != null; });
+          strip = stripHtml([['mine', inRev.length, 'in review', inRev.length ? 'turn' : ''], ['mine', overdue.length, 'overdue reviews', overdue.length ? 'fail' : ''], ['mine', revDays.length ? Math.max.apply(null, revDays) + ' days' : '—', 'oldest in review', ''], ['open', ret.length, 'returned', '']]);
+          var rv = primeTerm('review_days');
+          panel = '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>How reviews work here</h3></div><p style="margin:0">' + (rv ? 'The prime contract gives the architect ' + esc(rv) + ' days to review a proposal (' + esc(primeClause('review_days')) + '). ' : '') + 'Opening a proposal starts on its evidence trail and the GC/CM’s check results. Forward it to the owner, or return it with a reason; both are logged.</p></div>';
+        } else if (R_ === 'owner') {
+          var props = seenCh.filter(function (c) { return c.tier === 'proposal'; }), dec = props.filter(function (c) { return c.status === 'with_owner'; }), ok_ = props.filter(function (c) { return c.status === 'approved'; });
+          var daysAdded = ok_.reduce(function (s_, c) { return s_ + (+c.days || 0); }, 0), lateRev = props.filter(function (c) { return (c.status === 'with_architect' || c.status === 'with_owner') && lateOf(c); });
+          strip = stripHtml([['mine', dec.length, 'decisions waiting', dec.length ? 'turn' : ''], ['closed', ok_.length + ' · ' + money(sum(ok_)), 'approved to date', 'ok'], ['closed', '+' + daysAdded + ' days', 'added to the schedule', ''], ['open', lateRev.length, 'late reviews', lateRev.length ? 'fail' : '']]);
+          var bc = {}, tot = 0; ok_.forEach(function (c) { var k = (c.cause && c.cause.type) || 'Not recorded'; bc[k] = (bc[k] || 0) + (+c.amount || 0); tot += +c.amount || 0; });
+          var rowsC = Object.keys(bc).sort(function (a, b) { return bc[b] - bc[a]; });
+          panel = '<div class="card tbl-wrap" style="margin-top:16px"><table class="tbl"><thead><tr><th>Approved changes by cause</th><th class="r">Amount</th><th class="r">Share</th></tr></thead><tbody>' +
+            (rowsC.length ? rowsC.map(function (k) { return '<tr><td>' + esc(k) + '</td><td class="r">' + money(bc[k]) + '</td><td class="r">' + Math.round(100 * bc[k] / (tot || 1)) + '%</td></tr>'; }).join('') : '<tr><td colspan="3" class="fine">No approved changes yet.</td></tr>') +
+            '</tbody></table><p style="padding:0 14px 12px;margin:8px 0 0"><button class="btn sm" data-colog="1"' + (ok_.length ? '' : ' disabled') + '>Export the change-order log (CSV)</button> <span class="fine">For board approval: number, title, cause, amount, days, status.</span></p></div>';
+          V._colog = props;
+        }
+        var body = '<p style="margin:-6px 0 14px;color:var(--muted)">Signed in as <b>' + esc({ gc: 'GC/CM project manager', sub: 'Subcontractor project manager', architect: 'Architect', owner: 'Owner’s rep' }[role()] || P.ROLE[role()]) + '</b> · ' + esc(name(me())) + (/\.$/.test(name(me())) ? ' ' : '. ') + todo.length + ' waiting on you.' + (P.isSample() ? ' In the sample, switch roles in the band above to see what each party sees.' : '') + '</p>' + strip +
           '<div class="cols" style="--cols:minmax(0,1.5fr) minmax(0,1fr)"><div>' +
           (fieldRows ? '<div class="card sec" style="margin-bottom:16px"><div class="sec-h"><h3>From your field link (' + subs.length + ')</h3><span class="tagr chk">unverified</span></div><ul class="qual">' + fieldRows + '</ul><p class="fine" style="margin:8px 0 0">Nothing from the field reaches the GC/CM until you confirm it.</p></div>' : '') +
-          '<div class="card tbl-wrap">' + (todo.length ? '<table class="tbl turn"><thead><tr><th>Waiting on you</th><th>Status</th><th>Next</th></tr></thead><tbody>' + waitRows + '</tbody></table>' : '<p style="padding:18px;margin:0">Nothing is waiting on you. <a class="link" href="#changes">See all changes</a></p>') + '</div></div>' +
-          '<div><div class="card sec"><div class="sec-h"><h3>Clocks</h3><span class="fine">from the contracts</span></div>' + (dl.length ? '<ul class="clocks">' + dl.slice(0, 7).map(function (x) { return '<li class="' + (x.k.bad ? 'bad' : '') + '"><button class="link" data-copen="' + x.c.id + '">' + esc(x.c.number) + '</button> ' + esc(x.k.what) + ' ' + esc(x.k.text) + ' <span class="fine">' + esc(x.k.clause) + '</span></li>'; }).join('') + '</ul>' : '<p class="fine" style="margin:0">No open clocks.</p>') + '</div>' +
-          '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Money</h3></div><div class="tblock two"><div><span>Pending</span><b>' + money(sum(pend)) + '</b></div><div><span>Approved</span><b>' + money(sum(appr)) + '</b></div><div><span>Returned</span><b>' + ret.length + '</b></div>' +
-          (role() !== 'sub' && rate.value ? '<div><span>Delay exposure</span><b>' + days + ' days × ' + money(rate.value) + '</b></div>' : '') + '</div>' + (role() !== 'sub' && rate.value ? '<p class="fine" style="margin:8px 0 0">Days claimed on open proposals, at ' + esc(rate.label) + '. Not a finding: each claim still needs its schedule analysis.</p>' : '') + '</div>' +
+          '<div class="card tbl-wrap">' + (todo.length ? '<table class="tbl turn"><thead><tr><th>Waiting on you</th><th>Status</th><th>Next</th></tr></thead><tbody>' + waitRows + '</tbody></table>' : '<p style="padding:18px;margin:0">Nothing is waiting on you. <a class="link" href="#changes">See all changes</a></p>') + '</div>' + (R_ === 'gc' || R_ === 'sub' ? panel : '') + '</div>' +
+          '<div><div class="card sec"><div class="sec-h"><h3>Clocks</h3><span class="fine">from the contracts</span></div>' + (dl.length ? '<ul class="clocks">' + dl.slice(0, 7).map(function (x) { return '<li class="' + (x.k.bad ? 'bad' : x.k.soon ? 'soon' : '') + '"><button class="link" data-copen="' + x.c.id + '">' + esc(x.c.number) + '</button> ' + esc(x.k.what) + ' ' + esc(x.k.text) + ' <span class="fine">' + esc(x.k.clause) + '</span></li>'; }).join('') + '</ul>' : '<p class="fine" style="margin:0">No open clocks.</p>') + '</div>' +
+          (R_ === 'architect' || R_ === 'owner' ? panel : '') +
+          (R_ === 'gc' ? '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Money</h3></div><div class="tblock two"><div><span>Pending</span><b>' + money(sum(pend)) + '</b></div><div><span>Approved</span><b>' + money(sum(appr)) + '</b></div></div>' + (rate.value ? '<p class="fine" style="margin:8px 0 0">Delay exposure: days claimed on open proposals, at ' + esc(rate.label) + '. Not a finding: each claim still needs its schedule analysis.</p>' : '') + '</div>' : '') +
           '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Check before you send</h3></div><p class="fine" style="margin:0 0 10px">No project? The quick check reads one proposal against a contract and marks what would get it sent back.</p><a class="btn sm" href="#upload">Quick check a proposal</a></div></div></div>';
         app.innerHTML = sheet('Home', 'Waiting on you', body);
       }).catch(fail);
@@ -924,7 +975,13 @@
     }
   });
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-actview],[data-sumgo]'); if (!t) return;
+    var t = e.target.closest('[data-actview],[data-sumgo],[data-colog]'); if (!t) return;
+    if (t.dataset.colog) {
+      var cell = function (x) { x = String(x == null ? '' : x); return /[",\n]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
+      var lines = ['number,title,cause,reference,amount,days,status'].concat((V._colog || []).map(function (c) { return [c.number, c.title, (c.cause || {}).type || '', (c.cause || {}).reference || '', c.amount, c.days || 0, STATUS[c.status] || c.status].map(cell).join(','); }));
+      var blob = new Blob([lines.join('\n') + '\n'], { type: 'text/csv' }), a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'change-order-log.csv'; document.body.appendChild(a); a.click(); a.remove(); return;
+    }
     if (t.dataset.actview) { var F = store('cs_actf') || {}; F.view = t.dataset.actview; store('cs_actf', F); return V.activity(); }
     store('cs_chfilter', t.dataset.sumgo); A.go('changes');
   });

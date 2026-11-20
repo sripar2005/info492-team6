@@ -808,3 +808,9 @@ details.ag[open] { background: #FAFAFA; } details.ag > *:not(summary) { padding:
 ul.evl { list-style: none; margin: 0; padding: 0; } ul.evl li { padding: 4px 0; } ul.evl li.rt { color: var(--muted); }
 ul.evl li.rt summary { cursor: pointer; } ul.evl ul.evl { padding-left: 14px; }
 @media (max-width: 720px) { details.ag > summary { grid-template-columns: minmax(0, 1fr) auto; } details.ag > summary .num { grid-column: 1 / -1; } details.ag > *:not(summary) { padding-left: 14px; } }
+/* Role Home: the sub's request progress */
+.reqline { padding: 8px 0; border-top: 1px solid #E0E0E0; } .reqline:first-of-type { border-top: 0; }
+.prog { display: flex; gap: 3px; margin-top: 6px; } .prog span { flex: 1; font-size: 12px; text-align: center; padding: 3px 4px; border: 1px solid #000000; }
+.prog span.done { background: var(--green); border-color: var(--green); color: #FFFFFF; }
+.prog span.now { background: var(--amber-fill); border-color: var(--amber); color: var(--amber-ink); font-weight: 600; }
+@media (max-width: 560px) { .prog { flex-wrap: wrap; } .prog span { flex: 1 1 45%; } }
