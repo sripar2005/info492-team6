@@ -1,0 +1,108 @@
+{
+ "what": "RFI responder on real public RFIs, scored by code against the official answers. See tools/real/score.py for each measure.",
+ "rfis_available": 173,
+ "projects": [
+  {
+   "project": "maine-2995-capitol-garage",
+   "name": "Capitol Parking Garage 2026 Repairs (State of Maine BGS #2995)",
+   "rfis": 19,
+   "pieces": 85
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "name": "Drug Discovery and Cancer Research Pavilion, UIC (Illinois CDB #830-030-167), design-build",
+   "rfis": 30,
+   "pieces": 107
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "name": "Northern Illinois Center for Community Sustainability (Illinois CDB #822-010-135), design-build",
+   "rfis": 28,
+   "pieces": 104
+  },
+  {
+   "project": "illinois-idot-materials-lab",
+   "name": "IDOT Materials Lab (Illinois CDB #630-442-057), design-build",
+   "rfis": 8,
+   "pieces": 69
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "name": "Wellness Center Re-Use Renovation (State of Maine BGS #3843)",
+   "rfis": 41,
+   "pieces": 325
+  },
+  {
+   "project": "ny-rioc-eleanors-pier",
+   "name": "Eleanor\u2019s Pier Repair (Roosevelt Island Operating Corp. RFP #26-1095)",
+   "rfis": 47,
+   "pieces": 187
+  }
+ ],
+ "models": {
+  "llama3.1:8b": {
+   "rfis_run": 3,
+   "valid_json": 1.0,
+   "citations": 6,
+   "citations_verified": 1.0,
+   "citations_fabricated_ids": 0,
+   "answers_with_citations": 1.0,
+   "answers_fully_supported": 1.0,
+   "reference_resolution": null,
+   "reference_n": 0,
+   "reference_resolution_top_search_result": null,
+   "decision_agreement": 1.0,
+   "decision_n": 1,
+   "asked_for_a_person": 0.0,
+   "new_information_flagged": null,
+   "new_information_n": 0,
+   "answer_overlap_f1": 0.154,
+   "answer_overlap_f1_baseline_top_search_text": 0.082,
+   "median_seconds_per_rfi": 89.7,
+   "search": [
+    "hybrid"
+   ],
+   "embed_model": [
+    "qwen3-embedding:0.6b"
+   ]
+  },
+  "qwen3.5:9b": {
+   "rfis_run": 6,
+   "valid_json": 1.0,
+   "citations": 10,
+   "citations_verified": 0.5,
+   "citations_fabricated_ids": 0,
+   "answers_with_citations": 1.0,
+   "answers_fully_supported": 0.333,
+   "reference_resolution": 0.5,
+   "reference_n": 2,
+   "reference_resolution_top_search_result": 0.0,
+   "decision_agreement": 0.667,
+   "decision_n": 3,
+   "asked_for_a_person": 0.0,
+   "new_information_flagged": null,
+   "new_information_n": 0,
+   "answer_overlap_f1": 0.333,
+   "answer_overlap_f1_baseline_top_search_text": 0.014,
+   "median_seconds_per_rfi": 96.8,
+   "search": [
+    "hybrid"
+   ],
+   "embed_model": [
+    "qwen3-embedding:0.6b"
+   ]
+  }
+ },
+ "subsets": {
+  "with_checkable_reference": 11,
+  "with_yes_no_answer": 37,
+  "needing_new_information": 31,
+  "yes_no_split": {
+   "yes": 18,
+   "no": 19
+  }
+ },
+ "baselines": {
+  "decision_always_no": 0.514
+ }
+}
