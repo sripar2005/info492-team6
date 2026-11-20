@@ -163,13 +163,21 @@
   V.changes = function () {
     gate(function (C) {
       loadChanges().then(function (ch) {
-        var filt = store('cs_chfilter') || 'all', rows = ch.filter(function (c) { return filt === 'mine' ? !!nextStep(c) : filt === 'open' ? OPEN[c.status] : true; });
-        var tr = rows.map(function (c) {
+        // Three tabs: what's waiting on you (the default), everything open grouped by stage, and the closed history.
+        var filt = store('cs_chfilter'); if (['mine', 'open', 'closed'].indexOf(filt) < 0) filt = 'mine';
+        var mine = ch.filter(function (c) { return !!nextStep(c); }), open = ch.filter(function (c) { return OPEN[c.status]; }), closed = ch.filter(function (c) { return !OPEN[c.status]; });
+        var rows = filt === 'mine' ? mine : filt === 'open' ? open : closed;
+        var line = function (c) {
           return '<tr data-copen="' + c.id + '"><td><span class="t">' + esc(c.title) + '</span><span class="id">' + esc(c.number) + ' · ' + (c.tier === 'sub_request' ? 'Sub request' : 'Proposal') + '</span></td><td>' + esc(name(c.from_company)) + '</td><td>' + badge(c.status, c) + '</td><td>' + (OPEN[c.status] && c.holder ? esc(name(c.holder)) : '—') + '</td><td class="r">' + money(c.amount) + '</td><td class="r">' + (c.days ? c.days + ' d' : '—') + '</td></tr>';
-        }).join('');
+        };
+        var STAGES = ['draft', 'returned', 'with_gc', 'with_architect', 'with_owner'];
+        var tr = filt === 'open' ? STAGES.map(function (st) {
+          var g = rows.filter(function (c) { return c.status === st; });
+          return g.length ? '<tr class="grp-h"><td colspan="6">' + esc(STATUS[st] || st) + ' · ' + g.length + '</td></tr>' + g.map(line).join('') : '';
+        }).join('') : rows.map(line).join('');
         var canRaise = role() === 'sub' || role() === 'gc';
-        app.innerHTML = sheet('01 Changes', 'Changes', '<div class="pills" style="margin:-6px 0 14px">' + [['all', 'All you can see (' + ch.length + ')'], ['open', 'Open'], ['mine', 'Waiting on you']].map(function (f) { return '<button class="pill" data-chf="' + f[0] + '" aria-pressed="' + (filt === f[0]) + '">' + f[1] + '</button>'; }).join('') + '</div>' +
-          '<div class="cols" style="--cols:minmax(0,1.7fr) minmax(0,1fr)"><div class="card tbl-wrap">' + (rows.length ? '<table class="tbl"><thead><tr><th>Change</th><th>From</th><th>Status</th><th>With</th><th class="r">Amount</th><th class="r">Days</th></tr></thead><tbody>' + tr + '</tbody></table>' : '<p style="padding:18px;margin:0">None here.</p>') + '</div>' +
+        app.innerHTML = sheet('01 Changes', 'Changes', '<div class="tabs-row" role="tablist" aria-label="Which changes">' + [['mine', 'Waiting on you', mine.length], ['open', 'Open', open.length], ['closed', 'Closed', closed.length]].map(function (f) { return '<button class="tabbtn" role="tab" data-chf="' + f[0] + '" aria-selected="' + (filt === f[0]) + '">' + f[1] + ' <b>' + f[2] + '</b></button>'; }).join('') + '</div>' +
+          '<div class="cols" style="--cols:minmax(0,1.7fr) minmax(0,1fr)"><div class="card tbl-wrap">' + (rows.length ? '<table class="tbl' + (filt === 'open' ? ' grouped' : '') + '"><thead><tr><th>Change</th><th>From</th><th>Status</th><th>With</th><th class="r">Amount</th><th class="r">Days</th></tr></thead><tbody>' + tr + '</tbody></table>' : '<p style="padding:18px;margin:0">' + (filt === 'mine' ? 'Nothing is waiting on you.' : filt === 'open' ? 'No open changes.' : 'No closed changes yet.') + '</p>') + '</div>' +
           '<div class="card sec"><div class="sec-h"><h3>Raise a change</h3></div>' + (canRaise ? '<p class="fine" style="margin:0 0 10px">' + (role() === 'sub' ? 'A change request to the GC/CM, under your subcontract.' : 'A change proposal to the owner, under the prime contract.') + ' Write it the way you’d say it on site.</p><form id="newc"><div class="fd"><label><span>Short title</span></label><div class="inp"><input id="ctitle" required placeholder="e.g. Extra drains at gym roof"></div></div>' +
             '<div class="fd" style="margin-top:10px"><label><span>What happened</span></label><div class="inp" style="height:auto"><textarea id="cnote" rows="4" required placeholder="e.g. RFI-112 answer adds two roof drains at the gym. We need to tie into the existing leader and cut the deck."></textarea></div></div>' +
             '<div class="grid" style="margin-top:10px"><div class="fd"><label><span>What caused it</span></label><div class="inp sel"><select id="ccause">' + ['RFI response', 'ASI', 'Submittal return', 'Owner direction', 'Architect direction', 'Concealed condition', 'Other event'].map(function (x) { return '<option>' + x + '</option>'; }).join('') + '</select></div></div>' +
@@ -711,21 +719,54 @@
   };
 
   /* ---------- 05 Activity (W6) ---------- */
+  // Decisions stay visible; routine steps (notes, drafts, confirmations, check runs) fold into one line per change.
+  var DECISIONS = { submit: 1, forward: 1, return: 1, approve: 1, reject: 1, bundle: 1, withdraw: 1, explain: 1 };
   V.activity = function () {
     gate(function (C) {
       Promise.all([loadEvents(), q(P.sb().from('changes').select('*').eq('project_id', C.project.id)), loadPeople()]).then(function (r) {
         var byId = {}; r[1].forEach(function (c) { byId[c.id] = c; });
+        var seen = r[1].filter(function (c) { return P.sees.change(c); });
         var F = store('cs_actf') || {}, evs = r[0].filter(function (e) { return P.sees.event(e, byId); });
-        var rows = evs.filter(function (e) { return (!F.co || e.company_id === F.co) && (!F.ai || e.ai) && (!F.ch || (byId[e.change_id] && byId[e.change_id].number.toLowerCase().indexOf(F.ch.toLowerCase()) >= 0)); }).reverse();
-        var cos = Object.keys(C.companies);
-        app.innerHTML = sheet('05 Activity', 'Activity log', '<p style="margin:-6px 0 14px;color:var(--muted)">Every action ' + esc(name(me())) + ' may see, newest first. Nothing here can be edited or deleted.</p>' +
-          '<div class="grid filt" style="grid-template-columns:repeat(4,minmax(0,1fr)) auto;align-items:end;gap:10px"><div class="fd"><label><span>Company</span></label><div class="inp sel"><select id="fco"><option value="">All</option>' + cos.map(function (id) { return '<option value="' + id + '"' + (F.co === id ? ' selected' : '') + '>' + esc(name(id)) + '</option>'; }).join('') + '</select></div></div>' +
-          '<div class="fd"><label><span>Change</span></label><div class="inp"><input id="fch" value="' + esc(F.ch || '') + '" placeholder="e.g. CP-0212"></div></div><div class="fd"><label class="tog-row"><input type="checkbox" id="fai"' + (F.ai ? ' checked' : '') + '> AI steps only</label></div><div></div><button class="btn" data-actexport="1">Export CSV</button></div>' +
-          '<div class="card tbl-wrap" style="margin-top:14px"><table class="tbl"><thead><tr><th>When</th><th>Company</th><th>Action</th><th>Change</th><th>AI</th><th>Detail</th></tr></thead><tbody>' + rows.slice(0, 400).map(function (e) {
-            var c = byId[e.change_id];
-            return '<tr><td class="fine" style="white-space:nowrap">' + when(e.created_at) + '</td><td>' + esc(name(e.company_id)) + (e.actor && people[e.actor] ? '<span class="id">' + esc(people[e.actor].email) + '</span>' : '') + '</td><td>' + esc(KIND[e.kind] || e.kind) + (e.reason ? ' <span class="tagr chk">' + esc(REASON[e.reason] || e.reason) + '</span>' : '') + '</td><td>' + (c ? '<button class="link" data-copen="' + c.id + '">' + esc(c.number) + '</button>' : '—') + '</td><td>' + (e.ai ? esc(e.ai.model) + '<span class="id">' + (e.ai.citations || []).length + ' citations' + (e.ai.edited ? ', edited' : '') + (e.ai.rejected ? ', rejected' : '') + '</span>' : '—') + '</td><td class="fine">' + esc((e.body || '').slice(0, 140)) + '</td></tr>';
-          }).join('') + '</tbody></table></div>' + (rows.length > 400 ? '<p class="fine">Showing the newest 400 of ' + rows.length + '. Export for all of them.</p>' : ''));
-        V._actRows = { rows: rows, byId: byId };
+        var view = F.view === 'all' ? 'all' : 'open';
+        // The summary strip: each number opens the matching list.
+        var wait = seen.filter(function (c) { return !!nextStep(c); }).length, ret = seen.filter(function (c) { return c.status === 'returned'; }).length, appr = seen.filter(function (c) { return c.status === 'approved'; }).length;
+        var late = 0; seen.forEach(function (c) { if (OPEN[c.status] && clocks(c, evs).some(function (k) { return k.bad; })) late++; });
+        var strip = '<div class="sumstrip">' + [['mine', wait, 'waiting on you', wait ? 'turn' : ''], ['open', ret, 'returned', ret ? 'fail' : ''], ['closed', appr, 'approved', 'ok'], ['open', late, 'open changes with a late clock', late ? 'fail' : '']].map(function (x) {
+          return '<button class="sum ' + x[3] + '" data-sumgo="' + x[0] + '"><b>' + x[1] + '</b><span>' + x[2] + '</span></button>'; }).join('') + '</div>';
+        var tabs = '<div class="tabs-row" role="tablist" aria-label="Which activity">' + [['open', 'Open changes'], ['all', 'Full log']].map(function (t) { return '<button class="tabbtn" role="tab" data-actview="' + t[0] + '" aria-selected="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
+        var evRow = function (e) {
+          return '<li class="' + (DECISIONS[e.kind] ? 'dec' : 'rt') + '"><span class="fine">' + when(e.created_at) + '</span> <b>' + esc(name(e.company_id)) + '</b> ' + esc((KIND[e.kind] || e.kind).toLowerCase()) +
+            (e.reason ? ' <span class="tagr chk">' + esc(REASON[e.reason] || e.reason) + '</span>' : '') + (e.ai ? ' <span class="tagr ai">AI · ' + esc(e.ai.model) + '</span>' : '') + (e.body ? '<div class="fine">' + esc(String(e.body).slice(0, 220)) + '</div>' : '') + '</li>';
+        };
+        var body;
+        if (view === 'open') {
+          // One row per open change, newest activity first, waiting-on-you first.
+          var groups = {}; evs.forEach(function (e) { var c = byId[e.change_id]; if (c && OPEN[c.status]) (groups[c.id] = groups[c.id] || []).push(e); });
+          seen.forEach(function (c) { if (OPEN[c.status] && !groups[c.id]) groups[c.id] = []; });
+          var ids = Object.keys(groups).sort(function (x, y) {
+            var tx = !!nextStep(byId[x]), ty = !!nextStep(byId[y]); if (tx !== ty) return tx ? -1 : 1;
+            var lx = (groups[x].slice(-1)[0] || {}).created_at || '', ly = (groups[y].slice(-1)[0] || {}).created_at || ''; return lx < ly ? 1 : -1;
+          });
+          body = ids.length ? '<div class="card actgroups">' + ids.map(function (id) {
+            var c = byId[id], es = groups[id].slice().reverse(), dec = es.filter(function (e) { return DECISIONS[e.kind]; }), rt = es.filter(function (e) { return !DECISIONS[e.kind]; });
+            var last = es[0], ks = clocks(c, evs), bad = ks.some(function (k) { return k.bad; });
+            return '<details class="ag"><summary><b class="num">' + esc(c.number) + '</b><span class="ttl">' + esc(c.title) + (last ? '<span class="fine"> · last: ' + esc(name(last.company_id)) + ' ' + esc((KIND[last.kind] || last.kind).toLowerCase()) + ', ' + when(last.created_at) + '</span>' : '') + '</span>' +
+              (bad ? '<span class="badge fail">late clock</span>' : '') + badge(c.status, c) + '<span class="fine">' + es.length + ' event' + (es.length === 1 ? '' : 's') + '</span></summary>' +
+              '<ul class="evl">' + dec.map(evRow).join('') + (rt.length ? '<li class="rt"><details><summary>' + rt.length + ' routine step' + (rt.length === 1 ? '' : 's') + ' (' + Object.keys(rt.reduce(function (o, e) { o[(KIND[e.kind] || e.kind).toLowerCase()] = 1; return o; }, {})).join(', ') + ')</summary><ul class="evl">' + rt.map(evRow).join('') + '</ul></details></li>' : '') +
+              (!es.length ? '<li class="rt">No activity yet.</li>' : '') + '</ul><p style="margin:6px 0 0"><button class="link" data-copen="' + c.id + '">Open ' + esc(c.number) + '</button></p></details>';
+          }).join('') + '</div><p class="fine" style="margin:8px 0 0">' + ids.length + ' open change' + (ids.length === 1 ? '' : 's') + '. Closed changes and every routine step are in the full log.</p>' : '<p class="fine">No open changes.</p>';
+        } else {
+          var rows = evs.filter(function (e) { return (!F.co || e.company_id === F.co) && (!F.ai || e.ai) && (F.rt || DECISIONS[e.kind] || e.ai) && (!F.ch || (byId[e.change_id] && byId[e.change_id].number.toLowerCase().indexOf(F.ch.toLowerCase()) >= 0)); }).reverse();
+          var cos = Object.keys(C.companies);
+          body = '<div class="grid filt" style="grid-template-columns:repeat(4,minmax(0,1fr)) auto;align-items:end;gap:10px"><div class="fd"><label><span>Company</span></label><div class="inp sel"><select id="fco"><option value="">All</option>' + cos.map(function (id) { return '<option value="' + id + '"' + (F.co === id ? ' selected' : '') + '>' + esc(name(id)) + '</option>'; }).join('') + '</select></div></div>' +
+            '<div class="fd"><label><span>Change</span></label><div class="inp"><input id="fch" value="' + esc(F.ch || '') + '" placeholder="e.g. CP-0212"></div></div><div class="fd"><label class="tog-row"><input type="checkbox" id="fai"' + (F.ai ? ' checked' : '') + '> AI steps only</label></div><div class="fd"><label class="tog-row"><input type="checkbox" id="frt"' + (F.rt ? ' checked' : '') + '> Include routine steps</label></div><button class="btn" data-actexport="1">Export CSV</button></div>' +
+            '<div class="card tbl-wrap" style="margin-top:14px"><table class="tbl"><thead><tr><th>When</th><th>Company</th><th>Action</th><th>Change</th><th>AI</th><th>Detail</th></tr></thead><tbody>' + rows.slice(0, 400).map(function (e) {
+              var c = byId[e.change_id];
+              return '<tr><td class="fine" style="white-space:nowrap">' + when(e.created_at) + '</td><td>' + esc(name(e.company_id)) + (e.actor && people[e.actor] ? '<span class="id">' + esc(people[e.actor].email) + '</span>' : '') + '</td><td>' + esc(KIND[e.kind] || e.kind) + (e.reason ? ' <span class="tagr chk">' + esc(REASON[e.reason] || e.reason) + '</span>' : '') + '</td><td>' + (c ? '<button class="link" data-copen="' + c.id + '">' + esc(c.number) + '</button>' : '—') + '</td><td>' + (e.ai ? esc(e.ai.model) + '<span class="id">' + (e.ai.citations || []).length + ' citations' + (e.ai.edited ? ', edited' : '') + '</span> <button class="link" data-receipt="' + e.id + '">Receipt</button>' : '') + '</td><td class="fine">' + esc(String(e.body || '').slice(0, 160)) + '</td></tr>';
+            }).join('') + '</tbody></table></div><p class="fine">' + rows.length + ' of ' + evs.length + ' events' + (F.rt ? '' : ' (routine steps hidden)') + '. Nothing here can be edited or deleted.' + (rows.length > 400 ? ' Showing the newest 400; export for all.' : '') + '</p>';
+          V._actRows = { rows: rows, byId: byId };
+        }
+        app.innerHTML = sheet('05 Activity', 'Activity', strip + tabs + body);
       }).catch(fail);
     });
   };
@@ -882,9 +923,14 @@
         .then(function (pid) { return P.openProject(pid); }).then(function () { A.toast('Project started. Invite the other companies in 06 Project.'); A.go('project'); }).catch(fail);
     }
   });
+  app.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-actview],[data-sumgo]'); if (!t) return;
+    if (t.dataset.actview) { var F = store('cs_actf') || {}; F.view = t.dataset.actview; store('cs_actf', F); return V.activity(); }
+    store('cs_chfilter', t.dataset.sumgo); A.go('changes');
+  });
   app.addEventListener('change', function (e) {
-    var t = e.target; if (!/^(fco|fch|fai)$/.test(t.id)) return;
-    store('cs_actf', { co: document.getElementById('fco').value || null, ch: document.getElementById('fch').value.trim() || null, ai: document.getElementById('fai').checked });
+    var t = e.target; if (!/^(fco|fch|fai|frt)$/.test(t.id)) return;
+    store('cs_actf', { view: 'all', co: document.getElementById('fco').value || null, ch: document.getElementById('fch').value.trim() || null, ai: document.getElementById('fai').checked, rt: document.getElementById('frt').checked });
     V.activity();
   });
   // The band lives outside the sheet.
