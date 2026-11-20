@@ -147,6 +147,11 @@
       return '<img data-ph="' + esc(ph) + '" alt="Photo from the field" src="' + esc(src || '') + '">';
     }).join('') + '</div>';
   }
+  // Counts for the sheet index: changes waiting on you, and open changes. Nothing when no project is open.
+  window.CSNavCounts = function () {
+    try { if (!ctx()) return Promise.resolve(null); } catch (e) { return Promise.resolve(null); }
+    return loadChanges().then(function (ch) { return { home: ch.filter(function (c) { return !!nextStep(c); }).length, changes: ch.filter(function (c) { return OPEN[c.status]; }).length }; });
+  };
   /* ---------- W1 Home ---------- */
   V.home = function () {
     gate(function (C) {
