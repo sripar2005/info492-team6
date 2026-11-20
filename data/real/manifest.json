@@ -1,0 +1,608 @@
+{
+ "downloaded_by": "tools/real/fetch.py",
+ "files": [
+  {
+   "project": "maine-3843-wellness-center",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3843_Addendum_2_DAFS.pdf",
+   "file": "data/real/pdf/maine-3843-wellness-center/3843_Addendum_2_DAFS.pdf",
+   "ok": true,
+   "bytes": 3856490,
+   "sha256": "e0de9a32e0fbf6866b255eb9cac3cd9a0d3c2a5a9625f63d7c77b4e261ed0c1a",
+   "downloaded": "2026-11-20T00:18:39Z"
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3843_Addendum_3_DAFS.pdf",
+   "file": "data/real/pdf/maine-3843-wellness-center/3843_Addendum_3_DAFS.pdf",
+   "ok": true,
+   "bytes": 439960,
+   "sha256": "2b92d7916c3fc9ec59775dd54f996afacee03072a1546c8cfaafcaa14ce469ef",
+   "downloaded": "2026-11-20T00:18:41Z"
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3843_Addendum_1_DAFS.pdf",
+   "file": "data/real/pdf/maine-3843-wellness-center/3843_Addendum_1_DAFS.pdf",
+   "ok": true,
+   "bytes": 2891837,
+   "sha256": "192d359db36d379c20f22a6dee31b9d9584dc17aaa5e083d2b7652ee997ad612",
+   "downloaded": "2026-11-20T00:18:42Z"
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3843_Project_Manual_DAFS.pdf",
+   "file": "data/real/pdf/maine-3843-wellness-center/3843_Project_Manual_DAFS.pdf",
+   "ok": true,
+   "bytes": 3991753,
+   "sha256": "1b88bad6b685d0707a8d12411d288fe8697bc45162fd6703d718e381069a12ee",
+   "downloaded": "2026-11-20T00:18:43Z"
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3843_Bid_Tabulation_DAFS%20%282%29.pdf",
+   "file": "data/real/pdf/maine-3843-wellness-center/3843_Bid_Tabulation_DAFS_2_.pdf",
+   "ok": true,
+   "bytes": 156692,
+   "sha256": "7d0ab0f9872e8ee6106849e73d7cac65d577cb0e2ea81c1b6435b5fd1a9d31b2",
+   "downloaded": "2026-11-20T00:18:44Z"
+  },
+  {
+   "project": "maine-3809-smcc-health-science",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3809_Addendum_2_SMCC.pdf",
+   "file": "data/real/pdf/maine-3809-smcc-health-science/3809_Addendum_2_SMCC.pdf",
+   "ok": true,
+   "bytes": 2671880,
+   "sha256": "45f05da36b9d0e2ed58541e25dd6c0804d30383024ffc0cbaefc2f927a392e0d",
+   "downloaded": "2026-11-20T00:18:45Z"
+  },
+  {
+   "project": "maine-3809-smcc-health-science",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3809_Addendum_1_SMCC_%231_Responses.pdf",
+   "file": "data/real/pdf/maine-3809-smcc-health-science/3809_Addendum_1_SMCC__1_Responses.pdf",
+   "ok": true,
+   "bytes": 1396150,
+   "sha256": "ca363bbf7ca12abd50767dc72303c6913e56834f47f47e60373757420d0d315e",
+   "downloaded": "2026-11-20T00:18:47Z"
+  },
+  {
+   "project": "maine-3809-smcc-health-science",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3809_Addendum_4_SMCC.pdf",
+   "file": "data/real/pdf/maine-3809-smcc-health-science/3809_Addendum_4_SMCC.pdf",
+   "ok": true,
+   "bytes": 10358974,
+   "sha256": "9e1f247b2d3d936ad115a7728f7506f612fc3a56077a2b1eaa978be76b6df5ef",
+   "downloaded": "2026-11-20T00:18:48Z"
+  },
+  {
+   "project": "maine-3809-smcc-health-science",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3809_Bid_Tabulation_SMCC.pdf",
+   "file": "data/real/pdf/maine-3809-smcc-health-science/3809_Bid_Tabulation_SMCC.pdf",
+   "ok": true,
+   "bytes": 150783,
+   "sha256": "d560991f452f95ef47330ccab80f1e7209a2004f490d1c7c192a81c8cd74d138",
+   "downloaded": "2026-11-20T00:18:49Z"
+  },
+  {
+   "project": "maine-3305-riverview-security",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3305%20Addendum%20%232%20DHHS%20RPC.pdf",
+   "file": "data/real/pdf/maine-3305-riverview-security/3305_Addendum_2_DHHS_RPC.pdf",
+   "ok": true,
+   "bytes": 91472,
+   "sha256": "e4d67127fd9d641917cace7f96c95e1a48d643b1b9887b5a53ef7f9a1a158626",
+   "downloaded": "2026-11-20T00:18:50Z"
+  },
+  {
+   "project": "maine-3305-riverview-security",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3305%20Addendum%20%233%2014%20Dec%2023.pdf",
+   "file": "data/real/pdf/maine-3305-riverview-security/3305_Addendum_3_14_Dec_23.pdf",
+   "ok": true,
+   "bytes": 77916,
+   "sha256": "2475e4b80cc10ea21fd9b22484c4f43945b85c88e1dba7f9bfe0b7729d8c0a3b",
+   "downloaded": "2026-11-20T00:18:52Z"
+  },
+  {
+   "project": "maine-3305-riverview-security",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3305%20Addendum%207%20RPC.pdf",
+   "file": "data/real/pdf/maine-3305-riverview-security/3305_Addendum_7_RPC.pdf",
+   "ok": true,
+   "bytes": 5108309,
+   "sha256": "441ebd92ce93108db97d1f78b89486dbf8ed83a5cd1299cfb3c5aee6cf739274",
+   "downloaded": "2026-11-20T00:18:53Z"
+  },
+  {
+   "project": "maine-3305-riverview-security",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3305%20IFB%20Specs%20DHHS%20RPC.pdf",
+   "file": "data/real/pdf/maine-3305-riverview-security/3305_IFB_Specs_DHHS_RPC.pdf",
+   "ok": true,
+   "bytes": 2062704,
+   "sha256": "06be087b6c475066a5d612b9bccb8c2cf1c4d92463b98e196c0fc776d130e4aa",
+   "downloaded": "2026-11-20T00:18:54Z"
+  },
+  {
+   "project": "maine-3305-riverview-security",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3305%20Bid%20Tab%20RPC%20Security%20and%20Access%20Control.pdf",
+   "file": "data/real/pdf/maine-3305-riverview-security/3305_Bid_Tab_RPC_Security_and_Access_Control.pdf",
+   "ok": true,
+   "bytes": 33440,
+   "sha256": "bbc15e028069719b788fc1cdb6d568ba0bfcdb41b1dd684105ba4b82e032faf8",
+   "downloaded": "2026-11-20T00:18:55Z"
+  },
+  {
+   "project": "maine-2995-capitol-garage",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/2995%20Addendum%201%20DAFS.pdf",
+   "file": "data/real/pdf/maine-2995-capitol-garage/2995_Addendum_1_DAFS.pdf",
+   "ok": true,
+   "bytes": 21047824,
+   "sha256": "e1b756b17e4df140326cbe7fcbca432ef7622a31c780f05d26b48f26fd9aa088",
+   "downloaded": "2026-11-20T00:18:57Z"
+  },
+  {
+   "project": "maine-3695-mcja-building-c",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3695%20Addendum%204%20MCJA.pdf",
+   "file": "data/real/pdf/maine-3695-mcja-building-c/3695_Addendum_4_MCJA.pdf",
+   "ok": true,
+   "bytes": 302530,
+   "sha256": "873c7ff9ec45ab693edb0da5276a6d9c48819989ad172f9a2c6ff6a437d76b65",
+   "downloaded": "2026-11-20T00:18:58Z"
+  },
+  {
+   "project": "maine-3695-mcja-building-c",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3695%20Addendum%201%20Project%20Manual.pdf",
+   "file": "data/real/pdf/maine-3695-mcja-building-c/3695_Addendum_1_Project_Manual.pdf",
+   "ok": true,
+   "bytes": 856888,
+   "sha256": "a462cb474e70a8ea5cce8a0ce5edb4e7681f58ddbf22b3012144fa738a7614ba",
+   "downloaded": "2026-11-20T00:18:59Z"
+  },
+  {
+   "project": "delaware-customs-house-bp4a",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0217000003-BP4A-ad3.pdf",
+   "file": "data/real/pdf/delaware-customs-house-bp4a/OMB-MJ0217000003-BP4A-ad3.pdf",
+   "ok": true,
+   "bytes": 466559,
+   "sha256": "4d38db7b4ed229ef74cb4f2ab8e99753319392edbdb6977aa467f168697267ef",
+   "downloaded": "2026-11-20T00:19:00Z"
+  },
+  {
+   "project": "delaware-customs-house-bp4a",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0217000003-BP5-specifications%20Part%202.pdf",
+   "file": "data/real/pdf/delaware-customs-house-bp4a/OMB-MJ0217000003-BP5-specifications_Part_2.pdf",
+   "ok": true,
+   "bytes": 12037995,
+   "sha256": "1b81cf876708bf7d364d5551d91aaa986510483cd8bdca4fe61afd27069a5432",
+   "downloaded": "2026-11-20T00:19:02Z"
+  },
+  {
+   "project": "delaware-customs-house-bp4a",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0217000003-BP5-specifications%20Part%201.pdf",
+   "file": "data/real/pdf/delaware-customs-house-bp4a/OMB-MJ0217000003-BP5-specifications_Part_1.pdf",
+   "ok": true,
+   "bytes": 11896911,
+   "sha256": "afd05bfa610c16c5042b7ea34da78e11387cbe87010fa14b78f9e0f07ac3199c",
+   "downloaded": "2026-11-20T00:19:04Z"
+  },
+  {
+   "project": "delaware-customs-house-bp4a",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0217000003-BP4-rfp.pdf",
+   "file": "data/real/pdf/delaware-customs-house-bp4a/OMB-MJ0217000003-BP4-rfp.pdf",
+   "ok": true,
+   "bytes": 108725,
+   "sha256": "c2320af061e78b8b005aa5e02f9536bcb4593cb5423635c378383426a7fb6b84",
+   "downloaded": "2026-11-20T00:19:05Z"
+  },
+  {
+   "project": "delaware-kent-family-court",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0208000001D-ad1.pdf",
+   "file": "data/real/pdf/delaware-kent-family-court/OMB-MJ0208000001D-ad1.pdf",
+   "ok": true,
+   "bytes": 420855,
+   "sha256": "7eae9fe24ab18b051f9a3a9f7c6a0904f336b69f391bc9bf316f09fd29853e5f",
+   "downloaded": "2026-11-20T00:19:07Z"
+  },
+  {
+   "project": "delaware-kent-family-court",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0208000001A-specsVol2.pdf",
+   "file": "data/real/pdf/delaware-kent-family-court/OMB-MJ0208000001A-specsVol2.pdf",
+   "ok": true,
+   "bytes": 9075691,
+   "sha256": "bf8a948126314a2a3ddcfdc4cd49f8c6919238e654ef8da8512588652f8e3cc8",
+   "downloaded": "2026-11-20T00:19:08Z"
+  },
+  {
+   "project": "delaware-kent-family-court",
+   "url": "https://bidcondocs.delaware.gov/OMB/OMB-MJ0208000001H-rfp.pdf",
+   "file": "data/real/pdf/delaware-kent-family-court/OMB-MJ0208000001H-rfp.pdf",
+   "ok": true,
+   "bytes": 46613,
+   "sha256": "31dd9a4476d0c994d71ec160b3d99c001f481e7535270eeb58b0ee4d4fb4ae0c",
+   "downloaded": "2026-11-20T00:19:10Z"
+  },
+  {
+   "project": "delaware-polytech-roof",
+   "url": "https://bidcondocs.delaware.gov/PSD/PSD25001-PHS_ROOF-ad2.pdf",
+   "file": "data/real/pdf/delaware-polytech-roof/PSD25001-PHS_ROOF-ad2.pdf",
+   "ok": true,
+   "bytes": 12397027,
+   "sha256": "7d3bb0e5c6cbdbdfa8587f9f3b08bb4523ab7cb03394f5d409523c00f2e60684",
+   "downloaded": "2026-11-20T00:19:12Z"
+  },
+  {
+   "project": "delaware-polytech-roof",
+   "url": "https://bidcondocs.delaware.gov/PSD/PSD25001-PHS_ROOF-rfp.pdf",
+   "file": "data/real/pdf/delaware-polytech-roof/PSD25001-PHS_ROOF-rfp.pdf",
+   "ok": true,
+   "bytes": 100216,
+   "sha256": "ac7e88549202310757b9f49d83c5292b3136925325b8352dbcec3ebd7f0f1f32",
+   "downloaded": "2026-11-20T00:19:13Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/January%208%202026%20RFIs.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/January_8_2026_RFIs.pdf",
+   "ok": true,
+   "bytes": 96872,
+   "sha256": "b5337cd5419b2513cee277c84adc94bd579f08242fe881f48d7e2f74ee02284e",
+   "downloaded": "2026-11-20T00:19:14Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/December%2031%2c%202025%20RFIs.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/December_31_2025_RFIs.pdf",
+   "ok": true,
+   "bytes": 94427,
+   "sha256": "e72aa0527ddf6ff31bbdc8a9a637a6f7581286746932021a993e149c2f522db9",
+   "downloaded": "2026-11-20T00:19:16Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/RFIs%20Phase%20I-%20August%2020.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/RFIs_Phase_I-_August_20.pdf",
+   "ok": true,
+   "bytes": 170876,
+   "sha256": "44842df5c1a4a74a83abf19d8d3e570c1ade340421534b7668e978beca68356d",
+   "downloaded": "2026-11-20T00:19:17Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/Request%20for%20Proposal.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/Request_for_Proposal.pdf",
+   "ok": true,
+   "bytes": 545191,
+   "sha256": "89020450641364e9a8713365b3223550fa41a92fbe803d361838acff26ca2e08",
+   "downloaded": "2026-11-20T00:19:18Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/11.00%20822-010-135%20PLA%20Agreement.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/11.00_822-010-135_PLA_Agreement.pdf",
+   "ok": true,
+   "bytes": 999684,
+   "sha256": "baf4663203180dc63e9391647eb2dcad67689d665cb386cbe70b2ea0fc69299a",
+   "downloaded": "2026-11-20T00:19:19Z"
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-northern-illinois-center-for-community-sustainability/10.01%2011%2001%20-%20SP%20Supplement%20to%20SD-DB%203.2017.pdf",
+   "file": "data/real/pdf/illinois-niccs-design-build/10.01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+   "ok": true,
+   "bytes": 130911,
+   "sha256": "d349d0bd9ea99d2c31b1a6cac82d1d140492c0bbf74a25855c9017681d4e0b10",
+   "downloaded": "2026-11-20T00:19:20Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/830-030-167-construct-a-drug-discovery-and-cancer-research-pavilion/rfi-responses-5-12-26.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/rfi-responses-5-12-26.pdf",
+   "ok": true,
+   "bytes": 191109,
+   "sha256": "68b07fee27e044d8765288d0cccab9edfbd09aaddff632e5905f096a2e65774b",
+   "downloaded": "2026-11-20T00:19:22Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/830-030-167-construct-a-drug-discovery-and-cancer-research-pavilion/RFI%20Responses%20August%2026.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/RFI_Responses_August_26.pdf",
+   "ok": true,
+   "bytes": 185338,
+   "sha256": "5283d4c1b7981175e6a825158675a80fcda8611febbbd8cdda678cddbab94912",
+   "downloaded": "2026-11-20T00:19:23Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/s2s-1/RFI%20Responses%2010-16-26.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/RFI_Responses_10-16-26.pdf",
+   "ok": true,
+   "bytes": 405132,
+   "sha256": "a5e032132b3ee36955a9d5de1386c18bc4e1503524fce938a3713a498ee8206c",
+   "downloaded": "2026-11-20T00:19:24Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/830-030-167-construct-a-drug-discovery-and-cancer-research-pavilion/00%20830-030-167%20Request%20for%20Proposals%20-%20FINAL.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+   "ok": true,
+   "bytes": 695150,
+   "sha256": "85553f8f4343c79a4b8b231c41fb36f264bd0634d23bd3356312ef3571ff9e06",
+   "downloaded": "2026-11-20T00:19:25Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/830-030-167-construct-a-drug-discovery-and-cancer-research-pavilion/13%20830-030-167%20PLA%20Agreement.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/13_830-030-167_PLA_Agreement.pdf",
+   "ok": true,
+   "bytes": 1032091,
+   "sha256": "6d25b604f619a40bc20a47c1b1425e3f06300fcbd1cd425777132917d52ab34e",
+   "downloaded": "2026-11-20T00:19:26Z"
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/830-030-167-construct-a-drug-discovery-and-cancer-research-pavilion/12%2001%2011%2001%20-%20SP%20Supplement%20to%20SD-DB%203.2017.pdf",
+   "file": "data/real/pdf/illinois-uic-cancer-pavilion/12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+   "ok": true,
+   "bytes": 130736,
+   "sha256": "60d540191b598862cae97d72106677e2ca1ba294b121de0303db85914e830891",
+   "downloaded": "2026-11-20T00:19:28Z"
+  },
+  {
+   "project": "illinois-idot-materials-lab",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-materials-lab/630-442-057-phase-i-rfis.pdf",
+   "file": "data/real/pdf/illinois-idot-materials-lab/630-442-057-phase-i-rfis.pdf",
+   "ok": true,
+   "bytes": 105612,
+   "sha256": "2bb04c11e41f3202c83206f4f1a2d5e7dc67e586b188534236b498ebfd54fded",
+   "downloaded": "2026-11-20T00:19:29Z"
+  },
+  {
+   "project": "illinois-idot-materials-lab",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-materials-lab/01.630-442-057-rfp.pdf",
+   "file": "data/real/pdf/illinois-idot-materials-lab/01.630-442-057-rfp.pdf",
+   "ok": true,
+   "bytes": 577242,
+   "sha256": "9c3785a3490a8eeb7a59f4045c511a5e0d15363df314c7bc17bc5433bc2572d0",
+   "downloaded": "2026-11-20T00:19:30Z"
+  },
+  {
+   "project": "illinois-idot-materials-lab",
+   "url": "https://cdb.illinois.gov/content/dam/soi/en/web/cdb/procurement/construct-materials-lab/630-442-057-cdb-idot-final-report-iii.5-standard-documents-db.pdf",
+   "file": "data/real/pdf/illinois-idot-materials-lab/630-442-057-cdb-idot-final-report-iii.5-standard-documents-db.pdf",
+   "ok": true,
+   "bytes": 877712,
+   "sha256": "12212ed5855e1c910ff18b5015aefa9d0fb879b483440016492f8eb01d81bc35",
+   "downloaded": "2026-11-20T00:19:31Z"
+  },
+  {
+   "project": "ny-rioc-eleanors-pier",
+   "url": "https://d3olf8azjyqv1e.cloudfront.net/media/Addenda%202-%20RFI%20log%20and%20due%20date%20extension.pdf",
+   "file": "data/real/pdf/ny-rioc-eleanors-pier/Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "ok": true,
+   "bytes": 598430,
+   "sha256": "eff23e39eb48cb2ed3f4e4f99dd6e27b59c7821ac613b98cd8a67243b0e9e238",
+   "downloaded": "2026-11-20T00:19:32Z"
+  },
+  {
+   "project": "ny-rioc-eleanors-pier",
+   "url": "https://d3olf8azjyqv1e.cloudfront.net/media/RFP%2026%20%201095%20Eleanors%20Pier%20Repair%20Project-1.pdf",
+   "file": "data/real/pdf/ny-rioc-eleanors-pier/RFP_26_1095_Eleanors_Pier_Repair_Project-1.pdf",
+   "ok": true,
+   "bytes": 656472,
+   "sha256": "13a891a170d595716480cde321a24431bd677aefc76c17ba490cf7f7f25efc87",
+   "downloaded": "2026-11-20T00:19:34Z"
+  },
+  {
+   "project": "ny-rioc-eleanors-pier",
+   "url": "https://d3olf8azjyqv1e.cloudfront.net/media/RIOC%20Standard%20Form%20Contract%20for%20Construction.pdf",
+   "file": "data/real/pdf/ny-rioc-eleanors-pier/RIOC_Standard_Form_Contract_for_Construction.pdf",
+   "ok": true,
+   "bytes": 846016,
+   "sha256": "5414278277e5c9ea16343631770fec9a8c06b365274bb73580aff6870c44abb1",
+   "downloaded": "2026-11-20T00:19:35Z"
+  },
+  {
+   "project": "pa-pivik-elementary",
+   "url": "https://www.pbsd.net//Downloads/Pivik%20Monthly%20Report%2001%2031%202012.pdf",
+   "file": "data/real/pdf/pa-pivik-elementary/Pivik_Monthly_Report_01_31_2012.pdf",
+   "ok": true,
+   "bytes": 1045955,
+   "sha256": "ee5bcfc5df522460a17d46344b30181093d424f356c82d38d345c4098732ce5a",
+   "downloaded": "2026-11-20T00:19:36Z"
+  },
+  {
+   "project": "maine-3799-hancock-judicial",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3799_Addendum_1_MJB.pdf",
+   "file": "data/real/pdf/maine-3799-hancock-judicial/3799_Addendum_1_MJB.pdf",
+   "ok": true,
+   "bytes": 447164,
+   "sha256": "de730037c30941bcdf7c48aab97e725a99f9eb7b538dea6b691b22179135a60b",
+   "downloaded": "2026-11-20T00:19:37Z"
+  },
+  {
+   "project": "maine-3799-hancock-judicial",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3799_Addendum_2_MJB.pdf",
+   "file": "data/real/pdf/maine-3799-hancock-judicial/3799_Addendum_2_MJB.pdf",
+   "ok": true,
+   "bytes": 105052,
+   "sha256": "e3ab238c0f6ad4f3655aabebdb62bb7c72212b1ac404e6d89550391d14e11b74",
+   "downloaded": "2026-11-20T00:19:38Z"
+  },
+  {
+   "project": "maine-3799-hancock-judicial",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3799_Addendum_3.pdf",
+   "file": "data/real/pdf/maine-3799-hancock-judicial/3799_Addendum_3.pdf",
+   "ok": true,
+   "bytes": 2084270,
+   "sha256": "6dcb31cd258ccd1d3d73828db44cf5efb81c1f7c3c81cdc4957c2201eea87c83",
+   "downloaded": "2026-11-20T00:19:40Z"
+  },
+  {
+   "project": "maine-3799-hancock-judicial",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3799_Bid_Tabulation_.pdf",
+   "file": "data/real/pdf/maine-3799-hancock-judicial/3799_Bid_Tabulation_.pdf",
+   "ok": true,
+   "bytes": 130873,
+   "sha256": "4d7c176bd2a1956e289019d32e5e688f690483e118e3da3f1174bc77a99a2d7d",
+   "downloaded": "2026-11-20T00:19:41Z"
+  },
+  {
+   "project": "delaware-hodgson-votech-bpe",
+   "url": "https://bidcondocs.delaware.gov/NCC/NCC2401E-HODGSONBPE-ad1.pdf",
+   "file": "data/real/pdf/delaware-hodgson-votech-bpe/NCC2401E-HODGSONBPE-ad1.pdf",
+   "ok": true,
+   "bytes": 7033219,
+   "sha256": "d088540c342a41dcb69e5b175312ede95fd54aa332ed7735041de0be5a6cbbed",
+   "downloaded": "2026-11-20T00:19:42Z"
+  },
+  {
+   "project": "delaware-hodgson-votech-bpe",
+   "url": "https://bidcondocs.delaware.gov/NCC/NCC2401E-HODGSONBPE-ad2.pdf",
+   "file": "data/real/pdf/delaware-hodgson-votech-bpe/NCC2401E-HODGSONBPE-ad2.pdf",
+   "ok": true,
+   "bytes": 2368742,
+   "sha256": "2b438f44a8bb2e7251d830b93efed885eeb0676adab9e695402897743d4aff5d",
+   "downloaded": "2026-11-20T00:19:44Z"
+  },
+  {
+   "project": "delaware-hodgson-votech-bpe",
+   "url": "https://bidcondocs.delaware.gov/NCC/NCC2401E-HODGSONBPE-ad3.pdf",
+   "file": "data/real/pdf/delaware-hodgson-votech-bpe/NCC2401E-HODGSONBPE-ad3.pdf",
+   "ok": true,
+   "bytes": 5021709,
+   "sha256": "e1c80472b0f4484169ff5a54c5c29590ef44baf0860a2a17e64363f7510ef389",
+   "downloaded": "2026-11-20T00:19:45Z"
+  },
+  {
+   "project": "delaware-hodgson-votech-bpe",
+   "url": "https://bidcondocs.delaware.gov/NCC/NCC2401E-HODGSONBPE-specsVol2.pdf",
+   "file": "data/real/pdf/delaware-hodgson-votech-bpe/NCC2401E-HODGSONBPE-specsVol2.pdf",
+   "ok": true,
+   "bytes": 9138013,
+   "sha256": "26c31861251418bcc27e131027460b19a41650f060ecf514e4f2c15cca087802",
+   "downloaded": "2026-11-20T00:19:47Z"
+  },
+  {
+   "project": "maine-3143-221-state-street",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3143%20Addendum%205%20DAFS.pdf",
+   "file": "data/real/pdf/maine-3143-221-state-street/3143_Addendum_5_DAFS.pdf",
+   "ok": true,
+   "bytes": 8884974,
+   "sha256": "9fc087b9628eb6ee4b3f45fb2d77874ccfe6cffec2244e1d3f5379457af6e111",
+   "downloaded": "2026-11-20T00:19:49Z"
+  },
+  {
+   "project": "maine-3143-221-state-street",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3143%20Notice%20to%20Contractors%20DAFS_0.pdf",
+   "file": "data/real/pdf/maine-3143-221-state-street/3143_Notice_to_Contractors_DAFS_0.pdf",
+   "ok": true,
+   "bytes": 528778,
+   "sha256": "00603e68369c1c368e3a6e1202f44ae6e63fd2266a2d0019a05e4e306f157af2",
+   "downloaded": "2026-11-20T00:19:50Z"
+  },
+  {
+   "project": "maine-3709-ship-street",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3709%20Addendum%203.pdf",
+   "file": "data/real/pdf/maine-3709-ship-street/3709_Addendum_3.pdf",
+   "ok": true,
+   "bytes": 122885,
+   "sha256": "4945fb740e540fd0fd3e6b423d79a78c34888f3844bb2fe3b564e98694a890af",
+   "downloaded": "2026-11-20T00:19:51Z"
+  },
+  {
+   "project": "maine-3709-ship-street",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3709%20Drawings%20DOC_Part1.pdf",
+   "file": "data/real/pdf/maine-3709-ship-street/3709_Drawings_DOC_Part1.pdf",
+   "ok": true,
+   "bytes": 52382706,
+   "sha256": "34fba372846e58ed208874dc4f1c3e764687512f2d734a57a13d8a1736626b71",
+   "downloaded": "2026-11-20T00:19:54Z"
+  },
+  {
+   "project": "maine-3779-colburn-house",
+   "url": "https://www.maine.gov/dafs/bgs/sites/maine.gov.dafs.bgs/files/inline-files/3779%20Addendum%202%20DACF.pdf",
+   "file": "data/real/pdf/maine-3779-colburn-house/3779_Addendum_2_DACF.pdf",
+   "ok": true,
+   "bytes": 241186,
+   "sha256": "4ec70d3cd3ab544e9931a958ba6703845d832d4c36c94e709edc0c24697e08ed",
+   "downloaded": "2026-11-20T00:19:55Z"
+  },
+  {
+   "project": "kentucky-uk-healthcare-esp2",
+   "url": "https://purchasing.uky.edu/sites/default/files/2026-08/uk-2615-esp-2.0add2.1.pdf",
+   "file": "data/real/pdf/kentucky-uk-healthcare-esp2/uk-2615-esp-2.0add2.1.pdf",
+   "ok": true,
+   "bytes": 4066912,
+   "sha256": "775af620f4f636ec5ec6e7748541ead98c5285fc72171087e3b6b77364e578b8",
+   "downloaded": "2026-11-20T00:19:56Z"
+  },
+  {
+   "project": "ohio-soc-250003",
+   "url": "https://dam.assets.ohio.gov/image/upload/ofcc.ohio.gov/Portals/0/Documents/Bids/2026/ADD1-SOC-250003.pdf",
+   "file": "data/real/pdf/ohio-soc-250003/ADD1-SOC-250003.pdf",
+   "ok": true,
+   "bytes": 6113998,
+   "sha256": "21d60f1b54e0e3dfe16b7ea44a4641524afe544a4c3d665afbb96b4a7befaf35",
+   "downloaded": "2026-11-20T00:19:58Z"
+  },
+  {
+   "project": "ohio-soc-250003",
+   "url": "https://dam.assets.ohio.gov/image/upload/ofcc.ohio.gov/Portals/0/Documents/Bids/2026/ADD2-SOC-250003.pdf",
+   "file": "data/real/pdf/ohio-soc-250003/ADD2-SOC-250003.pdf",
+   "ok": true,
+   "bytes": 396315,
+   "sha256": "4e7e992b311a3f39bf8d40c99fc2ec8dddcf813c7f1f686081bae99fb0852092",
+   "downloaded": "2026-11-20T00:19:59Z"
+  },
+  {
+   "project": "ny-nbp-boathouse",
+   "url": "https://nathanbendersonpark.org/wp-content/uploads/2026/04/RFI-Log_NBP-Boathouse-Facility.pdf",
+   "file": "data/real/pdf/ny-nbp-boathouse/RFI-Log_NBP-Boathouse-Facility.pdf",
+   "ok": true,
+   "bytes": 71822,
+   "sha256": "9352c1be4fe4bccdab63af620dd0d8570c73a5b2b846e816f44b196d3e679a91",
+   "downloaded": "2026-11-20T00:20:01Z"
+  },
+  {
+   "project": "delaware-rccd-hes-renovation",
+   "url": "https://bidcondocs.delaware.gov/RCCD/RCCD2607-HESRENOVAT-ad2.pdf",
+   "file": "data/real/pdf/delaware-rccd-hes-renovation/RCCD2607-HESRENOVAT-ad2.pdf",
+   "ok": true,
+   "bytes": 1163358,
+   "sha256": "3fb9eea2c2b9dbc05c408a3618bfd1b4ecc03425270e6bf5147dd10568553a34",
+   "downloaded": "2026-11-20T00:20:02Z"
+  },
+  {
+   "project": "delaware-rccd-hes-renovation",
+   "url": "https://bidcondocs.delaware.gov/RCCD/RCCD2607-HESRENOVAT-ad3.pdf",
+   "file": "data/real/pdf/delaware-rccd-hes-renovation/RCCD2607-HESRENOVAT-ad3.pdf",
+   "ok": true,
+   "bytes": 4579214,
+   "sha256": "6d814abe358ec3c78bacd172318695147b10ca88657a8c72b78d4f3adf029956",
+   "downloaded": "2026-11-20T00:20:03Z"
+  },
+  {
+   "project": "delaware-rccd-hes-renovation",
+   "url": "https://bidcondocs.delaware.gov/RCCD/RCCD2607-HESRENOVAT-rfp.pdf",
+   "file": "data/real/pdf/delaware-rccd-hes-renovation/RCCD2607-HESRENOVAT-rfp.pdf",
+   "ok": true,
+   "bytes": 2461730,
+   "sha256": "58b6a25f7e2fa742df532041d4c72084b062047bf226883a265a60edf44a05c9",
+   "downloaded": "2026-11-20T00:20:05Z"
+  },
+  {
+   "project": "delaware-dtcc-c9004040003",
+   "url": "https://bidcondocs.delaware.gov/DTCC/DTCC-C9004040003_ad1.pdf",
+   "file": "data/real/pdf/delaware-dtcc-c9004040003/DTCC-C9004040003_ad1.pdf",
+   "ok": true,
+   "bytes": 3349645,
+   "sha256": "048b426446539d4ee98dac6565674e496c2819e771733e8df6a34aa46a994140",
+   "downloaded": "2026-11-20T00:20:06Z"
+  },
+  {
+   "project": "delaware-chr-dsd-reno",
+   "url": "https://bidcondocs.delaware.gov/CHR/CHR26013-DSDRENO_ad2.pdf",
+   "file": "data/real/pdf/delaware-chr-dsd-reno/CHR26013-DSDRENO_ad2.pdf",
+   "ok": true,
+   "bytes": 3402816,
+   "sha256": "de9b37edd8ba87aa27c70d3244bccc9c09d4cd5075ce731340255e8a4f1b146a",
+   "downloaded": "2026-11-20T00:20:08Z"
+  }
+ ]
+}
