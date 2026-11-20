@@ -534,7 +534,9 @@
       return Promise.all(jobs).then(function (r) { return r.sort(function (a, b) { return a.n - b.n; }).map(function (x) { return x.t; }).join('\n'); });
     });
   }
+  var _lastFile = null;   // kept until the terms are saved, so the original can be stored with the contract
   function contractFile(file) {
+    _lastFile = file;
     var isPdf = /\.pdf$/i.test(file.name) || file.type === 'application/pdf';
     if (!isPdf && !/\.(txt|md|markdown)$/i.test(file.name)) return viewContract('Use a PDF, .txt or .md file. For a Word file, save it as PDF first.');
     app.innerHTML = '<div class="wrap"><div class="reading"><div class="spinner"></div><h2>Opening ' + esc(file.name) + '…</h2></div></div>';
@@ -656,6 +658,23 @@
     var list = contracts().filter(function (c) { return c.id !== rec.id; }); list.unshift(rec); store('cs_contracts', list.slice(0, 10));
     setActive(rec.id); CS = null; toast('Checks now use “' + name + '”.'); go(S ? 'result' : 'upload');
   }
+  // Store the contract file itself with the contract (same access rules: only its parties), plus its text by section.
+  // In the in-browser sample nothing is uploaded; the file opens from this browser for the session.
+  function keepOriginal(tgt, PL) {
+    var f = _lastFile, sb = PL.sb(), C = PL.ctx(); _lastFile = null;
+    if (!f || !C) return Promise.resolve();
+    var k = C.contracts[tgt.contract] || {}, safe = f.name.replace(/[^A-Za-z0-9._-]+/g, '_');
+    var path = tgt.project + '/contracts/' + tgt.contract + '/' + Date.now() + '-' + safe;
+    var up = sb.storage ? sb.storage.from('documents').upload(path, f).then(function (r) { if (r.error) throw r.error; return path; }) : Promise.resolve(URL.createObjectURL(f));
+    return up.then(function (fp) {
+      if (k.document_id) return PL.q(sb.from('documents').update({ file_path: fp }).eq('id', k.document_id));
+      return PL.q(sb.from('documents').insert({ project_id: tgt.project, kind: 'contract', title: tgt.title, visibility: 'contract', contract_id: tgt.contract, author_company: C.viewAs, file_path: fp, source: 'upload' }).select().single()).then(function (doc) {
+        var ps = PL.splitPieces ? PL.splitPieces('contract', CS && CS.text || '', null, null) : [];
+        return (ps.length ? PL.q(sb.from('pieces').insert(ps.map(function (p, i) { return { project_id: tgt.project, document_id: doc.id, ordinal: p.ordinal || i + 1, section: p.section || null, body: p.body }; }))) : Promise.resolve())
+          .then(function () { return PL.q(sb.from('contracts').update({ document_id: doc.id }).eq('id', tgt.contract)).catch(function () {}); });
+      });
+    }).catch(function (e) { toast('Terms saved. The file itself could not be stored: ' + (e.message || e)); });
+  }
   function saveToProject(tgt, read, PL) {
     var sb = PL.sb(), now = new Date().toISOString(), uid = PL.user() && PL.user().id;
     // A term marked "to check" in the reader is saved unconfirmed, so it waits for a Confirm on 03 Contracts.
@@ -666,7 +685,7 @@
     PL.q(sb.from('contract_terms').select('id,key').eq('contract_id', tgt.contract)).then(function (have) {
       var byKey = {}; have.forEach(function (h) { byKey[h.key] = h.id; });
       return Promise.all(rows.map(function (r) { return byKey[r.key] ? PL.q(sb.from('contract_terms').update(r).eq('id', byKey[r.key])) : PL.q(sb.from('contract_terms').insert(r)); }));
-    }).then(function () { return PL.loadCtx(tgt.project); }).then(function () {
+    }).then(function () { return keepOriginal(tgt, PL); }).then(function () { return PL.loadCtx(tgt.project); }).then(function () {
       store('cs_reader_target', null); CS = null; toast(rows.length + ' terms saved to ' + tgt.title + '.'); go('contracts');
     }).catch(function (e) { toast('Could not save the terms: ' + (e.message || e)); });
   }

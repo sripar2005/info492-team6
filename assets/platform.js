@@ -177,6 +177,9 @@
                 pieces: P.splitPieces ? P.splitPieces('contract', texts[i], null, null) : [{ ordinal: 1, section: null, body: texts[i] }] });
             });
             var keyToDoc = {}, pieceIds = {};
+            // The sample's contracts and specs have printed PDFs (record/files/), opened as "the original".
+            return fetch('/record/files/index.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (FILES) {
+            docs.forEach(function (d) { if (FILES[d.key]) d.row.file_path = FILES[d.key]; });
             return seq(chunk(docs, 100), function (c) {
               return q(sb.from('documents').insert(c.map(function (d) { return d.row; })).select('id,meta')).then(function (out) { out.forEach(function (o) { keyToDoc[o.meta.key] = o.id; }); });
             }).then(function () {
@@ -195,6 +198,7 @@
                 return d ? q(sb.from('contracts').update({ document_id: d }).eq('id', kid[k])) : null;
               });
             }).then(function () { return { kid: kid, keyToDoc: keyToDoc }; });
+            });
           });
         }).then(function (m) {
           progress('money and schedule');

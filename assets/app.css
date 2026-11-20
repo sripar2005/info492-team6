@@ -814,3 +814,6 @@ ul.evl li.rt summary { cursor: pointer; } ul.evl ul.evl { padding-left: 14px; }
 .prog span.done { background: var(--green); border-color: var(--green); color: #FFFFFF; }
 .prog span.now { background: var(--amber-fill); border-color: var(--amber); color: var(--amber-ink); font-weight: 600; }
 @media (max-width: 560px) { .prog { flex-wrap: wrap; } .prog span { flex: 1 1 45%; } }
+/* A section opened from a § link */
+ol.pieces li.hit { background: var(--amber-soft); box-shadow: -10px 0 0 var(--amber-soft), 10px 0 0 var(--amber-soft), inset 4px 0 0 var(--amber-fill); outline: none; }
+ul.kdocs { margin: 0; } ul.kdocs li { padding: 3px 0; } details.kmore summary { cursor: pointer; margin-top: 6px; color: var(--muted); }

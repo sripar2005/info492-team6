@@ -39,6 +39,23 @@
     return '<span class="badge' + (status === 'approved' ? ' ok' : status === 'returned' || status === 'rejected' ? ' fail' : turn ? ' turn' : '') + '">' + esc(STATUS[status] || status) + (turn ? ' · your turn' : '') + '</span>';
   }
   function primeTerm(key) { return P.term(P.prime(), key); }
+  // "§ 6.5.2" becomes a link that opens the contract document at that section (or the closest section containing it).
+  function secLink(text, docId) {
+    if (!docId || !text) return esc(text || '');
+    return esc(text).replace(/§\s?(\d+(?:\.\d+)*)/g, function (m, n) { return '<button class="link" data-dopen="' + docId + '" data-dsec="' + n + '">' + m + '</button>'; });
+  }
+  // Open a document at a section: the exact section if it exists, else the closest one containing it (6.5.2 -> 6.5 -> 6; "Art. 4" counts as 4).
+  function jumpTo(ps) {
+    var want = store('cs_doc_sec'); store('cs_doc_sec', null); if (!want) return;
+    var norm = function (x) { var m = String(x || '').match(/(\d+(?:\.\d+)*)/); return m ? m[1] : String(x || '').trim(); };
+    var parts = String(want).split('.'), idx = -1, used = '';
+    while (parts.length && idx < 0) { var tgt = parts.join('.'); idx = ps.findIndex(function (p) { return norm(p.section) === tgt || String(p.section || '').trim() === want; }); used = tgt; parts.pop(); }
+    if (idx < 0) return A.toast('Section ' + want + ' isn’t a separate part of this document. Showing the whole document.');
+    var li = document.querySelector('ol.pieces li[data-pi="' + idx + '"]'); if (!li) return;
+    li.classList.add('hit'); li.setAttribute('tabindex', '-1');
+    li.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); li.focus({ preventScroll: true });
+    if (used !== String(want)) A.toast('§ ' + want + ' is inside section ' + used + ', shown highlighted.');
+  }
   function primeClause(key) { var k = P.prime(), t = k && k.terms[key]; return t ? t.clause : ''; }
 
   /* ---------- getting in: connect, sign in, pick a project ---------- */
@@ -421,7 +438,7 @@
         (x.piece ? '<p class="quote-line">“' + esc(x.piece.body.length > 240 ? x.piece.body.slice(0, 237) + '…' : x.piece.body) + '”</p>' : '<p>' + esc(x.d.title) + '</p>') + '</li>';
     }
     return (t.events.length ? '<ol class="timeline">' + t.events.map(li).join('') + '</ol>' : '<p class="fine">No events linked yet.</p>') +
-      (t.governs.length ? '<div class="sec-h" style="margin-top:16px"><h3>Terms that govern it</h3></div><ul class="govern">' + t.governs.map(function (x) { return '<li><button class="link" data-dopen="' + x.d.id + '">' + esc(cite(x)) + '</button>' + (x.piece ? '<span>' + esc(x.piece.body.length > 130 ? x.piece.body.slice(0, 127) + '…' : x.piece.body) + '</span>' : '') + '</li>'; }).join('') + '</ul>' : '') +
+      (t.governs.length ? '<div class="sec-h" style="margin-top:16px"><h3>Terms that govern it</h3></div><ul class="govern">' + t.governs.map(function (x) { return '<li><button class="link" data-dopen="' + x.d.id + '"' + (x.piece && x.piece.section ? ' data-dsec="' + esc(x.piece.section) + '"' : '') + '>' + esc(cite(x)) + '</button>' + (x.piece ? '<span>' + esc(x.piece.body.length > 130 ? x.piece.body.slice(0, 127) + '…' : x.piece.body) + '</span>' : '') + '</li>'; }).join('') + '</ul>' : '') +
       '<p class="fine" style="margin-top:12px">Built by code from the record’s links. Only documents ' + esc(name(me())) + ' may see are shown. Who is responsible is for the parties to decide.</p>';
   }
 
@@ -534,7 +551,7 @@
       (d.ai && d.ai.inputs ? '<dt>Inputs</dt><dd>' + esc(String(d.ai.inputs)) + ' record entries offered</dd>' : '') + '</dl></div>';
   }
   function aiModal(d, readOnly) {
-    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li class="' + (x.doc ? 'ok' : 'miss') + '">' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '">' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (' + esc(x.missing || 'not in the record') + ')</span>') + '</li>'; }).join('') + '</ol>';
+    var cites = '<ol class="cites">' + d.verified.map(function (x, i) { return '<li class="' + (x.doc ? 'ok' : 'miss') + '">' + (x.doc ? '<button class="link" data-dopen="' + x.doc.id + '"' + (x.section ? ' data-dsec="' + esc(x.section) + '"' : '') + '>' + esc(x.cite) + '</button>' : '<span style="color:var(--red)">' + esc(x.cite) + ' (' + esc(x.missing || 'not in the record') + ')</span>') + '</li>'; }).join('') + '</ol>';
     var body = '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div>' + (readOnly ? '<pre class="draft' + (d.ai ? ' ai' : '') + '">' + esc(d.text) + '</pre>' : '<div class="inp' + (d.ai ? ' ai' : '') + '" style="height:auto"><textarea id="aidraft" rows="14">' + esc(d.text) + '</textarea></div>') +
       '<div class="sec-h" style="margin-top:12px"><h3>Citations</h3></div>' + cites + '</div><div>' + receiptHtml(d) + '</div></div>';
     if (readOnly) return modal('AI step detail', 'Receipt', body, []);
@@ -560,7 +577,7 @@
     document.body.appendChild(m);
     m.addEventListener('click', function (e) {
       var b = e.target.closest('[data-mb]'), d = e.target.closest('[data-dopen]');
-      if (d) { m.remove(); store('cs_doc', d.dataset.dopen); return A.go('doc'); }
+      if (d) { m.remove(); store('cs_doc', d.dataset.dopen); store('cs_doc_sec', d.dataset.dsec || null); return A.go('doc'); }
       if (b) { var fn = buttons[+b.dataset.mb][2]; b.disabled = true; Promise.resolve(fn()).then(function () { m.remove(); A.toast('Saved to the activity log.'); V.change(); }).catch(function (er) { b.disabled = false; fail(er); }); return; }
       if (e.target === m || e.target.closest('[data-mclose]')) m.remove();
     });
@@ -608,6 +625,17 @@
       var CT = window.ClauseContract, by = {}, order = [];
       CT.sentences(text).forEach(function (x) { var k = x.section || '—'; if (!by[k]) { by[k] = []; order.push(k); } by[k].push(x.text); });
       order.forEach(function (k, i) { out.push({ ordinal: i + 1, section: k === '—' ? null : k, body: by[k].join(' '), piece_date: date || null }); });
+      // A contract whose sections weren't recognized still reads in parts: split on article and numbered headings.
+      if (out.length <= 1 && String(text).length > 2500) {
+        out = []; var cur = null, buf2 = [];
+        var push = function () { var b = buf2.join(' ').replace(/\s+/g, ' ').trim(); if (b) out.push({ ordinal: out.length + 1, section: cur, body: b, piece_date: date || null }); buf2 = []; };
+        String(text).split(/\r?\n/).forEach(function (line) {
+          var m = line.match(/^\s*(?:#+\s*)?((?:ARTICLE|Article|Art\.|SECTION|Section)\s+[\dA-Z]+|¶\s*\d+(?:\.\d+)*|\d{1,2}(?:\.\d{1,3}){1,3})\b/);
+          if (m && line.trim().length < 140) { push(); cur = m[1].replace(/^Article/i, 'Art.'); }
+          buf2.push(line.trim());
+        });
+        push();
+      }
       return out;
     }
     var sec = null, buf = [];
@@ -629,6 +657,14 @@
         var qv = store('cs_rq') || '', mineK = Object.keys(C.contracts).map(function (k) { return C.contracts[k]; }).filter(function (k) { return R.partyTo(k, me()); });
         app.innerHTML = sheet('02 Record', 'Project record', '<p style="margin:-6px 0 16px;color:var(--muted)">' + docs.length + ' documents ' + esc(name(me())) + ' can see' + (docs.length ? ': ' + Object.keys(counts).map(function (k) { return counts[k] + ' × ' + (DOCKIND[k] || k); }).join(', ') : '') + '. Answers below are quoted from the record, never written by AI.</p>' +
           '<form id="rsearch" class="grid" style="grid-template-columns:minmax(0,1fr) auto;gap:10px;max-width:760px"><div class="inp"><input id="rq" value="' + esc(qv) + '" placeholder="Ask or search, e.g. when was notice given about the mastic"></div><button class="btn primary" type="submit">Search the record</button></form>' +
+          (function () {
+            // Your contracts, in full: the prime and design contracts first; subcontracts folded when there are many.
+            var withDoc = mineK.filter(function (k) { return k.document_id; }), main = withDoc.filter(function (k) { return k.kind !== 'sub'; }), subsK = withDoc.filter(function (k) { return k.kind === 'sub'; });
+            if (!withDoc.length) return '';
+            var row = function (k) { return '<li><button class="link" data-dopen="' + k.document_id + '">' + esc(k.title) + '</button></li>'; };
+            return '<div class="card sec" style="margin-top:16px;max-width:760px"><div class="sec-h"><h3>Your contracts, in full</h3><span class="fine">the ones ' + esc(name(me())) + ' is party to</span></div><ul class="plain kdocs">' + main.map(row).join('') + (subsK.length <= 3 ? subsK.map(row).join('') : '') + '</ul>' +
+              (subsK.length > 3 ? '<details class="kmore"><summary>' + subsK.length + ' subcontracts</summary><ul class="plain kdocs">' + subsK.map(row).join('') + '</ul></details>' : '') + '</div>';
+          })() +
           '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr);margin-top:18px"><div id="rres"><div class="card sec"><p style="margin:0;color:var(--muted)">Search finds the exact sentences in the RFIs, ASIs, submittals, daily reports, approved minutes, contracts and specs ' + esc(name(me())) + ' may see.</p></div></div>' +
           '<div><div class="card sec"><div class="sec-h"><h3>Add a document</h3></div><form id="rup" class="grid"><div class="fd"><label><span>Kind</span></label><div class="inp sel"><select id="ukind">' +
           ['rfi', 'asi', 'submittal', 'daily_report', 'minutes', 'contract', 'spec', 'change_order', 'other'].map(function (k) { return '<option value="' + k + '">' + DOCKIND[k] + '</option>'; }).join('') + '</select></div></div>' +
@@ -691,8 +727,15 @@
             var rel = ls.map(function (l) { var o = O[l.from_doc === id ? l.to_doc : l.from_doc]; return o ? '<li><span class="fine">' + esc(REL[l.relation] || l.relation) + '</span> <button class="link" data-dopen="' + o.id + '">' + esc(o.number || o.title) + '</button></li>' : ''; }).filter(Boolean).filter(function (x, i, a) { return a.indexOf(x) === i; }).join('');
             var vis = d.visibility === 'project' ? 'Everyone on the project' : d.visibility === 'company' ? 'Only ' + name(d.author_company) : 'Parties to ' + ((C.contracts[d.contract_id] || {}).title || 'a contract');
             app.innerHTML = sheet('02 Record', (d.number ? d.number + ' · ' : '') + d.title, '<p style="margin:-6px 0 16px;color:var(--muted)">' + esc(DOCKIND[d.kind] || d.kind) + (d.issued_on ? ' · ' + esc(d.issued_on) : '') + (d.author_company ? ' · from ' + esc(name(d.author_company)) : '') + ' · ' + (d.source === 'synthetic' ? 'synthetic' : esc(d.source)) + ' · seen by: ' + esc(vis) + ' · <a class="link" href="#record">Back to search</a></p>' +
-              '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div class="card sec"><ol class="pieces">' + ps.map(function (p) { return '<li><span class="fine">' + esc(p.section || p.ordinal) + '</span><p>' + esc(p.body) + '</p></li>'; }).join('') + '</ol></div>' +
+              (d.file_path ? '<p style="margin:-6px 0 14px"><a class="btn sm" id="dorig" target="_blank" rel="noopener" href="' + (/^(\/|blob:)/.test(d.file_path) ? esc(d.file_path) : '#') + '">Open the original file</a> <span class="fine">The text below was read from it, section by section.</span></p>' : '') +
+              '<div class="cols" style="--cols:minmax(0,1.6fr) minmax(0,1fr)"><div class="card sec"><ol class="pieces">' + ps.map(function (p, i) { return '<li data-pi="' + i + '"><span class="fine">' + esc(p.section || p.ordinal) + '</span><p>' + secLink(p.body, d.kind === 'contract' || /contract|agreement|subcontract/i.test(d.title + ' ' + (d.number || '')) ? id : null) + '</p></li>'; }).join('') + '</ol></div>' +
               '<div class="card sec"><div class="sec-h"><h3>Linked</h3></div>' + (rel ? '<ul class="govern">' + rel + '</ul>' : '<p class="fine" style="margin:0">Nothing linked that you can see.</p>') + '</div></div>');
+            jumpTo(ps);
+            // A stored file opens through a short-lived signed link, checked against the same access rules.
+            var o_ = document.getElementById('dorig');
+            if (o_ && d.file_path && !/^(\/|blob:)/.test(d.file_path) && sb.storage) {
+              o_.addEventListener('click', function (e) { e.preventDefault(); sb.storage.from('documents').createSignedUrl(d.file_path, 600).then(function (r) { if (r.data) window.open(r.data.signedUrl, '_blank', 'noopener'); else A.toast('Could not open the file.'); }); });
+            }
           });
         });
       }).catch(fail);
@@ -716,7 +759,7 @@
       }).join('') + '</ul></div>' : '';
       var terms = cur ? Object.keys(cur.terms).map(function (key) { return cur.terms[key]; }) : [];
       var canConfirm = cur && R.partyTo(cur, me());
-      var tt = terms.map(function (t) { return '<tr><td><b>' + esc(TERM[t.key] || t.key) + '</b></td><td>' + esc(fmtVal(t.value)) + '</td><td class="fine">' + esc(t.clause || '') + '</td><td class="fine">“' + esc(t.sentence || '') + '”</td><td>' + (t.confirmed_at ? '<span class="badge ok">confirmed</span>' : canConfirm ? '<button class="btn ghost sm" data-tconf="' + t.id + '">Confirm</button>' : '<span class="fine">—</span>') + '</td></tr>'; }).join('');
+      var tt = terms.map(function (t) { return '<tr><td><b>' + esc(TERM[t.key] || t.key) + '</b></td><td>' + esc(fmtVal(t.value)) + '</td><td class="fine">' + secLink(t.clause || '', cur && cur.document_id) + '</td><td class="fine">“' + esc(t.sentence || '') + '”</td><td>' + (t.confirmed_at ? '<span class="badge ok">confirmed</span>' : canConfirm ? '<button class="btn ghost sm" data-tconf="' + t.id + '">Confirm</button>' : '<span class="fine">—</span>') + '</td></tr>'; }).join('');
       app.innerHTML = sheet('03 Contracts', 'The contract chain', '<div class="cols" style="--cols:minmax(0,0.9fr) minmax(0,2fr)"><div><div class="card sec"><div class="sec-h"><h3>Contracts</h3></div>' + tree + '</div>' + gapHtml +
         (C.admin ? '<div class="card sec" id="addk" style="margin-top:16px"><div class="sec-h"><h3>Add a contract</h3></div>' + (Object.keys(C.companies).length < 2 ? '<p class="fine" style="margin:0">A contract is between two companies on the project. Invite the other company on 06 Project; once they sign in, add the contract here.</p>' :
           '<form id="newk" class="grid"><div class="fd full"><label><span>Title</span></label><div class="inp"><input id="ktitle" required placeholder="e.g. Subcontract: Plumbing"></div></div>' +
@@ -724,7 +767,7 @@
           '<div class="fd"><label><span>Upper party</span></label><div class="inp sel"><select id="kup">' + Object.keys(C.companies).map(function (id) { return '<option value="' + id + '">' + esc(C.companies[id].name) + ' (' + esc(P.ROLE[C.role[id]] || '') + ')</option>'; }).join('') + '</select></div></div><div class="fd"><label><span>Lower party</span></label><div class="inp sel"><select id="kdown">' + Object.keys(C.companies).map(function (id) { return '<option value="' + id + '">' + esc(C.companies[id].name) + ' (' + esc(P.ROLE[C.role[id]] || '') + ')</option>'; }).join('') + '</select></div></div>' +
           '<div class="fd full"><button class="btn sm" type="submit">Add the contract</button></div></form>') + '</div>' : '') +
         '<div class="card sec" style="margin-top:16px"><div class="sec-h"><h3>Read a contract’s terms</h3></div><p class="fine" style="margin:0 0 10px">Upload a contract and pick the sentence that states each term; we copy the number from it and you confirm it.</p>' + (canConfirm ? '<button class="btn sm" id="kread">Read the terms of ' + esc(cur.title) + '</button>' : '<a class="btn sm" href="#contract">Open the contract reader</a>') + '</div></div>' +
-        '<div class="card sec"><div class="sec-h"><h3>' + esc(cur ? cur.title : 'No contract') + '</h3>' + (cur && cur.document_id ? '<button class="link" data-dopen="' + cur.document_id + '">Open the document</button>' : '') + '</div>' +
+        '<div class="card sec"><div class="sec-h"><h3>' + esc(cur ? cur.title : 'No contract') + '</h3>' + (cur && cur.document_id ? '<button class="btn sm" data-dopen="' + cur.document_id + '">Read the full contract</button>' : '') + '</div>' +
         (terms.length ? '<div class="tbl-wrap"><table class="tbl terms"><thead><tr><th>Term</th><th>Value</th><th>Clause</th><th>The sentence it came from</th><th></th></tr></thead><tbody>' + tt + '</tbody></table></div>' : '<p class="fine" style="margin:0">No terms read yet.</p>') +
         '<p class="fine" style="margin:12px 0 0">Every value is shown with the sentence it came from. A person confirms each before checks rely on it.</p></div></div>');
       var kr = document.getElementById('kread');
@@ -906,7 +949,7 @@
     if (!t) return;
     var d = t.dataset;
     if (d.copen) { store('cs_change', d.copen); return A.go('change'); }
-    if (d.dopen) { store('cs_doc', d.dopen); return A.go('doc'); }
+    if (d.dopen) { store('cs_doc', d.dopen); store('cs_doc_sec', d.dsec || null); return A.go('doc'); }
     if (d.chf) { store('cs_chfilter', d.chf); return V.changes(); }
     if (d.entersample) { e.preventDefault(); return P.enterSample('home'); }
     if (d.leavesample) { e.preventDefault(); return P.leaveSample(); }
