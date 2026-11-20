@@ -144,7 +144,7 @@
   "finished_per_model": {
    "gemma4:12b": 85,
    "llama3.1:8b": 143,
-   "qwen3.5:9b": 85
+   "qwen3.5:9b": 173
   },
   "note": "Every measure uses only the RFIs all models finished, so the models are compared on the same questions."
  },

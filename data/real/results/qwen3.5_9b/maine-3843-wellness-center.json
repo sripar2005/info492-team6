@@ -1,0 +1,1154 @@
+{
+ "model": "qwen3.5:9b",
+ "project": "maine-3843-wellness-center",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T03:35:29Z",
+ "rows": [
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:1",
+   "question": "Perimeter drain dumps where? No civil drawings",
+   "official_answer": "Tie into existing, if existing drains are not encountered, new perimeter drains are not required.",
+   "discipline": "Arch",
+   "retrieved": [
+    "d8585c3431",
+    "f40fb9878e",
+    "441fee72eb",
+    "26322ff028",
+    "256950de75",
+    "8ce6ad5df4"
+   ],
+   "prompt_sha": "d87808263a3a",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify the exact location where perimeter drains are to be dumped or installed. The Contractor must review all drawings and field conditions, notify the Architect for clarification if discrepancies exist, and submit shop drawings verifying these details before installation.",
+    "citations": [
+     {
+      "piece": "d8585c3431",
+      "quote": "WHERE NEW PERIMETER DRAIN, TIE INTO EXISTING. IF EXISTING DRAINS ARE NOT REMOVE EXISTING BRICK AS NECESSARY TO INSTALL NEW"
+     },
+     {
+      "piece": "441fee72eb",
+      "quote": "SHOULD THERE BE A DISCREPANCY WITHIN AND BETWEEN THE DRAWINGS NOTIFY ARCHITECT FOR CLARIFICATION PRIOR TO INSTALLATION OF SAID WORK."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 215.6,
+   "eval_count": 223,
+   "prompt_eval_count": 2338
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:2",
+   "question": "Through bolts for canopy how many are needed at lower portion of canopy?",
+   "official_answer": "See Addendum #01 - Sheet AE101, Detail A15 is updated to reference (6) \u00bd\u201d thru-bolts EQ Space between canopy.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "d8585c3431",
+    "110bcaefeb",
+    "4a85ecf35a",
+    "441fee72eb",
+    "a6a010bf8a"
+   ],
+   "prompt_sha": "82cfb2f8ad53",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not specify the exact number of through bolts required for the lower portion of the canopy. The drawings indicate that tie-backs and their associated hardware are to be determined by the manufacturer, but no specific count is listed in the text.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 247.4,
+   "eval_count": 95,
+   "prompt_eval_count": 3811
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:3",
+   "question": "Entrance slabs tie to sidewalks how? No detail showing this",
+   "official_answer": "A1/AE101 shows isolation joint.",
+   "discipline": "Arch",
+   "retrieved": [
+    "a6a010bf8a",
+    "1185c16731",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "110bcaefeb",
+    "d8585c3431"
+   ],
+   "prompt_sha": "7ddf045ffc7c",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts describe concrete mix designs, reinforcement requirements, and general sidewalk details but do not specify the connection method or detailing for how entrance slabs tie to sidewalks. This requires a design decision.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 252.2,
+   "eval_count": 83,
+   "prompt_eval_count": 3960
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:4",
+   "question": "H1/AE101 notes 4\u201d slabs but details D8 notes 5\u201d and A1 notes 6\u201d thick CIP and then shows dimensions of 5\u201d.",
+   "official_answer": "Frost-protected slab shall be 5\u201d per D8. See Addendum #01 - Sheet AE101, Detail A1 is updated to reference 4\" concrete sidewalk",
+   "discipline": "Arch",
+   "retrieved": [
+    "110bcaefeb",
+    "441fee72eb",
+    "a6a010bf8a",
+    "d8585c3431",
+    "aab2cc98d9",
+    "4f2b5ddb50"
+   ],
+   "prompt_sha": "716cd938b9db",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts contain conflicting slab thickness notes (4\" in AE101, 5\" in D8, and 6\" in A1) without a definitive resolution. The documents do not specify which dimension takes precedence or provide the necessary clarification to settle this discrepancy.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 251.7,
+   "eval_count": 100,
+   "prompt_eval_count": 3835
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:5",
+   "question": "Flashing detail for tops of canopies to brick?",
+   "official_answer": "Flashing by Canopy Manufacturer",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "110bcaefeb",
+    "d8585c3431",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "55cdda2797"
+   ],
+   "prompt_sha": "355611b789a8",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific flashing details for the tops of canopies to brick. This requires a design decision or reference to unprovided drawings.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 250.1,
+   "eval_count": 74,
+   "prompt_eval_count": 3943
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:6",
+   "question": "Storefront are you just wanting prefinished white?",
+   "official_answer": "Yes",
+   "discipline": "Arch",
+   "retrieved": [
+    "1da9d63da8",
+    "aab2cc98d9",
+    "32275a957f",
+    "a6a010bf8a",
+    "55cdda2797",
+    "110bcaefeb"
+   ],
+   "prompt_sha": "ebd96aa37d60",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents confirm the storefront finish color is white and list specific product brands (Kawneer, Trifab, Versaglaze), but they do not explicitly state that the material must be prefinished. The design team needs to verify if 'prefinished' is a mandatory requirement or if field-applied finishes are acceptable based on the specified products.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 261.8,
+   "eval_count": 117,
+   "prompt_eval_count": 3879
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:7",
+   "question": "Stair railings do they mount to building? a. Dimension on H1/AE101 goes into exis(cid:415)ng wall? Is the flat landing 5\u2019- 3/16\u201d to the wall?",
+   "official_answer": "No, they turn down to slab, match existing configuration. - Part a: See Addendum #01 - Detail H1 is updated to reference dimension to wall is approximately 4\u2019-2\u201d verify in field",
+   "discipline": "Arch",
+   "retrieved": [
+    "4a85ecf35a",
+    "110bcaefeb",
+    "3ffaed2f67",
+    "d8585c3431",
+    "aab2cc98d9",
+    "a6a010bf8a"
+   ],
+   "prompt_sha": "91ee70aa731e",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not confirm whether the stair railings mount to the existing wall or specify the exact distance from the flat landing to the wall. The documents mention replacing handrails 'in kind' and show generic details for steel posts and handrails, but lack the specific dimensional data required to answer your question.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 258.4,
+   "eval_count": 106,
+   "prompt_eval_count": 3899
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:8",
+   "question": "A1/AE101 says concrete is 4,500 psi and concrete notes on AE501 1C says 4,000 psi?",
+   "official_answer": "See Addendum #01 - Sheet AE101, Detail A1 is updated to reference 4,000psi",
+   "discipline": "Arch",
+   "retrieved": [
+    "a6a010bf8a",
+    "110bcaefeb",
+    "3ffaed2f67",
+    "32275a957f",
+    "4a85ecf35a",
+    "4f2b5ddb50"
+   ],
+   "prompt_sha": "c88449250c19",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts show conflicting concrete strength requirements: AE501 generally specifies 3,500 psi (with some sections noting 4,000 psi for walls), while the RFI references a 4,500 psi requirement not found in these specific text snippets. The documents also state that if discrepancies are found, the Architect must be notified for clarification before proceeding.",
+    "citations": [
+     {
+      "piece": "a6a010bf8a",
+      "quote": "MINIMUM COMPRESSIVE STRENGTH: AE501 90 DEGREE HOOKS IN ACCORDANCE WITH ACI318 3500 PSI AT 28 DAYS UNLESS NOTED OTHERWISE."
+     },
+     {
+      "piece": "3ffaed2f67",
+      "quote": "SIVE STRENGTH: WALL 4000 PSI AT 28 DAYS EXISTING TO REMAIN 8\" UNLESS SPECIFICALLY SHOWN OR APPROVED BY b. MAXIMUM WATER-CEMENTITIOUS NEW CONCRETE STRUCTURAL ENGINEER OF RECORD."
+     },
+     {
+      "piece": "3ffaed2f67",
+      "quote": "CREPANCIES ARE FOUND, CONTROL JOINTS, 10' - 0\" O.C., TYP. L L O LIGHT AND CONNECT NEW PE NOTIFY ARCHITECT FOR CLARIFICATION BEFORE LIGHT TO EXISTING LIGHT O COMMENCING THE WORK."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 343.4,
+   "eval_count": 369,
+   "prompt_eval_count": 3681
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:9",
+   "question": "G15/AE501 shows dowel leg going into existing concrete wall. Is this epoxied like the dowels? Do we need the dowl and the leg going into existing?",
+   "official_answer": "Vertical leg of bent bar should not extend into existing foundation wall.",
+   "discipline": "Arch",
+   "retrieved": [
+    "4f2b5ddb50",
+    "aab2cc98d9",
+    "3ffaed2f67",
+    "32275a957f",
+    "a6a010bf8a",
+    "d8585c3431"
+   ],
+   "prompt_sha": "05393c36fd6d",
+   "output": {
+    "decision": "no",
+    "answer": "The provided excerpts do not confirm whether the dowel leg should be epoxied or if both the dowel and leg are required. The documents specify epoxy requirements for specific anchor systems but do not explicitly address this particular connection detail.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 242.1,
+   "eval_count": 90,
+   "prompt_eval_count": 3720
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:10",
+   "question": "Are the new railings removable? What holds the railing post to the epoxied dowel?",
+   "official_answer": "Railings are not removable attach with (2) headless screws each",
+   "discipline": "Arch",
+   "retrieved": [
+    "4f2b5ddb50",
+    "aab2cc98d9",
+    "1185c16731",
+    "d8585c3431",
+    "441fee72eb",
+    "f40fb9878e"
+   ],
+   "prompt_sha": "72e3d9def926",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts describe the installation of railings using epoxy-doweled posts but do not explicitly state whether the new railings are removable or specify the mechanism for removal. Additional clarification from the design team is required.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 234.7,
+   "eval_count": 87,
+   "prompt_eval_count": 3617
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:11",
+   "question": "A10/AE501 notes steel post and balusters. No balusters shown on drawing?",
+   "official_answer": "See Addendum #01 - Sheet AE501, Detail A10 is updated to remove reference to baluster",
+   "discipline": "Arch",
+   "retrieved": [
+    "110bcaefeb",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "a6a010bf8a",
+    "441fee72eb",
+    "f40fb9878e"
+   ],
+   "prompt_sha": "64e0dbd72aee",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts confirm that Sheet AE501 contains details for steel posts and handrails but do not explicitly show balusters. As the drawings are of equal importance and discrepancies should be clarified prior to installation, this requires a decision from the design team.",
+    "citations": [
+     {
+      "piece": "441fee72eb",
+      "quote": "ALL DRAWINGS ARE OF EQUAL IMPORTANCE... SHOULD THERE BE A DISCREPANCY WITHIN AND BETWEEN THE DRAWINGS NOTIFY ARCHITECT FOR CLARIFICATION PRIOR TO INSTALLATION"
+     },
+     {
+      "piece": "aab2cc98d9",
+      "quote": "1 1/2\" \u00d8 STEEL POST PT TO MATCH EXISTING... 1 1/2\" \u00d8 STEEL HANDRAIL EXISTING WALL TO REMAIN"
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 284.6,
+   "eval_count": 227,
+   "prompt_eval_count": 3577
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:12",
+   "question": "Is there a detail on how entryway sidewalk is to be patched due to cutting it back to form new stairs?",
+   "official_answer": "Refer to General Removal Note #3 on AD101.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "110bcaefeb",
+    "d8585c3431",
+    "441fee72eb"
+   ],
+   "prompt_sha": "4933d5c94d30",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts describe general sidewalk construction methods, such as removing existing brick and replacing it to match the existing pattern. However, they do not contain a specific detail for patching the entryway sidewalk where it is cut back to form new stairs. Please refer to the relevant architectural drawings or contact the design team for clarification on this specific condition.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 261.9,
+   "eval_count": 112,
+   "prompt_eval_count": 3906
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:13",
+   "question": "Is there metal nosings on the new stairs?",
+   "official_answer": "See Addendum #01 - Sheet AE501, Detail A15 is updated to reference abrasive nosing at all stair treads.",
+   "discipline": "Arch",
+   "retrieved": [
+    "441fee72eb",
+    "55cdda2797",
+    "d8585c3431",
+    "1185c16731",
+    "19f58b47b7",
+    "4b0e427139"
+   ],
+   "prompt_sha": "87f54d74ace0",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify whether metal nosings are required for the new stairs. The project manual lists 'Railing and Nosing Shop Drawings' as a required submittal, but does not confirm if this item is included in the current scope or design.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 208.0,
+   "eval_count": 98,
+   "prompt_eval_count": 3083
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:14",
+   "question": "Concrete sidewalk to just butt up to pavement in parking lot? ADA tactile mat needed?",
+   "official_answer": "H1/ AE101 indicates concrete sidewalk butts to existing asphalt sidewalk. Existing tactile warning is along accesible sidewalk route.",
+   "discipline": "Arch",
+   "retrieved": [
+    "4b0e427139",
+    "a6a010bf8a",
+    "aab2cc98d9",
+    "1185c16731",
+    "110bcaefeb",
+    "4a85ecf35a"
+   ],
+   "prompt_sha": "b6e21be11ab7",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify whether the concrete sidewalk should butt directly against the parking lot pavement or if an ADA tactile mat is required at that specific transition. This requires clarification from the design team regarding site conditions and accessibility compliance.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 238.7,
+   "eval_count": 89,
+   "prompt_eval_count": 3659
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:15",
+   "question": "A5/AE101 notes 2\u201d R-20 rigid but 2\u201d rigid is R-10",
+   "official_answer": "See Addendum #01 - Sheet AE101, Detail A5 is updated to reference R-10",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "110bcaefeb",
+    "4f2b5ddb50",
+    "441fee72eb",
+    "aab2cc98d9",
+    "d8585c3431"
+   ],
+   "prompt_sha": "120021cbd839",
+   "output": {
+    "error": "no JSON",
+    "raw": ""
+   },
+   "seconds": 535.3,
+   "eval_count": 700,
+   "prompt_eval_count": 3907
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:16",
+   "question": "What is the thickness/height of the canopy roof structure?",
+   "official_answer": "Coordinate with canopy manufacturer.",
+   "discipline": "Arch",
+   "retrieved": [
+    "4a85ecf35a",
+    "1185c16731",
+    "d8585c3431",
+    "110bcaefeb",
+    "1da9d63da8",
+    "453e0f30f6"
+   ],
+   "prompt_sha": "2e73df16a87f",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not specify the thickness or height of the canopy roof structure. The documents mention a 'TYPICAL CANOPY' but lack specific dimensional details for its vertical profile.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 231.9,
+   "eval_count": 82,
+   "prompt_eval_count": 3583
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:17",
+   "question": "Painted downspouts? What size and just prefinished?",
+   "official_answer": "Coordinate size with Canopy manufacturer. Prefinished",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "256950de75",
+    "35c78dfc1a",
+    "4f2b5ddb50",
+    "4b0e427139",
+    "55cdda2797"
+   ],
+   "prompt_sha": "98882a78b847",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify the size, finish type (prefinished vs. painted), or material requirements for downspouts. Please submit product data and shop drawings for review in accordance with Submittal Procedures.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 204.0,
+   "eval_count": 87,
+   "prompt_eval_count": 3073
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:18",
+   "question": "Any hazardous in the project?",
+   "official_answer": "None is anticipated",
+   "discipline": "Arch",
+   "retrieved": [
+    "324c8436e4",
+    "40b2888432",
+    "867014417f",
+    "d5165af04d",
+    "8efbf1fb68",
+    "4b0e427139"
+   ],
+   "prompt_sha": "4b2b7bd17fbb",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not confirm the presence of hazardous materials on the project site. While the Contractor is required to avoid disrupting hazardous materials and notify the Owner if discovered, no specific inventory or confirmation of hazards is included in these documents.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 120.0,
+   "eval_count": 90,
+   "prompt_eval_count": 1597
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:19",
+   "question": "The window brick infill is it to be toothed back in? 8\u201d cmu toothed in? Is the cmu to be painted or is there a wall covering on the inside?",
+   "official_answer": "Yes, tooth brick and block in existing, paint interior cmu to match existing.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "110bcaefeb",
+    "d8585c3431",
+    "146f179603",
+    "2b55ab9562",
+    "bd40f6ecf6"
+   ],
+   "prompt_sha": "b6b9551db3b1",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify whether the window brick infill is to be toothed back, the required depth for CMU backing, or if the interior wall surface will be painted or covered.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 222.1,
+   "eval_count": 83,
+   "prompt_eval_count": 3411
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:20",
+   "question": "Any control joints in concrete landing or sidewalks?",
+   "official_answer": "See Addendum #01 - Sheet AE101, Plan H1 and Sheet AE501, Detail G12 are updated to reference control joints at 10' oc for sidewalks. No control joints in frost-proof landings",
+   "discipline": "Arch",
+   "retrieved": [
+    "a6a010bf8a",
+    "4a85ecf35a",
+    "32275a957f",
+    "441fee72eb",
+    "3ffaed2f67",
+    "110bcaefeb"
+   ],
+   "prompt_sha": "7e8dae065dc6",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not explicitly confirm or deny the presence of control joints in the concrete landing or sidewalks. While general construction notes mention coordinating cast-in-place items and placing dowels at intersections, specific details regarding control joint locations are absent from the text.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 236.3,
+   "eval_count": 94,
+   "prompt_eval_count": 3582
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:21",
+   "question": "Sidewalk going to parking lot is just a straight path? Also is it 10\u2019-0\u201d to match other one?",
+   "official_answer": "See Addendum #01 - Sheet AE101, Plan H1 and Sheet AE501, Detail G12 are updated to reference layout of sidewalk.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "110bcaefeb",
+    "d8585c3431",
+    "4a85ecf35a"
+   ],
+   "prompt_sha": "3d694e55937d",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not confirm whether the sidewalk to the parking lot is a straight path or if it is 10'-0"
+   },
+   "seconds": 244.4,
+   "eval_count": 48,
+   "prompt_eval_count": 4003
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:22",
+   "question": "Prevailing Wage Determination (Section 00 73 46) The wage rate table referenced in Section 00 73 46 as being \"shown on the following page\" is missing from the issued Project Manual (page 52 contains only a stray signature graphic in place of the rate table). Please confirm whether Maine DOL/Davis-Bacon prevailing wage requirements apply to this project, and if so, please issue the missing wage rate table.",
+   "official_answer": "2026 Fair minimum Wage rates is included in project manul . Page 52 provides wage rates.",
+   "discipline": "Arch",
+   "retrieved": [
+    "72f095f51a",
+    "4961f4d8c1",
+    "d56d321540",
+    "1711f99ab5",
+    "19f58b47b7",
+    "d826372ff5"
+   ],
+   "prompt_sha": "f79e1a1a17e2",
+   "output": {
+    "decision": "other",
+    "answer": "The Project Manual confirms that State of Maine wage determination requirements apply to this project. However, the specific wage rate table referenced in Section 00 73 46 is missing from the issued manual and cannot be confirmed as present. The Consultant must supply the missing wage determination document prepared by the Maine Department of Labor.",
+    "citations": [
+     {
+      "piece": "d56d321540",
+      "quote": "Conform to the wage determination schedule for this project which is shown on the following page. PART 2 - PRODUCTS (not used) PART 3 - EXECUTION (not used) 007346 Wage Determination Schedule"
+     },
+     {
+      "piece": "19f58b47b7",
+      "quote": "This Section includes the wage determination requirements for Contractors as issued by the State of Maine Department of Labor Bureau of Labor Standards or the United States Department of Labor."
+     },
+     {
+      "piece": "4961f4d8c1",
+      "quote": "The Consultant shall include a wage determination document prepared by the Maine Departmen in the Contract Documents for state-funded contracts in excess of $50,000."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 195.9,
+   "eval_count": 309,
+   "prompt_eval_count": 1574
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:23",
+   "question": "Responsibility for Special Inspection Costs (Section 01 40 00, \u00a71.7.B) Section 01 40 00, \u00a71.7.B states that \"Special Tests and Inspections\" required by the Authority Having Jurisdiction are \"the responsibility of Owner,\" while also indicating the Contractor engages with the testing agency. Please clarify whether Owner or Contractor is financially responsible for the cost of AHJ-required special inspections (including any structural inspections associated with the stair reconstruction, canopy, and foundation work).",
+   "official_answer": "See addednum #02 for clarification",
+   "discipline": "Arch",
+   "retrieved": [
+    "52b6fdeade",
+    "5c24f02c73",
+    "88a0a46484",
+    "f40fb9878e",
+    "546612cd36",
+    "9457e3d5e1"
+   ],
+   "prompt_sha": "8d39dedf6924",
+   "output": {
+    "decision": "no",
+    "answer": "The Contractor is financially responsible for special inspections required by the Authority Having Jurisdiction (AHJ), even though the Owner retains that responsibility per Section 01 40 00.",
+    "citations": [
+     {
+      "piece": "52b6fdeade",
+      "quote": "B. Special Tests and Inspections: Contractor will engage a testing agency approved by Owner to conduct special tests and inspections required by AHJ as the responsibility of Owner."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 148.8,
+   "eval_count": 141,
+   "prompt_eval_count": 1794
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:24",
+   "question": "Substitution Posture on Named Products (Awnex Canopy, ATAS Soffit, Kawneer Storefront/Door) The drawings identify the Awnex \"Colorado\" canopy, ATAS \"Opaline\" OPF linear metal soffit, and Kawneer 451T TriFab VersaGlaze storefront/500T entrance door as basis-of-design products. Given that Section 01 25 00 does not permit substitutions for convenience, please confirm whether \"or equal\" substitutions will be considered for these three products, or whether they are intended as true sole-source specifications.",
+   "official_answer": "Comparable product will be allowed for Awnex Canopy, ATAS Soffit, Kawneer Storefront/Door",
+   "discipline": "Arch",
+   "retrieved": [
+    "441fee72eb",
+    "55cdda2797",
+    "bd40f6ecf6",
+    "d56d321540",
+    "52b6fdeade",
+    "8820aa871e"
+   ],
+   "prompt_sha": "f24224eeb8e4",
+   "output": {
+    "decision": "no",
+    "answer": "Substitutions for convenience are not allowed on this project. Since these products are specified as basis-of-design items without an explicit 'or equal' clause, they are intended as true sole-source specifications unless a substitution for cause is requested and approved.",
+    "citations": [
+     {
+      "piece": "bd40f6ecf6",
+      "quote": "A. Substitutions: Changes in products... from those required by the Contract Documents."
+     },
+     {
+      "piece": "52b6fdeade",
+      "quote": "The specific item or material specified establishes a minimum standard... The Drawing or written Specification shall not be construed to exclude other manufacturers products..."
+     },
+     {
+      "piece": "id: 55cdda2797",
+      "quote": "078000 \u2013 Awnex Canopies... 084113 Aluminum Framed Entrances and Storefront..."
+     },
+     {
+      "piece": "id: 55cdda2797",
+      "quote": "072713 \u2013 Modified Bituminous Sheet Air Barriers... 074293 \u2013 Soffit Panels..."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 240.3,
+   "eval_count": 309,
+   "prompt_eval_count": 2333
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:25",
+   "question": "Existing Face Brick Match The drawings call for face brick at wall-blocking and canopy tie-back locations to match the existing brick in color and pattern, but no manufacturer, product, or reference sample is identified. Please provide a source, manufacturer name, or reference sample for the existing face brick to support sourcing a match within the bid schedule.",
+   "official_answer": "For bidding purposes price Morin Oldport Full Range.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "d8585c3431",
+    "441fee72eb",
+    "32275a957f",
+    "110bcaefeb",
+    "aab2cc98d9"
+   ],
+   "prompt_sha": "7944971ca6c2",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts confirm that existing brick must be removed and replaced to match the existing color and pattern, but they do not identify a specific manufacturer, product, or reference sample. The Architect/Engineer must provide this missing information to allow for sourcing within the bid schedule.",
+    "citations": [
+     {
+      "piece": "1185c16731",
+      "quote": "REMOVE EXISTING BRICK AS NECESSARY TO INSTALL NEW... REPLACE BRICK TO MATCH EXISTING. FACE BRICK - COLOR AND PATTERN TO MATCH TO EXISTING"
+     },
+     {
+      "piece": "d8585c3431",
+      "quote": "REMOVE EXISTING BRICK AS NECESSARY TO INSTALL NEW... COMPACTED TO MATCH EXISTING."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 304.3,
+   "eval_count": 220,
+   "prompt_eval_count": 3933
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:26",
+   "question": "Field Verification Access for Existing Conditions Given that the drawings require the Contractor to field-verify existing foundation and structural conditions at the stair reconstruction area, please confirm whether site access for verification purposes will be made available prior to bid, beyond the pre-bid conference held on July 23.",
+   "official_answer": "Site access can be provided, coordinate with owner. This note was intended to verify the condition of the foundation after the removal work occurred.",
+   "discipline": "Arch",
+   "retrieved": [
+    "a337c9a964",
+    "22d8bff555",
+    "bd40f6ecf6",
+    "110bcaefeb",
+    "aecadf4170",
+    "afe3fad117"
+   ],
+   "prompt_sha": "641401aeee24",
+   "output": {
+    "decision": "no",
+    "answer": "No, site access for field verification prior to bid will not be made available beyond the pre-bid conference, as no on-site pre-bid conference is being conducted for this project. Bidders are responsible for becoming thoroughly familiar with the Bid Documents and verifying existing conditions themselves.",
+    "citations": [
+     {
+      "piece": "afe3fad117",
+      "quote": "8. An on-site pre-bid conference ( mandatory or optional ) will be conducted for this project."
+     },
+     {
+      "piece": "bd40f6ecf6",
+      "quote": "The failure of a bidder to review evident site conditions, to attend available pre- bid conferences... shall not relieve that bidder from any obligation"
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 207.3,
+   "eval_count": 200,
+   "prompt_eval_count": 2431
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:27",
+   "question": "Was just relooking through the specs and it says questions are due August 3rd and the bid is due August 6th? Does this leave time to get together an addendum and allow us and subs to review?",
+   "official_answer": "Clarification: Deadline for RFIs is July 29, 2026. Response to RFIs is August 3, 2026. 3-day upon final RFI response is standard practice.",
+   "discipline": "Arch",
+   "retrieved": [
+    "d5165af04d",
+    "808ab58d3c",
+    "22d8bff555",
+    "f40fb9878e",
+    "9457e3d5e1",
+    "221a519f75"
+   ],
+   "prompt_sha": "c90303cb35ad",
+   "output": {
+    "decision": "no",
+    "answer": "No, there is no time to issue a standard addendum because the deadline for RFIs and Final Addenda is Monday, August 3rd at 2:00 pm, which is less than 72 hours before the bid closing on Thursday, August 6th. While the manual allows for shorter notice in specific cases like extending the bid date, it does not support issuing a new addendum based solely on RFI responses within this window.",
+    "citations": [
+     {
+      "piece": "d5165af04d",
+      "quote": "Deadline for RFIs Wednesday July 29, 2026 - 2:00pm Response to RFIs Monday August 3, 2026 - 2:00pm Final Addendum Monday August 3, 2026 - 2:00pm Bids Due Thursday August 6, 2026 - 2:00pm"
+     },
+     {
+      "piece": "f40fb9878e",
+      "quote": "Addenda shall not be issued less than seventy-two hours prior to the specified bid opening time."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 223.7,
+   "eval_count": 295,
+   "prompt_eval_count": 2122
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:28",
+   "question": "A handrail subcontractor is asking if there needs to be a center handrail in the main entrance. They asked since the width of the stairway might be past the threshold, therefore it might need a center handrail.",
+   "official_answer": "Intermediate rail is not required. Our occupant required width is 7\" and a center rail is only required if our occupant required width is greater than 60\".",
+   "discipline": "Arch",
+   "retrieved": [
+    "bd40f6ecf6",
+    "b2cdafcc73",
+    "aab2cc98d9",
+    "c4e7a89722",
+    "f40fb9878e",
+    "15380ac94f"
+   ],
+   "prompt_sha": "6e9eed40b67e",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific requirements regarding handrail placement, width thresholds, or center rail necessity for the main entrance. The Architect must review the design drawings and applicable codes to determine if a center handrail is required based on the stairway dimensions.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 166.2,
+   "eval_count": 95,
+   "prompt_eval_count": 2391
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:29",
+   "question": "Subcontractor wants to clarify the length of handrails.",
+   "official_answer": "See addendum #1 RFI response #7 and AE501 Detail M10 issued as part of Addendum #2 for additional clarification.",
+   "discipline": "Arch",
+   "retrieved": [
+    "110bcaefeb",
+    "ce973a285c",
+    "c4e7a89722",
+    "def28cad65",
+    "cfd5ae6819",
+    "aecadf4170"
+   ],
+   "prompt_sha": "6f63653b0df5",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify a required length for handrails. The Contractor must verify dimensions from the Drawings and report any inconsistencies to the Consultant before commencing work.",
+    "citations": [
+     {
+      "piece": "aecadf4170",
+      "quote": "The Contractor shall lay out all work from dimensions given on the Drawings. The Contractor shall take measurements and verify dimensions of any existing work that affects the Work or to which the Work is to be fitted."
+     },
+     {
+      "piece": "aecadf4170",
+      "quote": "The Contractor is solely responsible for the accuracy of all measurements. The Contractor shall verify all grades, lines, levels, elevations and dimensions shown on the Drawings and report any errors or inconsistencies to the Consultant prior to commencing work."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 177.6,
+   "eval_count": 219,
+   "prompt_eval_count": 1814
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:30",
+   "question": "Are there any specifications for this job? There seems to be just the front end specs but nothing else? Concrete specs? Door specs? Steel railings? Painting?",
+   "official_answer": "Concrete specs are on Drawings. Design Loads on Sheet AE101, Concrete Notes on Sheet AE501. Doors, Steel Railing, Paint called out on drawings to match existing.",
+   "discipline": "Arch",
+   "retrieved": [
+    "441fee72eb",
+    "110bcaefeb",
+    "1da9d63da8",
+    "d8585c3431",
+    "a6a010bf8a",
+    "798f7be8a4"
+   ],
+   "prompt_sha": "b1ed582391c4",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts confirm that specifications exist for concrete, doors, and structural elements, but they do not contain a complete list of all required specifications (e.g., painting or specific railing finishes). The full specification sections are likely located in Division 02 through Division 26 of the Project Manual, which were not included in the provided text. Please review the full Project Manual for the complete scope.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 246.9,
+   "eval_count": 124,
+   "prompt_eval_count": 3617
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:31",
+   "question": "How are we to a deal with the brick weep holes and flashing at the bottom of the wall with the grade being raised with the entrance slab being raised at the two double exit doors?",
+   "official_answer": "There is currently concrete below each of the double doors without weeps. The exisitng pad is wider than the proposed pad and currently is above the bottom of brick. The wall will drain to the next weep hole either side of the new frost entry slab.",
+   "discipline": "Arch",
+   "retrieved": [
+    "d8585c3431",
+    "110bcaefeb",
+    "1185c16731",
+    "1da9d63da8",
+    "aab2cc98d9",
+    "3ffaed2f67"
+   ],
+   "prompt_sha": "5be601a6006c",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts confirm that existing brick must be removed as necessary to install new perimeter drains and do not specify the required flashing or weep hole details for the raised grade. The Architect/Engineer must provide specific details on how to integrate the new slab elevation with the existing wall termination, including flashing and drainage requirements.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 268.4,
+   "eval_count": 107,
+   "prompt_eval_count": 4077
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:32",
+   "question": "Doors currently have access control but there is nothing shown on the plans?",
+   "official_answer": "See Addenum #2 for clarification, Adds Section 087100, Door Hardware Standards \u2013 Rev. 20260528 and Security Access Control & Digital Video Management (DVM) \u2013 Building Control Center (BCC) Integration & Minimum Requirements,",
+   "discipline": "Arch",
+   "retrieved": [
+    "441fee72eb",
+    "4a85ecf35a",
+    "1b86cebb2d",
+    "bd40f6ecf6",
+    "63e3413eab",
+    "a61eb43484"
+   ],
+   "prompt_sha": "f15eee59995b",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not contain information regarding the specific access control systems for doors or whether they are shown on the plans. This technical detail requires clarification from the design team.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 173.9,
+   "eval_count": 79,
+   "prompt_eval_count": 2627
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:33",
+   "question": "Are there any specs for this project or just what is on the plans?",
+   "official_answer": "Specifications for Division 00-Procurement and Contracing Requirements and Division 01 - General Requirements are included in the Project manual. Addendum #2 Adds Section 087100, Door Hardware Standards \u2013 Rev. 20260528 and Security Access Control & Digital Video Management (DVM) \u2013 Building Control Center (BCC) Integration & Minimum Requirements,",
+   "discipline": "Arch",
+   "retrieved": [
+    "7797e8de40",
+    "4b0e427139",
+    "a21378e7c4",
+    "441fee72eb",
+    "ddbe5fad46",
+    "d56d321540"
+   ],
+   "prompt_sha": "4571b7c9baa2",
+   "output": {
+    "decision": "no",
+    "answer": "No, the project relies on both the Specifications and the Drawings as part of the Contract Documents. The Contractor is responsible for requesting clarifying information if there are inconsistencies or uncertainties between these components.",
+    "citations": [
+     {
+      "piece": "7797e8de40",
+      "quote": "The Project Manual, Specifications and Drawings, and any Addenda, together with this agreement, form the contract."
+     },
+     {
+      "piece": "4b0e427139",
+      "quote": "What is shown as a requirement by any one component shall be inferred as a requirement on all corresponding components."
+     },
+     {
+      "piece": "4b0e427139",
+      "quote": "The Contractor shall be responsible for requesting clarifying information where the intent of the Contract Documents is uncertain."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 187.4,
+   "eval_count": 236,
+   "prompt_eval_count": 1890
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:34",
+   "question": "The brick headers on the exterior doors has a brick detail that looks to be about 12\u201d tall. The new exterior canopies will these be mounted above this?",
+   "official_answer": "yes, bottom of canopy to be mounted above existing brick header at 8\"-4\". See sheet AE101 Detail E15 issued as part of Addednum #2",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "441fee72eb",
+    "110bcaefeb",
+    "1da9d63da8",
+    "aab2cc98d9",
+    "4a85ecf35a"
+   ],
+   "prompt_sha": "18f9bcb407b1",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify the mounting height or location of the new exterior canopies relative to the existing brick headers. The architect or engineer must review the design intent and provide clarification on whether the canopies will be mounted above this detail.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 260.9,
+   "eval_count": 92,
+   "prompt_eval_count": 3978
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:35",
+   "question": "Where the upper ties for the canopies are going looks to be right in the middle of the brick detail band going around the building? How are we to work around this?",
+   "official_answer": "top of upper tie for canapy to be below existing brick band. See sheet AE101 Detail E15 issued as part of Addenum #2",
+   "discipline": "Arch",
+   "retrieved": [
+    "4a85ecf35a",
+    "d8585c3431",
+    "110bcaefeb",
+    "441fee72eb",
+    "a4de42fb20",
+    "aab2cc98d9"
+   ],
+   "prompt_sha": "08e12b4dae61",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify the exact location of the upper canopy ties or how to resolve a conflict with the brick detail band. The Architect must be consulted for clarification before proceeding with this work.",
+    "citations": [
+     {
+      "piece": "4a85ecf35a",
+      "quote": "WHERE SPECIFIC DIMENSIONS, DETAILS, OR DESIGN INTENT CANNOT BE DETERMINED CONSULT ARCHITECT BEFORE IN PROCEEDING WITH THE WORK."
+     },
+     {
+      "piece": "441fee72eb",
+      "quote": "SHOULD THERE BE A DISCREPANCY WITHIN AND BETWEEN THE DRAWINGS THAT WOULD CAUSE AN AWKWARD OR IMPROPER INSTALLATION NOTIFY ARCHITECT FOR CLARIFICATION PRIOR TO INSTALLATION OF SAID WORK."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 288.0,
+   "eval_count": 222,
+   "prompt_eval_count": 3629
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:36",
+   "question": "The first step currently looks like to be less than 7\u201d and the rest seem close to 7\u201d How would you like to approach as the door sill is a set height so do we pitch the landing to get them to 7\u201d steps or do we plan on paving the sidewalk to bring it up?",
+   "official_answer": "provide equal height risers 7\" high max between existing landing height and existing sidewalk height. See sheet AE501 Detail M10 issued as part of Addenum #2",
+   "discipline": "Arch",
+   "retrieved": [
+    "a6a010bf8a",
+    "4a85ecf35a",
+    "4f2b5ddb50",
+    "679100acd5",
+    "110bcaefeb",
+    "1da9d63da8"
+   ],
+   "prompt_sha": "fb6c4369dc78",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify the required elevation for the door sill or landing, nor do they define the design intent for resolving discrepancies between existing conditions and new construction elevations. The Architect or Engineer must review the site conditions and determine whether to pitch the landing or raise the sidewalk to meet accessibility requirements.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 239.1,
+   "eval_count": 104,
+   "prompt_eval_count": 3566
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:37",
+   "question": "Existing steel door system at main entrance looks to be about 8\u201d deep and the new storefront is 4 \u00bd\u201d deep. How are we to leave the brick veneer as it will have anchor spots and caulking from the old? There is tile inside so do we push the new storefront back against the existing tile?",
+   "official_answer": "Patch the screw holes, removal the sealant and push the new storefront till it over laps the exisitng slab.",
+   "discipline": "Arch",
+   "retrieved": [
+    "aab2cc98d9",
+    "d8585c3431",
+    "1185c16731",
+    "110bcaefeb",
+    "a6a010bf8a",
+    "32275a957f"
+   ],
+   "prompt_sha": "68e73a90f9c0",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific instructions on how to handle the discrepancy between the existing 8\" deep steel door system and the new 4.5\" deep storefront regarding the brick veneer, anchor spots, or caulking. The documents mention removing existing brick as necessary for installation but do not resolve the technical conflict of preserving anchors/caulking while accommodating the depth difference.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 270.2,
+   "eval_count": 120,
+   "prompt_eval_count": 3998
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:38",
+   "question": "With the existing window being removed are we to tooth in cmu inside and remove the bullnosed cmu? Exterior brick are we to remove header detailed brick and sill and tooth in or just infill opening?",
+   "official_answer": "Existing bullnose head, jamb and sill to remain, infill opening. Brick header and sill to remain, infill opening.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "aab2cc98d9",
+    "d8585c3431",
+    "32275a957f",
+    "110bcaefeb",
+    "441fee72eb"
+   ],
+   "prompt_sha": "7451f9c45c98",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify the required demolition scope for the interior CMU or exterior brick header/sill. The documents only mention removing existing brick as necessary to install new elements or match patterns, without defining the specific removal of bullnosed units or headers.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 255.6,
+   "eval_count": 96,
+   "prompt_eval_count": 3910
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:39",
+   "question": "There is an existing tipped curbing at the parking lot where we are running the new walk way to. How are we to deal with this detail?",
+   "official_answer": "Flush top of sidewalk to top of curb.",
+   "discipline": "Arch",
+   "retrieved": [
+    "1185c16731",
+    "4f2b5ddb50",
+    "aab2cc98d9",
+    "d8585c3431",
+    "4a85ecf35a",
+    "441fee72eb"
+   ],
+   "prompt_sha": "e28e79292b73",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific instructions on how to deal with an existing tipped curbing at the parking lot. The documents mention removing existing brick and installing new curbing in general terms, but do not address this specific condition.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 246.5,
+   "eval_count": 90,
+   "prompt_eval_count": 3803
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:40",
+   "question": "Does the foundation wall and footings for the side entry pads go on all three sides of the pad or just the long side?",
+   "official_answer": "Foundation wall and footings are on all three sides of the pad.",
+   "discipline": "Arch",
+   "retrieved": [
+    "110bcaefeb",
+    "32275a957f",
+    "4f2b5ddb50",
+    "aab2cc98d9",
+    "3ffaed2f67",
+    "1185c16731"
+   ],
+   "prompt_sha": "7455c8e6d78a",
+   "output": {
+    "decision": "other",
+    "answer": "The provided document excerpts do not specify whether the foundation walls and footings for the side entry pads extend on all three sides or only the long side. This detail requires clarification from the design team.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 246.2,
+   "eval_count": 83,
+   "prompt_eval_count": 3837
+  },
+  {
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:41",
+   "question": "Also it doesn\u2019t show any foundation along the sides of the stairs and how this detail or repair is supposed to be done?",
+   "official_answer": "Similar to A15/AE501",
+   "discipline": "Arch",
+   "retrieved": [
+    "32275a957f",
+    "aab2cc98d9",
+    "4f2b5ddb50",
+    "3ffaed2f67",
+    "110bcaefeb",
+    "441fee72eb"
+   ],
+   "prompt_sha": "deedb226a5ac",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific details on how to repair or construct the foundation along the sides of the stairs. This requires clarification from the design team regarding structural requirements and connection details.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 236.9,
+   "eval_count": 81,
+   "prompt_eval_count": 3684
+  }
+ ]
+}
