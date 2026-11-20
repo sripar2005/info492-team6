@@ -5,37 +5,43 @@
    "project": "maine-2995-capitol-garage",
    "name": "Capitol Parking Garage 2026 Repairs (State of Maine BGS #2995)",
    "rfis": 19,
-   "pieces": 85
+   "pieces": 80,
+   "pieces_dropped_for_leakage": 5
   },
   {
    "project": "illinois-uic-cancer-pavilion",
    "name": "Drug Discovery and Cancer Research Pavilion, UIC (Illinois CDB #830-030-167), design-build",
    "rfis": 30,
-   "pieces": 107
+   "pieces": 104,
+   "pieces_dropped_for_leakage": 3
   },
   {
    "project": "illinois-niccs-design-build",
    "name": "Northern Illinois Center for Community Sustainability (Illinois CDB #822-010-135), design-build",
    "rfis": 28,
-   "pieces": 104
+   "pieces": 103,
+   "pieces_dropped_for_leakage": 1
   },
   {
    "project": "illinois-idot-materials-lab",
    "name": "IDOT Materials Lab (Illinois CDB #630-442-057), design-build",
    "rfis": 8,
-   "pieces": 69
+   "pieces": 69,
+   "pieces_dropped_for_leakage": 0
   },
   {
    "project": "maine-3843-wellness-center",
    "name": "Wellness Center Re-Use Renovation (State of Maine BGS #3843)",
    "rfis": 41,
-   "pieces": 325
+   "pieces": 321,
+   "pieces_dropped_for_leakage": 4
   },
   {
    "project": "ny-rioc-eleanors-pier",
    "name": "Eleanor\u2019s Pier Repair (Roosevelt Island Operating Corp. RFP #26-1095)",
    "rfis": 47,
-   "pieces": 187
+   "pieces": 187,
+   "pieces_dropped_for_leakage": 0
   }
  ],
  "rfis": [

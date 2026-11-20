@@ -777,3 +777,10 @@ body.v-start .sheets, body.v-start #modeband { display: none; }
 .gs-email { display: grid; grid-template-columns: minmax(0, 360px) max-content; justify-content: start; gap: 10px; align-items: center; margin-top: 8px; }
 @media (max-width: 560px) { .gs-email { grid-template-columns: minmax(0, 1fr); } }
 
+/* Agent runs */
+.tbl.runs td { vertical-align: top; } .tbl.runs td.best { font-weight: 700; } .tbl.runs td .fine { font-weight: 400; }
+.bad { color: var(--red); }
+.cites li.miss { color: var(--red); } .cites li.ok { color: var(--green); } .cites li .fine { color: var(--muted); }
+.turnword { color: var(--amber-ink); background: var(--amber-soft); padding: 0 4px; }
+.ai-l { color: var(--blue); }
+.runrow { margin-top: 12px; }

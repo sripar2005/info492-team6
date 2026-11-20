@@ -121,10 +121,22 @@ def main():
         docs = []
         for f in p['docs']:
             docs += pieces(f, text(os.path.join(d, f)))
+        # No answer leakage: drop any document piece that is a copy of the RFI log, i.e. it contains the official answers
+        # to two or more RFIs, or an RFI together with its answer (matched on runs of 8 words). A contract piece that one
+        # answer quotes is kept: it is the right source, not a leak.
+        def grams(t, n=8):
+            w = re.findall(r'[a-z0-9]+', t.lower()); return {' '.join(w[i:i + n]) for i in range(len(w) - n + 1)}
+        A = [(grams(r['answer']), grams(r['question'])) for r in got]
+        def is_log(x):
+            g = grams(x['text']); hits = [k for k, (a, q) in enumerate(A) if a and g & a]
+            return len(hits) >= 2 or any(g & A[k][1] for k in hits)
+        before = len(docs)
+        docs = [x for x in docs if not is_log(x)]
+        dropped = before - len(docs)
         json.dump({'project': p['id'], 'name': p['name'], 'owner': p['owner'], 'pieces': docs}, open('data/real/docs/%s.json' % p['id'], 'w'), indent=0)
         allr += got
-        summary.append({'project': p['id'], 'name': p['name'], 'rfis': len(got), 'pieces': len(docs)})
-        print('%-32s %3d RFIs  %5d document pieces' % (p['id'], len(got), len(docs)))
+        summary.append({'project': p['id'], 'name': p['name'], 'rfis': len(got), 'pieces': len(docs), 'pieces_dropped_for_leakage': dropped})
+        print('%-32s %3d RFIs  %5d document pieces  (%d dropped as copies of the RFI log)' % (p['id'], len(got), len(docs), dropped))
     json.dump({'note': 'Real RFIs and their official published answers, extracted by tools/real/extract.py from the public records in data/real/pdf/ (sources and checksums: data/real/manifest.json). Not edited by hand.',
                'projects': summary, 'rfis': allr}, open('data/real/rfis.json', 'w'), indent=1)
     print('total', len(allr))
