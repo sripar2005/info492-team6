@@ -760,6 +760,32 @@
   window.CSApp = { app: app, esc: esc, store: store, toast: toast, num: num, go: function (v) { go(v); }, loadPdfjs: loadPdfjs, pdfText: function (f) { return pdfText(f); },
     C: function () { return C(); }, tag: tag, frame: function () { frame(); }, reader: function () { return reader; }, M: M };
 
+  /* ---------- sheet index (left nav): fold to a rail, auto-folded on mid-size screens; counts ---------- */
+  (function () {
+    var KEY = 'cs_nav', btn = document.getElementById('navFold');
+    function pref() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function apply() {
+      var p = pref(), mini = p === 'mini' || (p !== 'full' && window.innerWidth > 760 && window.innerWidth <= 1180);
+      document.body.classList.toggle('nav-mini', mini);
+      if (btn) { btn.setAttribute('aria-expanded', String(!mini)); btn.title = mini ? 'Expand the sheet index' : 'Collapse the sheet index'; btn.querySelector('.nf-i').textContent = mini ? '»' : '«'; btn.querySelector('.lbl').textContent = mini ? 'Expand' : 'Collapse'; }
+    }
+    if (btn) btn.addEventListener('click', function () { try { localStorage.setItem(KEY, document.body.classList.contains('nav-mini') ? 'full' : 'mini'); } catch (e) {} apply(); requestAnimationFrame(frame); });
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(apply, 120); });
+    apply();
+  })();
+  function navCounts() {
+    var f = window.CSNavCounts; if (!f) return;
+    f().then(function (n) {
+      document.querySelectorAll('.sheets .cnt').forEach(function (el) {
+        var v = n ? n[el.dataset.cnt] : 0;
+        el.hidden = !v; el.textContent = v || '';
+        el.classList.toggle('turn', el.dataset.cnt === 'home' && !!v);
+        el.title = !v ? '' : el.dataset.cnt === 'home' ? v + ' waiting on you' : v + ' open';
+      });
+    }).catch(function () {});
+  }
+  window.CSNav = { counts: navCounts };
+
   /* ---------- routing ---------- */
   function go(v) { if (location.hash !== '#' + v) location.hash = v; else route(); }
   function route() {
@@ -776,6 +802,7 @@
     if (V[v]) V[v](); else if (v === 'contract') viewContract(); else if (v === 'contract-confirm') viewContractConfirm(); else if (v === 'confirm') viewConfirm(); else if (v === 'result') viewResult(); else if (v === 'upload') viewUpload(); else go('home');
     if (v !== 'confirm') window.scrollTo(0, 0);
     requestAnimationFrame(frame);
+    setTimeout(navCounts, 400);
     if (!/^contract/.test(v)) CS = null;
   }
   window.addEventListener('hashchange', route);

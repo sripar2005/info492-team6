@@ -115,6 +115,7 @@
       : '<span class="mb-k">' + (ctx ? (ctx.project.synthetic ? 'Live account, synthetic project' : 'Live project') : 'Live') + '</span><span class="mb-t">' + (ctx ? esc(ctx.project.name) + '. Saved, and each party sees only what its contracts allow.' : 'Sign in to open a real project, or try the sample.') + '</span>' + picker +
         '<button class="mb-b" data-guideopen="1">Guide</button>' + (ctx ? '' : '<button class="mb-b" data-entersample="1">Open the sample</button>');
     var s = document.getElementById('viewas'); if (s) s.onchange = function () { P.setViewAs(s.value); };
+    if (window.CSNav) setTimeout(window.CSNav.counts, 300);
   };
 
   /* ---------- the synthetic sample ---------- */
