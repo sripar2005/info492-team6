@@ -1,0 +1,863 @@
+{
+ "model": "gemma4:12b",
+ "project": "illinois-uic-cancer-pavilion",
+ "search": "hybrid",
+ "embed_model": "qwen3-embedding:0.6b",
+ "k": 6,
+ "system_prompt": "You answer contractors' requests for information (RFIs) on a public construction project, for the owner and design team.\nUse ONLY the document excerpts provided. Each excerpt has an id.\nReturn JSON only, with these keys:\n  \"decision\": \"yes\" if the answer to the question is yes/confirmed, \"no\" if it is no/not required/not allowed, otherwise \"other\".\n  \"answer\": a short, direct response (1-3 sentences) as the owner or design team would write it.\n  \"citations\": a list of {\"piece\": \"<excerpt id>\", \"quote\": \"<4 to 30 words copied exactly from that excerpt>\"} that support the answer. Empty if nothing in the excerpts applies.\n  \"needs_person\": true if the excerpts don't settle it and the architect, engineer or owner must decide or supply new information.\n  \"route\": \"architect/engineer\" for design and technical questions, \"owner\" for contract, bidding, schedule and commercial questions.\nNever cite an id that was not provided. Never invent section numbers.",
+ "ran": "2026-11-20T03:42:07Z",
+ "complete": true,
+ "rows": [
+  {
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:1",
+   "question": "Per SECTION 00 51 01 \u2013 Phase I Evaluation, page 38 of the RFP, the overall proposal is limited to a maximum of 50 pages. This constraint is restrictive due to the extensive volume of mandatory forms, certifications, and disclosures required by the CDB for the Phase I submission. These administrative requirements consume a substantial portion of the total page allotment, leaving insufficient space for offerors to provide comprehensive technical narratives, detailed experience, and qualifications necessary to best respond to the RFP. We request that the CDB waive this overall 50-page limit.",
+   "official_answer": "There are no page limits for section 1. Sections 2, 3 and 4 have a combined page limit of 50 pages. Section 2 has a 25-page limit but the Past Performance Evaluation Questionnaires (PPEQ) and MBE/WBE/VBE/PBE Phase I Utilization Plan do not count against the 25 pages. Section 3 has a 12- page total limit with a 5-page limit for technical capacity, 5-page limit for team experience narrative and 2-page limit for other capability information.",
+   "discipline": null,
+   "retrieved": [
+    "229811289c",
+    "641c8bbff3",
+    "8295d469e1",
+    "87c3ef8598",
+    "21891a5a9c",
+    "0a24b4ad7b"
+   ],
+   "prompt_sha": "54458a990a7a",
+   "output": {
+    "decision": "no",
+    "answer": "The request to waive the page limit is denied. The RFP explicitly states that the Phase I submittal shall not exceed fifty (50) pages and that pages in excess of this limit will remain unread and will not be evaluated.",
+    "citations": [
+     {
+      "piece": "87c3ef8598",
+      "quote": "This submittal shall not exceed \ufb01fty (50) pages. CDB will evaluate only the information"
+     },
+     {
+      "piece": "229811289c",
+      "quote": "If the page limit is exceeded, the pages in excess of the limit shall be unread."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 243.0,
+   "eval_count": 188,
+   "prompt_eval_count": 2489
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:2",
+   "question": "Per SECTION 00 42 10 \u2013 Submission Requirements and Instructions, page 16 of the RFP, Section 2 (Experience and Qualifications) is currently limited to 25 pages. This constraint is insufficient to adequately address the evaluation criteria for both \u201cExperience of Personnel Assigned to the Project\u201d and \"Past Performance\" while also fulfilling the requirement to include all necessary resumes and documents within the Design-Build Entity Qualifications Form (DBQ). We request that the CDB either waive this 25-page limit or increase the page allotment in this section to 50 pages.",
+   "official_answer": "Section 2 has a 25-page limit but the Past Performance Evaluation Questionnaires (PPEQ) and MBE/WBE/VBE/PBE Phase I Utilization Plan do not count against the 25 pages.",
+   "discipline": null,
+   "retrieved": [
+    "1e6e0fe799",
+    "87c3ef8598",
+    "2cf6ac3e39",
+    "229811289c",
+    "806a34933f",
+    "7ed0fbca35"
+   ],
+   "prompt_sha": "39bc0e42034b",
+   "output": {
+    "decision": "no",
+    "answer": "The RFP specifies that the past performance proposal is limited to twenty-five (25) pages. The CDB will not evaluate any pages in excess of the stated limits.",
+    "citations": [
+     {
+      "piece": "1e6e0fe799",
+      "quote": "The past performance proposal is limited to twenty-\ufb01ve (25) pages."
+     },
+     {
+      "piece": "229811289c",
+      "quote": "If the page limit is exceeded, the pages in excess of the limit shall be unread."
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 231.4,
+   "eval_count": 171,
+   "prompt_eval_count": 2485
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:3",
+   "question": "Please confirm whether or not resumes are to be included in the 25 page limit for Section 2 Past Performance (pg.16). If so, may additional resumes be included in an appendix?",
+   "official_answer": "Resumes should be listed in the Design-Build Entity Qualifications Form (DBQ), which count against the 25-page limit for Section 2. Any appendix in this section would count towards your 25-page limit.",
+   "discipline": null,
+   "retrieved": [
+    "229811289c",
+    "7ed0fbca35",
+    "1e6e0fe799",
+    "d3e9df91e2",
+    "0ada9600a8",
+    "3d15da8df4"
+   ],
+   "prompt_sha": "f3f71c0f79c5",
+   "output": {
+    "decision": "yes",
+    "answer": "Resumes for Key Personnel are included in the Past Performance section and are subject to the 25-page limit. The page limits include all appendices, charts, graphs, diagrams, tables, and photographs.",
+    "citations": [
+     {
+      "piece": "The page limits include all appendices, charts, graphs, diagrams, tables, photographs, etc.",
+      "quote": "The page limits include all appendices, charts, graphs, diagrams, tables, photographs, etc."
+     },
+     {
+      "piece": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf, SECTION 00 42 10 SUBMISSION REQUIREMENTS AND",
+      "quote": "a resume may be submitted for \"Key Personnel\""
+     },
+     {
+      "piece": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf, SECTION 00 51 01 PHASE I EVALUATION",
+      "quote": "The past performance proposal is limited to twenty-five (25) pages."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 251.9,
+   "eval_count": 289,
+   "prompt_eval_count": 2438
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:1",
+   "question": "Please provide additional information on the existing single story building on the north side of the property that is to be demolished as part of this project. - Architectural and Structural as-builts - Utility connections/survey - Hazardous material survey",
+   "official_answer": "The documents have been shared.",
+   "discipline": null,
+   "retrieved": [
+    "bf1683953c",
+    "31e0afb795",
+    "bfc929bdac",
+    "1e6e0fe799",
+    "f0f667ae8e",
+    "806a34933f"
+   ],
+   "prompt_sha": "902fce1d1ff4",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain specific information regarding the existing single-story building on the north side of the property, its as-builts, utility connections, or hazardous material survey.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 200.8,
+   "eval_count": 81,
+   "prompt_eval_count": 2367
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:2",
+   "question": "The plat of survey provided in the bridging document does not indicate any campus utility tunnels or the location of campus chilled water and steam lines. Can this survey be provided?",
+   "official_answer": "The CAD and pdf file of campus utilities have been shared.",
+   "discipline": null,
+   "retrieved": [
+    "bf1683953c",
+    "e15c88f0a9",
+    "948b3783ab",
+    "bfdf6998f4",
+    "31e0afb795",
+    "ffb027aaf3"
+   ],
+   "prompt_sha": "e121f395494f",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify whether a separate survey for campus utility tunnels and chilled water/steam lines will be provided. The documents require the design-build entity to describe methods used to verify the location and extent of underground utilities.",
+    "citations": [
+     {
+      "piece": "bf1683953c",
+      "quote": "Discuss methods used to verify location and extent of underground."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 217.6,
+   "eval_count": 131,
+   "prompt_eval_count": 2358
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:301",
+   "question": "Can this source document used as the background for proposed work in exhibit 2 be provided?",
+   "official_answer": "The source document will be provided via Amendment 3.",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "2cf6ac3e39",
+    "2a1672db00",
+    "ca8e7b3357",
+    "57a25be996",
+    "bfdf6998f4"
+   ],
+   "prompt_sha": "328a0777dd6e",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain information regarding the specific source documents allowed for use as background for proposed work in exhibit 2. Please refer to the primary RFP documents or the DBQ for specific submittal requirements.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 204.6,
+   "eval_count": 85,
+   "prompt_eval_count": 2324
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:4",
+   "question": "Section 8.4 of the bridging documents indicates the building will be supplied by a campus fire line. The bridging documents indicate a fire pump is expected for the building. Was a water supply flow test data obtained? If yes, can it be provided?",
+   "official_answer": "No recent flow test data was provided or obtained.",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "25ebc54fae",
+    "ffb027aaf3",
+    "e15c88f0a9",
+    "f0f667ae8e",
+    "2cf6ac3e39"
+   ],
+   "prompt_sha": "80042eaecfde",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain information regarding water supply flow test data or the availability of such data for the fire pump.",
+    "citations": [],
+    "needs_person": true,
+    "route": "engineer"
+   },
+   "seconds": 207.1,
+   "eval_count": 65,
+   "prompt_eval_count": 2367
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:5",
+   "question": "The proposed new electrical ductbank exhibit 8 indicate quantities and cross section of proposed ductbanks. The cross sections show a maximum of (4) rows for conduits. Does this (4) row limitation mimic existing ductbank configuration or is there source material that can be shared with the team identifying the existing ductbank cross section and buried depths?",
+   "official_answer": "Confirmed. The (4) row conduit duct bank section mimics the existing duct bank configuration.",
+   "discipline": null,
+   "retrieved": [
+    "229811289c",
+    "2cf6ac3e39",
+    "f0f667ae8e",
+    "ca8e7b3357",
+    "57a25be996",
+    "948b3783ab"
+   ],
+   "prompt_sha": "6abddc9a128d",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain information regarding the specific configuration, row limitations, or buried depths of the existing ductbank. Please refer to the site survey or existing utility records for these details.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 219.4,
+   "eval_count": 81,
+   "prompt_eval_count": 2443
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:6",
+   "question": "In section 8.2 of the bridging document, the building will be supplied with a new high pressure steam pipe and condensate line from building 921 (campus steam plant) via the utility bridge over Taylor street. Confirm the contractor will be responsible for all of the piping as well as supplemental structural support for the Taylor street utility bridge. When entering the building 921, will the contractor be responsible for the existing building penetration and modifications to any piping manifolds or infrastructure to tap into existing steam and condensate lines? What will UIC facilities be responsible for the supply of steam/condensate to this building such as any equipment additions to the plant to support this building or supply of any metering equipment?",
+   "official_answer": "a. The Contractor shall be responsible for all piping and supplemental structural supports per the Bridging Documents. b. An enabling project will be conducted by UIC and provide taps and isolation valves for high pressure steam and steam condensate piping that this Contractor will connect outside of Building",
+   "discipline": null,
+   "retrieved": [
+    "210785e805",
+    "f0f667ae8e",
+    "9ae0b80f30",
+    "bf1683953c",
+    "31e0afb795",
+    "948b3783ab"
+   ],
+   "prompt_sha": "0cc086ba37eb",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify the contractor's responsibility for the steam pipe installation, structural support for the Taylor Street bridge, or the specific scope of work regarding building 921 penetrations and manifold modifications. Please refer to the bridging document for these specific technical requirements.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 203.7,
+   "eval_count": 98,
+   "prompt_eval_count": 2210
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:7",
+   "question": "In section 8.2 of the bridging document, the building will be supplied with a new chilled water supply and return line from building 952 (campus refrigeration plant) via the utility bridge over Taylor street and the UIC Hospital loading dock. Confirm the contractor will be responsible for all of the piping as well as supplemental structural support for the Taylor street utility bridge and supplemental structural support for UIC Hospital loading dock roof. When entering the building 952, will the contractor be responsible for the existing building penetration and modifications to any piping manifolds or infrastructure to tap into existing steam and condensate lines? What will UIC facilities be responsible for the supply of steam/condensate to this building such as any equipment additions to the plant to support this building or supply of any metering equipment?",
+   "official_answer": "a. The Contractor shall be responsible for all piping and supplemental structural supports per the Bridging Documents. b. An enabling project will be conducted by UIC and provide taps and isolation valves for high pressure steam and steam condensate piping that this Contractor will connect outside of Building",
+   "discipline": null,
+   "retrieved": [
+    "210785e805",
+    "9ae0b80f30",
+    "f0f667ae8e",
+    "bf1683953c",
+    "948b3783ab",
+    "31e0afb795"
+   ],
+   "prompt_sha": "22b908bf7f91",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify the contractor's responsibility for structural supports on the Taylor Street bridge or the UIC Hospital loading dock roof, nor do they address the specific scope of work regarding building 952 penetrations, manifold modifications, or the division of responsibility for steam/condensate supply and metering equipment.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 203.0,
+   "eval_count": 107,
+   "prompt_eval_count": 2225
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:8",
+   "question": "Please provide UIC Hospital structural drawings, in particular those relevant to the loading dock for reference.",
+   "official_answer": "Hospital drawings will not be shared. Please indicate if there are specific pieces of information needed from those drawings and UIC may be able to provide.",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "bf1683953c",
+    "617bad8293",
+    "ffb027aaf3",
+    "1e6e0fe799",
+    "229811289c"
+   ],
+   "prompt_sha": "eea387e6514f",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain or reference structural drawings for the UIC Hospital loading dock. Please refer to the Bridging Documents for preliminary specifications and drawings.",
+    "citations": [
+     {
+      "piece": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf, SECTION 00 23 00 DEFINITIONS",
+      "quote": "\"Bridging Documents\" are the preliminary speci\ufb01cations and drawings prepared by the Bridging Firm for this project."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 227.1,
+   "eval_count": 156,
+   "prompt_eval_count": 2364
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:9",
+   "question": "Section 8.2 of the bridging document indicates process cooling system will originate from the campus refrigeration plant. This section also indicates local water-cooled chillers with cooling towers are required since the campus chilled water system is not available year-round. Confirm the campus cooling chilled water system is not available year-round and local cooling equipment is needed at the building to maintain process cooling system.",
+   "official_answer": "Per UIC, we can confirm that winter/swing-season cooling will be available for DDCRP at the start of the project. Cooling will be available year-round from UIC utilities.",
+   "discipline": null,
+   "retrieved": [
+    "cdf6c32951",
+    "948b3783ab",
+    "ca8e7b3357",
+    "25ebc54fae",
+    "31e0afb795",
+    "ffb027aaf3"
+   ],
+   "prompt_sha": "b4d4e0417bb9",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain the bridging document information regarding the campus refrigeration plant or the specific availability of the chilled water system. Please refer to the bridging document for confirmation of these requirements.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 213.5,
+   "eval_count": 80,
+   "prompt_eval_count": 2416
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:10",
+   "question": "Confirm campus steam system will be available year-round or if local equipment is needed at the building.",
+   "official_answer": "Yes, steam will be available all year round. No local steam generators will be needed.",
+   "discipline": null,
+   "retrieved": [
+    "25ebc54fae",
+    "948b3783ab",
+    "ca8e7b3357",
+    "31e0afb795",
+    "939ee63b06",
+    "f0f667ae8e"
+   ],
+   "prompt_sha": "fdd7dc796639",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify whether the campus steam system will be available year-round or if local equipment is required. Please refer to the bridging documents or contact the design team for clarification on utility availability.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 218.4,
+   "eval_count": 84,
+   "prompt_eval_count": 2471
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:11",
+   "question": "The Bridging Documents (page 279 for example) make reference to the Clients insurance recommendations for sprinkler design densities. Please confirm there are no additional Client Insurance requirements (such as FM Global), for any systems, beyond explicit performance and code requirements outlined in the Bridging Documents.",
+   "official_answer": "UIC does not follow FM Global guidelines; the system should be designed to the latest edition of NFPA 13.",
+   "discipline": null,
+   "retrieved": [
+    "ffb027aaf3",
+    "25ebc54fae",
+    "617bad8293",
+    "e15c88f0a9",
+    "948b3783ab",
+    "76d9e89785"
+   ],
+   "prompt_sha": "879f77655dbb",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not specify whether additional Client Insurance requirements (such as FM Global) exist beyond the requirements outlined in the Bridging Documents. Please refer to the specific insurance requirements section of the contract or contact the owner for clarification.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 215.5,
+   "eval_count": 87,
+   "prompt_eval_count": 2420
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:12",
+   "question": "The Bridging Documents identify Preaction and Clean Agent Sprinkler Systems but do not outline where these are required. Please confirm these systems are not required as they are not normally provided in a Research Lab.",
+   "official_answer": "Some research laboratories do have dry/preaction requirements. Those systems descriptions are present in the Bridging Documents in the event that the owner decides that they are appropriate for certain areas. Additionally, if there are areas subject to freezing in the final design, dry systems are to be implemented.",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "25ebc54fae",
+    "ca8e7b3357",
+    "84b78a6b8b",
+    "948b3783ab",
+    "e15c88f0a9"
+   ],
+   "prompt_sha": "7759c32700a4",
+   "output": {
+    "decision": "other",
+    "answer": "The Bridging Documents identify these systems, and materials indicated in the bridging documents but not in the offeror's specifications are understood to be included in the proposal. The offeror must provide a narrative identifying all areas provided with sprinkler protection and the type of system provided.",
+    "citations": [
+     {
+      "piece": "Materials indicated in the design/construction criteria \u201cbridging documents\u201d, but not indicated in the offeror's speci\ufb01cations, will be understood to be included",
+      "quote": "Materials indicated in the design/construction criteria \u201cbridging documents\u201d, but not indicated in the offeror's speci\ufb01cations, will be understood to be included"
+     },
+     {
+      "piece": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf, SECTION 00 42 10 SUBMISSION REQUIREMENTS AND",
+      "quote": "Identification of all areas provided with sprinkler protection and the type of sprinkler system provided"
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 248.0,
+   "eval_count": 260,
+   "prompt_eval_count": 2318
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:13",
+   "question": "Ref: BOD - pg 524 Please confirm that the trash/recycling compactors and waste dumpsters will be provided by the Owner.",
+   "official_answer": "Trash/recycling compactors and waste dumpsters, including biowaste containers, for the building's loading dock are to be included in the Design-Build team's budget (not owner-provided). Some additional details on the components described in Section 2.2 Space Program Tabulation (page 25) and Section 9.3 Loading Dock (page 524) of the Bridging Documents are as follows:",
+   "discipline": null,
+   "retrieved": [
+    "f2da2b249b",
+    "84b78a6b8b",
+    "7ed0fbca35",
+    "7517df5ce2",
+    "b736b67261",
+    "0ada9600a8"
+   ],
+   "prompt_sha": "be3bae891080",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documentation does not specify whether the Owner or the Contractor is responsible for providing the trash/recycling compactors and waste dumpsters. Please refer to the project specifications or the Basis of Design (BOD) for this clarification.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 215.5,
+   "eval_count": 88,
+   "prompt_eval_count": 2437
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:14",
+   "question": "Ref: BOD - pg 470 There is reference to a UIC irrigation contractor, Aquamist in the Bridging Documents. Please confirm that the owner is to carry costs for this irrigation contractor, including irrigation system design, and the irrigation scope is not to be included in the total amount.",
+   "official_answer": "Irrigation is to be included in the design build scope of work.",
+   "discipline": null,
+   "retrieved": [
+    "ffb027aaf3",
+    "05222d5960",
+    "96c08312b3",
+    "2a1672db00",
+    "9ae0b80f30",
+    "c4b7ee9cce"
+   ],
+   "prompt_sha": "ef5df1198f84",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain information regarding the irrigation contractor Aquamist, the owner's responsibility for irrigation system design costs, or the exclusion of irrigation scope from the total contract amount.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 189.8,
+   "eval_count": 78,
+   "prompt_eval_count": 2150
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:15",
+   "question": "Ref: RFP - pg 8, Design-Build Pricing Schedule Section 00 21 40 of the RFP notes that \"Offerers shall include an allowance for the CAF assessment in their Phase II cost proposal\". The Pricing Schedule notes \"CONTRACT ADMINISTRATION FEE is not included in the DBPS but will still be applied to the project\". Please confirm that the contract administration fee (CAF) is NOT to be included in the total amount.",
+   "official_answer": "Amendment 3 addresses this.",
+   "discipline": null,
+   "retrieved": [
+    "c4b7ee9cce",
+    "b47849405c",
+    "2f6b5af51c",
+    "750de04d40",
+    "c4b7ee9cce",
+    "d25f5de3d5"
+   ],
+   "prompt_sha": "e2e1bba27523",
+   "output": {
+    "decision": "yes",
+    "answer": "The contract administration fee (CAF) is not included in the Design-Build Pricing Schedule (DBPS), but it will still be applied to the project. Offerors are required to include an allowance for the CAF assessment in their Phase II cost proposal.",
+    "citations": [
+     {
+      "piece": "c4b7ee9cce",
+      "quote": "Offerors shall include an allowance for the CAF assessment in their Phase II cost proposal."
+     }
+    ],
+    "needs_person": false,
+    "route": "owner"
+   },
+   "seconds": 192.7,
+   "eval_count": 138,
+   "prompt_eval_count": 2051
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:16",
+   "question": "Ref: BD - OPR page 17 Per the OPR, UIC agrees to supply FY27 utility rates no later than the early design development phase after July 1, 2026. Please provide.",
+   "official_answer": "The following are rates for FY27, applicable from July 1, 2026, to June 30, 2027. Commodity Rate Electric $ 0.11224 kWh CHW $ 18.44354 MMBTU Steam $ 19.81017 MLBS Cond $ 4.10268 MLBS",
+   "discipline": null,
+   "retrieved": [
+    "210785e805",
+    "210785e805",
+    "684017a0b7",
+    "9ae0b80f30",
+    "c69b75f15e",
+    "bf1683953c"
+   ],
+   "prompt_sha": "c1e0d34fb087",
+   "output": {
+    "decision": "other",
+    "answer": "The provided project documents do not contain the specific FY27 utility rates or the Owner's Project Requirements (OPR) text referenced in your request. Please refer to the OPR document for the specific rate information.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 172.0,
+   "eval_count": 85,
+   "prompt_eval_count": 1876
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:17",
+   "question": "Ref: BOD - pg 1260 Advise if hazardous materials (e.g. lead paint, asbestos, etc) are present in Pharmacy Building 521.",
+   "official_answer": "Refer to Limited Asbestos-Containing Material and Lead-Based Paint Building Survey Report the Pharmacy Building (available in Bridging Documents Section 13.5b Building Environmental Report). Per this report: a. \"Lead-Based Paint was not identified on any of the painted surfaces/components tested during this limited survey,\" but \"'negative readings'...should not be interpreted as lead is not present\" and \"surfaces/components...not assessed during this survey...shall be assumed and treated as LBP until tested and proven otherwise.\" b. \"The...[Asbestos-Containing Material]...identified during this limited survey included the black wall mastic that was identified throughout the 3rd and 4th floor corridors above 2' x 2' ceiling tile,\" but \"Any suspect material that is discovered during the renovation / demolition activities and is not listed in Table 3.1...shall be assumed and treated as ACUM until tested and proven otherwise.\"",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "939ee63b06",
+    "948b3783ab",
+    "bf1683953c",
+    "806a34933f",
+    "f0f667ae8e"
+   ],
+   "prompt_sha": "8394348500fe",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain information regarding the presence of hazardous materials such as lead paint or asbestos in Pharmacy Building 521.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 211.8,
+   "eval_count": 70,
+   "prompt_eval_count": 2482
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:18",
+   "question": "The \"Supplement to the SD-DB 3.2017\" was issued by the CDB in the RFP and referenced in section 00 21 15 of the Request for Proposals. Please advise if the \"Supplement to design build sdc 1.2025\" located on in the CDB reference library should be used instead.",
+   "official_answer": "Supplement to Design Build SDC 1.2025 will be required. Amendment 3 addresses this form.",
+   "discipline": null,
+   "retrieved": [
+    "0202be930f",
+    "684017a0b7",
+    "0a24b4ad7b",
+    "9cafd4cb0c",
+    "3c9f93027b",
+    "c3be1d3b36"
+   ],
+   "prompt_sha": "f07811f5a044",
+   "output": {
+    "decision": "other",
+    "answer": "The RFP specifically incorporates the SD-DB August 2007 edition and the attached section 01 1101 supplement. Please refer to the RFP for the specific version of the supplement required for this project.",
+    "citations": [
+     {
+      "piece": "684017a0b7",
+      "quote": "The SD-DB August 2007 edition and the attached section 01 1101 supplement to the SD-DB are incorporated into this document"
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 226.3,
+   "eval_count": 154,
+   "prompt_eval_count": 2404
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:19",
+   "question": "Ref: ORP page 5 As a state funded facility, the UIC DDCRP is required to comply with the 2023 Illinois Stretch Energy Code per the Energy Efficiency Building Act (20 ILCS 3125), which went into effect on January 1, 2025.Our code analysis shows that the DDCRP cannot comply with the 2023 Illinois Stretch Energy Code if thermal utilities are provided through steam and chilled water connections to the existing West Campus central plant, as described in the Bridging Documents. Please confirm that a variance will be provided to relieve the project from complying with the 2023 Illinois Stretch Energy Code.",
+   "official_answer": "Please provide supporting analysis and summary letter for review. Please confirm the Design-Build Team is taking into account all provisions in the code for laboratories and facilities connecting to central systems such as this one. The State's EnergySense Resilience Center is available to the Design-Build Teams to help them do so: (1) energycode@illinois.edu is the general help line (2) Ryan Siegel (rwsiegel@illinois.edu) has some familiarity with the project",
+   "discipline": null,
+   "retrieved": [
+    "cdf6c32951",
+    "25ebc54fae",
+    "84b78a6b8b",
+    "948b3783ab",
+    "c3be1d3b36",
+    "031b596e28"
+   ],
+   "prompt_sha": "1dbcc3be6651",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents require the project to comply with the Illinois Energy Conservation Code but do not explicitly address a variance for the 2023 Illinois Stretch Energy Code or the specific impact of the West Campus central plant connections.",
+    "citations": [
+     {
+      "piece": "cdf6c32951",
+      "quote": "Use the Illinois Energy Conservation Code."
+     },
+     {
+      "piece": "25ebc54fae",
+      "quote": "Must comply with the Illinois Energy Conservation."
+     },
+     {
+      "piece": "84b78a6b8b",
+      "quote": "Must comply with the Illinois Energy Conservation Code."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 239.8,
+   "eval_count": 197,
+   "prompt_eval_count": 2461
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:20",
+   "question": "UIC Building Guidelines and Standards Section 33 63 20 Utility Guidelines and Standards - Steam references Sections 33 63 00 Steam Energy Distribution and 40 05 23 Common Work Results for Steam Energy Systems (Non-Buried). Sections 33 63 00 and 40 05 23 are not available on the UIC website. Please provide these two sections.",
+   "official_answer": "Sections 33 63 00 and 40 0523 are in progress and will be available on the UIC website shortly. Please refer to Division 23 for steam / hot water / chilled water requirements within the building.",
+   "discipline": null,
+   "retrieved": [
+    "84b78a6b8b",
+    "25ebc54fae",
+    "cdf6c32951",
+    "31e0afb795",
+    "f0f667ae8e",
+    "bff2d33d08"
+   ],
+   "prompt_sha": "bf076803ee1a",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain the specific text for Sections 33 63 00 or 40 05 23. Please contact the design team to obtain these missing sections from the UIC website or project repository.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 208.2,
+   "eval_count": 92,
+   "prompt_eval_count": 2340
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:21",
+   "question": "Please confirm that the proprietary meeting #3 with the Owner can be rescheduled for September 14, 2026 or September 30th, 2026 and advise which.",
+   "official_answer": "Proprietary meeting #3 is scheduled for September 30, 2026.",
+   "discipline": null,
+   "retrieved": [
+    "939ee63b06",
+    "750de04d40",
+    "41d4157712",
+    "02379fd594",
+    "8295d469e1",
+    "c69b75f15e"
+   ],
+   "prompt_sha": "0db7d7cedd3f",
+   "output": {
+    "decision": "other",
+    "answer": "The RFP states that individual meetings between shortlisted firms and the client agency will be held between July 15th and September 30th, 2026. Specific information regarding the time and location of these meetings will be provided in the Phase II Invitation.",
+    "citations": [
+     {
+      "piece": "939ee63b06",
+      "quote": "Individual meetings between the shortlisted \ufb01rms, the client agency and CDB will be held between July 15th and September 30th."
+     },
+     {
+      "piece": "750de04d40",
+      "quote": "Specific information regarding the time and location of the meeting(s) will be provided in the Phase II Inv"
+     }
+    ],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 233.4,
+   "eval_count": 205,
+   "prompt_eval_count": 2340
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:22",
+   "question": "Per section 4.3 of the Bridging Documents, please confirm that the reference to the Capital Development Board Design and Construction Manual (DCM) should be revised to reference the Standard Documents for Design-Build Projects August 2007 per 00 21 16 - 5.D of the Request for Proposals (RFP)",
+   "official_answer": "The RFP references both the Design and Construction Manual (DCM) and the Standard Documents for Design-Build Projects (SD-DB). The reference to the DCM in the Bridging Documents will remain, and the SD-DB documents stand as listed in the RFP.",
+   "discipline": null,
+   "retrieved": [
+    "684017a0b7",
+    "ffb027aaf3",
+    "c3be1d3b36",
+    "9cafd4cb0c",
+    "0a24b4ad7b",
+    "96c08312b3"
+   ],
+   "prompt_sha": "1429bee74f67",
+   "output": {
+    "decision": "yes",
+    "answer": "The RFP confirms that the Standard Documents for Design-Build Projects dated July 2007 (SD-DB) are incorporated into the document and have the same force and effect as if they were given in full text.",
+    "citations": [
+     {
+      "piece": "684017a0b7",
+      "quote": "The SD-DB August 2007 edition and the attached section 01 1101 supplement to the SD-DB are incorporated into this document and have the same force and effect as if they were given in full text."
+     }
+    ],
+    "needs_person": false,
+    "route": "architect/engineer"
+   },
+   "seconds": 258.7,
+   "eval_count": 170,
+   "prompt_eval_count": 2718
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:23",
+   "question": "Ref: Pg 300-303 of the Bridging Documents. Please provide the following additional documents related to the MV electrical site work:1. A clean copy of the campus electrical site plan with no markups. (pg 300-301 of Bridging Documents)2. The electrical diagram including MV switchgear(s) for the following buildings: a. Library of Health Sciences (942) b. Administrative Office Building (941) c. Clinical Science Building (920) d. College of Pharmacy Building (924)3. The campus electrical MV primary power one-line diagram.",
+   "official_answer": "1. Clean copy of the campus electrical site plan with no markups - Please see Attachment 01.",
+   "discipline": null,
+   "retrieved": [
+    "f0f667ae8e",
+    "948b3783ab",
+    "0050450112",
+    "31e0afb795",
+    "e15c88f0a9",
+    "25ebc54fae"
+   ],
+   "prompt_sha": "597c7ee36afa",
+   "output": {
+    "decision": "other",
+    "answer": "The provided excerpts do not contain the specific campus electrical site plans, building-specific electrical diagrams, or the campus electrical MV primary power one-line diagram requested.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 221.8,
+   "eval_count": 75,
+   "prompt_eval_count": 2515
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:24",
+   "question": "Please provide structural details of the existing Utility Tressle and the other roof areas that will have the new Steam/Condensate and CHWS/R piping so the existing structures can be evaluated.",
+   "official_answer": "This is information is not available. The Design-Build team will be responsible for this independent structural analysis.",
+   "discipline": null,
+   "retrieved": [
+    "bf1683953c",
+    "31e0afb795",
+    "948b3783ab",
+    "f0f667ae8e",
+    "617bad8293",
+    "bfdf6998f4"
+   ],
+   "prompt_sha": "62fb07e99b3e",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain specific structural details for the existing Utility Tressle or other roof areas. The documents focus on submission requirements and design narratives rather than specific existing structural data.",
+    "citations": [],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 207.2,
+   "eval_count": 80,
+   "prompt_eval_count": 2358
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:1",
+   "question": "To ensure a proposal submission which is compliant with RFP requirements, we request consideration of the following issues as further detailed in the attached letter of concern from our surety who will issue payment and performance bonds for the project: 1. Liquidated Damages - we request implementation of the liquidated damages provision referenced in the Standard Documents for Design-Build Projects General Conditions in a reasonable amount as the sole and exclusive remedy for delay in meeting the required completion date. 2. Mutual Waiver of Consequential Damages - we request the incorporation of an industry standard Mutual Waiver of Consequential Damages.",
+   "official_answer": "CDB does not intend to implement liquidated damages on this project. Additionally, CDB will not waive any damages allowed by law, including any damages that could be classified as consequential.",
+   "discipline": null,
+   "retrieved": [
+    "684017a0b7",
+    "0ada9600a8",
+    "750de04d40",
+    "0a24b4ad7b",
+    "326fce31d3",
+    "76d9e89785"
+   ],
+   "prompt_sha": "503cc3689b57",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not specify whether the owner will accept the requested modifications to the liquidated damages provision or the incorporation of a Mutual Waiver of Consequential Damages. These requests require a formal determination by the owner or design team.",
+    "citations": [],
+    "needs_person": true,
+    "route": "owner"
+   },
+   "seconds": 232.5,
+   "eval_count": 85,
+   "prompt_eval_count": 2620
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:2",
+   "question": "Please provide the date this project was previously registered for LEED. This affects the energy performance baseline and the number of LEED points that can be achieved.",
+   "official_answer": "The project was registered on April 15, 2026 as a LEED v4 BD+C: New Construction project.",
+   "discipline": null,
+   "retrieved": [
+    "bfdf6998f4",
+    "1e6e0fe799",
+    "c3be1d3b36",
+    "7ed0fbca35",
+    "2cf6ac3e39",
+    "806a34933f"
+   ],
+   "prompt_sha": "93b971970209",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not contain information regarding a previous LEED registration date for this project. The documents only specify that LEED Gold Certification is required at a minimum for the new construction.",
+    "citations": [
+     {
+      "piece": "c3be1d3b36",
+      "quote": "LEED Gold Certi\ufb01cation will be required at a minimum."
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 222.4,
+   "eval_count": 123,
+   "prompt_eval_count": 2430
+  },
+  {
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:3",
+   "question": "Please provide the energy model report that was previously completed for the project based on the bridging document design.",
+   "official_answer": "The bridging documents do not include a complete building design. The assumptions for the proposed design are based on ASHRAE 90.1- 2010 Appendix - G, however we would expect the design build teams to improve on code performance as part of their design. We tested various ECMs for mechanical systems and have attached the results of these ECM\u2019s. (SEE ATTACHMENT) Benchmarking The graph below shows benchmarking data for typical lab buildings, compared to the expected energy use of the proposed building design before applying any Energy Conservation Measures (ECMs). EUI - Benchmarks vs. Energy Model 450 435 400 361 350 300 286 265 EUI (kBtu/sf) 250 200 183 150 120 100 50 0 EUI Target National Avg Lab Illinois Avg Lab Lab with Vivarium (average EUI LEED Baseline Base Design based on 2014-2019 Data) (ASHRAE 90.1-2010) Before ECMs PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 1 Energy Breakdown Cooling, Interior Equipment, and Humidification utilize the most energy in the proposed design. Interior Equipment 20% Cooling 26% Interior Lighting 5% Fans Heating 10% 9% Pumps 4% Humidification 26% PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 2 Energy Conservation Measures (ECMs) After applying all ECMs, the project achieved a 22% reduction in annual energy consumption compared to the base design, and 38% reduction in annual energy consumption compared to the LEED Baseline. EUI Reduction with ECMs 361 38% 350 301 298 300 286 285 286 22% 273 271 247 250 223 200 EUI (kBtu/sf) 150 100 50 0 LEED Baseline Base Design District Cooling District Cooling Ventilation Supply Air Reset to Suply Air Reset of 20% Lab & Heat Recovery Combined ECMs (ASHRAE 90.1- Before ECMs Only Only Reduction 60F 65F Vivarium Chiller (6ACH, Equipment 2010) (No Chillers) + Heat Recovery (6ACH Occupied) Equipment Reduction, Heat Chiller Reduction Recovery Chiller) Interior Equipment Interior Lighting Fans Pumps Heat Rejection Humidification Heating Cooling PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 3 Total Energy Cost After applying all ECMs, the project achieved a 16% reduction in annual energy cost compared to the base design, and 23% reduction in annual energy cost compared to the LEED Baseline. Total Energy Cost $1,400,000 $6.28 /sf 23% $1,200,000 $5.71 /sf $5.66 /sf $5.66 /sf $5.88 /sf $5.71 /sf 16% $5.51 /sf $5.31 /sf $5.35 /sf $1,000,000 $4.81 /sf $800,000 $600,000 $400,000 $200,000 $- LEED Baseline Base Design District Cooling District Cooling Ventilation Supply Air Reset to Suply Air Reset of 20% Lab & Heat Recovery Combined ECMs (ASHRAE 90.1- Before ECMs Only Only Reduction 60F 65F Vivarium Chiller (6ACH, Equipment 2010) (No Chillers) + Heat Recovery (6ACH Occupied) Equipment Reduction, Heat Chiller Reduction Recovery Chiller) PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 4",
+   "discipline": null,
+   "retrieved": [
+    "31e0afb795",
+    "ffb027aaf3",
+    "e15c88f0a9",
+    "84b78a6b8b",
+    "2cf6ac3e39",
+    "25ebc54fae"
+   ],
+   "prompt_sha": "1838d94e6712",
+   "output": {
+    "decision": "other",
+    "answer": "The provided documents do not mention a specific energy model report from the bridging document design. The RFP requires the submission of an Energy Conservation Design Narrative and a Life Cycle Cost Analysis (LCCA) as part of the proposal.",
+    "citations": [
+     {
+      "piece": "84b78a6b8b",
+      "quote": "Energy conservation measures shall be indicated. The narrative shall describe measures and techniques that are proposed in the design that will conserve energy."
+     },
+     {
+      "piece": "25ebc54fae",
+      "quote": "The LCCA is to be submitted by t"
+     }
+    ],
+    "needs_person": true,
+    "route": "architect/engineer"
+   },
+   "seconds": 222.0,
+   "eval_count": 181,
+   "prompt_eval_count": 2286
+  }
+ ]
+}

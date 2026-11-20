@@ -142,7 +142,7 @@
    "maine-2995-capitol-garage"
   ],
   "finished_per_model": {
-   "gemma4:12b": 55,
+   "gemma4:12b": 85,
    "llama3.1:8b": 102,
    "qwen3.5:9b": 85
   },
