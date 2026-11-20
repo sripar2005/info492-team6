@@ -1,0 +1,21 @@
+# Downloads the public construction records (RFI logs, contracts) into data/real/ with a checksum manifest.
+# Actions -> "Fetch public records" -> Run workflow. No keys, no cost.
+name: Fetch public records
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        run: python3 tools/real/fetch.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/real/
+          git commit -m "Public records: download and manifest" || echo "nothing to commit"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
