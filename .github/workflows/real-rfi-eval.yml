@@ -8,6 +8,10 @@ on:
         description: "Ollama models, as a JSON list"
         required: true
         default: '["llama3.1:8b","qwen3.5:9b","gemma4:12b"]'
+      projects:
+        description: "Projects, as a JSON list"
+        required: true
+        default: '["maine-2995-capitol-garage","illinois-uic-cancer-pavilion","illinois-niccs-design-build","illinois-idot-materials-lab","maine-3843-wellness-center","ny-rioc-eleanors-pier"]'
       limit:
         description: "Max RFIs per project (blank = all)"
         required: false
@@ -23,7 +27,7 @@ jobs:
       max-parallel: 20
       matrix:
         model: ${{ fromJSON(inputs.models) }}
-        project: [maine-2995-capitol-garage, illinois-uic-cancer-pavilion, illinois-niccs-design-build, illinois-idot-materials-lab, maine-3843-wellness-center, ny-rioc-eleanors-pier]
+        project: ${{ fromJSON(inputs.projects) }}
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: "tools\ndata/real/rfis.json\ndata/real/docs", sparse-checkout-cone-mode: false }
@@ -31,27 +35,31 @@ jobs:
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
           sudo systemctl stop ollama 2>/dev/null || true
-          (OLLAMA_KEEP_ALIVE=6h OLLAMA_MAX_LOADED_MODELS=2 ollama serve > /tmp/ollama.log 2>&1 &)
+          (OLLAMA_KEEP_ALIVE=6h OLLAMA_MAX_LOADED_MODELS=1 OLLAMA_NUM_PARALLEL=1 ollama serve > /tmp/ollama.log 2>&1 &)
           for i in $(seq 1 30); do curl -s localhost:11434/api/tags >/dev/null && break; sleep 2; done
           ollama pull "${{ matrix.model }}"
           ollama pull qwen3-embedding:0.6b || echo "embedding model not available; keyword search only"
       - name: Answer the RFIs
         run: python3 tools/real/rfi_eval.py --model "${{ matrix.model }}" --project "${{ matrix.project }}" ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
       - name: Name the result
+        if: always()
         id: n
         run: echo "name=$(echo '${{ matrix.model }}-${{ matrix.project }}' | tr ':/' '__')" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
-        with: { name: "${{ steps.n.outputs.name }}", path: data/real/results/ }
+        if: always()
+        with: { name: "${{ steps.n.outputs.name }}", path: data/real/results/, if-no-files-found: ignore }
   score:
     needs: run
     if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }
       - uses: actions/download-artifact@v4
         with: { path: /tmp/art }
       - name: Score and commit
         run: |
+          git pull -q origin main || true      # include results other runs committed meanwhile
           mkdir -p data/real/results
           for d in /tmp/art/*/; do cp -r "$d"* data/real/results/ 2>/dev/null || true; done
           python3 tools/real/score.py

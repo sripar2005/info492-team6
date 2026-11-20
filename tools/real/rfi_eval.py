@@ -81,11 +81,14 @@ def prompt(r, pieces):
 
 def ask(model, user):
     body = {'model': model, 'stream': False, 'format': 'json', 'think': False,
-            'options': {'temperature': 0, 'seed': 7, 'num_ctx': 12288, 'num_predict': 700},
+            'options': {'temperature': 0, 'seed': 7, 'num_ctx': 8192, 'num_predict': 700},
             'messages': [{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': user}]}
-    try: res = post('/api/chat', body)
-    except Exception:
-        body.pop('think'); res = post('/api/chat', body)
+    res, err = None, None
+    for attempt in range(3):   # a server error on one RFI is retried, then logged; it never ends the run
+        try: res = post('/api/chat', body); break
+        except Exception as e:
+            err = e; body.pop('think', None); time.sleep(5 * (attempt + 1))
+    if res is None: return {'error': 'model call failed: %s' % str(err)[:200]}, {}
     txt = res.get('message', {}).get('content', '')
     try: out = json.loads(txt)
     except Exception:
@@ -104,19 +107,24 @@ def main():
         D = json.load(open('data/real/docs/%s.json' % P['project']))
         S = Search(D['pieces'], a.search != 'bm25')
         rows = [r for r in R['rfis'] if r['project'] == P['project']][:a.limit]
-        out = []
+        # Search everything first, then unload the search model, so it never shares memory with the answering model.
+        tops = {r['id']: S.top(r['question'], mode=a.search) for r in rows}
+        if S.vec:
+            try: post('/api/embed', {'model': EMBED, 'input': 'x', 'keep_alive': 0})
+            except Exception: pass
+        out, path = [], '%s/%s.json' % (outdir, P['project'])
+        meta = {'model': a.model, 'project': P['project'], 'search': a.search, 'embed_model': EMBED if S.vec else None, 'k': K, 'system_prompt': SYSTEM}
         for r in rows:
             r = dict(r, project_name=D['name'])
-            got = [D['pieces'][i] for i in S.top(r['question'], mode=a.search)]
+            got = [D['pieces'][i] for i in tops[r['id']]]
             u = prompt(r, got); t0 = time.time()
             ans, raw = ask(a.model, u)
             out.append({'id': r['id'], 'question': r['question'], 'official_answer': r['answer'], 'discipline': r.get('discipline'),
                         'retrieved': [p['id'] for p in got], 'prompt_sha': hashlib.sha256(u.encode()).hexdigest()[:12],
                         'output': ans, 'seconds': round(time.time() - t0, 1), 'eval_count': raw.get('eval_count'), 'prompt_eval_count': raw.get('prompt_eval_count')})
-            print('%s %s %.0fs %s' % (a.model, r['id'], time.time() - t0, json.dumps(ans)[:140]))
-        json.dump({'model': a.model, 'project': P['project'], 'search': a.search, 'embed_model': EMBED if S.vec else None, 'k': K,
-                   'system_prompt': SYSTEM, 'ran': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'rows': out},
-                  open('%s/%s.json' % (outdir, P['project']), 'w'), indent=1)
+            print('%s %s %.0fs %s' % (a.model, r['id'], time.time() - t0, json.dumps(ans)[:140]), flush=True)
+            # Saved after every RFI, so a machine that shuts down keeps what it finished.
+            json.dump(dict(meta, ran=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), complete=len(out) == len(rows), rows=out), open(path, 'w'), indent=1)
 
 if __name__ == '__main__':
     main()
