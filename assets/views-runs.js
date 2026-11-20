@@ -47,7 +47,7 @@
         best[k] = models.filter(function (m) { return S.models[m][k] === mx; });
       });
       var ref = S.models[models[0]];
-      board = '<div class="card tbl-wrap" style="margin-top:16px"><table class="tbl runs"><thead><tr><th>Measure</th>' + models.map(function (m) { return '<th>' + esc(m) + '<div class="fine">' + S.models[m].rfis_run + ' RFIs</div></th>'; }).join('') + '<th>No AI<div class="fine">baseline</div></th></tr></thead><tbody>' +
+      board = (S.compared_on ? '<p style="margin:22px 0 0"><b>Compared on the same ' + S.compared_on.rfis + ' RFIs</b> <span class="fine">(the ones every model finished, from ' + S.compared_on.projects.length + ' of ' + R.projects.length + ' projects). The rest are still running or stopped early; the table widens when they finish.</span></p>' : '') + '<div class="card tbl-wrap" style="margin-top:10px"><table class="tbl runs"><thead><tr><th>Measure</th>' + models.map(function (m) { return '<th>' + esc(m) + '<div class="fine">' + S.models[m].rfis_run + ' RFIs</div></th>'; }).join('') + '<th>No AI<div class="fine">baseline</div></th></tr></thead><tbody>' +
         MEASURES.map(function (M) {
           return '<tr><td><b>' + esc(M[1]) + '</b><div class="fine">' + esc(M[2]) + '</div></td>' + models.map(function (m) { return '<td class="' + ((best[M[0]] || []).indexOf(m) >= 0 && models.length > 1 ? 'best' : '') + '">' + M[3](S.models[m]) + '</td>'; }).join('') + '<td>' + M[4](S.baselines, ref) + '</td></tr>';
         }).join('') + '</tbody></table></div>' +

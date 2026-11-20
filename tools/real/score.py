@@ -59,11 +59,19 @@ def main():
     newinfo = {i for i, r in gold.items() if NEW.search(r['answer'])}
     summary['subsets'] = {'with_checkable_reference': len(ref_ids), 'with_yes_no_answer': len(yn), 'needing_new_information': len(newinfo),
                           'yes_no_split': {'yes': sum(v == 'yes' for v in yn.values()), 'no': sum(v == 'no' for v in yn.values())}}
-    maj = 'yes' if summary['subsets']['yes_no_split']['yes'] >= summary['subsets']['yes_no_split']['no'] else 'no'
-    summary['baselines'] = {'decision_always_%s' % maj: round(sum(v == maj for v in yn.values()) / max(1, len(yn)), 3)}
+    # Compare like for like: only RFIs that every model finished (runs can stop early).
+    done = {m: {row['id'] for d in fs for row in d['rows'] if row.get('output') is not None} for m, fs in runs.items()}
+    common = set.intersection(*done.values()) if done else set()
+    summary['compared_on'] = {'rfis': len(common), 'projects': sorted({gold[i]['project'] for i in common if i in gold}),
+                              'finished_per_model': {m: len(v) for m, v in sorted(done.items())},
+                              'note': 'Every measure uses only the RFIs all models finished, so the models are compared on the same questions.'}
+    ync = {i: v for i, v in yn.items() if i in common}
+    nyes = sum(v == 'yes' for v in ync.values()); nno = len(ync) - nyes
+    maj = 'yes' if nyes >= nno else 'no'
+    summary['baselines'] = {'decision_always_%s' % maj: round(sum(v == maj for v in ync.values()) / max(1, len(ync)), 3), 'decision_n': len(ync)}
 
     for model, files in sorted(runs.items()):
-        rows = [row for d in files for row in d['rows']]
+        rows = [row for d in files for row in d['rows'] if row['id'] in common]
         cit_total = cit_ok = fabricated = supported = with_cit = 0
         ref_hit = ref_n = dec_hit = dec_n = person = valid = 0
         kw_hit = 0; new_n = new_flag = 0; f1s = []; f1_base = []

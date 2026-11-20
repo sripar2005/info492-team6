@@ -73,24 +73,24 @@
    ]
   },
   "llama3.1:8b": {
-   "rfis_run": 102,
+   "rfis_run": 55,
    "valid_json": 1.0,
-   "citations": 202,
-   "citations_verified": 0.817,
-   "citations_fabricated_ids": 8,
-   "answers_with_citations": 0.98,
-   "answers_fully_supported": 0.75,
+   "citations": 102,
+   "citations_verified": 0.863,
+   "citations_fabricated_ids": 2,
+   "answers_with_citations": 0.964,
+   "answers_fully_supported": 0.811,
    "reference_resolution": 0.8,
    "reference_n": 5,
    "reference_resolution_top_search_result": 1.0,
-   "decision_agreement": 0.538,
-   "decision_n": 26,
-   "asked_for_a_person": 0.382,
-   "new_information_flagged": 0.353,
-   "new_information_n": 17,
-   "answer_overlap_f1": 0.175,
-   "answer_overlap_f1_baseline_top_search_text": 0.044,
-   "median_seconds_per_rfi": 114.55,
+   "decision_agreement": 0.6,
+   "decision_n": 15,
+   "asked_for_a_person": 0.327,
+   "new_information_flagged": 0.333,
+   "new_information_n": 9,
+   "answer_overlap_f1": 0.185,
+   "answer_overlap_f1_baseline_top_search_text": 0.038,
+   "median_seconds_per_rfi": 110.4,
    "search": [
     "hybrid"
    ],
@@ -99,24 +99,24 @@
    ]
   },
   "qwen3.5:9b": {
-   "rfis_run": 85,
+   "rfis_run": 55,
    "valid_json": 1.0,
-   "citations": 48,
-   "citations_verified": 0.646,
-   "citations_fabricated_ids": 5,
-   "answers_with_citations": 0.341,
-   "answers_fully_supported": 0.69,
-   "reference_resolution": 0.333,
-   "reference_n": 9,
-   "reference_resolution_top_search_result": 0.778,
-   "decision_agreement": 0.368,
-   "decision_n": 19,
-   "asked_for_a_person": 0.682,
-   "new_information_flagged": 0.583,
-   "new_information_n": 12,
-   "answer_overlap_f1": 0.152,
-   "answer_overlap_f1_baseline_top_search_text": 0.041,
-   "median_seconds_per_rfi": 130.7,
+   "citations": 40,
+   "citations_verified": 0.725,
+   "citations_fabricated_ids": 3,
+   "answers_with_citations": 0.455,
+   "answers_fully_supported": 0.76,
+   "reference_resolution": 0.4,
+   "reference_n": 5,
+   "reference_resolution_top_search_result": 1.0,
+   "decision_agreement": 0.4,
+   "decision_n": 15,
+   "asked_for_a_person": 0.582,
+   "new_information_flagged": 0.667,
+   "new_information_n": 9,
+   "answer_overlap_f1": 0.14,
+   "answer_overlap_f1_baseline_top_search_text": 0.038,
+   "median_seconds_per_rfi": 106.9,
    "search": [
     "hybrid"
    ],
@@ -134,7 +134,22 @@
    "no": 19
   }
  },
+ "compared_on": {
+  "rfis": 55,
+  "projects": [
+   "illinois-idot-materials-lab",
+   "illinois-niccs-design-build",
+   "maine-2995-capitol-garage"
+  ],
+  "finished_per_model": {
+   "gemma4:12b": 55,
+   "llama3.1:8b": 102,
+   "qwen3.5:9b": 85
+  },
+  "note": "Every measure uses only the RFIs all models finished, so the models are compared on the same questions."
+ },
  "baselines": {
-  "decision_always_no": 0.514
+  "decision_always_no": 0.733,
+  "decision_n": 15
  }
 }
