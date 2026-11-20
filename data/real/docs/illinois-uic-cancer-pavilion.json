@@ -1,0 +1,863 @@
+{
+"project": "illinois-uic-cancer-pavilion",
+"name": "Drug Discovery and Cancer Research Pavilion, UIC (Illinois CDB #830-030-167), design-build",
+"owner": "Illinois Capital Development Board",
+"pieces": [
+{
+"id": "c69b75f15e",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "Front matter",
+"csi": null,
+"title": "",
+"text": "REQUEST FOR PROPOSALS CDB PROJECT NO. 830-030-167 CONSTRUCT A DRUG DISCOVERY AND CANCER RESEARCH PAVILION University of Illinois Chicago Chicago, Cook County, Illinois \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Project Delivery Method: Design-Build (Two-Phase RFP Process) Funds Available: $190,000,000.00 Phase I Proposal Due: Tuesday, May 27, 2026 at 2:00 p.m. Phase II Proposal Due (Shortlisted Firms): Wednesday, November 4, 2026 at 2:00 p.m. Mandatory Phase II Pre-Proposal Meeting: Wednesday, July 1, 2026 at 10:00 a.m. Project Duration: \u2022 930 calendar days to Substantial Completion \u2022 Tentative Authorization to Proceed (ATP): February 1, 2027 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Prepared for the Illinois Capital Development Board April 15, 2026 Table of Contents SECTION 00 21 16 \u2013 INSTRUCTIONS TO PROPOSERS ................................................................. 1"
+},
+{
+"id": "c4b7ee9cce",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 40",
+"csi": "002140",
+"title": "CONTRACT ADMINISTRATION FEE ............................................................. ",
+"text": "SECTION 00 21 40 \u2013 CONTRACT ADMINISTRATION FEE ............................................................. 6 SECTION 00 23 00 \u2013 DEFINITIONS ................................................................................................. 7 SECTION 00 25 16 \u2013 PRE-PROPOSAL CONFERENCE .................................................................... 9"
+},
+{
+"id": "210785e805",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 31 17",
+"csi": "003117",
+"title": "INFORMATION REGARDING AVAILABILITY OF UTILITY SERVICES .......... 10",
+"text": "SECTION 00 31 17 \u2013 INFORMATION REGARDING AVAILABILITY OF UTILITY SERVICES .......... 10 SECTION 00 31 19 \u2013 PHYSICAL DATA ......................................................................................... 11"
+},
+{
+"id": "641c8bbff3",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND INSTRUCTIONS .............................. 12",
+"text": "SECTION 00 42 10 \u2013 SUBMISSION REQUIREMENTS AND INSTRUCTIONS .............................. 12"
+},
+{
+"id": "21891a5a9c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 00",
+"csi": "005100",
+"title": "PROPOSAL EVALUATION AND AWARD .................................................... 36",
+"text": "SECTION 00 51 00 \u2013 PROPOSAL EVALUATION AND AWARD .................................................... 36 SECTION 00 51 01 \u2013 PHASE I EVALUATION ................................................................................. 38 SECTION 00 51 02 \u2013 PHASE II EVALUATION ................................................................................ 44 SECTION 00 51 24 \u2013 AMENDMENTS ............................................................................................ 54 LIST OF ATTACHMENTS .............................................................................................................. 55 April 2026 CDB 830-030-167"
+},
+{
+"id": "939ee63b06",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "SECTION 00 21 16 \u2013 INSTRUCTIONS TO PROPOSERS .1 You are invited to submit a proposal to provide Design-Build services for CDB Project # 830-030-167, Construct a Drug Discovery and Cancer Research Pavilion, Chicago, Cook County, Illinois A. There will be a pre-submittal and public outreach meeting held at 10:00 a.m. on Thursday, April 30, 2026, at: Building 924 College of Pharmacy, Room 134-3, 833 S Wood Street., Chicago, IL. Parking is available at the Paulina Parking Structure located at 915 S Paulina Street for a fee. B. Phase I submittals are due Tuesday, May 27, 2026 by 2:00 p.m. C. Site visits will be allowed for Phase I. D. There will be a mandatory pre-proposal meeting for \ufb01rms selected to participate in Phase II. It will be held on Wednesday, July 1, 2026 at 10:00 a.m. Speci\ufb01c information regarding location will be provided to \ufb01rms at a later date. E. Individual meetings between the shortlisted \ufb01rms, the client agency and CDB will be held between July 15th and September 30th. The purpose of these meetings is to give the Design-Build Entities an opportunity to vet cost reduction and design ideas with the client agency and CDB to determine whether or not they should be pursued in the Phase II proposals. All information discussed in these meetings will be considered con\ufb01dential and will not be shared with any other party not participating in the meeting. Speci\ufb01c information regarding the dates/times and location of the meeting(s) will be provided in the Phase II Invitation. F. Phase II submittals for \ufb01rms that are short-listed are due Wednesday, November 4, 2026 by 2:00 p.m. G. Interviews for \ufb01rms selected to participate in Phase II will be Wednesday, December 2, 202"
+},
+{
+"id": "c3be1d3b36",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "0 p.m. G. Interviews for \ufb01rms selected to participate in Phase II will be Wednesday, December 2, 2026. H. The designers performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequali\ufb01ed with CDB, as an A/E or contractor, before the Phase I submittal deadline. CDB does not prequalify the DB entity separately. Prequali\ufb01cation as a Construction Manager is not acceptable. See section 00 21 05 of the Standard Documents for Design-Build Projects 2007 (SD-DB). .2 This Request for Proposals (RFP) is for the design, permitting, site preparation, and construction of the facility in accordance with the approved bridging documents. April 2026 1 CDB 830-030-167 A. These facilities must be designed and constructed applying the principles and practices of sustainable design and development using U.S. Green Building Council Leadership in Energy and Environmental Design (LEED) for New Construction and Major Renovations. LEED Gold Certi\ufb01cation will be required at a minimum. B. This RFP is for a Firm Fixed Price Contract. .3 Any questions or requests for clari\ufb01cations, and information concerning this RFP should be submitted via the e-Builder Bidding Portal for this project and be received by 5:00 p.m. on Monday, May 18, 2026 (for Phase I submittals) and by 5:00 p.m. on Thursday, October 22, 2026 (for Phase II submittals). All responses to inquiries, questions or requests for clari\ufb01cations will be published under the Design-Build section of CDB\u2019s volume of the Illinois Procurement Bulletin located on the CDB website at Construct a Drug Discovery and Cancer Research Pavilion - Un"
+},
+{
+"id": "3c9f93027b",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": " Bulletin located on the CDB website at Construct a Drug Discovery and Cancer Research Pavilion - University of Illinois Chicago. .4 Submitting Proposals. A. Phases I and II: Offerors must submit one (1) electronic copy via CDB\u2019s e-Builder Bidding Module for this speci\ufb01c project. The portal can be accessed via the \u201cSUBMIT PROPOSAL/QUALIFICATIONS\u201d link on the webpage for the project. Upload of the submittal must be completed prior to the published deadline as indicated above for the appropriate Phase. B. Phase II: Offerors must also provide one (1) physical sample of color boards at the time of their scheduled interview (digital copies of the color boards are to be included in the electronic submittals). C. HAND CARRIED PROPOSALS: Hand Carried Proposals WILL NOT be accepted. .5 Two Phase Design-Build RFP Process. A. This procurement is being solicited using a Two-Phase RFP process authorized by the Design-Build Procurement Act (30 ILCS 537/1 et seq.). As part of Phase I, DB entities shall submit their past performance history, including performance on design-build projects, basic technical approach, and capability information for review and consideration by the CDB. Following the review, evaluation, and rating of these proposals, the CDB may select at least two (2), but will not exceed three (3), of the highest rated offerors/contractors to submit a Phase II technical and cost requirements package and to participate in the Phase II process of this RFP. Phase II offerors shall provide a technical and cost proposal for consideration by CDB. The CDB will then review and evaluate the technical April 2026 2 CDB 830-030-167 and price proposals of the Phase II offerors. Evaluatio"
+},
+{
+"id": "9cafd4cb0c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "e the technical April 2026 2 CDB 830-030-167 and price proposals of the Phase II offerors. Evaluations will be conducted in accordance with CDB\u2019s Rules and Regulations and the evaluation criteria set out in Sections 00 51 00 \u2013 PROPOSAL EVALUATION AND BASIS FOR AWARD, 00 51 01, and 00 51 02 of this RFP. B. Firms formally organized as design-build entities or design \ufb01rms and construction contractors that have associated speci\ufb01cally for this project may submit proposals. For the purpose of this RFP, no distinction is made between formally organized design-build entities and project-speci\ufb01c design-build associations. Both are referred to as the design-build offeror (or simply \"offeror\"), or the design-build entity (or simply \"Contractor\"), after award of a contract. All designs must be accomplished under the direct supervision of licensed professionals registered in the appropriate technical disciplines, and meeting other certi\ufb01cation and licensing requirements speci\ufb01ed in the request for proposal. The lead \ufb01rm submitting the proposal is the \u201cofferor\u201d. The lead \ufb01rm and all design and construction team members will be considered the design- build entity. C. All offerors will be noti\ufb01ed of CDB\u2019s response to the Phase I submittals. The names of the offerors selected to participate in Phase II will be published in CDB\u2019s volume of the Illinois Procurement Bulletin located on the CDB website, Construct a Drug Discovery and Cancer Research Pavilion - University of Illinois Chicago. D. The RFP has been developed based on the speci\ufb01c criteria as de\ufb01ned by and in accordance with CDB\u2019s Rules and Regulations and the Standard Documents for Design-Build Projects dated July 2007 (SD-DB). Th"
+},
+{
+"id": "684017a0b7",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "les and Regulations and the Standard Documents for Design-Build Projects dated July 2007 (SD-DB). The design is developed to approximately 35%. E. For all those offerors submitting in response to both Phase I and Phase II of the RFP, the offeror\u2019s proposal shall be de\ufb01ned as all information that was submitted in response to the requirements of both phases of the RFP. F. For those offerors invited to submit on Phase II of the RFP, a stipend will be provided to each unsuccessful Offeror who submits a responsive and responsible proposal. .6 Funds available for design and construction: $190,000,000.00. These funds are provided by the Capital Development Board and University of Illinois. .7 Time available for design and construction to achieve Substantial Completion: 930 calendar days from Authorization to Proceed. Final Acceptance shall occur within 90 days from the date of Substantial Completion. The tentative Authorization to Proceed April 2026 3 CDB 830-030-167 (ATP) date to be used for schedule development is Monday, February 1, 2027. .8 The SD-DB August 2007 edition and the attached section 01 1101 supplement to the SD-DB are incorporated into this document and have the same force and effect as if they were given in full text. This manual is available in the Reference Library on CDB\u2019s website. NOTE: If a con\ufb02ict exists between the RFP and SD-DB, the RFP shall prevail. .9 Certain clauses of the Design and Construction Manual 2025 edition (DCM) are referenced herein and in the SDDB. Those referenced clauses are incorporated into this document and have the same force and effect as if they were given in full text. This manual is available in the Reference Library on CDB\u2019s we"
+},
+{
+"id": "96c08312b3",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "ct as if they were given in full text. This manual is available in the Reference Library on CDB\u2019s website. NOTE: If a con\ufb02ict exists between the RFP and SD-DB, the RFP shall prevail. .10 WAGE DETERMINATION: Illinois Department of Labor\u2019s Prevailing Wage Rates are applicable to this project. It is the offeror\u2019s responsibility to ensure that applicable prevailing wages are used in preparing the proposal. The provisions of the Prevailing Wage Act, 820 ILCS 130/0.01-12, will apply. Prevailing Wage rates are available on the IDOL website (https://www.illinois.gov/idol/Laws-Rules/CONMED/Pages/prevailing- wage-rates.aspx). .11 PROPOSAL EXPENSES AND PRE-CONTRACT COSTS. This RFP does not commit the CDB to pay costs incurred in preparation and submission of initial and subsequent proposals or for other costs incurred prior to award of a formal contract. .12 BRIDGING FIRM INELIGIBLE TO COMPETE: In accordance with the Design-Build Procurement Act (30 ILCS 537/20(d)) and CDB\u2019s Rules and Regulations (44 IAC 1030.150 b), the A/E \ufb01rm(s), Holabird & Root, Inc., and their sub-consultants, preparers of the bridging documents for this RFP, and Farnsworth Group, Inc., and their sub- consultants, have been determined to be ineligible to compete for the design-build contract to be awarded via this RFP. .13 EXCEPTIONS: If the offeror takes exception to any of the requirements speci\ufb01ed in this RFP, the offeror shall clearly identify and explain each exception in an addendum to the proposal labeled \"Exceptions\". RFP requirements are not necessarily negotiable and exceptions may render an offeror's proposal unacceptable and ineligible for award. See SD-DB 00 42 10.5. .14 APPRENTICESHIP AND TRAINING"
+},
+{
+"id": "78f06dffc5",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 16",
+"csi": "002116",
+"title": "INSTRUCTIONS TO PROPOSERS",
+"text": "roposal unacceptable and ineligible for award. See SD-DB 00 42 10.5. .14 APPRENTICESHIP AND TRAINING REQUIREMENTS: To ensure the highest quality and safety for on-site construction related work, the selected DB entity and their April 2026 4 CDB 830-030-167 subcontractors are required by contract to participate in applicable apprenticeship and training programs approved by and registered with the United States Department of Labor\u2019s Bureau of Apprenticeship and Training for all on-site construction related activities, including but not limited to material testing and drilling. Documentation supporting compliance shall be submitted following Authorization to Proceed (ATP) and prior to the commencement of work. Apprenticeship Training Certi\ufb01cates must be provided as subcontractors are identi\ufb01ed and prior to commencement of work. .15 PROJECT LABOR AGREEMENT: The successful Design-Build Entity will be required to enter into a Project Labor Agreement (PLA) for this project. A copy of the agreement is included as an attachment to this RFP. April 2026 5 CDB 830-030-167"
+},
+{
+"id": "c4b7ee9cce",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 21 40",
+"csi": "002140",
+"title": "CONTRACT ADMINISTRATION FEE",
+"text": "SECTION 00 21 40 \u2013 CONTRACT ADMINISTRATION FEE .1 CONTRACT ADMINISTRATION FEE: A contract administration fee (CAF) is applicable to each contract in accordance with Article 00 21 40 of the Standard Documents for Construction. The contractor will be assessed three percent (3%) of their awarded contract (base bid plus any awarded alternates). The assessed amount will be included in the Notice of Award Letter. Offerors shall include an allowance for the CAF assessment in their Phase II cost proposal. April 2026 6 CDB 830-030-167"
+},
+{
+"id": "ffb027aaf3",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 23 00",
+"csi": "002300",
+"title": "DEFINITIONS",
+"text": "SECTION 00 23 00 \u2013 DEFINITIONS .1 \u201cBridging Firm\u201d or \u201cBridging A/E\u201d is the professional design \ufb01rm that prepared the bridging documents incorporated into the RFP. .2 \u201cBridging Documents\u201d are the preliminary speci\ufb01cations and drawings prepared by the Bridging Firm for this project. .3 \u201cCDB\u201d refers to the Illinois Capital Development Board. .4 \u201cClient\u201d or \u201cClient Agency\u201d refers to the University of Illinois Chicago. .5 \"Design-build\" means a delivery system that provides responsibility within a single contract for the furnishing of architecture, engineering, land surveying and related services as required, and the labor, materials, equipment, and other construction services for the project. .6 \"Design-build entity\" or \u201cDB Entity\u201d is any individual, \ufb01rm, partnership, corporation, joint venture or other entity who has entered into a design-build contract with CDB. A Proposer or Submitter or Offeror is a DB entity submitting in response to an RFP for DB services. .7 \u201cMaterial De\ufb01ciency\u201d means any de\ufb01ciency that cannot be cured and will result in rejection of the Offeror\u2019s submittal. .8 \"Request for proposal\" or \u201cRFP\u201d refers to this document and any and all attachments and addenda. .9 \u201cSubcontractor\u201d or \u201cSupplier\u201d is any individual, \ufb01rm, partnership, corporation, joint venture or other entity, other than the DB entity, who furnishes any goods or services of any kind under a subcontract entered into with the DB entity. This legal de\ufb01nition shall govern in general, but various contract Articles herein shall distinguish between a design consultant, a subcontractor and a supplier. In those cases, a design consultant is a business entity that provides services under the Illinois Arc"
+},
+{
+"id": "ee8ef6f860",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 23 00",
+"csi": "002300",
+"title": "DEFINITIONS",
+"text": " those cases, a design consultant is a business entity that provides services under the Illinois Architecture Practice Act of 1989 (225 ILCS 305/), the Professional Engineering Practice Act of 1989 (225 ILCS 325/), the Structural Engineering Licensing Act of 1989 (225 ILCS 340/), or the Illinois Professional Land Surveyor Act of 1989 (225 ILCS 330/). A subcontractor is a business entity that has responsibility for a portion of the work that includes on-site installation April 2026 7 CDB 830-030-167 labor. Suppliers are business entities that furnish only goods produced off-site which will be incorporated into the work by others. The clause on change orders and others makes such a distinction. .10 \u201cSubmittal\u201d means all materials provided in response to this RFP. .11 \u201cTechnical De\ufb01ciency\u201d means any de\ufb01ciency in the submittal that can be cured within a speci\ufb01ed timeframe. .12 \u201cOfferor\u201d means any individual, \ufb01rm, partnership, corporation, joint venture or other entity that provide a submittal pursuant to this RFP. April 2026 8 CDB 830-030-167"
+},
+{
+"id": "41d4157712",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 25 16",
+"csi": "002516",
+"title": "PRE-PROPOSAL CONFERENCE",
+"text": "SECTION 00 25 16 \u2013 PRE-PROPOSAL CONFERENCE .1 A pre-proposal meeting for \ufb01rms selected to participate in Phase II will be held on the date and time listed in Section 00 21 16.1. The location for this meeting will be provided at a later date. April 2026 9 CDB 830-030-167"
+},
+{
+"id": "210785e805",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 31 17",
+"csi": "003117",
+"title": "INFORMATION REGARDING AVAILABILITY OF",
+"text": "SECTION 00 31 17 \u2013 INFORMATION REGARDING AVAILABILITY OF UTILITY SERVICES .1 The Contractor shall be responsible for the installation, metering, maintenance and consumable utility costs associated with all required temporary utilities including Gas, Electric and Water until such time that CDB accepts the project as Substantially Complete. DB Entity shall be responsible for design coordination with the Utility companies for both temporary and permanent utilities as required to complete the project. Costs for Utility Agreements necessary for work by a Utility Company, and as needed to complete installation and operation of permanent utility systems, will be paid directly by CDB. April 2026 10 CDB 830-030-167"
+},
+{
+"id": "9ae0b80f30",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 31 19",
+"csi": "003119",
+"title": "PHYSICAL DATA",
+"text": "SECTION 00 31 19 \u2013 PHYSICAL DATA .1 The Contractor shall be responsible for the installation, metering, maintenance and consumable utility costs associated with all required temporary utilities including Gas, Electric and Water until such time that CDB accepts the project as Substantially Complete. DB Entity shall be responsible for design coordination with the Utility companies for both temporary and permanent utilities as required to complete the project. Costs for Utility Agreements necessary for work by a Utility Company, and as needed to complete installation and operation of permanent utility systems, will be paid directly by CDB. April 2026 11 CDB 830-030-167"
+},
+{
+"id": "641c8bbff3",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "SECTION 00 42 10 \u2013 SUBMISSION REQUIREMENTS AND INSTRUCTIONS .1 GENERAL INSTRUCTIONS A. Proposal Preparation Instructions 1) Considering the proposal will describe the capability of the offeror to perform any resultant contract, as well as describe its understanding of the requirements of the Statement of Work, it should be speci\ufb01c and complete in every detail. The proposal should be prepared simply and economically, providing straightforward, concise delineation of capabilities to satisfactorily perform the contract being sought. The proposal should therefore be practical, legible, clear and coherent. 2) These instructions prescribe the required format for proposals and describe the approach for the development and presentation of the proposal data. They are designed to ensure the submission of necessary information to provide for the understanding and comprehensive evaluation of proposals. Carefully review this section prior to commencing proposal preparation. Offerors are cautioned to strictly comply with all instructions within this RFP to ensure submission of a complete proposal. Failure to furnish a complete proposal at the time of proposal submittal may result in the proposal being unacceptable to the CDB and eliminated from consideration for award. 3) Proposal Due Date. The Phase I proposal is due by the date and time set for receipt of proposals shown in Section 00 21 16.1. 4) Offerors are required to include references (this is the Reference Questionnaire Package not the DBQ which has separate similar requirements addressed later in this section) as part of their Phase I proposal. Failure to provide the required number of references will result in rejection of th"
+},
+{
+"id": "3d15da8df4",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "hase I proposal. Failure to provide the required number of references will result in rejection of the submittal. For those offerors selected to proceed to the Phase II portion of the procurement, the date and time for receipt of the Phase II proposals will be as shown in Section 00 21 16.1. Offerors should include a copy of their Reference Questionnaire Package Transmittal Letter to each proposed reference in Section 2 of Proposal Phase I as a placeholder for the required references. The transmittal letters instruct the references to submit the completed Past Performance Evaluation Questionnaires directly to CDB at the address provided. CDB Staff will add the questionnaires received to the proposals to accompany the photocopies of the transmittal letters during the administrative review April 2026 12 CDB 830-030-167 process. Should one or more references fail to return the reference questionnaire to CDB prior to the submittal deadline, it will be considered a technical de\ufb01ciency and the Offeror will be afforded an additional \ufb01ve (5) days to cure the de\ufb01ciency, after the date of noti\ufb01cation that their submittal package is de\ufb01cient with regard to the required references. B. General Proposal Contents List by Phase 1) Proposal Phase I a. Section 1 \u2013 General Documents i. Proposal Transmittal Form (DB-PTF) ii. Standard Business Terms and Conditions and Standard Certi\ufb01cations iii. Financial Disclosures and Con\ufb02icts of Interests iv. Illinois State Board of Elections Certi\ufb01cate v. Joint Venture Agreement, if applicable b. Section 2 \u2013 Offeror\u2019s Past Performance i. Design-Build Entity Quali\ufb01cations Form (DBQ) ii. Past performance evaluation questionnaire iii. Past performance MBE/WB"
+},
+{
+"id": "0050450112",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " Quali\ufb01cations Form (DBQ) ii. Past performance evaluation questionnaire iii. Past performance MBE/WBE/VBE iv. Phase I MBE/WBE/VBE/PBE Utilization Plan c. Section 3 \u2013 Technical Capability i. Technical Approach Narrative ii. Offeror\u2019s Team Experience iii. Other Capabilities d. Section 4 \u2013 Financial Capacity i. Bonding ii. Insurance iii. Bank References 2) Proposal Phase II a. Volume 1 \u2013 General Documents i. Proposal Transmittal Form (DB-PTF) ii. Price Proposal Schedule iii. Price Breakdown iv. MBE/WBE/VBE Phase II Utilization Plan & PC-2 Workforce Projections v. Bid Bond equal to 10% of the Base Bid amount b. Technical Proposal Volume 2 \u2013 Management & Execution Plans i. Project Management Plan ii. Design & Construction Schedule c. Technical Proposal Volume 3 \u2013 Technical Data Proposal April 2026 13 CDB 830-030-167 i. Element 3-1: Site Development ii. Element 3-2: Structural Design iii. Element 3-3: Architectural Design iv. Element 3-4: Mechanical Design v. Element 3-5: Electrical Power, Lighting, Grounding & Communications Design vi. Element 3-6: Fire Protection Design vii. Element 3-7: Energy Analysis, Economic Analysis & Control Systems Design viii. Element 3-8: Environmental Compliance d. Volume 4 \u2013 Proposed Deviations i. Betterments ii. Deviations iii. Pre-award Value Engineering C. Proposal Format (Unless noted otherwise, these general instructions apply to both Phase I and Phase II proposals.) 1) Purpose. These instructions prescribe the format of proposals, and describe the approach for the development and presentation of the proposed data. The proposal shall include all of the information requested in the speci\ufb01c instructions. Failure to include all information reque"
+},
+{
+"id": "8295d469e1",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "l of the information requested in the speci\ufb01c instructions. Failure to include all information requested may adversely affect the evaluation. A proposal that merely reiterates or promises to accomplish the requirements of the RFP will be considered unacceptable. A proposal that is orderly and sufficiently documented will be easy for the CDB to understand and will enable the CDB to perform a thorough and fair evaluation. 2) Capacity to Perform. Offerors are cautioned to submit enough information to enable the CDB to fully ascertain each offeror\u2019s capability to perform all of the requirements contemplated by this RFP. All commitments made in the proposal may become a part of the resultant contract. The data submitted with each proposal should be complete and concise, but not overly elaborate. Any submitted materials not required by this RFP (such as company brochures) shall be relegated to appendices. Excessive reliance on promotional brochures is discouraged. 3) Written Proposals. The proposals shall be formatted based on standard 8.5 x 11 inch paper (charts may be landscaped but must be on 8.5 x 11 inch paper) and shall be in a legible font size (10 or larger). Type size for graphics, charts, diagrams and tables shall be of an appropriate font and April 2026 14 CDB 830-030-167 size for the application, and must be clearly readable without magni\ufb01cation assistance to the normal eye. Page size for schedules may be up to 11\u201d x 17\u201d and all other charts, tables etc. must not exceed normal legal size (8.5\u201d x 14\u201d). Text lines will be no less than single-space. All pages of each proposal shall be appropriately numbered and identi\ufb01ed with the RFP number. For ease of reference, cons"
+},
+{
+"id": "229811289c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "posal shall be appropriately numbered and identi\ufb01ed with the RFP number. For ease of reference, consecutive page numbering with tabs is required. 4) Table of Contents. The proposals shall contain a detailed table of contents. The \u201cTable of Contents\u201d will identify major areas, paragraphs and subparagraphs by number and title as well as by page number and volume locations. Tab indexing will be used to identify Sections as appropriate. Table of Contents and Tab indexes do not count toward page limitation. If more than one binder is used, the complete table of contents shall be included in each. Proposal Sections 2 and 3 shall not exceed the page limits stated. If the page limit is exceeded, the pages in excess of the limit shall be unread. 5) Page Limits. The page limits include all appendices, charts, graphs, diagrams, tables, photographs, etc. except as noted elsewhere in the instructions. To the maximum extent practicable proposal submission shall be double-sided. Each side of a piece of paper counts as one page. Failure to observe these requirements may result in non-compliant proposals being evaluated at the maximum number of pages had the instructions been followed. All pages in excess of the stated limits shall remain unread and will not be evaluated. 6) Revised Proposals. If revised proposals are requested, all proposal revisions shall be submitted in PDF format as requested in the de\ufb01ciency noti\ufb01cation from CDB\u2019s QBS Unit. 7) Drawings. Offeror must submit drawings to clarify their Phase II proposals. 8) Clari\ufb01cations. Offeror may, at the discretion of the CDB, be asked to provide clari\ufb01cations regarding their proposals in accordance with CDB\u2019s Rules and Regulations."
+},
+{
+"id": "876695c75d",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "d to provide clari\ufb01cations regarding their proposals in accordance with CDB\u2019s Rules and Regulations. Requests for such information do not constitute discussions. All requests and responses shall be documented and included in the CDB procurement \ufb01le. 9) Validity. The offeror shall be held responsible for the validity of all information supplied in his/her proposal, including that provided by potential subcontractors. Should subsequent investigation disclose that the facts and conditions were not as stated, the proposal may be rejected April 2026 15 CDB 830-030-167 or the contract terminated for default if after award, in addition to any other remedy available under the contract or by law. .2 QUALIFICATION SUBMITTAL CONTENTS \u2013 PHASE I A. Submit one (1) electronic copy of the submittal package. B. Section 1 \u2013 General Documents. Submit as a separate \ufb01le, labeled \u201cGeneral Information,\u201d with the submittal. 1) Complete the \u201cOfferor\u201d portion of the DB-PTF. An official having the authority to contractually bind your company must sign the DB-PTF in accordance with CDB\u2019s SD-DB Section 00 42 15. One copy of the DB-PTF is required to have an original signature. a. The Offeror(s) must be in \u201cGood Standing\u201d with the Illinois Secretary of State at the time of Submittal. Failure to be in \u201cGood Standing\u201d at the time of submittal shall be a material de\ufb01ciency and will result in rejection of the submittal. 2) For each \ufb01rm identi\ufb01ed on the DB-PTF include in this section of your submittal the following: a. Standard Business Terms and Conditions and Standard Certi\ufb01cations b. Illinois State Board of Elections Certi\ufb01cation c. Financial Disclosures and Con\ufb02icts of Interest. Failure to submit the F"
+},
+{
+"id": "3a4d09b83e",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "of Elections Certi\ufb01cation c. Financial Disclosures and Con\ufb02icts of Interest. Failure to submit the Financial Disclosures and Con\ufb02icts of Interest with the submittal will be a material de\ufb01ciency and the submittal will be rejected. 3) Joint Venture Requirements (SD-DB 00 21 60). Parties wishing to propose as a joint venture must submit, with the General documents, an executed copy of the joint venture agreement. Failure to submit the joint venture agreement will be a technical de\ufb01ciency and the submittal may be rejected. The joint venture agreement shall be executed in accordance with CDB\u2019s SD-DB. Offerors are reminded that the individual joint venture partners must be prequali\ufb01ed with CDB. C. Section 2 \u2013 Past Performance 1) Past Performance will be evaluated using the evaluation criteria set forth in Sections 00 51 00 and 00 51 01 of the RFP. Past Performance includes current and on-going performance. 2) The Past Performance section of the proposal is limited to a maximum of 25 pages, exclusive of the Past Performance Evaluation Questionnaires and MBE/WBE/VBE/PBE Phase I Utilization Plan. Past April 2026 16 CDB 830-030-167 Performance for MBE/WBE/VBE participation should be addressed in the narrative. It includes the offeror\u2019s Design-Build Entity Quali\ufb01cations Form (DBQ) and any discussion and/or additional information, awards, letters, etc. concerning past performance the offeror includes. 3) Design-Build Entity Quali\ufb01cations Form (DBQ): a. References: Offerors shall complete in detail the DBQ listing a minimum of \ufb01ve (5), maximum of seven (7) contracts (complete or substantially complete) to be used for reference and evaluation purposes. i. At least three (3) projects mu"
+},
+{
+"id": "57a25be996",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "tially complete) to be used for reference and evaluation purposes. i. At least three (3) projects must re\ufb02ect the experience of the Offeror. ii. At least two (2) additional projects must re\ufb02ect the experience of the design team (or contractor if the Offeror is a design \ufb01rm). The Offeror\u2019s listed projects should re\ufb02ect the experience of the lead entity rather than the DB entity collectively. iii. Detailed instructions are provided in the DBQ. Failure to submit this information with the submittal will be a material de\ufb01ciency and the submittal will be rejected. b. Offeror shall provide a list of key subcontractors and/or Teaming Partners to be utilized on this project. At a minimum provide the name(s) of subcontractors to be utilized on the design and oversight team and the major construction subcontractor(s) (as applicable). c. Except for the design team or prime construction contractor, as applicable, multiple subcontractors may be named for the same discipline, limited to a maximum of two (2) subcontractors per discipline. When multiple subcontractors are provided for the same discipline the evaluation will be in accordance with Section 00 51 01.3 A.5. d. Offerors shall provide information to demonstrate a history of performance on contracts that are similar in scope, complexity and size and to demonstrate experience in performing work similar in size, scope and complexity to that described in the scope of this procurement. Offerors shall explain what aspects of the referenced contracts they deemed relevant to the proposed effort. e. Offerors should consider the currency and relevancy of the past performance information. To be considered, the performance must have been co"
+},
+{
+"id": "d3e9df91e2",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "d relevancy of the past performance information. To be considered, the performance must have been completed during the past ten (10) years. The April 2026 17 CDB 830-030-167 period begins ten (10) years prior to the RFP release date and includes current performance. Current performance may have greater impact than older performance. f. Offerors should include with their proposal information on problems encountered on the identi\ufb01ed contracts and the offeror's corrective actions and/or explanation. 4) Past Performance References: a. Offerors shall prepare and submit to prior clients, including the owners of all projects listed on your DBQ as submitted, a Reference Questionnaire. Accordingly, a minimum of three (3) references must re\ufb02ect the experience of the Offeror and a minimum of two (2) references must re\ufb02ect the experience of the design team. Include a cover letter explaining the requirement to obtain an independent evaluation of prior contract performance, and Past Performance Evaluation Questionnaire for CDB\u2019s use in evaluating Past Performance. b. Copies of the cover letters for each Performance Questionnaire should be included as placeholders for references in this section. References will be returned directly to CDB in accordance with the instructions for the DBQ. c. Failure to submit a minimum of \ufb01ve (5) and a maximum of seven (7) performance questionnaires for Offeror will be a technical de\ufb01ciency and the submittal may be rejected. 5) Offerors lacking relevant present/past performance experience may submit information regarding predecessor companies, key personnel who have relevant experience or subcontractors that will perform major or critical aspects of the r"
+},
+{
+"id": "7ed0fbca35",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " who have relevant experience or subcontractors that will perform major or critical aspects of the requirement if such information is relevant to this project. a. Such information shall, at a minimum, include: i. Name(s) of Predecessor Company/Subcontractor and/or Key Personnel; ii. Complete Address; iii. Telephone and email address; iv. Brief synopsis of the experience (a resume may be submitted for \"Key Personnel\"); and v. Describe in detail relevancy to this project. b. Provide three (3) references for each Predecessor Company, Subcontractor or Key Personnel and send Past Performance Evaluation Questionnaires to these references. Clearly identify April 2026 18 CDB 830-030-167 the contractor/individual whom the reference information concerns. 6) Other Past Performance Considerations. The information, if provided, shall be limited to the period beginning ten (10) years prior to the RFP release date. 7) Offerors are advised that the CDB may use all data provided by the offeror in this volume and data obtained from other sources, to include, but not limited to, state-wide databases, in the assessment of past performance. Past performance information on contracts not listed by the offeror, or that of planned subcontractors, may also be evaluated. The CDB may contact references other than those identi\ufb01ed by the offeror and information received may be used in the evaluation of the offeror\u2019s past performance. While the CDB may elect to consider data obtained from other sources, the burden of providing current, accurate, and complete past performance information rests with the offeror. D. Section 3 \u2013 Technical Capability 1) Technical Approach Narrative. Narrative shall be limit"
+},
+{
+"id": "2cf6ac3e39",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "feror. D. Section 3 \u2013 Technical Capability 1) Technical Approach Narrative. Narrative shall be limited to a maximum of \ufb01ve (5) pages. a. Describe in general terms how the offeror will approach the design and construction of this facility. The narrative should include considerations of \u201cFast Track\u201d construction whereby preliminary site construction activities can begin prior to the completion of the accepted 100% design documents. b. Provide a detailed discussion addressing the proposed organization and the roles and responsibilities of the various sub- contractors for both design and construction. c. Include in the narrative the offeror\u2019s proposed processes for handling \ufb01eld problems, assuring quality and assuring Designer of Record involvement throughout the construction period. 2) Offeror\u2019s Team Experience. Narrative shall be limited to a maximum of \ufb01ve (5) pages. Example projects must have been completed no more than ten (10) years prior to the date of the RFP. CDB will also use information provided by A/E\u2019s in the Past Performance section in the evaluation of this factor. (Note: This information may be similar to the information provided in the Past Performance section but it is requested here for the purpose of identifying the extent of the offeror and their team\u2019s experience. In the Past Performance section, the information is used for identifying \u201chow\u201d the work was performed.) April 2026 19 CDB 830-030-167 a. Provide a discussion of at least three (3) projects for which the offeror has been responsible. The examples should be as similar as possible to this RFP in project type, magnitude, complexity, cost, design or features and scope. Each example shall indicate in"
+},
+{
+"id": "806a34933f",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "ject type, magnitude, complexity, cost, design or features and scope. Each example shall indicate in detail the general character, scope, location, cost, and date of completion of the project. If the offeror represents the combining of two or more companies for the purpose of this RFP, each company shall discuss project examples. b. Demonstrate that all lead design personnel have experience and required quali\ufb01cations in assigned roles on projects of similar complexity, size and scope. Speci\ufb01c projects detailed on the DBQ should be referenced, to ensure proper consideration. c. Demonstrate that all lead design personnel are registered and/or certi\ufb01ed in their discipline. d. Discuss at a minimum the project manager; the project architect; the engineers responsible for civil, electrical, mechanical, \ufb01re protection, communication systems and structural design; the quality control manager; and the construction manager and/or project superintendent, as applicable to the respective projects. e. Discuss the MBE/WBE/VBE programs for these projects, including MBE/WBE/VBE goals, how they were met, and overall strategy for including MBE/WBE/VBE designers, consultants, subcontractors/suppliers. 3) Other Capability Information. Total Narrative for this information shall be limited to a maximum of two (2) pages. Clearly label this section and place after the Offeror\u2019s Team Experience. a. Describe your office capabilities for using BIM (Building Information Modeling) and other forms of technology on this project. b. Describe your office capabilities for project scheduling. Include programs you utilize and experience of personnel in these programs. Discuss brie\ufb02y your plan for scheduling "
+},
+{
+"id": "750de04d40",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " you utilize and experience of personnel in these programs. Discuss brie\ufb02y your plan for scheduling of this project, to include updates. (A sample schedule is not desired.) c. Describe your office capabilities for ensuring proper administration of a project of this magnitude and complexity. d. You may provide additional information on your capabilities, but please be brief. 4) Section 4 \u2013 Financial Capacity April 2026 20 CDB 830-030-167 a. Bonding Ability (Letter from Surety illustrating total capacity vs. available capacity.) b. Insurance c. Bank Reference Letter(s) April 2026 21 CDB 830-030-167 .3 TECHNICAL & COST PROPOSAL \u2013 SUBMITTAL CONTENTS \u2013 PHASE II A. General Requirements. 1) Who May Submit. Proposals may be submitted by the offerors who receive written noti\ufb01cation from the CDB that their \ufb01rm has been selected to participate in Phase II of this RFP. 2) Individual Meetings with Short-Listed Firms. The purpose of these meetings is to give the Design-Build Entity an opportunity to vet cost reduction ideas with the using agency and CDB to determine whether they should be pursued as a deviation in the Phase II proposal. All information discussed in these meetings will be considered con\ufb01dential and will not be shared with any other party not participating in the meeting. Speci\ufb01c information regarding the time and location of the meeting(s) will be provided in the Phase II Invitation. The meeting will not exceed two (2) hours. See Section 00 21 16.1.F. 3) Submission Deadline. Proposals shall be received no later than the time and date speci\ufb01ed in section 00 21 16.1. 4) Stipend. CDB will pay a stipend to each unsuccessful shortlisted \ufb01rm that provides a responsive/respons"
+},
+{
+"id": "d25f5de3d5",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "pend. CDB will pay a stipend to each unsuccessful shortlisted \ufb01rm that provides a responsive/responsible Phase II Proposal and completes the interview process. Firms shortlisted to participate in Phase II will be required to enter into a contract with the Capital Development Board before submitting their Phase II proposals. The purpose of this contract is to facilitate disbursement of the predetermined stipend after a Design- Build Contract has been executed between the successful \ufb01rm and CDB for delivery of the project. The stipend amount for this project will be: $465,000.00. 5) Compliance Statement. To effectively and equitably evaluate all proposals, the CDB must receive information sufficiently detailed to clearly indicate the materials, equipment, methods, functions, and schedules proposed. The offeror is required to certify that all items submitted in its technical proposal comply with the RFP requirements and any differences, deviations or exceptions have been identi\ufb01ed and explained. Offerors are required to complete the Statement of Compliance on the DBPTF and submit it with their technical proposal. Even if there are no differences, deviations or exceptions, the offeror must submit the Compliance Statement and state that none exist. 6) Cost Information. The Technical Proposal shall not include any cost information. The technical and cost proposals shall be submitted as two separate documents. April 2026 22 CDB 830-030-167 7) Technical Proposal. Technical Proposal Volumes 2 and 3 comprise the full Technical Proposal. Volume 2 consists of the Project Management Plan and Design & Construction Schedule. Volume 3 consists of the Technical Data Proposal with various "
+},
+{
+"id": "bff2d33d08",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "n and Design & Construction Schedule. Volume 3 consists of the Technical Data Proposal with various Elements. B. Volume 1 - General Documents, Price Proposal and MBE/WBE/VBE/PBE Utilization Plan. This information should be submitted in an envelope labeled \"General Requirements.\" This category consists of: 1) Price Proposal Information. Offerors shall complete all portions of the Price Proposal Schedule. 2) Price Breakdown. Include price breakdown, in the prescribed format in this package. The price proposal shall include all elements described in the bridging documents. No deviations shall be included when calculating the Total Budget cost. Any deviations may be listed in the appropriate sections of the Pricing Schedule. 3) Construction Goals. The CDB MBE/WBE/VBE/PBE Construction Goals are as follows: 33% of the construction value with 28% to minority- owned businesses, 5% to women-owned businesses and 3% to veteran- owned and/or persons with disability owned businesses. These goals include both Tier 1 and Tier 2 subcontractors. The form included shall demonstrate the intent to comply with the stated goals. 4) PC-2 Workforce Projection. PC-2 Workforce Projections must be included at time of proposal. While these projections may be adjusted post-award they should re\ufb02ect the anticipated workforce needs based on the information known at the time of submission. 5) Design Goals. The CDB MBE/WBE/VBE/PBE Design Goals are as follows: 20% of the design services value to minority-owned and women-owned businesses and 3% to veteran-owned and/or persons with disability owned businesses. The form included shall demonstrate the intent to comply with the stated goals. Some level of parti"
+},
+{
+"id": "c3bb75a142",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " The form included shall demonstrate the intent to comply with the stated goals. Some level of participation from both MBE and WBE \ufb01rms is required to satisfy the 20% MBE/WBE goal (this requires including one or more MBE AND one or more WBE \ufb01rms on the team). 6) Bid Bond. Offerors shall include a bid bond in the amount of ten percent (10%) of the base bid. Failure to include the bid bond with the submittal will be a material de\ufb01ciency and the submittal will be rejected. C. Technical Proposal: Volume 2 \u2013 Management & Execution Plan The following technical elements shall be addressed in sufficient detail so as to provide the CDB with a clear understanding of the offeror\u2019s intended performance and shall April 2026 23 CDB 830-030-167 take into consideration the material provided in the technical data proposal (Volume 3). 1) Project Management Plan. The offeror shall provide a Management Plan. This is an overall plan showing how the offeror will control the job. The term \"management plan\" is de\ufb01ned as a plan that includes the following sub-plans: a. Project Key Personnel. Provide the names, resumes, and levels of responsibility of the principal managers and technical personnel who will be directly responsible for the day-to-day design and construction activities. Provide quali\ufb01cations of key project personnel including name and project assignment, and \ufb01rm association. Project key personnel shall include the engineering disciplines and key construction subcontractors listed below. i. At a minimum, discuss the project manager; the project architect; the engineers responsible for civil, electrical, mechanical, \ufb01re protection, communication systems and structural design; the quali"
+},
+{
+"id": "ea793deb43",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "ivil, electrical, mechanical, \ufb01re protection, communication systems and structural design; the quality control manager; and the construction manager and project superintendent. ii. Demonstrate that all lead design personnel are licensed, registered, and/or certi\ufb01ed in the State of Illinois in their respective discipline(s) and have experience and technical competence in assigned roles on projects of similar complexity, size and scope. Indicate whether each individual has had a signi\ufb01cant part in any of the project examples cited. iii. If subcontractors will be providing comprehensive design- build services to the Offeror, provide quali\ufb01cations for their key design personnel as well. If reassignment of personnel is considered possible, provide the names and resumes of the alternative professionals in each assignment. iv. Lead Architect/Lead Design Engineer/Construction superintendent must have a minimum of \ufb01ve (5) years of experience on speci\ufb01cs of similar projects. b. Key Construction Subcontractors. Subcontractors shall include, but are not limited to: Five (5) prime trades as mandated by the Illinois Procurement Code: General, Plumbing, Heating, Ventilation, and Electrical. Discuss the extent of their roles with respect to the design and construction phases of this project. April 2026 24 CDB 830-030-167 c. Quality Control Plan. The Quality Control Plan is part of the Management Plan. The alliance of the project designer and builder on a project such as this, naturally removes one commonly used method of quality control, that is, the usual reliance of the owner on the design consultant for monitoring construction quality. Although the CDB may provide an on-site represent"
+},
+{
+"id": "d5ab7d5655",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "gn consultant for monitoring construction quality. Although the CDB may provide an on-site representative during construction, offerors are expected to develop a formal program of monitoring to ensure a high level of construction quality. i. A clear identi\ufb01cation of the personnel responsible for quality control and a clear policy establishing their authority. The quality control group shall be separate and apart from (not the same as) the people that are doing the construction. Of particular interest is the role of the Designer of Record in all design and construction progress. ii. A speci\ufb01c description of the tasks and functions of the quality control personnel. A speci\ufb01c policy establishing schedules for the performance of quality control tasks. iii. A policy for reporting quality control \ufb01ndings to the CDB Project Manager. A procedure whereby the CDB may resolve disputes that have not received satisfactory responses from the \ufb01rst levels of quality control personnel. iv. The names of testing laboratories to be used and the procedures for test data reporting. v. A plan for material storage and protection. vi. The plan for review, evaluation, and Offeror Quality Control of the Design Submittals prior to CDB receipt. vii. The plan for review of construction phase submittals. viii.Procedures for involving Key Subcontractors in the design development. d. Planned Safety Activities i. Provide a summary of the Safety plan that you will implement if you are awarded this contract. ii. Include in the summary your plans for training and documentation. iii. Plan should demonstrate familiarity with and adherence to OSHA standards and describe steps to be taken to promote safety durin"
+},
+{
+"id": "90237ce88f",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "iliarity with and adherence to OSHA standards and describe steps to be taken to promote safety during construction. iv. Explain how you intend to maintain an accident free worksite. April 2026 25 CDB 830-030-167 2) Design and Construction Schedule. Provide an integrated Design and Construction Schedule with all Critical Path items clearly identi\ufb01ed, if proposed. The tentative Authorization to Proceed (ATP) date to be used in the development of the Schedule is February 1, 2026. a. The schedule for design and construction shall be task oriented, indicating dates by which milestones are to be achieved. The offeror shall use a critical path scheduling approach and the schedules shall be graphically represented, not to exceed an ARCH D size sheet. b. The schedule is to be an integrated and networked multi-layered schedule of program/project tasks. It identi\ufb01es project events, accomplishment, and criteria and the expected dates of each. These dates are based on the calendar dates provided as the starting point and the logical \ufb02ow of dates provided by calculating the addition of duration of all tasks using typical schedule networking tools. c. Each major task will be directly traceable to the requirements of the project. The schedule is intended as a tool for day to day tracking of the program/project that rolls up to increasingly higher summary levels. d. All tasks/activities in the schedule should be logically linked together showing predecessor/successor relationships. e. The offeror shall also submit a rationale explaining how the schedules will be achieved. Offerors providing an alternate schedule1 shall discuss the perceived bene\ufb01ts to the CDB. f. See also Section 01 32 00"
+},
+{
+"id": "9443dc2587",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " an alternate schedule1 shall discuss the perceived bene\ufb01ts to the CDB. f. See also Section 01 32 00 \u201cConstruction Project Schedules\u201d of the SD-DB. g. In accordance with SD-DB the Contractor shall be required to: Complete the entire work, to include design and construction though Substantial Completion, ready for use not later than 930 calendar days after (ATP) (see 00 21 16.7). The time stated for Substantial Completion shall include \ufb01nal cleanup of the premises. Final Acceptance shall occur within 90 days from the date of Substantial Completion. 1). The performance period proposed cannot exceed the number of calendar days noted above. If the offeror proposes a shorter performance period, the offeror\u2019s proposed April 2026 26 CDB 830-030-167 performance period will be used to calculate the new completion date and incorporated into any resulting award. D. Technical Proposal Volume 3 \u2013 Technical Data 1) The technical Data Proposal shall be submitted as a PDF \ufb01le uploaded with the other volumes as described in Section 00 21 16.4.B. This proposal consists of but is not limited to; design documents, sketches, outline speci\ufb01cations, design analysis, catalog cuts, and other information. 2) The following information shall be submitted as part of the Technical Data Proposal. Proposals shall include graphic description of the design included in the basic proposal clearly indicated as such. All alternate designs shall be graphically described on separate drawings from the basic proposal. Offerors are advised that the required data listed below will be utilized for technical review and evaluation by the CDB Evaluation Team. Materials indicated in the design/construction criteria \u201cbri"
+},
+{
+"id": "e15c88f0a9",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " evaluation by the CDB Evaluation Team. Materials indicated in the design/construction criteria \u201cbridging documents\u201d, but not indicated in the offeror's speci\ufb01cations, will be understood to be included and a part of the proposal. Do not depict items that are not part of the offer (i.e.: furniture, wall hangings, etc.). 3) Site Development Design Submittal Requirements. The site development portion of the proposal must outline the proposed site layout, site utilities, grading, storm drainage, and erosion control practices for construction. Improvements to the RFP site plan are encouraged. The proposed design shall include the following: a. General Site Development Description of the Project. In narrative format state the purpose and functional layout of all major structures in relation to access drives, the extent of grading and drainage system, as well as erosion control measures in sufficient detail to delineate and characterize functional features and the desired image or visual appearance of this project. The narrative shall re\ufb02ect setback requirements as indicated on the project bridging document Site Plan, as well as the visual characteristics of the surrounding topography. Include a statement addressing Storm Water Management such that post development runoff does not exceed pre- development runoff \ufb02ows. Also include a statement of any requirements for traffic control /signage plans to be used during the construction period and then the signage for the completed project. Provide a brief statement of the exterior construction materials to be used in the project. April 2026 27 CDB 830-030-167 b. Landscape Design Narrative. The narrative shall indicate speci\ufb01c site iss"
+},
+{
+"id": "bf1683953c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "2026 27 CDB 830-030-167 b. Landscape Design Narrative. The narrative shall indicate speci\ufb01c site issues and the rationale for proposed plant selection and locations. The narrative shall also include a list of suggested types and sizes of plant materials to be used, if any (use native plants as much as possible). The narrative shall discuss what materials are being included in the project that comes from recycled materials and renewable resources. No landscape drawing required. c. Site Utilities. Narrative of design analysis will contain the following: Criteria listings - manuals, pamphlets, codes, etc.; preliminary pipe sizes presented in tabular form. Describe what is known about each of the utilities needed to service the facility. Describe the utility systems chosen. Identify all utility agreements stating what the utility company will provide and what the contractor will need to provide. Discuss methods used to verify location and extent of underground. Discuss location and extent of temporary utility connections. d. Environmental Engineering Design. Design Narrative shall describe general utility layout with connection points, general size calculations, valve \ufb01ttings, sewage pumps, sump pumps, etc. as required for this project. e. Outline Speci\ufb01cations. Provide a list of speci\ufb01cations proposed for use in the design, if the section is not provided in this RFP. 4) Structural Design Submittal Requirements. The structural portion of the proposal must outline the proposed methods and materials of design and construction. The design shall include the following: a. Structural Narrative. General. Provide a general description of the scope of the project and all of the major "
+},
+{
+"id": "31e0afb795",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " Narrative. General. Provide a general description of the scope of the project and all of the major structures. Give overall building dimensions and a description of the principal features such as wall and roof construction proposed. If the building is irregularly shaped, explain where seismic joints will be placed to create regular shapes or provide a statement that a dynamic analysis of the building will be performed. b. Framing System. Provide a description of the framing system chosen. Provide a description of the lateral load resisting system and how these loads will be transmitted to the foundations. c. Foundation. Give a description of the anticipated foundations based on Soil Boring Data located in the bridging document. List special design features. April 2026 28 CDB 830-030-167 d. Fire Resistance Statement. State the required \ufb01re resistance criteria for all portions of the structural system and the proposed method of meeting these requirements. e. Design Analysis. The following speci\ufb01c items shall be included. Load Assumptions. State the live loads for which the facility is to be designed. Include roof and \ufb02oor loads. Provide the wind loads, lateral earth pressure loads, seismic loads, etc. as applicable. Complete analysis is not necessary, only tabulation of loads is required. Utilize factors as provided in the DCM (2009) Article 3.11. f. Outline Speci\ufb01cations. The offeror shall provide a list of speci\ufb01cations proposed to be used in the design, if sections are not provided in this RFP. 5) Architectural Design Submittal Requirements. a. Architectural Narrative. Demonstrate conformance with the \ufb02oor plan and functional arrangement, and exterior image depicted in "
+},
+{
+"id": "617bad8293",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "monstrate conformance with the \ufb02oor plan and functional arrangement, and exterior image depicted in the RFP. Describe and justify any adjustments or changes to either. Describe interior theme. Describe any special features or \ufb01nishes that contribute to the proposed design theme. Describe construction of typical interior partitions. List all architectural betterments and deviations included in the proposal. Include a Life Safety analysis in the narrative. b. Color Board. Include interior and exterior color board submittals. Include digital copies of color boards in Volume 3 of the Phase 2 Proposal. Physical color boards will not be accepted until the date of the Interviews. c. Certi\ufb01cations. Provide signed and dated certi\ufb01cation that the \ufb01nal design shall meet \"U\" values required in the bridging documents for each exterior wall assembly and roof assemblies. Provide signed and dated certi\ufb01cation that the mechanical rooms are of sufficient size to accommodate and serve all mechanical equipment shown and speci\ufb01ed by the mechanical design. Include with architectural narrative. d. List of Speci\ufb01cations. Provide a list of speci\ufb01cations proposed to use in the design. It is not necessary to include sections required in this RFP. 6) Mechanical Design Submittal Requirements. a. Heating, Ventilating, and Air Conditioning. Included in the narrative is to be a discussion of the integration of the various April 2026 29 CDB 830-030-167 supporting systems among themselves and within the proposed structural systems. Describe the methods and plans for coordinating the various supporting systems to minimize construction problems between trades/disciplines. Narrative of design analysis will c"
+},
+{
+"id": "cdf6c32951",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "ms to minimize construction problems between trades/disciplines. Narrative of design analysis will contain the following: Criteria listings - manuals, pamphlets, technical books, etc.; Design conditions used in calculations - inside and outside temperatures, personnel load, outside air or ventilation requirements, U-factors, and other special conditions; Block loads for heating and cooling shall be calculated using ASHRAE-based methods. Use the Illinois Energy Conservation Code. All load calculation software must be traditionally used by the industry. b. Equipment. Provide a brief description of all major items of equipment, including catalog cuts. Indicate operating temperatures and capacities. Clearly delineate the separate systems, i.e., Air handling units including heating and cooling type, make-up air units, HVAC hot water heating systems including boilers and heat exchangers, HVAC cooling systems including air or water cooled chillers and DX condensing units, Air terminals including variable air boxes and fan powered boxes, Air device types, miscellaneous fans including return and exhaust air systems. Description of piping systems including type of pipe, insulation requirements, and whether concealed or exposed, including catalog cuts. Describe the general breakdown of the work between the Heating and Ventilating trades. c. Energy Conservation Design Narrative. Energy conservation measures shall be indicated. The narrative shall describe measures and techniques that are proposed in the mechanical design that will conserve energy. Must comply with the Illinois Energy Conservation Code. d. Plumbing. Narrative of design analysis will contain the following: i. Criteria "
+},
+{
+"id": "948b3783ab",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "onservation Code. d. Plumbing. Narrative of design analysis will contain the following: i. Criteria listing - manuals, codes, etc.; ii. Design shall comply with the requirements of ASHRAE 188; iii. Plumbing analysis to con\ufb01rm number of \ufb01xture units, cold and hot water capacity requirements, and equipment or capacities of miscellaneous and special systems; iv. Fixture determination listing quantity and type of \ufb01xtures for both men's and women's toilets, and other \ufb01xtures such as drinking water fountains, service sinks, etc.; April 2026 30 CDB 830-030-167 v. Description of domestic water heating and storage equipment, including capacity, type (gas, electric, boiler, water), materials, and insulation; vi. Piping types and location (concealed or exposed), together with material proposed and insulation requirements; and vii. Detailed description of key support systems including, but not limited to, compressed air (capacity, pressure, piping, location of air outlets, etc.), roof drainage, fuel oil (quantity, and equipment to be served), and other special systems. e. e. Outline Speci\ufb01cations. The offeror shall provide a list of speci\ufb01cations proposed to use in the design, if section not provided in this RFP. 7) Electrical Power, Lighting, and Grounding, Design Submittal Requirements. a. Interior Electrical System Design Narrative. The interior electrical design shall be a narrative presentation and shall include the following data: i. Provide a detailed description of the lighting system(s) to be used for each de\ufb01nitive area. Include a concept lighting schedule showing room name and/or number, lighting intensity, type of \ufb01xture by manufacturer's name, voltage, and basis of desig"
+},
+{
+"id": "ca8e7b3357",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "nd/or number, lighting intensity, type of \ufb01xture by manufacturer's name, voltage, and basis of design such as I.E.S. criteria, de\ufb01nitive, etc. ii. Only a single catalog cut sheet is required for each \ufb01xture type. This cut sheet will establish the physical, functional and visual characteristics of the \ufb01xture and establish a level of quality. iii. State the type of wiring system proposed, such as rigid conduit, intermediate conduit, electrical metallic tubing, etc., (non-metallic tubing, and non-metallic sheathed cable will not be permitted) and where it is intended to be used. iv. Provide a paragraph describing any special items of design, such as specialized equipment, special receptacles, handicapped and seismic requirements, etc. Describe how the applicable grounding system will be achieved. v. Describe the basic characteristics of the panel boards, protective devices, switchboard, motor control centers, or other major equipment to be provided. Provide the name of April 2026 31 CDB 830-030-167 the manufacturer(s) and catalog cuts for the equipment that will be used. b. Speci\ufb01cations. Provide a list of titles of speci\ufb01cations proposed for use in the design, if the section is not provided in the RFP. c. Communications and Special Systems Requirements. Describe in detail the proposed method of conformance with all elements of the Communications and Special Systems requirements detailed in the Technical Speci\ufb01cations section of the RFP (audio visual, security systems, computer networking, etc.). Narrative will address all aspects of the Communications system and show that the Offeror understands and is capable of implementing the work required to satisfy integration of the "
+},
+{
+"id": "f0f667ae8e",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": " Offeror understands and is capable of implementing the work required to satisfy integration of the RFP requirements for this building into the facility\u2019s communications system. d. Exterior Electrical Distribution System Design Narrative. The exterior electrical design shall be a narrative presentation and shall include the following data: i. Indicate the electrical characteristics (phase, voltage and number of wires) of the electrical system proposed for the building. Provide conclusions in the design analysis as related to the total connected load and resulting kVA demand load. ii. Indicate type, number, and kVA capacity of transformer installation proposed. State the primary and secondary connections of transformers (e.g., 12,470 to 480Y/277 volts, Delta-wye) in accordance with ANSI C57.12.00. State the basis for the selection of the secondary distribution voltage, (e.g., 480Y/277 vs. 208Y/120). iii. Include any analysis or reasoning used in making this selection. iv. Provide a statement describing street lighting, security, parking lot lighting, or sidewalk lighting requirements. Types of \ufb01xtures, pole heights, and proposed intensities are to be included. Only a single catalog cut sheet is required for each \ufb01xture type. This cut sheet will establish the physical, functional and visual characteristics of the \ufb01xture and establish a level of quality. Provide a statement describing the extent of any exterior work such as modi\ufb01cations to the existing telephone vault, the telephone duct banks, etc. April 2026 32 CDB 830-030-167 e. Energy Conservation Design Narrative. Energy conservation measures shall be indicated. The narrative shall describe measures and techniques that "
+},
+{
+"id": "25ebc54fae",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "conservation measures shall be indicated. The narrative shall describe measures and techniques that are proposed in the electrical design that will conserve energy. Must comply with the Illinois Energy Conservation. 8) Fire Protection Design Submittal Requirements. A narrative will be provided addressing the below items or feature of the building in this project. a. Provide certi\ufb01cation by the \ufb01re protection engineer that the building design shall comply with the life safety/\ufb01re protection provisions of the applicable codes. b. Automatic \ufb01re extinguishing systems and hose standpipe systems: Identi\ufb01cation of all areas provided with sprinkler protection and the type of sprinkler system provided, sprinkler hazard classi\ufb01cation for these areas. c. Fire alarm and detection systems: Type of alarm and detection system, location of the \ufb01re alarm and detection equipment including \ufb01re alarm control panel, and catalog data sheets of major components. 9) Energy Analyses, Economic Analyses, Control Systems Submittal Requirements. The following items shall be submitted with the proposal: a. Utilization of high efficiency, economical systems are required, when properly justi\ufb01ed. The application and utilization of new principles and ideas is encouraged, where applicable. b. A description of all HVAC systems to be considered in a life cycle cost analysis (LCCA). The LCCA is to be submitted by the successful contractor. c. List of speci\ufb01cations to be used. d. A description of the proposed Direct Digital Controls System (DDC) to be used, if applicable. e. Utilization of Renewable Energy. Utilization of renewable energy systems is encouraged. Clearly de\ufb01ne any proposed renewable energy syste"
+},
+{
+"id": "84b78a6b8b",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "ization of renewable energy systems is encouraged. Clearly de\ufb01ne any proposed renewable energy systems. Provide all manufacturers\u2019 catalog and performance information in order to clearly assess its limitations and applicability. Clearly identify projected increases or decreases in operations and maintenance costs as compared to standard system. Consideration for the use of renewable energy systems will be given. April 2026 33 CDB 830-030-167 f. Energy Conservation Design Narrative. Energy conservation measures shall be indicated. The narrative shall describe measures and techniques that are proposed in the design that will conserve energy. Must comply with the Illinois Energy Conservation Code. 10) Environmental Compliance. The following items shall be submitted with the proposal: a. Narrative. Describe your team\u2019s approach to environmental compliance and the proposed management program to be used for the tracking, management and compliance of all environmental issues. Develop a detailed environmental compliance plan identifying all environmental and construction type permits required, primary office having jurisdiction, general description of requirements, processing time and potential impact on project schedule. Plan shall clearly address the following areas: i. Permit Application and Compliance Testing ii. Hazardous Material Identi\ufb01cation & Management iii. Hazardous Waste Management & Disposal b. Tracking System. Contractor shall provide any forms and/or systems used to effectively manage these requirements throughout the life of the project c. Utilization of Recycled Materials. Clearly de\ufb01ne any recycled materials to be used. Provide all manufacturers\u2019 catalog and per"
+},
+{
+"id": "2a1672db00",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 42 10",
+"csi": "004210",
+"title": "SUBMISSION REQUIREMENTS AND",
+"text": "terials. Clearly de\ufb01ne any recycled materials to be used. Provide all manufacturers\u2019 catalog and performance information in order to clearly assess its limitations and applicability. Ensure information clearly de\ufb01nes the amount of recycled materials being used and their proposed use. Consideration for the use of recycled materials will be given. E. Volume 4 1) Deviations and Betterments a. Deviations. Provide a written narrative to clearly de\ufb01ne what the proposed deviation from the scope of work is and whether or not it will result in an increase or reduction of the overall project cost. DO NOT include any costs in this narrative. All cost information associated with a proposed deviation should be included in the Design-Build Pricing Schedule in the space provided for Deviations. b. Betterments. Provide a written narrative to identify what Betterments (if any) are included in the proposal. DO NOT April 2026 34 CDB 830-030-167 INCLUDE any costs for the Betterments in this narrative. All cost information for the proposed Betterments should be included in the Design-Build Pricing Schedule in the space provided for Betterments. April 2026 35 CDB 830-030-167"
+},
+{
+"id": "21891a5a9c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 00",
+"csi": "005100",
+"title": "PROPOSAL EVALUATION AND AWARD",
+"text": "SECTION 00 51 00 \u2013 PROPOSAL EVALUATION AND AWARD .1 The CDB intends to award a contract to the offeror deemed responsive and responsible in accordance with applicable statutory requirements and administrative rules, and whose proposal conforms to the RFP's requirements and receives the highest overall ranking from the Selection Committee. .2 The source selection process will be conducted in two phases as authorized in the Design-Build Procurement Act (30 ILCS 537/1 et seq.). There will be two separate evaluations made. A. Under Phase I, past performance and technical capabilities will be evaluated. B. If fewer than two (2) proposals are received for Phase I, CDB will not review the proposals, but will return them unopened to the offeror. CDB will then decide whether to withdraw the project or re-advertise it. C. Following the review, evaluation, and rating of the Phase I proposals, the CDB may select no less than two (2), but no more than six (6), of the highest rated Offerors to submit the Phase II technical and cost proposals for consideration by the CDB. If fewer than two (2) Phase I proposals are deemed acceptable for Phase II selection, CDB may withdraw the project or re-advertise it. D. Phase II evaluation criteria and weighting factors are provided, however, the CDB reserves the right to amend the criteria and/or weighting factors by addendum. .3 The offerors\u2019 proposals, for those who submit proposals for both Phase I and Phase II, are de\ufb01ned as all information that was submitted in response to the requirements of both phases of the RFP. .4 Offerors are reminded to include their best technical and price terms in their initial offer. .5 Noncompliance with the RFP re"
+},
+{
+"id": "326fce31d3",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 00",
+"csi": "005100",
+"title": "PROPOSAL EVALUATION AND AWARD",
+"text": "nclude their best technical and price terms in their initial offer. .5 Noncompliance with the RFP requirements may raise serious questions regarding an offeror\u2019s technical and/or cost performance and may be grounds to eliminate the proposal from consideration for contract award. Failure to include all information requested may adversely affect the evaluation and/or result in elimination from the competition. .6 A proposal that merely reiterates or promises to accomplish the requirements of the RFP will be considered unacceptable. A proposal that is orderly and sufficiently April 2026 36 CDB 830-030-167 documented will be easy for the CDB to understand and will enable the CDB to perform a thorough and fair evaluation. .7 The CDB will conduct proposal compliance review after the submittal closing date for determination of basic proposal adequacy prior to providing the proposals to the evaluators. Failure to provide a complete proposal (all required Volumes) may result in the proposal being removed from further consideration for award. .8 Although the assessment of past performance as a speci\ufb01c evaluation factor is separate and distinct from the determination of responsibility, past performance information obtained herein will be used during the CDB\u2019s responsibility determination. The CDB also reserves the right to obtain additional information solely for the purpose of making a responsibility determination from all offerors after receipt of proposals. Request for responsibility information does not constitute discussions. .9 The CDB intends to evaluate proposals and award a contract, based on the content of submittals received, without discussions with offerors. CDB will co"
+},
+{
+"id": "56d49bf82c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 00",
+"csi": "005100",
+"title": "PROPOSAL EVALUATION AND AWARD",
+"text": "ontract, based on the content of submittals received, without discussions with offerors. CDB will conduct interviews for offerors selected to advance into the Phase II evaluation process. .10 The CDB reserves the right the conduct interviews in accordance with CDB Rules and Regulations and this RFP; however no changes to the proposal can be made through the interview process. .11 The proposal must set forth full, accurate and complete information as required by this RFP. The CDB will rely on such information in the award of a contract. By submission of the offer, the Offeror agrees that all items proposed (if applicable, e.g., key personnel, subcontractors, plans, etc.) will be utilized for the duration of the contract and any substitutions will require prior CDB approval. April 2026 37 CDB 830-030-167"
+},
+{
+"id": "87c3ef8598",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "SECTION 00 51 01 \u2013 PHASE I EVALUATION .1 General A. Weighting of Factors. Weighting criteria shall be disclosed in a project-speci\ufb01c basis, by a table attached to the RFP. B. The evaluation will include, but is not limited to, the following: 1) Experience of personnel assigned to the project; 2) Successful experience with similar project types; 3) Financial capacity; 4) Timeliness of past performance; 5) Experience with similarly sized projects; 6) Successful reference checks; 7) Commitment of assigned personnel for the duration of the project and quali\ufb01cations of the entity\u2019s consultants; 8) Past performance and ability in meeting or exhausting good faith efforts to meet the utilization goals for business enterprises established in the Business Enterprise for Minorities, Women and Persons with Disabilities Act and with Section 2-105 of the Illinois Human Rights Act. C. Evaluators will consider current and trends of the performance information while conducting the performance evaluation. D. The offeror\u2019s submitted experience and professional data for their intended designer(s) and subcontractor(s) for design and any major system shall obligate the offeror to perform this work with the subcontractor(s) or \ufb01rm(s) evaluated, unless an acceptable substitution is otherwise approved by the CDB. E. This submittal shall not exceed \ufb01fty (50) pages. CDB will evaluate only the information contained in the \ufb01rst \ufb01fty (50) pages per this section. .2 Experience of Personnel Assigned to the Project A. Include only personnel who will be active participants on this project team. B. Preference will be given to experience with current \ufb01rm. However, if experience with current \ufb01rm is limited, "
+},
+{
+"id": "1e6e0fe799",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "e will be given to experience with current \ufb01rm. However, if experience with current \ufb01rm is limited, experience with previous \ufb01rms will be considered. C. Experience must include experience relevant to position on this project team. D. Design Build experience of team members may receive a greater consideration. Include experience where a design-build team has worked together on previous design-build projects. E. Of particular interest is the experience and quali\ufb01cations of both the designer(s) and sub-contractor(s). Failure of an offeror to demonstrate that all lead design April 2026 38 CDB 830-030-167 personnel are registered and/or certi\ufb01ed in their discipline may adversely affect the evaluation. F. At a minimum the discussion must adequately address the project manager; the project architect; the engineers responsible for civil, electrical, mechanical, \ufb01re protection, communication systems and structural design; the quality control manager; LEED documentation facilitator and the construction manager and/or project superintendent. .3 Past Performance A. General 1) The past performance proposal is limited to twenty-\ufb01ve (25) pages. 2) List at least \ufb01ve (5) projects in the past ten (10) years. 3) An offeror with no, or limited, past performance may receive ratings based on the evaluation of its predecessor companies, key personnel, and/or subcontractors. These ratings may not have the same weight as the ratings of the proposing company. 4) CDB may contact the points of contact indicated for additional information and to assure validity of the received questionnaires. The CDB may contact sources other than those provided by the offeror for information with respect to past per"
+},
+{
+"id": "bfdf6998f4",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "ay contact sources other than those provided by the offeror for information with respect to past performance. These other sources may include, but are not limited to interviews, telephone interviews, and CDB personnel with personal knowledge of the offeror\u2019s performance capability. The CDB reserves the rights to obtain and evaluate past performance information from any source it deems appropriate. 5) The CDB may take into account past performance information regarding predecessor companies, key personnel who have relevant experience or subcontractors that will perform major or critical aspects of the requirement when such information is relevant to this project. If multiple subcontractors are provided for the same discipline the CDB will use the lowest rated subcontractor in the evaluation. The evaluation will also consider information provided relative to corrective actions taken to resolve problems on past or existing contracts. 6) Current performance that which occurred within the past \ufb01ve (5) years prior to the RFP release date. Within this period, performance that occurred later in the period may have greater signi\ufb01cance than work that occurred earlier in the period. Projects that are not current will not be considered in the evaluation. B. Experience in Project Type. Weight will be given to the following: April 2026 39 CDB 830-030-167 1) Previous experience, as well as experience on design-build, higher education campus projects, and LEED Platinum and/or Net Zero facilities. 2) Similarity of the client type. 3) Location at which work was performed. 4) Construction methods. 5) Complexity of work. C. Record of On-Schedule performance 1) Contractor will be evaluated on"
+},
+{
+"id": "0ada9600a8",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "hods. 5) Complexity of work. C. Record of On-Schedule performance 1) Contractor will be evaluated on meeting the original contracted schedule for each listed project. 2) If delays were outside contractor\u2019s control, please explain (do not exceed the page limit). 3) Resolved delays in an expeditious manner. 4) Identi\ufb01cation/correction of de\ufb01cient work in a timely manner. 5) Provided submittals in a timely manner. 6) Timely completion of punch-list items. 7) Timely submission of close out documents. 8) Contractor provided timely and satisfactory response to warranty issues after project completion. 9) Assessment of liquidated damages (frequency, circumstances, severity of problem, etc.). D. Experience with Similarly-Sized Projects 1) Greater weight will be given to projects of similar size, complexity and value. 2) Project scope. 3) Square footage, HVAC size, other project-speci\ufb01c factors. .4 Financial Capability A. Bonding Capacity B. Insurance C. Bank References .5 Successful Reference Checks A. Contractor must request references for all projects listed. B. All reference checks are part of the submittal package. C. Greater weight will be given to similar projects which most closely resemble the project identi\ufb01ed in this RFP in type, magnitude, complexity, cost, design or features and scope will receive the highest consideration. D. Based on the contractor\u2019s overall performance, how willing is the customer to re- hire the offeror. April 2026 40 CDB 830-030-167 E. Quality Control (QC) (Design and Construction) 1) Quality of Workmanship 2) Adequacy of the Contractor QC 3) Adequacy of Materials 4) Adequacy of Submittals 5) Adequacy of \u201cAs-Builts\u201d .6 Collaborative, Teaming, Pro"
+},
+{
+"id": "bfc929bdac",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "acy of Materials 4) Adequacy of Submittals 5) Adequacy of \u201cAs-Builts\u201d .6 Collaborative, Teaming, Problem Solving Attitude A. General Business Practices 1) Contractor to provide experienced managers, and supervisors with the technical and administrative abilities needed to meet contract requirements. 2) Contractor shall cooperate to resolve problems, attend meetings (as applicable) and maintain communication to assure satisfactory resolution. 3) The contractor shall submit proposals that accurately represented the work required. 4) The CDB will evaluate the implementation plans for utilizing \u201cfast track\u201d procedures this project. Offeror must demonstrate a suitable understanding of the process and adequately address any anticipated risks associated with Design-build processes. 5) The proposal shall demonstrate adequate office capabilities for ensuring proper administration of a project of this magnitude and complexity. 6) The extent of the offeror\u2019s office capabilities for using BIM (Building Information Modeling), speci\ufb01cally REVIT, and other forms of automation on this project as well as capabilities for project scheduling will be considered. B. Subcontractor Management 1) History of hiring experienced subcontractors. 2) History of paying subcontractors/suppliers in a timely manner 3) Proposal provides a detailed and adequate discussion of the proposed organization and the roles and responsibilities of the various sub- contractors for both design and construction. C. Site Management/Superintendent/Designer Involvement 1) Management team shall ensure compliance with contract requirements & safety regulations. 2) Management team shall act promptly to resolve problems and en"
+},
+{
+"id": "df634acf88",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": " requirements & safety regulations. 2) Management team shall act promptly to resolve problems and ensure work quality. April 2026 41 CDB 830-030-167 3) Site Management team has sufficient authority to make decisions or take actions during project performance. 4) Site manager/Superintendent present on site when work is performed providing adequate on-site supervision. .7 Meeting MBE/WBE/VBE Goals on prior projects A. Workforce goals. B. Utilization goals. C. Community outreach. D. Individual \ufb01rms\u2019 (offeror, listed subcontractor, listed A/E \ufb01rm) performance in meeting goals on previous CDB projects. .8 MBE/WBE/VBE/PBE PHASE I UTILIZATION PLAN A. Demonstrate intent to comply with 00 42 10.3B. Full compliance to be demonstrated prior to commencement of the work. B. Evaluation of Proposed Utilization Plan: MBE/WBE/VBE/PBE Utilization Plan Exceeds stated goals by 30% or more Maximum Points Exceeds stated goals by 25% or more Maximum Points x 2/3 Meets but does not exceed goals Maximum Points x 1/3 Meets at least 75% of the goals Maximum Points x 1/4 .9 Other past performance considerations: The CDB may also consider the following issues when evaluating an offeror's past performance. A. Effectiveness of prior value engineering change proposals (impact on reducing cost or schedule, increasing efficiency or improving quality). B. Professional/Industry Awards. C. Letters of appreciation, recognition or commendation, etc., received on behalf of a customer may be submitted. The CDB will consider up to \ufb01ve (5) such documents. D. Unique skills and accomplishments. E. Prior contract terminations. F. Adherence to Design Build Statements of Work and/or accepted proposal to include betterm"
+},
+{
+"id": "293e779054",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 01",
+"csi": "005101",
+"title": "PHASE I EVALUATION",
+"text": "nations. F. Adherence to Design Build Statements of Work and/or accepted proposal to include betterments. April 2026 42 CDB 830-030-167 G. Other data provided by the offeror, which is not required, or other data available to the CDB may also be considered when evaluating an offeror. April 2026 43 CDB 830-030-167"
+},
+{
+"id": "528004c9bf",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "SECTION 00 51 02 \u2013 PHASE II EVALUATION .1 General A. The CDB reserves the right to reject any or all proposals at any time prior to award; to award a contract to other than the offeror submitting the lowest priced offer; and to award a contract to the offeror submitting the proposal determined to be the most advantageous to the CDB. B. It is the CDB\u2019s goal to award the project within its design build cost limitation as listed in Section 00.21 15.6. Signi\ufb01cant variation from this amount could result in the CDB\u2019s inability to award based on lack of funding authority. 1) Offerors are expected to provide a means by which they can deliver the project at or near the published budget amount. 2) A proposal where the Base Bid plus Deviations (Line 18 on the Pricing Schedule) exceeds the published budget by more than 10% will be considered to be materially de\ufb01cient and the proposal will be rejected. C. If, because of reasons beyond the control of management, the original key design and/or contractor positions are not able to ful\ufb01ll this obligation, replacement personnel with same or exceeding the education and experience shall be provided to the CDB for acceptance. D. Requirements stated in this RFP are minimum requirements. Innovative, creative, or cost saving proposals that meet or exceed these requirements are encouraged and will receive consideration accordingly. Deviations from space and adjacency requirements are discouraged unless the change results in a signi\ufb01cant improvement to the facility. Deviations from any requirements should be clearly noted and justi\ufb01ed in the proposal. E. Items offered by the proposal, exceeding or deviating from the RFP minimum requirements, shall"
+},
+{
+"id": "c7254115ea",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "l. E. Items offered by the proposal, exceeding or deviating from the RFP minimum requirements, shall be clearly identi\ufb01ed as a \u201cBetterment\u201d or \u201cDeviation\u201d and noted on the drawings and included in the schedule as appropriate. The following applies to all the Technical Data proposal requirements. 1) Betterments. Betterments must be listed separately for each of the elements. If provided, the offeror will be evaluated on the priority and number of Betterments proposed. Higher evaluations will be assigned based on the value and CDB\u2019s evaluation of the desirability of Betterments proposed. The CDB reserves the right to accept or reject a Betterment based on desirability and project needs. The CDB reserves the right to accept or reject any Betterment without discussion. April 2026 44 CDB 830-030-167 2) Deviations. The Offeror shall provide a list of all other deviations, deemed necessary by the Offeror to achieve cost limitations or meet statutory requirements, and/or deemed mandatory due to technical \ufb02aws in the RFP (i.e. performance, structural integrity, safety, maintainability, applicable code requirements, etc) in order to deliver the intended basic requirements of the RFP. Offerors who desire to propose deviations for CDB consideration should \ufb01rst propose the requirement as speci\ufb01ed in the CDB documents. Each deviation shall include an explanation of why the Offeror believes the deviation is necessary costs and or credits, by item, shall be listed by the offeror as an option addendum to the price schedule in the RFP. Reference the Design-Build Pricing Schedule \u2013 DBPS included with the RFP. F. Pre-award value engineering: Innovative, creative, or cost saving proposals tha"
+},
+{
+"id": "2f6b5af51c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "ded with the RFP. F. Pre-award value engineering: Innovative, creative, or cost saving proposals that meet or exceed these requirements are encouraged and will receive consideration accordingly. Offerors who desire to propose alternatives for CDB consideration are encouraged to do so, but should \ufb01rst propose the requirement as speci\ufb01ed in the CDB documents. Each alternative shall include an explanation of what the bene\ufb01ts are and why the Offeror believes the alternative is in the best interest of the CDB. Costs and or credits, by item, shall be listed by the offeror as an option addendum to the price schedule in the RFP. Reference the Design-Build Pricing Schedule \u2013 DBPS included with the RFP. Acceptance of these proposed options will be at the sole discretion of the CDB. G. Data listed in the instructions provided for Technical Evaluation Criteria will be utilized for technical review and evaluation. 1) The Technical Evaluation Criteria will include, but is not limited to, the following: a. Compliance with objectives of the project; b. Compliance of the proposed services to the RFP requirements; c. Quality of products or materials proposed; d. Quality of design parameters; e. Design concepts; f. Innovation in meeting the scope and performance criteria; and g. Constructability of the proposed project. 2) The CDB will evaluate the potential of the Offeror\u2019s approach to successfully meet RFP requirements. The Proposal will be evaluated for inclusion of all tasks identi\ufb01ed in the proposal requirements detailed in Section 00 42 10. 3) To be considered effective, the approach will, at a minimum, demonstrate: April 2026 45 CDB 830-030-167 a. Understanding of the Design-Build re"
+},
+{
+"id": "a4c8164f63",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "ll, at a minimum, demonstrate: April 2026 45 CDB 830-030-167 a. Understanding of the Design-Build requirements of the RFP; b. Use of sound design-build principles; c. Compliance with the engineering criteria; and d. Use of sound engineering principles. 4) Materials indicated in the design/construction criteria Bridging Documents but not indicated in the offeror's speci\ufb01cations, will be assumed to be included and a part of the proposal. Do not depict items that are not part of the offer. H. Cost Evaluation Criteria 1) The Cost Evaluation Criteria will include the following: a. Total project cost; b. Construction costs; and c. Time of completion. 2) The total project cost will account for 25% of the Phase II scoring criteria, which includes technical evaluation criteria. .2 COMPLIANCE WITH OBJECTIVES. The CDB will ascertain whether the offeror has demonstrated a functionally integrated understanding of the project as detailed below. A. Project Management Plan. This information will be evaluated in terms of the degree to which the plan demonstrates the soundness of the Offeror\u2019s proposed organization and management structure that will be set up for controlling this project 1) The overall plan must demonstrate how the offeror will control the job. The evaluation will consider: a. lines of authority/responsibility and communications; b. means by which quality control will be ensured during the life of the project (design and construction); c. safety management; d. facilitation of early identi\ufb01cation and resolution of problems; e. ability to respond promptly to changes; f. handling of warranty issues; and g. corporate support. 2) Sufficient detail will have been provided so the"
+},
+{
+"id": "b736b67261",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "ng of warranty issues; and g. corporate support. 2) Sufficient detail will have been provided so the CDB has a clear understanding of the offeror\u2019s intended performance and shall take into consideration the material provided in the technical data proposal. Project Management Plans will be evaluated for inclusion of all tasks identi\ufb01ed in the Project Management Plan submittal requirements detailed in Section 00 42 10. April 2026 46 CDB 830-030-167 3) The ability of the Offeror\u2019s plan to deliver a quality product and effectively manage the construction team and coordinate all work throughout the design and construction phase of this project will be evaluated. Higher evaluation ratings can be achieved with a thoroughly detailed Project Management Plan suitable for the scope and complexity of this project, and which addresses each of the following at a minimum: a. Organization and Personnel; b. Sub-Contractor Management; c. Quality Control Procedures; d. Safety Procedures; e. Risk assessment of factors; and f. Mitigation plan (may impact budget, quality, or schedule). 4) Procedures for contract closeout (Punch list, as-builts etc). 5) The CDB may favorably consider proposals that demonstrate that decision authority for change orders and negotiations have been delegated to the on-site project manager. 6) The CDB may favorably consider offers that propose a representative of the design \ufb01rm (designer of record) be present on-site during the entire construction phase. B. Planned Safety Activities: Provide a summary of the proposed Safety plan including: 1) Plans for training and documentation. 2) Demonstrated familiarity with and adherence to OSHA standards. 3) Describes steps ta"
+},
+{
+"id": "fe75608f86",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "cumentation. 2) Demonstrated familiarity with and adherence to OSHA standards. 3) Describes steps taken to promote safety during construction. 4) Explains plans to maintain an accident-free worksite. C. Design and Construction Schedule. The proposal shall include a schedule that logically details task and timing of the work effort and provides a realistic projection of project events, accomplishments, and criteria and the expected dates of each. 1) The schedule will provide clear tracks for design, technical, schedule, management, etc, and the relationship between them and will be presented in a way that provides CDB the con\ufb01dence that the project is structured to be executable for the resources indicated. 2) Each major task is directly traceable to the requirements of the project. 3) If proposed, the offeror has provided an integrated Design and Construction Schedule with all \u201cFast Tracking\u201d areas clearly identi\ufb01ed. 4) To be acceptable the schedule must show total completion of the project within the time frame indicated in Section 00 42 10.3.C above or as April 2026 47 CDB 830-030-167 amended. If an alternate schedule is proposed, the alternate schedule must have measurable and desirable bene\ufb01ts. 5) Positive consideration will be given to a schedule that provides bene\ufb01t to the CDB. .3 COMPLIANCE WITH PROPOSAL REQUIREMENTS: PROJECT KEY PERSONNEL. Minimum quali\ufb01cations and registration requirements are needed. Offeror must demonstrate compliance with the RFP instructions. A. Personnel of primary teaming partners will be recognized and evaluated in the same manner as personnel of the Offeror. B. Design and Construction Personnel. 1) Experience on similar projects, educatio"
+},
+{
+"id": "b263610929",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "el of the Offeror. B. Design and Construction Personnel. 1) Experience on similar projects, education, professional certi\ufb01cation/registration, responsibilities/duties, and years of experience will be evaluated for the key design personnel identi\ufb01ed. Offerors with key design personnel with prior experience on similar design projects and/or completion of design-build projects of similar scope and magnitude may receive a more favorable evaluation. 2) The Project Manager may receive a more favorable evaluation based upon experience with Design-build and/or teaming with the prime construction contractor. .4 QUALITY A. Quality Of Materials. Ensure the quality of the materials and equipment proposed meet or exceed the quality required by the RFP. B. Quality Of Design Parameters 1) Details meet or exceed quality of design intent. 2) Design intent of bridging documents is met or exceeded. 3) Procedures for compliance with local codes as required. C. Quality Control Plan. The Quality Control Plan along with a narrative shall provide a schedule of monitoring to ensure a high level of construction quality. 1) The plan addresses the minimum requirements of Technical Speci\ufb01cations Section 01440 \u2013 Contractor Quality Control (furnished with the Phase 2 RFP package) entitled \"Contractor Quality Control Design-build.\" 2) Proposal provides adequate discussion of the Contractor Quality Control activities that meet the requirements of special contract requirements and speci\ufb01cations. 3) Proposal provides a narrative of the explanation of the Contractor Quality Control activities that meet the special contract requirements and April 2026 48 CDB 830-030-167 speci\ufb01cations. To be favorably rated t"
+},
+{
+"id": "5cec82f2ce",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "ecial contract requirements and April 2026 48 CDB 830-030-167 speci\ufb01cations. To be favorably rated the offeror's program will include the following characteristics: a. A clear identi\ufb01cation of the personnel responsible for quality control and a clear policy establishing their authority. The quality control group shall be separate and apart from (not the same as) the people that are doing the construction. b. A speci\ufb01c description of the tasks and functions of the quality control personnel. c. A speci\ufb01c policy establishing schedules for the performance of quality control tasks. d. A policy for reporting quality control \ufb01ndings to the CDB. e. A procedure whereby the CDB may resolve disputes that have not received satisfactory responses from the \ufb01rst levels of quality control personnel. f. A plan for material storage and protection. g. The names of acceptable testing laboratories to be used and the procedures for test data reporting. h. Proposed processes for handling \ufb01eld problems and assuring Designer of Record involvement throughout the construction period are detailed and adequate. Particular attention will be paid to the inclusion of the major construction subcontractors during the design process as well as the de\ufb01nition of the roles and responsibilities of the various subcontractors. i. An adequate plan for review, evaluation, and Offeror Quality Control of the Design Submittals prior to CDB receipt. Review of submittals and extensions of design are discussed. Of particular interest is the role of the Designer of Record in all design and construction progress. .5 DESIGN CONCEPTS. Shall provide adequate procedures for involving Key Subcontractors in the design developme"
+},
+{
+"id": "174421044c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "CONCEPTS. Shall provide adequate procedures for involving Key Subcontractors in the design development. .6 INNOVATION IN MEETING SCOPE AND PERFORMANCE CRITERIA. Improvements or betterments, if accepted, will be factored into the rating of this parameter. .7 CONSTRUCTABILITY A. This criterion will be evaluated on the offeror\u2019s explanation of why certain construction methods were chosen and the Bridging A/Es evaluation of the following items. April 2026 49 CDB 830-030-167 B. Use of standard details. C. Coordination between trades. D. Use of readily available materials and equipment. E. Use of industry standard construction and installation methods. F. Site access plan. G. Hoisting plan. H. Other items as noted by the Bridging A/E. .8 MBE/WBE/VBE PLAN A. Demonstrate intent to comply with 00 42 10.3B. Full compliance to be demonstrated prior to commencement of the work. B. Workforce PC-2 Goals. PC-2 workforce projections must be included in Volume 1 of the Phase II proposal at the time of submission. Following the Authorization to Proceed (ATP) and prior to the commencement of work, utilization plans shall be evaluated by the designated agency personnel for acceptability. To be acceptable the plan must adequately address the required statutory elements set forth in SD-DB sections 00 43 38 and 00 43 39. C. Evaluation of Proposed Utilization Plan: MBE/WBE/VBE Utilization Plan and PC-2 Points Exceeds stated goals by 30% or more Maximum Points Exceeds stated goals by 25% or more Maximum Points x 2/3 Meets but does not exceed goals Maximum Points x 1/3 Meets at least 75% of the goals Maximum Points x 1/4 Fails to meet at least 75% of the 0 points goals .9 PHASE II- COST EVALUATION"
+},
+{
+"id": "b47849405c",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "s Maximum Points x 1/4 Fails to meet at least 75% of the 0 points goals .9 PHASE II- COST EVALUATION A. General: The purpose of the price/cost evaluation is to determine whether an offeror's proposed prices/costs for the project are reasonable and realistic in relation to the RFP requirements and demonstrate an offeror understands the proposal requirements. 1) Any offer (proposal) received that exceeds the CDB budget amount may result in proposal rejection without discussion and without being evaluated or considered for award. 2) At a minimum, the proposal cost breakdown, must be broken down and submitted by utilizing the Design-Build Pricing Schedule included April 2026 50 CDB 830-030-167 with this RFP. If the Offeror chooses to provide greater detail it must be in addition to this required format. 3) The CDB will conduct a price/cost evaluation of each offeror's proposal to determine whether or not each proposal is reasonable and realistic. Proposals unrealistically high or low in price, when compared to the CDB estimate, and market conditions evidenced by other competitive proposals received, may be indicative of an inherent lack of understanding of the RFP requirements and may result in proposal rejection without discussion. Any inconsistency, whether real or apparent, between proposed performance and price must be clearly explained in the price proposal. For example, if unique and innovative approaches or conditions are the basis for an unbalanced/inconsistently priced proposal, the nature of these approaches and their impact on price must be completely documented. The burden of proof of cost (Price) realism rests solely with the offeror. 4) In evaluating cost propos"
+},
+{
+"id": "6bd7a0b420",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": " burden of proof of cost (Price) realism rests solely with the offeror. 4) In evaluating cost proposals, cost savings to the State of Illinois, outside the cost of the project, arising from an acceptable innovative technical approach such as those resulting from a reduction in the project schedule, may be favorably rated. 5) Proposals evaluated as not satisfying all of the price/cost criteria may be eliminated from further consideration unless the CDB determines that a minor clerical error has occurred, and then the offeror may, at CDB\u2019s discretion, be given an opportunity to correct the minor error. 6) In the event the CDB does not award a contract pursuant to this RFP within 90 calendar days after receipt of proposals, CDB reserves the right to allow offerors to make an adjustment in their price proposals to allow pricing adjustments caused by \ufb02uctuating construction material market conditions. CDB will notify Offerors, normally by email, of a common closing date for receipt of the adjusted price proposals. No additional proposal revisions will be allowed under these conditions. B. Cost Evaluation Scoring 1) The total project cost will account for 25% of the Phase II scoring criteria, which includes the technical evaluation scoring criteria. The DB Weighted Scoring Criteria provides a breakdown of the maximum points for each category. 2) Price points for the cost evaluation criteria will be calculated using the following formulas: a. Total Project Cost Points April 2026 51 CDB 830-030-167 Lowest Total Project Cost Maximum Points X Offeror\u2019s Total Project Cost b. Construction Cost Points Offeror\u2019s % of Construction Costs relative to Total Project Cost Maximum Points X Hi"
+},
+{
+"id": "c25373acbc",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "ion Cost Points Offeror\u2019s % of Construction Costs relative to Total Project Cost Maximum Points X Highest % of Construction Costs relative to Total Project Cost c. Time of Completion Points Meet or exceed schedule Maximum Points Failed to meet schedule Maximum Points x 2/3 Failed to address schedule Maximum Points x 1/3 .10 INTERVIEW A. CDB will give offerors selected for review of Phase II proposals an opportunity to further the CDB\u2019s understanding of the information contained in their written proposals. These interviews will be held on the date speci\ufb01ed in Section 00 21 16.G. Design-build entities selected for an interview will be noti\ufb01ed in writing on the date and time of the interview. The interviews will be held at Capital Development Board 555 Monroe St., 8th Floor Chicago, Illinois 60661 B. One hour and thirty minutes will be allowed for the interview as follows: April 2026 52 CDB 830-030-167 1) Sixty (60) minutes for the team presentation 2) Thirty (30) minutes for questions and answers. 3) Equipment may be brought to the presentation location without prior approval of the CDB. 4) CDB will will provide either a projector and screen or \ufb02atpanel display for the presentation but all other equipment will be the responsibility of the DB Entity (i.e., projector, lap top computer, etc.) C. Offerors are cautioned that all information provided, regardless of the format, shall be considered as proposal information, and used in the evaluation process, unless speci\ufb01cally excepted in writing by the offeror or the CDB. D. The interview will provide the offeror with the opportunity to brie\ufb02y explain any speci\ufb01c documentation presented, to highlight the special features and signi"
+},
+{
+"id": "9635cc90ad",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 02",
+"csi": "005102",
+"title": "PHASE II EVALUATION",
+"text": "y to brie\ufb02y explain any speci\ufb01c documentation presented, to highlight the special features and signi\ufb01cant technical points of their proposal, and to identify the bene\ufb01ts of the offeror\u2019s technical data proposal. Betterments or alternatives that the offeror has included in their proposal should be discussed in detail (excluding any cost implications). .11 AWARD A. The CDB will award a \ufb01rm \ufb01xed-price contract to that responsible Offeror whose proposal contains the combination of those criteria described in this RFP offering the best overall value to the CDB. Best value will be determined by a comparative assessment of proposals against all source selection criteria in this RFP. B. A written award or acceptance of offer mailed, or otherwise furnished to the successful offeror within the time for acceptance speci\ufb01ed in the offer shall be deemed to result in a binding contract without further action by either party. This contract is subject to the written approval of CDB and the Chief Procurement Officer (CPO) and shall not be binding until so approved. April 2026 53 CDB 830-030-167"
+},
+{
+"id": "0a24b4ad7b",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 24",
+"csi": "005124",
+"title": "AMENDMENTS",
+"text": "SECTION 00 51 24 \u2013 AMENDMENTS .1 CDB reserves the right to revise or amend the RFP, speci\ufb01cations, and/or drawings, including changes to the date the proposal is due. Such changes, if any, will be announced by an amendment or amendments to this Request for Proposal. All information relating to this RFP, including pertinent changes/amendments and other applicable information will be posted a minimum of three (3) days prior to the date set for receipt of proposals in CDB\u2019s volume of the Illinois Procurement Bulletin available on the CDB website: Construct a Drug Discovery and Cancer Research Pavilion - University of Illinois Chicago. Though every effort will be made to provide email noti\ufb01cation when a change is posted, such noti\ufb01cation is NOT guaranteed and should not be expected. Offerors are strongly cautioned to check this site frequently to ensure they have the latest information. .2 Receipt of an amendment by the offeror must be acknowledged in the space provided on the Proposal Transmittal Form (DB-PTF) in accordance with Section 00 51 24 of the Standard Documents for Design-Build Projects. Explanations or instructions given in a form other than an amendment to the RFP shall not be binding. April 2026 54 CDB 830-030-167 LIST OF ATTACHMENTS 1. PROPOSAL TRANSMITTAL FORM (DB-PTF) (Offeror completes and submits with Phase I and Phase II proposals.) 2. Design-Build Pricing Schedule (DBPS) (Offeror completes and submits with Phase II proposal.) 3. Standard Business Terms and Conditions and Standard Certi\ufb01cations (Offeror completes and submits with Phase I and Phase II proposals.) 4. Financial Disclosures and Con\ufb02icts of Interest (Offeror completes and submits with Phase I a"
+},
+{
+"id": "4de741d0d6",
+"doc": "00_830-030-167_Request_for_Proposals_-_FINAL.pdf",
+"section": "SECTION 00 51 24",
+"csi": "005124",
+"title": "AMENDMENTS",
+"text": "ls.) 4. Financial Disclosures and Con\ufb02icts of Interest (Offeror completes and submits with Phase I and Phase II proposals.) 5. DESIGN-BUILD ENTITY QUALIFICATIONS FORM and Instruction (DBQ) (Offeror completes and submits with Phase I proposal.) 6. Past Performance Evaluation Questionnaire (DB-PPEQ) (To be sent by the Offeror to each reference. References submit directly to CDB.) 7. MBE/WBE/VBE/PBE Phase I Utilization Plan (Offeror completes and submits with Phase I proposal.) 8. MBE/WBE/VBE/PBE Phase II Utilization Plan (Offeror completes and submits with Phase II proposal.) 9. PC-2 Workforce Projection (Offeror completes and submits with Phase II proposal.) 10. Selection Criteria Weighting 11. Bid Bond (Offeror completes and submits with Phase II proposal.) 12. Supplement to SD-DB 3/2017 13. Project Labor Agreement 14. Offeror Submittal Checklist 15. DDCRP Final Deliverable (Bridging Document) 16. DDCRP Acoustic Adjacency Isolation Matrix April 2026 55 CDB 830-030-167"
+},
+{
+"id": "0202be930f",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "Front matter",
+"csi": null,
+"title": "",
+"text": "DIVISION 1 - GENERAL REQUIREMENTS 01 11 01 \u2013 Supplement to SD-DB The Standard Documents for Construction and Standard Documents for Construction for Projects with a Construction Manager are hereby changed. The following articles replace those in the 2006 and 2009 editions. All other articles remain applicable."
+},
+{
+"id": "75f6a1088d",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 21 05",
+"csi": "002105",
+"title": "PREQUALIFICATON",
+"text": "00 21 05 PREQUALIFICATON .7 Single Prime Delivery Method Projects. The protected subcontractors, as identified on Document 00 41 00 bid form, shall be prequalified with CDB under the same requirements listed in 00 21 05 .1 -.6 for the bidder."
+},
+{
+"id": "0a4e5dea00",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 21 50",
+"csi": "002150",
+"title": "WORK WITH OWN STAFF",
+"text": "00 21 50 WORK WITH OWN STAFF .1 General. For Single Prime Delivery Method Projects: The Prime Bidding Contractor and the designated protected subcontractors shall perform the work at the site employing not less than the following amount of its own forces. For purposes of this Article, the work includes direct labor and supervision, as well as material purchases where the material is installed by the Prime Bidding Contractor/Protected Subcontractors. A. When General Trade is the Prime Bidding Trade: The General trade shall perform 20% of the following amount: total value of awarded amount less total value of designated protected trade work identified on the bid form, and less the cost of CAF, insurance and bonds. Each designated protected trade work: 40% of the value of the respective designated protected trade work identified on the bid form. B. When a trade other than the General is the Prime Bidding Trade: the Prime Bidding Trade shall do 40% of the following amount: total value of awarded amount less total value of designated protected trade work identified on the bid form, and less the cost of CAF, insurance and bonds. Each designated protected trade work: 20% of the value of the General Trade work, and 40% of the value of the remaining respective designated protected trade work identified on the bid form. .2 Subcontractors and Suppliers C. Subcontract/Supplier Disclosure. The Contractor shall submit with his/her bid the names and CDB issued identification (ID) numbers (prequalification ID number or registration ID number), if known, of all first tier subcontractors and suppliers with a subcontract value greater than $50,000 to be utilized by the Contractor in the per"
+},
+{
+"id": "6c398829e8",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 21 50",
+"csi": "002150",
+"title": "WORK WITH OWN STAFF",
+"text": " suppliers with a subcontract value greater than $50,000 to be utilized by the Contractor in the performance of this contract and any lower tier subcontractor/supplier with a subcontract value greater than $50,000 and where the subcontractor/supplier is either named in the specifications or is one over whom the Contractor retains the right to approve and/or make payments for work. The subcontract shall include reference for compliance with Illinois Procurement Code 30 ILCS 500/20-120. Financial and Conflict of Interest disclosures and standard certifications for each subcontractor over $50,000 must be submitted to CDB by the contractor within 20 days of the execution of a contract with CDB or 20 days of the execution of the subcontract, CDB- 01 11 01 March, 2017 1 CDB-830-030-167 whichever is later. The Contractor shall promptly notify the State in writing of any additional or substitute subcontractors meeting the above criteria hired during the term of this contract (names, addresses, expected contract amount and CDB ID nos.). Upon request by the CPO, the Contractor shall provide CDB a copy of each subcontractor\u2019s subcontract. No work can be performed by these subcontractors until the Certifications and Disclosures have been reviewed and approved by the State Purchasing Officer."
+},
+{
+"id": "031b596e28",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 21 55",
+"csi": "002155",
+"title": "USE OF ILLINOIS LABOR",
+"text": "00 21 55 USE OF ILLINOIS LABOR .1 30 ILCS 570 mandates that during a period of excessive unemployment at least 90% of the total labor hours on State construction projects must be performed by persons who have resided in Illinois for at least thirty (30) days and intend to become or remain Illinois residents. (30 ILCS 570/3). \u2018A period of excessive unemployment\u2019 means any month immediately following 2 consecutive calendar months during which the level of unemployment in the State of Illinois has exceeded 5% as measured by the United States Bureau of Labor Statistics in its monthly publication of employment and unemployment figures. (30 ILCS 570/1). .2 Contractors are required to incorporate the above provisions into all subcontracts for subcontractors who will have workers at the project site. .3 To verify that this requirement is being met, contractors must submit Certified Payroll forms for themselves and their subcontractors each month for the duration of the contract/subcontract. A. The Certified Payroll form(s) must include the name and address of each worker on the project site during the time period covered by the form. B. For subcontractors, the contractor will include the beginning and ending dates of the subcontract on the Certified Payroll form. C. If Certified Payroll forms are not submitted timely, payment may be reduced or withheld until Certified Payroll submittals are brought up to date."
+},
+{
+"id": "05222d5960",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 30",
+"csi": "004330",
+"title": "BUY ILLINOIS PROGRAM",
+"text": "00 43 30 BUY ILLINOIS PROGRAM .1 General. The Buy Illinois Program encourages contractors to incorporate products manufactured, fabricated or assembled in the State of Illinois. It is a voluntary program; there is no incentive provision affecting the award of the contract nor is there a required percent of the contract that must be Illinois products. .2 Illinois products will be indicated in the project manual with (IL) preceding the item in the specification paragraph. Typically, only specifications that are prescriptive, those listing three or more manufacturers, will be in the program. Contractors should consider these products when procuring the materials and equipment for the project. If the contractor is aware of an Illinois product not listed, the contractor is encouraged to advise the A/E prior to bidding or offer a product substitution with the bid. CDB will verify that the product meets the definition of an Illinois product and add it to CDB\u2019s Buy Illinois product directory. .3 Contractors should provide the total value of Illinois products on the Contractor\u2019s Schedule of Values (CSV) in the space provided. The individual items included in the total should be identified by putting \u201cIL\u201d in front of their descriptions on the CSV. .4 Where material is specified by standards and/codes and not by a list of acceptable manufacturers, contractors are still encouraged to purchase Illinois products. However, the contractor should not include these materials in the computation of the total dollars for Illinois products on the CSV. CDB- 01 11 01 March, 2017 2 CDB-830-030-167"
+},
+{
+"id": "471d181e3d",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "00 43 39 MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION .1 Certification. CDB will only accept Minority and Women and Veteran Business Enterprise (MBE/WBE/VBE) firms certified by the Illinois Department of Central Management Services (CMS) as a MBE or WBE or VBE. The MBE/WBE/VBE\u2019s certification/or recognition with CMS shall be in good standing prior to the bid opening date. .2 Designated Projects. CDB may designate projects with \"MBE/WBE/VBE participation goals.\" See the bid form, Section 00 41 05 of the project manual, for applicable goals for first and second tier (level) subcontractors and supplier MBE/WBE/VBE participation. For Single Prime Delivery Method Projects: participation of certified MBE/WBE second level subcontractors and suppliers is permissible for meeting applicable goals. .3 Bid Form. Each bidder shall name, on the bid form provided, the minority, women, and veteran owned businesses it intends to use to meet the specified goals. If the specified goals are not met, within 10 (ten) calendar days of the bid opening the bidder shall: (1) cure the deficiency in the bid by adding participation to meet the goals, or (2) request a waiver of the specified goals including documentation of its good faith efforts to achieve the goals. .4 MBE/WBE/VBE Bidder. If the bidder is a minority or women or veteran owned business then indicate the work proposed to be done with own forces on the 00 41 05 Form. CDB encourages MBE/WBE/VBE prime bidders to use MBE/WBE/VBE subcontractors/suppliers. .5 Joint Venture. If the bidder is a joint venture, the MBE/WBE/VBE joint venturer may be used to meet the MBE/WBE/VBE goal for the contract, consistent with the provisio"
+},
+{
+"id": "b9f6ba91c7",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "int venturer may be used to meet the MBE/WBE/VBE goal for the contract, consistent with the provisions of subsection .11(g). .6 Subcontracts. Subcontracting of work to a lower tier non-MBE/WBE/VBE firm which would reduce the proceeds received by the subcontracting MBE/WBE/VBE firm below the specified goal is prohibited. CDB may, in such cases, reject the bid or terminate the contract. Refer to Paragraph 00 51 20.2.A). .7 Request for Assistance. If the bidder needs assistance in locating subcontractors or suppliers to meet the goals, bidder shall contact CDB\u2019s Fair Employment Practices Division both prior to the submittal of the bid, and, if applicable, during the 10-day cure period. .8 Submittal of Good Faith Effort documentation or waiver request. Include with the package: A. All information indicating why the specified goal cannot be met. B. A list of all MBE/WBE/VBE firms contacted and the dates they were contacted, including documentation from those firms. C. Copies of all bid solicitation letters to MBE/WBE/VBE firms. Letters shall contain, at a minimum: 1) project title and location; 2) classification of work items for which quotations are requested; 3) date, time, and place quotations are due; and 4) returnable acknowledgment of the solicitation. D. Evidence, such as a log of telephone contact including time and date of call, telephone number, and name of the person called; written correspondence; and quotes from solicited firms. E. All other evidence of good faith efforts made by the bidder to secure eligible MBE/WBE/VBE firms to meet the specified goal. Evidence may include documentation that CDB- 01 11 01 March, 2017 3 CDB-830-030-167 states the following: 1) A "
+},
+{
+"id": "02379fd594",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "y include documentation that CDB- 01 11 01 March, 2017 3 CDB-830-030-167 states the following: 1) A reasonable number of MBE/WBE/VBE firms were contacted. 2) The work selected by the bidder for allocation to MBE/WBE/VBE firms was selected in order to increase the likelihood of achieving the specified goal. 3) The bidder negotiated, in good faith, with the potential MBE/WBE/VBE firms by not imposing any conditions which are not similarly imposed on all other subcontractors and suppliers, or by denying benefits ordinarily conferred on subcontractors or suppliers for the type of work for which bids were solicited. 4) The services of the referral agencies were used by the bidder in efforts to achieve the specified goal. 5) The bidder attended the CDB pre-bid meeting for the project. F. Mathematical errors should be addressed by providing a detailed rationale and evidence, such as quotes, notes, and spreadsheets that explains and justifies the mathematical error. G. All actions taken to solicit MBE/WBE/VBE firms both pre-bid opening date and post-bid opening date. H. A revised 00 41 05 form, if MBE/WBE/VBE participation increases during the 10 day cure period but goals are not met. I. Other relevant information in support of the waiver request. .9 Replacement of MBE/WBE/VBE Subcontractor or Supplier. If it can be demonstrated that the MBE/WBE/VBE subcontractor or supplier cannot perform the work, or if a MBE/WBE/VBE loses its CMS certification or recognition after the bid opening, then the Contractor shall make a good faith effort to replace, in-kind, the MBE/WBE/VBE. The contractor shall identify the replacement MBE/WBE/VBE or provide evidence of good faith effort to find a r"
+},
+{
+"id": "7752ed2c82",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "ctor shall identify the replacement MBE/WBE/VBE or provide evidence of good faith effort to find a replacement on the Contractor\u2019s letterhead and submit with documented evidence of cause to CDB\u2019s Fair Employment Practices Division. CDB will review the submittal and may authorize the replacement or approve the good faith effort. .10 Calculation of MBE/WBE/VBE Participation as a Material Supplier or Subcontractor A. MBE/WBE/VBE as a material supplier: A 100 percent goal credit is allowed for the cost of materials or purchases from a MBE/WBE/VBE manufacturer or supplier. B. MBE/WBE/VBE as a subcontractor: A 100 percent goal credit is allowed for the work of the subcontract performed by the MBE/WBE/VBE\u2019s own forces (performing, managing and supervising the work), including the cost of materials and supplies, excluding the purchase of materials and supplies or the lease of equipment by the MBE/WBE/VBE subcontractor from the prime Contractor or its affiliates. Work that a MBE/WBE/VBE subcontractor in turn subcontracts to a non-MBE/WBE/VBE does not count toward the MBE/WBE/VBE goal. .11 Work to be Completed by Firm Certified with BEC/CMS. To be credited towards goals for Minority Business Enterprise (MBE), Women Business Enterprise (WBE), and Veteran Business Enterprise (VBE) participation, work must be performed by an entity certified by the Business Enterprise Council for Minorities, Women and Persons with Disabilities (\u201cBEC\u201d) as administered by the Illinois Department of Central Management Services (CMS) as an MBE, WBE, or VBE firm pursuant to the Business Enterprise for Minorities, Women, and Persons with Disabilities Act (30 ILCS 575/5) and the Illinois Procurement Code (30"
+},
+{
+"id": "23600b9737",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "ties, Women, and Persons with Disabilities Act (30 ILCS 575/5) and the Illinois Procurement Code (30 ILCS 500/45-57). a) The entire amount of contractual work performed by a MBE, WBE, or VBE\u2019s own forces will be credited towards MBE/WBE/VBE goals, including the cost of supplies, materials, and equipment obtained by the MBE, WBE, or VBE for this work (except supplies and equipment the MBE/WBE/VBE obtains from the prime contractor or its affiliate). CDB- 01 11 01 March, 2017 4 CDB-830-030-167 b) The entire amount of fees or commissions charged by a MBE/WBE/VBE firm for providing a bona fide service, such as professional, technical, consultant, or managerial services will be credited towards MBE/WBE/VBE goals provided such fees are reasonable and not excessive as compared to fees customarily allowed for similar services. Services for materials and supplies are defined in Section 00 43 39.14 and are not considered to be professional, technical, consultant, or managerial services. c) Work subcontracted by a MBE/WBE/VBE to another firm will not be credited towards goals unless the subcontractor performing the work is also certified by BEC/CMS as a MBE/WBE/VBE. Work that a MBE/WBE/VBE subcontracts to a firm not certified as a MBE/WBE/VBE does not count toward the goal. For example, if a MBE firm has a subcontract to perform $100,000 worth of work and subcontracts $10,000 of that work to a non-MBE firm, only the $90,000 worth of work performed by the MBE firm will be credited toward the goal. d) If a firm is not currently certified as a MBE/WBE/VBE at the time of the execution of the contract, the firm's participation will not be counted toward any goals. e) The dollar value of w"
+},
+{
+"id": "f2abb66252",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "he contract, the firm's participation will not be counted toward any goals. e) The dollar value of work performed under a contract with a firm after it has ceased to be certified will not be counted toward the overall goal. f) The participation of a MBE/WBE/VBE subcontractor will not be counted toward a Contractor's final compliance with its MBE/WBE/VBE obligations on a contract until the amount being counted has actually been paid to the MBE/WBE/VBE. g) When a MBE/WBE/VBE performs as a participant in a joint venture, a portion of the total dollar value of the contract equal to the distinct, clearly defined portion of the work of the contract that the MBE/WBE/VBE performs with its own forces may be counted toward MBE/WBE/VBE goals. .12 Commercially Useful Function. Expenditures to a MBE/WBE/VBE will only be credited towards MBE/WBE/VBE goals if the MBE/WBE/VBE performs a commercially useful function on that contract. A MBE/WBE/VBE performs a commercially useful function when it is responsible for execution of the work of the contract and is carrying out its responsibilities by actually performing, managing, and supervising the work involved. To perform a commercially useful function, the MBE/WBE/VBE must also be responsible, with respect to materials and supplies used on the contract, for negotiating price, determining quality and quantity, ordering material, and installing (where applicable) and paying for the material itself. a) Factors to be used in determining whether a MBE/WBE/VBE is performing a commercially useful function include, but are not limited to, the amount of the work subcontracted, industry practices, and whether the amount the firm is paid is commensura"
+},
+{
+"id": "0f0d944bde",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "of the work subcontracted, industry practices, and whether the amount the firm is paid is commensurate with the work it is performing and the MBE/WBE/VBE credit claimed for its performance of the work. b) A MBE/WBE/VBE does not perform a commercially useful function if its role is limited to that of an extra participant in a transaction, contract, or project through which funds are passed in order to obtain the appearance of MBE/WBE/VBE participation. In determining whether a MBE/WBE/VBE is such an extra participant, similar transactions, particularly those in which MBE/WBE/VBEs do not participate, will be examined. c) If a MBE/WBE/VBE does not perform at least 30 percent of the total cost of its contract with its own work force, or the MBE/WBE/VBE subcontracts a greater portion of the work than would be expected on the basis of normal industry practice for the type of work involved, a presumption will arise that the MBE/WBE/VBE is CDB- 01 11 01 March, 2017 5 CDB-830-030-167 not performing a commercially useful function. A MBE/WBE/VBE firm may present evidence to CDB to rebut this presumption. The MBE/WBE/VBE must provide such evidence to rebut the presumption within 7 business days of being notified that the presumption will be applied. d) A prime contractor that is a MBE/WBE/VBE will still be required to meet the goals required on the contract. In determining whether the MBE/WBE/VBE prime contractor has met the goal, the work the MBE/WBE/VBE prime contractor actually performs with its own forces will be credited, as well as work performed by MBE/WBE/VBE subcontractors or suppliers, consistent with the terms of Section 00 43 39. The presumption in .12(c) above will not a"
+},
+{
+"id": "6397db9131",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "suppliers, consistent with the terms of Section 00 43 39. The presumption in .12(c) above will not attach if the MBE/WBE/VBE is the prime contractor and satisfies the \u201cWork With Own Staff\u201d requirement in Section 00 21 50. e) A bidder\u2019s efforts to exercise Good Faith Efforts by providing assistance in advance of the bid to a MBE/WBE/VBE firm in making purchases, obtaining bonding, obtaining credit, or providing equipment will not invalidate the commercially useful function of a MBE/WBE/VBE, provided that the MBE/WBE/VBE has otherwise performed a commercially useful function consistent with the terms of Section 00 43 39. Credit will only be given for work performed by, purchases made by, and equipment obtained by the MBE/WBE/VBE, consistent with the terms of Section 00 43 39. A bidder\u2019s efforts to assist the MBE/WBE/VBE will not be credited. .13 Trucking Company. To be credited towards MBE/WBE/VBE goals, a trucking company or major construction equipment rental (MCER) must be responsible for the management and supervision of the entire trucking operation for which it is responsible on a particular contract, and there cannot be a contrived arrangement for the purpose of meeting MBE/WBE/VBE goals. a) The MBE/WBE/VBE must itself own and operate at least one fully licensed, insured, and operational truck or major construction equipment unit (MCEU) used on the contract. b) The entire value of transportation services a MBE/WBE/VBE provides on the contract using trucks or MCEUs it owns, insures, and operates using drivers it employs will be credited towards MBE/WBE/VBE goals. c) If a MBE/WBE/VBE leases trucks or MCEUs from another MBE/WBE/VBE, the entire value of the services prov"
+},
+{
+"id": "f2da2b249b",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "a MBE/WBE/VBE leases trucks or MCEUs from another MBE/WBE/VBE, the entire value of the services provided by the lessee will be credited. d) If a MBE/WBE/VBE leases trucks or MCEUs from a company that is not a MBE/WBE/VBE, the total value of transportation services provided by the lessee is not to exceed the value of transportation services provided by MBE/WBE/VBE owned trucks or MCEUs on the contract. e) For purposes of this section, a lease must indicate that the MBE/WBE/VBE has exclusive use of and control over the truck(s) or MCEU(s). This does not preclude the leased truck from working for others during the term of the lease with the consent of the MBE/WBE/VBE, so long as the lease gives the MBE/WBE/VBE absolute priority for the leased truck(s) or MCEU(s). Leased trucks and MCEUs must display the name and identification number of the MBE/WBE/VBE. f) The MBE/WBE/VBE must be responsible for the management and supervision of the entire trucking operation for which it is responsible on a particular contract, and there cannot be a contrived arrangement for the purpose of meeting MBE/WBE/VBE goals. .14 Materials and Supplies CDB- 01 11 01 March, 2017 6 CDB-830-030-167 a) Credit towards goals will be given for materials purchased from a MBE/WBE/VBE supplier or manufacturer that is certified as such with BEC/CMS. b) For purposes of this section, a manufacturer is a firm that operates and maintains a factory or establishment that produces, on the premises, the materials, supplies, articles, or equipment required under the contract and of the general character described in the specifications. c) For the purposes of this section, a supplier is a firm that owns, operates, or main"
+},
+{
+"id": "7517df5ce2",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 43 39",
+"csi": "004339",
+"title": "MINORITY, WOMEN, AND VETERAN BUSINESS ENTERPRISE PARTICIPATION",
+"text": "ecifications. c) For the purposes of this section, a supplier is a firm that owns, operates, or maintains a store, warehouse, or other establishment in which materials, supplies, articles or equipment of the general character described by the specifications and required under the contract are bought, kept in stock, and regularly sold or leased to the public in the usual course of business. 1) A supplier must be an established, regular business that engages as its principal business and under its own name, in the purchase and sale or lease of the products in question. 2) A person may be a supplier in such bulk items as steel, cement, gravel, stone, petroleum products, or asphalt without owning, operating, or maintaining a place of business as provided in this paragraph c if the person both owns and operated distribution equipment for the products. Any supplementing of a supplier\u2019s own distribution equipment shall be by a long-term lease agreement and not on an ad hoc or contract-by-contract basis. 3) Brokers, packagers, manufacturers\u2019 representatives, or other persons who arrange or expedite transactions are not suppliers within the meaning of this section."
+},
+{
+"id": "ef8e0fbb05",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 45 00",
+"csi": "004500",
+"title": "CERTIFICATIONS OF COMPLIANCE WITH APPLICABLE LAWS",
+"text": "00 45 00 CERTIFICATIONS OF COMPLIANCE WITH APPLICABLE LAWS .14 Recertification. If the contract extends over multiple years, vendor (A/E or Contractor) and its subcontractors will sign and submit to CDB Contracts the required Compliance Form (available in the Reference Library on CDB\u2019s website: www.illinois.gov/cdb) by April 1 of each subsequent year after the contract is signed. Failure to do so may result in voiding the contract by operation of law or rendering the contract voidable at the option of the State without additional compensation. Violations of certain provisions may also be deemed a civil or criminal offense."
+},
+{
+"id": "955b8ecb64",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 20",
+"csi": "005120",
+"title": "ACCEPTANCE AND REJECTION OF BIDS",
+"text": "00 51 20 ACCEPTANCE AND REJECTION OF BIDS .1 CDB\u2019s Rights. When, in its opinion, it is in the best interest of the state, CDB reserves the right to: A. Accept any bid B. Reject any or all bids C. Waive technical deficiencies and irregularities D. Allow bidder to remedy technical deficiencies or irregularities within a stated time E. Rescind any notice of award if CDB determines the notice of award was issued in error F. Rescind any notice of award when it is in the best interest of the state G. Rebid any contract CDB- 01 11 01 March, 2017 7 CDB-830-030-167 .2 Bid Rejection. A. Bids will be rejected for the following material deficiencies: 1) Failure to be prequalified with CDB no later than the close of business the day before the bid opening (Article 00 21 05) or being determined non-responsible after bid opening. 2) Submission of a bid late (Paragraph 00 51 10.1). 3) Failure to submit bid and/or bid modifications to appropriate bid opening office. 4) Submission of a bid in a manner that reveals the bid price prior to the bid opening (example: by fax). (Paragraph 00 42 10.4). 5) Use of a bid envelope, which is received by CDB unsealed, or marked in a manner that does not reasonably identify the project and/or contract for which it is intended (Paragraph 00 42 10.3). 6) Omission of a base bid price, alternate bid price or unit price (Paragraph 00 42 10.1). 7) Submission of a bid price that cannot be determined. 8) Deletion of original signatures to the extent that an intent to be bound by the bid is not apparent. 9) When CDB does not accept the unit price(s), when those prices are an integral part of the base bid, the bidder shall be rejected. 10) Failure to attend a mand"
+},
+{
+"id": "89127bc67b",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 20",
+"csi": "005120",
+"title": "ACCEPTANCE AND REJECTION OF BIDS",
+"text": "ces are an integral part of the base bid, the bidder shall be rejected. 10) Failure to attend a mandatory pre-bid meeting. 11) Bids not in substantial conformance with the bidding documents and whose non- conformance is determined to be material and unresponsive. 12) Failure to submit Bidder Disclosure(s) form and Certifications with bid, when the bidder is not registered with the Illinois Procurement Gateway (IPG). 13) Failure to be registered with the State Board of Elections, prior to bid opening date, when applicable. 14) Failure to submit Disclosure of Business Operations with Government of Iran form in accord with 30 ILCS 500/50-36. 15) Any other material deficiency specifically identified in the project bid documents. 16) For Single Prime Contract Bids (as defined by 30 ILCS 500/30-30(a)): failure to provide names and bid proposal costs for required protected subcontractor trades or providing more than one protected subcontractor for each trade. 17) For Single Prime Contract Bids: failure of identified protected subcontractor to be properly prequalified with CDB, licensed and certified, at the time of bidding, to perform the identified trade. B. Failure to remedy the following technical deficiencies with seven (7) calendar days after the bid opening shall result in rejection of the bid. These technical deficiencies are: CDB- 01 11 01 March, 2017 8 CDB-830-030-167 1) Failure to use a revised bid form when bid forms have been changed by addenda. 2) Failure to acknowledge an addendum, however adjustment of the bid amount will not be allowed. 3) Failure to provide USDOL Apprenticeship and Training Certification for bidder and all known subcontractors. 4) Failure to sub"
+},
+{
+"id": "379354ae0a",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 20",
+"csi": "005120",
+"title": "ACCEPTANCE AND REJECTION OF BIDS",
+"text": "Apprenticeship and Training Certification for bidder and all known subcontractors. 4) Failure to submit bidder\u2019s Certificate of Registration in an approved apprenticeship and training program. 5) Failure to supply subcontractor and/or supplier names and Taxpayer Identification Numbers as required on Document 00 41 01. 6) Submission of a bid bond not on CDB\u2019s form (Paragraphs 00 43 13.1 and 00 43 13.2). 7) Submission of a bid security in a form other than a bid bond, certified check, cashier\u2019s check or bank draft (Paragraph 00 43 13.1). 8) Omission of the signature of the officer of the surety or any other required signatures except the signature in Paragraph 00 51 20.2.A.8), submission of those signatures in pencil or submission of a non-original signature. 9) Replacement of a bid security from an unacceptable surety with one from a surety acceptable to CDB (Paragraph 00 43 13.4). 10) Failure to furnish and/or complete the DHR PC-2 form. 11) Failure to submit a signed affidavit stating that the bidder will maintain an Illinois office as the primary place of employment for persons employed in the construction authorized by the contract. 12) Failure to submit Certificate of Registration with State Board of Elections in accord with 30 ILCS 500/20-160. 13) Any other technical deficiency specifically identified in the project bid documents. C. MBE/WBE/VBE goal compliance deficiencies. Failure to remedy the following deficiencies within ten (10) calendar days after bid opening shall result in rejection of the bid. These deficiencies are: 1) When applicable, failure to submit a revised 00 41 05 form, documenting achievement of goals. 2) When applicable, failure to submit documen"
+},
+{
+"id": "2895e975b8",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 20",
+"csi": "005120",
+"title": "ACCEPTANCE AND REJECTION OF BIDS",
+"text": "vised 00 41 05 form, documenting achievement of goals. 2) When applicable, failure to submit documentation acceptable by CDB of good faith efforts to meet minority/Women/veteran goals. D. CDB at its sole discretion and without conferring any rights on any bidder may waive bid technical deficiencies or irregularities that are not in conformance with the bidding documents but whose non-conformance is non-material or minor. E. Submittal of conditions or qualifying statements contrary to CDB\u2019s contract terms is not acceptable and, unless rescinded, the bid shall be rejected. CDB- 01 11 01 March, 2017 9 CDB-830-030-167"
+},
+{
+"id": "b7329fea51",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 28",
+"csi": "005128",
+"title": "MBE/WBE/VBE BUSINESS CERTIFICATION, POST AWARD REQUIREMENTS",
+"text": "00 51 28 MBE/WBE/VBE BUSINESS CERTIFICATION, POST AWARD REQUIREMENTS .1 Post-Award submittal. See Article 00 51 40. The contract awardee shall submit CDB\u2019s MBE/WBE/VBE Subcontractor Supplier Certification form, Document 00665 (available in the Reference Library on CDB\u2019s website), for each of the MBE/WBE/VBE subcontractor(s) and/or supplier(s) being utilized to meet the designated participation goals as specified on the bid form and in Section 01 11 00 of the project manual. The form must be signed by the MBE/WBE/VBE subcontractor or supplier and shall be submitted to CDB\u2019s FEP section. Completion of the 00665 form is not required if the Contractor is an MBE or WBE or VBE firm. MBE/WBE/VBE prime contractors are encouraged to utilize MBE/WBE/VBE subcontractors/suppliers. If goals are split (separate MBE and WBE and VBE goals), then an MBE or WBE or VBE firm must supply 00665 forms for the subcontractor firm(s) utilized to meet the WBE or MBE or VBE goal, respectively. .2 Listed Firms. The 00665 certification form shall be completed and submitted for each MBE/WBE/VBE firm listed on the 00 41 05 bid form. .3 Compliance. The MBE/WBE/VBE participation goal dollar value is based upon the total contract sum (including awarded alternates). The participation goal percentage amount(s) shall meet or exceed the goal(s) as specified on the bid form (and in Section 01 11 00 of the project manual), or in an approved change/waiver request (refer to Article 00 43 39 herein). .4 Voluntary. Contractors are encouraged to utilize MBE/WBE/VBE subcontractors/suppliers for those projects that are not designated for MBE/WBE/VBE participation and complete the 00665 certification form for each MBE/W"
+},
+{
+"id": "026d241402",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 28",
+"csi": "005128",
+"title": "MBE/WBE/VBE BUSINESS CERTIFICATION, POST AWARD REQUIREMENTS",
+"text": "ot designated for MBE/WBE/VBE participation and complete the 00665 certification form for each MBE/WBE/VBE firm. MBE/WBE/VBE subcontractors/suppliers may be added at any time during the project. .5 Subcontracts/Supplier agreements. Copies of subcontracts or supplier agreements (to correspond with each 00665 form) are required to be submitted within ten (10) days of the Notice of Award."
+},
+{
+"id": "76d9e89785",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 40",
+"csi": "005140",
+"title": "POST AWARD REQUIREMENTS",
+"text": "00 51 40 POST AWARD REQUIREMENTS .1 Contractor\u2019s Duty to Comply. The Contractor may not proceed with the work until the following post award requirements are met. These requirements are part of the contract and failure to comply with these requirements shall constitute a breach of the contract. CDB shall issue Authorization to Proceed upon successful completion of these post award requirements. .2 Submittals. Within ten (10) calendar days from the date of the notice of award letter, the Contractor shall furnish, on CDB forms, the following: A. Contract executed by the Contractor; B. Performance Bond; C. Labor and Material Payment Bond; D. Certificates of Insurance; E. Builder's Risk Insurance Policy (if applicable); F. MBE/WBE/VBE Subcontractor Supplier Certifications, Form 00665 and MBE/WBE/VBE Subcontractor/Supplier agreements (if applicable); G. Completed substance Abuse Prevention Certification form and Contractor\u2019s substance abuse plan (if applicable), H. DHR PC-2 accepted by FEP Technician; and I. Project Labor Agreement signature sheets for the Contractor and known Subcontractors(if applicable). .3 Cancellation of Award. All post award requirements are mandatory. Noncompliance shall be cause for CDB to cancel the notice of award and make a claim against the bid security. CDB- 01 11 01 March, 2017 10 CDB-830-030-167 .4 Post Award Extensions. CDB may extend the time limitations for good cause. No extension shall operate as a waiver of post award requirements, nor shall it extend the contract completion date. .5 Delays. Any delays to the commencement of the work due to the Contractor\u2019s failure to meet the post award requirements shall be the responsibility of the Cont"
+},
+{
+"id": "d1f43eb0b2",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 51 40",
+"csi": "005140",
+"title": "POST AWARD REQUIREMENTS",
+"text": "the Contractor\u2019s failure to meet the post award requirements shall be the responsibility of the Contractor and its surety. Contractor and its surety shall be responsible for the costs of any such delays."
+},
+{
+"id": "1f50ecbc9d",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 71 00",
+"csi": "007100",
+"title": "DEFINITIONS",
+"text": "00 71 00 DEFINITIONS .12 Protected Subcontractors. For a Single Prime Delivery Method Project, a subcontractor identified for a protected trade on the 00 41 00 Bid Form. The subcontractor shall be prequalified with CDB, be properly licensed and certified (if applicable), and perform the minimum amount of the identified trade with its own forces by furnishing and installing the work on-site. .13 Prime Bidding Contractor (Trade): For a Single Prime Delivery Method Project, one of the identified protected trades that submits the bid with the intent of entering into the prime construction contract with CDB as the Contractor."
+},
+{
+"id": "d5044dee9a",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 72 10",
+"csi": "007210",
+"title": "TIME",
+"text": "00 72 10 TIME .5 Approval Authority. Changes in contract time are subject to approval at or above the CDB Regional Manager level."
+},
+{
+"id": "9827152b59",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 72 25",
+"csi": "007225",
+"title": "CDB - RIGHTS AND RESPONSIBILITIES",
+"text": "00 72 25 CDB - RIGHTS AND RESPONSIBILITIES .4 Right to Terminate the Contract for Cause. .6 Availability of Appropriation; Sufficiency of Funds. The contract is contingent upon and subject to the availability of sufficient funds. CDB may terminate or suspend the contract, in whole or in part, without penalty or further payment being required, if (i) sufficient funds for the contract have not been appropriated or otherwise made available to CDB by the State or the Federal funding source, (ii) the Governor or CDB reserves funds, or (iii) the Governor or CDB determines that funds will not or may not be available for payment. CDB shall provide notice, in writing, to the Contractor of any such funding failure and its election to terminate or suspend the contract as soon as practicable. Any suspension or termination pursuant to this Section will be effective upon the date of the written notice, unless otherwise indicated. .7 Right to Suspend the Contract Without Cause. CDB may, without cause, order the Contractor in writing to suspend, delay or interrupt the work in whole or in part for such a period of time as CDB may determine, not to exceed 90 days. At the expiration of 90 days, the contract may continue upon written agreement of the parties or may be terminated in writing by either party. The contract may remain suspended at the expiration of 90 days until the parties either agree in writing to continue the contract or until either party terminates the contract in writing. If the parties enter into a written agreement to continue the contract, the contract may remain suspended after the expiration of 90 days. A. The contract time will be adjusted for increases in time cause"
+},
+{
+"id": "b512d1da02",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 72 25",
+"csi": "007225",
+"title": "CDB - RIGHTS AND RESPONSIBILITIES",
+"text": "d after the expiration of 90 days. A. The contract time will be adjusted for increases in time caused by the suspension, delay or interruption as described in Article 00 72 10. CDB- 01 11 01 March, 2017 11 CDB-830-030-167 B. CDB may decide to terminate the contract under Article 00 72 25 at any time during the period of suspension, delay or interruption."
+},
+{
+"id": "7655c168cb",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 73 17",
+"csi": "007317",
+"title": "BONDS, GENERAL",
+"text": "00 73 17 BONDS, GENERAL .1 Requirements. The Contractor shall furnish a performance bond and a labor and material payment bond covering the faithful performance of the contract and the payment of all obligations arising thereunder, in accordance with the Public Construction Bond Act (30 ILCS 550). Each bond shall be in the full amount of the contract on forms provided by CDB and executed by a surety acceptable to CDB. .3 Acceptability. Bonds that meet the requirements of Paragraph 00 73 17.1 shall be acceptable to CDB when issued by a surety that meets all of the following standards: A. Has a current financial strength of at least \u201cA-\u201d as rated by A.M. Best Company, Inc., Moody\u2019s Investor Service, Standard & Poor\u2019s Corporation, or similar rating agency (30 ILCS 550/1); and a current Best's financial class of at least \u201cV\u201d. B. Is duly licensed in the state of Illinois by the Department of Insurance (30 ILCS 550/1) and does not have an unacceptable record of improper conduct or financial problems with the Illinois Department of Insurance."
+},
+{
+"id": "f47ee94ada",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "00 73 40",
+"csi": "007340",
+"title": "LICENSING",
+"text": "00 73 40 LICENSING .1 For Single Prime Delivery Method Projects: When licensure and/or certification is required for an identified trade, the identified protected subcontractors or the Prime Bidder, if self-performing the work, shall be properly licensed and certified at the time of bid to perform the work for the identified trade."
+},
+{
+"id": "7a8f8b31bf",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "01 29 73.1",
+"csi": "012973",
+"title": "SCHEDULE OF VALUES",
+"text": "01 29 73.1 SCHEDULE OF VALUES F. Provide CDB prequalification/registration ID numbers on the CSV form for subcontractors/suppliers described in 00 21 50.2C. G. Identify work performed by MBE/WBE/VBE subcontractors and suppliers on the CSV form. H. Revise and resubmit CSV for approval if any substitution or replacement of subcontractors or suppliers occurs. I. Revise and resubmit CSV for approval if any change in the contract amount of subcontractors or suppliers other than a change resulting from a change order occurs."
+},
+{
+"id": "54c906b100",
+"doc": "12_01_11_01_-_SP_Supplement_to_SD-DB_3.2017.pdf",
+"section": "01 29 76",
+"csi": "012976",
+"title": "PROGRESS PAYMENT PROCEDURES",
+"text": "01 29 76 PROGRESS PAYMENT PROCEDURES .5 Payments to Subcontractors and Suppliers. D. Subcontractors (as described in 00 21 50.2C.) who have not obtained a CDB ID number and/or have not submitted the required Disclosures and Certifications may have their payment amounts withheld by CDB in addition to any other remedy provided by this contract CDB- 01 11 01 March, 2017 12 CDB-830-030-167 or by law. No work can be performed by these subcontractors until the Certifications and Disclosure documents have been reviewed and approved by the State Purchasing Officer. CDB- 01 11 01 March, 2017 13 CDB-830-030-167"
+}
+]
+}

@@ -1,0 +1,687 @@
+{
+"project": "maine-2995-capitol-garage",
+"name": "Capitol Parking Garage 2026 Repairs (State of Maine BGS #2995)",
+"owner": "State of Maine, Bureau of General Services",
+"pieces": [
+{
+"id": "7ed2c0cc28",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "RFI Response BGS 2995 DATE September 24, 2026 PROJECT NO PROJECT Capital Parking Garage 2026 Repairs FROM Nate Powelson NAME PROJECT Augusta, Maine TITLE Senior Project Engineer LOCATION The following comments and observations are based upon a limited review of the work only, and are not intended to be all incl usive. The following documents have been updated: 1. Bid Form has been updated to include drain grates. 2. Specification Section 00 72 13 \u2013 General Conditions has been added. 3. Bid due date has been updated to 9/30/2027 4. The As-Built construction drawings have been attached. 5. The post tensioning shop drawings have been attached. RFIS: 1. There is conflicting information regarding the requirement for Filed Sub-bids. Section 00 11 13 and Section 00 41 13 state they are not required, while Section 00 12 13 states they are required. Please clarify if Filed Sub-bids are required for this project. If so, please provide the due date for Filed Sub-bids, as it is currently left blank in Section 00 12 13. a. Response - Filed sub bids are not required 2. Please clarify if Pre-qualified General Contractors are utilized for this project. Section 00 11 13 indicates they are utilized but does not list names, while Section 00 12 13 states there are none. a. Response - Prequalified subcontractors are not utilized 3. Please provide an electrical allowance for bidding purposes, as it is difficult for contractors to accurately identify and quantify the electrical work required. a. Response \u2013 We will carry a $3,000 dollar allowance for this. 4. Please confirm whether the Contractor is required to include temporary heating costs in the bid, as the anticipated completion date of Dec"
+},
+{
+"id": "2ce00f7369",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "is required to include temporary heating costs in the bid, as the anticipated completion date of December 30, 2026 may result in significant heating-related expenses. a. Response - Contractor is required to provide heating as required to complete the repairs as needed in 2026. Contractor may be able to complete repairs without additional heat in spring 2027. 5. Is there any reason the project would not be able to start in the Spring 2027, when 14 York Street, Suite 201 | Portland ME 04101 - 7408 | T 207.245.6060 | F | www.ThorntonTomasetti.com RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 2 weather conditions would be more favorable for performing the work? a. Response - We would prefer to have a start date this fall and can extend the finish date to Spring 2027, June 18, 2027. 6. Please confirm the designated location(s) for material storage and dumpster staging during construction. a. Response - This will be coordinated during the preconstruction meeting. 7. For Bid Item 3- Supplemental Steel Beam- Please confirm that the North side of the garage will get 3ea of the supplemental beams and south side will get 4ea of the supplemental beams. In sheet S1.5, the North side only shows two beams. a. Response - That is correct. There are 7 beams total. 4 beams on the north and 3 on the south side of the parking structure. There is a partial plan for the portion of the ramp that extends from gridlines 13- 14 that is included on sheet S1.5. 8. For Bid Item 12- Fence Repairs- a. Please provide details regarding the required method for reattaching the fence at repair locations. b. Please confirm whether replacement fence material is to b"
+},
+{
+"id": "e9cdd5e0e5",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "ttaching the fence at repair locations. b. Please confirm whether replacement fence material is to be included in the pricing for fence repair locations. c. Response - Design intent is to use tie wire to reattach the fence in the same manner that the remainder of the fence is attached. Additional wire may be needed in locations where the damage extends into the fence. 9. For Item 16- Wall repairs- please provide repair detail. a. Response - Repair details are 6 and 7 / S2.2 10. Drawing set discrepancies-. a. Sheet S1.5 references Details 1/S2.3, 2/S2.3, and 3/S2.3; however, Sheet S2.3 is not included in the drawing package and is not listed in the drawing index. Please provide Sheet S2.3 and clarify all associated details. b. Please confirm the correct sheet designation for the supplemental beam detail sheet. The drawing index lists Sheet S2.2; however, the title block on the provided sheet appears to be labeled S1.2. c. Please clarify which supplemental beam detail applies to each beam location shown on Sheet S1.5 and provide the missing S2.3 details referenced on the plan. RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 3 d. Please confirm that the structural drawing set is complete and provide any omitted sheets or revised sheet index. e. Response - Please recheck the drawing set that you are referring to. The drawing set should be the Bid Set dated 8/31/2026 11. Please provide available as-built drawings for the garage. a. Response - We have electronic copies and can provide. 12. Please confirm whether water will be available for the Contractor's use on site. a. Response - Water is on site and available for contractor use. Ho"
+},
+{
+"id": "031881fb9e",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "or the Contractor's use on site. a. Response - Water is on site and available for contractor use. However, the meter is typically removed at the start of winter to prevent freezing and reinstalled in the spring. 13. Please confirm whether power and functioning electrical outlets will be available for the Contractor's use on site. a. Response - Functional outlets are located in the stairwells, however, all receptacles have limited capacity and should not be counted on for running heavy grinders or electric chipping guns. 14. Please confirm the maximum number of parking stalls that may be closed at any one time and identify any required work area enclosures, barriers, or other protection measures that must be maintained during construction. a. Response - 25 Spaces are allowed for your use. These spaces do not include the top deck while it remains closed until the post tensioning repairs are completed. 15. Please confirm that the bid due date and time is September 25, 2026, at 1:30 PM, as there appears to be conflicting information regarding the bid opening date within the contract documents. a. Response - The bid due date is September 30, 2026 at 1:30 PM. The bids will be opened at 2:00 PM. 16. Please confirm if contractor is responsible for obtaining permits required for this project. a. Response - Contractor is responsible for obtaining any required permits. 17. Please confirm if contractor is responsible for paying any permit fees required for this project. RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 4 a. Response - Contractor is responsible for permit fees. 18. Please confirm whether this project is exempt from sales tax an"
+},
+{
+"id": "0cc0a3f387",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": " is responsible for permit fees. 18. Please confirm whether this project is exempt from sales tax and whether bids should be submitted on a tax-exempt basis. a. Response - Yes, this project is exempt from sales tax. BGS will issue the required paperwork to the selected contractor. 19. Please confirm whether the project is to be bid using open shop labor rates. a. Response - Please use the Kennebec County Prevailing wages. 20. For Waterproofing Membrane repairs- A 5 year warranty may not be available from the manufacturer for localized installations and repairs, which is the scope for this project. Please confirm that the warranty duration and terms made available by the manufacturer will be acceptable even if they are different than what is included in the current bid documents. a. Response - A 5 year warranty is not required for repair areas. 21. Are Liquidated Damages required for this project. a. Response \u2013 Liquidated damages are included in this project. Please see the requirements in Section 00 72 13 General Conditions added to the addendum. END OF RFI QUESTIONS revised 03 June 2026 00 41 13 Contractor Bid Form Capital Parking Garage 2026 Repairs 2995 Bid Form submitted by: email only to email address below Bid Administrator: Desiree Snow BGS.Architect@Maine.gov Bureau of General Services 111 Sewall Street, Cross State Office Building, 4th floor 77 State House Station Augusta, Maine 04333-0077 Bidder: Signature: _______________________________________________________________ Printed name and _______________________________________________________________ title: Company name: _______________________________________________________________ Mailing address: ____________"
+},
+{
+"id": "a7344395a2",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": " name: _______________________________________________________________ Mailing address: _______________________________________________________________ City, state, zip code: _______________________________________________________________ Phone number: _______________________________________________________________ Email address: _______________________________________________________________ State of incorporation, _______________________________________________________________ if a corporation: List of all partners, _______________________________________________________________ if a partnership: The Bidder agrees, if the Owner offers to award the contract, to provide any and all bonds and certificates of insurance, as well as Schedule of Values, Project Schedule, and List of Subcontractors and Suppliers if required by the Owner, and to sign the designated Construction Contract within twelve calendar days after the date of notification of such acceptance, except if the twelfth day falls on a State of Maine government holiday or other closure day, or a Saturday, or a Sunday, in which case the aforementioned documents must be received before 12:00 noon on the first available business day following the holiday, other closure day, Saturday, or Sunday. As a guarantee thereof, the Bidder submits, together with this bid, a bid bond or other acceptable instrument as and if required by the Bid Documents. Page 1 of 3 00 41 13 revised 03 June 2026 00 41 13 Contractor Bid Form 1. The Bidder, having carefully examined the Capital Parking Garage 2026 Repairs Project Manual dated 8/31/2026, prepared by Thornton Tomasetti (Consultant), as well as Specifications, Drawings, and any Adden"
+},
+{
+"id": "efe5e1dd9c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "026, prepared by Thornton Tomasetti (Consultant), as well as Specifications, Drawings, and any Addenda, the form of contract, and the premises and conditions relating to the work, proposes to furnish all labor, equipment and materials necessary for and reasonably incidental to the construction and completion of this project for the Base Bid amount of: $ _______________________ .00 Note: Base Bid includes Allowances and Unit Price Quantities as applicable (see below). 2. Allowances are included on this project. Allowances No. Description 1 Electrical $3,000 2 Not used $0.00 3 Not used $0.00 4 Not used $0.00 5 Not used $0.00 3. Alternate Bids are not included on this project. No Alternate Bids Any dollar amount line below that is left blank by the Bidder shall be read as a bid of $0.00. No. Description 1 Not used $ 2 Not used $ 3 Not used $ 4 Not used $ 5 Not used $ Page 2 of 3 00 41 13 revised 03 June 2026 00 41 13 Contractor Bid Form 4. Unit Prices are included in this project. 5. Unit prices are as shown below. Any dollar amount line below that is left blank by the Bidder shall be read as a bid of $0.00. Note: ADD and DEDUCT unit prices cannot differ by more than 20%. No. Description Unit Quantity* Unit Price Unit Price ADD DEDUCT 1 PT Sheathing Repair LF 4 $ $ 2 PT Tensioning \u2013 Button Head EA 2 $ $ 3 Supplemental Steel Beam EA 7 $ $ 4 Overhead Concrete Knockdown EA 20 $ $ 5 Overhead Concrete Repair SF 50 $ $ 6 Slab on Grade Concrete Repair SF 110 $ $ 7 Concrete Deck Repair SF 100 $ $ 8 CMU Spall Repair Concrete Repair SF 20 $ $ 9 Concrete Column Repair SF 155 $ $ 10 Top of Column Repair EA 26 $ $ 11 Concrete Stair Repairs SF 25 $ $ 12 Fence Repair EA 14 $ $ 13 Membrane "
+},
+{
+"id": "b623f1a590",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "Front matter",
+"csi": "007213",
+"title": "",
+"text": "f Column Repair EA 26 $ $ 11 Concrete Stair Repairs SF 25 $ $ 12 Fence Repair EA 14 $ $ 13 Membrane Repairs SF 95 $ $ 14 Drain Replacement EA 1 $ $ 15 Sealant Replacement LF 715 $ $ 16 Wall Repair SF 10 $ $ 17 Drain Grate Replacement EA 4 $ $ * Unit price quantities are included in the Base Bid amount above. If installed quantities differ, then cost will be adjusted by Change Order according to the ADD and DEDUCT unit prices as provided above. Quantities shall be verified by the Consultant. 6. Bid security is required on this project. If noted above as required, or if the Base Bid amount exceeds $125,000.00, the Bidder shall include with this bid form a satisfactory Bid Bond (section 00 43 13) or a certified or cashier's check for 5% of the bid amount with this completed bid form submitted to the Owner. 7. Filed Sub-bids are not required on this project. If noted above as required, the Bidder shall include with this bid form a list of each Filed Sub-bidder selected by the Bidder on the form provided (section 00 41 13F). Page 3 of 3 00 41 13 revised 27 April 2021 00 72 13 General Conditions such errors or omissions. The Consultant shall make any corrections or clarifications necessary in such a situation to document the true intent of the Contract Documents. 3. Additional Drawings and Specifications"
+},
+{
+"id": "125ba7bd06",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "3.1",
+"csi": "007213",
+"title": "Upon the written request of the Contractor, the Owner shall provide, at no expense to the",
+"text": "3.1 Upon the written request of the Contractor, the Owner shall provide, at no expense to the Contractor, up to five sets of printed Drawings and Specifications for the execution of the Work. 3.2 The Consultant shall promptly furnish to the Contractor revised Drawings and Specifications, for the area of the documents where those revisions apply, when corrections or clarifications are made by the Consultant. All such information shall be consistent with, and reasonably inferred from, the Contract Documents. The Contractor shall do no work without the proper Drawings and Specifications. 4. Ownership of Contract Documents"
+},
+{
+"id": "c5ae004517",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "4.1",
+"csi": "007213",
+"title": "The designs represented on the Contract Documents are the property of the Consultant. The",
+"text": "4.1 The designs represented on the Contract Documents are the property of the Consultant. The Drawings and Specifications shall not be used on other work without consent of the Consultant. 5. Permits, Laws, and Regulations"
+},
+{
+"id": "b2dd5c3553",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.1",
+"csi": "007213",
+"title": "The Owner is responsible for obtaining any zoning approvals or other similar local project",
+"text": "5.1 The Owner is responsible for obtaining any zoning approvals or other similar local project approvals necessary to complete the Work, unless otherwise specified in the Contract Documents."
+},
+{
+"id": "886e8dbe2b",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.2",
+"csi": "007213",
+"title": "The Owner is responsible for obtaining Maine Department of Environmental Protection, Maine",
+"text": "5.2 The Owner is responsible for obtaining Maine Department of Environmental Protection, Maine Department of Transportation, or other similar state government project approvals necessary to complete the Work, unless otherwise indicated in the Contract Documents."
+},
+{
+"id": "c30fca84d0",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.3",
+"csi": "007213",
+"title": "The Owner is responsible for obtaining any federal agency project approvals necessary to",
+"text": "5.3 The Owner is responsible for obtaining any federal agency project approvals necessary to complete the Work, unless otherwise indicated in the Contract Documents."
+},
+{
+"id": "cd3281a396",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.4",
+"csi": "007213",
+"title": "The Owner is responsible for obtaining all easements for permanent structures or permanent",
+"text": "5.4 The Owner is responsible for obtaining all easements for permanent structures or permanent changes in existing facilities. 5.5 The Contractor is responsible for obtaining and paying for all permits and licenses necessary for the implementation of the Work. The Contractor shall notify the Owner of any delays, variance or restrictions that may result from the issuing of permits and licenses."
+},
+{
+"id": "ae984f9a2e",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.6",
+"csi": "007213",
+"title": "The Contractor shall comply with all ordinances, laws, rules and regulations and make all",
+"text": "5.6 The Contractor shall comply with all ordinances, laws, rules and regulations and make all required notices bearing on the implementation of the Work. In the event the Contractor observes disagreement between the Drawings and Specifications and any ordinances, laws, rules and regulations, the Contractor shall promptly notify the Consultant in writing. Any necessary changes shall be made as provided in the contract for changes in the work. The Contractor shall not perform any work knowing it to be contrary to such ordinances, laws, rules and regulations. 5.7 The Contractor shall comply with local, state and federal regulations regarding construction safety and all other aspects of the Work. 00 72 13 General Conditions 27 April 2021_0(1) Page 3 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions"
+},
+{
+"id": "675e921f15",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "5.8",
+"csi": "007213",
+"title": "The Contractor shall comply with the Maine Code of Fair Practices and Affirmative Action, ",
+"text": "5.8 The Contractor shall comply with the Maine Code of Fair Practices and Affirmative Action, 5 M.R.S. \u00a7784 (2). 6. Taxes"
+},
+{
+"id": "e11e08fc00",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "6.1",
+"csi": "007213",
+"title": "The Owner is exempt from the payment of Maine State sales and use taxes as provided in 36",
+"text": "6.1 The Owner is exempt from the payment of Maine State sales and use taxes as provided in 36 M.R.S. \u00a71760 (1). The Contractor and Subcontractors shall not include taxes on exempt items in the construction contract. 6.2 Section 1760 further provides in subsection 61 that sales to a construction contractor or its subcontractor of tangible personal property that is to be physically incorporated in, and become a permanent part of, real property for sale to or owned by the Owner, are exempt from Maine State sales and use taxes. Tangible personal property is defined in 36 M.R.S. \u00a71752 (17)."
+},
+{
+"id": "8332327128",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "6.3",
+"csi": "007213",
+"title": "The Contractor may contact Maine Revenue Services, 24 State House Station, Augusta, Maine",
+"text": "6.3 The Contractor may contact Maine Revenue Services, 24 State House Station, Augusta, Maine 04333 for guidance on tax exempt regulations authorized by 36 M.R.S. \u00a71760 and detailed in Rule 302 (18-125 CMR 302). 7. Labor and Wages"
+},
+{
+"id": "7e575f7eb9",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.1",
+"csi": "007213",
+"title": "The Contractor shall conform to the labor laws of the State of Maine, and all other laws,",
+"text": "7.1 The Contractor shall conform to the labor laws of the State of Maine, and all other laws, ordinances, and legal requirements affecting the work in Maine."
+},
+{
+"id": "6140ff5b79",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.2",
+"csi": "007213",
+"title": "The Consultant shall include a wage determination document prepared by the Maine Departmen",
+"text": "7.2 The Consultant shall include a wage determination document prepared by the Maine Department of Labor in the Contract Documents for state-funded contracts in excess of $50,000. The document shows the minimum wages required to be paid to each category of labor employed on the project. 7.3 On projects requiring a Maine wage determination, the Contractor shall submit monthly payroll records to the Owner (\"the contracting agency\") showing the name and occupation of all workers and all independent contractors employed on the project. The monthly submission must also include the Contractor's company name, the title of the project, hours worked, hourly rate or other method of remuneration, and the actual wages or other compensation paid to each person."
+},
+{
+"id": "a02404faac",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.4",
+"csi": "007213",
+"title": "The Contractor shall not reveal, in the payroll records submitted to the Owner, personal",
+"text": "7.4 The Contractor shall not reveal, in the payroll records submitted to the Owner, personal information regarding workers and independent contractors, other than the information described above. Such information shall not include Social Security number, employee identification number, or employee address or phone number, for example."
+},
+{
+"id": "cc47b88de6",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.5",
+"csi": "007213",
+"title": "The Contractor shall conform to Maine statute (39-A M.R.S. \u00a7105-A (6)) by providing to the",
+"text": "7.5 The Contractor shall conform to Maine statute (39-A M.R.S. \u00a7105-A (6)) by providing to the Workers\u2019 Compensation Board a list of all subcontractors and independent contractors on the job site and a record of the entity to whom that subcontractor or independent contractor is directly contracted and by whom that subcontractor or independent contractor is insured for workers' compensation purposes. 7.6 The Contractor shall enforce strict discipline and good order among their employees at all times, and shall not employ any person unfit or unskilled to do the work assigned to them. 00 72 13 General Conditions 27 April 2021_0(1) Page 4 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 7.7 The Contractor shall promptly pay all employees when their compensation is due, shall promptly pay all others who have billed and are due for materials, supplies and services used in the Work, and shall promptly pay all others who have billed and are due for insurance, workers compensation coverage, federal and state unemployment compensation, and Social Security charges pertaining to this Project. Before final payments are made, the Contractor shall furnish to the Owner affidavits that all such payments described above have been made."
+},
+{
+"id": "385e6a76e0",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.8",
+"csi": "007213",
+"title": "The Contractor may contact the Maine Department of Labor, 54 State House Station, Augusta,",
+"text": "7.8 The Contractor may contact the Maine Department of Labor, 54 State House Station, Augusta, Maine 04333 for guidance on labor issues."
+},
+{
+"id": "fe04bcbdb9",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "7.9",
+"csi": "007213",
+"title": "The Contractor may contact the Maine Workers\u2019 Compensation Board, 27 State House Station,",
+"text": "7.9 The Contractor may contact the Maine Workers\u2019 Compensation Board, 27 State House Station, Augusta, Maine 04333 for guidance on workers' compensation issues. 8. Indemnification 8.1 The Contractor shall indemnify and hold harmless the Owner and its officers and employees from and against any and all damages, liabilities, and costs, including reasonable attorney\u2019s fees, and defense costs, for any and all injuries to persons or property, including claims for violation of intellectual property rights, to the extent caused by the negligent acts or omissions of the Contractor, its employees, agents, officers or subcontractors in the performance of work under this Agreement. The Contractor shall not be liable for claims to the extent caused by the negligent acts or omissions of the Owner or for actions taken in reasonable reliance on written instructions of the Owner. 8.2 The Contractor shall notify the Owner promptly of all claims arising out of the performance of work under this Agreement by the Contractor, its employees or agents, officers or subcontractors."
+},
+{
+"id": "b42564421b",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "8.3",
+"csi": "007213",
+"title": "This indemnity provision shall survive the termination of the Agreement, completion of the",
+"text": "8.3 This indemnity provision shall survive the termination of the Agreement, completion of the project or the expiration of the term of the Agreement. 9. Insurance Requirements 9.1 The Contractor shall provide, with each original of the signed Contract, an insurance certificate or certificates acceptable to the Owner and BGS. The Contractor shall submit insurance certificates to the Owner and BGS at the commencement of this Contract and at policy renewal or revision dates. The certificates shall identify the project name and BGS project number, and shall name the Owner as certificate holder and as additional insured for general liability and automobile liability coverages. The submitted forms shall contain a provision that coverage afforded under the insurance policies will not be canceled or materially changed unless at least ten days prior written notice by registered letter has been given to the Owner and BGS."
+},
+{
+"id": "da1f7a6ad9",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "9.2",
+"csi": "007213",
+"title": "The Owner does not warrant or represent that the insurance required herein constitutes an",
+"text": "9.2 The Owner does not warrant or represent that the insurance required herein constitutes an insurance portfolio which adequately addresses all risks faced by the Contractor or its Subcontractors. The Contractor is responsible for the existence, extent and adequacy of insurance prior to commencement of work. The Contractor shall not allow any Subcontractor to commence work until all similar insurance required of the Subcontractor has been confirmed by the Contractor. 00 72 13 General Conditions 27 April 2021_0(1) Page 5 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 9.3 The Contractor shall procure and maintain primary insurance for the duration of the Project and, if written on a Claims-Made basis, shall also procure and maintain Extended Reporting Period (ERP) insurance for the period of time that any claims could be brought. The Contractor shall ensure that all Subcontractors they engage or employ will procure and maintain similar insurance in form and amount acceptable to the Owner and BGS. At a minimum, the insurance shall be of the types and limits set forth herein protecting the Contractor from claims which may result from the Contractor\u2019s execution of the Work, whether such execution be by the Contractor or by those employed by the Contractor or by those for whose acts they may be liable. All required insurance coverages shall be placed with carriers authorized to conduct business in the State of Maine by the Maine Bureau of Insurance. 9.3.1 The Contractor shall have Workers\u2019 Compensation insurance for all employees on the Project site in accordance with the requirements of the Workers\u2019 Compensation law of the State of Maine. Minimum acceptable "
+},
+{
+"id": "573a8c8632",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "9.2",
+"csi": "007213",
+"title": "The Owner does not warrant or represent that the insurance required herein constitutes an",
+"text": "ce with the requirements of the Workers\u2019 Compensation law of the State of Maine. Minimum acceptable limits for Employer\u2019s Liability are: Bodily Injury by Accident ..........................................$500,000 Bodily Injury by Disease ............................................$500,000 Each Employee Bodily Injury by Disease ............................................$500,000 Policy Limit 9.3.2 The Contractor shall have Commercial General Liability insurance providing coverage for bodily injury and property damage liability for all hazards of the Project including premise and operations, products and completed operations, contractual, and personal injury liabilities. The policy shall include collapse and underground coverage as well as explosion coverage if explosion hazards exist. Aggregate limits shall apply on a location or project basis. Minimum acceptable limits are: General aggregate limit ..............................................$2,000,000 Products and completed operations aggregate ...........$1,000,000 Each occurrence limit.................................................$1,000,000 Personal injury aggregate ...........................................$1,000,000 9.3.3 The Contractor shall have Automobile Liability insurance against claims for bodily injury, death or property damage resulting from the maintenance, ownership or use of all owned, non-owned and hired automobiles, trucks and trailers. Minimum acceptable limit is: Any one accident or loss ............................................$500,000 9.3.4 For the portion of a project which is new construction, the Contractor shall procure and maintain Builder\u2019s Risk insurance naming the Owner, Contracto"
+},
+{
+"id": "bc0f20717b",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "9.2",
+"csi": "007213",
+"title": "The Owner does not warrant or represent that the insurance required herein constitutes an",
+"text": "tion, the Contractor shall procure and maintain Builder\u2019s Risk insurance naming the Owner, Contractor, and any Subcontractor as insureds as their interest may appear. Covered causes of loss form shall be all Risks of Direct Physical Loss, endorsed to include flood, earthquake, transit and sprinkler leakage where sprinkler coverage is applicable. Unless specifically authorized in writing by the Owner, the limit of insurance shall not be less than the initial contract amount, for the portion of the project which is new construction, and coverage shall apply during the entire contract period and until the work is accepted by the Owner. 9.3.5 The Contractor shall have Owner\u2019s Protective Liability insurance for contract values $50,000 and above, naming the Owner as the Named Insured. Minimum acceptable limits are: General aggregate limit ..............................................$2,000,000 Each occurrence limit.................................................$1,000,000 00 72 13 General Conditions 27 April 2021_0(1) Page 6 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 10. Contract Bonds"
+},
+{
+"id": "8b95a7552e",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "10.1",
+"csi": "007213",
+"title": "When noted as required in the Bid Documents, the Contractor shall provide to the Owner a",
+"text": "10.1 When noted as required in the Bid Documents, the Contractor shall provide to the Owner a Performance Bond and a Payment Bond, or \"contract bonds\", upon execution of the contract. Each bond value shall be for the full amount of the contract and issued by a surety company authorized to do business in the State of Maine as approved by the Owner. The bonds shall be executed on the forms furnished in the Bid Documents. The bonds shall allow for any subsequent additions or deductions of the contract. 10.2 The contract bonds shall continue in effect for one year after final acceptance of the contract to protect the Owner\u2019s interest in connection with the one year guarantee of workmanship and materials and to assure settlement of claims for the payment of all bills for labor, materials and equipment by the Contractor. 11. Patents and Royalties 11.1 The Contractor shall, for all time, secure for the Owner the free and undisputed right to the use of any patented articles or methods used in the Work. The expense of defending any suits for infringement or alleged infringement of such patents shall be borne by the Contractor. Awards made regarding patent suits shall be paid by the Contractor. The Contractor shall hold the Owner harmless regarding patent suits that may arise due to installations made by the Contractor, and to any awards made as a result of such suits. 11.2 Any royalty payments related to the work done by the Contractor for the Project shall be borne by the Contractor. The Contractor shall hold the Owner harmless regarding any royalty payments that may arise due to installations made by the Contractor. 12. Surveys, Layout of Work"
+},
+{
+"id": "23486d0d6c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "10.1",
+"csi": "007213",
+"title": "When noted as required in the Bid Documents, the Contractor shall provide to the Owner a",
+"text": "nstallations made by the Contractor. 12. Surveys, Layout of Work"
+},
+{
+"id": "bde6035393",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "12.1",
+"csi": "007213",
+"title": "The Owner shall furnish all property surveys unless otherwise specified.",
+"text": "12.1 The Owner shall furnish all property surveys unless otherwise specified. 12.2 The Contractor is responsible for correctly staking out the Work on the site. The Contractor shall employ a competent surveyor to position all construction on the site. The surveyor shall run the axis lines, establish correct datum points and check each line and point on the site to insure their accuracy. All such lines and points shall be carefully preserved throughout the construction."
+},
+{
+"id": "a7190f029c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "12.3",
+"csi": "007213",
+"title": "The Contractor shall lay out all work from dimensions given on the Drawings. The Contracto",
+"text": "12.3 The Contractor shall lay out all work from dimensions given on the Drawings. The Contractor shall take measurements and verify dimensions of any existing work that affects the Work or to which the Work is to be fitted. The Contractor is solely responsible for the accuracy of all measurements. The Contractor shall verify all grades, lines, levels, elevations and dimensions shown on the Drawings and report any errors or inconsistencies to the Consultant prior to commencing work. 13. Record of Documents 13.1 The Contractor shall maintain one complete set of Contract Documents on the jobsite, in good order and current status, for access by the Owner and Consultant."
+},
+{
+"id": "54a8c89d99",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "13.2",
+"csi": "007213",
+"title": "The Contractor shall maintain, continuously updated, complete records of Requests for",
+"text": "13.2 The Contractor shall maintain, continuously updated, complete records of Requests for Information, Architectural Supplemental Instructions (or equivalent), Information Bulletins, 00 72 13 General Conditions 27 April 2021_0(1) Page 7 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions supplemental sketches, Change Order Proposals, Change Orders, Shop Drawings, testing reports, et cetera, for access by the Owner and Consultant. 14. Allowances"
+},
+{
+"id": "8451a60a32",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "14.1",
+"csi": "007213",
+"title": "The Contract Price shall include all allowances described in the Contract Documents. The",
+"text": "14.1 The Contract Price shall include all allowances described in the Contract Documents. The Contractor shall include all overhead and profit necessary to implement each allowance in their Contract Price."
+},
+{
+"id": "71c4c41440",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "14.2",
+"csi": "007213",
+"title": "The Contractor shall not be required to employ parties for allowance work against whom the",
+"text": "14.2 The Contractor shall not be required to employ parties for allowance work against whom the Contractor has a reasonable objection. In such a case, the Contractor shall notify the Owner in writing of their position and shall propose an alternative party to complete the work of the allowance. 15. Shop Drawings"
+},
+{
+"id": "d53bbd640d",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "15.1",
+"csi": "007213",
+"title": "The Contractor shall administer Shop Drawings prepared by the Contractor, Subcontractors,",
+"text": "15.1 The Contractor shall administer Shop Drawings prepared by the Contractor, Subcontractors, suppliers or others to conform to the approved Schedule of the Work. The Contractor shall verify all field measurements, check and authorize all Shop Drawings and schedules required by the Work. The Contractor is the responsible party and contact for the Contractor's work as well as that of Subcontractors, suppliers or others who provide Shop Drawings."
+},
+{
+"id": "89af0add16",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "15.2",
+"csi": "007213",
+"title": "The Consultant shall review and acknowledge Shop Drawings, with reasonable promptness, for",
+"text": "15.2 The Consultant shall review and acknowledge Shop Drawings, with reasonable promptness, for general conformity with the design concept of the project and compliance with the information provided in the Contract Documents."
+},
+{
+"id": "20984c6dc4",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "15.3",
+"csi": "007213",
+"title": "The Contractor shall provide monthly updated logs containing: requests for information,",
+"text": "15.3 The Contractor shall provide monthly updated logs containing: requests for information, information bulletins, supplemental instructions, supplemental sketches, change order proposals, change orders, submittals, testing and deficiencies. 15.4 The Contractor shall make any corrections required by the Consultant, and shall submit a quantity of corrected copies as may be needed. The acceptance of Shop Drawings or schedules by the Consultant shall not relieve the Contractor from responsibility for deviations from Drawings and Specifications, unless the Contractor has called such deviations to the attention of the Consultant at the time of submission and secured the Consultant\u2019s written approval. The acceptance of Shop Drawings or schedules by the Consultant does not relieve the Contractor from responsibility for errors in Shop Drawings or schedules. 16. Samples 16.1 The Contractor shall furnish for approval, with reasonable promptness, all samples as directed by the Consultant. The Consultant shall review and approve such samples, with reasonable promptness, for general conformity with the design concept of the project and compliance with the information provided in the Contract Documents. The subsequent work shall be in accord with the approved samples. 00 72 13 General Conditions 27 April 2021_0(1) Page 8 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 17. Substitutions 17.1 The Contractor shall furnish items and materials described in the Contract Documents. If the item or material specified describes a proprietary product, or uses the name of a manufacturer, the term \u201cor approved equal\u201d shall be implied, if it is not included in the text. The specifi"
+},
+{
+"id": "b41e3ec3ed",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "15.3",
+"csi": "007213",
+"title": "The Contractor shall provide monthly updated logs containing: requests for information,",
+"text": "turer, the term \u201cor approved equal\u201d shall be implied, if it is not included in the text. The specific item or material specified establishes a minimum standard for the general design, level of quality, type, function, durability, efficiency, reliability, compatibility, warranty coverage, installation factors and required maintenance. The Drawing or written Specification shall not be construed to exclude other manufacturers products of comparable design, quality, and efficiency. 17.2 The Contractor may submit detailed information about a proposed substitution to the Consultant for consideration. Particular models of items and particular materials which the Contractor asserts to be equal to the items and materials identified in the Contract Documents shall be allowed only with written approval by the Consultant. The request for substitution shall include a cost comparison and a reason or reasons for the substitution."
+},
+{
+"id": "27767d8de7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "17.3",
+"csi": "007213",
+"title": "The Consultant may request additional information about the proposed substitution. The",
+"text": "17.3 The Consultant may request additional information about the proposed substitution. The approval or rejection of a proposed substitution may be based on timeliness of the request, source of the information, the considerations of minimum standards described above, or other considerations. The Consultant should briefly state the rationale for the decision. The decision shall be considered final. 17.4 The duration of a substitution review process can not be the basis for a claim for delay in the Schedule of the Work. 18. Assignment of Contract 18.1 The Contractor shall not assign or sublet the contract as a whole without the written consent of the Owner. The Contractor shall not assign any money due to the Contractor without the written consent of the Owner. 19. Separate Contracts 19.1 The Owner reserves the right to create other contracts in connection with this Project using similar General Conditions. The Contractor shall allow the Owner's other contractors reasonable opportunity for the delivery and storage of materials and the execution of their work. The Contractor shall coordinate and properly connect the Work of all contractors. 19.2 The Contractor shall promptly report to the Consultant and Owner any apparent deficiencies in work of the Owner's other contractors that impacts the proper execution or results of the Contractor. The Contractor\u2019s failure to observe or report any deficiencies constitutes an acceptance of the Owner's other contractors work as suitable for the interface of the Contractor\u2019s work, except for latent deficiencies in the Owner's other contractors work."
+},
+{
+"id": "22e30885fb",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "17.3",
+"csi": "007213",
+"title": "The Consultant may request additional information about the proposed substitution. The",
+"text": "ors work."
+},
+{
+"id": "c004d3c463",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "19.3",
+"csi": "007213",
+"title": "Similarly, the Contractor shall promptly report to the Consultant and Owner any apparent",
+"text": "19.3 Similarly, the Contractor shall promptly report to the Consultant and Owner any apparent deficiencies in their own work that would impact the proper execution or results of the Owner's other contractors. 00 72 13 General Conditions 27 April 2021_0(1) Page 9 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 19.4 The Contractor shall report to the Consultant and Owner any conflicts or claims for damages with the Owner's other contractors and settle such conflicts or claims for damages by mutual agreement or arbitration, if necessary, at no expense to the Owner. 19.5 In the event the Owner's other contractors sue the Owner regarding any damage alleged to have been caused by the Contractor, the Owner shall notify the Contractor, who shall defend such proceedings at the Contractor's expense. The Contractor shall pay or satisfy any judgment that may arise against the Owner, and pay all other costs incurred. 20. Subcontracts 20.1 The Contractor shall not subcontract any part of this contract without the written permission of the Owner. 20.2 The Contractor shall submit a complete list of named Subcontractors and material suppliers to the Consultant and Owner for approval by the Owner prior to commencing work. The Subcontractors named shall be reputable companies of recognized standing with a record of satisfactory work."
+},
+{
+"id": "1674c32e4c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "20.3",
+"csi": "007213",
+"title": "The Contractor shall not employ any Subcontractor or use any material until they have been",
+"text": "20.3 The Contractor shall not employ any Subcontractor or use any material until they have been approved, or where there is reason to believe the resulting work will not comply with the Contract Documents."
+},
+{
+"id": "b9c4deac5c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "20.4",
+"csi": "007213",
+"title": "The Contractor, not the Owner, is as fully responsible for the acts and omissions of",
+"text": "20.4 The Contractor, not the Owner, is as fully responsible for the acts and omissions of Subcontractors and of persons employed by them, as the Contractor is for the acts and omissions of persons directly or indirectly employed by the Contractor. 20.5 Neither the Contract Documents nor any Contractor-Subcontractor contract shall indicate, infer or create any direct contractual relationship between any Subcontractor and the Owner. 21. Contractor-Subcontractor Relationship"
+},
+{
+"id": "576137e4d3",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.1",
+"csi": "007213",
+"title": "The Contractor shall be bound to the Subcontractor by all the obligations in the Contract",
+"text": "21.1 The Contractor shall be bound to the Subcontractor by all the obligations in the Contract Documents that bind the Contractor to the Owner."
+},
+{
+"id": "3edadcdf56",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.2",
+"csi": "007213",
+"title": "The Contractor shall pay the Subcontractor, in proportion to the dollar value of the work",
+"text": "21.2 The Contractor shall pay the Subcontractor, in proportion to the dollar value of the work completed and requisitioned by the Subcontractor, the approved dollar amount allowed to the Contractor no more than seven days after receipt of payment from the Owner."
+},
+{
+"id": "333d9150da",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.3",
+"csi": "007213",
+"title": "The Contractor shall pay the Subcontractor accordingly if the Contract Documents or the",
+"text": "21.3 The Contractor shall pay the Subcontractor accordingly if the Contract Documents or the subcontract provide for earlier or larger payments than described in the provision above. 21.4 The Contractor shall pay the Subcontractor for completed and requisitioned subcontract work, less retainage, no more than seven days after receipt of payment from the Owner for the Contractor's approved Requisition for Payment, even if the Consultant fails to certify a portion of the Requisition for Payment for a cause not the fault of the Subcontractor. 21.5 The Contractor shall not make a claim for liquidated damages or penalty for delay in any amount in excess of amounts that are specified by the subcontract. 00 72 13 General Conditions 27 April 2021_0(1) Page 10 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions"
+},
+{
+"id": "308a576289",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.6",
+"csi": "007213",
+"title": "The Contractor shall not make a claim for services rendered or materials furnished by the",
+"text": "21.6 The Contractor shall not make a claim for services rendered or materials furnished by the Subcontractor unless written notice is given by the Contractor to the Subcontractor within ten calendar days of the day in which the claim originated. 21.7 The Contractor shall give the Subcontractor an opportunity to present and to submit evidence in any progress conference or disputes involving subcontract work. 21.8 The Contractor shall pay the Subcontractor a just share of any fire insurance payment received by the Contractor. 21.9 The Subcontractor shall be bound to the Contractor by the terms of the Contract Documents and assumes toward the Contractor all the obligations and responsibilities that the Contractor, by those documents, assumes toward the Owner. 21.10 The Subcontractor shall submit applications for payment to the Contractor in such reasonable time as to enable the Contractor to apply for payment as specified. 21.11 The Subcontractor shall make any claims for extra cost, extensions of time or damages, to the Contractor in the manner provided in these General Conditions for like claims by the Contractor to the Owner, except that the time for the Subcontractor to make claims for extra cost is seven calendar days after the receipt of Consultant's instructions. 22. Supervision of the Work 22.1 During all stages of the Work the Contractor shall have a competent superintendent, with any necessary assistant superintendents, overseeing the project. The superintendent shall not be reassigned without the consent of the Owner unless a superintendent ceases to be employed by the Contractor due to unsatisfactory performance. 22.2 The superintendent represents the Contractor "
+},
+{
+"id": "05a7cf04ed",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.6",
+"csi": "007213",
+"title": "The Contractor shall not make a claim for services rendered or materials furnished by the",
+"text": "the Contractor due to unsatisfactory performance. 22.2 The superintendent represents the Contractor on the jobsite. Directives given by the Consultant or Owner to the superintendent shall be as binding as if given directly to the Contractor's main office. All important directives shall be confirmed in writing to the Contractor. The Consultant and Owner are not responsible for the acts or omissions of the superintendent or assistant superintendents. 22.3 The Contractor shall provide supervision of the Work equal to the industry's highest standard of care. The superintendent shall carefully study and compare all Contract Documents and promptly report any error, inconsistency or omission discovered to the Consultant. The Contractor may not necessarily be held liable for damages resulting directly from any error, inconsistency or omission in the Contract Documents or other instructions by the Consultant that was not revealed by the superintendent in a timely way. 23. Observation of the Work 23.1 The Contractor shall allow the Owner, the Consultant and the Bureau continuous access to the site for the purpose of observation of the progress of the work. All necessary safeguards and accommodations for such observations shall be provided by the Contractor. 00 72 13 General Conditions 27 April 2021_0(1) Page 11 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 23.2 The Contractor shall coordinate all required testing, approval or demonstration of the Work. The Contractor shall give sufficient notice to the appropriate parties of readiness for testing, inspection or examination. 23.3 The Contractor shall schedule inspections and obtain all required certificates of ins"
+},
+{
+"id": "98025ca16d",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "21.6",
+"csi": "007213",
+"title": "The Contractor shall not make a claim for services rendered or materials furnished by the",
+"text": "mination. 23.3 The Contractor shall schedule inspections and obtain all required certificates of inspection for inspections by a party other than the Consultant."
+},
+{
+"id": "a9b2d15bf2",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "23.4",
+"csi": "007213",
+"title": "The Consultant shall make all scheduled observations promptly, prior to the work being",
+"text": "23.4 The Consultant shall make all scheduled observations promptly, prior to the work being concealed or buried by the Contractor. If approval of the Work is required of the Consultant, the Contractor shall notify the Consultant of the construction schedule in this regard. Work concealed or buried prior to the Consultant's approval may need to be uncovered at the Contractor\u2019s expense. 23.5 The Consultant may order reexamination of questioned work, and, if so ordered, the work must be uncovered by the Contractor. If the work is found to conform to the Contract Documents, the Owner shall pay the expense of the reexamination and remedial work. If the work is found to not conform to the Contract Documents, the Contractor shall pay the expense, unless the defect in the work was caused by the Owner's Contractor, whose responsibility the reexamination expense becomes."
+},
+{
+"id": "c8420717b8",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "23.6",
+"csi": "007213",
+"title": "The Bureau shall periodically observe the Work during the course of construction and make",
+"text": "23.6 The Bureau shall periodically observe the Work during the course of construction and make recommendations to the Contractor or Consultant as necessary. Such recommendations shall be considered and implemented through the usual means for changes to the Work. 24. Consultant's Status 24.1 The Consultant represents the Owner during the construction period, and observes the work in progress on behalf of the Owner. The Consultant has authority to act on behalf of the Owner only to the extent expressly provided by the Contract Documents or otherwise demonstrated to the Contractor. The Consultant has authority to stop the work whenever such an action is necessary, in the Consultant's reasonable opinion, to ensure the proper execution of the contract."
+},
+{
+"id": "532572c3f7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "24.2",
+"csi": "007213",
+"title": "The Consultant is the interpreter of the conditions of the contract and the judge of its",
+"text": "24.2 The Consultant is the interpreter of the conditions of the contract and the judge of its performance. The Consultant shall favor neither the Owner nor the Contractor, but shall use the Consultant\u2019s powers under the contract to enforce faithful performance by both parties. 24.3 In the event of the termination of the Consultant's employment on the project prior to completion of the work, the Owner shall appoint a capable and reputable replacement. The status of the new Consultant relative to this contract shall be that of the former Consultant. 25. Management of the Premises 25.1 The Contractor shall place equipment and materials, and conduct activities on the premises in a manner that does not unreasonably hinder site circulation, environmental stability, or any long term effect. Likewise, the Consultant's directions shall not cause the use of premises to be impeded for the Contractor or Owner. 00 72 13 General Conditions 27 April 2021_0(1) Page 12 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 25.2 The Contractor shall not use the premises for any purpose other than that which is directly related to the scope of work. The Owner shall not use the premises for any purpose incompatible with the proposed work simultaneous to the work of the Contractor. 25.3 The Contractor shall enforce the Consultant\u2019s instructions regarding information posted on the premises such as signage and advertisements, as well as activities conducted on the premises such as fires, and smoking. 25.4 The Owner may occupy any part of the Project that is completed with the written consent of the Contractor, and without prejudice to any of the rights of the Owner or Contractor. Such"
+},
+{
+"id": "d45c46a82b",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "24.2",
+"csi": "007213",
+"title": "The Consultant is the interpreter of the conditions of the contract and the judge of its",
+"text": "nsent of the Contractor, and without prejudice to any of the rights of the Owner or Contractor. Such use or occupancy shall not, in and of itself, be construed as a final acceptance of any work or materials. 26. Safety and Security of the Premises"
+},
+{
+"id": "278d24c9e4",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "26.1",
+"csi": "007213",
+"title": "The Contractor shall designate, and make known to the Consultant and the Owner, a safety",
+"text": "26.1 The Contractor shall designate, and make known to the Consultant and the Owner, a safety officer whose duty is the prevention of accidents on the site."
+},
+{
+"id": "4f97461b70",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "26.2",
+"csi": "007213",
+"title": "The Contractor shall continuously maintain security on the premises and protect from",
+"text": "26.2 The Contractor shall continuously maintain security on the premises and protect from unreasonable occasion of injury all people authorized to be on the job site. The Contractor shall also effectively protect the property and adjacent properties from damage or loss. 26.3 The Contractor shall take all necessary precautions to ensure the safety of workers and others on and adjacent to the site, abiding by applicable local, state and federal safety regulations. The Contractor shall erect and continuously maintain safeguards for the protection of workers and others, and shall post signs and other warnings regarding hazards associated with the construction process, such as protruding fasteners, moving equipment, trenches and holes, scaffolding, window, door or stair openings, and falling materials. 26.4 The Contractor shall restore the premises to conditions that existed prior to the start of the project at areas not intended to be altered according to the Contract Documents. 26.5 The Contractor shall protect existing utilities and exercise care working in the vicinity of utilities shown in the Drawings and Specifications or otherwise located by the Contractor."
+},
+{
+"id": "eb363bb53b",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "26.6",
+"csi": "007213",
+"title": "The Contractor shall protect from damage existing trees and other significant plantings an",
+"text": "26.6 The Contractor shall protect from damage existing trees and other significant plantings and landscape features of the site which will remain a permanent part of the site. If necessary or indicated in the Contract Documents, tree trunks shall be boxed and barriers erected to prevent damage to tree branches or roots."
+},
+{
+"id": "a67c7f2cf0",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "26.7",
+"csi": "007213",
+"title": "The Contractor shall repair or replace damage to the Work caused by the Contractor\u2019s or",
+"text": "26.7 The Contractor shall repair or replace damage to the Work caused by the Contractor\u2019s or Subcontractor\u2019s forces, including that which is reasonably protected, at the expense of the responsible party. 26.8 The Contractor shall not load, or allow to be loaded, any part of the Project with a force which imperils personal or structural safety. The Consultant may consult with the Contractor on such means and methods of construction, however, the ultimate responsibility lies with the Contractor. 26.9 The Contractor shall not jeopardize any work in place with subsequent construction activities such as blasting, drilling, excavating, cutting, patching or altering work. The Consultant must 00 72 13 General Conditions 27 April 2021_0(1) Page 13 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions approve altering any structural components of the project. The Contractor shall supervise all construction activities carried out by others on site to ensure that the work is neatly done and in a manner that will not endanger the structure or the component parts. 26.10 The Contractor may act with their sole discretion in emergency situations that potentially effect health, life or serious damage to the premises or adjacent properties, to prevent such potential loss or injury. The Contractor may negotiate with the Owner for compensation for expenses due to such emergency work. 26.11 The Contractor and Subcontractors shall have no responsibility for the identification, discovery, presence, handling, removal or disposal of, or exposure of persons to, hazardous materials in any form at the project site. The Contractor shall avoid disruption of any hazardous materials or toxic s"
+},
+{
+"id": "c65fb83f55",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "26.7",
+"csi": "007213",
+"title": "The Contractor shall repair or replace damage to the Work caused by the Contractor\u2019s or",
+"text": "orm at the project site. The Contractor shall avoid disruption of any hazardous materials or toxic substances at the project site and promptly notify the Owner in writing on the occasion of such a discovery. 26.12 The Contractor shall keep the premises free of any unsafe accumulation of waste materials caused by the work. The Contractor shall regularly keep the spaces \u201cbroom clean\u201d. See the Close-out of the Work provisions of this section regarding cleaning at the completion of the project. 27. Changes in the Work"
+},
+{
+"id": "7d1e32ec26",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.1",
+"csi": "007213",
+"title": "The Contractor shall not proceed with extra work without an approved Change Order or",
+"text": "27.1 The Contractor shall not proceed with extra work without an approved Change Order or Construction Change Directive. A Change Order which has been properly signed by all parties shall become a part of the contract."
+},
+{
+"id": "e3d8e73bc9",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.2",
+"csi": "007213",
+"title": "A Change Order is the usual document for directing changes in the Work. In certain",
+"text": "27.2 A Change Order is the usual document for directing changes in the Work. In certain circumstances, however, the Owner may utilize a Construction Change Directive to direct the Contractor to perform changes in the Work that are generally consistent with the scope of the project. The Owner shall use a Construction Change Directive only when the normal process for approving changes to the Work has failed to the detriment of the Project, or when agreement on the terms of a Change Order cannot be met, or when an urgent situation requires, in the Owner's judgment, prompt action by the Contractor. 27.3 The Consultant shall prepare the Construction Change Directive representing a complete scope of work, with proposed Contract Price and Contract Time revisions, if any, clearly stated. 27.4 The Contractor shall promptly carry out a Construction Change Directive which has been signed by the Owner and the Consultant. Work thus completed by the Contractor constitutes the basis for a Change Order. Changes in the Contract Price and Contract Time shall be as defined in the Construction Change Directive unless subsequently negotiated with some other terms."
+},
+{
+"id": "62da854a45",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.5",
+"csi": "007213",
+"title": "The method of determining the dollar value of extra work shall be by:",
+"text": "27.5 The method of determining the dollar value of extra work shall be by: .1 an estimate of the Contractor accepted by Owner as a lump sum, or .2 unit prices named in the contract or subsequently agreed upon, or .3 cost plus a designated percentage, or .4 cost plus a fixed fee. 00 72 13 General Conditions 27 April 2021_0(1) Page 14 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 27.6 The Contractor shall determine the dollar value of the extra work for both the lump sum and cost plus designated percentage methods so as not to exceed the following rates. The rates include all overhead and profit expenses. .1 Contractor - for any work performed by the Contractor\u2019s own forces, up to 20% of the cost; .2 Subcontractor - for work performed by Subcontractor\u2019s own forces, up to 20% of the cost; .3 Contractor - for work performed by Contractor\u2019s Subcontractor, up to 10% of the amount due the Subcontractor. 27.7 The Contractor shall keep and provide records as needed or directed for the cost plus designated percentage method. The Consultant shall review and certify the appropriate amount which includes the Contractor's overhead and profit. The Owner shall make payments based on the Consultant\u2019s certificate. 27.8 Cost reflected in Change Orders shall be limited to the following: cost of materials, cost of delivery, cost of labor (including Social Security, pension, Workers' Compensation insurance, and unemployment insurance), and cost of rental of power tools and equipment. Labor cost may include a pro-ratio share of a foreman\u2019s time only in the case of an extension of contract time granted due to the Change Order."
+},
+{
+"id": "d931a88f9c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.5",
+"csi": "007213",
+"title": "The method of determining the dollar value of extra work shall be by:",
+"text": "of contract time granted due to the Change Order."
+},
+{
+"id": "626a7195d7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.9",
+"csi": "007213",
+"title": "Overhead reflected in Change Orders shall be limited to the following: bond premium,",
+"text": "27.9 Overhead reflected in Change Orders shall be limited to the following: bond premium, supervision, wages of clerks, time keepers, and watchmen, small tools, incidental expenses, general office expenses, and all other overhead expenses directly related to the Change Order. 27.10 The Contractor shall provide credit to the Owner for labor, materials, equipment and other costs but not overhead and profit expenses for those Change Order items that result in a net value of credit to the contract. 27.11 The Owner may change the scope of work of the Project without invalidating the contract. The Owner shall notify the Contractor of a change of the scope of work for the Owner's Contractors, which may affect the work of this Contractor, without invalidating the contract. Change Orders for extension of the time caused by such changes shall be developed at the time of directing the change in scope of work."
+},
+{
+"id": "fbc4a650f4",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.12",
+"csi": "007213",
+"title": "The Consultant may order minor changes in the Work, not involving extra cost, which is",
+"text": "27.12 The Consultant may order minor changes in the Work, not involving extra cost, which is consistent with the intent of the design or project. 27.13 The Contractor shall immediately give written notification to the Consultant of latent conditions discovered at the site which materially differ from those represented in the Drawings or Specifications, and which may eventually result in a change in the scope of work. The Contractor shall suspend work until receiving direction from the Consultant. The Consultant shall promptly investigate the conditions and respond to the Contractor's notice with direction that avoids any unnecessary delay of the Work. The Consultant shall determine if the discovered conditions warrant a Change Order."
+},
+{
+"id": "fffaf50c9c",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "27.14",
+"csi": "007213",
+"title": "The Contractor shall, within ten calendar days of receipt of the information, give written",
+"text": "27.14 The Contractor shall, within ten calendar days of receipt of the information, give written notification to the Consultant if the Contractor claims that instructions by the Consultant will constitute extra cost not accounted for by Change Order or otherwise under the contract. The Consultant shall promptly respond to the Contractor's notice with direction that avoids any 00 72 13 General Conditions 27 April 2021_0(1) Page 15 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions unnecessary delay of the Work. The Consultant shall determine if the Contractor's claim warrants a Change Order. 28. Correction of the Work 28.1 The Contractor shall promptly remove from the premises all work the Consultant declares is non- conforming to the contract. The Contractor shall replace the work properly at no expense to the Owner. The Contractor is also responsible for the expenses of others whose work was damaged or destroyed by such remedial work."
+},
+{
+"id": "681fff6176",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "28.2",
+"csi": "007213",
+"title": "The Owner may elect to remove non-conforming work if it is not removed by the Contractor",
+"text": "28.2 The Owner may elect to remove non-conforming work if it is not removed by the Contractor within a reasonable time, that time defined in a written notice from the Consultant. The Owner may elect to store removed non-conforming work not removed by the Contractor at the Contractor's expense. The Owner may, with ten days written notice, dispose of materials which the Contractor does not remove. The Owner may sell the materials and apply the net proceeds, after deducting all expenses, to the costs that should have been borne by the Contractor. 28.3 The Contractor shall remedy any defects due to faulty materials or workmanship and pay for any related damage to other work which appears within a period of one year from the date of substantial completion, and in accord with the terms of any guarantees provided in the contract. The Owner shall promptly give notice of observed defects to the Contractor and Consultant. The Consultant shall determine the status of all claimed defects. The Contractor shall perform all remedial work without unjustifiable delay in either the initial response or the corrective action. 28.4 The Consultant may authorize, after a reasonable notification to the Contractor, an equitable deduction from the contract amount in lieu of the Contractor correcting non-conforming or defective work. 29. Owner's Right to do Work 29.1 The Owner may, using other contractors, correct deficiencies attributable to the Contractor, or complete unfinished work. Such action shall take place only after giving the Contractor three days written notice, and provided the Consultant approves of the proposed course of action as an appropriate remedy. The Owner may then deduct the "
+},
+{
+"id": "200eb2dfc7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "28.2",
+"csi": "007213",
+"title": "The Owner may elect to remove non-conforming work if it is not removed by the Contractor",
+"text": "t approves of the proposed course of action as an appropriate remedy. The Owner may then deduct the cost of the remedial work from the amount due the Contractor. 29.2 The Owner may act with their sole discretion when the Contractor is unable to take action in emergency situations that potentially effect health, life or serious damage to the premises or adjacent properties, to prevent such potential loss or injury. The Owner shall inform the Contractor of the emergency work performed, particularly where it may affect the work of the Contractor. 30. Termination of Contract and Stop Work Action 30.1 The Owner may, owing to a certificate of the Consultant indicating that sufficient cause exists to justify such action, without prejudice to any other right or remedy and after giving the Contractor and the Contractor\u2019s surety seven days written notice, terminate the employment of the 00 72 13 General Conditions 27 April 2021_0(1) Page 16 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions Contractor. At that time the Owner may take possession of the premises and of all materials, tools and appliances on the premises and finish the work by whatever method the Owner may deem expedient. Cause for such action by the Owner includes: .1 the contractor is adjudged bankrupt, or makes a general assignment for the benefit of its creditors, or .2 a receiver is appointed due to the Contractor\u2019s insolvency, or .3 the Contractor persistently or repeatedly refuses or fails to provide enough properly skilled workers or proper materials, or .4 the Contractor fails to make prompt payment to Subcontractors or suppliers of materials or labor, or .5 the Contractor persistently disregard"
+},
+{
+"id": "48674a3ca7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "28.2",
+"csi": "007213",
+"title": "The Owner may elect to remove non-conforming work if it is not removed by the Contractor",
+"text": "nt to Subcontractors or suppliers of materials or labor, or .5 the Contractor persistently disregards laws, ordinances or the instructions of the Consultant, or is otherwise found guilty of a substantial violation of a provision of the Contract Documents. 30.2 The Contractor is not entitled, as a consequence of the termination of the employment of the Contractor as described above, to receive any further payment until the Work is finished. If the unpaid balance of the contract amount exceeds the expense of finishing the Work, including compensation for additional architectural, managerial and administrative services, such balance shall be paid to the Contractor. If the expense of finishing the Work exceeds the unpaid balance, the Contractor shall pay the difference to the Owner. The Consultant shall certify the expense incurred by the Contractor\u2019s default. This obligation for payment shall continue to exist after termination of the contract. 30.3 The Contractor may, if the Work is stopped by order of any court or other public authority for a period of thirty consecutive days, and through no act or fault of the Contractor or of anyone employed by the Contractor, with seven days written notice to the Owner and the Consultant, terminate this contract. The Contractor may then recover from the Owner payment for all work executed, any proven loss and reasonable profit and damage. 30.4 The Contractor may, if the Consultant fails to issue a certificate for payment within seven days after the Contractor's formal request for payment, through no fault of the Contractor, or if the Owner fails to pay to the Contractor within 30 days after submission of any sum certified by the Consult"
+},
+{
+"id": "049ae1a750",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "28.2",
+"csi": "007213",
+"title": "The Owner may elect to remove non-conforming work if it is not removed by the Contractor",
+"text": "r fails to pay to the Contractor within 30 days after submission of any sum certified by the Consultant, with seven days written notice to the Owner and the Consultant, stop the Work or terminate this Contract. 31. Delays and Extension of Time 31.1 The completion date of the contract shall be extended if the work is delayed by changes ordered in the work which have approved time extensions, or by an act or neglect of the Owner, the Consultant, or the Owner's Contractor, or by strikes, lockouts, fire, flooding, unusual delay in transportation, unavoidable casualties, or by other causes beyond the Contractor\u2019s control. The Consultant shall determine the status of all claimed causes. 31.2 The contract shall not be extended for delay occurring more than seven calendar days before the Contractor's claim made in writing to the Consultant. In case of a continuing cause of delay, only one claim is necessary. 31.3 The contract shall not be extended due to failure of the Consultant to furnish drawings if no schedule or agreement is made between the Contractor and the Consultant indicating the dates 00 72 13 General Conditions 27 April 2021_0(1) Page 17 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions which drawings shall be furnished and fourteen calendar days has passed after said date for such drawings."
+},
+{
+"id": "e968a94d81",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "31.4",
+"csi": "007213",
+"title": "This article does not exclude the recovery of damages for delay by either party under othe",
+"text": "31.4 This article does not exclude the recovery of damages for delay by either party under other provisions in the Contract Document. 32. Payments to the Contractor"
+},
+{
+"id": "07e29ed4c2",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.1",
+"csi": "007213",
+"title": "As noted under Preconstruction Conference in this section, the Contractor shall submit a",
+"text": "32.1 As noted under Preconstruction Conference in this section, the Contractor shall submit a Schedule of Values form, before the first application for payment, for approval by the Owner and Consultant. The Consultant may direct the Contractor to provide evidence that supports the correctness of the form. The approved Schedule of Values shall be used as a basis for payments. 32.2 The Contractor shall submit an application for each payment (\u201cRequisition for Payment\u201d) on a form approved by the Owner and Consultant. The Consultant may require receipts or other documents showing the Contractor's payments for materials and labor, including payments to Subcontractors. 32.3 The Contractor shall submit Requisitions for Payment as the work progresses not more frequently than once each month, unless the Owner approves a more frequent interval due to unusual circumstances. The Requisition for Payment is based on the proportionate quantities of the various classes of work completed or incorporated in the Work, in agreement with the actual progress of the Work and the dollar value indicated in the Schedule of Values."
+},
+{
+"id": "8759e80d42",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.4",
+"csi": "007213",
+"title": "The Consultant shall verify and certify each Requisition for Payment which appears to be",
+"text": "32.4 The Consultant shall verify and certify each Requisition for Payment which appears to be complete and correct prior to payment being made by the Owner. The Consultant may certify an appropriate amount for materials not incorporated in the Work which have been delivered and suitably stored at the site. The Contractor shall submit bills of sale, insurance certificates, or other such documents that will adequately protect the Owner\u2019s interests prior to payments being certified. 32.5 In the event any materials delivered but not yet incorporated in the Work have been included in a certified Requisition for Payment with payment made, and said materials thereafter are damaged, deteriorated or destroyed, or for any reason whatsoever become unsuitable or unavailable for use in the Work, the full amount previously allowed shall be deducted from subsequent payments unless the Contractor satisfactorily replaces said material."
+},
+{
+"id": "5cacb8045a",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.6",
+"csi": "007213",
+"title": "The Contractor may request certification of an appropriate dollar amount for materials not",
+"text": "32.6 The Contractor may request certification of an appropriate dollar amount for materials not incorporated in the Work which have been delivered and suitably stored away from the site. The Contractor shall submit bills of sale, insurance certificates, right-of-entry documents or other such documents that will adequately protect the Owner\u2019s interests. The Consultant shall determine if the Contractor's documentation for the materials is complete and specifically designated for the Project. The Owner may allow certification of such payments."
+},
+{
+"id": "72566073c2",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.7",
+"csi": "007213",
+"title": "Subcontractors may request, and shall receive from the Consultant, copies of approved",
+"text": "32.7 Subcontractors may request, and shall receive from the Consultant, copies of approved Requisitions for Payment showing the amounts certified in the Schedule of Values."
+},
+{
+"id": "d193391dd6",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.8",
+"csi": "007213",
+"title": "Certified Requisitions for Payment, payments made to the Contractor, or partial or entire",
+"text": "32.8 Certified Requisitions for Payment, payments made to the Contractor, or partial or entire occupancy of the project by the Owner shall not constitute an acceptance of any work that does 00 72 13 General Conditions 27 April 2021_0(1) Page 18 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions not conform to the Contract Documents. The making and acceptance of the final payment constitutes a waiver of all claims by the Owner, other than those arising from unsettled liens, from faulty work or materials appearing within one year from final payment or from requirements of the Drawings and Specifications, and of all claims by the Contractor, except those previously made and still unsettled. 33. Payments Withheld 33.1 The Owner shall retain five percent of each payment due the Contractor as part security for the fulfillment of the contract by the Contractor. The Owner may make payment of a portion of this \u201cretainage\u201d to the Contractor temporarily or permanently during the progress of the Work. The Owner may thereafter withhold further payments until the full amount of the five percent is reestablished. The Contractor may deposit with the Maine State Treasurer certain securities in place of retainage amounts due according to Maine Statute (5 M.R.S. \u00a71746). 33.2 The Consultant may withhold or nullify the whole or a portion of any Requisitions for Payment submitted by the Contractor in the amount that may be necessary, in his reasonable opinion, to protect the Owner from loss due to any of the following: .1 defective work not remedied; .2 claims filed or reasonable evidence indicating probable filing of claims; .3 failure to make payments properly to Subcontractors"
+},
+{
+"id": "cb93b4ac19",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.8",
+"csi": "007213",
+"title": "Certified Requisitions for Payment, payments made to the Contractor, or partial or entire",
+"text": "vidence indicating probable filing of claims; .3 failure to make payments properly to Subcontractors or suppliers; .4 a reasonable doubt that the contract can be completed for the balance then unpaid; .5 liability for damage to another contractor. The Owner shall make payment to the Contractor, in the amount withheld, when the above circumstances are removed. 34. Liens 34.1 The Contractor shall deliver to the Owner a complete release of all liens arising out of this contract before the final payment or any part of the retainage payment is released. The Contractor shall provide with the release of liens an affidavit asserting each release includes all labor and materials for which a lien could be filed. Alternately, the Contractor, in the event any Subcontractor or supplier refuses to furnish a release of lien in full, may furnish a bond satisfactory to the Owner, to indemnify the Owner against any lien. 34.2 In the event any lien remains unsatisfied after all payments to the Contractor are made by the Owner, the Contractor shall refund to the Owner all money that the latter may be compelled to pay in discharging such lien, including all cost and reasonable attorney\u2019s fees. 35. Workmanship 35.1 The Contractor shall provide materials, equipment, and installed work equal to or better than the quality specified in the Contract Documents and approved in submittal and sample. The installation methods shall be of the highest standards, and the best obtainable from the respective trades. The Consultant\u2019s decision on the quality of work shall be final. 00 72 13 General Conditions 27 April 2021_0(1) Page 19 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 35.2 The C"
+},
+{
+"id": "881485d423",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.8",
+"csi": "007213",
+"title": "Certified Requisitions for Payment, payments made to the Contractor, or partial or entire",
+"text": " April 2021_0(1) Page 19 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 35.2 The Contractor shall know local labor conditions for skilled and unskilled labor in order to apply the labor appropriately to the Work. All labor shall be performed by individuals well skilled in their respective trades. 35.3 The Contractor shall perform all cutting, fitting, patching and placing of work in such a manner to allow subsequent work to fit properly, whether that be by the Contractor, the Owner's Contractors or others. The Owner and Consultant may advise the Contractor regarding such subsequent work. Notwithstanding the notification or knowledge of such subsequent work, the Contractor may be directed to comply with this standard of compatible construction by the Consultant at the Contractor's expense. 35.4 The Contractor shall request clarification or revision of any design work by the Consultant, prior to commencing that work, in a circumstance where the Contractor believes the work cannot feasibly be completed at the highest quality, or as indicated in the Contract Documents. The Consultant shall respond to such requests in a timely way, providing clarifying information, a feasible revision, or instruction allowing a reduced quality of work. The Contractor shall follow the direction of the Consultant regarding the required request for information. 35.5 The Contractor shall guarantee the Work against any defects in workmanship and materials for a period of one year commencing with the date of the Certificate of Substantial Completion, unless specified otherwise for specific elements of the project. The Work may also be subdivided in mutually agreed upon components, "
+},
+{
+"id": "a8aee2d6f6",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "32.8",
+"csi": "007213",
+"title": "Certified Requisitions for Payment, payments made to the Contractor, or partial or entire",
+"text": "ecific elements of the project. The Work may also be subdivided in mutually agreed upon components, each defined by a separate Certificate of Substantial Completion. 36. Close-out of the Work"
+},
+{
+"id": "81072e2a35",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "36.1",
+"csi": "007213",
+"title": "The Contractor shall remove from the premises all waste materials caused by the work. The",
+"text": "36.1 The Contractor shall remove from the premises all waste materials caused by the work. The Contractor shall make the spaces \u201cbroom clean\u201d unless a more thorough cleaning is specified. The Contractor shall clean all windows and glass immediately prior to the final inspection, unless otherwise directed. 36.2 The Owner may conduct the cleaning of the premises where the Contractor, duly notified by the Consultant, fails to adequately complete the task. The expense of this cleaning may be deducted from the sum due to the Contractor. 36.3 The Contractor shall participate in all final inspections and acknowledge the documentation of unsatisfactory work, customarily called the \"punch list\", to be corrected by the Contractor. The Consultant shall document the successful completion of the Work in a dated Certificate of Substantial Completion, to be signed by Owner, Consultant, and Contractor. 36.4 The Contractor shall not call for final inspection of any portion of the Work that is not completely and permanently installed. The Contractor may be found liable for the expenses of individuals called to final inspection meetings prematurely."
+},
+{
+"id": "a015dce910",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "36.5",
+"csi": "007213",
+"title": "The Contractor and all major Subcontractors shall participate in the end-of-warranty-perio",
+"text": "36.5 The Contractor and all major Subcontractors shall participate in the end-of-warranty-period conference, typically scheduled close to one year after the Substantial Completion date. 00 72 13 General Conditions 27 April 2021_0(1) Page 20 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 37. Date of Completion and Liquidated Damages 37.1 The Contractor may make a written request to the Owner for an extension or reduction of time, if necessary. The request shall include the reasons the Contractor believes justifies the proposed completion date. The Owner may grant the revision of the contract completion date if the Work was delayed due to conditions beyond the control and the responsibility of the Contractor. The Contractor shall not conduct unauthorized accelerated work or file delay claims to recover alleged damages for unauthorized early completion. 37.2 The Contractor shall vigorously pursue the completion of the Work and notify the Owner of any factors that have, may, or will affect the approved Schedule of the Work. The Contractor may be found responsible for expenses of the Owner or Consultant if the Contractor fails to make notification of project delays. 37.3 The Project is planned to be done in an orderly fashion which allows for an iterative submittal review process, construction administration including minor changes in the Work and some bad weather. The Contractor shall not file delay claims to recover alleged damages on work the Consultant determines has followed the expected rate of progress. 37.4 The Consultant shall prepare the Certificate of Substantial Completion which, when signed by the Owner and the Contractor, documents the date of S"
+},
+{
+"id": "398802d890",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "36.5",
+"csi": "007213",
+"title": "The Contractor and all major Subcontractors shall participate in the end-of-warranty-perio",
+"text": "f Substantial Completion which, when signed by the Owner and the Contractor, documents the date of Substantial Completion of the Work or a designated portion of the Work. The Owner shall not consider the issuance of a Certificate of Occupancy by an outside authority a prerequisite for Substantial Completion if the Certificate of Occupancy cannot be obtained due to factors beyond the Contractor\u2019s control."
+},
+{
+"id": "d744325b49",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "37.5",
+"csi": "007213",
+"title": "Liquidated Damages may be deducted from the sum due to the Contractor for each calendar da",
+"text": "37.5 Liquidated Damages may be deducted from the sum due to the Contractor for each calendar day that the Work remains uncompleted after the completion date specified in the Contract or an approved amended completion date. The dollar amount per day shall be calculated using the Schedule of Liquidated Damages table shown below. If the original contract amount is: The per day Liquidated Damages shall be: Less than $100,000 $250 $100,000 to less than $2,000,000 $750 $2,000,000 to less than $10,000,000 $1,500 $10,000,000 and greater $1,500 plus $250 for each $2,000,000 over $10,000,000 38. Dispute Resolution"
+},
+{
+"id": "ce7124e8a7",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "38.1",
+"csi": "007213",
+"title": "Mediation",
+"text": "38.1 Mediation 38.1.1 A dispute between the parties which arises under this Contract which cannot be resolved through informal negotiation, shall be submitted to a neutral mediator jointly selected by the parties. 38.1.2 Either party may file suit before or during mediation if the party, in good faith, deems it to be necessary to avoid losing the right to sue due to a statute of limitations. If suit is filed before good faith mediation efforts are completed, the party filing suit shall agree to stay all proceedings in the lawsuit pending completion of the mediation process, provided such stay is without prejudice. 00 72 13 General Conditions 27 April 2021_0(1) Page 21 of 22 00 72 13 revised 27 April 2021 00 72 13 General Conditions 38.1.3 In any mediation between the Owner and the Consultant, the Owner has the right to consolidate related claims between Owner and Contractor."
+},
+{
+"id": "7c4fd54be6",
+"doc": "2995_Addendum_1_DAFS.pdf",
+"section": "38.2",
+"csi": "007213",
+"title": "Arbitration",
+"text": "38.2 Arbitration 38.2.1 If the dispute is not resolved through mediation, the dispute shall be settled by arbitration. The arbitration shall be conducted before a panel of three arbitrators. Each party shall select one arbitrator; the third arbitrator shall be appointed by the arbitrators selected by the parties. The arbitration shall be conducted in accordance with the Maine Uniform Arbitration Act (MUAA), except as otherwise provided in this section. 38.2.2 The decision of the arbitrators shall be final and binding upon all parties. The decision may be entered in court as provided in the MUAA. 38.2.3 The costs of the arbitration, including the arbitrators\u2019 fees shall be borne equally by the parties to the arbitration, unless the arbitrator orders otherwise. 38.2.4 In any arbitration between the Owner and the Consultant, the Owner has the right to consolidate related claims between Owner and Contractor. 00 72 13 General Conditions 27 April 2021_0(1) Page 22 of 22 00 72 13"
+}
+]
+}

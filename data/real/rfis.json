@@ -1,0 +1,1468 @@
+{
+ "note": "Real RFIs and their official published answers, extracted by tools/real/extract.py from the public records in data/real/pdf/ (sources and checksums: data/real/manifest.json). Not edited by hand.",
+ "projects": [
+  {
+   "project": "maine-2995-capitol-garage",
+   "name": "Capitol Parking Garage 2026 Repairs (State of Maine BGS #2995)",
+   "rfis": 19,
+   "pieces": 85
+  },
+  {
+   "project": "illinois-uic-cancer-pavilion",
+   "name": "Drug Discovery and Cancer Research Pavilion, UIC (Illinois CDB #830-030-167), design-build",
+   "rfis": 30,
+   "pieces": 107
+  },
+  {
+   "project": "illinois-niccs-design-build",
+   "name": "Northern Illinois Center for Community Sustainability (Illinois CDB #822-010-135), design-build",
+   "rfis": 28,
+   "pieces": 104
+  },
+  {
+   "project": "illinois-idot-materials-lab",
+   "name": "IDOT Materials Lab (Illinois CDB #630-442-057), design-build",
+   "rfis": 8,
+   "pieces": 69
+  },
+  {
+   "project": "maine-3843-wellness-center",
+   "name": "Wellness Center Re-Use Renovation (State of Maine BGS #3843)",
+   "rfis": 41,
+   "pieces": 325
+  },
+  {
+   "project": "ny-rioc-eleanors-pier",
+   "name": "Eleanor\u2019s Pier Repair (Roosevelt Island Operating Corp. RFP #26-1095)",
+   "rfis": 47,
+   "pieces": 187
+  }
+ ],
+ "rfis": [
+  {
+   "n": 1,
+   "question": "There is conflicting information regarding the requirement for Filed Sub-bids. Section 00 11 13 and Section 00 41 13 state they are not required, while Section 00 12 13 states they are required. Please clarify if Filed Sub-bids are required for this project. If so, please provide the due date for Filed Sub-bids, as it is currently left blank in Section 00 12 13.",
+   "answer": "Filed sub bids are not required",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:1"
+  },
+  {
+   "n": 2,
+   "question": "Please clarify if Pre-qualified General Contractors are utilized for this project. Section 00 11 13 indicates they are utilized but does not list names, while Section 00 12 13 states there are none.",
+   "answer": "Prequalified subcontractors are not utilized",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:2"
+  },
+  {
+   "n": 3,
+   "question": "Please provide an electrical allowance for bidding purposes, as it is difficult for contractors to accurately identify and quantify the electrical work required.",
+   "answer": "We will carry a $3,000 dollar allowance for this.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:3"
+  },
+  {
+   "n": 4,
+   "question": "Please confirm whether the Contractor is required to include temporary heating costs in the bid, as the anticipated completion date of December 30, 2026 may result in significant heating-related expenses.",
+   "answer": "Contractor is required to provide heating as required to complete the repairs as needed in 2026. Contractor may be able to complete repairs without additional heat in spring 2027.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:4"
+  },
+  {
+   "n": 5,
+   "question": "Is there any reason the project would not be able to start in the Spring 2027, when 14 York Street, Suite 201 | Portland ME 04101 - 7408 | T 207.245.6060 | F | www.ThorntonTomasetti.com RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 2 weather conditions would be more favorable for performing the work?",
+   "answer": "We would prefer to have a start date this fall and can extend the finish date to Spring 2027, June 18, 2027.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:5"
+  },
+  {
+   "n": 6,
+   "question": "Please confirm the designated location(s) for material storage and dumpster staging during construction.",
+   "answer": "This will be coordinated during the preconstruction meeting.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:6"
+  },
+  {
+   "n": 7,
+   "question": "For Bid Item 3- Supplemental Steel Beam- Please confirm that the North side of the garage will get 3ea of the supplemental beams and south side will get 4ea of the supplemental beams. In sheet S1.5, the North side only shows two beams.",
+   "answer": "That is correct. There are 7 beams total. 4 beams on the north and 3 on the south side of the parking structure. There is a partial plan for the portion of the ramp that extends from gridlines 13- 14 that is included on sheet S1.5.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:7"
+  },
+  {
+   "n": 9,
+   "question": "For Item 16- Wall repairs- please provide repair detail.",
+   "answer": "Repair details are 6 and 7 / S2.2",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:9"
+  },
+  {
+   "n": 11,
+   "question": "Please provide available as-built drawings for the garage.",
+   "answer": "We have electronic copies and can provide.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:11"
+  },
+  {
+   "n": 12,
+   "question": "Please confirm whether water will be available for the Contractor's use on site.",
+   "answer": "Water is on site and available for contractor use. However, the meter is typically removed at the start of winter to prevent freezing and reinstalled in the spring.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:12"
+  },
+  {
+   "n": 13,
+   "question": "Please confirm whether power and functioning electrical outlets will be available for the Contractor's use on site.",
+   "answer": "Functional outlets are located in the stairwells, however, all receptacles have limited capacity and should not be counted on for running heavy grinders or electric chipping guns.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:13"
+  },
+  {
+   "n": 14,
+   "question": "Please confirm the maximum number of parking stalls that may be closed at any one time and identify any required work area enclosures, barriers, or other protection measures that must be maintained during construction.",
+   "answer": "25 Spaces are allowed for your use. These spaces do not include the top deck while it remains closed until the post tensioning repairs are completed.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:14"
+  },
+  {
+   "n": 15,
+   "question": "Please confirm that the bid due date and time is September 25, 2026, at 1:30 PM, as there appears to be conflicting information regarding the bid opening date within the contract documents.",
+   "answer": "The bid due date is September 30, 2026 at 1:30 PM. The bids will be opened at 2:00 PM.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:15"
+  },
+  {
+   "n": 16,
+   "question": "Please confirm if contractor is responsible for obtaining permits required for this project.",
+   "answer": "Contractor is responsible for obtaining any required permits.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:16"
+  },
+  {
+   "n": 17,
+   "question": "Please confirm if contractor is responsible for paying any permit fees required for this project. RFI Response BGS Project 2995 Capital Parking Garage 2026 Repairs September 18, 2026, Page 4",
+   "answer": "Contractor is responsible for permit fees.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:17"
+  },
+  {
+   "n": 18,
+   "question": "Please confirm whether this project is exempt from sales tax and whether bids should be submitted on a tax-exempt basis.",
+   "answer": "Yes, this project is exempt from sales tax. BGS will issue the required paperwork to the selected contractor.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:18"
+  },
+  {
+   "n": 19,
+   "question": "Please confirm whether the project is to be bid using open shop labor rates.",
+   "answer": "Please use the Kennebec County Prevailing wages.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:19"
+  },
+  {
+   "n": 20,
+   "question": "For Waterproofing Membrane repairs- A 5 year warranty may not be available from the manufacturer for localized installations and repairs, which is the scope for this project. Please confirm that the warranty duration and terms made available by the manufacturer will be acceptable even if they are different than what is included in the current bid documents.",
+   "answer": "A 5 year warranty is not required for repair areas.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:20"
+  },
+  {
+   "n": 21,
+   "question": "Are Liquidated Damages required for this project.",
+   "answer": "Liquidated damages are included in this project. Please see the requirements in Section 00 72 13 General Conditions added to the addendum.",
+   "project": "maine-2995-capitol-garage",
+   "source": "2995_Addendum_1_DAFS.pdf",
+   "id": "maine-2995-capitol-garage:2995_Addendum_1_DAFS:21"
+  },
+  {
+   "n": 1,
+   "question": "Per SECTION 00 51 01 \u2013 Phase I Evaluation, page 38 of the RFP, the overall proposal is limited to a maximum of 50 pages. This constraint is restrictive due to the extensive volume of mandatory forms, certifications, and disclosures required by the CDB for the Phase I submission. These administrative requirements consume a substantial portion of the total page allotment, leaving insufficient space for offerors to provide comprehensive technical narratives, detailed experience, and qualifications necessary to best respond to the RFP. We request that the CDB waive this overall 50-page limit.",
+   "answer": "There are no page limits for section 1. Sections 2, 3 and 4 have a combined page limit of 50 pages. Section 2 has a 25-page limit but the Past Performance Evaluation Questionnaires (PPEQ) and MBE/WBE/VBE/PBE Phase I Utilization Plan do not count against the 25 pages. Section 3 has a 12- page total limit with a 5-page limit for technical capacity, 5-page limit for team experience narrative and 2-page limit for other capability information.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "rfi-responses-5-12-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:1"
+  },
+  {
+   "n": 2,
+   "question": "Per SECTION 00 42 10 \u2013 Submission Requirements and Instructions, page 16 of the RFP, Section 2 (Experience and Qualifications) is currently limited to 25 pages. This constraint is insufficient to adequately address the evaluation criteria for both \u201cExperience of Personnel Assigned to the Project\u201d and \"Past Performance\" while also fulfilling the requirement to include all necessary resumes and documents within the Design-Build Entity Qualifications Form (DBQ). We request that the CDB either waive this 25-page limit or increase the page allotment in this section to 50 pages.",
+   "answer": "Section 2 has a 25-page limit but the Past Performance Evaluation Questionnaires (PPEQ) and MBE/WBE/VBE/PBE Phase I Utilization Plan do not count against the 25 pages.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "rfi-responses-5-12-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:2"
+  },
+  {
+   "n": 3,
+   "question": "Please confirm whether or not resumes are to be included in the 25 page limit for Section 2 Past Performance (pg.16). If so, may additional resumes be included in an appendix?",
+   "answer": "Resumes should be listed in the Design-Build Entity Qualifications Form (DBQ), which count against the 25-page limit for Section 2. Any appendix in this section would count towards your 25-page limit.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "rfi-responses-5-12-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:rfi-responses-5-12-26:3"
+  },
+  {
+   "n": 1,
+   "question": "Please provide additional information on the existing single story building on the north side of the property that is to be demolished as part of this project. - Architectural and Structural as-builts - Utility connections/survey - Hazardous material survey",
+   "answer": "The documents have been shared.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:1"
+  },
+  {
+   "n": 2,
+   "question": "The plat of survey provided in the bridging document does not indicate any campus utility tunnels or the location of campus chilled water and steam lines. Can this survey be provided?",
+   "answer": "The CAD and pdf file of campus utilities have been shared.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:2"
+  },
+  {
+   "n": 301,
+   "question": "Can this source document used as the background for proposed work in exhibit 2 be provided?",
+   "answer": "The source document will be provided via Amendment 3.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:301"
+  },
+  {
+   "n": 4,
+   "question": "Section 8.4 of the bridging documents indicates the building will be supplied by a campus fire line. The bridging documents indicate a fire pump is expected for the building. Was a water supply flow test data obtained? If yes, can it be provided?",
+   "answer": "No recent flow test data was provided or obtained.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:4"
+  },
+  {
+   "n": 5,
+   "question": "The proposed new electrical ductbank exhibit 8 indicate quantities and cross section of proposed ductbanks. The cross sections show a maximum of (4) rows for conduits. Does this (4) row limitation mimic existing ductbank configuration or is there source material that can be shared with the team identifying the existing ductbank cross section and buried depths?",
+   "answer": "Confirmed. The (4) row conduit duct bank section mimics the existing duct bank configuration.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:5"
+  },
+  {
+   "n": 6,
+   "question": "In section 8.2 of the bridging document, the building will be supplied with a new high pressure steam pipe and condensate line from building 921 (campus steam plant) via the utility bridge over Taylor street. Confirm the contractor will be responsible for all of the piping as well as supplemental structural support for the Taylor street utility bridge. When entering the building 921, will the contractor be responsible for the existing building penetration and modifications to any piping manifolds or infrastructure to tap into existing steam and condensate lines? What will UIC facilities be responsible for the supply of steam/condensate to this building such as any equipment additions to the plant to support this building or supply of any metering equipment?",
+   "answer": "a. The Contractor shall be responsible for all piping and supplemental structural supports per the Bridging Documents. b. An enabling project will be conducted by UIC and provide taps and isolation valves for high pressure steam and steam condensate piping that this Contractor will connect outside of Building",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:6"
+  },
+  {
+   "n": 7,
+   "question": "In section 8.2 of the bridging document, the building will be supplied with a new chilled water supply and return line from building 952 (campus refrigeration plant) via the utility bridge over Taylor street and the UIC Hospital loading dock. Confirm the contractor will be responsible for all of the piping as well as supplemental structural support for the Taylor street utility bridge and supplemental structural support for UIC Hospital loading dock roof. When entering the building 952, will the contractor be responsible for the existing building penetration and modifications to any piping manifolds or infrastructure to tap into existing steam and condensate lines? What will UIC facilities be responsible for the supply of steam/condensate to this building such as any equipment additions to the plant to support this building or supply of any metering equipment?",
+   "answer": "a. The Contractor shall be responsible for all piping and supplemental structural supports per the Bridging Documents. b. An enabling project will be conducted by UIC and provide taps and isolation valves for high pressure steam and steam condensate piping that this Contractor will connect outside of Building",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:7"
+  },
+  {
+   "n": 8,
+   "question": "Please provide UIC Hospital structural drawings, in particular those relevant to the loading dock for reference.",
+   "answer": "Hospital drawings will not be shared. Please indicate if there are specific pieces of information needed from those drawings and UIC may be able to provide.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:8"
+  },
+  {
+   "n": 9,
+   "question": "Section 8.2 of the bridging document indicates process cooling system will originate from the campus refrigeration plant. This section also indicates local water-cooled chillers with cooling towers are required since the campus chilled water system is not available year-round. Confirm the campus cooling chilled water system is not available year-round and local cooling equipment is needed at the building to maintain process cooling system.",
+   "answer": "Per UIC, we can confirm that winter/swing-season cooling will be available for DDCRP at the start of the project. Cooling will be available year-round from UIC utilities.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:9"
+  },
+  {
+   "n": 10,
+   "question": "Confirm campus steam system will be available year-round or if local equipment is needed at the building.",
+   "answer": "Yes, steam will be available all year round. No local steam generators will be needed.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:10"
+  },
+  {
+   "n": 11,
+   "question": "The Bridging Documents (page 279 for example) make reference to the Clients insurance recommendations for sprinkler design densities. Please confirm there are no additional Client Insurance requirements (such as FM Global), for any systems, beyond explicit performance and code requirements outlined in the Bridging Documents.",
+   "answer": "UIC does not follow FM Global guidelines; the system should be designed to the latest edition of NFPA 13.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:11"
+  },
+  {
+   "n": 12,
+   "question": "The Bridging Documents identify Preaction and Clean Agent Sprinkler Systems but do not outline where these are required. Please confirm these systems are not required as they are not normally provided in a Research Lab.",
+   "answer": "Some research laboratories do have dry/preaction requirements. Those systems descriptions are present in the Bridging Documents in the event that the owner decides that they are appropriate for certain areas. Additionally, if there are areas subject to freezing in the final design, dry systems are to be implemented.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:12"
+  },
+  {
+   "n": 13,
+   "question": "Ref: BOD - pg 524 Please confirm that the trash/recycling compactors and waste dumpsters will be provided by the Owner.",
+   "answer": "Trash/recycling compactors and waste dumpsters, including biowaste containers, for the building's loading dock are to be included in the Design-Build team's budget (not owner-provided). Some additional details on the components described in Section 2.2 Space Program Tabulation (page 25) and Section 9.3 Loading Dock (page 524) of the Bridging Documents are as follows:",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:13"
+  },
+  {
+   "n": 14,
+   "question": "Ref: BOD - pg 470 There is reference to a UIC irrigation contractor, Aquamist in the Bridging Documents. Please confirm that the owner is to carry costs for this irrigation contractor, including irrigation system design, and the irrigation scope is not to be included in the total amount.",
+   "answer": "Irrigation is to be included in the design build scope of work.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:14"
+  },
+  {
+   "n": 15,
+   "question": "Ref: RFP - pg 8, Design-Build Pricing Schedule Section 00 21 40 of the RFP notes that \"Offerers shall include an allowance for the CAF assessment in their Phase II cost proposal\". The Pricing Schedule notes \"CONTRACT ADMINISTRATION FEE is not included in the DBPS but will still be applied to the project\". Please confirm that the contract administration fee (CAF) is NOT to be included in the total amount.",
+   "answer": "Amendment 3 addresses this.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:15"
+  },
+  {
+   "n": 16,
+   "question": "Ref: BD - OPR page 17 Per the OPR, UIC agrees to supply FY27 utility rates no later than the early design development phase after July 1, 2026. Please provide.",
+   "answer": "The following are rates for FY27, applicable from July 1, 2026, to June 30, 2027. Commodity Rate Electric $ 0.11224 kWh CHW $ 18.44354 MMBTU Steam $ 19.81017 MLBS Cond $ 4.10268 MLBS",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:16"
+  },
+  {
+   "n": 17,
+   "question": "Ref: BOD - pg 1260 Advise if hazardous materials (e.g. lead paint, asbestos, etc) are present in Pharmacy Building 521.",
+   "answer": "Refer to Limited Asbestos-Containing Material and Lead-Based Paint Building Survey Report the Pharmacy Building (available in Bridging Documents Section 13.5b Building Environmental Report). Per this report: a. \"Lead-Based Paint was not identified on any of the painted surfaces/components tested during this limited survey,\" but \"'negative readings'...should not be interpreted as lead is not present\" and \"surfaces/components...not assessed during this survey...shall be assumed and treated as LBP until tested and proven otherwise.\" b. \"The...[Asbestos-Containing Material]...identified during this limited survey included the black wall mastic that was identified throughout the 3rd and 4th floor corridors above 2' x 2' ceiling tile,\" but \"Any suspect material that is discovered during the renovation / demolition activities and is not listed in Table 3.1...shall be assumed and treated as ACUM until tested and proven otherwise.\"",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:17"
+  },
+  {
+   "n": 18,
+   "question": "The \"Supplement to the SD-DB 3.2017\" was issued by the CDB in the RFP and referenced in section 00 21 15 of the Request for Proposals. Please advise if the \"Supplement to design build sdc 1.2025\" located on in the CDB reference library should be used instead.",
+   "answer": "Supplement to Design Build SDC 1.2025 will be required. Amendment 3 addresses this form.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:18"
+  },
+  {
+   "n": 19,
+   "question": "Ref: ORP page 5 As a state funded facility, the UIC DDCRP is required to comply with the 2023 Illinois Stretch Energy Code per the Energy Efficiency Building Act (20 ILCS 3125), which went into effect on January 1, 2025.Our code analysis shows that the DDCRP cannot comply with the 2023 Illinois Stretch Energy Code if thermal utilities are provided through steam and chilled water connections to the existing West Campus central plant, as described in the Bridging Documents. Please confirm that a variance will be provided to relieve the project from complying with the 2023 Illinois Stretch Energy Code.",
+   "answer": "Please provide supporting analysis and summary letter for review. Please confirm the Design-Build Team is taking into account all provisions in the code for laboratories and facilities connecting to central systems such as this one. The State's EnergySense Resilience Center is available to the Design-Build Teams to help them do so: (1) energycode@illinois.edu is the general help line (2) Ryan Siegel (rwsiegel@illinois.edu) has some familiarity with the project",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:19"
+  },
+  {
+   "n": 20,
+   "question": "UIC Building Guidelines and Standards Section 33 63 20 Utility Guidelines and Standards - Steam references Sections 33 63 00 Steam Energy Distribution and 40 05 23 Common Work Results for Steam Energy Systems (Non-Buried). Sections 33 63 00 and 40 05 23 are not available on the UIC website. Please provide these two sections.",
+   "answer": "Sections 33 63 00 and 40 0523 are in progress and will be available on the UIC website shortly. Please refer to Division 23 for steam / hot water / chilled water requirements within the building.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:20"
+  },
+  {
+   "n": 21,
+   "question": "Please confirm that the proprietary meeting #3 with the Owner can be rescheduled for September 14, 2026 or September 30th, 2026 and advise which.",
+   "answer": "Proprietary meeting #3 is scheduled for September 30, 2026.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:21"
+  },
+  {
+   "n": 22,
+   "question": "Per section 4.3 of the Bridging Documents, please confirm that the reference to the Capital Development Board Design and Construction Manual (DCM) should be revised to reference the Standard Documents for Design-Build Projects August 2007 per 00 21 16 - 5.D of the Request for Proposals (RFP)",
+   "answer": "The RFP references both the Design and Construction Manual (DCM) and the Standard Documents for Design-Build Projects (SD-DB). The reference to the DCM in the Bridging Documents will remain, and the SD-DB documents stand as listed in the RFP.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:22"
+  },
+  {
+   "n": 23,
+   "question": "Ref: Pg 300-303 of the Bridging Documents. Please provide the following additional documents related to the MV electrical site work:1. A clean copy of the campus electrical site plan with no markups. (pg 300-301 of Bridging Documents)2. The electrical diagram including MV switchgear(s) for the following buildings: a. Library of Health Sciences (942) b. Administrative Office Building (941) c. Clinical Science Building (920) d. College of Pharmacy Building (924)3. The campus electrical MV primary power one-line diagram.",
+   "answer": "1. Clean copy of the campus electrical site plan with no markups - Please see Attachment 01.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:23"
+  },
+  {
+   "n": 24,
+   "question": "Please provide structural details of the existing Utility Tressle and the other roof areas that will have the new Steam/Condensate and CHWS/R piping so the existing structures can be evaluated.",
+   "answer": "This is information is not available. The Design-Build team will be responsible for this independent structural analysis.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_August_26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_August_26:24"
+  },
+  {
+   "n": 1,
+   "question": "To ensure a proposal submission which is compliant with RFP requirements, we request consideration of the following issues as further detailed in the attached letter of concern from our surety who will issue payment and performance bonds for the project: 1. Liquidated Damages - we request implementation of the liquidated damages provision referenced in the Standard Documents for Design-Build Projects General Conditions in a reasonable amount as the sole and exclusive remedy for delay in meeting the required completion date. 2. Mutual Waiver of Consequential Damages - we request the incorporation of an industry standard Mutual Waiver of Consequential Damages.",
+   "answer": "CDB does not intend to implement liquidated damages on this project. Additionally, CDB will not waive any damages allowed by law, including any damages that could be classified as consequential.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_10-16-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:1"
+  },
+  {
+   "n": 2,
+   "question": "Please provide the date this project was previously registered for LEED. This affects the energy performance baseline and the number of LEED points that can be achieved.",
+   "answer": "The project was registered on April 15, 2026 as a LEED v4 BD+C: New Construction project.",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_10-16-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:2"
+  },
+  {
+   "n": 3,
+   "question": "Please provide the energy model report that was previously completed for the project based on the bridging document design.",
+   "answer": "The bridging documents do not include a complete building design. The assumptions for the proposed design are based on ASHRAE 90.1- 2010 Appendix - G, however we would expect the design build teams to improve on code performance as part of their design. We tested various ECMs for mechanical systems and have attached the results of these ECM\u2019s. (SEE ATTACHMENT) Benchmarking The graph below shows benchmarking data for typical lab buildings, compared to the expected energy use of the proposed building design before applying any Energy Conservation Measures (ECMs). EUI - Benchmarks vs. Energy Model 450 435 400 361 350 300 286 265 EUI (kBtu/sf) 250 200 183 150 120 100 50 0 EUI Target National Avg Lab Illinois Avg Lab Lab with Vivarium (average EUI LEED Baseline Base Design based on 2014-2019 Data) (ASHRAE 90.1-2010) Before ECMs PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 1 Energy Breakdown Cooling, Interior Equipment, and Humidification utilize the most energy in the proposed design. Interior Equipment 20% Cooling 26% Interior Lighting 5% Fans Heating 10% 9% Pumps 4% Humidification 26% PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 2 Energy Conservation Measures (ECMs) After applying all ECMs, the project achieved a 22% reduction in annual energy consumption compared to the base design, and 38% reduction in annual energy consumption compared to the LEED Baseline. EUI Reduction with ECMs 361 38% 350 301 298 300 286 285 286 22% 273 271 247 250 223 200 EUI (kBtu/sf) 150 100 50 0 LEED Baseline Base Design District Cooling District Cooling Ventilation Supply Air Reset to Suply Air Reset of 20% Lab & Heat Recovery Combined ECMs (ASHRAE 90.1- Before ECMs Only Only Reduction 60F 65F Vivarium Chiller (6ACH, Equipment 2010) (No Chillers) + Heat Recovery (6ACH Occupied) Equipment Reduction, Heat Chiller Reduction Recovery Chiller) Interior Equipment Interior Lighting Fans Pumps Heat Rejection Humidification Heating Cooling PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 3 Total Energy Cost After applying all ECMs, the project achieved a 16% reduction in annual energy cost compared to the base design, and 23% reduction in annual energy cost compared to the LEED Baseline. Total Energy Cost $1,400,000 $6.28 /sf 23% $1,200,000 $5.71 /sf $5.66 /sf $5.66 /sf $5.88 /sf $5.71 /sf 16% $5.51 /sf $5.31 /sf $5.35 /sf $1,000,000 $4.81 /sf $800,000 $600,000 $400,000 $200,000 $- LEED Baseline Base Design District Cooling District Cooling Ventilation Supply Air Reset to Suply Air Reset of 20% Lab & Heat Recovery Combined ECMs (ASHRAE 90.1- Before ECMs Only Only Reduction 60F 65F Vivarium Chiller (6ACH, Equipment 2010) (No Chillers) + Heat Recovery (6ACH Occupied) Equipment Reduction, Heat Chiller Reduction Recovery Chiller) PRELIMINARY ENERGY MODEL March 2026 | DRUG DISCOVERY AND CANCER RESEARCH PAVILLION | UIC, CHICAGO, IL 4",
+   "project": "illinois-uic-cancer-pavilion",
+   "source": "RFI_Responses_10-16-26.pdf",
+   "id": "illinois-uic-cancer-pavilion:RFI_Responses_10-16-26:3"
+  },
+  {
+   "n": 1,
+   "question": "Can you please clarify/define what \"General work\" includes in reference to item H on page 1, section 1. For example, would designers performing general work such as lighting or acoustics need to be pre-qualified with CDB? Some designers are registered with CDB as \"vendor\" but are not necessarily \"pre-qualified.\"",
+   "answer": "The designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline. CDB does not prequalify the DB entity separately. Prequalification as a Construction Manager is not acceptable.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:1"
+  },
+  {
+   "n": 2,
+   "question": "For the evaluation of the MBE/WBE/VBE/PBE Goals are the percentage under or over the goals in aggregate for both the MBE/WBE bucker and the VBE/PBE bucket, or are they treated separately. For example, the Design Team Goals are 20% and 3%, would we get credit for exceeding 23% by 25% or more with the excess in one of the two buckets, or do we get the credit if we exceed both the 20% and the 3% separately?",
+   "answer": "The total design goal is 23% and the scoring evaluation will be in aggregate.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:2"
+  },
+  {
+   "n": 3,
+   "question": "On the pre-bid call it was mentioned that the design team goal is 20% MBE / 5% WBE. Can you please clarify if there is a VBE requirement for the Design Team?",
+   "answer": "The CDB Design Goal is 3% to veteran-owned and/or persons with disability owned businesses. See Page 12 of the RFP for detailed information regarding participation goals for this project.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:3"
+  },
+  {
+   "n": 4,
+   "question": "Would it be possible for you to share the attendee list from the pre-proposal meeting that was held today?",
+   "answer": "The attendee list has been posted the project website.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:4"
+  },
+  {
+   "n": 5,
+   "question": "We are a flooring contractor located in Dixon, IL and are interested in bidding for RFP D/B - Construct Northern Illinois Center for Community Sustainability Project. If you are the rep who is dealing with this project could you please share with us the ITB and the bid docs (Flooring package). If not, Can I please have the email of the person who is handling this project?",
+   "answer": "The project manager is Kenneth.Watkins@Illinois.gov.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:5"
+  },
+  {
+   "n": 6,
+   "question": "For the evaluation of the MBE/WBE/VBE/PBE Goals, is there a requirement for the VBE/PBE category as there appears to be for the MBE/WBE category, based on the phrase \"some level of participation from both MBE and WBE firms is required to satisfy the 20% goal\"",
+   "answer": "No, the 3% design requirement can be met with either a VBE or a PBE.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:6"
+  },
+  {
+   "n": 7,
+   "question": "On the Phase 1 Utilization Plan Goals Section, there is a statement that the goals 20% and 3% are of the amount of the contract awarded by CDB. Is this a percentage of the entire construction contract, in this case $15m, or a percentage of the A/E design fees or a percentage of a combination of A/E firms and Construction Firms, in which case the 20% and 3% could consist of both A/E firms and Construction Suppliers or Contractors?",
+   "answer": "The 20% and 3% are only related to the A/E design portion and not related to any construction costs.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:7"
+  },
+  {
+   "n": 8,
+   "question": "Do we need to submit form 330?",
+   "answer": "No. The contents required for Phase I submittal can be found in the RFP under SECTION 00 42 10 \u2013 SUBMISSION REQUIREMENTS AND INSTRUCTIONS.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:8"
+  },
+  {
+   "n": 9,
+   "question": "Does the DBQ count towards the page count of Section 2?",
+   "answer": "Yes.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:9"
+  },
+  {
+   "n": 10,
+   "question": "What contributes to the page count of Section 2?",
+   "answer": "It includes the offeror\u2019s Design-Build Entity Qualifications Form (DBQ) and any discussion and or additional information, awards, letters, etc. concerning past performance the offeror includes.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:10"
+  },
+  {
+   "n": 11,
+   "question": "What are the page count limits for Section 1 and Section 4, respectively?",
+   "answer": "There are no page limits for section 1. Section 2, 3 and 4 has a combined page limit of 50 pages. Section 2 has a 25 pages limit. Section 3 has a 12 pages total limit with 5 pages limit for technical capacity, 5 pages limit for team experience narrative and 2 pages limit for other capability information.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:11"
+  },
+  {
+   "n": 12,
+   "question": "The purpose in writing was to inquire whether the pre-bid conference that was held on the 29th was recorded, or not. If so, I would like to replay the meeting for our review. Not sure if an attendance sheet was recorded but would also be interested in seeing who else was in the room.",
+   "answer": "The recording has been posted to the project website.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:12"
+  },
+  {
+   "n": 13,
+   "question": "During Phase II, will the unselected firms retain ownership of their work product?",
+   "answer": "The Design-Build Act states that the drawings and specifications of the proposal shall remain the property of the design-build entity.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:13"
+  },
+  {
+   "n": 14,
+   "question": "When will the pre-bid PowerPoint file be shared?",
+   "answer": "It has been posted to the project website.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:14"
+  },
+  {
+   "n": 15,
+   "question": "Is there a way for subconsultants to submit Financial Disclosures and Conflicts of Interest Forms (containing confidential information) directly to the State vs. sending it to various architectural firms to handle? This information looks very similar to what is asked via the CDB and IPG prequalification criteria. Do we still submit this if we are prequalified?",
+   "answer": "Financial Disclosures and Conflicts of Interest forms must be included in the submittal. Failure to include these documents for firms listed on the DB-PTF is a material deficiency that may result in rejection of the entire proposal.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:15"
+  },
+  {
+   "n": 16,
+   "question": "Do the General Documents Section forms count towards page count, or no, because they are requested under separate cover?",
+   "answer": "No. There are no page limits for section 1.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:16"
+  },
+  {
+   "n": 17,
+   "question": "Please advise if a design consultant to the listed Architect of Record is required to be prequalified prior to the RFP Phase I due date. We won\u2019t be listing them in the DB-PTF, however, they will be listed in our Phase I Utilization plan as well as possibly in DB Qualifications.",
+   "answer": "It depends upon the services the consultant will be providing to the AOR. Per the RFP: \"The designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline.\" If they are not providing these licensed services, then they do not need to be prequalified with CDB before the Phase I due date. They will need to get registered with CDB as soon as possible.",
+   "project": "illinois-niccs-design-build",
+   "source": "RFIs_Phase_I-_August_20.pdf",
+   "id": "illinois-niccs-design-build:RFIs_Phase_I-_August_20:17"
+  },
+  {
+   "n": 1,
+   "question": "Amendment 4 did not have an updated Room Data Sheet for the High Bay Space. Can you provide it? (ASK-10 was uploaded twice)",
+   "answer": "This has been updated. 2.. With all the room modifications, it would be helpful to have an updated Spaces Summary Sheet. Can you provide one? And can you clarify if that Summary of Spaces is usable or gross? A. An updated Spaces Summary Sheet will be provided in Amendment 5.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:1"
+  },
+  {
+   "n": 3,
+   "question": "In a previous RFI you mentioned the classroom does not need additional storage, can you provide an updated Room Data Sheet for the \u201cConnected Classrooms\u201d?",
+   "answer": "An updated classroom data sheet will be provided in Amendment 5.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:3"
+  },
+  {
+   "n": 4,
+   "question": "The Bridging documents list that the Instrumentation lab contains humidity sensitive equipment, but HVAC basis of design conditions for lab spaces do not include a winter humidity requirement. Is maintaining a year-round minimum humidity level required for instrumentation or other labs? If so, what is the requirement?",
+   "answer": "Humidity ranges for specific lab equipment are listed in the cut sheets. Ensure that the HVAC systems can maintain the minimum and maximum humidity ranges for the lab spaces during occupied and non-occupied hours.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:4"
+  },
+  {
+   "n": 5,
+   "question": "Can you provide some background on why the budget changed a second time?",
+   "answer": "In calculating the \"originally published\" budget CDB failed to take into consideration all of the soft costs that had already been committed to. Then when we subsequently increased the funding by Amendment, we failed to realize the original budget error. Once this was identified we \"re-adjusted\" the budget to what we have now.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:5"
+  },
+  {
+   "n": 6,
+   "question": "Is there a scope change to go along with the new budget?",
+   "answer": "The scope of work has not changed.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:6"
+  },
+  {
+   "n": 7,
+   "question": "Are there additional funds outside of the CDB provided funds for the project? And if so, are alternates expected to be proposed?",
+   "answer": "There is no additional funding anticipated for this project at this time. There will be no alternate bids.",
+   "project": "illinois-niccs-design-build",
+   "source": "December_31_2025_RFIs.pdf",
+   "id": "illinois-niccs-design-build:December_31_2025_RFIs:7"
+  },
+  {
+   "n": 1,
+   "question": "Confirm that all design documents need to be submitted as 8 \u00bd x 11 documents.",
+   "answer": "The submission is a digital file. Document format size is not limited to 8 1/2 x 11.",
+   "project": "illinois-niccs-design-build",
+   "source": "January_8_2026_RFIs.pdf",
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:1"
+  },
+  {
+   "n": 2,
+   "question": "Does NIU have any prescribed air change rates for laboratory spaces?",
+   "answer": "Per ASHRAE 62.1 requirements, laboratory spaces shall be provided with the code required outdoor air ventilation rates dictated by table 6-1 for University/College Laboratories.",
+   "project": "illinois-niccs-design-build",
+   "source": "January_8_2026_RFIs.pdf",
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:2"
+  },
+  {
+   "n": 3,
+   "question": "Are there preferred manufacturers for mechanical equipment where they can be accommodated?",
+   "answer": "Refer to the No Deviations list in the bridging documents for BAS requirements. Also refer to the NIU Construction Standards for mechanical equipment requirements.",
+   "project": "illinois-niccs-design-build",
+   "source": "January_8_2026_RFIs.pdf",
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:3"
+  },
+  {
+   "n": 4,
+   "question": "What are the building\u2019s anticipated operating hours? Do these vary seasonally?",
+   "answer": "Proposed hours of operation are 7:00am to 7:00pm Monday through Friday. There is no seasonal variability to these hours. There will be occasional weekend and evening events. For energy calculation purposes estimate 1 weekend day per month and 4 evening events per month.",
+   "project": "illinois-niccs-design-build",
+   "source": "January_8_2026_RFIs.pdf",
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:4"
+  },
+  {
+   "n": 5,
+   "question": "Page 39 of the bridging document states that mechanical equipment shall be selected to target EUI no higher than 25 based on a 70% reduction on baseline using ZEROTool. Please provide additional information on how this target was determined.",
+   "answer": "Please see RFI responses #17 and #29 from the 11/25/25 published RFIs. Additionally, the 70% reduction is based on AIA 2030 Goals for Net Zero as well as other industry standards such as Living Building Challenge.",
+   "project": "illinois-niccs-design-build",
+   "source": "January_8_2026_RFIs.pdf",
+   "id": "illinois-niccs-design-build:January_8_2026_RFIs:5"
+  },
+  {
+   "n": 1,
+   "question": "Page 4 of the RFP states submittals will only be accepted via e-Builder, however page 6, item 3 states to return original and copies with the envelope clearly labeled, and there are various references to double sided printing and 3 ring binder requests. Please confirm how our proposal should be submitted.",
+   "answer": "Section 00 42 10.1.3 will be revised by Amendment to more accurately reflect the submittal requirements for e-Builder.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:1"
+  },
+  {
+   "n": 2,
+   "question": "If the proposal is to be submitted via e-builder, can you provide additional information on where we access the link? The RFP states the link will be on the website for the project, but we are not seeing a link.",
+   "answer": "Link has been posted to the website.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:2"
+  },
+  {
+   "n": 3,
+   "question": "If a firm is pre-qualified registrant with IL CDB/IPG, is it still required for firm to provide the Standard Business Terms and Conditions and Standard Certifications, Financial Disclosures, and Illinois State Board of Elections Certificate?",
+   "answer": "Yes. This will need to be included in Section 1- General Documents for each firm.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:3"
+  },
+  {
+   "n": 4,
+   "question": "Do the projects submitted in Section 2 Design-Build Entity Qualifications need to be the same as the projects listed in Section 3 Technical Capability, or can they be different?",
+   "answer": "They may be the same but they are not required to be.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:4"
+  },
+  {
+   "n": 5,
+   "question": "If our team has relevant past performance experience to show, do we still need to respond to question 5 on page 11 of the RFP?",
+   "answer": "No",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:5"
+  },
+  {
+   "n": 6,
+   "question": "Section 00 21 16, Item 1H states, \u201cThe designers, performing licensed design services, and all major contractors/subcontractors performing any of the General, Plumbing, Heating, Ventilation, and Electrical work must be prequalified with CDB, as an A/E or contractor, before the Phase I submittal deadline. CDB does not prequalify the DB entity separately.\u201d Until the design is progressed, it is very difficult to determine the Plumbing, Heating, Ventilation, and Electrical Subcontracts that will have the proper experience, necessary resources, and provide the most competitive pricing to complete the work. We believe it will provide the best value to CDB and IDOT to allow subcontractors to be prequalified prior to the phase II submission on November 16, 2023. Please confirm this is acceptable.",
+   "answer": "Any subconsultant or subcontractor that is required to be prequalified must be prequalified at the time of submittal if they are identified in the submittal. Including a subconsultant or subcontractor that is required to be prequalified but that is not prequalified would be considered a material deficiency.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:6"
+  },
+  {
+   "n": 7,
+   "question": "Please confirm the Design-Build Contract will be awarded as a single prime contract, with all subcontractors working for the contractor.",
+   "answer": "CDB does not use Multi-Prime contracts for Design-Build projects.",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:7"
+  },
+  {
+   "n": 8,
+   "question": "2) Section 00 42 10, 2, B references past performance. a. Item 1 states (emphasis added), \u201cPast Performance will be evaluated using the evaluation criteria set forth in Sections 00 51 00 and 00 51 01 of the RFP. Past Performance includes current and on-going performance.\u201d b. Items 3a states, \u201cReferences: Offerors shall complete in detail the Design-Build Entity Qualifications Form (DBQ) listing a minimum of five (5), maximum of seven (7) contracts (complete or substantially complete) to be used for reference and evaluation purposes.\u201d c. Item 3e states (emphasis added), \u201cOfferors should consider the currency and relevancy of the past performance information. To be considered, the performance must have been completed during the past ten (10) years. The period begins ten (10) years prior to the RFP release date and includes current performance. Current performance may have greater impact than older performance.\u201d Please confirm, per Item 1 and 3e, that past performance, includes current performance on projects that have not yet reached substantial completion.",
+   "answer": "Per the language of the RFP current performance may be considered. POST LINK: https://gateway.app.e-builder.net/app/bidders/landing?accountid=ddb76823-c165-4574-8b20- 20bf7c1667f7&projectid=93ac06d6-c56a-48f4-8426-492521e208b7&bidpackageid=ee23dc52-54fa- 4f87-84da-16df5d2ff176",
+   "project": "illinois-idot-materials-lab",
+   "source": "630-442-057-phase-i-rfis.pdf",
+   "id": "illinois-idot-materials-lab:630-442-057-phase-i-rfis:8"
+  },
+  {
+   "n": 1,
+   "question": "Perimeter drain dumps where? No civil drawings",
+   "answer": "Tie into existing, if existing drains are not encountered, new perimeter drains are not required.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:1"
+  },
+  {
+   "n": 2,
+   "question": "Through bolts for canopy how many are needed at lower portion of canopy?",
+   "answer": "See Addendum #01 - Sheet AE101, Detail A15 is updated to reference (6) \u00bd\u201d thru-bolts EQ Space between canopy.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:2"
+  },
+  {
+   "n": 3,
+   "question": "Entrance slabs tie to sidewalks how? No detail showing this",
+   "answer": "A1/AE101 shows isolation joint.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:3"
+  },
+  {
+   "n": 4,
+   "question": "H1/AE101 notes 4\u201d slabs but details D8 notes 5\u201d and A1 notes 6\u201d thick CIP and then shows dimensions of 5\u201d.",
+   "answer": "Frost-protected slab shall be 5\u201d per D8. See Addendum #01 - Sheet AE101, Detail A1 is updated to reference 4\" concrete sidewalk",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:4"
+  },
+  {
+   "n": 5,
+   "question": "Flashing detail for tops of canopies to brick?",
+   "answer": "Flashing by Canopy Manufacturer",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:5"
+  },
+  {
+   "n": 6,
+   "question": "Storefront are you just wanting prefinished white?",
+   "answer": "Yes",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:6"
+  },
+  {
+   "n": 7,
+   "question": "Stair railings do they mount to building? a. Dimension on H1/AE101 goes into exis(cid:415)ng wall? Is the flat landing 5\u2019- 3/16\u201d to the wall?",
+   "answer": "No, they turn down to slab, match existing configuration. - Part a: See Addendum #01 - Detail H1 is updated to reference dimension to wall is approximately 4\u2019-2\u201d verify in field",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:7"
+  },
+  {
+   "n": 8,
+   "question": "A1/AE101 says concrete is 4,500 psi and concrete notes on AE501 1C says 4,000 psi?",
+   "answer": "See Addendum #01 - Sheet AE101, Detail A1 is updated to reference 4,000psi",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:8"
+  },
+  {
+   "n": 9,
+   "question": "G15/AE501 shows dowel leg going into existing concrete wall. Is this epoxied like the dowels? Do we need the dowl and the leg going into existing?",
+   "answer": "Vertical leg of bent bar should not extend into existing foundation wall.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:9"
+  },
+  {
+   "n": 10,
+   "question": "Are the new railings removable? What holds the railing post to the epoxied dowel?",
+   "answer": "Railings are not removable attach with (2) headless screws each",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:10"
+  },
+  {
+   "n": 11,
+   "question": "A10/AE501 notes steel post and balusters. No balusters shown on drawing?",
+   "answer": "See Addendum #01 - Sheet AE501, Detail A10 is updated to remove reference to baluster",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:11"
+  },
+  {
+   "n": 12,
+   "question": "Is there a detail on how entryway sidewalk is to be patched due to cutting it back to form new stairs?",
+   "answer": "Refer to General Removal Note #3 on AD101.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:12"
+  },
+  {
+   "n": 13,
+   "question": "Is there metal nosings on the new stairs?",
+   "answer": "See Addendum #01 - Sheet AE501, Detail A15 is updated to reference abrasive nosing at all stair treads.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:13"
+  },
+  {
+   "n": 14,
+   "question": "Concrete sidewalk to just butt up to pavement in parking lot? ADA tactile mat needed?",
+   "answer": "H1/ AE101 indicates concrete sidewalk butts to existing asphalt sidewalk. Existing tactile warning is along accesible sidewalk route.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:14"
+  },
+  {
+   "n": 15,
+   "question": "A5/AE101 notes 2\u201d R-20 rigid but 2\u201d rigid is R-10",
+   "answer": "See Addendum #01 - Sheet AE101, Detail A5 is updated to reference R-10",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:15"
+  },
+  {
+   "n": 16,
+   "question": "What is the thickness/height of the canopy roof structure?",
+   "answer": "Coordinate with canopy manufacturer.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:16"
+  },
+  {
+   "n": 17,
+   "question": "Painted downspouts? What size and just prefinished?",
+   "answer": "Coordinate size with Canopy manufacturer. Prefinished",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:17"
+  },
+  {
+   "n": 18,
+   "question": "Any hazardous in the project?",
+   "answer": "None is anticipated",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:18"
+  },
+  {
+   "n": 19,
+   "question": "The window brick infill is it to be toothed back in? 8\u201d cmu toothed in? Is the cmu to be painted or is there a wall covering on the inside?",
+   "answer": "Yes, tooth brick and block in existing, paint interior cmu to match existing.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:19"
+  },
+  {
+   "n": 20,
+   "question": "Any control joints in concrete landing or sidewalks?",
+   "answer": "See Addendum #01 - Sheet AE101, Plan H1 and Sheet AE501, Detail G12 are updated to reference control joints at 10' oc for sidewalks. No control joints in frost-proof landings",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:20"
+  },
+  {
+   "n": 21,
+   "question": "Sidewalk going to parking lot is just a straight path? Also is it 10\u2019-0\u201d to match other one?",
+   "answer": "See Addendum #01 - Sheet AE101, Plan H1 and Sheet AE501, Detail G12 are updated to reference layout of sidewalk.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:21"
+  },
+  {
+   "n": 22,
+   "question": "Prevailing Wage Determination (Section 00 73 46) The wage rate table referenced in Section 00 73 46 as being \"shown on the following page\" is missing from the issued Project Manual (page 52 contains only a stray signature graphic in place of the rate table). Please confirm whether Maine DOL/Davis-Bacon prevailing wage requirements apply to this project, and if so, please issue the missing wage rate table.",
+   "answer": "2026 Fair minimum Wage rates is included in project manul . Page 52 provides wage rates.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:22"
+  },
+  {
+   "n": 23,
+   "question": "Responsibility for Special Inspection Costs (Section 01 40 00, \u00a71.7.B) Section 01 40 00, \u00a71.7.B states that \"Special Tests and Inspections\" required by the Authority Having Jurisdiction are \"the responsibility of Owner,\" while also indicating the Contractor engages with the testing agency. Please clarify whether Owner or Contractor is financially responsible for the cost of AHJ-required special inspections (including any structural inspections associated with the stair reconstruction, canopy, and foundation work).",
+   "answer": "See addednum #02 for clarification",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:23"
+  },
+  {
+   "n": 24,
+   "question": "Substitution Posture on Named Products (Awnex Canopy, ATAS Soffit, Kawneer Storefront/Door) The drawings identify the Awnex \"Colorado\" canopy, ATAS \"Opaline\" OPF linear metal soffit, and Kawneer 451T TriFab VersaGlaze storefront/500T entrance door as basis-of-design products. Given that Section 01 25 00 does not permit substitutions for convenience, please confirm whether \"or equal\" substitutions will be considered for these three products, or whether they are intended as true sole-source specifications.",
+   "answer": "Comparable product will be allowed for Awnex Canopy, ATAS Soffit, Kawneer Storefront/Door",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:24"
+  },
+  {
+   "n": 25,
+   "question": "Existing Face Brick Match The drawings call for face brick at wall-blocking and canopy tie-back locations to match the existing brick in color and pattern, but no manufacturer, product, or reference sample is identified. Please provide a source, manufacturer name, or reference sample for the existing face brick to support sourcing a match within the bid schedule.",
+   "answer": "For bidding purposes price Morin Oldport Full Range.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:25"
+  },
+  {
+   "n": 26,
+   "question": "Field Verification Access for Existing Conditions Given that the drawings require the Contractor to field-verify existing foundation and structural conditions at the stair reconstruction area, please confirm whether site access for verification purposes will be made available prior to bid, beyond the pre-bid conference held on July 23.",
+   "answer": "Site access can be provided, coordinate with owner. This note was intended to verify the condition of the foundation after the removal work occurred.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:26"
+  },
+  {
+   "n": 27,
+   "question": "Was just relooking through the specs and it says questions are due August 3rd and the bid is due August 6th? Does this leave time to get together an addendum and allow us and subs to review?",
+   "answer": "Clarification: Deadline for RFIs is July 29, 2026. Response to RFIs is August 3, 2026. 3-day upon final RFI response is standard practice.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:27"
+  },
+  {
+   "n": 28,
+   "question": "A handrail subcontractor is asking if there needs to be a center handrail in the main entrance. They asked since the width of the stairway might be past the threshold, therefore it might need a center handrail.",
+   "answer": "Intermediate rail is not required. Our occupant required width is 7\" and a center rail is only required if our occupant required width is greater than 60\".",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:28"
+  },
+  {
+   "n": 29,
+   "question": "Subcontractor wants to clarify the length of handrails.",
+   "answer": "See addendum #1 RFI response #7 and AE501 Detail M10 issued as part of Addendum #2 for additional clarification.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:29"
+  },
+  {
+   "n": 30,
+   "question": "Are there any specifications for this job? There seems to be just the front end specs but nothing else? Concrete specs? Door specs? Steel railings? Painting?",
+   "answer": "Concrete specs are on Drawings. Design Loads on Sheet AE101, Concrete Notes on Sheet AE501. Doors, Steel Railing, Paint called out on drawings to match existing.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:30"
+  },
+  {
+   "n": 31,
+   "question": "How are we to a deal with the brick weep holes and flashing at the bottom of the wall with the grade being raised with the entrance slab being raised at the two double exit doors?",
+   "answer": "There is currently concrete below each of the double doors without weeps. The exisitng pad is wider than the proposed pad and currently is above the bottom of brick. The wall will drain to the next weep hole either side of the new frost entry slab.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:31"
+  },
+  {
+   "n": 32,
+   "question": "Doors currently have access control but there is nothing shown on the plans?",
+   "answer": "See Addenum #2 for clarification, Adds Section 087100, Door Hardware Standards \u2013 Rev. 20260528 and Security Access Control & Digital Video Management (DVM) \u2013 Building Control Center (BCC) Integration & Minimum Requirements,",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:32"
+  },
+  {
+   "n": 33,
+   "question": "Are there any specs for this project or just what is on the plans?",
+   "answer": "Specifications for Division 00-Procurement and Contracing Requirements and Division 01 - General Requirements are included in the Project manual. Addendum #2 Adds Section 087100, Door Hardware Standards \u2013 Rev. 20260528 and Security Access Control & Digital Video Management (DVM) \u2013 Building Control Center (BCC) Integration & Minimum Requirements,",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:33"
+  },
+  {
+   "n": 34,
+   "question": "The brick headers on the exterior doors has a brick detail that looks to be about 12\u201d tall. The new exterior canopies will these be mounted above this?",
+   "answer": "yes, bottom of canopy to be mounted above existing brick header at 8\"-4\". See sheet AE101 Detail E15 issued as part of Addednum #2",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:34"
+  },
+  {
+   "n": 35,
+   "question": "Where the upper ties for the canopies are going looks to be right in the middle of the brick detail band going around the building? How are we to work around this?",
+   "answer": "top of upper tie for canapy to be below existing brick band. See sheet AE101 Detail E15 issued as part of Addenum #2",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:35"
+  },
+  {
+   "n": 36,
+   "question": "The first step currently looks like to be less than 7\u201d and the rest seem close to 7\u201d How would you like to approach as the door sill is a set height so do we pitch the landing to get them to 7\u201d steps or do we plan on paving the sidewalk to bring it up?",
+   "answer": "provide equal height risers 7\" high max between existing landing height and existing sidewalk height. See sheet AE501 Detail M10 issued as part of Addenum #2",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:36"
+  },
+  {
+   "n": 37,
+   "question": "Existing steel door system at main entrance looks to be about 8\u201d deep and the new storefront is 4 \u00bd\u201d deep. How are we to leave the brick veneer as it will have anchor spots and caulking from the old? There is tile inside so do we push the new storefront back against the existing tile?",
+   "answer": "Patch the screw holes, removal the sealant and push the new storefront till it over laps the exisitng slab.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:37"
+  },
+  {
+   "n": 38,
+   "question": "With the existing window being removed are we to tooth in cmu inside and remove the bullnosed cmu? Exterior brick are we to remove header detailed brick and sill and tooth in or just infill opening?",
+   "answer": "Existing bullnose head, jamb and sill to remain, infill opening. Brick header and sill to remain, infill opening.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:38"
+  },
+  {
+   "n": 39,
+   "question": "There is an existing tipped curbing at the parking lot where we are running the new walk way to. How are we to deal with this detail?",
+   "answer": "Flush top of sidewalk to top of curb.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:39"
+  },
+  {
+   "n": 40,
+   "question": "Does the foundation wall and footings for the side entry pads go on all three sides of the pad or just the long side?",
+   "answer": "Foundation wall and footings are on all three sides of the pad.",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:40"
+  },
+  {
+   "n": 41,
+   "question": "Also it doesn\u2019t show any foundation along the sides of the stairs and how this detail or repair is supposed to be done?",
+   "answer": "Similar to A15/AE501",
+   "discipline": "Arch",
+   "project": "maine-3843-wellness-center",
+   "source": "3843_Addendum_2_DAFS.pdf",
+   "id": "maine-3843-wellness-center:3843_Addendum_2_DAFS:41"
+  },
+  {
+   "n": 1,
+   "question": "The RFP asks that \u201cProposal Form should include, at a minimum, the following \u2013 labor rates, direct construction costs, administrative expenses, general conditions, contractor overhead, contractor profit, subcontractor costs and materials\u201d, however the supplied Fee Proposal Form does not align with that request.",
+   "answer": "Proposers should add to the provided Fee Proposal Form as needed to meet the criteria of the RFP.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:1"
+  },
+  {
+   "n": 2,
+   "question": "Please confirm whether the Fee Proposal Form is intended as a Schedule of Values supporting a lump sum bid, and whether bidders may define their own cost breakdown categories.",
+   "answer": "Confirmed, bidders may define their own breakdown, however, we request that the bids be submitted broken out by trade, Iron, Wood, and Piles.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:2"
+  },
+  {
+   "n": 3,
+   "question": "Please confirm whether the project will be administered as a lump sum contract and whether the provided fee breakdown is for informational purposes only.",
+   "answer": "The project will be administered as a lump sum contract. The fee proposal form is intended as a Schedule of Values to support that lump sum bid",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:3"
+  },
+  {
+   "n": 4,
+   "question": "Please confirm that labor rates should be supplied separately for information only.",
+   "answer": "Confirmed.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:4"
+  },
+  {
+   "n": 5,
+   "question": "Are there any noise restrictions or permitted working hours for this project?",
+   "answer": "The contractor should conform to normal DOB work hours of 7am - 6pm. While there are no noise restrictions, RIOC asks that the contractor notify them prior to any loud work commencing so it can be properly noticed.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:5"
+  },
+  {
+   "n": 6,
+   "question": "Will road closures be permitted in front of the pier during construction?",
+   "answer": "The area immediately in front of the pier can be utilized for load in/load out and lay down. The West Road cannot be closed to vehicular traffic.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:6"
+  },
+  {
+   "n": 7,
+   "question": "Can designated parking spaces be secured in front of the pier for construction personnel?",
+   "answer": "RIOC will coordinate with the selected contractor and RIOC Public Safety to coordinate parking of construction vehicles on site.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:7"
+  },
+  {
+   "n": 8,
+   "question": "Please provide the full project specifications",
+   "answer": "Please see updated drawings and specifications",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:8"
+  },
+  {
+   "n": 9,
+   "question": "Is this project federally funded?",
+   "answer": "NO",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:9"
+  },
+  {
+   "n": 10,
+   "question": "Please provide the size and quantity of steel sleeves to be removed",
+   "answer": "Please see updated drawings and specifications",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:10"
+  },
+  {
+   "n": 11,
+   "question": "Is there any existing hardware embedded in the current wood deck?",
+   "answer": "No",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:11"
+  },
+  {
+   "n": 12,
+   "question": "Please confirm that there are no utilities within the work area that would interfere with the pile repairs.",
+   "answer": "Confirmed",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:12"
+  },
+  {
+   "n": 13,
+   "question": "The wood framing drawings show different post spacing compared to the railing post layout. Please clarify.",
+   "answer": "All railing work to follow the railing drawings. Railing posts are located by the railing drawings.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:13"
+  },
+  {
+   "n": 14,
+   "question": "Please confirm whether the railing posts are the same as those shown in the wood framing drawings. If they differ, will the railing posts be connected at the concrete level or mounted on the wood decking?",
+   "answer": "All railing work to follow the railing drawings. Railing posts are located by the railing drawings. Rails are mounted to the concrete deck per the details on the railing drawings.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:14"
+  },
+  {
+   "n": 15,
+   "question": "Please clarify the limits of temporary fencing, including starting and ending points. Note: It may not be feasible to install fencing on the pier during active construction zones.",
+   "answer": "The selected contractor will be required to provide a fencing plan for protection of materials. It is assumed that a perimeter fence would be in place for safety purposes and to limit access to the site.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:15"
+  },
+  {
+   "n": 16,
+   "question": "The \u201cOverview & Scope of Work\u201d specifies Dynaplank Boardwalk Planking (dark grey), while the drawings indicate pressure-treated 2x8, teak/Ipe 2x8, or Kebony 2x8 planking. Please confirm the correct material to be used",
+   "answer": "The correct material is the Dynaplank Boardwalk Planking (dark grey) or similar. See revised drawing (CPP to provide)",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:16"
+  },
+  {
+   "n": 17,
+   "question": "The RFP documents say to submit MWBE forms with the bid, however the forms themselves state they can be submitted after the bid but before award. Please clarify when they should be submitted.",
+   "answer": "MWBE utilization plan forms should be submitted with the bid.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:17"
+  },
+  {
+   "n": 18,
+   "question": "The specifications state that the fiberglass jacket thickness shall be either 1/8\u201d or 3/16\u201d depending on application and diameter size. Please provide clarification on the required thickness for each applicable condition.",
+   "answer": "Jacket thickness is a performance design by the vendor providing the fiberglass jackets.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:18"
+  },
+  {
+   "n": 19,
+   "question": "MWBE Forms 100 and 103 appear to contain overlapping requirements related to the Utilization Plan. Please clarify whether both forms must be executed and submitted.",
+   "answer": "MWBE 100 and 103 are both MWBE Utilization Plans, one of these may be submitted, rather than both.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:19"
+  },
+  {
+   "n": 20,
+   "question": "The RFP documents say to submit MWBE forms with the bid, however the forms themselves state they can be submitted after the bid but before award. Please clarify when they should be submitted.",
+   "answer": "Utilization plan should be submitted with the bid application.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:20"
+  },
+  {
+   "n": 21,
+   "question": "How are wood planks supported at the deck edges? Drawings show framing set back from the pier edge\u2014are planks overhanging, or is a perimeter support missing?",
+   "answer": "See left side of detail 3/S-200.00, which shows the decking perimeter condition.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:21"
+  },
+  {
+   "n": 22,
+   "question": "Files : MWBE Quartery Report, ST-220-TD, SCHEDULE CSCHEDULE C PREVIOUS PARTICIPATION AND DISCLOSURE STATEMENT1, Offerer\u2019s Certification of Compliance with State Finance Law,\u00a7139-k(5) Offerer\u2019s Affirmation of Understanding of and Agreement pursuant to State Finance Law \u00a7139-j (3) and \u00a7139-j (6) (b), were not located in the Bid Completeness Checklist. Please confirm if they are required to be submitted.",
+   "answer": "Confirmed, please include all listed docuemnts.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:22"
+  },
+  {
+   "n": 23,
+   "question": "Who is responsible for the disconnection and removal of existing electrical utilities?",
+   "answer": "RIOC will be responsible for the disconnection and removal of existing electrical utilities.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:23"
+  },
+  {
+   "n": 24,
+   "question": "Should the wood planks be cut to match the contour of the existing granite face at the stairs and seating areas?",
+   "answer": "Yes. This should be included.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:24"
+  },
+  {
+   "n": 25,
+   "question": "The ramp currently includes a decorative wooden plank cut to follow the contour of the existing granite face. This detail is not shown on the drawings\u2014should this be included in the new ramp construction?",
+   "answer": "Yes. This should be included.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:25"
+  },
+  {
+   "n": 26,
+   "question": "To remove and salvage the existing wood cap, the wood plugs must be removed to unscrew the wooden caps, and they are likely to be damaged in the process. Please provide what type of wood will be used?",
+   "answer": "This would be determined on an as needed basis during construction through consultation with the Engineer of Record.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:26"
+  },
+  {
+   "n": 27,
+   "question": "Where can we place dumpsters? Is it allowed on the pavers?",
+   "answer": "The area immediately in front of the pier can be utilized for load in/load out and lay down. RIOC will coordinate with selected contractor on parking availability and location.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:27"
+  },
+  {
+   "n": 28,
+   "question": "What is the anticipated start date?",
+   "answer": "The anticipated start date of the work would be early July 2026.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:28"
+  },
+  {
+   "n": 29,
+   "question": "We are just getting involved in this bid and based on the fact that the site visit was yesterday, we are requesting an RFI submission extension by 1 week.",
+   "answer": "The RFI submission date has been extended to April 15, 2026 per Addendum #1.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:29"
+  },
+  {
+   "n": 30,
+   "question": "Similarly, we are requesting a bid due date extension by at least 2 weeks to procure subcontractor pricing, source MWBE/SDVOB contractors, prepare the elaborate bid submission package as described in the bid documents and complete a thorough scope review?",
+   "answer": "The bid due date will be extended to Wednesday, May 6th",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:30"
+  },
+  {
+   "n": 31,
+   "question": "Rip-Rap and soil excavation will be required to expose the embedded surface area of the existing piles. Can we re-use the same material as backfill or do we need to dispose the existing materials off-site and import new materials?",
+   "answer": "This will largely be dependent on any permit requirements, however, Proposers should include a unit cost for new material in their submission.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:31"
+  },
+  {
+   "n": 32,
+   "question": "Do you have any pictures of the existing rip rap? Are they big pieces (boulders) of stone?",
+   "answer": "Please see attached structural report.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:32"
+  },
+  {
+   "n": 33,
+   "question": "Approved Methods for Embedded Steel Sleeve Removal Drawing S-050.00 prohibits jackhammering during demolition. Can RIOC confirm what methods are approved for removal of the existing embedded steel sleeves from the concrete curb at each railing post location?",
+   "answer": "Jackhammering is not prohibited, however, ot should not be conducted during early morning hours.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:33"
+  },
+  {
+   "n": 34,
+   "question": "Permit Requirements for Pile Encasement Scope The scope of work includes underwater pile repairs and installation of pile encasements on existing piles. Can RIOC confirm whether any active permits from prior work on Eleanor's Pier remain in effect and would be available to the selected contractor?",
+   "answer": "The selected contractor will be required to obtain the necessary permits to complete the work.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:34"
+  },
+  {
+   "n": 35,
+   "question": "Decking Material Specification and Warranty Requirements The specification references \"Dynaplank Boardwalk Planking (dark grey) or similar\" as the required decking material. Section 1.3 also requires an extended 20-year warranty from the date of Certificate of Final Completion on the decking material.The Drawings also specify wood, kebony and other decking. Can you please confirm exactly what decking should be included in the bid and if any alternative brands are allowed. If alternative brands are acceptable, please confirm what other brands/ models of decking are acceptable and how pricing for each should be presented in the bid.",
+   "answer": "The correct material is the Dynaplank Boardwalk Planking (dark grey) or similar. See revised drawing (CPP to provide)",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:35"
+  },
+  {
+   "n": 36,
+   "question": "Existing Drawings and Structural Information Can RIOC confirm whether as-built drawings from the original 1990 pier construction and/or the 2014 Hurricane Sandy renovation are available to bidders? Specifically, are pile locations, pile dimensions, and pile embedment depths documented?",
+   "answer": "Please see posted structural report.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:36"
+  },
+  {
+   "n": 37,
+   "question": "Steel Grade Discrepancy: 304 vs 316L The RFP text specifies 304 stainless steel for railing members, however the engineering drawings by IMEG consistently specify 316L stainless steel throughout all railing details including posts, base plates, pickets, and all connections. Can RIOC confirm which specification governs \u2014 the RFP text or the engineering drawings \u2014 and whether all railing members including posts, pickets, base plates and connections shall be 316L stainless steel?",
+   "answer": "316L is correct.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:37"
+  },
+  {
+   "n": 38,
+   "question": "Denso and Approved Equal Products for Pile Repair Drawing S-102 specifies Denso Series 2000HD for Pile Repair Type 1 coating and Denso Sea Shield 500 system for Pile Repair Type 2 encasement, both noted as \"or approved equal.\" Can RIOC confirm what documentation is required to establish an approved equal for these products or if RIOC is requiring those exact products, and whether approved equal submittals must be included with the bid or can be submitted post-award for engineer review and approval?",
+   "answer": "Approved equal submittals can be submitted post-award for EOR review and approval. They do not need to be included in the bid submission.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:38"
+  },
+  {
+   "n": 39,
+   "question": "With regard to Builders Risk coverage, What is the value of the existing structure?",
+   "answer": "Pending further respoinse, however, There is no known value of the existing structure to provide.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:39"
+  },
+  {
+   "n": 40,
+   "question": "Please provide a bid form that details descriptions, quantity, units, or all work associated so that all contractors are pricing the same exact work.",
+   "answer": "Proposers should submit their own form of bid that encompasses all of the work described in this RFP and broken down by line item.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:40"
+  },
+  {
+   "n": 41,
+   "question": "A24 clips are not available in 316 stainless steel and are only offered in Zinc Galvanized G90 or ZMAX coating, please confirm the required material/coating.",
+   "answer": "This question would be addressed post award with engineer of record.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:41"
+  },
+  {
+   "n": 42,
+   "question": "Please provide the required width/dimensions for the (2) chain link gates.",
+   "answer": "Please see drawing S-105.00",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:42"
+  },
+  {
+   "n": 43,
+   "question": "The drawings reference a \u201cstability base\u201d for fence posts, but do not include details, please provide the footing type, size, and installation requirements.",
+   "answer": "Stability base, posts, frames, and bracing must be designed to withstand wind loads. Per drawinng S-105.00, contractor should submit manufacturers specifications and drawings, indicating all sizes and connections to be used, for approval by the owner's representative.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:43"
+  },
+  {
+   "n": 44,
+   "question": "Please confirm whether privacy slats are required for the fence and provide specifications/details for the inserts if applicable.",
+   "answer": "Please see drawing S-105.00. Color is specified but type should be proposed.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:44"
+  },
+  {
+   "n": 45,
+   "question": "Additionally, we would like to request that the bid due date be extended by one week.",
+   "answer": "The bid due date will be extended to Wednesday, May 6th",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:45"
+  },
+  {
+   "n": 46,
+   "question": "Are there any liquidated damages associated?",
+   "answer": "Yes, please see page 7 of the RFP, General Requirements section \"n\", states: Failure to complete the project on time, as per Sections 5 and 6 of the Contract, may result in Liquidated Damages listed in the Contract under \u2018Scope of Work\u2019 and \u2018Additional Terms\u2019. Liquidated damages will be calculated at 0.1% of the total contract price per calendar day.",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:46"
+  },
+  {
+   "n": 47,
+   "question": "What will be the retainage % for the contract?",
+   "answer": "yes, 10%",
+   "project": "ny-rioc-eleanors-pier",
+   "source": "Addenda_2-_RFI_log_and_due_date_extension.pdf",
+   "id": "ny-rioc-eleanors-pier:Addenda_2-_RFI_log_and_due_d:47"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+# RFI responder on real public RFIs, every model on every project in parallel, then scored by code.
+# Actions -> "Real RFI evaluation" -> Run workflow. Free: GitHub's machines and open models through Ollama. No keys.
+name: Real RFI evaluation
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Ollama models, as a JSON list"
+        required: true
+        default: '["llama3.1:8b","qwen3.5:9b","gemma4:12b"]'
+      limit:
+        description: "Max RFIs per project (blank = all)"
+        required: false
+        default: ""
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        model: ${{ fromJSON(inputs.models) }}
+        project: [maine-2995-capitol-garage, illinois-uic-cancer-pavilion, illinois-niccs-design-build, illinois-idot-materials-lab, maine-3843-wellness-center, ny-rioc-eleanors-pier]
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "tools\ndata/real/rfis.json\ndata/real/docs", sparse-checkout-cone-mode: false }
+      - name: Install Ollama and pull the models
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          (OLLAMA_KEEP_ALIVE=6h OLLAMA_MAX_LOADED_MODELS=2 ollama serve > /tmp/ollama.log 2>&1 &)
+          for i in $(seq 1 30); do curl -s localhost:11434/api/tags >/dev/null && break; sleep 2; done
+          ollama pull "${{ matrix.model }}"
+          ollama pull qwen3-embedding:0.6b || echo "embedding model not available; keyword search only"
+      - name: Answer the RFIs
+        run: python3 tools/real/rfi_eval.py --model "${{ matrix.model }}" --project "${{ matrix.project }}" ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - name: Name the result
+        id: n
+        run: echo "name=$(echo '${{ matrix.model }}-${{ matrix.project }}' | tr ':/' '__')" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with: { name: "${{ steps.n.outputs.name }}", path: data/real/results/ }
+  score:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: /tmp/art }
+      - name: Score and commit
+        run: |
+          mkdir -p data/real/results
+          for d in /tmp/art/*/; do cp -r "$d"* data/real/results/ 2>/dev/null || true; done
+          python3 tools/real/score.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/real/results/
+          git commit -m "Real RFI evaluation results" || echo "nothing to commit"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
