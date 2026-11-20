@@ -772,3 +772,8 @@ pre.draft.ai, .inp.ai { border-color: var(--blue); border-left: 4px solid var(--
 /* The quick check's contract chip only shows on the quick check. The getting-started screen shows only its choices. */
 body:not(.v-check) #contractBtn { display: none; }
 body.v-start .sheets, body.v-start #modeband { display: none; }
+.gs-h { font-size: 20px; margin: 26px 0 4px; }
+.gs-sub { margin: 0 0 14px; max-width: 680px; }
+.gs-email { display: grid; grid-template-columns: minmax(0, 360px) max-content; justify-content: start; gap: 10px; align-items: center; margin-top: 8px; }
+@media (max-width: 560px) { .gs-email { grid-template-columns: minmax(0, 1fr); } }
+

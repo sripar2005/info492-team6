@@ -105,7 +105,7 @@
     var picker = '';
     if (ctx && ctx.mine.length > 1) {
       var groups = ['owner', 'architect', 'gc', 'sub'];
-      picker = '<label class="mb-as"><span>Viewing as</span><select id="viewas">' + groups.map(function (g) {
+      picker = '<label class="mb-as"><span>Signed in as</span><select id="viewas">' + groups.map(function (g) {
         var ids = ctx.mine.filter(function (id) { return ctx.role[id] === g; }); if (!ids.length) return '';
         return '<optgroup label="' + ROLE[g] + (g === 'sub' ? 's' : '') + '">' + ids.map(function (id) { return '<option value="' + id + '"' + (id === ctx.viewAs ? ' selected' : '') + '>' + esc(ctx.companies[id].name) + '</option>'; }).join('') + '</optgroup>';
       }).join('') + '</select></label>';

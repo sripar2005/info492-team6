@@ -58,11 +58,11 @@
         : '<p style="margin:0 0 14px;color:var(--muted)">Each company on a project (sub, GC/CM, architect, owner) works from the same record, and sees what its contracts allow. Sign in with your email; we send a one-time link.</p>' +
           '<form id="signin" class="grid" style="grid-template-columns:minmax(0,1fr) auto;gap:10px"><div class="inp"><input type="email" id="email" required placeholder="you@company.com" autocomplete="email"></div><button class="btn primary" type="submit">Email me a link</button></form>') + '</div>' +
       '<div class="card sec" style="max-width:520px;margin-top:16px"><div class="sec-h"><h3>Just looking?</h3><span class="tagr none">no sign-in</span></div><p style="margin:0 0 12px;color:var(--muted)">Open the sample project: a synthetic school modernization with its record, contracts, subs and changes. It runs in this browser only and nothing is saved.</p><button class="btn" data-entersample="1">Open the sample project</button> <a class="btn ghost" href="#upload">Quick check a proposal</a></div>');
+    function send(email) { q(P.sb().auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + '/app/?signin=1' } })).then(function () { signIn(email); }).catch(fail); }
     var f = document.getElementById('signin');
-    if (f) f.addEventListener('submit', function (e) {
-      e.preventDefault(); var email = document.getElementById('email').value.trim();
-      q(P.sb().auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + '/app/?signin=1' } })).then(function () { signIn(email); }).catch(fail);
-    });
+    if (f) f.addEventListener('submit', function (e) { e.preventDefault(); send(document.getElementById('email').value.trim()); });
+    // An email typed on the sign-in page is sent straight away.
+    var pend = store('cs_pending_email'); if (f && pend) { store('cs_pending_email', null); send(pend); }
   }
 
   /* ---------- loading what the viewer may see ---------- */
@@ -146,7 +146,7 @@
         var ret = ch.filter(function (c) { return c.status === 'returned'; }), days = open.filter(function (c) { return c.tier === 'proposal'; }).reduce(function (s, c) { return s + (+c.days || 0); }, 0);
         var waitRows = todo.map(function (x) { return '<tr data-copen="' + x.c.id + '"><td><span class="t">' + esc(x.c.title) + '</span><span class="id">' + esc(x.c.number) + ' · ' + (x.c.tier === 'sub_request' ? 'Sub request from ' + esc(name(x.c.from_company)) : 'Proposal') + '</span></td><td>' + badge(x.c.status, x.c) + '</td><td><b>' + esc(x.step) + '</b></td></tr>'; }).join('');
         var fieldRows = subs.map(function (s) { return '<li class="info"><span class="qd"></span><div><b>From the field' + (s.sender_name ? ', ' + esc(s.sender_name) : '') + '</b> <span class="fine">' + when(s.created_at) + ' · unverified</span><p style="margin:4px 0 8px">' + esc(s.body) + '</p><button class="btn sm" data-fconfirm="' + s.id + '">Make it a change request</button> <button class="btn ghost sm" data-fdiscard="' + s.id + '">Discard</button></div></li>'; }).join('');
-        var body = '<p style="margin:-6px 0 18px;color:var(--muted)">Viewing as <b>' + esc(name(me())) + '</b> (' + esc(P.ROLE[role()]) + '). ' + todo.length + ' waiting on you.' + (P.isSample() ? ' Switch who you’re viewing as in the band above to see what each party sees.' : '') + '</p>' +
+        var body = '<p style="margin:-6px 0 18px;color:var(--muted)">Signed in as <b>' + esc({ gc: 'GC/CM project manager', sub: 'Subcontractor project manager', architect: 'Architect', owner: 'Owner’s rep' }[role()] || P.ROLE[role()]) + '</b> · ' + esc(name(me())) + (/\.$/.test(name(me())) ? ' ' : '. ') + todo.length + ' waiting on you.' + (P.isSample() ? ' In the sample, switch roles in the band above to see what each party sees.' : '') + '</p>' +
           '<div class="cols" style="--cols:minmax(0,1.5fr) minmax(0,1fr)"><div>' +
           (fieldRows ? '<div class="card sec" style="margin-bottom:16px"><div class="sec-h"><h3>From your field link (' + subs.length + ')</h3><span class="tagr chk">unverified</span></div><ul class="qual">' + fieldRows + '</ul><p class="fine" style="margin:8px 0 0">Nothing from the field reaches the GC/CM until you confirm it.</p></div>' : '') +
           '<div class="card tbl-wrap">' + (todo.length ? '<table class="tbl turn"><thead><tr><th>Waiting on you</th><th>Status</th><th>Next</th></tr></thead><tbody>' + waitRows + '</tbody></table>' : '<p style="padding:18px;margin:0">Nothing is waiting on you. <a class="link" href="#changes">See all changes</a></p>') + '</div></div>' +

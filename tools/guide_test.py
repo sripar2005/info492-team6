@@ -13,9 +13,7 @@ def step(pg,label): print('  ',label,'->',panel(pg))
 def begin(b, role, w=1280, h=900):
     ctx=b.new_context(viewport={'width':w,'height':h}); pg=ctx.new_page(); pg.on('pageerror',lambda e: errs.append(role+': '+str(e)))
     pg.goto(BASE+'/app/'); pg.wait_for_timeout(1500)
-    assert 'What brings you here' in pg.inner_text('#app'), pg.inner_text('#app')[:200]
-    pg.click('[data-gspath="sample"]'); pg.wait_for_timeout(600)
-    assert 'Which are you' in pg.inner_text('#app')
+    assert 'Choose your role' in pg.inner_text('#app'), pg.inner_text('#app')[:200]
     pg.click('[data-gsrole="%s"]'%role); pg.wait_for_timeout(7000)
     return pg
 def modal_btn(pg,text):
@@ -53,6 +51,6 @@ with sync_playwright() as p:
     pg.click('[data-tact="approve"]'); pg.wait_for_timeout(1800); step(pg,'approved')
     pg.click('[data-nav="activity"]'); pg.wait_for_timeout(1800); step(pg,'activity')
     print('REAL'); ctx=b.new_context(viewport={'width':1280,'height':900}); pg=ctx.new_page(); pg.on('pageerror',lambda e: errs.append('real: '+str(e)))
-    pg.goto(BASE+'/app/'); pg.wait_for_timeout(1200); pg.click('[data-gspath="real"]'); pg.wait_for_timeout(3000); step(pg,'real start'); pg.screenshot(path='/tmp/shots/g_real.png')
+    pg.goto(BASE+'/app/'); pg.wait_for_timeout(1200); pg.fill('#gsmail','test@example.com'); pg.click('#gsemail button'); pg.wait_for_timeout(3000); step(pg,'real start'); pg.screenshot(path='/tmp/shots/g_real.png')
     b.close()
 print('ERRORS',errs)

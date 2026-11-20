@@ -60,7 +60,7 @@
         target: '#texplain', open: 'CP-0212', check: function () { return kinds('CP-0212').then(function (k) { var last = (k.check || []).slice(-1)[0]; return !!k.explain || (last && !+((last.payload || {}).findings || 0)); }); } },
       { title: 'Send it to the architect', text: 'Click “Send to Example Architecture, PLLC”.', target: '[data-tact="submit"]', open: 'CP-0212',
         check: function () { return status('CP-0212').then(function (s) { return s && s !== 'draft' && s !== 'returned'; }); } },
-      { title: 'See the hand-off', text: 'In the band at the top, switch “Viewing as” to Example Architecture, PLLC. CP-0212 is now waiting on them, with a review clock.', target: '#viewas', check: function () { return myRole() === 'architect'; } }
+      { title: 'See the hand-off', text: 'In the band at the top, switch “Signed in as” to Example Architecture, PLLC. CP-0212 is now waiting on them, with a review clock.', target: '#viewas', check: function () { return myRole() === 'architect'; } }
     ],
     sub: [
       { title: 'A note from your crew', text: 'Your foreman sent this from the field link on a phone, no account needed. It’s unverified: only your company can see it.', why: 'Nothing from the field reaches the GC/CM until you confirm it.', target: cardWith('[data-fconfirm]'), go: 'home', ack: true },
@@ -68,7 +68,7 @@
       { title: 'Send it to the GC/CM', text: 'Enter your price if you have one, add a note, and click “Send to Example Builders, Inc.”.', why: 'Once sent, the GC/CM sees it and its pricing clock starts.',
         target: '[data-tact="submit"]', openFn: fieldChange, check: function () { return fieldChange().then(function (c) { return c && c.status !== 'draft'; }); } },
       { title: 'What you can see', text: 'Open 01 Changes. You see your own requests, not the GC/CM’s proposal to the owner or other subs’ prices.', why: 'Who sees what follows the contracts: you’re party to your subcontract only.', target: '[data-nav="changes"]', go: 'changes', ack: true },
-      { title: 'See the hand-off', text: 'Switch “Viewing as” at the top to Example Builders, Inc. Your request is waiting on them.', target: '#viewas', check: function () { return myRole() === 'gc'; } }
+      { title: 'See the hand-off', text: 'Switch “Signed in as” at the top to Example Builders, Inc. Your request is waiting on them.', target: '#viewas', check: function () { return myRole() === 'gc'; } }
     ],
     architect: [
       { title: 'Late reviews show in red', text: 'The contract gives you 14 days to review a proposal (§ 6.4). The clocks on Home count them, and red ones are late.', target: '.clocks', go: 'home', ack: true },
@@ -76,7 +76,7 @@
       { title: 'Read what the GC/CM sent', text: 'The evidence on the right shows what caused the change, each item linked to the record. Under “Activity on this change” are the checks the GC/CM ran and their notes.', target: '#tevidence', open: 'CP-0220', ack: true },
       { title: 'Forward it or send it back', text: 'Click “Forward to” the owner, or “Return” it with a reason. Either way it’s logged.', target: '[data-tact="forward"]', open: 'CP-0220',
         check: function () { return status('CP-0220').then(function (s) { return s && s !== 'with_architect'; }); } },
-      { title: 'See the hand-off', text: 'Switch “Viewing as” at the top to Example School District No. 1 to see what the owner gets.', target: '#viewas', check: function () { return myRole() === 'owner'; } }
+      { title: 'See the hand-off', text: 'Switch “Signed in as” at the top to Example School District No. 1 to see what the owner gets.', target: '#viewas', check: function () { return myRole() === 'owner'; } }
     ],
     owner: [
       { title: 'This is Home', text: 'Proposals reach you after the architect reviews them. Each shows its review clock from the contract.', target: '.card.tbl-wrap', go: 'home', ack: true },
@@ -114,22 +114,30 @@
   P.guide = { steps: steps, SAMPLE: SAMPLE };
 
   /* ---------- the welcome screen ---------- */
+  // The sign-in page: pick a role to try the sample, or sign in to your company's project.
+  var ROLE_LINE = {
+    gc: ['Put a sub’s price into a proposal, draft it with AI, run the contract checks, and send it to the architect.', 'Example Builders, Inc.'],
+    sub: ['Turn your crew’s note from the field into a change request, and send it to the GC/CM.', 'Clearwater Abatement'],
+    architect: ['Review a proposal that’s overdue, and forward it to the owner or send it back with a reason.', 'Example Architecture, PLLC'],
+    owner: ['Decide on a proposal, and see the full record of who did what, with every AI step’s receipt.', 'Example School District No. 1']
+  };
   V.start = function () {
     store('cs_seen_start', 1);
-    var pick = /[?&]pick=role/.test(location.hash);
-    var how = '<ul class="plain gs-how"><li><b>One record for every company.</b> RFIs, ASIs, submittals, approved minutes, contracts and changes, kept in one place.</li><li><b>You see what your contracts allow.</b> A sub sees its own work; the owner sees proposals, not each sub’s prices.</li><li><b>AI drafts, code checks, a person decides.</b> Every AI step cites the record and is logged.</li></ul>';
-    var body = pick
-      ? '<p class="lede gs-lede">The sample is a made-up school project with an owner, an architect, a GC/CM and 25 subcontractors. Pick who you are, and the guide walks you through that party’s part, then the hand-off to the next.</p>' +
-        '<div class="gs-grid">' + [['sub', 'Turn your crew’s note from the field into a change request, and send it to the GC/CM.'], ['gc', 'Put a sub’s price into a proposal, draft it with AI, run the contract checks, and send it.'],
-          ['architect', 'Review a proposal that’s overdue, and forward it to the owner or send it back.'], ['owner', 'Decide on a proposal, and see the full record of who did what.']].map(function (x) {
-          return '<button class="gs-card" data-gsrole="' + x[0] + '"><b>' + ROLE_TEXT[x[0]] + '</b><span>' + x[1] + '</span><em>About 5 minutes</em></button>';
-        }).join('') + '</div><p class="fine"><a class="link" href="#start">Back</a></p>'
-      : '<p class="lede gs-lede">ClauseStream keeps one shared record for a construction project, from the subcontractors up to the owner, and checks each change against the contracts before it’s sent.</p>' + how +
-        '<div class="gs-grid two"><button class="gs-card" data-gspath="sample"><b>Try the sample project</b><span>A made-up school project. No sign-in, and nothing you do is saved.</span><em>About 5 minutes</em></button>' +
-        '<button class="gs-card" data-gspath="real"><b>Start a real project</b><span>Sign in with your email, set up your project, and invite the other companies.</span><em>About 10 minutes to set up</em></button></div>' +
-        '<p class="fine">Just want to check one proposal against a contract? <a class="link" href="#upload">Use the quick check</a>.</p>';
-    app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">Getting started</span><h1 style="margin-top:8px">' + (pick ? 'Which are you?' : 'What brings you here?') + '</h1></div></div>' + body + '</div>';
+    var cards = ['gc', 'sub', 'architect', 'owner'].map(function (r) {
+      return '<button class="gs-card" data-gsrole="' + r + '"><b>' + ROLE_TEXT[r] + (r === 'gc' || r === 'sub' ? ' project manager' : '') + '</b><span>' + ROLE_LINE[r][0] + '</span><em>Signs in to the sample as ' + ROLE_LINE[r][1] + ' · about 5 minutes</em></button>';
+    }).join('');
+    app.innerHTML = '<div class="wrap"><div class="ph1"><div><span class="eyebrow">ClauseStream</span><h1 style="margin-top:8px">Sign in</h1></div></div>' +
+      '<p class="lede gs-lede">One record for a construction project, from the subcontractors up to the owner. Each company sees what its contracts allow.</p>' +
+      '<h2 class="gs-h">Choose your role</h2><p class="fine gs-sub">Opens the sample project, a made-up school modernization, as that party. No account needed, and nothing you do is saved. A guide walks you through it.</p>' +
+      '<div class="gs-grid">' + cards + '</div>' +
+      '<h2 class="gs-h">Or sign in to your company’s project</h2>' +
+      '<form id="gsemail" class="gs-email"><div class="inp"><input type="email" id="gsmail" required placeholder="you@company.com" autocomplete="email" aria-label="Work email"></div><button class="btn primary" type="submit">Email me a sign-in link</button></form>' +
+      '<p class="fine gs-sub">No password: we email a one-time link. Your role comes from your company’s place on the project.</p>' +
+      '<p class="fine" style="margin-top:22px">Just want to check one proposal against a contract? <a class="link" href="#upload">Use the quick check</a>.</p></div>';
     hidePanel();
+    document.getElementById('gsemail').addEventListener('submit', function (e) {
+      e.preventDefault(); store('cs_pending_email', document.getElementById('gsmail').value.trim()); start('real');
+    });
   };
 
   /* ---------- the panel ---------- */
@@ -190,7 +198,7 @@
       body = s.path === 'real'
         ? '<h3 aria-live="polite">You’re set up</h3><p>Your project is ready. Changes and proposals will show on Home as they arrive.</p><div class="gd-acts"><button class="btn sm primary" data-gd="close">Close the guide</button></div>'
         : '<h3 aria-live="polite">That’s the ' + esc(ROLE_TEXT[s.role]) + ' side</h3><p>Each party worked from the same record and saw only what its contracts allow. Every step is in 05 Activity.</p>' +
-          '<div class="gd-acts"><a class="btn sm primary" href="#start?pick=role" data-gd="again">Try another party</a><button class="btn sm" data-gd="real">Start a real project</button><button class="btn sm ghost" data-gd="close">Close</button></div>';
+          '<div class="gd-acts"><a class="btn sm primary" href="#start" data-gd="again">Try another role</a><button class="btn sm" data-gd="real">Start a real project</button><button class="btn sm ghost" data-gd="close">Close</button></div>';
     } else {
       var here = st.open ? onChange(st.open) : st.openFn ? view() === 'change' : st.go ? view() === st.go : true;
       var tgt = targetOf(st);
@@ -239,15 +247,13 @@
   }
   app.addEventListener('click', function (e) {
     var b = e.target.closest('[data-gspath],[data-gsrole]'); if (!b) return;
-    if (b.dataset.gspath === 'sample') return A.go('start?pick=role');
-    if (b.dataset.gspath === 'real') return start('real');
     if (b.dataset.gsrole) return start('sample', b.dataset.gsrole);
   });
   // "Guide" in the band reopens the guide, or offers to start one.
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-guideopen]'); if (!b) return;
     var s = S(); if (s) { s.min = false; save(s); return evaluate(); }
-    A.go(P.isSample() ? 'start?pick=role' : 'start');
+    A.go('start');
   });
 
   // Re-check after every screen change. Screens redraw #app, so watching it catches every step.
