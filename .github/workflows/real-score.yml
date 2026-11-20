@@ -1,0 +1,33 @@
+name: real-score
+# Score whatever results exist so far from one or more eval runs (finished jobs only).
+on:
+  workflow_dispatch:
+    inputs:
+      run_ids:
+        description: "Space-separated run ids, oldest first (later runs overwrite earlier ones)"
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: Download, score, commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/real/results
+          for id in ${{ inputs.run_ids }}; do
+            gh run download "$id" -D "/tmp/art/$id" || true
+            for d in /tmp/art/$id/*/; do cp -r "$d"* data/real/results/ 2>/dev/null || true; done
+          done
+          ls -R data/real/results | head -60
+          python3 tools/real/score.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/real/results/
+          git commit -m "Real RFI evaluation results (partial score)" || echo "nothing to commit"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
