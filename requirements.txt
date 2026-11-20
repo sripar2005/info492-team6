@@ -1,0 +1,6 @@
+# Python 3.10+. The product itself is a static site and needs nothing installed.
+pdfplumber>=0.11     # reads ruled RFI-log tables in the public records (tools/real/extract.py)
+playwright>=1.40     # browser tests (tools/guide_test.py, tools/nav_audit.py)
+reportlab>=4.0       # generates the synthetic sample PDFs (tools/)
+# Also needed: pdftotext (poppler-utils), Node.js 18+ for the JavaScript tests,
+# and Ollama (https://ollama.com) for the free local models: llama3.1:8b, qwen3.5:9b, gemma4:12b, qwen3-embedding:0.6b.

@@ -24,14 +24,28 @@ Old links redirect (`vercel.json`): `/check/` → `/app/`, `/clausestream/` → 
 | `demo2/` | Change classifier: clarification or change, which notice rule, and the deadline (`deadlines.py`) |
 | `demo3/` | Role agents on priced change proposals, the computed checks (`rules.py`), the PDF reader (`extract.py`), evaluation, and `serve_local.py` |
 | `demo4/` | Schedule and delay data: cases with time, the June 2020 schedule, contract terms answer key |
-| `app/`, `assets/` | The product. `platform.js` (sample/live mode, seeding), `views-platform.js` (the screens), `rules.js` (who sees what and what moves a change, the same rules as the database), `demo-db.js` (in-browser stand-in for the database), `checks.js`, `contract.js`, `schedule.js`, `delay.js` (the computed checks), `app.js` (quick check and routing), `views-time.js` (schedule and delay), `guide.js` (getting-started screen and guide panel; each step ticks off from the project's data, not from clicks). `app/samples/` holds synthetic sample PDFs |
+| `app/`, `assets/` | The product. `platform.js` (sample/live mode, seeding), `views-platform.js` (the screens), `rules.js` (who sees what and what moves a change, the same rules as the database), `demo-db.js` (in-browser stand-in for the database), `checks.js`, `contract.js`, `schedule.js`, `delay.js` (the computed checks), `app.js` (quick check and routing), `views-time.js` (schedule and delay), `guide.js` (sign-in page with role selection and the guide panel; each step ticks off from the project's data, not from clicks), `views-runs.js` (07 Agent runs: the real-data evaluation). `app/samples/` holds synthetic sample PDFs |
 | `record/` | The synthetic project record (`bundle.json`, `docs/`) and, in `record/platform/`, the synthetic companies, contracts, schedule of values, schedule versions and sub requests, with an answer key written by a separate helper that never saw the code |
+| `data/real/` | Real public construction records (67 PDFs with checksums), the 173 extracted RFIs with official answers, document pieces, and the evaluation results |
 | `supabase/` | `migrations/0003_platform.sql` (the whole database, with row-level security) and `tests/` |
 | `api/config.js` | Gives the site the public Supabase URL and anon key. The service key is never used in the site |
 | `index.html`, `research/`, `thesis/`, `demos/`, `demo1/`–`demo3/`, `log/`, `sources/` | Site pages |
 | `tools/` | Tests (below), sample PDF generator |
 | `docs/` | Class feedback, Demo 4 spec |
 | `.github/workflows/` | Free runs on GitHub's machines: demo runs on local models, the PDF reader test, the record drafter test |
+
+## Demo 4: real industry data
+The agentic system is evaluated on **173 real RFIs** from six public construction projects (State of Maine, Illinois Capital Development Board, Roosevelt Island Operating Corporation), each with the official answer the agency published. An RFI responder searches the project's own contract and spec documents, drafts a response and quotes its sources; code scores it against the official answers. Results: the app's **07 Agent runs** tab and `data/real/results/summary.json`. Sources, checksums, extraction and known gaps: [`data/real/README.md`](data/real/README.md). Personas and stakeholder feedback rounds: `/research/personas/` and `/research/feedback/`.
+
+| Step | Command |
+|---|---|
+| Download the public records | `python3 tools/real/fetch.py` (or Actions → “Fetch public records”) |
+| Extract RFIs, answers and document pieces | `python3 tools/real/extract.py` |
+| Run a model (Ollama running locally) | `python3 tools/real/rfi_eval.py --model qwen3.5:9b` |
+| Score | `python3 tools/real/score.py` |
+| All models on GitHub's free machines | Actions → “Real RFI evaluation” |
+
+Dependencies: `requirements.txt` (plus pdftotext, Node.js and Ollama).
 
 ## Run it locally
 ```bash
