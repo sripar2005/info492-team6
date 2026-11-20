@@ -84,8 +84,6 @@ R = [
   ['Demo 4 delay check: time impact against the latest schedule update not already including the change, critical path only.', 'Cost per day from the contract’s stated rate, shown next to the schedule-of-values general-conditions spread.',
    'Baseline schedule plus updates; review clocks from the contract (architect 14 days, RFI 10 days).', 'The platform: one record from sub to owner, visibility following the contract chain.',
    'Kept the two-step check, and made it required before a proposal can be sent.', 'Procore: copy-paste today; a connector is planned (not built).', 'Real data: public RFI logs and contracts from state agencies, used for the Demo 4 evaluation.']),
- ('Round 4', 'Demo 4 user tests', 'This week',
-  ['To be added from the 5-minute walkthrough tests.'], ['To be added.']),
 ]
 secs = []
 for n, who, when, said, changed in R:
